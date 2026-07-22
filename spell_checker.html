@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>맞춤법 검사기 - 자주 틀리는 표현 검사</title>
+<meta name="description" content="자주 틀리는 한국어 맞춤법과 띄어쓰기를 검사해주는 무료 도구입니다.">
+
+<link rel="canonical" href="https://your-domain.com/spell_checker.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="맞춤법 검사기 - ✍️ 무료 온라인 도구">
+<meta property="og:description" content="자주 틀리는 한국어 맞춤법과 띄어쓰기를 검사해주는 무료 도구입니다.">
+<meta property="og:url" content="https://your-domain.com/spell_checker.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="맞춤법 검사기">
+<meta name="twitter:description" content="자주 틀리는 한국어 맞춤법과 띄어쓰기를 검사해주는 무료 도구입니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "맞춤법 검사기",
+  "url": "https://your-domain.com/spell_checker.html",
+  "description": "자주 틀리는 한국어 맞춤법과 띄어쓰기를 검사해주는 무료 도구입니다.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://your-domain.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "텍스트 도구",
+      "item": "https://your-domain.com/index.html#text"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "맞춤법 검사기",
+      "item": "https://your-domain.com/spell_checker.html"
+    }
+  ]
+}
+</script>
+<style>
+  :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+  header{text-align:center;margin-bottom:24px;}
+  header h1{font-size:1.5rem;margin-bottom:6px;}
+  header p{color:var(--muted);font-size:0.95rem;}
+  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:24px;width:100%;max-width:680px;}
+  textarea{width:100%;min-height:180px;padding:14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;background:#fafbfc;resize:vertical;font-family:inherit;line-height:1.6;}
+  button.main{width:100%;padding:14px;margin-top:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+  button.main:hover{background:#3730a3;}
+  .result-box{margin-top:20px;display:none;}
+  .result-box.show{display:block;}
+  .issue{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .issue .wrong{color:#dc2626;font-weight:700;text-decoration:line-through;}
+  .issue .right{color:#059669;font-weight:700;}
+  .issue .desc{font-size:0.82rem;color:var(--muted);margin-top:4px;}
+  .no-issue{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px;text-align:center;color:#166534;font-weight:600;}
+  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+  .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
+  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+  .site-breadcrumb a:hover{text-decoration:underline;}
+  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#4338ca22;color:#4338ca;font-weight:700;}
+</style>
+</head>
+<body>
+
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>맞춤법 검사기</span><span class="tool-code">TEXT-02</span></nav>
+
+<header>
+  <h1>✍️ 맞춤법 검사기</h1>
+  <p>자주 틀리는 한국어 표현을 빠르게 검사합니다</p>
+</header>
+
+<div class="ad-slot">광고 영역 (728x90)</div>
+
+<div class="card">
+  <textarea id="textInput" placeholder="검사할 문장을 입력하세요. 예: 몇일 동안 되요..."></textarea>
+  <button class="main" onclick="checkSpelling()">맞춤법 검사하기</button>
+
+  <div class="result-box" id="resultBox"></div>
+</div>
+
+<div class="info-box">
+  <h2>ℹ️ 안내</h2>
+  <p>이 도구는 자주 틀리는 표현(약 60여 개 패턴)을 사전 매칭 방식으로 찾아주는 간이 검사기입니다. 문맥을 이해하는 AI 문법 교정기가 아니므로, 모든 오류를 잡아내지는 못합니다. 공문서·논문 등 정확성이 중요한 글은 국립국어원 맞춤법 검사기 등 공식 도구를 함께 활용하세요.</p>
+</div>
+
+<footer>© 2026 맞춤법 검사기. 입력한 내용은 서버로 전송되지 않으며 브라우저에서만 처리됩니다. <a href="index.html" style="color:#4338ca;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
+
+<script>
+// 자주 틀리는 표현 사전 [틀린표현, 올바른표현, 설명]
+const rules = [
+  ['몇일','며칠','날짜를 뜻할 때는 "며칠"이 표준어입니다.'],
+  ['되요','돼요','"되어요"의 준말은 "돼요"입니다.'],
+  ['됬다','됐다','"되었다"의 준말은 "됐다"입니다.'],
+  ['됬어','됐어','"되었어"의 준말은 "됐어"입니다.'],
+  ['안되요','안 돼요','부정 표현은 "안 돼요"로 띄어 씁니다.'],
+  ['왠지','웬지','"왠지"가 표준어입니다. (이유를 모를 때)'],
+  ['웬지','왠지','"왠지"가 표준어입니다.'],
+  ['어의없다','어이없다','"어이없다"가 표준어입니다.'],
+  ['어의없어','어이없어','"어이없다"가 표준어입니다.'],
+  ['금새','금세','"금세"가 표준어입니다. ("금시에"의 준말)'],
+  ['희안하다','희한하다','"희한하다"가 표준어입니다.'],
+  ['오랫만에','오랜만에','"오랜만에"가 표준어입니다.'],
+  ['오랫동안','오랫동안','올바른 표현입니다.'],
+  ['개거품','게거품','동물이 아닌 "게"의 거품이므로 "게거품"이 맞습니다.'],
+  ['일해라 절해라','이래라 저래라','올바른 표현은 "이래라 저래라"입니다.'],
+  ['설레임','설렘','명사형은 "설렘"이 표준어입니다.'],
+  ['틀리다 다르다','',''],
+  ['제작년','재작년','2년 전을 뜻할 때는 "재작년"이 표준어입니다.'],
+  ['웬만하면','웬만하면','올바른 표현입니다.'],
+  ['않되','안 돼','부정 부사는 "안"이며, "돼"로 써야 합니다.'],
+  ['바래요','바라요','"바라다"의 활용은 "바라요"가 표준입니다.'],
+  ['바램','바람','명사형은 "바람"이 표준어입니다.'],
+  ['든지','던지',''],
+  ['낳았다','',''],
+  ['역활','역할','"역할"이 표준어입니다.'],
+  ['부억','부엌','"부엌"이 표준어입니다.'],
+  ['며칠간','며칠간','올바른 표현입니다.'],
+  ['ㄹ께요','ㄹ게요','약속·의지를 나타낼 때는 "게요"로 적습니다. (예: 할게요)'],
+  ['할께','할게','"할게"가 표준 표기입니다.'],
+  ['할께요','할게요','"할게요"가 표준 표기입니다.'],
+  ['갈께','갈게','"갈게"가 표준 표기입니다.'],
+  ['이따가','있다가',''],
+  ['있다가','이따가',''],
+  ['않하다','안 하다','부정 표현은 "안 하다"로 띄어 씁니다.'],
+  ['않되다','안 되다','부정 표현은 "안 되다"로 띄어 씁니다.'],
+  ['어떻해','어떻게 해','"어떻게 해"가 올바른 표현입니다.'],
+  ['어떡해','어떡해','올바른 표현입니다. ("어떻게 해"의 준말)'],
+  ['깨끗히','깨끗이','부사형은 "깨끗이"가 표준어입니다.'],
+  ['꼼꼼히','꼼꼼히','올바른 표현입니다.'],
+  ['일일히','일일이','"일일이"가 표준어입니다.'],
+  ['넓직하다','널찍하다','"널찍하다"가 표준어입니다.'],
+  ['넓따랗다','널따랗다','"널따랗다"가 표준어입니다.'],
+  ['눈쌀','눈살','"눈살"이 표준어입니다.'],
+  ['삼가하다','삼가다','"삼가다"가 표준어입니다. (삼가해 주세요 X → 삼가 주세요 O)'],
+  ['맨날','만날','문어체에서는 "만날"이 표준어이나 "맨날"도 널리 쓰입니다.'],
+  ['알맞는','알맞은','"알맞다"는 형용사이므로 "알맞은"이 맞습니다.'],
+  ['걸맞는','걸맞은','"걸맞다"는 형용사이므로 "걸맞은"이 맞습니다.'],
+  ['치루다','치르다','"치르다"가 표준어입니다. (시험을 치르다)'],
+  ['치뤘다','치렀다','"치르다"의 과거형은 "치렀다"입니다.'],
+  ['담궈','담가','"담그다"의 활용형은 "담가"입니다.'],
+  ['잠궈','잠가','"잠그다"의 활용형은 "잠가"입니다.'],
+  ['들리다','들르다',''],
+  ['들렸다가','들렀다가','잠시 거쳐 가는 경우 "들르다"의 활용형인 "들렀다가"가 맞습니다.'],
+  ['늘리다','늘이다',''],
+  ['배기다','베기다',''],
+  ['왠만하면','웬만하면','"웬만하면"이 표준어입니다.'],
+  ['외않되','왜 안 돼','"왜 안 돼"로 띄어 씁니다.'],
+];
+
+function checkSpelling(){
+  const text = document.getElementById('textInput').value;
+  const box = document.getElementById('resultBox');
+  box.innerHTML = '';
+  box.classList.add('show');
+
+  if(!text.trim()){
+    box.innerHTML = '<div class="no-issue">검사할 문장을 입력해주세요.</div>';
+    return;
+  }
+
+  let found = [];
+  rules.forEach(([wrong, right, desc]) => {
+    if(!right) return; // 안내용 빈 항목 스킵
+    if(text.includes(wrong)){
+      found.push({wrong, right, desc});
+    }
+  });
+
+  if(found.length === 0){
+    box.innerHTML = '<div class="no-issue">✅ 등록된 오류 패턴이 발견되지 않았습니다.</div>';
+    return;
+  }
+
+  found.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'issue';
+    div.innerHTML = `<span class="wrong">${f.wrong}</span> → <span class="right">${f.right}</span><div class="desc">${f.desc}</div>`;
+    box.appendChild(div);
+  });
+}
+</script>
+</body>
+</html>

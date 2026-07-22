@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>생활 계산기 모음 - BMI, 연봉, 퇴직금, 실업급여, 대출이자 무료 계산기</title>
+<meta name="description" content="BMI, 연봉 실수령액, 퇴직금, 실업급여, 대출이자, 로또 번호, QR코드, 글자수, 맞춤법까지 - 일상에 필요한 무료 계산기와 도구 9종을 한곳에 모았습니다.">
+<link rel="canonical" href="https://your-domain.com/index.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="생활 계산기 모음 - 무료 온라인 도구 9종">
+<meta property="og:description" content="BMI, 연봉 실수령액, 퇴직금, 실업급여, 대출이자, 로또 번호, QR코드, 글자수, 맞춤법까지 - 일상에 필요한 무료 계산기와 도구 9종을 한곳에 모았습니다.">
+<meta property="og:url" content="https://your-domain.com/index.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="생활 계산기 모음">
+<meta name="twitter:description" content="일상에 필요한 무료 계산기 9종을 한곳에서.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "생활 계산기 모음",
+  "url": "https://your-domain.com/index.html",
+  "inLanguage": "ko",
+  "description": "일상에 필요한 무료 계산기와 도구 9종을 한곳에 모은 사이트"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"url":"https://your-domain.com/salary_calculator.html","name":"연봉 실수령액 계산기"},
+    {"@type":"ListItem","position":2,"url":"https://your-domain.com/loan_calculator.html","name":"대출 이자 계산기"},
+    {"@type":"ListItem","position":3,"url":"https://your-domain.com/severance_calculator.html","name":"퇴직금 계산기"},
+    {"@type":"ListItem","position":4,"url":"https://your-domain.com/unemployment_benefit_calculator.html","name":"실업급여 계산기"},
+    {"@type":"ListItem","position":5,"url":"https://your-domain.com/bmi_calculator.html","name":"BMI 계산기"},
+    {"@type":"ListItem","position":6,"url":"https://your-domain.com/lotto_generator.html","name":"로또 번호 생성기"},
+    {"@type":"ListItem","position":7,"url":"https://your-domain.com/qr_generator.html","name":"QR코드 생성기"},
+    {"@type":"ListItem","position":8,"url":"https://your-domain.com/character_counter.html","name":"글자수 세기"},
+    {"@type":"ListItem","position":9,"url":"https://your-domain.com/spell_checker.html","name":"맞춤법 검사기"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f7fb;
+    --paper:#eef1f6;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --border:#e2e5ec;
+    --brand:#0f172a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+  }
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    border-bottom:3px solid var(--brand);
+    background:var(--card);
+    padding:18px 20px 14px;
+  }
+  .masthead-inner{max-width:960px;margin:0 auto;}
+  .masthead-top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:0.72rem;color:var(--muted);
+    border-bottom:1px solid var(--border);
+    padding-bottom:10px;margin-bottom:14px;
+    letter-spacing:0.03em;
+  }
+  .masthead h1{
+    font-family:'Gowun Batang',serif;
+    font-size:2.4rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    text-align:center;
+  }
+  .masthead .tagline{
+    text-align:center;color:var(--muted);font-size:0.95rem;margin-top:8px;
+  }
+
+  /* ---------- Layout ---------- */
+  main{max-width:960px;margin:0 auto;padding:36px 20px 60px;}
+
+  .toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:44px;
+  }
+  .toc a{
+    font-size:0.82rem;font-weight:700;color:var(--ink);text-decoration:none;
+    padding:8px 16px;border:1px solid var(--border);border-radius:999px;background:var(--card);
+  }
+  .toc a:hover{border-color:var(--brand);}
+
+  .category{margin-bottom:52px;scroll-margin-top:20px;}
+  .category-head{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:18px;
+    border-bottom:2px solid var(--brand);padding-bottom:10px;
+  }
+  .category-head .index{
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:0.85rem;
+    background:var(--brand);color:#fff;padding:4px 9px;border-radius:4px;
+  }
+  .category-head h2{font-size:1.25rem;font-weight:800;}
+  .category-head .count{margin-left:auto;font-size:0.78rem;color:var(--muted);}
+
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;
+  }
+  .tool-card{
+    display:flex;flex-direction:column;
+    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    border-left:5px solid var(--accent, #111827);
+    padding:18px 18px 16px;text-decoration:none;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .tool-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,23,42,0.08);}
+  .tool-card .row-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+  .tool-card .emoji{font-size:1.6rem;}
+  .tool-card .code{
+    font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;
+    color:var(--accent, #111827);background:color-mix(in srgb, var(--accent, #111827) 12%, white);
+    padding:3px 7px;border-radius:4px;
+  }
+  .tool-card h3{font-size:1.05rem;font-weight:800;margin-bottom:6px;}
+  .tool-card p{font-size:0.84rem;color:var(--muted);line-height:1.55;flex-grow:1;}
+  .tool-card .go{
+    margin-top:12px;font-size:0.8rem;font-weight:700;color:var(--accent,#111827);
+  }
+
+  footer{
+    text-align:center;color:var(--muted);font-size:0.8rem;padding:30px 20px 50px;
+  }
+  footer a{color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <span class="mono">VOL. 2026 · 무료 · 회원가입 불필요</span>
+      <span class="mono">9 TOOLS INDEXED</span>
+    </div>
+    <h1>생활 계산기 모음</h1>
+    <p class="tagline">월급, 퇴직금, 실업급여부터 BMI, 로또, 맞춤법까지 - 자주 찾는 온라인 도구를 한 곳에 모았습니다</p>
+  </div>
+</div>
+
+<main>
+
+  <nav class="toc" aria-label="카테고리 바로가기">
+    <a href="#finance">💰 재테크 계산기</a>
+    <a href="#job">💼 노동·구직 계산기</a>
+    <a href="#life">🧩 생활 도구</a>
+    <a href="#text">✍️ 텍스트 도구</a>
+  </nav>
+
+  <section class="category" id="finance">
+    <div class="category-head">
+      <span class="index">FIN</span>
+      <h2>재테크 계산기</h2>
+      <span class="count">2개 도구</span>
+    </div>
+    <div class="grid">
+      <a class="tool-card" style="--accent:#0891b2" href="salary_calculator.html">
+        <div class="row-top"><span class="emoji">💰</span><span class="code">FIN-02</span></div>
+        <h3>연봉 실수령액 계산기</h3>
+        <p>2026년 4대보험 요율과 소득세 누진세율을 적용해 연봉의 월 실수령액을 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+      <a class="tool-card" style="--accent:#1d4ed8" href="loan_calculator.html">
+        <div class="row-top"><span class="emoji">🏦</span><span class="code">FIN-01</span></div>
+        <h3>대출 이자 계산기</h3>
+        <p>원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category" id="job">
+    <div class="category-head">
+      <span class="index">JOB</span>
+      <h2>노동·구직 계산기</h2>
+      <span class="count">2개 도구</span>
+    </div>
+    <div class="grid">
+      <a class="tool-card" style="--accent:#7c3aed" href="severance_calculator.html">
+        <div class="row-top"><span class="emoji">💼</span><span class="code">JOB-01</span></div>
+        <h3>퇴직금 계산기</h3>
+        <p>입사일, 퇴사일, 최근 3개월 급여로 평균임금과 예상 퇴직금을 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+      <a class="tool-card" style="--accent:#dc2626" href="unemployment_benefit_calculator.html">
+        <div class="row-top"><span class="emoji">📋</span><span class="code">JOB-02</span></div>
+        <h3>실업급여(구직급여) 계산기</h3>
+        <p>2026년 기준 상한액·하한액을 적용한 실업급여 예상 수급액을 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category" id="life">
+    <div class="category-head">
+      <span class="index">LIFE</span>
+      <h2>생활 도구</h2>
+      <span class="count">3개 도구</span>
+    </div>
+    <div class="grid">
+      <a class="tool-card" style="--accent:#059669" href="bmi_calculator.html">
+        <div class="row-top"><span class="emoji">⚖️</span><span class="code">LIFE-01</span></div>
+        <h3>BMI 계산기</h3>
+        <p>키와 몸무게로 체질량지수(BMI), 비만도, 표준체중을 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+      <a class="tool-card" style="--accent:#eab308" href="lotto_generator.html">
+        <div class="row-top"><span class="emoji">🎱</span><span class="code">LIFE-02</span></div>
+        <h3>로또 번호 생성기</h3>
+        <p>1부터 45까지 무작위 로또 번호를 여러 세트 한번에 생성합니다.</p>
+        <span class="go">생성하기 →</span>
+      </a>
+      <a class="tool-card" style="--accent:#111827" href="qr_generator.html">
+        <div class="row-top"><span class="emoji">🔲</span><span class="code">LIFE-03</span></div>
+        <h3>QR코드 생성기</h3>
+        <p>URL이나 텍스트를 입력하면 QR코드를 즉시 생성하고 이미지로 다운로드합니다.</p>
+        <span class="go">생성하기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category" id="text">
+    <div class="category-head">
+      <span class="index">TXT</span>
+      <h2>텍스트 도구</h2>
+      <span class="count">2개 도구</span>
+    </div>
+    <div class="grid">
+      <a class="tool-card" style="--accent:#ea580c" href="character_counter.html">
+        <div class="row-top"><span class="emoji">🔢</span><span class="code">TEXT-01</span></div>
+        <h3>글자수 세기</h3>
+        <p>공백 포함·제외 글자수, 단어수, 문장수, 바이트까지 실시간으로 계산합니다.</p>
+        <span class="go">계산하기 →</span>
+      </a>
+      <a class="tool-card" style="--accent:#4338ca" href="spell_checker.html">
+        <div class="row-top"><span class="emoji">✍️</span><span class="code">TEXT-02</span></div>
+        <h3>맞춤법 검사기</h3>
+        <p>자주 틀리는 한국어 맞춤법과 띄어쓰기를 빠르게 검사합니다.</p>
+        <span class="go">검사하기 →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 생활 계산기 모음. 모든 계산 결과는 참고용이며 법적·의학적 효력을 갖지 않습니다.<br>
+  입력한 정보는 서버로 전송되지 않으며 각 도구는 브라우저에서만 동작합니다.
+</footer>
+
+</body>
+</html>

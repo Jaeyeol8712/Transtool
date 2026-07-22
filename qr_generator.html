@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR코드 생성기 - 무료 온라인 QR코드 만들기</title>
+<meta name="description" content="URL, 텍스트, 와이파이 정보 등을 입력하면 QR코드를 즉시 생성하고 이미지로 다운로드할 수 있는 무료 도구입니다.">
+
+<link rel="canonical" href="https://your-domain.com/qr_generator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="QR코드 생성기 - 🔲 무료 온라인 도구">
+<meta property="og:description" content="URL, 텍스트, 와이파이 정보 등을 입력하면 QR코드를 즉시 생성하고 이미지로 다운로드할 수 있는 무료 도구입니다.">
+<meta property="og:url" content="https://your-domain.com/qr_generator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QR코드 생성기">
+<meta name="twitter:description" content="URL, 텍스트, 와이파이 정보 등을 입력하면 QR코드를 즉시 생성하고 이미지로 다운로드할 수 있는 무료 도구입니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR코드 생성기",
+  "url": "https://your-domain.com/qr_generator.html",
+  "description": "URL, 텍스트, 와이파이 정보 등을 입력하면 QR코드를 즉시 생성하고 이미지로 다운로드할 수 있는 무료 도구입니다.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://your-domain.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "생활 도구",
+      "item": "https://your-domain.com/index.html#life"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "QR코드 생성기",
+      "item": "https://your-domain.com/qr_generator.html"
+    }
+  ]
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{--primary:#111827;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+  header{text-align:center;margin-bottom:24px;}
+  header h1{font-size:1.6rem;margin-bottom:6px;}
+  header p{color:var(--muted);font-size:0.95rem;}
+  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:420px;text-align:center;}
+  label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;text-align:left;}
+  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
+  button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;margin-bottom:10px;}
+  button:hover{background:#000;}
+  button.secondary{background:#fff;color:var(--primary);border:1px solid var(--border);}
+  #qrcode{display:flex;justify-content:center;margin:20px 0;min-height:220px;align-items:center;}
+  #qrcode img, #qrcode canvas{border-radius:8px;}
+  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+  .site-breadcrumb a:hover{text-decoration:underline;}
+  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#11182722;color:#111827;font-weight:700;}
+</style>
+</head>
+<body>
+
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 도구</span><span>/</span><span>QR코드 생성기</span><span class="tool-code">LIFE-03</span></nav>
+
+<header>
+  <h1>🔲 QR코드 생성기</h1>
+  <p>URL이나 텍스트를 입력하면 즉시 QR코드를 만들어드립니다</p>
+</header>
+
+<div class="ad-slot">광고 영역 (728x90)</div>
+
+<div class="card">
+  <label for="qrText">URL 또는 텍스트</label>
+  <input type="text" id="qrText" placeholder="https://example.com">
+  <label for="qrSize">크기</label>
+  <select id="qrSize">
+    <option value="200">작게 (200px)</option>
+    <option value="300" selected>보통 (300px)</option>
+    <option value="400">크게 (400px)</option>
+  </select>
+  <button onclick="generateQR()">QR코드 생성</button>
+
+  <div id="qrcode"></div>
+  <button class="secondary" id="downloadBtn" style="display:none;" onclick="downloadQR()">이미지로 다운로드</button>
+</div>
+
+<footer>© 2026 QR코드 생성기. 생성된 QR코드는 브라우저에서 즉시 만들어지며 서버에 저장되지 않습니다. <a href="index.html" style="color:#111827;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
+
+<script>
+let qrInstance = null;
+
+function generateQR(){
+  const text = document.getElementById('qrText').value.trim();
+  const size = parseInt(document.getElementById('qrSize').value);
+  const container = document.getElementById('qrcode');
+
+  if(!text){ alert('URL 또는 텍스트를 입력해주세요.'); return; }
+
+  container.innerHTML = '';
+  qrInstance = new QRCode(container, {
+    text: text,
+    width: size,
+    height: size,
+    colorDark: '#111827',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  document.getElementById('downloadBtn').style.display = 'block';
+}
+
+function downloadQR(){
+  const container = document.getElementById('qrcode');
+  const img = container.querySelector('img');
+  const canvas = container.querySelector('canvas');
+
+  const link = document.createElement('a');
+  link.download = 'qrcode.png';
+  if(img && img.src){
+    link.href = img.src;
+  } else if(canvas){
+    link.href = canvas.toDataURL('image/png');
+  } else {
+    return;
+  }
+  link.click();
+}
+</script>
+</body>
+</html>
