@@ -2,119 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- 메인 페이지 -->
   <url>
-    <loc>http://aroundtool.com/</loc>
+    <loc>https://aroundtool.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html</loc>
+    <loc>https://aroundtool.com/index.html</loc>
     <priority>1.0</priority>
   </url>
 
   <!-- 1. 재테크 및 부동산 (FIN) -->
   <url>
-    <loc>http://aroundtool.com/index.html?id=4</loc>
+    <loc>https://aroundtool.com/index.html?id=4</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=5</loc>
+    <loc>https://aroundtool.com/index.html?id=5</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=6</loc>
+    <loc>https://aroundtool.com/index.html?id=6</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=7</loc>
+    <loc>https://aroundtool.com/index.html?id=7</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=8</loc>
+    <loc>https://aroundtool.com/index.html?id=8</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=9</loc>
+    <loc>https://aroundtool.com/index.html?id=9</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=10</loc>
+    <loc>https://aroundtool.com/index.html?id=10</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=11</loc>
+    <loc>https://aroundtool.com/index.html?id=11</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=12</loc>
+    <loc>https://aroundtool.com/index.html?id=12</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 2. 노동 및 구직 (JOB) -->
   <url>
-    <loc>http://aroundtool.com/index.html?id=13</loc>
+    <loc>https://aroundtool.com/index.html?id=13</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=14</loc>
+    <loc>https://aroundtool.com/index.html?id=14</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=15</loc>
+    <loc>https://aroundtool.com/index.html?id=15</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://aroundtool.com/index.html?id=16</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 3. 생활 및 건강 (LIFE) -->
-  <url>
-    <loc>http://aroundtool.com/index.html?id=17</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=18</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=19</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=20</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=21</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=22</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=23</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=24</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=25</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=26</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 4. 텍스트 도구 (TEXT) -->
-  <url>
-    <loc>http://aroundtool.com/index.html?id=27</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>http://aroundtool.com/index.html?id=28</loc>
+    <loc>https://aroundtool.com/index.html?id=16</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
