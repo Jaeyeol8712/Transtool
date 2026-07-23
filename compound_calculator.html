@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>맞춤법 검사기 - 띄어쓰기 및 오탈자 무료 검사</title>
-<meta name="description" content="자기소개서, 기획서 작성 시 자주 틀리는 맞춤법과 띄어쓰기를 검사하고 교정해 줍니다.">
-<link rel="canonical" href="https://your-domain.com/spell_checker.html">
+<title>복리 계산기 - 마법의 투자 수익률 무료 계산</title>
+<meta name="description" content="주식이나 예금을 장기 투자할 때 이자가 이자를 낳는 복리의 마법! 원금과 수익률, 기간을 넣어 미래 자산을 계산하세요.">
+<link rel="canonical" href="https://your-domain.com/compound_calculator.html">
 <style>
- :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ :root{--primary:#15803d;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
  *{box-sizing:border-box;margin:0;padding:0;}
  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
  header{text-align:center;margin-bottom:24px;}
@@ -32,32 +32,40 @@
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>맞춤법 검사기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>복리 계산기</span></nav>
 <header>
- <h1>✍️ 맞춤법 검사기</h1>
- <p>자주 틀리는 한국어 맞춤법과 띄어쓰기 교정</p>
+ <h1>📈 복리 계산기</h1>
+ <p>이자가 이자를 낳는 장기 투자 수익 산출</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card" style="max-width:680px;">
- <label>검사할 텍스트</label>
- <textarea id="text" style="height:200px;" placeholder="여기에 텍스트를 입력하세요. (정적 데모 버전)"></textarea>
- <button onclick="checkSpell()">맞춤법 검사</button>
- <div class="result" id="result" style="background:#fafbfc;padding:16px;border-radius:10px;">
- <div id="spellResult" style="font-size:0.95rem;line-height:1.6;">-</div>
+<div class="card">
+ <label>초기 원금 (원)</label>
+ <input type="number" id="compPrincipal" placeholder="예: 10000000">
+ <label>연 수익률 (%)</label>
+ <input type="number" id="compRate" placeholder="예: 7">
+ <label>투자 기간 (년)</label>
+ <input type="number" id="compYears" placeholder="예: 10">
+ <button onclick="calcCompound()">복리 수익 계산</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">순수익 (이자)</span><span class="result-value" id="compInterest" style="color:var(--text); font-size:1.1rem;">-</span></div>
+ <div class="result-row"><span class="result-label">최종 자산 합계</span><span class="result-value" id="compTotal">-</span></div>
  </div>
 </div>
-<footer>© 2026 맞춤법 검사기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<footer>© 2026 복리 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script src="common_head.js"></script>
 <script>
-function checkSpell(){
- let t = document.getElementById('text').value;
- if(!t) return;
- // Simple static replacements for Github Pages without backend
- const dict = {'안되 ':'안돼 ', '할께':'할게', '됬다':'됐다', '설레임':'설렘', '바램':'바람'};
- for(let k in dict) {
- t = t.split(k).join(`<span style="color:#ef4444;text-decoration:underline;font-weight:bold;" title="교정: ${dict[k]}">${k}</span>`);
- }
- document.getElementById('spellResult').innerHTML = t || '입력된 텍스트가 없습니다.';
+function calcCompound(){
+ const p = parseFloat(document.getElementById('compPrincipal').value);
+ const r = parseFloat(document.getElementById('compRate').value) / 100;
+ const t = parseInt(document.getElementById('compYears').value);
+ if(!p || !r || !t) return alert('모두 입력해주세요.');
+
+ // A = P(1 + r)^t
+ const total = p * Math.pow((1 + r), t);
+ const interest = total - p;
+
+ document.getElementById('compInterest').textContent = Math.round(interest).toLocaleString() + '원';
+ document.getElementById('compTotal').textContent = Math.round(total).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
 }
 </script>

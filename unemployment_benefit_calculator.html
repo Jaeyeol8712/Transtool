@@ -3,186 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>실업급여(구직급여) 계산기 2026 - 무료 계산</title>
-<meta name="description" content="2026년 기준 상한액 68,100원, 하한액 66,048원을 적용한 실업급여(구직급여) 예상 수급액 계산기입니다.">
-
+<title>실업급여 계산기 2026 - 무료 예상 수급액 산출</title>
+<meta name="description" content="2026년 최신 상/하한액을 적용하여 고용보험 실업급여 예상액을 즉시 계산해 줍니다.">
 <link rel="canonical" href="https://your-domain.com/unemployment_benefit_calculator.html">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="생활 계산기 모음">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="실업급여(구직급여) 계산기 - 📋 무료 온라인 도구">
-<meta property="og:description" content="2026년 기준 상한액 68,100원, 하한액 66,048원을 적용한 실업급여(구직급여) 예상 수급액 계산기입니다.">
-<meta property="og:url" content="https://your-domain.com/unemployment_benefit_calculator.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="실업급여(구직급여) 계산기">
-<meta name="twitter:description" content="2026년 기준 상한액 68,100원, 하한액 66,048원을 적용한 실업급여(구직급여) 예상 수급액 계산기입니다.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "실업급여(구직급여) 계산기",
-  "url": "https://your-domain.com/unemployment_benefit_calculator.html",
-  "description": "2026년 기준 상한액 68,100원, 하한액 66,048원을 적용한 실업급여(구직급여) 예상 수급액 계산기입니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "inLanguage": "ko",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://your-domain.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "노동·구직 계산기",
-      "item": "https://your-domain.com/index.html#job"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "실업급여(구직급여) 계산기",
-      "item": "https://your-domain.com/unemployment_benefit_calculator.html"
-    }
-  ]
-}
-</script>
 <style>
-  :root{--primary:#dc2626;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-  header{text-align:center;margin-bottom:24px;}
-  header h1{font-size:1.5rem;margin-bottom:6px;}
-  header p{color:var(--muted);font-size:0.95rem;}
-  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-  label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
-  button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-  button:hover{background:#b91c1c;}
-  .result{margin-top:24px;display:none;}
-  .result.show{display:block;}
-  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-  .result-row:last-child{border-bottom:none;}
-  .result-label{font-size:0.9rem;color:var(--muted);}
-  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-  .result-value.small{font-size:1.05rem;color:var(--text);}
-  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-  .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-  .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
-  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:0.8rem;}
-  td{padding:4px 6px;border-bottom:1px solid var(--border);}
-  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-breadcrumb a:hover{text-decoration:underline;}
-  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#dc262622;color:#dc2626;font-weight:700;}
+ :root{--primary:#dc2626;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
 </style>
 </head>
 <body>
-
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>실업급여(구직급여) 계산기</span><span class="tool-code">JOB-02</span></nav>
-
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>실업급여 계산기</span></nav>
 <header>
-  <h1>📋 실업급여(구직급여) 계산기</h1>
-  <p>2026년 기준 상한액 68,100원 / 하한액 66,048원 적용</p>
+ <h1>📋 실업급여 계산기</h1>
+ <p>2026년 기준 실업급여(구직급여) 예상액 계산</p>
 </header>
-
 <div class="ad-slot">광고 영역 (728x90)</div>
-
 <div class="card">
-  <label for="salary3m">퇴직 전 3개월 급여 총액 (세전, 원)</label>
-  <input type="number" id="salary3m" placeholder="예: 9000000">
-  <label for="age">퇴직 시 나이</label>
-  <input type="number" id="age" placeholder="예: 35">
-  <label for="years">고용보험 가입기간</label>
-  <select id="years">
-    <option value="0.5">1년 미만</option>
-    <option value="2">1년 이상 ~ 3년 미만</option>
-    <option value="4">3년 이상 ~ 5년 미만</option>
-    <option value="7">5년 이상 ~ 10년 미만</option>
-    <option value="10">10년 이상</option>
-  </select>
-  <button onclick="calculateBenefit()">계산하기</button>
-
-  <div class="result" id="result">
-    <div class="result-row">
-      <span class="result-label">1일 평균임금</span>
-      <span class="result-value small" id="avgWage">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">1일 구직급여액</span>
-      <span class="result-value" id="dailyBenefit">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">소정급여일수</span>
-      <span class="result-value small" id="payDays">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">총 예상 수급액</span>
-      <span class="result-value" id="totalBenefit">-</span>
-    </div>
-  </div>
+ <label>만 나이</label>
+ <input type="number" id="age" placeholder="예: 35">
+ <label>고용보험 가입기간 (년)</label>
+ <input type="number" id="years" placeholder="예: 5">
+ <label>퇴직 전 3개월 1일 평균급여 (원)</label>
+ <input type="number" id="dailyWage" placeholder="예: 80000">
+ <button onclick="calcUnemp()">계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">소정급여일수</span><span class="result-value" id="days">-</span></div>
+ <div class="result-row"><span class="result-label">1일 구직급여액</span><span class="result-value" id="dayPay">-</span></div>
+ <div class="result-row"><span class="result-label">총 예상 수급액</span><span class="result-value" id="totalPay">-</span></div>
+ </div>
 </div>
-
-<div class="info-box">
-  <h2>ℹ️ 2026년 구직급여 기준</h2>
-  <p>1일 구직급여액 = 퇴직 전 3개월 평균임금 × 60% (상한 68,100원 / 하한 66,048원 적용)</p>
-  <p style="margin-top:8px;">소정급여일수 (나이·가입기간별, 비자발적 퇴사 기준)</p>
-  <table>
-    <tr><td></td><td>1년 미만</td><td>1~3년</td><td>3~5년</td><td>5~10년</td><td>10년↑</td></tr>
-    <tr><td>50세 미만</td><td>120</td><td>150</td><td>180</td><td>210</td><td>240</td></tr>
-    <tr><td>50세 이상</td><td>120</td><td>180</td><td>210</td><td>240</td><td>270</td></tr>
-  </table>
-  <p style="margin-top:8px;">이 계산기는 비자발적 퇴사(권고사직, 계약만료, 해고 등) 기준이며, 실제 수급 요건과 금액은 고용센터 심사에 따라 달라질 수 있습니다.</p>
-</div>
-
-<footer>© 2026 실업급여 계산기. 본 결과는 참고용이며 법적 효력을 갖지 않습니다. <a href="index.html" style="color:#dc2626;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
-
+<footer>© 2026 실업급여 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
 <script>
-function calculateBenefit(){
-  const salary3m = parseFloat(document.getElementById('salary3m').value);
-  const age = parseFloat(document.getElementById('age').value);
-  const yearsCode = parseFloat(document.getElementById('years').value);
-
-  if(!salary3m || !age){ alert('급여와 나이를 입력해주세요.'); return; }
-
-  const threeMonthDays = 91;
-  let avgWage = salary3m / threeMonthDays;
-
-  let dailyBenefit = avgWage * 0.6;
-  const CAP = 68100;
-  const FLOOR = 66048;
-  if(dailyBenefit > CAP) dailyBenefit = CAP;
-  if(dailyBenefit < FLOOR) dailyBenefit = FLOOR;
-
-  // 소정급여일수 매핑
-  const under50 = {0.5:120, 2:150, 4:180, 7:210, 10:240};
-  const over50 = {0.5:120, 2:180, 4:210, 7:240, 10:270};
-  const table = age >= 50 ? over50 : under50;
-  const payDays = table[yearsCode];
-
-  const totalBenefit = dailyBenefit * payDays;
-
-  document.getElementById('avgWage').textContent = Math.round(avgWage).toLocaleString() + '원';
-  document.getElementById('dailyBenefit').textContent = Math.round(dailyBenefit).toLocaleString() + '원';
-  document.getElementById('payDays').textContent = payDays + '일';
-  document.getElementById('totalBenefit').textContent = Math.round(totalBenefit).toLocaleString() + '원';
-
-  document.getElementById('result').classList.add('show');
+function calcUnemp(){
+ const age = parseInt(document.getElementById('age').value);
+ const years = parseFloat(document.getElementById('years').value);
+ const wage = parseFloat(document.getElementById('dailyWage').value);
+ if(!age || !years || !wage) return alert('모두 입력해주세요.');
+ 
+ let days = 120;
+ if(years>=1 && years<3) days = age>=50 ? 180 : 150;
+ else if(years>=3 && years<5) days = age>=50 ? 210 : 180;
+ else if(years>=5 && years<10) days = age>=50 ? 240 : 210;
+ else if(years>=10) days = age>=50 ? 270 : 240;
+ 
+ let dayPay = wage * 0.6;
+ if(dayPay > 66000) dayPay = 66000;
+ if(dayPay < 63104) dayPay = 63104; // 2026 est lower bound
+ 
+ document.getElementById('days').textContent = days + '일';
+ document.getElementById('dayPay').textContent = Math.round(dayPay).toLocaleString() + '원';
+ document.getElementById('totalPay').textContent = Math.round(dayPay * days).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
 }
 </script>
 </body>

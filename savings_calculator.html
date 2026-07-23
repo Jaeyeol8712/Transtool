@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예금 적금 이자 계산기 - 단리 복리 무료 계산</title>
+<meta name="description" content="매월 납입액과 이자율을 입력하여 단리, 월복리 방식의 세후 수령액을 계산해 줍니다.">
+<link rel="canonical" href="https://your-domain.com/savings_calculator.html">
+<style>
+ :root{--primary:#10b981;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>예적금 계산기</span></nav>
+<header>
+ <h1>🏦 예적금 계산기</h1>
+ <p>단리/복리 이자 및 세후 수령액 계산</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>월 적립액 (원)</label>
+ <input type="number" id="monthly" placeholder="예: 500000">
+ <label>적립 기간 (개월)</label>
+ <input type="number" id="months" placeholder="예: 12">
+ <label>연 이자율 (%)</label>
+ <input type="number" id="rate" placeholder="예: 4.5">
+ <label>이자 계산 방식</label>
+ <select id="type"><option value="simple">단리</option><option value="compound">월복리</option></select>
+ <button onclick="calcSavings()">계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">원금 합계</span><span class="result-value" id="principal">-</span></div>
+ <div class="result-row"><span class="result-label">세전 이자</span><span class="result-value" id="interest">-</span></div>
+ <div class="result-row"><span class="result-label">세후 수령액 (일반 15.4%)</span><span class="result-value" style="color:#10b981;" id="total">-</span></div>
+ </div>
+</div>
+<footer>© 2026 예적금 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+function calcSavings(){
+ const p = parseFloat(document.getElementById('monthly').value);
+ const m = parseInt(document.getElementById('months').value);
+ const r = parseFloat(document.getElementById('rate').value) / 100;
+ const type = document.getElementById('type').value;
+ if(!p || !m || !r) return alert('모두 입력해주세요.');
+ 
+ let principal = p * m;
+ let interest = 0;
+ if(type === 'simple'){
+ interest = p * (m*(m+1)/2) * (r/12);
+ } else {
+ let total = 0;
+ for(let i=1; i<=m; i++) total += p * Math.pow(1+r/12, i);
+ interest = total - principal;
+ }
+ 
+ const tax = interest * 0.154;
+ const net = principal + interest - tax;
+ 
+ document.getElementById('principal').textContent = principal.toLocaleString() + '원';
+ document.getElementById('interest').textContent = Math.round(interest).toLocaleString() + '원';
+ document.getElementById('total').textContent = Math.round(net).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

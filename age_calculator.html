@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>맞춤법 검사기 - 띄어쓰기 및 오탈자 무료 검사</title>
-<meta name="description" content="자기소개서, 기획서 작성 시 자주 틀리는 맞춤법과 띄어쓰기를 검사하고 교정해 줍니다.">
-<link rel="canonical" href="https://your-domain.com/spell_checker.html">
+<title>만나이 계산기 - 생년월일 기준 나이 및 띠 변환</title>
+<meta name="description" content="생년월일만 입력하면 현재 기준 정확한 만나이와 연나이, 띠를 바로 알려줍니다.">
+<link rel="canonical" href="https://your-domain.com/age_calculator.html">
 <style>
- :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ :root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
  *{box-sizing:border-box;margin:0;padding:0;}
  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
  header{text-align:center;margin-bottom:24px;}
@@ -32,32 +32,44 @@
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>맞춤법 검사기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 도구</span><span>/</span><span>만나이 계산기</span></nav>
 <header>
- <h1>✍️ 맞춤법 검사기</h1>
- <p>자주 틀리는 한국어 맞춤법과 띄어쓰기 교정</p>
+ <h1>🎂 만나이 계산기</h1>
+ <p>행정기본법 기준 정확한 만나이 계산</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card" style="max-width:680px;">
- <label>검사할 텍스트</label>
- <textarea id="text" style="height:200px;" placeholder="여기에 텍스트를 입력하세요. (정적 데모 버전)"></textarea>
- <button onclick="checkSpell()">맞춤법 검사</button>
- <div class="result" id="result" style="background:#fafbfc;padding:16px;border-radius:10px;">
- <div id="spellResult" style="font-size:0.95rem;line-height:1.6;">-</div>
+<div class="card">
+ <label>생년월일</label>
+ <input type="date" id="birth">
+ <label>기준일 (기본: 오늘)</label>
+ <input type="date" id="target">
+ <button onclick="calcAge()">계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="man">-</span></div>
+ <div class="result-row"><span class="result-label">연 나이</span><span class="result-value" id="yeon">-</span></div>
+ <div class="result-row"><span class="result-label">띠</span><span class="result-value" id="zodiac" style="color:#6b7280;">-</span></div>
  </div>
 </div>
-<footer>© 2026 맞춤법 검사기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<footer>© 2026 만나이 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script src="common_head.js"></script>
 <script>
-function checkSpell(){
- let t = document.getElementById('text').value;
- if(!t) return;
- // Simple static replacements for Github Pages without backend
- const dict = {'안되 ':'안돼 ', '할께':'할게', '됬다':'됐다', '설레임':'설렘', '바램':'바람'};
- for(let k in dict) {
- t = t.split(k).join(`<span style="color:#ef4444;text-decoration:underline;font-weight:bold;" title="교정: ${dict[k]}">${k}</span>`);
- }
- document.getElementById('spellResult').innerHTML = t || '입력된 텍스트가 없습니다.';
+document.getElementById('target').valueAsDate = new Date();
+function calcAge(){
+ const b = new Date(document.getElementById('birth').value);
+ const t = new Date(document.getElementById('target').value);
+ if(isNaN(b)) return alert('생년월일을 입력해주세요.');
+ 
+ let manAge = t.getFullYear() - b.getFullYear();
+ const m = t.getMonth() - b.getMonth();
+ if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
+ 
+ const yeonAge = t.getFullYear() - b.getFullYear();
+ const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
+ const z = zodiacs[b.getFullYear() % 12] + '띠';
+ 
+ document.getElementById('man').textContent = manAge + '세';
+ document.getElementById('yeon').textContent = yeonAge + '세';
+ document.getElementById('zodiac').textContent = z;
  document.getElementById('result').classList.add('show');
 }
 </script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자동차세 계산기 - 연식별 감면 적용 무료 계산</title>
+<meta name="description" content="내 차 배기량과 연식을 입력하면 연차가 지날수록 깎이는 할인을 적용해 올해 내야 할 자동차세를 정확히 알려줍니다.">
+<link rel="canonical" href="https://your-domain.com/car_tax_calculator.html">
+<style>
+ :root{--primary:#2563eb;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 계산기</span><span>/</span><span>자동차세 계산기</span></nav>
+<header>
+ <h1>🚗 자동차세 계산기</h1>
+ <p>배기량(cc) 및 연식 할인 적용 자동차세</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>차량 종류</label>
+ <select id="carType"><option value="pass">승용차(비영업용)</option></select>
+ <label>배기량 (cc)</label>
+ <input type="number" id="carCc" placeholder="예: 1998">
+ <label>차량 등록 년도 (년차)</label>
+ <input type="number" id="carAge" placeholder="예: 3" value="1">
+ <button onclick="calcCarTax()">자동차세 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">자동차세</span><span class="result-value" id="pureTax" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">총 납부액 (교육세 30% 포함)</span><span class="result-value" id="totalCarTax">-</span></div>
+ </div>
+</div>
+<div class="info-box">
+ <p>승용차(비영업용) 배기량 기준 세액: 1000cc 이하(cc당 80원), 1600cc 이하(140원), 1600cc 초과(200원)</p>
+ <p style="margin-top:4px;">* 3년 차부터 매년 5%씩 최대 50%까지 세금이 감면됩니다.</p>
+</div>
+<footer>© 2026 자동차세 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+function calcCarTax(){
+ const cc = parseInt(document.getElementById('carCc').value);
+ const age = parseInt(document.getElementById('carAge').value);
+ if(!cc) return alert('배기량을 입력해주세요.');
+
+ let ccTax = 0;
+ if(cc <= 1000) ccTax = 80;
+ else if(cc <= 1600) ccTax = 140;
+ else ccTax = 200;
+
+ let baseTax = cc * ccTax;
+
+ // 연식 할인 (3년차부터 5%씩, 최대 50%)
+ if(age >= 3){
+ let discountRate = (age - 2) * 0.05;
+ if(discountRate > 0.5) discountRate = 0.5;
+ baseTax = baseTax * (1 - discountRate);
+ }
+
+ const eduTax = baseTax * 0.3;
+ const total = baseTax + eduTax;
+
+ document.getElementById('pureTax').textContent = Math.round(baseTax).toLocaleString() + '원';
+ document.getElementById('totalCarTax').textContent = Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>종합소득세 계산기 - 프리랜서 3.3% 환급 계산</title>
+<meta name="description" content="N잡러, 프리랜서, 알바생이 미리 뗀 3.3% 세금을 종합소득세 신고 시 돌려받을 수 있을지 예상 환급액을 계산해 봅니다.">
+<link rel="canonical" href="https://your-domain.com/freelancer_tax_calculator.html">
+<style>
+ :root{--primary:#d97706;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>종소세 계산기</span></nav>
+<header>
+ <h1>🧾 종소세 계산기</h1>
+ <p>프리랜서(3.3%) 단순경비율 기반 예상 세액</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>연간 총수입액 (원, 3.3% 원천징수 전 세전 금액)</label>
+ <input type="number" id="totalIncome" placeholder="예: 30000000">
+ <label>기 납부 세액 (3.3% 원천징수분, 자동계산 또는 직접입력)</label>
+ <input type="number" id="preTax" value="0">
+ <button onclick="autoFillPreTax()" style="background:#e5e7eb; color:#374151; padding:8px; margin-top:-8px; margin-bottom:16px; font-size:0.85rem;">3.3% 자동 채우기</button>
+ <button onclick="calcIncomeTax()">예상 종합소득세 계산</button>
+ <div class="info-box" style="margin-top:16px;">단순경비율 추계신고(인적공제 본인 1인) 가이드용 간이 계산입니다.</div>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">결정 세액</span><span class="result-value" id="decidedTax" style="font-size:1.1rem; color:var(--text);"></span></div>
+ <div class="result-row"><span class="result-label" id="refundLabel">환급/납부액</span><span class="result-value" id="finalStatus">-</span></div>
+ </div>
+</div>
+<footer>© 2026 종소세 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+function autoFillPreTax(){
+ const inc = parseFloat(document.getElementById('totalIncome').value) || 0;
+ document.getElementById('preTax').value = Math.round(inc * 0.033);
+}
+function calcIncomeTax(){
+ const inc = parseFloat(document.getElementById('totalIncome').value);
+ const preTax = parseFloat(document.getElementById('preTax').value) || 0;
+ if(!inc) return alert('총수입액을 입력해주세요.');
+
+ // 초간단 단순경비율 (서비스업 평균 60% 가정)
+ const expenseRate = 0.6; 
+ let incomeAmt = inc - (inc * expenseRate); // 소득금액
+ 
+ // 인적공제 150만 가정
+ let taxBase = incomeAmt - 1500000;
+ if(taxBase < 0) taxBase = 0;
+
+ // 누진세율
+ let tax = 0;
+ if(taxBase <= 14000000) tax = taxBase*0.06;
+ else if(taxBase <= 50000000) tax = 840000 + (taxBase-14000000)*0.15;
+ else if(taxBase <= 88000000) tax = 6240000 + (taxBase-50000000)*0.24;
+ else tax = 15360000 + (taxBase-88000000)*0.35; // 간소화
+
+ // 지방소득세 10% 추가
+ const totalDecided = tax * 1.1;
+ const final = totalDecided - preTax; // -면 환급, +면 납부
+
+ document.getElementById('decidedTax').textContent = Math.round(totalDecided).toLocaleString() + '원';
+ 
+ const statusEl = document.getElementById('finalStatus');
+ const labelEl = document.getElementById('refundLabel');
+ if(final < 0){
+ labelEl.textContent = '예상 환급액 (돌려받는 돈)';
+ statusEl.textContent = Math.round(Math.abs(final)).toLocaleString() + '원';
+ statusEl.style.color = '#10b981';
+ } else {
+ labelEl.textContent = '예상 납부액 (더 내야하는 돈)';
+ statusEl.textContent = Math.round(final).toLocaleString() + '원';
+ statusEl.style.color = '#ef4444';
+ }
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

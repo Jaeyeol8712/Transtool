@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주휴수당 계산기 - 알바/시급러 무료 계산</title>
+<meta name="description" content="아르바이트 시급과 일주일 근무 시간을 입력하면 받을 수 있는 유급휴일 주휴수당 금액을 계산합니다.">
+<link rel="canonical" href="https://your-domain.com/holiday_pay_calculator.html">
+<style>
+ :root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>주휴수당 계산기</span></nav>
+<header>
+ <h1>💸 주휴수당 계산기</h1>
+ <p>주 15시간 이상 알바 유급휴일 수당 산출</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>1주 예정 근로시간 (시간)</label>
+ <input type="number" id="weekHours" placeholder="예: 40" max="40">
+ <label>시급 (원)</label>
+ <input type="number" id="hourlyWage" placeholder="예: 9860" value="9860">
+ <button onclick="calcHolidayPay()">주휴수당 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">예상 주휴수당 (원)</span><span class="result-value" id="holidayPayValue">-</span></div>
+ <div class="result-row"><span class="result-label">1주 총 예상 급여 (기본+주휴)</span><span class="result-value" id="totalWeekPay" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ </div>
+</div>
+<div class="info-box">
+ <p>주 15시간 이상 근무를 개근한 근로자에게 1주일에 1회 이상의 유급휴일(주휴일)을 부여하며, 이때 지급하는 수당입니다.</p>
+ <p style="margin-top:4px;">* 최대 인정 근로시간은 40시간입니다. (40시간 초과 시 40시간 기준으로 계산)</p>
+</div>
+<footer>© 2026 주휴수당 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+function calcHolidayPay(){
+ let hours = parseFloat(document.getElementById('weekHours').value);
+ const wage = parseFloat(document.getElementById('hourlyWage').value);
+ if(!hours || !wage) return alert('근로시간과 시급을 입력해주세요.');
+
+ if(hours < 15) {
+ alert('주 15시간 미만 근로자는 주휴수당 지급 대상이 아닙니다.');
+ hours = 0;
+ }
+ if(hours > 40) hours = 40;
+
+ // 계산식: (1주 근로시간 / 40) * 8 * 시급
+ const holidayPay = (hours / 40) * 8 * wage;
+ const basePay = hours * wage;
+ const totalPay = basePay + holidayPay;
+
+ document.getElementById('holidayPayValue').textContent = Math.round(holidayPay).toLocaleString() + '원';
+ document.getElementById('totalWeekPay').textContent = Math.round(totalPay).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

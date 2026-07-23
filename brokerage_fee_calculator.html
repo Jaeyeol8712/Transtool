@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부동산 중개보수 계산기 - 복비 상한액 무료 계산</title>
+<meta name="description" content="아파트 매매, 전세, 월세 계약 시 공인중개사에게 지불해야 하는 법정 중개수수료(복비) 한도를 계산합니다.">
+<link rel="canonical" href="https://your-domain.com/brokerage_fee_calculator.html">
+<style>
+ :root{--primary:#be123c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>부동산 계산기</span><span>/</span><span>중개보수 계산기</span></nav>
+<header>
+ <h1>🤝 중개보수 계산기</h1>
+ <p>법정 부동산 중개수수료 상한 요율 계산</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>거래 종류</label>
+ <select id="tradeType">
+ <option value="sell">매매/교환</option>
+ <option value="rent">전월세/임대차</option>
+ </select>
+ <label>거래 금액 (원, 월세인 경우 환산보증금)</label>
+ <input type="number" id="tradePrice" placeholder="예: 500000000">
+ <button onclick="calcBroker()">중개보수 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">상한 요율</span><span class="result-value" id="brokerRate" style="font-size:1.1rem;">-</span></div>
+ <div class="result-row"><span class="result-label">최대 중개보수 (부가세 별도)</span><span class="result-value" id="brokerFee">-</span></div>
+ </div>
+</div>
+<footer>© 2026 중개보수 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+function calcBroker(){
+ const type = document.getElementById('tradeType').value;
+ const price = parseFloat(document.getElementById('tradePrice').value);
+ if(!price) return alert('거래 금액을 입력해주세요.');
+
+ let rate = 0;
+ let limit = 0;
+
+ if(type === 'sell'){
+ if(price < 50000000) { rate = 0.006; limit = 250000; }
+ else if(price < 200000000) { rate = 0.005; limit = 800000; }
+ else if(price < 900000000) { rate = 0.004; limit = 0; }
+ else if(price < 1200000000) { rate = 0.005; limit = 0; }
+ else if(price < 1500000000) { rate = 0.006; limit = 0; }
+ else { rate = 0.007; limit = 0; }
+ } else {
+ if(price < 50000000) { rate = 0.005; limit = 200000; }
+ else if(price < 100000000) { rate = 0.004; limit = 300000; }
+ else if(price < 600000000) { rate = 0.003; limit = 0; }
+ else if(price < 1200000000) { rate = 0.004; limit = 0; }
+ else if(price < 1500000000) { rate = 0.005; limit = 0; }
+ else { rate = 0.006; limit = 0; }
+ }
+
+ let fee = price * rate;
+ if(limit > 0 && fee > limit) fee = limit;
+
+ document.getElementById('brokerRate').textContent = (rate * 100).toFixed(1) + '%';
+ document.getElementById('brokerFee').textContent = Math.round(fee).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

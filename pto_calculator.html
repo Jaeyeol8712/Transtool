@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연차 개수 계산기 - 입사일 기준 무료 계산</title>
+<meta name="description" content="내 연차가 몇 개 남았지? 입사일을 입력하면 근로기준법에 따라 현재까지 발생한 총 연차 휴가 일수를 계산해 줍니다.">
+<link rel="canonical" href="https://your-domain.com/pto_calculator.html">
+<style>
+ :root{--primary:#0891b2;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>연차 계산기</span></nav>
+<header>
+ <h1>🌴 연차 계산기</h1>
+ <p>근로기준법 기준 발생 연차(월차) 개수</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+<div class="card">
+ <label>입사일</label>
+ <input type="date" id="ptoStart">
+ <label>기준일 (기본: 오늘)</label>
+ <input type="date" id="ptoTarget">
+ <button onclick="calcPTO()">연차 개수 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">근속 기간</span><span class="result-value" id="workPeriod" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">발생한 총 연차 휴가 (개)</span><span class="result-value" id="ptoTotal">-</span></div>
+ </div>
+</div>
+<div class="info-box">
+ <h2>ℹ️ 근로기준법 연차 발생 기준</h2>
+ <p>입사 후 1년 미만: 1개월 개근 시 1일 발생 (최대 11일)</p>
+ <p style="margin-top:4px;">1년 이상: 기본 15일 발생. 이후 3년 차부터 매 2년마다 1일씩 가산 (최대 25일)</p>
+ <p style="margin-top:4px;color:#ef4444;">* 본 계산기는 회계연도 기준이 아닌 '입사일 기준'으로 산정됩니다.</p>
+</div>
+<footer>© 2026 연차 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script src="common_head.js"></script>
+<script>
+document.getElementById('ptoTarget').valueAsDate = new Date();
+function calcPTO(){
+ const start = new Date(document.getElementById('ptoStart').value);
+ const target = new Date(document.getElementById('ptoTarget').value);
+ if(isNaN(start)) return alert('입사일을 입력해주세요.');
+ if(target < start) return alert('기준일은 입사일 이후여야 합니다.');
+
+ const diffTime = Math.abs(target - start);
+ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+ const years = Math.floor(diffDays / 365);
+ const months = Math.floor(diffDays / 30.416); // Approximate months
+
+ let totalPto = 0;
+
+ // 1년 미만 월차 발생 (최대 11개)
+ if(years < 1) {
+ totalPto = Math.min(months, 11);
+ } else {
+ // 1년 꽉 채웠을 때 11개 + 15개 발생 = 26개부터 시작
+ totalPto = 11; 
+ for(let i=1; i<=years; i++){
+ if(i === 1) totalPto += 15;
+ else {
+ // 3년차부터 2년마다 1가산 (ex: 3년차=16, 5년차=17)
+ let add = Math.floor((i - 1) / 2);
+ let currentYearPto = 15 + add;
+ if(currentYearPto > 25) currentYearPto = 25; // 최대 한도 25
+ totalPto += currentYearPto;
+ }
+ }
+ }
+
+ document.getElementById('workPeriod').textContent = `${years}년 ${months % 12}개월`;
+ document.getElementById('ptoTotal').textContent = totalPto + '개';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

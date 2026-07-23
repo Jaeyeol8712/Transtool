@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>맞춤법 검사기 - 띄어쓰기 및 오탈자 무료 검사</title>
-<meta name="description" content="자기소개서, 기획서 작성 시 자주 틀리는 맞춤법과 띄어쓰기를 검사하고 교정해 줍니다.">
-<link rel="canonical" href="https://your-domain.com/spell_checker.html">
+<title>할인율 계산기 - 퍼센트(%) 무료 계산</title>
+<meta name="description" content="백화점이나 마트에서 물건을 살 때, 정가에 몇 퍼센트 할인이 적용되었는지 쉽게 할인 금액과 최종 결제액을 알아봅니다.">
+<link rel="canonical" href="https://your-domain.com/discount_calculator.html">
 <style>
- :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ :root{--primary:#db2777;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
  *{box-sizing:border-box;margin:0;padding:0;}
  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
  header{text-align:center;margin-bottom:24px;}
@@ -32,32 +32,36 @@
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>맞춤법 검사기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 계산기</span><span>/</span><span>할인율 계산기</span></nav>
 <header>
- <h1>✍️ 맞춤법 검사기</h1>
- <p>자주 틀리는 한국어 맞춤법과 띄어쓰기 교정</p>
+ <h1>🛍️ 할인율 계산기</h1>
+ <p>원가격 대비 퍼센트(%) 할인 금액 산출</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card" style="max-width:680px;">
- <label>검사할 텍스트</label>
- <textarea id="text" style="height:200px;" placeholder="여기에 텍스트를 입력하세요. (정적 데모 버전)"></textarea>
- <button onclick="checkSpell()">맞춤법 검사</button>
- <div class="result" id="result" style="background:#fafbfc;padding:16px;border-radius:10px;">
- <div id="spellResult" style="font-size:0.95rem;line-height:1.6;">-</div>
+<div class="card">
+ <label>원래 가격 (원)</label>
+ <input type="number" id="orgPrice" placeholder="예: 50000">
+ <label>할인율 (%)</label>
+ <input type="number" id="discPercent" placeholder="예: 20">
+ <button onclick="calcDiscount()">할인 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">할인 금액</span><span class="result-value" id="discAmount" style="color:var(--text); font-size:1.1rem;">-</span></div>
+ <div class="result-row"><span class="result-label">최종 결제 금액</span><span class="result-value" id="finalPrice" style="color:#ef4444;">-</span></div>
  </div>
 </div>
-<footer>© 2026 맞춤법 검사기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<footer>© 2026 할인율 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script src="common_head.js"></script>
 <script>
-function checkSpell(){
- let t = document.getElementById('text').value;
- if(!t) return;
- // Simple static replacements for Github Pages without backend
- const dict = {'안되 ':'안돼 ', '할께':'할게', '됬다':'됐다', '설레임':'설렘', '바램':'바람'};
- for(let k in dict) {
- t = t.split(k).join(`<span style="color:#ef4444;text-decoration:underline;font-weight:bold;" title="교정: ${dict[k]}">${k}</span>`);
- }
- document.getElementById('spellResult').innerHTML = t || '입력된 텍스트가 없습니다.';
+function calcDiscount(){
+ const price = parseFloat(document.getElementById('orgPrice').value);
+ const percent = parseFloat(document.getElementById('discPercent').value);
+ if(!price || !percent) return alert('가격을 모두 입력해주세요.');
+
+ const discount = price * (percent / 100);
+ const final = price - discount;
+
+ document.getElementById('discAmount').textContent = Math.round(discount).toLocaleString() + '원 절약';
+ document.getElementById('finalPrice').textContent = Math.round(final).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
 }
 </script>
