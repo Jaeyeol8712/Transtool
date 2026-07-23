@@ -1,62 +1,120 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>생활 계산기 모음 사이트맵</title>
-    <style>
-        body { font-family: 'Apple SD Gothic Neo', sans-serif; line-height: 1.6; color: #333; margin: 20px; }
-        h1, h2, h3 { color: #222; }
-        ul { list-style-type: disc; padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 메인 페이지 -->
+  <url>
+    <loc>http://aroundtool.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html</loc>
+    <priority>1.0</priority>
+  </url>
 
-    <h1>🗺️ 생활 계산기 모음 사이트맵</h1>
+  <!-- 1. 재테크 및 부동산 (FIN) -->
+  <url>
+    <loc>http://aroundtool.com/index.html?id=4</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=5</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=6</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=7</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=8</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=9</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=10</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=11</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=12</loc>
+    <priority>0.8</priority>
+  </url>
 
-    <h2>1. 재테크 및 부동산 (FIN)</h2>
-    <ul>
-        <li><a href="http://aroundtool.com/index.html?id=4">연봉 실수령액 계산기</a>: 4대보험 요율 및 누진세율 적용 실수령액 산출</li>
-        <li><a href="http://aroundtool.com/index.html?id=5">대출 이자 계산기</a>: 원리금/원금균등 방식별 월 상환금 및 이자 계산</li>
-        <li><a href="http://aroundtool.com/index.html?id=6">예적금 이자 계산기</a>: 단리/복리 방식 세후 수령액 계산</li>
-        <li><a href="http://aroundtool.com/index.html?id=7">복리 계산기</a>: 투자 기간 및 수익률에 따른 장기 자산 증가액 산출</li>
-        <li><a href="http://aroundtool.com/index.html?id=8">종합소득세 계산기 (3.3%)</a>: 프리랜서 및 N잡러 예상 환급액 조회</li>
-        <li><a href="http://aroundtool.com/index.html?id=9">DSR 계산기</a>: 총부채원리금상환비율 한도 점검</li>
-        <li><a href="http://aroundtool.com/index.html?id=10">LTV 계산기</a>: 주택 평가액 기반 주택담보인정비율 확인</li>
-        <li><a href="http://aroundtool.com/index.html?id=11">부동산 취득세 계산기</a>: 주택 및 상가 매매 시 취득세 계산</li>
-        <li><a href="http://aroundtool.com/index.html?id=12">부동산 중개보수 계산기</a>: 매매 및 전월세 거래 시 법정 복비 산출</li>
-    </ul>
+  <!-- 2. 노동 및 구직 (JOB) -->
+  <url>
+    <loc>http://aroundtool.com/index.html?id=13</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=14</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=15</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=16</loc>
+    <priority>0.8</priority>
+  </url>
 
-    <h2>2. 노동 및 구직 (JOB)</h2>
-    <ul>
-        <li><a href="http://aroundtool.com/index.html?id=13">퇴직금 계산기</a>: 최근 3개월 평균임금 기준 예상 퇴직금 조회</li>
-        <li><a href="http://aroundtool.com/index.html?id=14">실업급여 계산기</a>: 고용보험 실업급여 예상 수급액 조회</li>
-        <li><a href="http://aroundtool.com/index.html?id=15">연차 계산기</a>: 근로기준법 및 입사일 기준 총 연차 개수 조회</li>
-        <li><a href="http://aroundtool.com/index.html?id=16">주휴수당 계산기</a>: 주 15시간 이상 근무 시 유급휴일 수당 계산</li>
-    </ul>
+  <!-- 3. 생활 및 건강 (LIFE) -->
+  <url>
+    <loc>http://aroundtool.com/index.html?id=17</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=18</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=19</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=20</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=21</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=22</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=23</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=24</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=25</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=26</loc>
+    <priority>0.8</priority>
+  </url>
 
-    <h2>3. 생활 및 건강 (LIFE)</h2>
-    <ul>
-        <li><a href="http://aroundtool.com/index.html?id=17">BMI 계산기</a>: 체질량지수 및 비만도 측정</li>
-        <li><a href="http://aroundtool.com/index.html?id=18">기초대사량 계산기</a>: 하루 기초 소모 열량 확인</li>
-        <li><a href="http://aroundtool.com/index.html?id=19">하루 권장 칼로리 계산기</a>: 목표 체중에 맞춘 권장 섭취량 산출</li>
-        <li><a href="http://aroundtool.com/index.html?id=20">만나이 계산기</a>: 정확한 만나이 및 띠 확인</li>
-        <li><a href="http://aroundtool.com/index.html?id=21">평수 계산기</a>: 아파트 평형과 제곱미터(㎡) 간 변환</li>
-        <li><a href="http://aroundtool.com/index.html?id=22">할인율 계산기</a>: 퍼센트(%) 할인 시 최종 결제 금액 산출</li>
-        <li><a href="http://aroundtool.com/index.html?id=23">자동차세 계산기</a>: 배기량 및 연식별 자동차세 조회</li>
-        <li><a href="http://aroundtool.com/index.html?id=24">환율 계산기</a>: 원화(KRW)와 달러(USD) 환전 계산</li>
-        <li><a href="http://aroundtool.com/index.html?id=25">로또 번호 생성기</a>: 무작위 추첨 로직 기반 로또 번호 생성</li>
-        <li><a href="http://aroundtool.com/index.html?id=26">QR코드 생성기</a>: 링크/텍스트를 QR코드 이미지로 변환</li>
-    </ul>
-
-    <h2>4. 텍스트 도구 (TEXT)</h2>
-    <ul>
-        <li><a href="http://aroundtool.com/index.html?id=27">글자수 세기</a>: 공백 포함/제외 글자수 및 바이트 수 카운팅</li>
-        <li><a href="http://aroundtool.com/index.html?id=28">맞춤법 검사기</a>: 한글 띄어쓰기 및 맞춤법 교정</li>
-    </ul>
-
-</body>
-</html>
+  <!-- 4. 텍스트 도구 (TEXT) -->
+  <url>
+    <loc>http://aroundtool.com/index.html?id=27</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://aroundtool.com/index.html?id=28</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
