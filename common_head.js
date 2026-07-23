@@ -4,7 +4,7 @@
 
  // 1. 구글 서치콘솔 / 네이버 서치어드바이저 인증태그 (코드 입력 부분)
  const metaTags = [
- { name: 'google-site-verification', content: 'google-site-verification=PomvSVjqf2y59zGMvY-9VAVV4vf07mF1uXXZ9L3cTHQ' },
+ { name: 'google-site-verification', content: 'PomvSVjqf2y59zGMvY-9VAVV4vf07mF1uXXZ9L3cTHQ' },
  { name: 'naver-site-verification', content: '여기에_네이버_인증코드_입력' }
  ];
  
