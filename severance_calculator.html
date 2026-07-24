@@ -1,173 +1,112 @@
+<!-- 33. severance_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>퇴직금 계산기 - 평균임금 기준 무료 계산</title>
-<meta name="description" content="입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.">
-
-<link rel="canonical" href="https://www.aroundtool.com/severance_calculator">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="생활 계산기 모음">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="퇴직금 계산기 - 💼 무료 온라인 도구">
-<meta property="og:description" content="입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.">
-<meta property="og:url" content="https://your-domain.com/severance_calculator.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="퇴직금 계산기">
-<meta name="twitter:description" content="입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "퇴직금 계산기",
-  "url": "https://your-domain.com/severance_calculator.html",
-  "description": "입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "inLanguage": "ko",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://your-domain.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "노동·구직 계산기",
-      "item": "https://your-domain.com/index.html#job"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "퇴직금 계산기",
-      "item": "https://your-domain.com/severance_calculator.html"
-    }
-  ]
-}
-</script>
-<style>
-  :root{--primary:#7c3aed;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-  header{text-align:center;margin-bottom:24px;}
-  header h1{font-size:1.6rem;margin-bottom:6px;}
-  header p{color:var(--muted);font-size:0.95rem;}
-  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-  label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-  input{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
-  .hint{font-size:0.78rem;color:var(--muted);margin-top:-12px;margin-bottom:16px;}
-  button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-  button:hover{background:#6d28d9;}
-  .result{margin-top:24px;display:none;}
-  .result.show{display:block;}
-  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-  .result-row:last-child{border-bottom:none;}
-  .result-label{font-size:0.9rem;color:var(--muted);}
-  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-  .result-value.small{font-size:1.05rem;color:var(--text);}
-  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-  .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-  .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
-  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-breadcrumb a:hover{text-decoration:underline;}
-  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#7c3aed22;color:#7c3aed;font-weight:700;}
-</style>
+ <script src="common_head.js"></script>
+ <title>퇴직금 계산기 - 평균임금 기준 무료 계산</title>
+ <meta name="description" content="입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/severance_calculator">
+ <style>
+ :root{--primary:#7c3aed;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
+ .hint{font-size:0.78rem;color:var(--muted);margin-top:-12px;margin-bottom:16px;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{background:#6d28d9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .result-value.small{font-size:1.05rem;color:var(--text);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>퇴직금 계산기</span><span class="tool-code">JOB-01</span></nav>
-
-<header>
-  <h1>💼 퇴직금 계산기</h1>
-  <p>입사일, 퇴사일, 최근 급여로 예상 퇴직금을 계산합니다</p>
-</header>
-
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
-  <label for="startDate">입사일</label>
-  <input type="date" id="startDate">
-  <label for="endDate">퇴사일</label>
-  <input type="date" id="endDate">
-  <label for="salary3m">퇴직 전 3개월 급여 총액 (세전, 원)</label>
-  <input type="number" id="salary3m" placeholder="예: 9000000">
-  <div class="hint">최근 3개월 급여명세서상 세전 총액을 더한 값입니다</div>
-  <label for="bonus">최근 1년 상여금 총액 (원, 없으면 0)</label>
-  <input type="number" id="bonus" placeholder="예: 3000000" value="0">
-  <label for="annualLeave">최근 1년 연차수당 (원, 없으면 0)</label>
-  <input type="number" id="annualLeave" placeholder="예: 0" value="0">
-  <button onclick="calculateSeverance()">계산하기</button>
-
-  <div class="result" id="result">
-    <div class="result-row">
-      <span class="result-label">재직일수</span>
-      <span class="result-value small" id="workDays">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">1일 평균임금</span>
-      <span class="result-value small" id="avgWage">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">예상 퇴직금</span>
-      <span class="result-value" id="severancePay">-</span>
-    </div>
-  </div>
-</div>
-
-<div class="info-box">
-  <h2>ℹ️ 퇴직금 계산 방식</h2>
-  <p>근로기준법상 퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</p>
-  <p style="margin-top:8px;">평균임금 = (3개월 급여 + 상여금×3/12 + 연차수당×3/12) ÷ 최근 3개월 총 일수</p>
-  <p style="margin-top:8px;">계속 근로기간 1년 미만은 퇴직금 지급 대상이 아니며, 이 계산기는 참고용으로 실제 금액과 차이가 있을 수 있습니다.</p>
-</div>
-
-<footer>© 2026 퇴직금 계산기. 본 결과는 참고용이며 법적 효력을 갖지 않습니다. <a href="index.html" style="color:#7c3aed;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
-
-<script>
-function calculateSeverance(){
-  const start = new Date(document.getElementById('startDate').value);
-  const end = new Date(document.getElementById('endDate').value);
-  const salary3m = parseFloat(document.getElementById('salary3m').value);
-  const bonus = parseFloat(document.getElementById('bonus').value) || 0;
-  const annualLeave = parseFloat(document.getElementById('annualLeave').value) || 0;
-
-  if(!document.getElementById('startDate').value || !document.getElementById('endDate').value || !salary3m){
-    alert('입사일, 퇴사일, 3개월 급여를 모두 입력해주세요.');
-    return;
-  }
-  if(end <= start){ alert('퇴사일은 입사일 이후여야 합니다.'); return; }
-
-  const workDays = Math.round((end - start) / (1000*60*60*24));
-
-  // 최근 3개월 총 일수(근사치: 91일)
-  const threeMonthDays = 91;
-  const avgWage = (salary3m + bonus*(3/12) + annualLeave*(3/12)) / threeMonthDays;
-
-  const severancePay = avgWage * 30 * (workDays/365);
-
-  document.getElementById('workDays').textContent = workDays.toLocaleString() + '일';
-  document.getElementById('avgWage').textContent = Math.round(avgWage).toLocaleString() + '원';
-  document.getElementById('severancePay').textContent = Math.round(severancePay).toLocaleString() + '원';
-
-  document.getElementById('result').classList.add('show');
-}
-</script>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>퇴직금 계산기</span></nav>
+ <header>
+ <h1>💼 퇴직금 계산기</h1>
+ <p>입사일, 퇴사일, 최근 급여로 예상 퇴직금을 계산합니다</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label for="startDate">입사일</label>
+ <input type="date" id="startDate">
+ <label for="endDate">퇴사일</label>
+ <input type="date" id="endDate">
+ <label for="salary3m">퇴직 전 3개월 급여 총액 (세전, 원)</label>
+ <input type="number" id="salary3m" placeholder="예: 9000000">
+ <div class="hint">최근 3개월 급여명세서상 세전 총액을 더한 값입니다</div>
+ <label for="bonus">최근 1년 상여금 총액 (원, 없으면 0)</label>
+ <input type="number" id="bonus" placeholder="예: 3000000" value="0">
+ <label for="annualLeave">최근 1년 연차수당 (원, 없으면 0)</label>
+ <input type="number" id="annualLeave" placeholder="예: 0" value="0">
+ <button onclick="calculateSeverance()">계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row">
+ <span class="result-label">재직일수</span>
+ <span class="result-value small" id="workDays">-</span>
+ </div>
+ <div class="result-row">
+ <span class="result-label">1일 평균임금</span>
+ <span class="result-value small" id="avgWage">-</span>
+ </div>
+ <div class="result-row">
+ <span class="result-label">예상 퇴직금</span>
+ <span class="result-value" id="severancePay">-</span>
+ </div>
+ </div>
+ </div>
+ <div class="info-box">
+ <h2>ℹ️ 퇴직금 계산 방식</h2>
+ <p>근로기준법상 퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</p>
+ <p style="margin-top:8px;">평균임금 = (3개월 급여 + 상여금×3/12 + 연차수당×3/12) ÷ 최근 3개월 총 일수</p>
+ <p style="margin-top:8px;color:#ef4444;">* 계속 근로기간 1년 미만은 퇴직금 지급 대상이 아니며, 이 계산기는 참고용으로 실제 금액과 차이가 있을 수 있습니다.</p>
+ </div>
+ <article class="seo-text">
+ <h2>여름휴가 후 퇴사 고민? 하반기 이직 전 퇴직금 챙기기</h2>
+ <p>2026년 여름, 꿀 같은 여름휴가를 다녀온 직후 하반기 공채나 경력직 이직을 준비하며 마음속에 품어둔 사직서를 꺼내려는 직장인들이 많습니다. 퇴사 날짜를 정할 때 가장 예민하게 계산해야 하는 것이 바로 퇴직금 정산입니다. 법정 퇴직금은 퇴사 직전 3개월의 '평균임금'을 베이스로 굴러가기 때문에, 연장 수당이 많았던 달 직후에 퇴사하는 것이 금액 면에서 압도적으로 유리합니다. 입사일과 퇴사일, 그리고 명세서에 찍힌 최근 석 달 치 세전 월급의 합계를 입력해 보세요. 1년 동안 받은 보너스 상여금과 미사용 연차수당까지 꼼꼼히 안배하여 근로기준법 규정에 맞춘 정확한 예상 퇴직금을 뽑아드립니다. 새로운 커리어 도전을 위한 비상금의 규모를 확인하고 안정적인 환승 이직을 준비해 보세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 계산 결과는 참고용이며 법적 분쟁의 증빙 자료로 사용할 수 없습니다.</p>
+ </footer>
+ <script>
+ function calculateSeverance(){
+ const start = new Date(document.getElementById('startDate').value);
+ const end = new Date(document.getElementById('endDate').value);
+ const salary3m = parseFloat(document.getElementById('salary3m').value);
+ const bonus = parseFloat(document.getElementById('bonus').value) || 0;
+ const annualLeave = parseFloat(document.getElementById('annualLeave').value) || 0;
+ if(!document.getElementById('startDate').value || !document.getElementById('endDate').value || !salary3m){
+ alert('입사일, 퇴사일, 3개월 급여를 모두 입력해주세요.');
+ return;
+ }
+ if(end <= start){ alert('퇴사일은 입사일 이후여야 합니다.'); return; }
+ const workDays = Math.round((end - start) / (1000*60*60*24));
+ const threeMonthDays = 91;
+ const avgWage = (salary3m + bonus*(3/12) + annualLeave*(3/12)) / threeMonthDays;
+ const severancePay = avgWage * 30 * (workDays/365);
+ document.getElementById('workDays').textContent = workDays.toLocaleString() + '일';
+ document.getElementById('avgWage').textContent = Math.round(avgWage).toLocaleString() + '원';
+ document.getElementById('severancePay').textContent = Math.round(severancePay).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
 </body>
 </html>
