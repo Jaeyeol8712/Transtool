@@ -1,3 +1,4 @@
+<!-- 2. age_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,12 +26,12 @@ button:hover{opacity:0.9;}
 .result-row:last-child{border-bottom:none;}
 .result-label{font-size:0.9rem;color:var(--muted);}
 .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
 .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
 .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
 .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
 .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+.site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+.site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
 </style>
 </head>
 <body>
@@ -40,7 +41,6 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 <p>행정기본법 기준 정확한 나이 확인</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
-
 <div class="card">
  <label>생년월일</label>
  <input type="date" id="ageB">
@@ -52,26 +52,25 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
  </div>
 </div>
- 
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+ <h2>2026년 행정 기준 만나이 완벽 계산 팁</h2>
+ <p>여름휴가 시즌을 맞아 해외 출국을 준비하거나, 관공서 서류 발급이 잦아지는 시점입니다. 2026년 현재 대한민국은 일상과 법률 서비스 모두 '만 나이'로 완전히 정착되었지만, 당장 오늘을 기준으로 내 생일이 지났는지에 따라 한 살 차이가 발생해 여전히 헷갈릴 때가 많습니다. 특히 은행 대출 상품 가입, 병원 진료 혜택, 연금 수령 시기 등을 체크할 때는 단 하루 차이로 자격 요건이 갈리기도 합니다. 달력을 보며 번거롭게 역산하지 마시고, 달력에서 생년월일만 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출해 드립니다. 2026년 7월 기준으로 아직 생일 촛불을 끄지 않으셨다면 올해 연도에서 태어난 연도를 뺀 값에 1살을 더 빼야 정확한 행정 나이가 산출됩니다. 부가적으로 나오는 띠 정보도 함께 확인해 보세요.</p>
 </article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+</footer>
 <script>
 document.getElementById('ageT').valueAsDate = new Date();
 function calcAge2(){
  const b = new Date(document.getElementById('ageB').value);
  const t = new Date(document.getElementById('ageT').value);
  if(isNaN(b)) return alert('생년월일을 입력해주세요.');
- 
  let manAge = t.getFullYear() - b.getFullYear();
  const m = t.getMonth() - b.getMonth();
  if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
- 
  const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
  const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
  document.getElementById('manAgeRes').textContent = manAge + '세';
  document.getElementById('zodiacRes').textContent = z;
  document.getElementById('result').classList.add('show');
