@@ -1,48 +1,48 @@
+<!-- 22. increase_decrease_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>증감율 계산기 - 퍼센트 변화량 추이 | 생활 계산기 모음</title>
-<meta name="description" content="매출, 주식, 트래픽 등 과거 데이터와 현재 데이터 간의 퍼센트(%) 증감률을 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/increase_decrease_calculator">
-<style>
-:root{--primary:#0ea5e9;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>증감율 계산기 - 퍼센트 변화량 추이 | 생활 계산기 모음</title>
+ <meta name="description" content="매출, 주식, 트래픽 등 과거 데이터와 현재 데이터 간의 퍼센트(%) 증감률을 계산합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/increase_decrease_calculator">
+ <style>
+ :root{--primary:#0ea5e9;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>증감율 계산기</span></nav>
-<header>
-<h1>📈 증감율 계산기</h1>
-<p>이전 값과 현재 값의 변화율(%) 계산</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>증감율 계산기</span></nav>
+ <header>
+ <h1>📈 증감율 계산기</h1>
+ <p>이전 값과 현재 값의 변화율(%) 계산</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>이전 값 (기준점)</label>
  <input type="number" id="oldVal" placeholder="예: 1000">
  <label>현재 값 (변화점)</label>
@@ -52,21 +52,21 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <div class="result-row"><span class="result-label">변화율 (%)</span><span class="result-value" id="changeRate">-</span></div>
  <div class="result-row"><span class="result-label">증감 상태</span><span class="result-value" id="changeStatus" style="font-size:1.1rem;">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>증감율 계산기 완벽 가이드</h2>
-<p>주식 차트나 회사 매출 보고서를 볼 때, 전년 동기 대비 실적이 얼마나 좋아졌는지 퍼센트로 파악하는 것은 매우 중요합니다. 증감율 계산기는 기준이 되는 과거의 수치와 새롭게 확인된 현재의 수치를 비교하여, 얼마나 오르거나 내렸는지를 한눈에 알아보기 쉬운 변화율(%)로 즉각 산출해 줍니다. 엑셀 수식을 복잡하게 짤 필요 없이 모바일 환경에서 바로 터치하여 실무에 적용할 수 있습니다. 마케팅 성과 분석이나 개인 자산의 성장 흐름을 추적하려는 분들에게 매우 유용하게 쓰일 수 있는 데이터 분석의 기본기 도구입니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcIncDec(){
+ </div>
+ <article class="seo-text">
+ <h2>하반기 실적 분석과 주식 수익률, 1초 만에 파악하기</h2>
+ <p>2026년 하반기가 본격적으로 막을 올린 7월, 직장인과 개인 사업자 모두 상반기 실적을 마감하고 새로운 목표 수치를 세우느라 분주한 시기입니다. 엑셀을 굳이 켜지 않고도 작년 여름 시즌 대비 올여름의 매출액이 몇 퍼센트 뛰었는지, 혹은 폭염 테마로 담아둔 내 주식 포트폴리오 수익률이 어제 대비 얼마나 하락했는지 직관적인 퍼센트(%)로 점검해야 할 때가 무척 잦습니다. 이 증감율 분석 툴은 과거의 기준값과 새롭게 확인된 변동값만 빈칸에 채워 넣으면, 복잡한 나누기 수식 없이 즉시 오차 없는 변화율을 산출해 냅니다. 붉은색 상승(▲)과 푸른색 하락(▼) 기호로 명확한 추이를 짚어주므로, 덥고 지치는 날씨 속 복잡한 보고서를 작성하거나 개인 자산의 흐름을 분석할 때 탁월한 작업 속도 향상을 경험하실 수 있습니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 연산 결과는 브라우저 내부에서만 안전하게 처리됩니다.</p>
+ </footer>
+ <script>
+ function calcIncDec(){
  const oldV = parseFloat(document.getElementById('oldVal').value);
  const newV = parseFloat(document.getElementById('newVal').value);
  if(!oldV || !newV) return alert('값을 모두 입력해주세요.');
- 
  const rate = ((newV - oldV) / oldV) * 100;
- 
  document.getElementById('changeRate').textContent = Math.abs(rate).toFixed(2) + '%';
  const statusEl = document.getElementById('changeStatus');
  if(rate > 0) {
@@ -80,7 +80,7 @@ function calcIncDec(){
  statusEl.style.color = 'var(--text)';
  }
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
