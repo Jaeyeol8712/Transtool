@@ -2,7 +2,11 @@
 (function(){
     const head = document.head;
 
-    // 1. 공통 메타태그 추가 (네이버 소유확인, 애드센스, 반응형 뷰포트)
+    // 1. 공통 메타태그 추가 (문자셋, 네이버 소유확인, 애드센스, 반응형 뷰포트)
+    const charsetEl = document.createElement('meta');
+    charsetEl.charset = 'UTF-8';
+    head.appendChild(charsetEl);
+
     const metaTags = [
         { name: 'naver-site-verification', content: '819ae10e3fae28782afbbbbc248f8423b816872b' },
         { name: 'google-adsense-account', content: 'ca-pub-7089972708901760' },
