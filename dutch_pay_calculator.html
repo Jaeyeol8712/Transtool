@@ -1,48 +1,48 @@
+<!-- 15. dutch_pay_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>더치페이 계산기 - 1/N 회비 정산 | 생활 계산기 모음</title>
-<meta name="description" content="회식이나 모임 후 총 결제 금액을 인원수로 나누어 깔끔하게 더치페이 정산 금액을 알려줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/dutch_pay_calculator">
-<style>
-:root{--primary:#14b8a6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>더치페이 계산기 - 1/N 회비 정산 | 생활 계산기 모음</title>
+ <meta name="description" content="회식이나 모임 후 총 결제 금액을 인원수로 나누어 깔끔하게 더치페이 정산 금액을 알려줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/dutch_pay_calculator">
+ <style>
+ :root{--primary:#14b8a6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>더치페이 계산기</span></nav>
-<header>
-<h1>🍕 더치페이 계산기</h1>
-<p>모임 후 1/N 정산 및 단수 처리</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>더치페이 계산기</span></nav>
+ <header>
+ <h1>🍕 더치페이 계산기</h1>
+ <p>모임 후 1/N 정산 및 단수 처리</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>총 결제 금액 (원)</label>
  <input type="number" id="dutchTotal" placeholder="예: 153000">
  <label>나눌 인원 수 (명)</label>
@@ -52,27 +52,26 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <div class="result-row"><span class="result-label">1인당 부담액</span><span class="result-value" id="dutchPer">-</span></div>
  <div class="result-row"><span class="result-label">단수 차액 (총무 부담 등)</span><span class="result-value" id="dutchRem" style="font-size:1rem; color:var(--text);">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>더치페이 계산기 완벽 가이드</h2>
-<p>동호회나 부서 회식이 끝나고 나면 총무의 머리가 가장 아파지는 순간, 바로 회비 정산입니다. 총결제 금액을 참석 인원수로 딱 맞게 나누어 떨어지면 좋겠지만, 현실은 10원 단위로 애매하게 쪼개지는 경우가 다반사죠. 더치페이 계산기는 이 귀찮은 과정을 한 번에 해결해 줍니다. 100원 단위로 올림 처리를 하여 송금하기 편한 깔끔한 숫자로 1인당 금액을 제시하며, 그렇게 거뒀을 때 최종적으로 남는 자투리 금액(단수 차액)까지 명확히 표기해 줍니다. 단체 생활의 불필요한 마찰을 줄이고 투명한 정산을 돕는 필수 도구입니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcDutch(){
+ </div>
+ <article class="seo-text">
+ <h2>여름휴가와 회식 후폭풍, 깔끔한 단수 처리 정산법</h2>
+ <p>여름휴가를 앞두고 단체로 부서 회식을 치르거나, 주말에 친구들과 계곡이나 워터파크로 피서를 다녀온 뒤 총무 역할을 맡은 분이 겪는 가장 큰 스트레스는 바로 영수증 정산입니다. 총결제 금액을 참석 인원수로 딱 맞게 나누어 1원 단위까지 지저분하게 쪼개지면 카카오페이로 송금하는 사람도, 확인하는 사람도 번거롭기 짝이 없죠. 이 계산기는 2026년의 스피디한 라이프스타일에 맞게 모임 후 회비를 100원 단위로 깔끔하게 올림 처리하여 계산해 줍니다. 1인당 입금해야 할 금액을 직관적으로 제시하고, 다 거뒀을 때 최종적으로 남는 자투리 금액(단수 차액)까지 명확히 명시해 주어 단톡방에 그대로 복사해 공유하기만 하면 됩니다. 단체 생활의 불필요한 금전적 마찰을 줄이고 투명한 정산으로 즐거운 모임의 마무리를 지어보세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 연산 결과는 참고용이며 서버에 저장되지 않습니다.</p>
+ </footer>
+ <script>
+ function calcDutch(){
  const t = parseFloat(document.getElementById('dutchTotal').value);
  const p = parseInt(document.getElementById('dutchPeople').value);
  if(!t || !p || p < 1) return alert('정확한 금액과 인원을 입력해주세요.');
- 
- // 100원 단위 올림 처리하여 깔끔하게 나눔
  const rawPer = Math.ceil((t / p) / 100) * 100;
  const rem = (rawPer * p) - t;
- 
  document.getElementById('dutchPer').textContent = rawPer.toLocaleString() + '원';
  document.getElementById('dutchRem').textContent = rem > 0 ? `+${rem.toLocaleString()}원 남음` : '딱 떨어짐';
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
