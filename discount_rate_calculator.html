@@ -3,11 +3,11 @@
 <head>
 <script src="common_head.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>만나이 계산기 - 생년월일 무료 변환 | 생활 계산기 모음</title>
-<meta name="description" content="행정 기준인 만나이를 기준으로 현재 혹은 특정 기준일자에 내가 정확히 몇 세인지 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/age_calculator.html">
+<title>할인율 계산기 - 퍼센트(%) 무료 계산 | 생활 계산기 모음</title>
+<meta name="description" content="원가와 할인가를 입력하여 정확히 몇 퍼센트(%) 할인을 받았는지 역산해주는 계산기입니다.">
+<link rel="canonical" href="https://www.aroundtool.com/discount_rate_calculator.html">
 <style>
-:root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+:root{--primary:#db2777;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
 header{text-align:center;margin-bottom:24px;}
@@ -34,46 +34,42 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>만나이 계산기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>할인율 계산기</span></nav>
 <header>
-<h1>🎂 만나이 계산기</h1>
-<p>행정기본법 기준 정확한 나이 확인</p>
+<h1>🛍️ 할인율 계산기</h1>
+<p>할인 전 가격과 할인된 가격으로 퍼센트(%) 도출</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
- <label>생년월일</label>
- <input type="date" id="ageB">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ageT">
- <button onclick="calcAge2()">만 나이 계산</button>
+ <label>원래 가격 (원)</label>
+ <input type="number" id="orgPrice" placeholder="예: 50000">
+ <label>할인된 가격 (원)</label>
+ <input type="number" id="discPrice" placeholder="예: 40000">
+ <button onclick="calcDiscRate()">할인율 계산하기</button>
  <div class="result" id="result">
- <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
- <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">적용된 할인율</span><span class="result-value" id="finalRate" style="color:#ef4444;">-</span></div>
+ <div class="result-row"><span class="result-label">할인받은 금액</span><span class="result-value" id="saveAmount" style="color:var(--text); font-size:1.1rem;">-</span></div>
  </div>
 </div>
  
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+<h2>할인율 계산기 완벽 가이드</h2>
+<p>온오프라인 쇼핑을 하다 보면 '특가 할인'이라는 문구에 현혹되기 쉽습니다. 하지만 정확히 몇 퍼센트가 깎인 것인지 명시되어 있지 않아 답답할 때가 있죠. 이럴 때 유용한 것이 바로 할인율 계산기입니다. 판매자가 제시하는 원래 가격(정가)과 실제로 내가 지불해야 하는 최종 가격(할인가)만 기입하면, 내부 알고리즘이 역산하여 실제 적용된 할인 퍼센트(%)를 소수점 첫째 자리까지 정확하게 보여줍니다. 2026년 여름, 바캉스 용품이나 해외여행 항공권을 특가로 예매할 때, 눈속임 없는 진짜 최저가인지 검증하는 훌륭한 쇼핑 도우미로 활용해 보세요.</p>
 </article>
 <footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-document.getElementById('ageT').valueAsDate = new Date();
-function calcAge2(){
- const b = new Date(document.getElementById('ageB').value);
- const t = new Date(document.getElementById('ageT').value);
- if(isNaN(b)) return alert('생년월일을 입력해주세요.');
+function calcDiscRate(){
+ const o = parseFloat(document.getElementById('orgPrice').value);
+ const d = parseFloat(document.getElementById('discPrice').value);
+ if(!o || !d) return alert('금액을 모두 입력해주세요.');
+ if(o < d) return alert('원래 가격이 할인된 가격보다 커야 합니다.');
  
- let manAge = t.getFullYear() - b.getFullYear();
- const m = t.getMonth() - b.getMonth();
- if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
+ const save = o - d;
+ const rate = (save / o) * 100;
  
- const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
- const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
- document.getElementById('manAgeRes').textContent = manAge + '세';
- document.getElementById('zodiacRes').textContent = z;
+ document.getElementById('finalRate').textContent = rate.toFixed(1) + '%';
+ document.getElementById('saveAmount').textContent = Math.round(save).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
 }
 </script>

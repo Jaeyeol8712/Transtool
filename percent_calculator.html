@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="common_head.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>퍼센트 계산기 - 백분율 무료 계산 | 생활 계산기 모음</title>
+<meta name="description" content="전체 숫자 중 특정 퍼센트는 얼마인지, 혹은 일부 값이 전체에서 몇 퍼센트를 차지하는지 쉽게 구합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/percent_calculator">
+<style>
+:root{--primary:#8b5cf6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+header{text-align:center;margin-bottom:24px;}
+header h1{font-size:1.6rem;margin-bottom:6px;}
+header p{color:var(--muted);font-size:0.95rem;}
+.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+button:hover{opacity:0.9;}
+.result{margin-top:24px;display:none;}
+.result.show{display:block;}
+.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+.result-row:last-child{border-bottom:none;}
+.result-label{font-size:0.9rem;color:var(--muted);}
+.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+.site-breadcrumb a{color:var(--muted);text-decoration:none;}
+footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>퍼센트 계산기</span></nav>
+<header>
+<h1>💯 퍼센트 계산기</h1>
+<p>전체값의 특정 비율(%) 혹은 값의 비중 구하기</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+
+<div class="card">
+ <p style="font-weight:600; margin-bottom:10px; font-size:0.95rem; color:var(--text);">유형 1: 전체의 N% 구하기</p>
+ <div style="display:flex; gap:8px; align-items:center; margin-bottom:16px;">
+ <input type="number" id="p1_total" placeholder="전체값" style="margin-bottom:0;"> 의 
+ <input type="number" id="p1_pct" placeholder="%" style="margin-bottom:0;"> %는?
+ <button onclick="calcP1()" style="width:80px; padding:12px;">계산</button>
+ </div>
+ <div id="res1" style="color:var(--primary); font-weight:700; margin-bottom:24px;"></div>
+
+ <p style="font-weight:600; margin-bottom:10px; font-size:0.95rem; color:var(--text);">유형 2: 전체 중 일부의 비중(%) 구하기</p>
+ <div style="display:flex; gap:8px; align-items:center;">
+ <input type="number" id="p2_total" placeholder="전체값" style="margin-bottom:0;"> 중 
+ <input type="number" id="p2_part" placeholder="일부값" style="margin-bottom:0;"> 은(는)?
+ <button onclick="calcP2()" style="width:80px; padding:12px;">계산</button>
+ </div>
+ <div id="res2" style="color:var(--primary); font-weight:700; margin-top:12px;"></div>
+</div>
+ 
+<article class="seo-text">
+<h2>퍼센트 계산기 완벽 가이드</h2>
+<p>일상생활에서 백분율을 다뤄야 하는 순간은 수시로 찾아옵니다. 세금 계산을 위해 공급가액의 10% 부가세를 구해야 할 때, 혹은 전체 프로젝트 예산 중 내 팀이 사용한 비용이 어느 정도 비중을 차지하는지 보고할 때가 대표적입니다. 이 도구는 가장 자주 쓰이는 두 가지 퍼센트 로직을 지원합니다. 전체 값에서 특정 비율만큼의 실제 수치를 뽑아내거나, 반대로 전체 덩어리 속에서 특정 조각이 차지하는 비율(%)을 구하는 작업입니다. 브라우저에서 가볍게 동작하므로 사무 업무 중 급하게 백분율 결과가 필요할 때 탁월한 생산성을 제공합니다.</p>
+</article>
+<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script>
+function calcP1(){
+ const t = parseFloat(document.getElementById('p1_total').value);
+ const p = parseFloat(document.getElementById('p1_pct').value);
+ if(t && p) document.getElementById('res1').textContent = '= ' + (t * (p/100)).toLocaleString();
+}
+function calcP2(){
+ const t = parseFloat(document.getElementById('p2_total').value);
+ const p = parseFloat(document.getElementById('p2_part').value);
+ if(t && p) document.getElementById('res2').textContent = '= ' + ((p/t)*100).toFixed(2) + ' %';
+}
+</script>
+</body>
+</html>

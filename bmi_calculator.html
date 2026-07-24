@@ -2,175 +2,78 @@
 <html lang="ko">
 <head>
 <script src="common_head.js"></script>
-<title>BMI 계산기 - 표준체중 무료 계산</title>
-<meta name="description" content="키와 몸무게를 입력하면 BMI 지수와 비만도, 표준체중까지 한번에 계산해주는 무료 계산기입니다.">
-
-<link rel="canonical" href="https://www.aroundtool.com/bmi_calculator">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="생활 계산기 모음">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="BMI 계산기 - ⚖️ 무료 온라인 도구">
-<meta property="og:description" content="키와 몸무게를 입력하면 BMI 지수와 비만도, 표준체중까지 한번에 계산해주는 무료 계산기입니다.">
-<meta property="og:url" content="https://your-domain.com/bmi_calculator.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BMI 계산기">
-<meta name="twitter:description" content="키와 몸무게를 입력하면 BMI 지수와 비만도, 표준체중까지 한번에 계산해주는 무료 계산기입니다.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "BMI 계산기",
-  "url": "https://your-domain.com/bmi_calculator.html",
-  "description": "키와 몸무게를 입력하면 BMI 지수와 비만도, 표준체중까지 한번에 계산해주는 무료 계산기입니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "inLanguage": "ko",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://your-domain.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "생활 도구",
-      "item": "https://your-domain.com/index.html#life"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "BMI 계산기",
-      "item": "https://your-domain.com/bmi_calculator.html"
-    }
-  ]
-}
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비만도 계산기 - 체질량지수(BMI) 측정 | 생활 계산기 모음</title>
+<meta name="description" content="자신의 키와 몸무게를 통해 세계보건기구 기준 비만도를 체크하고 목표 표준 체중을 확인하세요.">
+<link rel="canonical" href="https://www.aroundtool.com/bmi_calculator.html">
 <style>
-  :root{--primary:#059669;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-  header{text-align:center;margin-bottom:24px;}
-  header h1{font-size:1.6rem;margin-bottom:6px;}
-  header p{color:var(--muted);font-size:0.95rem;}
-  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-  label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-  input[type="number"]{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
-  button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-  button:hover{background:#047857;}
-  .result{margin-top:24px;display:none;}
-  .result.show{display:block;}
-  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-  .result-row:last-child{border-bottom:none;}
-  .result-label{font-size:0.9rem;color:var(--muted);}
-  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-  .result-value.small{font-size:1.05rem;color:var(--text);}
-  .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:0.8rem;font-weight:700;margin-top:4px;}
-  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-  .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-  .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
-  table{width:100%;border-collapse:collapse;margin-top:8px;}
-  td{padding:4px 0;font-size:0.82rem;}
-  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-breadcrumb a:hover{text-decoration:underline;}
-  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#05966922;color:#059669;font-weight:700;}
+:root{--primary:#059669;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+header{text-align:center;margin-bottom:24px;}
+header h1{font-size:1.6rem;margin-bottom:6px;}
+header p{color:var(--muted);font-size:0.95rem;}
+.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+button:hover{opacity:0.9;}
+.result{margin-top:24px;display:none;}
+.result.show{display:block;}
+.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+.result-row:last-child{border-bottom:none;}
+.result-label{font-size:0.9rem;color:var(--muted);}
+.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+.site-breadcrumb a{color:var(--muted);text-decoration:none;}
+footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
 </style>
 </head>
 <body>
-
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 도구</span><span>/</span><span>BMI 계산기</span><span class="tool-code">LIFE-01</span></nav>
-
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>비만도 계산기</span></nav>
 <header>
-  <h1>⚖️ BMI / 표준체중 계산기</h1>
-  <p>키와 몸무게로 체질량지수(BMI)와 표준체중을 계산합니다</p>
+<h1>⚖️ 비만도 계산기</h1>
+<p>신장과 체중 기반 BMI 지수 산출</p>
 </header>
-
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
-  <label for="height">키 (cm)</label>
-  <input type="number" id="height" placeholder="예: 170">
-  <label for="weight">몸무게 (kg)</label>
-  <input type="number" id="weight" placeholder="예: 65">
-  <button onclick="calculateBMI()">계산하기</button>
-
-  <div class="result" id="result">
-    <div class="result-row">
-      <span class="result-label">BMI 지수</span>
-      <span class="result-value" id="bmiValue">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">비만도 판정</span>
-      <span id="bmiCategory" class="badge">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">표준체중</span>
-      <span class="result-value small" id="standardWeight">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">표준체중과의 차이</span>
-      <span class="result-value small" id="weightDiff">-</span>
-    </div>
-  </div>
+ <label>키 (cm)</label>
+ <input type="number" id="bmiH" placeholder="예: 172">
+ <label>몸무게 (kg)</label>
+ <input type="number" id="bmiW" placeholder="예: 68">
+ <button onclick="calcBmi2()">비만도 확인</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">BMI 지수</span><span class="result-value" id="bmiRes">-</span></div>
+ <div class="result-row"><span class="result-label">판정 결과</span><span class="result-value" id="bmiStat" style="font-size:1.1rem;">-</span></div>
+ </div>
 </div>
-
-<div class="info-box">
-  <h2>ℹ️ BMI 판정 기준 (대한비만학회, 아시아·태평양 기준)</h2>
-  <table>
-    <tr><td>저체중</td><td>18.5 미만</td></tr>
-    <tr><td>정상</td><td>18.5 ~ 22.9</td></tr>
-    <tr><td>과체중</td><td>23.0 ~ 24.9</td></tr>
-    <tr><td>비만</td><td>25.0 ~ 29.9</td></tr>
-    <tr><td>고도비만</td><td>30.0 이상</td></tr>
-  </table>
-  <p style="margin-top:10px;">표준체중은 신장(m)² × 22 공식(브로카 변형식)을 사용했습니다.</p>
-</div>
-
-<footer>© 2026 BMI 계산기. 본 결과는 참고용이며 의학적 진단을 대신하지 않습니다. <a href="index.html" style="color:#059669;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
-
+ 
+<article class="seo-text">
+<h2>비만도 계산기 완벽 가이드</h2>
+<p>옷차림이 얇아지는 계절, 다이어트에 돌입하기 전 가장 먼저 확인해야 할 것은 현재 내 몸의 객관적인 상태입니다. 단순히 체중계의 숫자만 보는 것이 아니라, 자신의 키에 대비하여 몸무게가 적정한 비율을 유지하고 있는지를 따져보는 BMI(체질량지수) 계산이 필수적입니다. 대한비만학회 및 아시아 태평양 기준을 적용하여 저체중, 정상, 과체중, 비만 단계로 정밀하게 나누어 판별해 줍니다. 동호회 활동이나 피트니스 센터 등록 전 스스로의 상태를 점검하고 합리적인 다이어트 목표를 세우는 척도로 활용하세요.</p>
+</article>
+<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-function calculateBMI(){
-  const h = parseFloat(document.getElementById('height').value);
-  const w = parseFloat(document.getElementById('weight').value);
-  if(!h || !w || h<=0 || w<=0){ alert('키와 몸무게를 정확히 입력해주세요.'); return; }
-
-  const hM = h/100;
-  const bmi = w / (hM*hM);
-  const standard = hM*hM*22;
-  const diff = w - standard;
-
-  let category, color;
-  if(bmi < 18.5){ category='저체중'; color='#3b82f6'; }
-  else if(bmi < 23){ category='정상'; color='#059669'; }
-  else if(bmi < 25){ category='과체중'; color='#f59e0b'; }
-  else if(bmi < 30){ category='비만'; color='#ef4444'; }
-  else { category='고도비만'; color='#b91c1c'; }
-
-  document.getElementById('bmiValue').textContent = bmi.toFixed(1);
-  const badge = document.getElementById('bmiCategory');
-  badge.textContent = category;
-  badge.style.background = color+'22';
-  badge.style.color = color;
-  document.getElementById('standardWeight').textContent = standard.toFixed(1)+' kg';
-  document.getElementById('weightDiff').textContent = (diff>=0?'+':'')+diff.toFixed(1)+' kg';
-
-  document.getElementById('result').classList.add('show');
+function calcBmi2(){
+ const h = parseFloat(document.getElementById('bmiH').value)/100;
+ const w = parseFloat(document.getElementById('bmiW').value);
+ if(!h || !w) return alert('키와 몸무게를 입력해주세요.');
+ 
+ const bmi = w / (h*h);
+ document.getElementById('bmiRes').textContent = bmi.toFixed(1);
+ 
+ const statEl = document.getElementById('bmiStat');
+ if(bmi < 18.5) { statEl.textContent = '저체중'; statEl.style.color = '#3b82f6'; }
+ else if(bmi < 23) { statEl.textContent = '정상체중'; statEl.style.color = '#10b981'; }
+ else if(bmi < 25) { statEl.textContent = '과체중'; statEl.style.color = '#f59e0b'; }
+ else { statEl.textContent = '비만'; statEl.style.color = '#ef4444'; }
+ 
+ document.getElementById('result').classList.add('show');
 }
 </script>
 </body>

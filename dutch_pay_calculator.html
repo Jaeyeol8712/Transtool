@@ -2,12 +2,13 @@
 <html lang="ko">
 <head>
 <script src="common_head.js"></script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>만나이 계산기 - 생년월일 무료 변환 | 생활 계산기 모음</title>
-<meta name="description" content="행정 기준인 만나이를 기준으로 현재 혹은 특정 기준일자에 내가 정확히 몇 세인지 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/age_calculator.html">
+<title>더치페이 계산기 - 1/N 회비 정산 | 생활 계산기 모음</title>
+<meta name="description" content="회식이나 모임 후 총 결제 금액을 인원수로 나누어 깔끔하게 더치페이 정산 금액을 알려줍니다.">
+<link rel="canonical" href="https://www.aroundtool.com/dutch_pay_calculator">
 <style>
-:root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+:root{--primary:#14b8a6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
 header{text-align:center;margin-bottom:24px;}
@@ -34,46 +35,42 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>만나이 계산기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>더치페이 계산기</span></nav>
 <header>
-<h1>🎂 만나이 계산기</h1>
-<p>행정기본법 기준 정확한 나이 확인</p>
+<h1>🍕 더치페이 계산기</h1>
+<p>모임 후 1/N 정산 및 단수 처리</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
- <label>생년월일</label>
- <input type="date" id="ageB">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ageT">
- <button onclick="calcAge2()">만 나이 계산</button>
+ <label>총 결제 금액 (원)</label>
+ <input type="number" id="dutchTotal" placeholder="예: 153000">
+ <label>나눌 인원 수 (명)</label>
+ <input type="number" id="dutchPeople" placeholder="예: 4">
+ <button onclick="calcDutch()">더치페이 계산</button>
  <div class="result" id="result">
- <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
- <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">1인당 부담액</span><span class="result-value" id="dutchPer">-</span></div>
+ <div class="result-row"><span class="result-label">단수 차액 (총무 부담 등)</span><span class="result-value" id="dutchRem" style="font-size:1rem; color:var(--text);">-</span></div>
  </div>
 </div>
  
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+<h2>더치페이 계산기 완벽 가이드</h2>
+<p>동호회나 부서 회식이 끝나고 나면 총무의 머리가 가장 아파지는 순간, 바로 회비 정산입니다. 총결제 금액을 참석 인원수로 딱 맞게 나누어 떨어지면 좋겠지만, 현실은 10원 단위로 애매하게 쪼개지는 경우가 다반사죠. 더치페이 계산기는 이 귀찮은 과정을 한 번에 해결해 줍니다. 100원 단위로 올림 처리를 하여 송금하기 편한 깔끔한 숫자로 1인당 금액을 제시하며, 그렇게 거뒀을 때 최종적으로 남는 자투리 금액(단수 차액)까지 명확히 표기해 줍니다. 단체 생활의 불필요한 마찰을 줄이고 투명한 정산을 돕는 필수 도구입니다.</p>
 </article>
 <footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-document.getElementById('ageT').valueAsDate = new Date();
-function calcAge2(){
- const b = new Date(document.getElementById('ageB').value);
- const t = new Date(document.getElementById('ageT').value);
- if(isNaN(b)) return alert('생년월일을 입력해주세요.');
+function calcDutch(){
+ const t = parseFloat(document.getElementById('dutchTotal').value);
+ const p = parseInt(document.getElementById('dutchPeople').value);
+ if(!t || !p || p < 1) return alert('정확한 금액과 인원을 입력해주세요.');
  
- let manAge = t.getFullYear() - b.getFullYear();
- const m = t.getMonth() - b.getMonth();
- if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
+ // 100원 단위 올림 처리하여 깔끔하게 나눔
+ const rawPer = Math.ceil((t / p) / 100) * 100;
+ const rem = (rawPer * p) - t;
  
- const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
- const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
- document.getElementById('manAgeRes').textContent = manAge + '세';
- document.getElementById('zodiacRes').textContent = z;
+ document.getElementById('dutchPer').textContent = rawPer.toLocaleString() + '원';
+ document.getElementById('dutchRem').textContent = rem > 0 ? `+${rem.toLocaleString()}원 남음` : '딱 떨어짐';
  document.getElementById('result').classList.add('show');
 }
 </script>

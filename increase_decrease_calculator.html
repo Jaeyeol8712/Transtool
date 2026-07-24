@@ -2,12 +2,13 @@
 <html lang="ko">
 <head>
 <script src="common_head.js"></script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>만나이 계산기 - 생년월일 무료 변환 | 생활 계산기 모음</title>
-<meta name="description" content="행정 기준인 만나이를 기준으로 현재 혹은 특정 기준일자에 내가 정확히 몇 세인지 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/age_calculator.html">
+<title>증감율 계산기 - 퍼센트 변화량 추이 | 생활 계산기 모음</title>
+<meta name="description" content="매출, 주식, 트래픽 등 과거 데이터와 현재 데이터 간의 퍼센트(%) 증감률을 계산합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/increase_decrease_calculator">
 <style>
-:root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+:root{--primary:#0ea5e9;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
 header{text-align:center;margin-bottom:24px;}
@@ -34,46 +35,50 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>만나이 계산기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>증감율 계산기</span></nav>
 <header>
-<h1>🎂 만나이 계산기</h1>
-<p>행정기본법 기준 정확한 나이 확인</p>
+<h1>📈 증감율 계산기</h1>
+<p>이전 값과 현재 값의 변화율(%) 계산</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
- <label>생년월일</label>
- <input type="date" id="ageB">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ageT">
- <button onclick="calcAge2()">만 나이 계산</button>
+ <label>이전 값 (기준점)</label>
+ <input type="number" id="oldVal" placeholder="예: 1000">
+ <label>현재 값 (변화점)</label>
+ <input type="number" id="newVal" placeholder="예: 1250">
+ <button onclick="calcIncDec()">증감율 계산하기</button>
  <div class="result" id="result">
- <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
- <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">변화율 (%)</span><span class="result-value" id="changeRate">-</span></div>
+ <div class="result-row"><span class="result-label">증감 상태</span><span class="result-value" id="changeStatus" style="font-size:1.1rem;">-</span></div>
  </div>
 </div>
  
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+<h2>증감율 계산기 완벽 가이드</h2>
+<p>주식 차트나 회사 매출 보고서를 볼 때, 전년 동기 대비 실적이 얼마나 좋아졌는지 퍼센트로 파악하는 것은 매우 중요합니다. 증감율 계산기는 기준이 되는 과거의 수치와 새롭게 확인된 현재의 수치를 비교하여, 얼마나 오르거나 내렸는지를 한눈에 알아보기 쉬운 변화율(%)로 즉각 산출해 줍니다. 엑셀 수식을 복잡하게 짤 필요 없이 모바일 환경에서 바로 터치하여 실무에 적용할 수 있습니다. 마케팅 성과 분석이나 개인 자산의 성장 흐름을 추적하려는 분들에게 매우 유용하게 쓰일 수 있는 데이터 분석의 기본기 도구입니다.</p>
 </article>
 <footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-document.getElementById('ageT').valueAsDate = new Date();
-function calcAge2(){
- const b = new Date(document.getElementById('ageB').value);
- const t = new Date(document.getElementById('ageT').value);
- if(isNaN(b)) return alert('생년월일을 입력해주세요.');
+function calcIncDec(){
+ const oldV = parseFloat(document.getElementById('oldVal').value);
+ const newV = parseFloat(document.getElementById('newVal').value);
+ if(!oldV || !newV) return alert('값을 모두 입력해주세요.');
  
- let manAge = t.getFullYear() - b.getFullYear();
- const m = t.getMonth() - b.getMonth();
- if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
+ const rate = ((newV - oldV) / oldV) * 100;
  
- const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
- const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
- document.getElementById('manAgeRes').textContent = manAge + '세';
- document.getElementById('zodiacRes').textContent = z;
+ document.getElementById('changeRate').textContent = Math.abs(rate).toFixed(2) + '%';
+ const statusEl = document.getElementById('changeStatus');
+ if(rate > 0) {
+ statusEl.textContent = '▲ 증가 (상승)';
+ statusEl.style.color = '#ef4444'; 
+ } else if (rate < 0) {
+ statusEl.textContent = '▼ 감소 (하락)';
+ statusEl.style.color = '#3b82f6';
+ } else {
+ statusEl.textContent = '변동 없음';
+ statusEl.style.color = 'var(--text)';
+ }
  document.getElementById('result').classList.add('show');
 }
 </script>

@@ -3,11 +3,11 @@
 <head>
 <script src="common_head.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>만나이 계산기 - 생년월일 무료 변환 | 생활 계산기 모음</title>
-<meta name="description" content="행정 기준인 만나이를 기준으로 현재 혹은 특정 기준일자에 내가 정확히 몇 세인지 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/age_calculator.html">
+<title>벌초 견적 계산기 - 대행 비용 모의계산 | 생활 계산기 모음</title>
+<meta name="description" content="추석 명절을 앞두고 조상님 산소 벌초 대행을 맡길 때 묘지 기수와 면적을 기준으로 예상 비용을 계산합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/grave_weeding_calculator">
 <style>
-:root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+:root{--primary:#22c55e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
 header{text-align:center;margin-bottom:24px;}
@@ -34,46 +34,49 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>만나이 계산기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>벌초 견적 계산기</span></nav>
 <header>
-<h1>🎂 만나이 계산기</h1>
-<p>행정기본법 기준 정확한 나이 확인</p>
+<h1>🌿 벌초 견적 계산기</h1>
+<p>산소 면적 및 기수별 벌초 대행 예상 비용</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
- <label>생년월일</label>
- <input type="date" id="ageB">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ageT">
- <button onclick="calcAge2()">만 나이 계산</button>
+ <label>산소 기수 (묘의 개수)</label>
+ <input type="number" id="graveCount" placeholder="예: 2" value="1">
+ <label>묘지 대략적 면적 (평)</label>
+ <input type="number" id="graveArea" placeholder="예: 15" value="15">
+ <label>현장 접근성</label>
+ <select id="graveAccess">
+ <option value="1">차량 진입 양호</option>
+ <option value="1.2">도보 10분 이상 산길</option>
+ </select>
+ <button onclick="calcGrave()">예상 견적 확인</button>
+ <div class="info-box" style="margin-top:16px;">* 농협 및 지역 산림조합 대행 단가(추정치)를 베이스로 산출된 참고용 견적입니다.</div>
  <div class="result" id="result">
- <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
- <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">예상 대행 비용</span><span class="result-value" id="graveCost">-</span></div>
  </div>
 </div>
  
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+<h2>벌초 견적 계산기 완벽 가이드</h2>
+<p>매년 다가오는 명절, 조상님 산소를 직접 관리하기 힘든 현대인들에게 벌초 대행 서비스는 필수 선택지가 되었습니다. 하지만 업체마다, 그리고 지역 농협이나 산림조합마다 부르는게 값이라 예산 잡기가 막막하셨을 텐데요. 이 벌초 견적 계산기는 모실 묘의 개수(기수)와 주변 면적, 그리고 낫이나 예초기를 들고 도보로 이동해야 하는 현장 접근성(난이도) 변수를 종합적으로 고려하여 대략적인 시장 적정가를 산출해 냅니다. 호갱을 피하고 업체와 합리적으로 단가를 조율하기 전, 든든한 기준표로 활용해 보시길 권장합니다.</p>
 </article>
 <footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-document.getElementById('ageT').valueAsDate = new Date();
-function calcAge2(){
- const b = new Date(document.getElementById('ageB').value);
- const t = new Date(document.getElementById('ageT').value);
- if(isNaN(b)) return alert('생년월일을 입력해주세요.');
- 
- let manAge = t.getFullYear() - b.getFullYear();
- const m = t.getMonth() - b.getMonth();
- if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
- 
- const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
- const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
- document.getElementById('manAgeRes').textContent = manAge + '세';
- document.getElementById('zodiacRes').textContent = z;
+function calcGrave(){
+ const c = parseInt(document.getElementById('graveCount').value);
+ const a = parseFloat(document.getElementById('graveArea').value);
+ const acc = parseFloat(document.getElementById('graveAccess').value);
+ if(!c || !a) return alert('묘지 기수와 면적을 입력해주세요.');
+
+ let baseCost = 80000;
+ if(c > 1) baseCost += (c - 1) * 40000; 
+ if(a > 20) baseCost += ((a - 20) / 10) * 20000; 
+
+ const total = baseCost * acc;
+
+ document.getElementById('graveCost').textContent = '약 ' + Math.round(total).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
 }
 </script>

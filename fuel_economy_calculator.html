@@ -3,11 +3,11 @@
 <head>
 <script src="common_head.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>만나이 계산기 - 생년월일 무료 변환 | 생활 계산기 모음</title>
-<meta name="description" content="행정 기준인 만나이를 기준으로 현재 혹은 특정 기준일자에 내가 정확히 몇 세인지 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/age_calculator.html">
+<title>주유 경제성 계산기 - 예상 유류비 계산 | 생활 계산기 모음</title>
+<meta name="description" content="자동차의 연비와 주행 거리를 바탕으로 이번 여행이나 출장에 드는 예상 유류비(기름값)를 계산합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/fuel_economy_calculator">
 <style>
-:root{--primary:#f43f5e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+:root{--primary:#0284c7;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
 header{text-align:center;margin-bottom:24px;}
@@ -34,46 +34,44 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
 </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>만나이 계산기</span></nav>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>주유 경제성 계산기</span></nav>
 <header>
-<h1>🎂 만나이 계산기</h1>
-<p>행정기본법 기준 정확한 나이 확인</p>
+<h1>⛽ 주유 경제성 계산기</h1>
+<p>목적지 이동 시 예상 기름값 산출</p>
 </header>
 <div class="ad-slot">광고 영역 (728x90)</div>
 
 <div class="card">
- <label>생년월일</label>
- <input type="date" id="ageB">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ageT">
- <button onclick="calcAge2()">만 나이 계산</button>
+ <label>이동 거리 (km)</label>
+ <input type="number" id="fuelDist" placeholder="예: 350">
+ <label>차량 공인 연비 (km/L)</label>
+ <input type="number" id="fuelEff" placeholder="예: 13.5">
+ <label>리터당 연료 가격 (원/L)</label>
+ <input type="number" id="fuelPrice" placeholder="예: 1650">
+ <button onclick="calcFuel()">유류비 계산</button>
  <div class="result" id="result">
- <div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
- <div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">소모 예상 연료량</span><span class="result-value" id="fuelLiter" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">예상 주유 비용</span><span class="result-value" id="fuelCost">-</span></div>
  </div>
 </div>
  
 <article class="seo-text">
-<h2>만나이 계산기 완벽 가이드</h2>
-<p>일상 속에서 '한국 나이'가 사라지고 모든 행정 및 의료, 법률 서비스가 '만 나이'로 통일되었음에도 불구하고, 여전히 내 생일이 지났는지 여부에 따라 한 살 차이가 헷갈리곤 합니다. 은행에서 대출 상품에 가입할 때, 병원 진료 예약 시, 혹은 백신 접종 연령 기준을 확인할 때 더 이상 손가락으로 꼽지 마세요. 생년월일만 달력에서 선택해 주시면 윤년 등 복잡한 날짜 변수까지 완벽하게 고려하여 오차 없는 만 나이를 도출합니다. 부가적으로 알려주는 열두 간지 '띠' 정보는 소소한 재미를 선사합니다.</p>
+<h2>주유 경제성 계산기 완벽 가이드</h2>
+<p>이번 주말 장거리 드라이브, 혹은 타지역으로의 업무 출장을 앞두고 기름값이 얼마나 나올지 궁금하신가요? 내 차의 톨게이트 비용 외에도 가장 큰 지출을 차지하는 것이 바로 유류비입니다. 내 차의 공인 연비(혹은 실연비)와 내비게이션에 찍힌 주행 거리, 그리고 현재 주유소 기준 리터당 휘발유나 경유 가격을 입력해 보세요. 차량이 소모하게 될 총 연료량(리터)과 예상 주유 비용을 빠르고 정확하게 뽑아줍니다. 여러 사람과 함께 카풀을 할 때 유류비를 뿜빠이(더치페이) 하기 위한 객관적 자료로도 탁월한 도구입니다.</p>
 </article>
 <footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
 <script>
-document.getElementById('ageT').valueAsDate = new Date();
-function calcAge2(){
- const b = new Date(document.getElementById('ageB').value);
- const t = new Date(document.getElementById('ageT').value);
- if(isNaN(b)) return alert('생년월일을 입력해주세요.');
- 
- let manAge = t.getFullYear() - b.getFullYear();
- const m = t.getMonth() - b.getMonth();
- if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
- 
- const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
- const z = zodiacs[b.getFullYear() % 12] + '띠';
- 
- document.getElementById('manAgeRes').textContent = manAge + '세';
- document.getElementById('zodiacRes').textContent = z;
+function calcFuel(){
+ const d = parseFloat(document.getElementById('fuelDist').value);
+ const e = parseFloat(document.getElementById('fuelEff').value);
+ const p = parseFloat(document.getElementById('fuelPrice').value);
+ if(!d || !e || !p) return alert('모두 입력해주세요.');
+
+ const liter = d / e;
+ const cost = liter * p;
+
+ document.getElementById('fuelLiter').textContent = liter.toFixed(2) + ' 리터';
+ document.getElementById('fuelCost').textContent = Math.round(cost).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
 }
 </script>

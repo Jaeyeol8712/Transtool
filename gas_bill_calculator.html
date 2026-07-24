@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="common_head.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도시가스 요금 계산기 - 예상 가스비 산출 | 생활 계산기 모음</title>
+<meta name="description" content="계량기의 당월 지침을 입력하여 이번 달 도시가스 사용 요금을 미리 추정해 볼 수 있습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/gas_bill_calculator">
+<style>
+:root{--primary:#f59e0b;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+header{text-align:center;margin-bottom:24px;}
+header h1{font-size:1.6rem;margin-bottom:6px;}
+header p{color:var(--muted);font-size:0.95rem;}
+.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+button:hover{opacity:0.9;}
+.result{margin-top:24px;display:none;}
+.result.show{display:block;}
+.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+.result-row:last-child{border-bottom:none;}
+.result-label{font-size:0.9rem;color:var(--muted);}
+.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+.site-breadcrumb a{color:var(--muted);text-decoration:none;}
+footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+</style>
+</head>
+<body>
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>도시가스 요금 계산기</span></nav>
+<header>
+<h1>🔥 도시가스 요금 계산기</h1>
+<p>사용량(m³) 기반 당월 가스비 모의 계산</p>
+</header>
+<div class="ad-slot">광고 영역 (728x90)</div>
+
+<div class="card">
+ <label>전월 계량기 지침 (m³)</label>
+ <input type="number" id="gasOld" placeholder="예: 1100">
+ <label>당월 계량기 지침 (m³)</label>
+ <input type="number" id="gasNew" placeholder="예: 1180">
+ <label>용도</label>
+ <select id="gasType">
+ <option value="res">주택용 (취사/난방)</option>
+ </select>
+ <button onclick="calcGas()">예상 요금 계산</button>
+ <div class="info-box" style="margin-top:16px;">* 서울시 기준 기본요금(1250원) 및 평균 발열량을 가정한 대략적 요금입니다. 지역/공급사별 차이가 큽니다.</div>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">사용량</span><span class="result-value" id="gasUsage" style="font-size:1.1rem; color:var(--text);">-</span></div>
+ <div class="result-row"><span class="result-label">예상 청구 금액</span><span class="result-value" id="gasTotal">-</span></div>
+ </div>
+</div>
+ 
+<article class="seo-text">
+<h2>도시가스 요금 계산기 완벽 가이드</h2>
+<p>겨울철 난방비 폭탄이 두려우신가요? 관리비 고지서가 날아오기 전에 현재 우리 집 베란다에 있는 계량기 숫자를 통해 이번 달 가스 요금을 대략적으로 유추해 볼 수 있습니다. 도시가스는 단순히 사용한 부피(m³) 단위로 요금을 매기는 것이 아니라, 발열량과 보정계수를 곱해 열량(MJ) 단위로 환산한 뒤 단가를 곱하는 복잡한 체계를 갖고 있습니다. 일반 소비자가 이를 직접 계산하기란 사실상 불가능에 가깝습니다. 전월 지침과 당월 지침만 입력하면 내부 로직이 주택용 표준 단가를 곱하여 합리적인 예상 비용을 알려주어 가계부 예산 관리에 도움을 줍니다.</p>
+</article>
+<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
+<script>
+function calcGas(){
+ const oldV = parseFloat(document.getElementById('gasOld').value);
+ const newV = parseFloat(document.getElementById('gasNew').value);
+ if(isNaN(oldV) || isNaN(newV)) return alert('지침을 입력해주세요.');
+ if(oldV > newV) return alert('당월 지침이 전월보다 커야 합니다.');
+
+ const usage = newV - oldV;
+ const mj = usage * 1.0 * 42.8; 
+ const cost = mj * 20; 
+ const total = 1250 + cost + (cost * 0.1); 
+
+ document.getElementById('gasUsage').textContent = usage.toFixed(1) + ' m³';
+ document.getElementById('gasTotal').textContent = '약 ' + Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>
