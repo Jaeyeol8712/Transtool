@@ -1,120 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-
   <!-- 메인 페이지 -->
   <url>
-    <loc>https://aroundtool.com/index.html</loc>
+    <loc>https://www.aroundtool.com/index.html</loc>
     <priority>1.0</priority>
   </url>
 
   <!-- 세금 및 부동산 -->
   <url>
-    <loc>https://aroundtool.com/acquisition_tax_calculator.html</loc>
+    <loc>https://www.aroundtool.com/acquisition_tax_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/brokerage_fee_calculator.html</loc>
+    <loc>https://www.aroundtool.com/brokerage_fee_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/car_tax_calculator.html</loc>
+    <loc>https://www.aroundtool.com/car_tax_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/pyeong_calculator.html</loc>
+    <loc>https://www.aroundtool.com/pyeong_calculator.html</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 금융 및 자산 -->
   <url>
-    <loc>https://aroundtool.com/loan_calculator.html</loc>
+    <loc>https://www.aroundtool.com/loan_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/dsr_calculator.html</loc>
+    <loc>https://www.aroundtool.com/dsr_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/ltv_calculator.html</loc>
+    <loc>https://www.aroundtool.com/ltv_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/compound_calculator.html</loc>
+    <loc>https://www.aroundtool.com/compound_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/savings_calculator.html</loc>
+    <loc>https://www.aroundtool.com/savings_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/exchange_rate_calculator.html</loc>
+    <loc>https://www.aroundtool.com/exchange_rate_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/discount_calculator.html</loc>
+    <loc>https://www.aroundtool.com/discount_calculator.html</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 급여 및 노동 -->
   <url>
-    <loc>https://aroundtool.com/salary_calculator.html</loc>
+    <loc>https://www.aroundtool.com/salary_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/severance_calculator.html</loc>
+    <loc>https://www.aroundtool.com/severance_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/unemployment_benefit_calculator.html</loc>
+    <loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/freelancer_tax_calculator.html</loc>
+    <loc>https://www.aroundtool.com/freelancer_tax_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/holiday_pay_calculator.html</loc>
+    <loc>https://www.aroundtool.com/holiday_pay_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/pto_calculator.html</loc>
+    <loc>https://www.aroundtool.com/pto_calculator.html</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 건강 및 일상 -->
   <url>
-    <loc>https://aroundtool.com/bmi_calculator.html</loc>
+    <loc>https://www.aroundtool.com/bmi_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/bmr_calculator.html</loc>
+    <loc>https://www.aroundtool.com/bmr_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/calorie_calculator.html</loc>
+    <loc>https://www.aroundtool.com/calorie_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/age_calculator.html</loc>
+    <loc>https://www.aroundtool.com/age_calculator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/lotto_generator.html</loc>
+    <loc>https://www.aroundtool.com/lotto_generator.html</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 유틸리티 -->
   <url>
-    <loc>https://aroundtool.com/spell_checker.html</loc>
+    <loc>https://www.aroundtool.com/spell_checker.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/character_counter.html</loc>
+    <loc>https://www.aroundtool.com/character_counter.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aroundtool.com/qr_generator.html</loc>
+    <loc>https://www.aroundtool.com/qr_generator.html</loc>
     <priority>0.8</priority>
   </url>
-
 </urlset>
