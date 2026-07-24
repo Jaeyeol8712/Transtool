@@ -1,11 +1,12 @@
+<!-- 32. savings_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>예금 적금 이자 계산기 - 단리 복리 무료 계산</title>
-<meta name="description" content="매월 납입액과 이자율을 입력하여 단리, 월복리 방식의 세후 수령액을 계산해 줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/savings_calculator">
-<style>
+ <script src="common_head.js"></script>
+ <title>예금 적금 이자 계산기 - 단리 복리 무료 계산</title>
+ <meta name="description" content="매월 납입액과 이자율을 입력하여 단리, 월복리 방식의 세후 수령액을 계산해 줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/savings_calculator">
+ <style>
  :root{--primary:#10b981;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
  *{box-sizing:border-box;margin:0;padding:0;}
  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
@@ -24,20 +25,22 @@
  .result-row:last-child{border-bottom:none;}
  .result-label{font-size:0.9rem;color:var(--muted);}
  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>예적금 계산기</span></nav>
-<header>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>예적금 계산기</span></nav>
+ <header>
  <h1>🏦 예적금 계산기</h1>
  <p>단리/복리 이자 및 세후 수령액 계산</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card">
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>월 적립액 (원)</label>
  <input type="number" id="monthly" placeholder="예: 500000">
  <label>적립 기간 (개월)</label>
@@ -52,17 +55,22 @@
  <div class="result-row"><span class="result-label">세전 이자</span><span class="result-value" id="interest">-</span></div>
  <div class="result-row"><span class="result-label">세후 수령액 (일반 15.4%)</span><span class="result-value" style="color:#10b981;" id="total">-</span></div>
  </div>
-</div>
-<footer>© 2026 예적금 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script src="common_head.js"></script>
-<script>
-function calcSavings(){
+ </div>
+ <article class="seo-text">
+ <h2>상반기 성과급과 여름 보너스, 가장 현명하게 굴리는 적금 공식</h2>
+ <p>2026년 7월, 직장인들의 지갑을 따뜻하게 해주는 상반기 성과급이나 여름휴가 보너스가 들어왔다면 이를 헛되이 소비하기보다 고금리 특판 예적금에 묶어두는 것이 진정한 재테크의 시작입니다. 은행 앱에서 화려하게 광고하는 최고 연 7% 이자율을 덜컥 믿고 가입하기 전, 이것이 단순히 원금에만 이자가 붙는 '단리'인지 아니면 이자에 이자가 다시 굴러가는 마법의 '월복리'인지 꼼꼼히 따져보셔야 합니다. 본 툴은 매달 납입할 금액과 기간만 입력하면, 이자 소득세 15.4%를 깔끔하게 원천 징수한 후 만기일에 내 손에 딱 떨어지게 들어올 최종 '세후 수령액'을 정확히 계산해 줍니다. 목돈 마련을 위한 1년 플랜을 세우실 때 든든한 길잡이로 활용하세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 계산 결과는 가이드라인이며 실제 은행 수령액과 소폭의 단수 차이가 있을 수 있습니다.</p>
+ </footer>
+ <script>
+ function calcSavings(){
  const p = parseFloat(document.getElementById('monthly').value);
  const m = parseInt(document.getElementById('months').value);
  const r = parseFloat(document.getElementById('rate').value) / 100;
  const type = document.getElementById('type').value;
  if(!p || !m || !r) return alert('모두 입력해주세요.');
- 
  let principal = p * m;
  let interest = 0;
  if(type === 'simple'){
@@ -72,15 +80,13 @@ function calcSavings(){
  for(let i=1; i<=m; i++) total += p * Math.pow(1+r/12, i);
  interest = total - principal;
  }
- 
  const tax = interest * 0.154;
  const net = principal + interest - tax;
- 
  document.getElementById('principal').textContent = principal.toLocaleString() + '원';
  document.getElementById('interest').textContent = Math.round(interest).toLocaleString() + '원';
  document.getElementById('total').textContent = Math.round(net).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
