@@ -1,65 +1,11 @@
+<!-- 8. character_counter.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <script src="common_head.js"></script>
 <title>글자수 세기 - 무료 온라인 글자수 계산기</title>
 <meta name="description" content="자기소개서, 블로그, SNS 게시글의 글자수, 공백 제외 글자수, 단어수, 문장수를 실시간으로 계산해주는 무료 도구입니다.">
-
 <link rel="canonical" href="https://www.aroundtool.com/character_counter">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="생활 계산기 모음">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="글자수 세기 - 🔢 무료 온라인 도구">
-<meta property="og:description" content="자기소개서, 블로그, SNS 게시글의 글자수, 공백 제외 글자수, 단어수, 문장수를 실시간으로 계산해주는 무료 도구입니다.">
-<meta property="og:url" content="https://your-domain.com/character_counter.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="글자수 세기">
-<meta name="twitter:description" content="자기소개서, 블로그, SNS 게시글의 글자수, 공백 제외 글자수, 단어수, 문장수를 실시간으로 계산해주는 무료 도구입니다.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "글자수 세기",
-  "url": "https://your-domain.com/character_counter.html",
-  "description": "자기소개서, 블로그, SNS 게시글의 글자수, 공백 제외 글자수, 단어수, 문장수를 실시간으로 계산해주는 무료 도구입니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "inLanguage": "ko",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://your-domain.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "텍스트 도구",
-      "item": "https://your-domain.com/index.html#text"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "글자수 세기",
-      "item": "https://your-domain.com/character_counter.html"
-    }
-  ]
-}
-</script>
 <style>
   :root{--primary:#ea580c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -76,72 +22,53 @@
   .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px;}
   .toolbar{display:flex;justify-content:space-between;align-items:center;margin-top:10px;margin-bottom:4px;}
   .toolbar button{padding:8px 14px;font-size:0.85rem;font-weight:600;color:var(--primary);background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;cursor:pointer;}
-  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+  .seo-text{margin-top:40px;width:100%;max-width:680px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
   .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
   .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-breadcrumb a:hover{text-decoration:underline;}
-  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#ea580c22;color:#ea580c;font-weight:700;}
+  .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+  .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
 </style>
 </head>
 <body>
-
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>글자수 세기</span><span class="tool-code">TEXT-01</span></nav>
-
+<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>글자수 세기</span></nav>
 <header>
   <h1>🔢 글자수 세기</h1>
   <p>자기소개서, 블로그, SNS 글자수를 실시간으로 계산합니다</p>
 </header>
-
 <div class="ad-slot">광고 영역 (728x90)</div>
-
 <div class="card">
   <div class="toolbar">
     <span style="font-size:0.85rem;color:var(--muted);">아래에 텍스트를 입력하세요</span>
     <button onclick="clearText()">전체 지우기</button>
   </div>
   <textarea id="textInput" oninput="updateStats()" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
-
   <div class="stats">
-    <div class="stat-box">
-      <div class="stat-value" id="charWithSpace">0</div>
-      <div class="stat-label">공백 포함 글자수</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value" id="charNoSpace">0</div>
-      <div class="stat-label">공백 제외 글자수</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value" id="wordCount">0</div>
-      <div class="stat-label">단어수</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value" id="sentenceCount">0</div>
-      <div class="stat-label">문장수</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value" id="lineCount">0</div>
-      <div class="stat-label">줄수</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value" id="byteCount">0</div>
-      <div class="stat-label">바이트 (UTF-8)</div>
-    </div>
+    <div class="stat-box"><div class="stat-value" id="charWithSpace">0</div><div class="stat-label">공백 포함</div></div>
+    <div class="stat-box"><div class="stat-value" id="charNoSpace">0</div><div class="stat-label">공백 제외</div></div>
+    <div class="stat-box"><div class="stat-value" id="wordCount">0</div><div class="stat-label">단어수</div></div>
+    <div class="stat-box"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">문장수</div></div>
+    <div class="stat-box"><div class="stat-value" id="lineCount">0</div><div class="stat-label">줄수</div></div>
+    <div class="stat-box"><div class="stat-value" id="byteCount">0</div><div class="stat-label">바이트</div></div>
   </div>
 </div>
-
-<footer>© 2026 글자수 세기. 입력한 내용은 서버로 전송되지 않으며 브라우저에서만 처리됩니다. <a href="index.html" style="color:#ea580c;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
-
+<article class="seo-text">
+  <h2>2026년 공채 및 검색 노출 최적화를 위한 글자수 가이드</h2>
+  <p>하반기 채용 시즌을 준비하며 자기소개서를 다듬거나, 기업 브랜드 검색 상위 노출을 노리며 정보성 원고를 기획할 때 가장 민감하게 체크해야 할 영역이 바로 텍스트 분량입니다. 특히 자소서의 경우 각 기업이 요구하는 '공백 포함' 혹은 '공백 제외' 글자수 제한을 엄격하게 지키지 않으면 시스템 필터링 단계에서 바로 불이익을 받을 수 있습니다. 또한, 포털 사이트의 검색 봇(Bot)이 해당 문서를 양질의 정보로 인식하게 만들려면 통상 1,500자 이상의 밀도 있는 텍스트 구성이 필수적입니다. 본 툴킷은 무거운 프로그램 설치 과정 없이 웹 브라우저 내에서 텍스트를 입력하는 즉시 바이트(Byte) 단위, 단어 덩어리, 문장 개수까지 정교하게 쪼개어 실시간으로 보여줍니다. 한글 1자를 2바이트로 읽든 3바이트(UTF-8) 체계로 읽든 시스템에서 놓치지 않고 스캔하므로, 2026년 트렌드에 걸맞은 스마트한 원고를 편안하게 완성해 보시기 바랍니다.</p>
+</article>
+<footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 서버에 텍스트가 저장되지 않습니다.</p>
+</footer>
 <script>
 function updateStats(){
   const text = document.getElementById('textInput').value;
-
   const charWithSpace = text.length;
   const charNoSpace = text.replace(/\s/g, '').length;
   const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
   const sentences = text.split(/[.!?。！？]+/).filter(s => s.trim().length > 0);
   const lines = text === '' ? 0 : text.split('\n').length;
   const byteCount = new TextEncoder().encode(text).length;
-
   document.getElementById('charWithSpace').textContent = charWithSpace.toLocaleString();
   document.getElementById('charNoSpace').textContent = charNoSpace.toLocaleString();
   document.getElementById('wordCount').textContent = words.length.toLocaleString();
@@ -149,7 +76,6 @@ function updateStats(){
   document.getElementById('lineCount').textContent = lines.toLocaleString();
   document.getElementById('byteCount').textContent = byteCount.toLocaleString();
 }
-
 function clearText(){
   document.getElementById('textInput').value = '';
   updateStats();
