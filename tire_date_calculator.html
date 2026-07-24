@@ -1,78 +1,76 @@
+<!-- 36. tire_date_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>타이어 제조일자 계산기 - 생산 주차 확인 | 생활 계산기 모음</title>
-<meta name="description" content="타이어 옆면에 적힌 4자리 숫자를 입력하면, 몇 년도 몇 째 주에 생산된 타이어인지 즉시 변환해 줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/tire_date_calculator">
-<style>
-:root{--primary:#3f3f46;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>타이어 제조일자 계산기 - 생산 주차 확인 | 생활 계산기 모음</title>
+ <meta name="description" content="타이어 옆면에 적힌 4자리 숫자를 입력하면, 몇 년도 몇 째 주에 생산된 타이어인지 즉시 변환해 줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/tire_date_calculator">
+ <style>
+ :root{--primary:#3f3f46;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>타이어 제조일자 계산기</span></nav>
-<header>
-<h1>🛞 타이어 제조일자 계산기</h1>
-<p>DOT 번호 4자리로 타이어 생산 주차 확인</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
- <label>타이어 DOT 번호 끝 4자리 (예: 2523)</label>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>타이어 제조일자 계산기</span></nav>
+ <header>
+ <h1>🛞 타이어 제조일자 계산기</h1>
+ <p>DOT 번호 4자리로 타이어 생산 주차 확인</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label>타이어 DOT 번호 끝 4자리 (예: 2526)</label>
  <input type="number" id="dotNum" placeholder="예: 3125">
  <button onclick="calcTire()">제조일자 확인</button>
  <div class="result" id="result">
  <div class="result-row"><span class="result-label">생산 시기</span><span class="result-value" id="tireDate">-</span></div>
  <div class="result-row"><span class="result-label">추정 생산월</span><span class="result-value" id="tireMonth" style="font-size:1.1rem; color:var(--text);">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>타이어 제조일자 계산기 완벽 가이드</h2>
-<p>중고차를 구매하거나 새 타이어로 교체할 때, 고무가 경화되지 않은 신선한 타이어인지 확인하는 것은 생명과 직결된 중요한 안전 수칙입니다. 타이어 측면에 양각으로 새겨진 4자리 DOT 번호는 보통 앞의 두 자리가 '생산 주차(Week)'를, 뒤의 두 자리가 '생산 연도(Year)'를 의미합니다. 하지만 이 숫자를 보고 직관적으로 몇 월에 만들어졌는지 파악하기는 쉽지 않죠. 이 계산기에 4자리 숫자를 쳐 넣기만 하면, 정확히 언제 공장에서 출고된 제품인지 달(Month) 단위로 변환해 줍니다. 속아서 재고품을 장착하는 일이 없도록 스마트하게 점검해 보세요.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcTire(){
+ </div>
+ <article class="seo-text">
+ <h2>여름 장마철 장거리 드라이브 전, 필수 타이어 점검 노하우</h2>
+ <p>폭우가 쏟아지는 장마철과 한여름 휴가철 장거리 주행이 겹치는 7월입니다. 빗길 수막현상을 예방하고 고속도로에서 안전한 제동 거리를 확보하려면 브레이크 패드 점검 못지않게 타이어의 신선도(경화 상태)를 확인하는 것이 절대적으로 중요합니다. 고무는 시간이 지날수록 딱딱해져 성능이 크게 저하되기 때문입니다. 차를 타기 전 바퀴 옆면에 양각으로 새겨진 4자리 DOT 번호를 찾아보세요. 이 암호 같은 숫자의 앞 두 자리는 '생산 주차(Week)', 뒤 두 자리는 '생산 연도(Year)'를 가리킵니다. 중고차를 인수했거나 정비소에서 새 타이어로 교체하실 때 이 계산기에 숫자를 입력하기만 하면, 악성 재고품인지 방금 공장에서 생산된 따끈따끈한 신품인지 몇 월경 제품인지 단숨에 판별해 주어 호갱이 되는 것을 막아줍니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 계산 결과는 대략적인 월 추정치이며 제조사 기준과 미세한 차이가 있을 수 있습니다.</p>
+ </footer>
+ <script>
+ function calcTire(){
  const val = document.getElementById('dotNum').value;
  if(val.length !== 4) return alert('4자리 숫자를 입력해주세요.');
- 
  const week = parseInt(val.substring(0,2));
  const year = parseInt(val.substring(2,4));
- 
  if(week < 1 || week > 53) return alert('올바른 주차(01~53)를 입력하세요.');
-
  const month = Math.ceil(week / 4.345);
- 
  document.getElementById('tireDate').textContent = `20${year}년 ${week}번째 주`;
  document.getElementById('tireMonth').textContent = `대략 ${month}월경 생산됨`;
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
