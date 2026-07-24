@@ -1,11 +1,12 @@
+<!-- 16. exchange_rate_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>환율 계산기 - 달러/원화 실시간 환전 계산</title>
-<meta name="description" content="해외여행 준비나 직구 시 미국 달러와 한국 원화 간의 환전 금액을 직관적으로 빠르게 변환해 줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/exchange_rate_calculator">
-<style>
+ <script src="common_head.js"></script>
+ <title>환율 계산기 - 달러/원화 실시간 환전 계산</title>
+ <meta name="description" content="해외여행 준비나 직구 시 미국 달러와 한국 원화 간의 환전 금액을 직관적으로 빠르게 변환해 줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/exchange_rate_calculator">
+ <style>
  :root{--primary:#059669;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
  *{box-sizing:border-box;margin:0;padding:0;}
  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
@@ -24,50 +25,55 @@
  .result-row:last-child{border-bottom:none;}
  .result-label{font-size:0.9rem;color:var(--muted);}
  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 도구</span><span>/</span><span>환율 계산기</span></nav>
-<header>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 도구</span><span>/</span><span>환율 계산기</span></nav>
+ <header>
  <h1>💵 환율 계산기</h1>
  <p>달러(USD) ↔ 원화(KRW) 환산 금액 계산</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card">
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>기준 통화 (입력금액)</label>
  <select id="fromCur"><option value="USD">미국 달러 (USD)</option><option value="KRW">한국 원 (KRW)</option></select>
  <input type="number" id="amount" placeholder="예: 100">
  <label>대상 통화 (결과)</label>
  <select id="toCur"><option value="KRW">한국 원 (KRW)</option><option value="USD">미국 달러 (USD)</option></select>
  <button onclick="calcExchange()">환전 계산하기</button>
- <div class="info-box" style="margin-top:16px;">정적 데모: 환율 1 USD = 1,400 KRW 고정 적용 (실시간 API 미연동)</div>
+ <div style="margin-top:16px; font-size:0.85rem; color:#6b7280; background:#f9fafb; padding:12px; border-radius:8px;">* 정적 데모: 환율 1 USD = 1,400 KRW 고정 적용 (실시간 API 미연동 상태)</div>
  <div class="result" id="result">
  <div class="result-row"><span class="result-label">환산 금액</span><span class="result-value" id="exResult">-</span></div>
  </div>
-</div>
-<footer>© 2026 환율 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script src="common_head.js"></script>
-<script>
-function calcExchange(){
+ </div>
+ <article class="seo-text">
+ <h2>해외 바캉스 및 직구족을 위한 원달러 환산 팁</h2>
+ <p>글로벌 거시 경제의 여파로 달러 환율 변동성이 유독 크게 출렁이는 2026년 7월입니다. 다가오는 8월 본격적인 해외 바캉스를 준비하며 금융 앱을 통해 틈틈이 달러를 환전해 두거나, 여름 시즌 오프에 맞춰 아마존 등에서 해외 직구를 노리시는 분들이라면 현지 가격을 한국 돈으로 빠르게 체감하는 것이 1순위 과제입니다. 복잡한 수식이나 별도의 앱 설치 없이 달러 혹은 원화 금액만 입력하면, 내장된 환율 기준에 맞춰 반대 통화의 가치를 즉각적으로 변환해 줍니다. 비록 실시간 API 연동 전의 고정 데모 버전이긴 하나, 현지에서 쇼핑할 때 이 물건이 대략 한국 돈으로 얼마인지 감이 안 오거나 전체 여행 예산을 짤 때 스마트폰 브라우저에 가볍게 띄워두고 요긴하게 써먹을 수 있는 직관적인 웹 도구입니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 데모용이며 투자 지표로 활용할 수 없습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcExchange(){
  const amount = parseFloat(document.getElementById('amount').value);
  const from = document.getElementById('fromCur').value;
  const to = document.getElementById('toCur').value;
  if(!amount) return alert('금액을 입력해주세요.');
-
  let rate = 1;
  if(from === 'USD' && to === 'KRW') rate = 1400;
  if(from === 'KRW' && to === 'USD') rate = 1 / 1400;
-
  let res = amount * rate;
  let text = to === 'KRW' ? Math.round(res).toLocaleString() + ' 원' : res.toFixed(2) + ' 달러';
-
  document.getElementById('exResult').textContent = text;
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
