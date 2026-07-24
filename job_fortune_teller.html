@@ -1,78 +1,73 @@
+<!-- 23. job_fortune_teller.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>취업운세 - 오늘의 면접/합격운 무료 보기 | 생활 계산기 모음</title>
-<meta name="description" content="취업 준비생들을 위해 긴장감을 덜어주고 긍정적인 기운을 불어넣어 주는 가벼운 취업운세 서비스입니다.">
-<link rel="canonical" href="https://www.aroundtool.com/job_fortune_tellerl">
-<style>
-:root{--primary:#8b5cf6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>취업운세 - 오늘의 면접/합격운 무료 보기 | 생활 계산기 모음</title>
+ <meta name="description" content="취업 준비생들을 위해 긴장감을 덜어주고 긍정적인 기운을 불어넣어 주는 가벼운 취업운세 서비스입니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/job_fortune_tellerl">
+ <style>
+ :root{--primary:#8b5cf6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>취업운세</span></nav>
-<header>
-<h1>🍀 취업운세</h1>
-<p>오늘의 운세 및 면접 운 타로(재미용)</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card" style="text-align:center;">
- <p style="margin-bottom:20px; color:var(--muted); font-size:0.9rem;">이름을 입력하고 오늘의 운세를 확인하세요!</p>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>취업운세</span></nav>
+ <header>
+ <h1>🍀 취업운세</h1>
+ <p>오늘의 운세 및 면접 운 타로(재미용)</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card" style="text-align:center;">
+ <p style="margin-bottom:20px; color:var(--muted); font-size:0.9rem;">이름을 입력하고 오늘의 기분 좋은 운세를 확인하세요!</p>
  <input type="text" id="fortName" placeholder="이름 (예: 홍길동)" style="text-align:center;">
  <button onclick="calcFort()">🍀 취업 운세 뽑기 🍀</button>
  <div class="result" id="result" style="margin-top:20px; padding:20px; background:#fff7ed; border:1px solid #fed7aa; border-radius:12px;">
  <h3 style="color:#ea580c; margin-bottom:10px;" id="fortTitle">-</h3>
  <p id="fortDesc" style="font-size:0.9rem; line-height:1.6; color:#431407;">-</p>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>취업운세 완벽 가이드</h2>
-<p>얼어붙은 고용 시장과 끝없는 서류 탈락의 굴레 속에서 힘든 시기를 보내고 계신 모든 취준생 여러분을 응원합니다. 때로는 객관적인 스펙이나 날카로운 면접 준비만큼이나 '운'이라는 보이지 않는 요소가 마음에 큰 위안을 줄 때가 있죠. 면접을 보러 가는 길 지하철 안에서, 혹은 이력서를 제출하기 전 떨리는 마음을 진정시키고 싶을 때 가볍게 이용해 보세요. 과학적 근거보다는 지친 멘탈을 회복시켜 주고 자신감을 불어넣어 주기 위한 긍정적이고 희망찬 메시지들로 구성되어 있습니다. 오늘의 좋은 운세 결과가 여러분의 당당한 태도로 이어져 최종 합격이라는 열매를 맺길 기원합니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcFort(){
+ </div>
+ <article class="seo-text">
+ <h2>하반기 공채 준비생을 위한 멘탈 케어 타로</h2>
+ <p>찌는 듯한 2026년 7월의 폭염 속에서도 다가올 가을 하반기 대기업 공채 시즌을 대비해, 스터디 카페에서 자기소개서와 면접 스크립트를 다듬으며 고군분투하는 모든 취업 준비생 여러분을 진심으로 응원합니다. 계속되는 서류 필터링의 탈락이나 숨 막히는 압박 면접의 긴장감으로 멘탈이 바닥까지 흔들릴 때, 억지로 참기보다는 잠깐의 가벼운 숨 고르기가 필요하지 않으신가요? 이 서비스는 고도의 과학적인 평가 도구는 결코 아니지만, 여러분의 굳은 의지와 간절함에 작게나마 긍정적인 기운을 불어넣어 주기 위해 기획된 힐링형 운세 테스트입니다. 인적성 고사장으로 향하는 에어컨 빵빵한 지하철 안이나 이력서 최종 제출 버튼을 누르기 직전, 아주 가벼운 마음으로 이름을 입력해 보세요. 오늘의 기분 좋은 운세 결과가 면접관 앞에서의 당당한 태도로 이어져, 최종 합격이라는 달콤한 과실을 맺을 수 있도록 어라운드툴이 늘 행운을 빌어드립니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 본 서비스는 재미 목적이며 실제 합격 여부와 무관합니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcFort(){
  const n = document.getElementById('fortName').value;
  if(!n) return alert('이름을 입력해주세요.');
- 
  const fortunes = [
  {t: "대길! 면접관의 시선을 사로잡는 날", d: "오늘은 당신의 솔직함이 강력한 무기가 됩니다. 준비했던 답변이 아니더라도 당황하지 말고 자신감 있게 말하세요. 합격의 문이 활짝 열려 있습니다."},
  {t: "조력자의 등장, 서류 합격의 기운", d: "예상치 못한 곳에서 취업 관련 좋은 소식이나 꿀팁을 얻을 수 있습니다. 오늘 올라온 채용 공고를 유심히 살펴보면 당신에게 딱 맞는 포지션이 있을 것입니다."},
  {t: "꾸준함이 빛을 발하는 타이밍", d: "그동안 쌓아온 스펙과 노력이 면접에서 자연스럽게 묻어나는 날입니다. 긴장감을 내려놓고 편안한 미소를 유지한다면 무조건 좋은 결과가 따라옵니다."}
  ];
- 
  const pick = fortunes[Math.floor(Math.random() * fortunes.length)];
- 
  document.getElementById('fortTitle').textContent = pick.t;
  document.getElementById('fortDesc').textContent = n + '님, ' + pick.d;
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
