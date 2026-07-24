@@ -1,195 +1,132 @@
+<!-- 24. loan_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>대출 이자 계산기 - 원리금균등상환 무료 계산</title>
-<meta name="description" content="원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.">
-
-<link rel="canonical" href="https://www.aroundtool.com/loan_calculator">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="생활 계산기 모음">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="대출 이자 계산기 - 🏦 무료 온라인 도구">
-<meta property="og:description" content="원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.">
-<meta property="og:url" content="https://your-domain.com/loan_calculator.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="대출 이자 계산기">
-<meta name="twitter:description" content="원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "대출 이자 계산기",
-  "url": "https://your-domain.com/loan_calculator.html",
-  "description": "원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "inLanguage": "ko",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://your-domain.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "재테크 계산기",
-      "item": "https://your-domain.com/index.html#finance"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "대출 이자 계산기",
-      "item": "https://your-domain.com/loan_calculator.html"
-    }
-  ]
-}
-</script>
-<style>
-  :root{--primary:#1d4ed8;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-  header{text-align:center;margin-bottom:24px;}
-  header h1{font-size:1.5rem;margin-bottom:6px;}
-  header p{color:var(--muted);font-size:0.95rem;}
-  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-  label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-  input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
-  button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-  button:hover{background:#1e40af;}
-  .result{margin-top:24px;display:none;}
-  .result.show{display:block;}
-  .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-  .result-row:last-child{border-bottom:none;}
-  .result-label{font-size:0.9rem;color:var(--muted);}
-  .result-value{font-size:1.2rem;font-weight:700;color:var(--primary);}
-  .result-value.small{font-size:1.02rem;color:var(--text);}
-  footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-  .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-  .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
-  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-breadcrumb a:hover{text-decoration:underline;}
-  .site-breadcrumb .tool-code{margin-left:auto;padding:2px 8px;border-radius:20px;background:#1d4ed822;color:#1d4ed8;font-weight:700;}
-</style>
+ <script src="common_head.js"></script>
+ <title>대출 이자 계산기 - 원리금균등상환 무료 계산</title>
+ <meta name="description" content="원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/loan_calculator">
+ <style>
+ :root{--primary:#1d4ed8;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.5rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{background:#1e40af;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.2rem;font-weight:700;color:var(--primary);}
+ .result-value.small{font-size:1.02rem;color:var(--text);}
+ .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>대출 이자 계산기</span><span class="tool-code">FIN-01</span></nav>
-
-<header>
-  <h1>🏦 대출 이자 계산기</h1>
-  <p>상환 방식별 월 상환금과 총 이자를 계산합니다</p>
-</header>
-
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
-  <label for="principal">대출 원금 (원)</label>
-  <input type="number" id="principal" placeholder="예: 100000000">
-  <label for="rate">연 이자율 (%)</label>
-  <input type="number" id="rate" step="0.01" placeholder="예: 4.5">
-  <label for="years">대출 기간 (년)</label>
-  <input type="number" id="years" placeholder="예: 30">
-  <label for="method">상환 방식</label>
-  <select id="method">
-    <option value="equal_payment">원리금균등상환</option>
-    <option value="equal_principal">원금균등상환</option>
-    <option value="lump_sum">만기일시상환</option>
-  </select>
-  <button onclick="calculateLoan()">계산하기</button>
-
-  <div class="result" id="result">
-    <div class="result-row">
-      <span class="result-label" id="paymentLabel">월 상환금</span>
-      <span class="result-value" id="monthlyPayment">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">총 이자</span>
-      <span class="result-value small" id="totalInterest">-</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">총 상환액</span>
-      <span class="result-value small" id="totalPayment">-</span>
-    </div>
-  </div>
-</div>
-
-<div class="info-box">
-  <h2>ℹ️ 상환 방식 안내</h2>
-  <p><b>원리금균등상환</b>: 매달 같은 금액(원금+이자)을 상환. 초기엔 이자 비중이 큽니다.</p>
-  <p style="margin-top:6px;"><b>원금균등상환</b>: 매달 같은 원금을 상환, 이자는 잔액에 따라 감소. 첫 달 상환금이 가장 큽니다.</p>
-  <p style="margin-top:6px;"><b>만기일시상환</b>: 매달 이자만 내다가 만기에 원금을 한번에 상환합니다.</p>
-</div>
-
-<footer>© 2026 대출 이자 계산기. 본 결과는 참고용이며 실제 대출 조건과 다를 수 있습니다. <a href="index.html" style="color:#1d4ed8;font-weight:600;">&larr; 전체 계산기 모음 보러가기</a></footer>
-
-<script>
-function calculateLoan(){
-  const principal = parseFloat(document.getElementById('principal').value);
-  const annualRate = parseFloat(document.getElementById('rate').value);
-  const years = parseFloat(document.getElementById('years').value);
-  const method = document.getElementById('method').value;
-
-  if(!principal || annualRate===undefined || isNaN(annualRate) || !years){
-    alert('모든 값을 정확히 입력해주세요.');
-    return;
-  }
-
-  const monthlyRate = annualRate / 100 / 12;
-  const n = years * 12;
-
-  let firstPayment, totalPayment, totalInterest, label;
-
-  if(method === 'equal_payment'){
-    label = '월 상환금 (매월 동일)';
-    if(monthlyRate === 0){
-      firstPayment = principal / n;
-    } else {
-      firstPayment = principal * monthlyRate * Math.pow(1+monthlyRate, n) / (Math.pow(1+monthlyRate, n) - 1);
-    }
-    totalPayment = firstPayment * n;
-    totalInterest = totalPayment - principal;
-
-  } else if(method === 'equal_principal'){
-    label = '첫 달 상환금 (이후 점차 감소)';
-    const monthlyPrincipal = principal / n;
-    const firstInterest = principal * monthlyRate;
-    firstPayment = monthlyPrincipal + firstInterest;
-    // 총 이자 = 원금 × 월이자율 × (n+1)/2
-    totalInterest = principal * monthlyRate * (n+1) / 2;
-    totalPayment = principal + totalInterest;
-
-  } else { // lump_sum
-    label = '월 이자 상환금 (만기에 원금 별도)';
-    firstPayment = principal * monthlyRate;
-    totalInterest = firstPayment * n;
-    totalPayment = principal + totalInterest;
-  }
-
-  document.getElementById('paymentLabel').textContent = label;
-  document.getElementById('monthlyPayment').textContent = Math.round(firstPayment).toLocaleString()+'원';
-  document.getElementById('totalInterest').textContent = Math.round(totalInterest).toLocaleString()+'원';
-  document.getElementById('totalPayment').textContent = Math.round(totalPayment).toLocaleString()+'원';
-
-  document.getElementById('result').classList.add('show');
-}
-</script>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>대출 이자 계산기</span></nav>
+ <header>
+ <h1>🏦 대출 이자 계산기</h1>
+ <p>상환 방식별 월 상환금과 총 이자를 계산합니다</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label for="principal">대출 원금 (원)</label>
+ <input type="number" id="principal" placeholder="예: 100000000">
+ <label for="rate">연 이자율 (%)</label>
+ <input type="number" id="rate" step="0.01" placeholder="예: 4.5">
+ <label for="years">대출 기간 (년)</label>
+ <input type="number" id="years" placeholder="예: 30">
+ <label for="method">상환 방식</label>
+ <select id="method">
+ <option value="equal_payment">원리금균등상환</option>
+ <option value="equal_principal">원금균등상환</option>
+ <option value="lump_sum">만기일시상환</option>
+ </select>
+ <button onclick="calculateLoan()">계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row">
+ <span class="result-label" id="paymentLabel">월 상환금</span>
+ <span class="result-value" id="monthlyPayment">-</span>
+ </div>
+ <div class="result-row">
+ <span class="result-label">총 이자</span>
+ <span class="result-value small" id="totalInterest">-</span>
+ </div>
+ <div class="result-row">
+ <span class="result-label">총 상환액</span>
+ <span class="result-value small" id="totalPayment">-</span>
+ </div>
+ </div>
+ </div>
+ <div class="info-box">
+ <h2>ℹ️ 상환 방식 안내</h2>
+ <p><b>원리금균등상환</b>: 매달 같은 금액(원금+이자)을 상환. 초기엔 이자 비중이 큽니다.</p>
+ <p style="margin-top:6px;"><b>원금균등상환</b>: 매달 같은 원금을 상환, 이자는 잔액에 따라 감소. 첫 달 상환금이 가장 큽니다.</p>
+ <p style="margin-top:6px;"><b>만기일시상환</b>: 매달 이자만 내다가 만기에 원금을 한번에 상환합니다.</p>
+ </div>
+ <article class="seo-text">
+ <h2>가을 이사철 대비, 2026년 대출 상환 스케줄 진단법</h2>
+ <p>2026년 하반기, 여전히 부담스러운 전세가와 요동치는 시중 은행 대출 금리 탓에 가을 이사철을 앞둔 서민들의 이자 셈법이 그 어느 때보다 복잡해졌습니다. 번호표를 뽑고 은행 창구에서 정식 상담을 받기 전에, 가장 먼저 스스로 진단해 보아야 할 것은 '과연 내 월급으로 매달 빠져나가는 원리금을 연체 없이 감당할 수 있는가'입니다. 본 도구의 빈칸에 필요한 융자 금액과 예상 금리만 기입해 보세요. 초기 부담은 크지만 갈수록 이자가 확연히 줄어드는 '원금균등상환'부터, 매월 통장에서 나가는 돈이 일정해 직장인 지출 계획을 세우기 가장 유리한 '원리금균등상환'까지 은행권에서 쓰는 세 가지 방식을 그대로 차용해 스케줄을 비교해 드립니다. 에어컨이 빵빵한 집안에서 모바일로 여유롭게 내 총 이자 규모를 미리 가늠해 보고, 가장 단단한 가계 자금 운용 계획을 수립해 보시기 바랍니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 본 결과는 참고용이며 실제 대출 실행 시 조건이 다를 수 있습니다.</p>
+ </footer>
+ <script>
+ function calculateLoan(){
+ const principal = parseFloat(document.getElementById('principal').value);
+ const annualRate = parseFloat(document.getElementById('rate').value);
+ const years = parseFloat(document.getElementById('years').value);
+ const method = document.getElementById('method').value;
+ if(!principal || annualRate===undefined || isNaN(annualRate) || !years){
+ alert('모든 값을 정확히 입력해주세요.');
+ return;
+ }
+ const monthlyRate = annualRate / 100 / 12;
+ const n = years * 12;
+ let firstPayment, totalPayment, totalInterest, label;
+ if(method === 'equal_payment'){
+ label = '월 상환금 (매월 동일)';
+ if(monthlyRate === 0){
+ firstPayment = principal / n;
+ } else {
+ firstPayment = principal * monthlyRate * Math.pow(1+monthlyRate, n) / (Math.pow(1+monthlyRate, n) - 1);
+ }
+ totalPayment = firstPayment * n;
+ totalInterest = totalPayment - principal;
+ } else if(method === 'equal_principal'){
+ label = '첫 달 상환금 (이후 점차 감소)';
+ const monthlyPrincipal = principal / n;
+ const firstInterest = principal * monthlyRate;
+ firstPayment = monthlyPrincipal + firstInterest;
+ totalInterest = principal * monthlyRate * (n+1) / 2;
+ totalPayment = principal + totalInterest;
+ } else { 
+ label = '월 이자 상환금 (만기에 원금 별도)';
+ firstPayment = principal * monthlyRate;
+ totalInterest = firstPayment * n;
+ totalPayment = principal + totalInterest;
+ }
+ document.getElementById('paymentLabel').textContent = label;
+ document.getElementById('monthlyPayment').textContent = Math.round(firstPayment).toLocaleString()+'원';
+ document.getElementById('totalInterest').textContent = Math.round(totalInterest).toLocaleString()+'원';
+ document.getElementById('totalPayment').textContent = Math.round(totalPayment).toLocaleString()+'원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
 </body>
 </html>
