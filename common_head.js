@@ -3,7 +3,7 @@
   const head = document.head;
   // 1. 메타태그 추가 (네이버 서치어드바이저, 구글 애드센스)
   const metaTags = [
-    { name: 'naver-site-verification', content: 'b49199b17146051daa9c8f8eba5053a31708444c' },
+    { name: 'naver-site-verification', content: '819ae10e3fae28782afbbbbc248f8423b816872b' },
     { name: 'google-adsense-account', content: 'ca-pub-7089972708901760' }
   ];
   metaTags.forEach(tag => {
