@@ -1,47 +1,47 @@
+<!-- 11. daily_calorie_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>하루 권장 칼로리 계산기 - 다이어트 목표 설정 | 생활 계산기 모음</title>
-<meta name="description" content="다이어트나 벌크업 등 내 몸의 변화를 원할 때, 평소 활동량 대비 먹어야 할 권장 칼로리를 알려줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/daily_calorie_calculator.html">
-<style>
-:root{--primary:#ea580c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>하루 권장 칼로리 계산기 - 다이어트 목표 설정 | 생활 계산기 모음</title>
+ <meta name="description" content="다이어트나 벌크업 등 내 몸의 변화를 원할 때, 평소 활동량 대비 먹어야 할 권장 칼로리를 알려줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/daily_calorie_calculator.html">
+ <style>
+ :root{--primary:#ea580c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>나의 하루 필요 열량은?</span></nav>
-<header>
-<h1>🍽️ 나의 하루 필요 열량은?</h1>
-<p>목표 체중에 따른 TDEE 및 섭취 권장량</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>나의 하루 필요 열량은?</span></nav>
+ <header>
+ <h1>🍽️ 나의 하루 필요 열량은?</h1>
+ <p>목표 체중에 따른 TDEE 및 섭취 권장량</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>기초대사량 (kcal)</label>
  <input type="number" id="dcBmr" placeholder="예: 1600">
  <label>일주일 운동 빈도</label>
@@ -60,24 +60,25 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <div class="result" id="result">
  <div class="result-row"><span class="result-label">하루 목표 섭취량</span><span class="result-value" id="dcTarget">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>나의 하루 필요 열량은? 완벽 가이드</h2>
-<p>성공적인 체형 관리는 막연히 굶는 것이 아니라 영양학적 밸런스를 갖춘 채로 내 몸이 요구하는 정확한 열량 데이터를 파악하는 데서 완성됩니다. 아무리 고강도 운동을 해도 활동 대사량(TDEE)을 초과하는 칼로리를 섭취하면 살이 찌기 마련이죠. 이 도구는 본인의 기초적인 대사량에 직장이나 일상에서의 활동 수준을 곱셈 처리하여 기본 소모 열량을 잡은 뒤, 체중 감량이나 증량이라는 사용자의 궁극적 목표에 맞춰 가감된 최종 섭취 권장량을 숫자로 박아줍니다. 식단 앱에 이 숫자를 세팅해 두고 관리하시면 요요 없는 건강함을 유지할 수 있습니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcDC(){
+ </div>
+ <article class="seo-text">
+ <h2>여름휴가 대비, 요요 없는 다이어트 권장 열량 가이드</h2>
+ <p>2026년 7월, 본격적인 바캉스 시즌을 맞아 급하게 다이어트나 바디 프로필을 준비하며 구슬땀을 흘리는 분들이 많습니다. 단기간에 체중을 빼겠다며 무작정 밥을 굶는 분들이 계시는데, 이는 수분과 근육만 빠져나가 결국 가을에 무서운 요요 현상으로 되돌아옵니다. 성공적인 체형 관리의 시작은 내 신체 스펙에 맞춘 기초대사량을 파악하고, 일주일 동안의 활동 강도를 곱해 '하루 총 소모 열량(TDEE)'의 영점을 잡는 것입니다. 본 도구에 감량이나 증량이라는 최종 목표를 설정하시면 하루에 딱 얼마만큼의 에너지를 섭취해야 할지 명확한 가이드라인 숫자를 제시해 드립니다. 산출된 결과값을 식단 관리 앱에 등록해 두고 흔들림 없이 실천해 보세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적·의학적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcDC(){
  const b = parseFloat(document.getElementById('dcBmr').value);
  const a = parseFloat(document.getElementById('dcAct').value);
  const g = parseFloat(document.getElementById('dcGoal').value);
  if(!b) return alert('기초대사량을 입력해주세요.');
- 
  const target = (b * a) + g;
  document.getElementById('dcTarget').textContent = Math.round(target).toLocaleString() + ' kcal';
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
