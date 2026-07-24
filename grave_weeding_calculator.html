@@ -1,47 +1,47 @@
+<!-- 20. grave_weeding_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>벌초 견적 계산기 - 대행 비용 모의계산 | 생활 계산기 모음</title>
-<meta name="description" content="추석 명절을 앞두고 조상님 산소 벌초 대행을 맡길 때 묘지 기수와 면적을 기준으로 예상 비용을 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/grave_weeding_calculator">
-<style>
-:root{--primary:#22c55e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>벌초 견적 계산기 - 대행 비용 모의계산 | 생활 계산기 모음</title>
+ <meta name="description" content="추석 명절을 앞두고 조상님 산소 벌초 대행을 맡길 때 묘지 기수와 면적을 기준으로 예상 비용을 계산합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/grave_weeding_calculator">
+ <style>
+ :root{--primary:#22c55e;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>벌초 견적 계산기</span></nav>
-<header>
-<h1>🌿 벌초 견적 계산기</h1>
-<p>산소 면적 및 기수별 벌초 대행 예상 비용</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활 편의</span><span>/</span><span>벌초 견적 계산기</span></nav>
+ <header>
+ <h1>🌿 벌초 견적 계산기</h1>
+ <p>산소 면적 및 기수별 벌초 대행 예상 비용</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>산소 기수 (묘의 개수)</label>
  <input type="number" id="graveCount" placeholder="예: 2" value="1">
  <label>묘지 대략적 면적 (평)</label>
@@ -52,33 +52,32 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <option value="1.2">도보 10분 이상 산길</option>
  </select>
  <button onclick="calcGrave()">예상 견적 확인</button>
- <div class="info-box" style="margin-top:16px;">* 농협 및 지역 산림조합 대행 단가(추정치)를 베이스로 산출된 참고용 견적입니다.</div>
+ <div style="margin-top:16px; font-size:0.85rem; color:#6b7280; line-height:1.6; background:#f9fafb; padding:12px; border-radius:8px;">* 농협 및 지역 산림조합 대행 단가(추정치)를 베이스로 산출된 참고용 견적입니다.</div>
  <div class="result" id="result">
  <div class="result-row"><span class="result-label">예상 대행 비용</span><span class="result-value" id="graveCost">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>벌초 견적 계산기 완벽 가이드</h2>
-<p>매년 다가오는 명절, 조상님 산소를 직접 관리하기 힘든 현대인들에게 벌초 대행 서비스는 필수 선택지가 되었습니다. 하지만 업체마다, 그리고 지역 농협이나 산림조합마다 부르는게 값이라 예산 잡기가 막막하셨을 텐데요. 이 벌초 견적 계산기는 모실 묘의 개수(기수)와 주변 면적, 그리고 낫이나 예초기를 들고 도보로 이동해야 하는 현장 접근성(난이도) 변수를 종합적으로 고려하여 대략적인 시장 적정가를 산출해 냅니다. 호갱을 피하고 업체와 합리적으로 단가를 조율하기 전, 든든한 기준표로 활용해 보시길 권장합니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcGrave(){
+ </div>
+ <article class="seo-text">
+ <h2>2026년 가을 추석 준비, 미리 알아보는 벌초 대행 단가표</h2>
+ <p>2026년 가을 추석 명절이 서서히 다가오면서, 찌는 듯한 7~8월 무더위 속 직접 예초기를 돌리기 부담스러운 분들이 지역 산림조합이나 인근 농협에 조상님 묘소 벌초 대행을 사전 예약하시려는 발길이 분주해지고 있습니다. 매년 기름값과 현장 인건비가 가파르게 상승하다 보니 올해는 비용이 도대체 얼마나 나올지 예산 잡기가 막막하실 텐데요. 모시고 있는 산소의 기수(묘의 개수)와 묘역 주변의 대략적인 평수, 그리고 차량 진입이 용이한지 아니면 낫이나 기계를 들고 가파른 산길을 타야 하는지 등 접근성 난이도만 꼼꼼히 체크해 보세요. 2026년 현업 대행 단가표 가이드라인을 기반으로 한 대략적인 예상 견적을 즉시 뽑아주어, 민간 업체와 덤터기 없이 아주 합리적으로 비용을 조율할 수 있는 훌륭한 협상 기준점이 되어줍니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용 견적이며 법적 효력이 없습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcGrave(){
  const c = parseInt(document.getElementById('graveCount').value);
  const a = parseFloat(document.getElementById('graveArea').value);
  const acc = parseFloat(document.getElementById('graveAccess').value);
  if(!c || !a) return alert('묘지 기수와 면적을 입력해주세요.');
-
  let baseCost = 80000;
  if(c > 1) baseCost += (c - 1) * 40000; 
  if(a > 20) baseCost += ((a - 20) / 10) * 20000; 
-
  const total = baseCost * acc;
-
  document.getElementById('graveCost').textContent = '약 ' + Math.round(total).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
