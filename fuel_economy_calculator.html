@@ -1,47 +1,47 @@
+<!-- 18. fuel_economy_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>주유 경제성 계산기 - 예상 유류비 계산 | 생활 계산기 모음</title>
-<meta name="description" content="자동차의 연비와 주행 거리를 바탕으로 이번 여행이나 출장에 드는 예상 유류비(기름값)를 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/fuel_economy_calculator">
-<style>
-:root{--primary:#0284c7;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>주유 경제성 계산기 - 예상 유류비 계산 | 생활 계산기 모음</title>
+ <meta name="description" content="자동차의 연비와 주행 거리를 바탕으로 이번 여행이나 출장에 드는 예상 유류비(기름값)를 계산합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/fuel_economy_calculator">
+ <style>
+ :root{--primary:#0284c7;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>주유 경제성 계산기</span></nav>
-<header>
-<h1>⛽ 주유 경제성 계산기</h1>
-<p>목적지 이동 시 예상 기름값 산출</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>데이터 분석</span><span>/</span><span>주유 경제성 계산기</span></nav>
+ <header>
+ <h1>⛽ 주유 경제성 계산기</h1>
+ <p>목적지 이동 시 예상 기름값 산출</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
  <label>이동 거리 (km)</label>
  <input type="number" id="fuelDist" placeholder="예: 350">
  <label>차량 공인 연비 (km/L)</label>
@@ -53,27 +53,27 @@ footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max
  <div class="result-row"><span class="result-label">소모 예상 연료량</span><span class="result-value" id="fuelLiter" style="font-size:1.1rem; color:var(--text);">-</span></div>
  <div class="result-row"><span class="result-label">예상 주유 비용</span><span class="result-value" id="fuelCost">-</span></div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>주유 경제성 계산기 완벽 가이드</h2>
-<p>이번 주말 장거리 드라이브, 혹은 타지역으로의 업무 출장을 앞두고 기름값이 얼마나 나올지 궁금하신가요? 내 차의 톨게이트 비용 외에도 가장 큰 지출을 차지하는 것이 바로 유류비입니다. 내 차의 공인 연비(혹은 실연비)와 내비게이션에 찍힌 주행 거리, 그리고 현재 주유소 기준 리터당 휘발유나 경유 가격을 입력해 보세요. 차량이 소모하게 될 총 연료량(리터)과 예상 주유 비용을 빠르고 정확하게 뽑아줍니다. 여러 사람과 함께 카풀을 할 때 유류비를 뿜빠이(더치페이) 하기 위한 객관적 자료로도 탁월한 도구입니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcFuel(){
+ </div>
+ <article class="seo-text">
+ <h2>여름 바캉스 장거리 드라이브, 유류비 폭탄 피하는 예측 팁</h2>
+ <p>꿉꿉한 장마가 끝나고 본격적인 폭염이 쏟아지는 7월, 동해안 해수욕장이나 강원도 산간 계곡으로 시원한 피서 여행을 계획하고 계신가요? 고물가 기조가 꺾이지 않는 2026년 현재, 자차로 장거리 드라이브를 떠나기 전 톨게이트 비용 다음으로 가장 먼저 계산기를 두드려봐야 할 항목이 바로 주유비입니다. T맵 등 내비게이션 앱으로 미리 찍어둔 목적지까지의 총 주행 거리와 내 차의 계기판에 표기된 평균 실연비, 그리고 현재 단골 주유소에 걸려있는 리터당 휘발유나 경유 가격만 채워 넣어 보세요. 왕복 여행에 쏟아부어야 할 총 연료량과 예상되는 현금 지출 금액을 한눈에 뽑아줍니다. 친구들이나 동호회원들과 카풀로 이동하며 쿨하게 기름값을 공평하게 더치페이할 때에도 아주 유용한 객관적 지표가 되어줄 것입니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcFuel(){
  const d = parseFloat(document.getElementById('fuelDist').value);
  const e = parseFloat(document.getElementById('fuelEff').value);
  const p = parseFloat(document.getElementById('fuelPrice').value);
  if(!d || !e || !p) return alert('모두 입력해주세요.');
-
  const liter = d / e;
  const cost = liter * p;
-
  document.getElementById('fuelLiter').textContent = liter.toFixed(2) + ' 리터';
  document.getElementById('fuelCost').textContent = Math.round(cost).toLocaleString() + '원';
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
