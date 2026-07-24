@@ -20,7 +20,14 @@
         head.appendChild(el);
     });
 
-    // 2. 구글 애널리틱스(GA4) 적용
+    // 2. 구글 애드센스 외부 스크립트 추가
+    const adsScript = document.createElement('script');
+    adsScript.async = true;
+    adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760';
+    adsScript.crossOrigin = 'anonymous';
+    head.appendChild(adsScript);
+
+    // 3. 구글 애널리틱스(GA4) 적용
     const gaId = 'G-2LK65NYW74';
     const gaScript = document.createElement('script');
     gaScript.async = true;
