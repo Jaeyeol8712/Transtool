@@ -1,3 +1,4 @@
+<!-- 6. calorie_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,10 +25,12 @@
  .result-row:last-child{border-bottom:none;}
  .result-label{font-size:0.9rem;color:var(--muted);}
  .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
 </style>
 </head>
 <body>
@@ -58,18 +61,22 @@
  <div class="result-row"><span class="result-label">목표 권장 칼로리</span><span class="result-value" id="targetCal">-</span></div>
  </div>
 </div>
-<footer>© 2026 권장 칼로리 계산기. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script src="common_head.js"></script>
+<article class="seo-text">
+ <h2>목표를 관통하는 하루 권장 칼로리 설정법</h2>
+ <p>여름휴가를 코앞에 두고 체지방을 걷어내려 하거나, 반대로 멋진 어깨 핏을 위해 체격을 불리고 계시다면 매일 입으로 들어가는 '칼로리 총량' 계산이 필수입니다. 무작정 남들 식단을 따라 굶는 행위는 근손실과 면역력 붕괴로 직결됩니다. 2026년 최신 영양학계 트렌드는 본인의 숨만 쉬어도 나가는 기초대사량(BMR)에 실제 활동 수준 지표를 곱한 '유지 칼로리(TDEE)'를 정확히 인지하는 것에서 출발합니다. 체중을 지금 그대로 방어하고 싶다면 산출된 수치만큼만 드시고, 한 주에 0.5kg을 안전선 내에서 감량하려면 매일 딱 500kcal씩만 덜어내면 됩니다. 반대로 단단한 근육 증량을 노린다면 300~500kcal를 얹어서 섭취하되 단백질 비중을 끌어올리는 것이 정석입니다. 하루 종일 앉아있는 사무직인지 땀방울을 쏟는 직군인지, 본인의 라이프스타일을 솔직하게 반영해 최적의 타깃 수치를 점검해 보세요.</p>
+</article>
+<footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+</footer>
 <script>
 function calcCalorie(){
  const bmr = parseFloat(document.getElementById('calBmr').value);
  const act = parseFloat(document.getElementById('activity').value);
  const goal = parseFloat(document.getElementById('goal').value);
  if(!bmr) return alert('기초대사량을 입력해주세요.');
-
  let tdee = bmr * act;
  let target = tdee + goal;
-
  document.getElementById('targetCal').textContent = Math.round(target).toLocaleString() + ' kcal';
  document.getElementById('result').classList.add('show');
 }
