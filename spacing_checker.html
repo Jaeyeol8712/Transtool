@@ -1,71 +1,72 @@
+<!-- 34. spacing_checker.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>띄어쓰기 검사기 - 맞춤법 자동 교정 | 생활 계산기 모음</title>
-<meta name="description" content="한글 띄어쓰기가 파괴된 문장을 자동으로 분석하여 가독성 높고 올바른 문장으로 정돈해 줍니다.">
-<link rel="canonical" href="https://www.aroundtool.com/spacing_checker">
-<style>
-:root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-header{text-align:center;margin-bottom:24px;}
-header h1{font-size:1.6rem;margin-bottom:6px;}
-header p{color:var(--muted);font-size:0.95rem;}
-.ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-.card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
-label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
-input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
-button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
-button:hover{opacity:0.9;}
-.result{margin-top:24px;display:none;}
-.result.show{display:block;}
-.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
-.result-row:last-child{border-bottom:none;}
-.result-label{font-size:0.9rem;color:var(--muted);}
-.result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
-.info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
-.seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-.site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-.site-breadcrumb a{color:var(--muted);text-decoration:none;}
-footer{margin-top:32px;color:var(--muted);font-size:0.8rem;text-align:center;max-width:480px;}
-</style>
+ <script src="common_head.js"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>띄어쓰기 검사기 - 맞춤법 자동 교정 | 생활 계산기 모음</title>
+ <meta name="description" content="한글 띄어쓰기가 파괴된 문장을 자동으로 분석하여 가독성 높고 올바른 문장으로 정돈해 줍니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/spacing_checker">
+ <style>
+ :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ </style>
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>띄어쓰기 검사기</span></nav>
-<header>
-<h1>✍️ 띄어쓰기 검사기</h1>
-<p>자소서 및 보고서 작성 시 띄어쓰기 교정</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-
-<div class="card" style="max-width:680px;">
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>띄어쓰기 검사기</span></nav>
+ <header>
+ <h1>✍️ 띄어쓰기 검사기</h1>
+ <p>자소서 및 보고서 작성 시 띄어쓰기 교정</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card" style="max-width:680px;">
  <label>띄어쓰기 교정이 필요한 텍스트</label>
- <textarea id="spText" style="height:150px;" placeholder="아버지가방에들어가신다"></textarea>
+ <textarea id="spText" style="height:150px;" placeholder="아버지가방에들어가신다 (데모 버전)"></textarea>
  <button onclick="calcSp()">띄어쓰기 교정</button>
  <div class="result" id="result" style="background:#fafbfc;padding:16px;border-radius:10px;">
  <div id="spRes" style="font-size:0.95rem;line-height:1.6;">-</div>
  </div>
-</div>
- 
-<article class="seo-text">
-<h2>띄어쓰기 검사기 완벽 가이드</h2>
-<p>한국어가 세계에서 가장 어려운 언어로 꼽히는 이유 중 하나가 바로 복잡하고 예외가 많은 띄어쓰기 규정 때문입니다. 정성스럽게 작성한 자기소개서, 상사에게 올리는 중요한 결재 기획서, 불특정 다수가 읽는 블로그 포스팅 등에서 띄어쓰기 오류가 잦으면 글쓴이의 전문성과 신뢰도가 크게 추락하게 됩니다. 단순히 공백을 제거하거나 무작위로 띄우는 것이 아니라, 텍스트의 맥락을 분석해 어법에 맞는 띄어쓰기를 제안합니다. 웹 기반으로 동작하므로 무거운 한글 워드 프로세서를 켤 필요 없이 즉각적으로 복사 및 교정이 가능해 생산성이 폭발적으로 증가합니다.</p>
-</article>
-<footer>© 2026 생활 계산기 모음. <a href="index.html" style="color:var(--primary);font-weight:600;">&larr; 전체 모음 가기</a></footer>
-<script>
-function calcSp(){
+ </div>
+ <article class="seo-text">
+ <h2>하반기 서류 전형 패스, 자소서의 첫인상은 깔끔한 띄어쓰기</h2>
+ <p>2026년 8~9월 하반기 대기업 공채 시즌을 대비하여 지금 이 여름 꼼꼼하게 자기소개서 문항을 다듬고 계시나요? 인사담당자가 수천 장의 이력서를 검토할 때 가장 먼저 눈살을 찌푸리게 되는 대목이 바로 엉망으로 파괴된 띄어쓰기입니다. 아무리 훌륭한 직무 경험과 포트폴리오를 서술했어도 가독성이 떨어지면 기본적인 문서 작성 능력을 의심받게 됩니다. 복잡한 한글 워드 프로세서나 별도의 맞춤법 검사 사이트를 무겁게 로딩할 필요 없이, 브라우저 환경에서 즉각적으로 텍스트를 붙여 넣고 교정받으세요. 문맥을 고려하여 조사와 명사를 매끄럽게 분리해 주어 보고서나 블로그 원고 작성 시 작업 속도를 한층 끌어올려 주는 필수 웹 툴입니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="mailto:wodouf8712@gmail.com">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 입력된 텍스트는 서버에 수집되지 않으며 브라우저 내에서만 처리됩니다.</p>
+ </footer>
+ <script>
+ function calcSp(){
  let t = document.getElementById('spText').value;
  if(!t) return;
- // 정적 데모용 치환
  t = t.replace('아버지가방에들어가신다', '아버지가 방에 들어가신다');
  t = t.replace('할수있다', '할 수 있다');
  document.getElementById('spRes').innerHTML = t;
  document.getElementById('result').classList.add('show');
-}
-</script>
+ }
+ </script>
 </body>
 </html>
