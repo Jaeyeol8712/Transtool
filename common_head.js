@@ -1,45 +1,59 @@
 // 모든 페이지에 공통으로 적용되는 태그 관리 (aroundtool.com)
 (function(){
-    const head = document.head;
+  const head = document.head;
 
-    // 1. 공통 메타태그 추가 (문자셋, 네이버 소유확인, 애드센스, 반응형 뷰포트)
-    const charsetEl = document.createElement('meta');
-    charsetEl.charset = 'UTF-8';
-    head.appendChild(charsetEl);
+  // 1. 공통 메타태그 추가 (문자셋, 네이버 소유확인, 애드센스, 반응형 뷰포트)
+  const charsetEl = document.createElement('meta');
+  charsetEl.charset = 'UTF-8';
+  head.appendChild(charsetEl);
 
-    const metaTags = [
-        { name: 'naver-site-verification', content: '819ae10e3fae28782afbbbbc248f8423b816872b' },
-        { name: 'google-adsense-account', content: 'ca-pub-7089972708901760' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
-    ];
+  const metaTags = [
+    { name: 'naver-site-verification', content: '819ae10e3fae28782afbbbbc248f8423b816872b' },
+    { name: 'google-adsense-account', content: 'ca-pub-7089972708901760' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+  ];
 
-    metaTags.forEach(tag => {
-        const el = document.createElement('meta');
-        el.name = tag.name;
-        el.content = tag.content;
-        head.appendChild(el);
-    });
+  metaTags.forEach(tag => {
+    const el = document.createElement('meta');
+    el.name = tag.name;
+    el.content = tag.content;
+    head.appendChild(el);
+  });
 
-    // 2. 구글 애드센스 외부 스크립트 추가
-    const adsScript = document.createElement('script');
-    adsScript.async = true;
-    adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760';
-    adsScript.crossOrigin = 'anonymous';
-    head.appendChild(adsScript);
+  // 2. 구글 애드센스 외부 스크립트 추가
+  const adsScript = document.createElement('script');
+  adsScript.async = true;
+  adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760';
+  adsScript.crossOrigin = 'anonymous';
+  head.appendChild(adsScript);
 
-    // 3. 구글 애널리틱스(GA4) 적용
-    const gaId = 'G-2LK65NYW74';
-    const gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-    head.appendChild(gaScript);
+  // 3. 구글 애널리틱스(GA4) 적용
+  const gaId = 'G-2LK65NYW74';
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+  head.appendChild(gaScript);
 
-    const gaInit = document.createElement('script');
-    gaInit.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${gaId}');
-    `;
-    head.appendChild(gaInit);
+  const gaInit = document.createElement('script');
+  gaInit.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${gaId}');
+  `;
+  head.appendChild(gaInit);
+
+  // 4. 대표 파비콘 2종 추가 (PC 웹용 + 모바일용)
+  const faviconPC = document.createElement('link');
+  faviconPC.rel = 'icon';
+  faviconPC.type = 'image/png';
+  faviconPC.sizes = '32x32';
+  faviconPC.href = '/favicon-32x32.png';
+  head.appendChild(faviconPC);
+
+  const faviconMobile = document.createElement('link');
+  faviconMobile.rel = 'apple-touch-icon';
+  faviconMobile.sizes = '180x180';
+  faviconMobile.href = '/apple-touch-icon.png';
+  head.appendChild(faviconMobile);
 })();
