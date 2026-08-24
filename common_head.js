@@ -2,7 +2,6 @@
 (function(){
   const head = document.head;
 
-  // 1. 공통 메타태그 추가 (문자셋, 네이버 소유확인, 애드센스, 반응형 뷰포트)
   const charsetEl = document.createElement('meta');
   charsetEl.charset = 'UTF-8';
   head.appendChild(charsetEl);
@@ -14,36 +13,43 @@
   ];
 
   metaTags.forEach(tag => {
-    const el = document.createElement('meta');
-    el.name = tag.name;
-    el.content = tag.content;
-    head.appendChild(el);
+    if (!head.querySelector('meta[name="' + tag.name + '"]')) {
+      const el = document.createElement('meta');
+      el.name = tag.name;
+      el.content = tag.content;
+      head.appendChild(el);
+    }
   });
 
-  // 2. 구글 애드센스 외부 스크립트 추가
-  const adsScript = document.createElement('script');
-  adsScript.async = true;
-  adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760';
-  adsScript.crossOrigin = 'anonymous';
-  head.appendChild(adsScript);
+  // AdSense는 공통 헤더에서 한 번만 로드합니다.
+  if (!head.querySelector('script[data-aroundtool-adsense]')) {
+    const adsScript = document.createElement('script');
+    adsScript.async = true;
+    adsScript.dataset.aroundtoolAdsense = 'true';
+    adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760';
+    adsScript.crossOrigin = 'anonymous';
+    head.appendChild(adsScript);
+  }
 
-  // 3. 구글 애널리틱스(GA4) 적용
+  // Google Analytics는 방문 분석을 위한 최소 설정만 사용합니다.
   const gaId = 'G-2LK65NYW74';
-  const gaScript = document.createElement('script');
-  gaScript.async = true;
-  gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-  head.appendChild(gaScript);
+  if (!head.querySelector('script[data-aroundtool-ga]')) {
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.dataset.aroundtoolGa = 'true';
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    head.appendChild(gaScript);
 
-  const gaInit = document.createElement('script');
-  gaInit.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${gaId}');
-  `;
-  head.appendChild(gaInit);
+    const gaInit = document.createElement('script');
+    gaInit.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${gaId}');
+    `;
+    head.appendChild(gaInit);
+  }
 
-  // 4. 대표 파비콘 2종 추가 (PC 웹용 + 모바일용)
   const faviconPC = document.createElement('link');
   faviconPC.rel = 'icon';
   faviconPC.type = 'image/png';
