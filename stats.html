@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹사이트 방문 통계</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        h2 {
-            margin-top: 0;
-            font-size: 24px;
-            color: #1a1a1a;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 15px;
-        }
-        .dashboard-wrapper {
-            position: relative;
-            width: 100%;
-            min-height: 500px;
-        }
-        iframe {
-            width: 100%;
-            height: 550px;
-            border: none;
-            border-radius: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>내부 통계 대시보드</title>
+<style>
+:root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+*{box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:24px 16px;}
+.container{max-width:1100px;margin:0 auto;}
+.header-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+h1{font-size:1.4rem;margin:0;}
+.notice{font-size:0.82rem;color:var(--muted);background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:10px 14px;margin-bottom:18px;line-height:1.5;}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.tab-btn{padding:9px 16px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--text);font-size:0.85rem;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+.tab-btn:disabled{opacity:0.45;cursor:not-allowed;}
+.card{background:var(--card);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:16px;position:relative;min-height:620px;}
+iframe{width:100%;height:620px;border:none;border-radius:8px;display:block;}
+.access-help{margin-top:16px;font-size:0.82rem;color:var(--muted);line-height:1.6;}
+.access-help a{color:#1d4ed8;}
+</style>
 </head>
 <body>
-
 <div class="container">
-    <h2>실시간 방문자 통계</h2>
-    <div class="dashboard-wrapper">
-        <iframe src="https://datastudio.google.com/embed/reporting/bc26d23b-5bba-4181-8e72-82138d65da56/page/kwh4F" 
-                allowfullscreen 
-                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-        </iframe>
-    </div>
+ <div class="header-row">
+ <h1>📊 내부 통계 대시보드</h1>
+ <span style="font-size:0.8rem;color:var(--muted);">GA4 · G-2LK65NYW74</span>
+ </div>
+ <div class="notice">
+ 이 페이지는 검색엔진에 노출되지 않도록 처리되어 있으며(noindex), 실제 데이터 접근은 아래 리포트에 로그인된 Google 계정 권한으로 제한됩니다.
+ 리포트가 비어 보이거나 "액세스 요청" 화면이 뜬다면, 현재 로그인된 Google 계정에 권한이 없는 것입니다 —
+ <a href="https://lookerstudio.google.com/" target="_blank" rel="noopener noreferrer">Looker Studio</a>에서 본인 계정으로 로그인한 뒤 다시 열어주세요.
+ </div>
+ <div class="tabs" id="tabs">
+ <button class="tab-btn active" data-page="kwh4F">전체 개요</button>
+ <button class="tab-btn" disabled title="Looker Studio에서 페이지 추가 후 아래 CONFIG에 ID를 넣으면 활성화됩니다">실시간</button>
+ <button class="tab-btn" disabled title="Looker Studio에서 페이지 추가 후 아래 CONFIG에 ID를 넣으면 활성화됩니다">인기 페이지</button>
+ <button class="tab-btn" disabled title="Looker Studio에서 페이지 추가 후 아래 CONFIG에 ID를 넣으면 활성화됩니다">유입 경로</button>
+ <button class="tab-btn" disabled title="Looker Studio에서 페이지 추가 후 아래 CONFIG에 ID를 넣으면 활성화됩니다">기기·지역</button>
+ </div>
+ <div class="card">
+ <iframe id="reportFrame"
+ src="https://lookerstudio.google.com/embed/reporting/bc26d23b-5bba-4181-8e72-82138d65da56/page/kwh4F"
+ allowfullscreen
+ sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+ </iframe>
+ </div>
+ <p class="access-help">리포트 ID: <code>bc26d23b-5bba-4181-8e72-82138d65da56</code> · 공유 설정이 "특정 사용자에게만 공개"인지 Looker Studio에서 주기적으로 확인하세요.</p>
 </div>
-
+<script>
+// 리포트에 새 페이지(탭)를 추가하면 이 목록에 page ID를 넣고 disabled 속성을 제거하세요.
+// Looker Studio 편집 화면에서 해당 페이지로 이동하면 주소창 URL 끝에 있는 짧은 문자열이 page ID입니다.
+const REPORT_ID = 'bc26d23b-5bba-4181-8e72-82138d65da56';
+document.querySelectorAll('.tab-btn[data-page]').forEach(btn=>{
+ btn.addEventListener('click', ()=>{
+ document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ document.getElementById('reportFrame').src = `https://lookerstudio.google.com/embed/reporting/${REPORT_ID}/page/${btn.dataset.page}`;
+ });
+});
+</script>
 </body>
 </html>
