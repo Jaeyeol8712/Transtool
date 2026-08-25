@@ -1,0 +1,104 @@
+<!-- 47. pension_age_calculator.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <script src="common_head.js"></script>
+ <title>국민연금 수급개시나이 계산기 - 출생연도별 수령 나이 확인</title>
+ <meta name="description" content="출생연도를 입력하면 국민연금(노령연금)을 받을 수 있는 나이와 예상 수급 개시 연도를 확인할 수 있습니다. 최소 가입기간 안내도 함께 제공합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/pension_age_calculator">
+ <style>
+ :root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ .seo-text table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem;}
+ .seo-text th,.seo-text td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:right;}
+ .seo-text th:first-child,.seo-text td:first-child{text-align:left;}
+ .seo-text th{color:var(--muted);font-weight:600;font-size:0.8rem;}
+ .seo-text .faq-item{padding:12px 0;border-top:1px solid var(--border);}
+ .seo-text .faq-item:first-of-type{border-top:none;}
+ .seo-text .faq-item h3{font-size:0.98rem;margin-bottom:6px;color:#111827;}
+ .seo-text .source-links{margin-top:10px;font-size:0.85rem;}
+ .seo-text .source-links a{color:#1d4ed8;text-decoration:none;}
+ .seo-text .note{font-size:0.82rem;color:var(--muted);margin-top:6px;}
+ </style>
+</head>
+<body>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크·부동산 계산기</span><span>/</span><span>국민연금 수급개시나이 계산기</span></nav>
+ <header>
+ <h1>👴 국민연금 수급개시나이 계산기</h1>
+ <p>출생연도로 노령연금 받는 나이 확인</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label>출생연도</label>
+ <input type="number" id="birthYear" placeholder="예: 1990">
+ <button onclick="calcPensionAge()">수급개시나이 확인하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">노령연금 수급개시 나이</span><span class="result-value" id="ageValue">-</span></div>
+ <div class="result-row"><span class="result-label">예상 수급개시 연도</span><span class="result-value" id="yearValue">-</span></div>
+ <div class="result-row"><span class="result-label">최소 가입기간</span><span class="result-value" id="minPeriod" style="font-size:1.05rem;">10년 (120개월)</span></div>
+ </div>
+ </div>
+ <article class="seo-text">
+ <h2>출생연도별 노령연금 수급개시 나이</h2>
+ <table>
+ <tr><th>출생연도</th><th>수급개시 나이</th></tr>
+ <tr><td>1952년생 이전</td><td>60세</td></tr>
+ <tr><td>1953~1956년생</td><td>61세</td></tr>
+ <tr><td>1957~1960년생</td><td>62세</td></tr>
+ <tr><td>1961~1964년생</td><td>63세</td></tr>
+ <tr><td>1965~1968년생</td><td>64세</td></tr>
+ <tr><td>1969년생 이후</td><td>65세</td></tr>
+ </table>
+ <p>국민연금(노령연금)은 출생연도에 따라 수급개시 나이가 단계적으로 늦춰지도록 설계되어 있습니다. 1998년과 2007년 두 차례의 법 개정을 통해 수급 연령이 60세에서 65세로 점진적으로 상향 조정되었으며, 1969년 이후 출생자는 만 65세부터 수령합니다.</p>
+ <h2>최소 가입기간과 조기·연기연금 제도</h2>
+ <p>노령연금을 받으려면 국민연금 최소 가입기간인 10년(120개월) 이상을 채워야 합니다. 가입기간이 10년 미만이면 노령연금 대신 가입기간에 비례한 반환일시금을 받게 됩니다. 소득이 있어 더 오래 일하고 싶다면 수급개시 나이를 최대 5년 늦추는 대신 매년 7.2%씩 연금액을 더 받는 '연기연금'을, 반대로 조기에 받고 싶다면 최대 5년 앞당기는 대신 매년 6%씩 감액되는 '조기노령연금'을 선택할 수 있습니다.</p>
+ <div class="faq-item"><h3>가입기간이 10년이 안 되면 연금을 아예 못 받나요?</h3><p>노령연금은 못 받지만, 낸 보험료에 이자를 더한 반환일시금을 받을 수 있습니다. 또는 60세 이후에도 임의계속가입을 통해 부족한 가입기간을 추가로 채우는 방법도 있습니다.</p></div>
+ <div class="faq-item"><h3>예상 연금 수령액도 알 수 있나요?</h3><p>연금액은 가입기간, 평균소득, 전체 가입자 평균소득(A값) 등 여러 변수로 결정되는 복잡한 산식을 사용하며 매년 재평가됩니다. 정확한 예상액은 국민연금공단의 '내 연금 알아보기' 서비스에서 실제 가입 이력을 기준으로 확인하는 것이 가장 정확합니다.</p></div>
+ <div class="faq-item"><h3>공무원연금 등 특수직역연금 가입자도 해당되나요?</h3><p>아니요. 이 계산기는 국민연금(일반 국민 대상) 기준이며, 공무원연금·사학연금·군인연금 등 특수직역연금은 별도의 수급개시 나이와 산정 기준을 따릅니다.</p></div>
+ <p class="source-links">근거 자료: <a href="https://www.nps.or.kr" rel="noopener noreferrer" target="_blank">국민연금공단</a> · <a href="https://www.law.go.kr" rel="noopener noreferrer" target="_blank">국가법령정보센터(국민연금법)</a></p>
+ <p class="note">본 계산기는 출생연도 기준 법정 수급개시 나이만 안내하며, 정확한 예상 연금액이나 개인별 가입 이력은 국민연금공단을 통해 확인하시기 바랍니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcPensionAge(){
+ const y = parseInt(document.getElementById('birthYear').value);
+ if(!y || y < 1900 || y > 2015) return alert('올바른 출생연도를 입력해주세요.');
+ let age;
+ if(y <= 1952) age = 60;
+ else if(y <= 1956) age = 61;
+ else if(y <= 1960) age = 62;
+ else if(y <= 1964) age = 63;
+ else if(y <= 1968) age = 64;
+ else age = 65;
+ document.getElementById('ageValue').textContent = '만 ' + age + '세';
+ document.getElementById('yearValue').textContent = (y + age) + '년';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</body>
+</html>

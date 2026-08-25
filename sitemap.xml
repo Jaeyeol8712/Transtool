@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  유지보수 안내: 새 계산기 페이지를 추가할 때는 index.html의 해당 카테고리에
+  카드를 추가하는 것과 함께, 아래에 같은 형식으로 <url> 항목을 반드시 추가하세요.
+  일반 계산기 도구는 priority 0.8, 정책 페이지(개인정보/이용약관 등)는 0.5를 사용합니다.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.aroundtool.com/</loc><priority>1.0</priority></url>
   <url><loc>https://www.aroundtool.com/about.html</loc><priority>0.8</priority></url>
@@ -18,10 +23,13 @@
   <url><loc>https://www.aroundtool.com/brokerage_fee_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/increase_decrease_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/fuel_economy_calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.aroundtool.com/pension_age_calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.aroundtool.com/prepayment_penalty_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/severance_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/pto_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/holiday_pay_calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.aroundtool.com/parental_leave_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/discount_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/discount_rate_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/percent_calculator.html</loc><priority>0.8</priority></url>
@@ -29,15 +37,16 @@
   <url><loc>https://www.aroundtool.com/grave_weeding_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/tire_date_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/gas_bill_calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.aroundtool.com/electricity_bill_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/bmi_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/bmr_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/calorie_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/daily_calorie_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/age_calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.aroundtool.com/due_date_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/pyeong_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/car_tax_calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/exchange_rate_calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.aroundtool.com/job_fortune_teller.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/lotto_generator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/qr_generator.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.aroundtool.com/character_counter.html</loc><priority>0.8</priority></url>

@@ -1,0 +1,111 @@
+<!-- 48. prepayment_penalty_calculator.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <script src="common_head.js"></script>
+ <title>중도상환수수료 계산기 - 대출 조기상환 수수료 무료 계산</title>
+ <meta name="description" content="대출 실행일과 중도상환 예정일, 상환 금액을 입력하면 은행권 표준 산식으로 중도상환수수료를 계산합니다. 3년 경과 시 수수료 면제 여부도 확인할 수 있습니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/prepayment_penalty_calculator">
+ <style>
+ :root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ .seo-text table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem;}
+ .seo-text th,.seo-text td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:right;}
+ .seo-text th:first-child,.seo-text td:first-child{text-align:left;}
+ .seo-text th{color:var(--muted);font-weight:600;font-size:0.8rem;}
+ .seo-text .faq-item{padding:12px 0;border-top:1px solid var(--border);}
+ .seo-text .faq-item:first-of-type{border-top:none;}
+ .seo-text .faq-item h3{font-size:0.98rem;margin-bottom:6px;color:#111827;}
+ .seo-text .source-links{margin-top:10px;font-size:0.85rem;}
+ .seo-text .source-links a{color:#1d4ed8;text-decoration:none;}
+ .seo-text .note{font-size:0.82rem;color:var(--muted);margin-top:6px;}
+ </style>
+</head>
+<body>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크·부동산 계산기</span><span>/</span><span>중도상환수수료 계산기</span></nav>
+ <header>
+ <h1>💸 중도상환수수료 계산기</h1>
+ <p>대출 조기상환 시 예상 수수료 확인</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label>대출 실행일</label>
+ <input type="date" id="startDate">
+ <label>중도상환 예정일</label>
+ <input type="date" id="repayDate">
+ <label>중도상환 금액 (원)</label>
+ <input type="number" id="amount" placeholder="예: 50000000">
+ <label>중도상환수수료율 (%, 은행 약정서 확인)</label>
+ <input type="number" id="rate" placeholder="예: 1.2" step="0.1" value="1.2">
+ <button onclick="calcPenalty()">수수료 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">경과일수</span><span class="result-value" id="elapsedDays" style="font-size:1.1rem;">-</span></div>
+ <div class="result-row"><span class="result-label">예상 중도상환수수료</span><span class="result-value" id="penaltyValue">-</span></div>
+ </div>
+ </div>
+ <article class="seo-text">
+ <h2>중도상환수수료는 어떻게 계산되나요?</h2>
+ <p>대부분의 국내 은행은 대출 실행 후 3년(1,095일) 이내에 원금을 조기 상환하면 수수료를 부과합니다. 표준 계산식은 다음과 같습니다.</p>
+ <p><b>중도상환수수료 = 중도상환금액 × 수수료율 × (잔존일수 ÷ 1,095일)</b></p>
+ <p>여기서 잔존일수는 '1,095일 − 대출 실행일부터 상환일까지 경과일수'입니다. 즉 대출 실행 직후 상환할수록 수수료가 커지고, 3년이 경과하면 잔존일수가 0이 되어 수수료가 전액 면제됩니다.</p>
+ <h2>계산 예시 (원금 5,000만원, 수수료율 1.2%)</h2>
+ <table>
+ <tr><th>경과 기간</th><th>잔존일수</th><th>예상 수수료</th></tr>
+ <tr><td>6개월 경과 (경과 183일)</td><td>912일</td><td>499,726원</td></tr>
+ <tr><td>1년 경과 (경과 365일)</td><td>730일</td><td>400,000원</td></tr>
+ <tr><td>2년 경과 (경과 730일)</td><td>365일</td><td>200,000원</td></tr>
+ <tr><td>3년 이상 경과</td><td>0일</td><td>0원 (면제)</td></tr>
+ </table>
+ <div class="faq-item"><h3>모든 대출에 중도상환수수료가 있나요?</h3><p>아닙니다. 정책금융상품(디딤돌대출, 보금자리론 등)이나 일부 신용대출은 수수료가 없거나 낮은 경우가 많습니다. 대출 약정서의 '중도상환수수료' 조항을 반드시 확인해야 합니다.</p></div>
+ <div class="faq-item"><h3>일부만 상환해도 수수료가 붙나요?</h3><p>네, 대출금 전액이 아니라 일부만 조기 상환하는 경우에도 상환하는 금액에 대해 같은 방식으로 수수료가 계산되는 것이 일반적입니다.</p></div>
+ <div class="faq-item"><h3>변동금리로 갈아타기(대환) 할 때도 수수료가 드나요?</h3><p>대환대출도 기존 대출을 중도상환하는 것으로 간주되어 동일하게 수수료가 부과될 수 있습니다. 다만 대환 후 절감되는 이자가 수수료보다 크다면 대환이 유리할 수 있으니, <a href="loan_calculator.html">대출 이자 계산기</a>로 절감액을 함께 비교해 보세요.</p></div>
+ <p class="source-links">근거 자료: <a href="https://www.fss.or.kr" rel="noopener noreferrer" target="_blank">금융감독원</a></p>
+ <p class="note">본 계산기는 은행권 표준 산식을 적용한 참고용 추정치이며, 실제 수수료율과 계산 방식은 대출 상품과 은행마다 다를 수 있습니다. 정확한 금액은 대출 약정서 또는 은행 상담을 통해 확인하세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcPenalty(){
+ const startStr = document.getElementById('startDate').value;
+ const repayStr = document.getElementById('repayDate').value;
+ const amount = parseFloat(document.getElementById('amount').value);
+ const rate = parseFloat(document.getElementById('rate').value);
+ if(!startStr || !repayStr || !amount || !rate) return alert('모든 항목을 입력해주세요.');
+ const start = new Date(startStr);
+ const repay = new Date(repayStr);
+ const elapsedDays = Math.floor((repay - start) / (1000*60*60*24));
+ if(elapsedDays < 0) return alert('중도상환일은 대출 실행일 이후여야 합니다.');
+ const term = 1095;
+ const remainDays = Math.max(term - elapsedDays, 0);
+ const penalty = remainDays === 0 ? 0 : amount * (rate/100) * (remainDays/term);
+ document.getElementById('elapsedDays').textContent = elapsedDays + '일 (잔존 ' + remainDays + '일)';
+ document.getElementById('penaltyValue').textContent = Math.round(penalty).toLocaleString() + '원' + (remainDays===0 ? ' (면제)' : '');
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</body>
+</html>

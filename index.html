@@ -3,8 +3,8 @@
 <head>
 <script src="common_head.js"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어라운드툴 - 무료 생활 계산기 38종</title>
-<meta name="description" content="연봉, 대출, 세금, 부동산, 노동, 건강, 생활에 필요한 38가지 무료 계산기와 실용 도구를 제공합니다. 각 도구의 계산 기준과 주의사항도 함께 안내합니다.">
+<title>어라운드툴 - 무료 생활 계산기 44종</title>
+<meta name="description" content="연봉, 대출, 세금, 부동산, 노동, 건강, 생활에 필요한 44가지 무료 계산기와 실용 도구를 제공합니다. 각 도구의 계산 기준과 주의사항도 함께 안내합니다.">
 <link rel="canonical" href="https://www.aroundtool.com/">
 <style>
 :root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--brand:#0f172a}
@@ -12,6 +12,21 @@
 </style>
 </head>
 <body>
+<!--
+  ============================================================
+  유지보수 안내 (새 계산기/도구를 추가할 때)
+  ============================================================
+  1. 새 페이지 파일을 만든 뒤, 아래 5개 카테고리(finance/job/life/text/info) 중
+     알맞은 <div class="grid"> 안에 있는 "새 도구는 이 주석 바로 위에 추가하세요"
+     주석 바로 위에 <a class="tool"> 카드를 추가합니다. (형식은 기존 카드와 동일)
+  2. 상단 <title>, <meta name="description">의 도구 개수 숫자를 갱신합니다.
+  3. sitemap.xml에도 같은 URL을 반드시 함께 추가합니다. (index.html에만 추가하고
+     sitemap.xml을 빠뜨리면 검색엔진이 새 페이지를 늦게 발견하거나 못 찾을 수 있습니다.)
+  4. 저품질/저가치 콘텐츠로 분류되지 않도록, 새 도구 페이지는 계산 로직 외에
+     예시 표·공식 설명·FAQ 3개 이상·공식 출처 링크를 포함해 주세요.
+     (참고: about.html의 '운영 원칙', 기존 salary_calculator.html 등을 템플릿으로 사용)
+  ============================================================
+-->
 <header class="mast"><h1>어라운드툴</h1><p>일상에 필요한 계산을 쉽고 투명하게 확인하는 무료 온라인 도구</p></header>
 <main>
 <section class="intro"><h2>어라운드툴을 이렇게 사용하세요</h2><p>어라운드툴은 숫자만 보여주는 계산기 모음이 아니라, 사용자가 계산 결과를 이해하고 다음 행동을 결정할 수 있도록 계산 기준과 주의사항을 함께 제공하는 생활 도구 서비스입니다.</p><p>세금·노동·금융처럼 기준이 바뀔 수 있는 항목은 공식 기관의 최신 안내를 우선 확인하고, 사이트 계산기는 사전 확인용 추정치로 제공합니다. 실제 신고·계약·대출 등 중요한 판단 전에는 해당 기관의 공식 자료를 다시 확인해 주세요.</p><p>사이트 소개, 계산 기준, 개인정보 처리 원칙은 <a href="about.html">사이트 소개</a>, <a href="privacy.html">개인정보처리방침</a>, <a href="terms.html">이용약관</a>에서 자세히 확인할 수 있습니다.</p></section>
@@ -28,12 +43,17 @@
 <a class="tool" href="brokerage_fee_calculator.html"><strong>부동산 중개보수 계산기</strong><span>매매·임대차 거래의 중개보수 상한을 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="increase_decrease_calculator.html"><strong>증감률 계산기</strong><span>이전 값과 현재 값의 변화율을 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="fuel_economy_calculator.html"><strong>주유 경제성 계산기</strong><span>연비와 주행거리를 이용해 예상 연료비를 계산합니다.</span><em>계산하기 →</em></a>
+<a class="tool" href="pension_age_calculator.html"><strong>국민연금 수급개시나이 계산기</strong><span>출생연도로 노령연금을 받을 수 있는 나이를 확인합니다.</span><em>계산하기 →</em></a>
+<a class="tool" href="prepayment_penalty_calculator.html"><strong>중도상환수수료 계산기</strong><span>대출 조기상환 시 예상 수수료를 계산합니다.</span><em>계산하기 →</em></a>
+<!-- 재테크·부동산 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
 </div></section>
 <section id="job" class="category"><h2>💼 노동 및 구직</h2><div class="grid">
 <a class="tool" href="severance_calculator.html"><strong>퇴직금 계산기</strong><span>평균임금 등을 바탕으로 예상 퇴직금을 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="unemployment_benefit_calculator.html"><strong>실업급여 계산기</strong><span>가입기간과 평균임금을 입력해 예상액을 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="pto_calculator.html"><strong>연차 계산기</strong><span>입사일과 근무기간을 기준으로 연차를 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="holiday_pay_calculator.html"><strong>주휴수당 계산기</strong><span>근로시간과 시급을 바탕으로 주휴수당을 모의 계산합니다.</span><em>계산하기 →</em></a>
+<a class="tool" href="parental_leave_calculator.html"><strong>육아휴직급여 계산기</strong><span>2026년 개편 기준으로 예상 육아휴직급여를 계산합니다.</span><em>계산하기 →</em></a>
+<!-- 노동·구직 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
 </div></section>
 <section id="life" class="category"><h2>🧩 생활 및 건강</h2><div class="grid">
 <a class="tool" href="discount_calculator.html"><strong>할인율 계산기</strong><span>정가와 할인가를 비교해 할인율을 계산합니다.</span><em>계산하기 →</em></a>
@@ -54,16 +74,21 @@
 <a class="tool" href="exchange_rate_calculator.html"><strong>환율 계산기</strong><span>환율을 입력해 통화 간 금액을 변환합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="lotto_generator.html"><strong>로또 번호 생성기</strong><span>1~45 범위의 무작위 번호를 생성합니다.</span><em>생성하기 →</em></a>
 <a class="tool" href="qr_generator.html"><strong>QR코드 생성기</strong><span>텍스트나 링크를 QR코드로 변환합니다.</span><em>생성하기 →</em></a>
+<a class="tool" href="electricity_bill_calculator.html"><strong>전기요금 계산기</strong><span>사용량 기준 누진제 적용 예상 전기요금을 계산합니다.</span><em>계산하기 →</em></a>
+<a class="tool" href="due_date_calculator.html"><strong>출산예정일 계산기</strong><span>최종월경일을 기준으로 출산예정일과 임신 주수를 계산합니다.</span><em>계산하기 →</em></a>
+<!-- 생활·건강 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
 </div></section>
 <section id="text" class="category"><h2>✍️ 텍스트 도구</h2><div class="grid">
 <a class="tool" href="character_counter.html"><strong>글자수 세기</strong><span>문자·단어·바이트 수를 확인합니다.</span><em>확인하기 →</em></a>
 <a class="tool" href="spell_checker.html"><strong>맞춤법 검사기</strong><span>문장의 맞춤법을 점검하는 도구입니다.</span><em>검사하기 →</em></a>
 <a class="tool" href="spacing_checker.html"><strong>띄어쓰기 검사기</strong><span>문장 띄어쓰기를 점검하는 도구입니다.</span><em>검사하기 →</em></a>
+<!-- 텍스트 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
 </div></section>
 <section id="info" class="category"><h2>💡 정보 및 가이드</h2><div class="grid">
 <a class="tool" href="guide_2026_wage.html"><strong>2026년 최저임금·노동법 가이드</strong><span>최저임금과 노동 관련 변경사항을 정리한 안내 글입니다.</span><em>읽어보기 →</em></a>
 <a class="tool" href="guide_2026_tax.html"><strong>2026년 세금·연말정산 가이드</strong><span>직장인과 프리랜서를 위한 세금 관련 핵심 내용을 정리했습니다.</span><em>읽어보기 →</em></a>
 <a class="tool" href="about.html"><strong>어라운드툴 사이트 소개</strong><span>서비스 운영 목적, 계산 기준, 참고자료와 오류 제보 방법을 안내합니다.</span><em>읽어보기 →</em></a>
+<!-- 정보·가이드 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
 </div></section>
 <section class="guide"><h2>계산 결과를 이용할 때 주의하세요</h2><p>세금·노동·금융·건강 관련 계산 결과는 입력 조건과 적용 기준에 따라 달라질 수 있습니다. 사이트의 결과는 사전 확인용이며 공식 증빙이나 전문적인 자문을 대신하지 않습니다.</p><p>특히 법령이나 요율이 변경된 경우에는 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 중요한 금액을 결정하기 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 최신 안내를 확인해 주세요.</p></section>
 <section class="faq"><h2>자주 묻는 질문</h2><div class="faq-item"><h3>입력한 계산값이 서버에 저장되나요?</h3><p>사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다.</p></div><div class="faq-item"><h3>계산 결과를 공식 신고에 사용해도 되나요?</h3><p>아니요. 계산 결과는 참고용 추정치입니다. 신고·계약·대출 등 중요한 절차에서는 해당 기관의 공식 계산이나 전문가 확인을 이용해 주세요.</p></div><div class="faq-item"><h3>오류가 있으면 어떻게 알려주나요?</h3><p><a href="contact.html">문의하기</a>에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다.</p></div></section>

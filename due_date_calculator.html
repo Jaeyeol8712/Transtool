@@ -1,0 +1,109 @@
+<!-- 50. due_date_calculator.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <script src="common_head.js"></script>
+ <title>출산예정일 계산기 - 최종월경일 기준 무료 계산</title>
+ <meta name="description" content="최종월경일(LMP)을 입력하면 네겔레 법칙(280일)에 따른 출산예정일과 현재 임신 주수, 삼분기 구분을 계산합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/due_date_calculator">
+ <style>
+ :root{--primary:#ec4899;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;}
+ .result-label{font-size:0.9rem;color:var(--muted);}
+ .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ .seo-text table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem;}
+ .seo-text th,.seo-text td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:left;}
+ .seo-text th{color:var(--muted);font-weight:600;font-size:0.8rem;}
+ .seo-text .faq-item{padding:12px 0;border-top:1px solid var(--border);}
+ .seo-text .faq-item:first-of-type{border-top:none;}
+ .seo-text .faq-item h3{font-size:0.98rem;margin-bottom:6px;color:#111827;}
+ .seo-text .source-links{margin-top:10px;font-size:0.85rem;}
+ .seo-text .source-links a{color:#1d4ed8;text-decoration:none;}
+ .seo-text .note{font-size:0.82rem;color:var(--muted);margin-top:6px;}
+ </style>
+</head>
+<body>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활·건강 계산기</span><span>/</span><span>출산예정일 계산기</span></nav>
+ <header>
+ <h1>🤰 출산예정일 계산기</h1>
+ <p>최종월경일 기준 예정일과 현재 임신 주수 확인</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label>최종월경일 (마지막 생리 시작일)</label>
+ <input type="date" id="lmp">
+ <button onclick="calcDueDate()">출산예정일 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">출산예정일</span><span class="result-value" id="dueDate">-</span></div>
+ <div class="result-row"><span class="result-label">오늘 기준 임신 주수</span><span class="result-value" id="weekValue">-</span></div>
+ <div class="result-row"><span class="result-label">현재 삼분기</span><span class="result-value" id="trimester" style="font-size:1.1rem;">-</span></div>
+ </div>
+ </div>
+ <article class="seo-text">
+ <h2>출산예정일은 어떻게 계산되나요?</h2>
+ <p>가장 널리 쓰이는 방법은 '네겔레 법칙'으로, 최종월경일(LMP)에 280일(40주)을 더해 예정일을 산출합니다. 이는 배란과 수정이 대략 최종월경일로부터 2주 후에 일어난다고 가정한 통계적 평균치이며, 실제 출산일은 예정일 앞뒤로 2주 정도 차이 날 수 있습니다. 병원에서는 이후 초음파 검사로 태아 크기를 측정해 예정일을 다시 보정하는 경우가 많습니다.</p>
+ <h2>임신 주수와 삼분기 구분</h2>
+ <table>
+ <tr><th>구분</th><th>임신 주수</th><th>주요 특징</th></tr>
+ <tr><td>1삼분기 (초기)</td><td>1~13주</td><td>입덧, 첫 초음파, 기형아 검사 시기</td></tr>
+ <tr><td>2삼분기 (중기)</td><td>14~27주</td><td>태동 시작, 정밀 초음파, 임신성 당뇨 검사</td></tr>
+ <tr><td>3삼분기 (후기)</td><td>28~40주</td><td>출산 준비, 태동 검사, 막달 정기 검진</td></tr>
+ </table>
+ <div class="faq-item"><h3>생리주기가 불규칙해도 정확한가요?</h3><p>네겔레 법칙은 28일 주기를 기준으로 하므로, 생리주기가 불규칙하거나 28일과 크게 다르면 오차가 커질 수 있습니다. 이 경우 병원 초음파 검사를 통한 예정일 산정이 더 정확합니다.</p></div>
+ <div class="faq-item"><h3>임신 주수는 왜 마지막 생리일부터 세나요?</h3><p>실제 수정일을 정확히 알기 어렵기 때문에, 의학적으로는 계산이 쉬운 최종월경일을 임신 0주 0일의 기준으로 삼는 것이 국제 표준입니다.</p></div>
+ <div class="faq-item"><h3>출산휴가·육아휴직 신청은 언제부터 할 수 있나요?</h3><p>출산전후휴가는 출산예정일을 기준으로 산전 44일(다태아 60일)부터 사용할 수 있습니다. 육아휴직급여가 궁금하다면 <a href="parental_leave_calculator.html">육아휴직급여 계산기</a>를 함께 확인해 보세요.</p></div>
+ <p class="source-links">근거 자료: <a href="https://www.mohw.go.kr" rel="noopener noreferrer" target="_blank">보건복지부</a></p>
+ <p class="note">이 계산기는 통계적 평균에 기반한 참고용 추정치이며, 실제 출산일과 다를 수 있습니다. 정확한 임신 주수와 예정일은 산부인과 진료를 통해 확인하시기 바랍니다.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcDueDate(){
+ const lmpStr = document.getElementById('lmp').value;
+ if(!lmpStr) return alert('최종월경일을 입력해주세요.');
+ const lmp = new Date(lmpStr);
+ const due = new Date(lmp.getTime() + 280*24*60*60*1000);
+ const today = new Date();
+ const diffDays = Math.floor((today - lmp) / (1000*60*60*24));
+ const week = Math.floor(diffDays / 7);
+ const day = diffDays % 7;
+ let tri;
+ if(week <= 13) tri = '1삼분기 (초기)';
+ else if(week <= 27) tri = '2삼분기 (중기)';
+ else tri = '3삼분기 (후기)';
+ const dueStr = due.getFullYear() + '년 ' + (due.getMonth()+1) + '월 ' + due.getDate() + '일';
+ document.getElementById('dueDate').textContent = dueStr;
+ if(diffDays < 0){
+ document.getElementById('weekValue').textContent = '최종월경일이 아직 오지 않았습니다';
+ document.getElementById('trimester').textContent = '-';
+ } else {
+ document.getElementById('weekValue').textContent = week + '주 ' + day + '일';
+ document.getElementById('trimester').textContent = tri;
+ }
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</body>
+</html>

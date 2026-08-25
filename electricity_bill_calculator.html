@@ -1,0 +1,124 @@
+<!-- 49. electricity_bill_calculator.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <script src="common_head.js"></script>
+ <title>전기요금 계산기 - 주택용 누진제 무료 계산 (2026년 기준)</title>
+ <meta name="description" content="한전 주택용 저압 전기요금 3단계 누진제 기준으로 월 사용량(kWh)을 입력하면 예상 전기요금을 계산합니다. 여름철(7~8월) 완화 구간도 반영합니다.">
+ <link rel="canonical" href="https://www.aroundtool.com/electricity_bill_calculator">
+ <style>
+ :root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
+ header{text-align:center;margin-bottom:24px;}
+ header h1{font-size:1.6rem;margin-bottom:6px;}
+ header p{color:var(--muted);font-size:0.95rem;}
+ .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
+ .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
+ label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
+ input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
+ button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
+ button:hover{opacity:0.9;}
+ .result{margin-top:24px;display:none;}
+ .result.show{display:block;}
+ .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border);}
+ .result-row:last-child{border-bottom:none;font-weight:700;}
+ .result-label{font-size:0.88rem;color:var(--muted);}
+ .result-value{font-size:1.05rem;font-weight:700;color:var(--text);}
+ .result-row:last-child .result-value{font-size:1.3rem;color:var(--primary);}
+ .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+ .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
+ .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
+ .site-breadcrumb a{color:var(--muted);text-decoration:none;}
+ .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
+ .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+ .seo-text table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem;}
+ .seo-text th,.seo-text td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:right;}
+ .seo-text th:first-child,.seo-text td:first-child{text-align:left;}
+ .seo-text th{color:var(--muted);font-weight:600;font-size:0.8rem;}
+ .seo-text .faq-item{padding:12px 0;border-top:1px solid var(--border);}
+ .seo-text .faq-item:first-of-type{border-top:none;}
+ .seo-text .faq-item h3{font-size:0.98rem;margin-bottom:6px;color:#111827;}
+ .seo-text .source-links{margin-top:10px;font-size:0.85rem;}
+ .seo-text .source-links a{color:#1d4ed8;text-decoration:none;}
+ .seo-text .note{font-size:0.82rem;color:var(--muted);margin-top:6px;}
+ </style>
+</head>
+<body>
+ <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>생활·건강 계산기</span><span>/</span><span>전기요금 계산기</span></nav>
+ <header>
+ <h1>💡 전기요금 계산기</h1>
+ <p>주택용 저압 누진제 기준 예상 요금 계산</p>
+ </header>
+ <div class="ad-slot">광고 영역 (728x90)</div>
+ <div class="card">
+ <label>이번 달 전기 사용량 (kWh)</label>
+ <input type="number" id="kwh" placeholder="예: 350">
+ <label>적용 계절</label>
+ <select id="season">
+ <option value="normal">일반 (1~6월, 9~12월)</option>
+ <option value="summer">하계 완화 구간 (7~8월)</option>
+ </select>
+ <button onclick="calcElec()">전기요금 계산하기</button>
+ <div class="result" id="result">
+ <div class="result-row"><span class="result-label">기본요금</span><span class="result-value" id="basicFee">-</span></div>
+ <div class="result-row"><span class="result-label">전력량요금</span><span class="result-value" id="energyFee">-</span></div>
+ <div class="result-row"><span class="result-label">기후환경요금+연료비조정요금</span><span class="result-value" id="extraFee">-</span></div>
+ <div class="result-row"><span class="result-label">부가세+전력기반기금</span><span class="result-value" id="taxFee">-</span></div>
+ <div class="result-row"><span class="result-label">예상 청구액</span><span class="result-value" id="totalFee">-</span></div>
+ </div>
+ </div>
+ <article class="seo-text">
+ <h2>주택용 전기요금 누진제 구조</h2>
+ <table>
+ <tr><th>구간</th><th>일반 기준</th><th>하계(7~8월) 기준</th><th>전력량 단가</th></tr>
+ <tr><td>1단계</td><td>0~200kWh</td><td>0~300kWh</td><td>120.0원/kWh</td></tr>
+ <tr><td>2단계</td><td>201~400kWh</td><td>301~450kWh</td><td>214.6원/kWh</td></tr>
+ <tr><td>3단계</td><td>400kWh 초과</td><td>450kWh 초과</td><td>307.3원/kWh</td></tr>
+ </table>
+ <p>기본요금은 사용량이 속한 구간에 따라 910원(1단계)·1,600원(2단계)·7,300원(3단계) 중 하나로 정해지며, 전력량요금은 구간별 사용량에 각 구간 단가를 곱해 누적 합산합니다. 여기에 기후환경요금과 연료비조정요금(사용량 1kWh당 각각 약 9원, 5원 수준, 분기별 변동)을 더한 뒤 부가가치세 10%와 전력산업기반기금 3.7%를 가산하면 최종 청구액이 됩니다.</p>
+ <h2>사용량별 예상 요금 예시 (일반 기준)</h2>
+ <table>
+ <tr><th>월 사용량</th><th>기본요금</th><th>전력량요금</th><th>예상 총액</th></tr>
+ <tr><td>200kWh (1단계)</td><td>910원</td><td>24,000원</td><td>약 31,500원</td></tr>
+ <tr><td>350kWh (2단계)</td><td>1,600원</td><td>56,190원</td><td>약 71,300원</td></tr>
+ <tr><td>500kWh (3단계)</td><td>7,300원</td><td>97,650원</td><td>약 127,300원</td></tr>
+ </table>
+ <p>200kWh에서 350kWh로 사용량이 75% 늘었을 뿐인데 요금은 2배 넘게 뛰는 것을 볼 수 있습니다. 이는 누진 구간을 넘는 순간 그 구간을 초과한 사용량에 더 높은 단가가 적용되기 때문입니다. 특히 400kWh를 살짝 넘기면 기본요금 자체가 1,600원에서 7,300원으로 급등하니, 3단계 진입 직전 사용량 관리가 절약의 핵심입니다.</p>
+ <div class="faq-item"><h3>누진제는 모든 전기에 적용되나요?</h3><p>아니요, 누진제는 주택용(가정용) 전기에만 적용됩니다. 산업용·일반용·교육용 전기는 누진제 대신 계절과 시간대별로 다른 요금(계시별 요금)이 적용됩니다.</p></div>
+ <div class="faq-item"><h3>1,000kWh를 넘게 쓰면 어떻게 되나요?</h3><p>월 1,000kWh를 초과하는 다량 사용 가구(슈퍼유저)에는 3단계보다 훨씬 높은 별도 단가가 적용되어 요금이 급격히 늘어날 수 있습니다.</p></div>
+ <div class="faq-item"><h3>전기요금 할인 대상이 있나요?</h3><p>기초생활수급자·차상위계층·다자녀가구·장애인·국가유공자 등은 월 8,000~16,000원 수준의 전기요금 감면을 받을 수 있습니다. 한전 또는 주민센터에서 신청 가능합니다.</p></div>
+ <p class="source-links">근거 자료: <a href="https://home.kepco.co.kr" rel="noopener noreferrer" target="_blank">한국전력공사</a> · <a href="https://easylaw.go.kr" rel="noopener noreferrer" target="_blank">찾기쉬운 생활법령정보</a></p>
+ <p class="note">본 계산기는 주택용 저압 표준 요금 기준 참고용 추정치이며, 기후환경요금·연료비조정요금은 분기별로 변동되고 계약종별(고압 등)에 따라서도 실제 요금이 달라질 수 있습니다. 정확한 청구액은 한전ON 앱 또는 고객센터(123)에서 확인하세요.</p>
+ </article>
+ <footer class="site-footer">
+ <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
+ <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
+ </footer>
+ <script>
+ function calcElec(){
+ const kwh = parseFloat(document.getElementById('kwh').value);
+ const summer = document.getElementById('season').value === 'summer';
+ if(!kwh || kwh <= 0) return alert('전기 사용량을 입력해주세요.');
+ const t1 = summer ? 300 : 200;
+ const t2 = summer ? 450 : 400;
+ let basic, energy;
+ if(kwh <= t1){ basic = 910; energy = kwh * 120.0; }
+ else if(kwh <= t2){ basic = 1600; energy = t1*120.0 + (kwh-t1)*214.6; }
+ else { basic = 7300; energy = t1*120.0 + (t2-t1)*214.6 + (kwh-t2)*307.3; }
+ const climate = kwh * 9;
+ const fuel = kwh * 5;
+ const subtotal = basic + energy + climate + fuel;
+ const vat = subtotal * 0.1;
+ const fund = subtotal * 0.037;
+ const total = subtotal + vat + fund;
+ document.getElementById('basicFee').textContent = Math.round(basic).toLocaleString() + '원';
+ document.getElementById('energyFee').textContent = Math.round(energy).toLocaleString() + '원';
+ document.getElementById('extraFee').textContent = Math.round(climate+fuel).toLocaleString() + '원';
+ document.getElementById('taxFee').textContent = Math.round(vat+fund).toLocaleString() + '원';
+ document.getElementById('totalFee').textContent = Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</body>
+</html>
