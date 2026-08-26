@@ -119,6 +119,16 @@ nav.scrolled{border-bottom-color:var(--line);}
 .diag-row .v.up{color:#4ADE80;}
 .diag-row .v.signal{color:#FF6B5B;}
 
+/* ---------- quick stats strip ---------- */
+.quickstats{padding:0 0 100px;}
+.qs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:820px){.qs-grid{grid-template-columns:1fr 1fr;}}
+.qs-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 20px;}
+.qs-num{font-family:'JetBrains Mono';font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-0.02em;}
+.qs-num .unit{font-size:0.95rem;color:var(--ink-faint);font-weight:600;}
+.qs-lab{font-size:0.82rem;color:var(--ink-soft);line-height:1.4;}
+.qs-card.hi .qs-num{color:var(--signal);}
+
 /* ---------- section headers ---------- */
 .sec-head{margin-bottom:56px;max-width:640px;}
 .sec-eyebrow{font-family:'JetBrains Mono';font-size:0.76rem;color:var(--signal);font-weight:700;letter-spacing:0.05em;margin-bottom:14px;}
@@ -254,11 +264,10 @@ footer{padding:32px 0;text-align:center;color:var(--ink-faint);font-size:0.8rem;
  <div class="nav-logo">LEE<span>.</span>JAEYEOL</div>
  </div>
  <div class="nav-links">
- <a href="#profile">프로필</a>
  <a href="#experience">경력</a>
+ <a href="#competence">역량</a>
  <a href="#projects">프로젝트</a>
  <a href="#ai-project">AI 프로젝트</a>
- <a href="#skills">역량</a>
  <a href="#contact">연락처</a>
  </div>
  <a href="#contact" class="btn btn-primary" style="padding:9px 18px;font-size:0.82rem;">연락하기</a>
@@ -309,76 +318,33 @@ footer{padding:32px 0;text-align:center;color:var(--ink-faint);font-size:0.8rem;
  </div>
 </header>
 
-<section id="profile">
- <div class="wrap">
- <div class="sec-head reveal">
- <div class="sec-eyebrow">PROFILE</div>
- <h2 class="sec-title">실무에서 맡아온 역할을<br>프로젝트 단위로 정리했습니다</h2>
- <p class="sec-desc">약 10년간 B2C 플랫폼 및 매칭 서비스 산업에서 퍼포먼스 광고와 바이럴 마케팅을 운영해 왔습니다.</p>
+<section class="quickstats wrap reveal">
+ <div class="qs-grid">
+ <div class="qs-card hi">
+ <div class="qs-num">10<span class="unit">년차</span></div>
+ <div class="qs-lab">통합 마케팅 실무 (퍼포먼스·바이럴·CRM)</div>
  </div>
- <div class="grid-2 reveal">
- <div class="card strength-card">
- <div class="strength-icon">🩺</div>
- <h3>문제 해결</h3>
- <p>데이터로 지표 하락의 원인을 짚고, 실행 전략까지 연결합니다.</p>
+ <div class="qs-card hi">
+ <div class="qs-num">18만→7만<span class="unit">원</span></div>
+ <div class="qs-lab">SA 전환단가 절감 (바로연)</div>
  </div>
- <div class="card strength-card">
- <div class="strength-icon">🔗</div>
- <h3>통합 운영</h3>
- <p>퍼포먼스 · 바이럴 · CRM을 하나의 퍼널로 연결해 관리합니다.</p>
+ <div class="qs-card hi">
+ <div class="qs-num">+1,000<span class="unit">건/월</span></div>
+ <div class="qs-lab">신규 DB 문의 증가 (바로연)</div>
  </div>
- <div class="card strength-card">
- <div class="strength-icon">⚙️</div>
- <h3>실행력</h3>
- <p>매체 운영부터 콘텐츠, 랜딩, 채널 관리까지 직접 실행합니다.</p>
- </div>
- <div class="card strength-card">
- <div class="strength-icon">🤖</div>
- <h3>AI 활용</h3>
- <p>생성형 AI를 분석·콘텐츠 업무 전반의 보조 도구로 활용합니다.</p>
- </div>
+ <div class="qs-card hi">
+ <div class="qs-num">44+<span class="unit">개</span></div>
+ <div class="qs-lab">AI로 기획·개발·배포까지 직접 만든 서비스</div>
  </div>
  </div>
 </section>
 
-<section id="competence" style="padding-top:0;">
- <div class="wrap">
- <div class="sec-head reveal">
- <div class="sec-eyebrow">CORE COMPETENCE</div>
- <h2 class="sec-title">핵심 역량</h2>
- <p class="sec-desc">매체 단위보다, 고객 여정과 문제 해결 단위로 마케팅을 봅니다.</p>
- </div>
- <div class="grid-2 reveal">
- <div class="comp-card">
- <div class="comp-num">PERFORMANCE</div>
- <h3>퍼포먼스</h3>
- <p>메타 · 카카오 · 네이버 · 구글 주요 매체를 직접 운영하며 ROAS/CPA를 최적화합니다.</p>
- </div>
- <div class="comp-card">
- <div class="comp-num">DATA &amp; CRM</div>
- <h3>데이터 &amp; CRM</h3>
- <p>GA4 · 에어브릿지 기반 고객 유입/이탈/전환 경로를 분석하고 세그먼트별로 타겟을 최적화합니다.</p>
- </div>
- <div class="comp-card">
- <div class="comp-num">VIRAL &amp; CONTENT</div>
- <h3>바이럴 &amp; 콘텐츠</h3>
- <p>포털 생태계를 바탕으로 검색 노출과 콘텐츠 전략을 연결해 자연 유입을 확대합니다.</p>
- </div>
- <div class="comp-card">
- <div class="comp-num">PROBLEM SOLVING</div>
- <h3>문제 해결</h3>
- <p>핵심 지표를 추적해 이슈를 진단하고, 가설-실행-검증으로 대응 전략을 수립합니다.</p>
- </div>
- </div>
- </div>
-</section>
-
-<section id="experience">
+<section id="experience" style="padding-top:0;">
  <div class="wrap">
  <div class="sec-head reveal">
  <div class="sec-eyebrow">EXPERIENCE</div>
  <h2 class="sec-title">경력 요약</h2>
- <p class="sec-desc">인크루트와 고유알앤디(바로연)의 실무를 이번 포트폴리오에서 별도 프로젝트로 확장했습니다.</p>
+ <p class="sec-desc">약 10년간 B2C 플랫폼·매칭 서비스 산업에서 퍼포먼스와 바이럴 마케팅을 운영해 왔습니다.</p>
  </div>
  <div class="timeline reveal">
  <div class="tl-item current">
@@ -408,6 +374,38 @@ footer{padding:32px 0;text-align:center;color:var(--ink-faint);font-size:0.8rem;
  <div class="tl-co">수현(주)</div>
  <div class="tl-role">온라인 마케터</div>
  <p class="tl-desc">바이럴 · 퍼포먼스 마케팅을 병행 운영했습니다.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="competence">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">CORE COMPETENCE</div>
+ <h2 class="sec-title">핵심 역량</h2>
+ <p class="sec-desc">매체 단위가 아니라, 고객 여정과 문제 해결 단위로 마케팅을 봅니다.</p>
+ </div>
+ <div class="grid-2 reveal">
+ <div class="comp-card">
+ <div class="comp-num">PERFORMANCE</div>
+ <h3>퍼포먼스</h3>
+ <p>메타 · 카카오 · 네이버 · 구글 주요 매체를 직접 운영하며 ROAS/CPA를 최적화합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">DATA &amp; CRM</div>
+ <h3>데이터 &amp; CRM</h3>
+ <p>GA4 · 에어브릿지 기반 고객 유입/이탈/전환 경로를 분석하고 세그먼트별로 타겟을 최적화합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">VIRAL &amp; CONTENT</div>
+ <h3>바이럴 &amp; 콘텐츠</h3>
+ <p>포털 생태계를 바탕으로 검색 노출과 콘텐츠 전략을 연결해 자연 유입을 확대합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">PROBLEM SOLVING &amp; AI</div>
+ <h3>문제 해결 · AI 활용</h3>
+ <p>핵심 지표를 추적해 이슈를 진단하고, 가설-실행-검증 사이클에 생성형 AI를 보조 도구로 결합해 대응 속도를 높입니다.</p>
  </div>
  </div>
  </div>
@@ -508,9 +506,9 @@ footer{padding:32px 0;text-align:center;color:var(--ink-faint);font-size:0.8rem;
  <div class="ai-spot">
  <div class="ai-top">
  <div>
- <div class="ai-eyebrow">AI-BUILT PRODUCT · SIDE PROJECT</div>
+ <div class="ai-eyebrow">SIDE PROJECT · 실행력의 증거</div>
  <div class="ai-title">기획부터 배포·운영까지, AI와 함께 처음부터 끝까지 만든 서비스</div>
- <p class="ai-desc">'어라운드툴'은 실무 마케팅 지식을 바탕으로 주제를 기획하고, AI와 함께 콘텐츠 설계 · 코드 작성 · 배포 · 데이터 분석까지 전 과정을 직접 진행한 생활 계산기 플랫폼입니다.</p>
+ <p class="ai-desc">업무 지시 없이도 문제를 정의하고 결과물까지 만들어내는 방식을 보여드리고 싶어 별도로 운영 중인 사이드 프로젝트입니다. '어라운드툴'은 실무 마케팅 지식을 바탕으로 주제를 기획하고, AI와 함께 콘텐츠 설계 · 코드 작성 · 배포 · 데이터 분석까지 전 과정을 직접 진행한 생활 계산기 플랫폼입니다.</p>
  </div>
  <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" class="ai-cta">aroundtool.com 방문하기 ↗</a>
  </div>
