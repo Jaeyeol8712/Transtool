@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>이재열 — 데이터로 진단하고 콘텐츠로 흐름을 만드는 마케터</title>
+<meta name="description" content="퍼포먼스·바이럴·CRM을 아우르는 10년 차 통합 마케팅 스페셜리스트 이재열의 포트폴리오. 인크루트·바로연 실무 사례와 AI 활용 프로젝트 aroundtool.com을 소개합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/portfolio.html">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+:root{
+ --paper:#F2F4F8;
+ --panel:#FFFFFF;
+ --ink:#12172B;
+ --ink-soft:#565C74;
+ --ink-faint:#8890A6;
+ --line:#DEE2EC;
+ --signal:#FF4433;
+ --signal-soft:#FFE8E5;
+ --data-blue:#2F6FED;
+ --data-blue-soft:#E7EEFF;
+ --dark:#0E1120;
+ --dark-panel:#171B2E;
+ --dark-line:#2B3050;
+ --radius:18px;
+ --maxw:1120px;
+ font-size:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+ font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+ background:var(--paper);
+ color:var(--ink);
+ line-height:1.6;
+ -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+section{padding:120px 0;}
+@media(max-width:720px){section{padding:76px 0;} .wrap{padding:0 20px;}}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ---------- nav ---------- */
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:100;
+ backdrop-filter:blur(10px);
+ background:rgba(242,244,248,0.82);
+ border-bottom:1px solid transparent;
+ transition:border-color .3s ease, background .3s ease;
+}
+nav.scrolled{border-bottom-color:var(--line);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'JetBrains Mono';font-weight:700;font-size:0.95rem;letter-spacing:-0.02em;}
+.nav-logo span{color:var(--signal);}
+.nav-links{display:flex;gap:28px;font-size:0.85rem;font-weight:600;color:var(--ink-soft);}
+.nav-links a{text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+@media(max-width:720px){.nav-links{display:none;}}
+
+/* ---------- hero ---------- */
+.hero{padding:168px 0 100px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px;}.hero{padding-top:140px;}}
+.eyebrow{
+ display:inline-flex;align-items:center;gap:8px;
+ font-family:'JetBrains Mono';font-size:0.78rem;font-weight:600;color:var(--signal);
+ letter-spacing:0.02em;margin-bottom:22px;
+}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px var(--signal-soft);}
+.hero h1{
+ font-size:3.1rem;font-weight:800;letter-spacing:-0.03em;line-height:1.18;
+ margin-bottom:26px;
+}
+@media(max-width:900px){.hero h1{font-size:2.2rem;}}
+.hero h1 em{font-style:normal;color:var(--signal);}
+.hero-sub{font-size:1.08rem;color:var(--ink-soft);max-width:480px;margin-bottom:36px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;}
+.btn{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:13px 22px;border-radius:11px;font-weight:700;font-size:0.9rem;
+ text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;
+ border:1px solid transparent;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--ink);color:#fff;}
+.btn-primary:hover{box-shadow:0 10px 24px rgba(18,23,43,0.25);}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--panel);}
+.btn-ghost:hover{border-color:var(--ink-faint);}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.hero-tag{font-family:'JetBrains Mono';font-size:0.74rem;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);padding:6px 11px;border-radius:100px;}
+
+/* ---------- diagnosis card (signature element) ---------- */
+.diag-card{
+ background:var(--dark);color:#fff;border-radius:22px;padding:30px 28px 26px;
+ box-shadow:0 30px 60px -20px rgba(14,17,32,0.45);
+ position:relative;overflow:hidden;
+}
+.diag-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+.diag-title{font-family:'JetBrains Mono';font-size:0.72rem;letter-spacing:0.08em;color:#8890B0;}
+.diag-live{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono';font-size:0.7rem;color:#4ADE80;font-weight:700;}
+.diag-live .dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:blink 1.6s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.diag-chart{width:100%;height:120px;margin-bottom:6px;}
+.diag-annot{display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:0.68rem;color:#6870940;margin-bottom:20px;}
+.diag-annot span{color:#6E7594;}
+.diag-rows{border-top:1px solid var(--dark-line);}
+.diag-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--dark-line);}
+.diag-row .k{font-size:0.82rem;color:#A7ADC6;}
+.diag-row .v{font-family:'JetBrains Mono';font-size:0.95rem;font-weight:700;}
+.diag-row .v.up{color:#4ADE80;}
+.diag-row .v.signal{color:#FF6B5B;}
+
+/* ---------- section headers ---------- */
+.sec-head{margin-bottom:56px;max-width:640px;}
+.sec-eyebrow{font-family:'JetBrains Mono';font-size:0.76rem;color:var(--signal);font-weight:700;letter-spacing:0.05em;margin-bottom:14px;}
+.sec-title{font-size:2.1rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;}
+.sec-desc{color:var(--ink-soft);font-size:1rem;}
+@media(max-width:720px){.sec-title{font-size:1.6rem;}}
+
+/* ---------- strengths grid ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:720px){.grid-2{grid-template-columns:1fr;}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;}
+.strength-icon{width:44px;height:44px;border-radius:12px;background:var(--signal-soft);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px;}
+.strength-card h3{font-size:1.1rem;font-weight:800;margin-bottom:8px;}
+.strength-card p{color:var(--ink-soft);font-size:0.92rem;}
+
+/* ---------- competence grid ---------- */
+.comp-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;}
+.comp-num{font-family:'JetBrains Mono';font-size:0.75rem;color:var(--data-blue);font-weight:700;margin-bottom:12px;}
+.comp-card h3{font-size:1.05rem;font-weight:800;margin-bottom:10px;}
+.comp-card p{color:var(--ink-soft);font-size:0.9rem;}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative;padding-left:32px;}
+.timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
+.tl-item{position:relative;padding-bottom:44px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-32px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--panel);border:2px solid var(--ink-faint);}
+.tl-item.current .tl-dot{background:var(--signal);border-color:var(--signal);box-shadow:0 0 0 5px var(--signal-soft);}
+.tl-date{font-family:'JetBrains Mono';font-size:0.76rem;color:var(--ink-faint);margin-bottom:6px;}
+.tl-co{font-size:1.15rem;font-weight:800;margin-bottom:4px;}
+.tl-role{font-size:0.92rem;color:var(--signal);font-weight:700;margin-bottom:8px;}
+.tl-desc{color:var(--ink-soft);font-size:0.92rem;max-width:560px;}
+
+/* ---------- case studies ---------- */
+.case{border:1px solid var(--line);border-radius:24px;background:var(--panel);overflow:hidden;margin-bottom:24px;}
+.case-head{padding:34px 34px 0;}
+.case-tag{font-family:'JetBrains Mono';font-size:0.74rem;color:var(--ink-faint);margin-bottom:10px;}
+.case-title{font-size:1.5rem;font-weight:800;margin-bottom:10px;letter-spacing:-0.01em;}
+.case-desc{color:var(--ink-soft);font-size:0.95rem;max-width:640px;margin-bottom:26px;}
+.case-body{padding:0 34px 34px;}
+.subproj{border-top:1px solid var(--line);padding:26px 0;}
+.subproj:first-child{border-top:none;}
+.subproj-title{font-size:1.02rem;font-weight:800;margin-bottom:6px;}
+.subproj-sub{color:var(--ink-soft);font-size:0.88rem;margin-bottom:18px;}
+.stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+.stat-pill{
+ background:var(--data-blue-soft);color:var(--data-blue);
+ font-family:'JetBrains Mono';font-size:0.78rem;font-weight:700;
+ padding:8px 14px;border-radius:10px;
+}
+.stat-pill.alt{background:var(--signal-soft);color:var(--signal);}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{font-size:0.8rem;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);padding:7px 12px;border-radius:100px;}
+.case-img{width:100%;border-radius:14px;margin-top:18px;border:1px solid var(--line);}
+.result-banner{
+ margin-top:8px;background:var(--dark);color:#fff;border-radius:14px;
+ padding:18px 22px;font-size:0.92rem;font-weight:600;
+ display:flex;gap:10px;align-items:baseline;
+}
+.result-banner .tag{font-family:'JetBrains Mono';font-size:0.7rem;color:#4ADE80;font-weight:800;}
+
+/* ---------- AI spotlight (dark, signature-adjacent) ---------- */
+.ai-spot{
+ background:var(--dark);color:#fff;border-radius:28px;padding:56px 48px;
+ position:relative;overflow:hidden;
+}
+@media(max-width:720px){.ai-spot{padding:36px 22px;}}
+.ai-spot::before{
+ content:'';position:absolute;top:-140px;right:-140px;width:420px;height:420px;
+ background:radial-gradient(circle, rgba(255,68,51,0.18), transparent 70%);
+}
+.ai-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:36px;position:relative;}
+.ai-eyebrow{font-family:'JetBrains Mono';font-size:0.76rem;color:#FF8A7A;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;}
+.ai-title{font-size:1.9rem;font-weight:800;letter-spacing:-0.02em;max-width:560px;line-height:1.3;}
+.ai-desc{color:#A7ADC6;font-size:0.96rem;max-width:460px;margin-top:14px;}
+.ai-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--dark);padding:13px 22px;border-radius:11px;font-weight:800;font-size:0.88rem;text-decoration:none;white-space:nowrap;}
+.ai-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px;position:relative;}
+@media(max-width:820px){.ai-stats{grid-template-columns:1fr 1fr;}}
+.ai-stat{background:rgba(255,255,255,0.05);border:1px solid var(--dark-line);border-radius:14px;padding:20px 18px;}
+.ai-stat .num{font-family:'JetBrains Mono';font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.ai-stat .lab{font-size:0.78rem;color:#8890B0;}
+.ai-mock{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:40px;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);}
+.ai-mock-bar{background:#EDEFF5;padding:11px 16px;display:flex;align-items:center;gap:8px;}
+.ai-mock-dot{width:9px;height:9px;border-radius:50%;background:#D5D9E3;}
+.ai-mock-url{margin-left:8px;font-family:'JetBrains Mono';font-size:0.72rem;color:#7B8199;background:#fff;padding:4px 12px;border-radius:6px;flex:1;max-width:260px;}
+.ai-mock-body{padding:20px;background:#F6F7FA;}
+.ai-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+@media(max-width:640px){.ai-mock-grid{grid-template-columns:repeat(2,1fr);}}
+.ai-tool-card{background:#fff;border:1px solid #E7E9F0;border-radius:10px;padding:14px 12px;}
+.ai-tool-card .ic{font-size:1.1rem;margin-bottom:8px;}
+.ai-tool-card .t{font-size:0.72rem;font-weight:700;color:#12172B;line-height:1.3;}
+.ai-process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;}
+@media(max-width:820px){.ai-process{grid-template-columns:1fr 1fr;}}
+.ai-step{border-top:2px solid var(--dark-line);padding-top:16px;}
+.ai-step .n{font-family:'JetBrains Mono';font-size:0.74rem;color:#FF6B5B;font-weight:700;margin-bottom:8px;}
+.ai-step .t{font-size:0.92rem;font-weight:700;margin-bottom:6px;}
+.ai-step .d{font-size:0.8rem;color:#8890B0;line-height:1.5;}
+
+/* ---------- skills ---------- */
+.skill-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;}
+.skill-tag{
+ font-size:0.88rem;font-weight:600;padding:10px 16px;border-radius:100px;
+ background:var(--panel);border:1px solid var(--line);
+}
+.cert-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:720px){.cert-list{grid-template-columns:1fr;}}
+.cert-item{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:0.88rem;font-weight:700;display:flex;align-items:center;gap:10px;}
+.cert-item::before{content:'✓';color:var(--signal);font-weight:800;}
+
+/* ---------- closing ---------- */
+.closing{background:var(--dark);color:#fff;padding:130px 0;text-align:center;}
+.closing-quote{font-size:1.9rem;font-weight:800;letter-spacing:-0.02em;max-width:680px;margin:0 auto 30px;line-height:1.4;}
+.closing-quote .sig{color:#FF6B5B;}
+.closing-sub{color:#8890B0;font-size:1rem;margin-bottom:44px;}
+.closing-contacts{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.closing-contacts a{
+ display:inline-flex;align-items:center;gap:8px;
+ border:1px solid var(--dark-line);padding:13px 22px;border-radius:11px;
+ text-decoration:none;color:#fff;font-weight:700;font-size:0.88rem;
+ transition:background .2s;
+}
+.closing-contacts a:hover{background:rgba(255,255,255,0.06);}
+
+footer{padding:32px 0;text-align:center;color:var(--ink-faint);font-size:0.8rem;}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+ <div class="nav-inner">
+ <div style="display:flex;align-items:center;gap:10px;">
+ <img src="portfolio_assets/profile.jpg" alt="이재열" style="width:32px;height:32px;border-radius:50%;object-fit:cover;">
+ <div class="nav-logo">LEE<span>.</span>JAEYEOL</div>
+ </div>
+ <div class="nav-links">
+ <a href="#profile">프로필</a>
+ <a href="#experience">경력</a>
+ <a href="#projects">프로젝트</a>
+ <a href="#ai-project">AI 프로젝트</a>
+ <a href="#skills">역량</a>
+ <a href="#contact">연락처</a>
+ </div>
+ <a href="#contact" class="btn btn-primary" style="padding:9px 18px;font-size:0.82rem;">연락하기</a>
+ </div>
+</nav>
+
+<header class="hero wrap">
+ <div class="hero-grid">
+ <div class="reveal in">
+ <div class="eyebrow">MARKETING PORTFOLIO · LEE JAE YEOL</div>
+ <h1>데이터로 <em>원인</em>을 진단하고,<br>콘텐츠로 <em>흐름</em>을 만드는<br>마케터입니다.</h1>
+ <p class="hero-sub">퍼포먼스 · 바이럴 · CRM을 아우르는 약 10년 차 통합 마케팅 스페셜리스트. 시장 분석부터 캠페인 기획, 데이터 분석까지 전체 퍼널을 관리하며 지표 하락의 원인을 진단하고 실행 전략으로 연결합니다.</p>
+ <div class="hero-ctas">
+ <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+ <a href="#ai-project" class="btn btn-ghost">🤖 AI 활용 프로젝트</a>
+ </div>
+ <div class="hero-tags">
+ <span class="hero-tag">검색광고마케터 1급</span>
+ <span class="hero-tag">Google Analytics Certification</span>
+ <span class="hero-tag">AI 기초·응용 인공지능 기초</span>
+ </div>
+ </div>
+
+ <div class="reveal">
+ <div class="diag-card">
+ <div class="diag-head">
+ <div class="diag-title">DIAGNOSIS · CASE #001</div>
+ <div class="diag-live"><span class="dot"></span>LIVE</div>
+ </div>
+ <svg class="diag-chart" viewBox="0 0 400 120" fill="none">
+ <line x1="0" y1="30" x2="400" y2="30" stroke="#232849" stroke-width="1"/>
+ <line x1="0" y1="60" x2="400" y2="60" stroke="#232849" stroke-width="1"/>
+ <line x1="0" y1="90" x2="400" y2="90" stroke="#232849" stroke-width="1"/>
+ <path id="sparkline" d="M0,55 C40,72 70,96 100,96 C140,96 165,72 200,58 C240,44 260,34 300,26 C340,18 370,12 400,8"
+ stroke="#FF6B5B" stroke-width="2.5" stroke-linecap="round"/>
+ <circle cx="100" cy="96" r="4.5" fill="#FF6B5B"/>
+ <circle cx="300" cy="26" r="4.5" fill="#4ADE80"/>
+ </svg>
+ <div class="diag-annot"><span>원인 발견</span><span>실행 → 회복</span></div>
+ <div class="diag-rows">
+ <div class="diag-row"><span class="k">진단 영역</span><span class="v">퍼포먼스 · 바이럴 · CRM</span></div>
+ <div class="diag-row"><span class="k">주요 데이터 소스</span><span class="v">GA4 · 에어브릿지</span></div>
+ <div class="diag-row"><span class="k">Organic 유입</span><span class="v up">▲ 우상향 유지</span></div>
+ <div class="diag-row"><span class="k">진단 방식</span><span class="v signal">가설 → 실행 → 검증</span></div>
+ </div>
+ </div>
+ </div>
+ </div>
+</header>
+
+<section id="profile">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">PROFILE</div>
+ <h2 class="sec-title">실무에서 맡아온 역할을<br>프로젝트 단위로 정리했습니다</h2>
+ <p class="sec-desc">약 10년간 B2C 플랫폼 및 매칭 서비스 산업에서 퍼포먼스 광고와 바이럴 마케팅을 운영해 왔습니다.</p>
+ </div>
+ <div class="grid-2 reveal">
+ <div class="card strength-card">
+ <div class="strength-icon">🩺</div>
+ <h3>문제 해결</h3>
+ <p>데이터로 지표 하락의 원인을 짚고, 실행 전략까지 연결합니다.</p>
+ </div>
+ <div class="card strength-card">
+ <div class="strength-icon">🔗</div>
+ <h3>통합 운영</h3>
+ <p>퍼포먼스 · 바이럴 · CRM을 하나의 퍼널로 연결해 관리합니다.</p>
+ </div>
+ <div class="card strength-card">
+ <div class="strength-icon">⚙️</div>
+ <h3>실행력</h3>
+ <p>매체 운영부터 콘텐츠, 랜딩, 채널 관리까지 직접 실행합니다.</p>
+ </div>
+ <div class="card strength-card">
+ <div class="strength-icon">🤖</div>
+ <h3>AI 활용</h3>
+ <p>생성형 AI를 분석·콘텐츠 업무 전반의 보조 도구로 활용합니다.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="competence" style="padding-top:0;">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">CORE COMPETENCE</div>
+ <h2 class="sec-title">핵심 역량</h2>
+ <p class="sec-desc">매체 단위보다, 고객 여정과 문제 해결 단위로 마케팅을 봅니다.</p>
+ </div>
+ <div class="grid-2 reveal">
+ <div class="comp-card">
+ <div class="comp-num">PERFORMANCE</div>
+ <h3>퍼포먼스</h3>
+ <p>메타 · 카카오 · 네이버 · 구글 주요 매체를 직접 운영하며 ROAS/CPA를 최적화합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">DATA &amp; CRM</div>
+ <h3>데이터 &amp; CRM</h3>
+ <p>GA4 · 에어브릿지 기반 고객 유입/이탈/전환 경로를 분석하고 세그먼트별로 타겟을 최적화합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">VIRAL &amp; CONTENT</div>
+ <h3>바이럴 &amp; 콘텐츠</h3>
+ <p>포털 생태계를 바탕으로 검색 노출과 콘텐츠 전략을 연결해 자연 유입을 확대합니다.</p>
+ </div>
+ <div class="comp-card">
+ <div class="comp-num">PROBLEM SOLVING</div>
+ <h3>문제 해결</h3>
+ <p>핵심 지표를 추적해 이슈를 진단하고, 가설-실행-검증으로 대응 전략을 수립합니다.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="experience">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">EXPERIENCE</div>
+ <h2 class="sec-title">경력 요약</h2>
+ <p class="sec-desc">인크루트와 고유알앤디(바로연)의 실무를 이번 포트폴리오에서 별도 프로젝트로 확장했습니다.</p>
+ </div>
+ <div class="timeline reveal">
+ <div class="tl-item current">
+ <div class="tl-dot"></div>
+ <div class="tl-date">2025.07 — 재직중</div>
+ <div class="tl-co">고유알앤디 (바로연 결혼정보)</div>
+ <div class="tl-role">퍼포먼스 및 바이럴 마케팅 운영</div>
+ <p class="tl-desc">SA/DA 매체 운영, 홈페이지 리뉴얼, 콘텐츠·브랜딩·채널 확장까지 온·오프라인 통합 마케팅을 담당합니다.</p>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot"></div>
+ <div class="tl-date">2017.02 — 2025.06</div>
+ <div class="tl-co">인크루트</div>
+ <div class="tl-role">통합 마케팅</div>
+ <p class="tl-desc">CRM 및 퍼포먼스 고도화, 유기적 트래픽 확대를 담당하며 데이터 기반 운영 체계를 구축했습니다.</p>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot"></div>
+ <div class="tl-date">2015.11 — 2017.02</div>
+ <div class="tl-co">주식회사 바로연</div>
+ <div class="tl-role">바이럴 마케팅</div>
+ <p class="tl-desc">네이버 · 다음 키워드 상위노출 기반으로 브랜드 인지도를 구축했습니다.</p>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot"></div>
+ <div class="tl-date">2013.09 — 2015.01</div>
+ <div class="tl-co">수현(주)</div>
+ <div class="tl-role">온라인 마케터</div>
+ <p class="tl-desc">바이럴 · 퍼포먼스 마케팅을 병행 운영했습니다.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">FEATURED PROJECTS</div>
+ <h2 class="sec-title">두 회사에서 쌓은<br>마케팅 방식</h2>
+ <p class="sec-desc">플랫폼과 매칭 서비스라는 다른 환경에서, 공통적으로 "문제를 보고 다음 액션을 설계하는 일"을 해왔습니다.</p>
+ </div>
+
+ <div class="case reveal">
+ <div class="case-head">
+ <div class="case-tag">PROJECT 01 · INCRUIT</div>
+ <div class="case-title">인크루트 — 통합 마케팅 고도화</div>
+ <p class="case-desc">CRM과 퍼포먼스를 연결하고, 유기적 트래픽까지 한 흐름으로 관리한 경험입니다.</p>
+ </div>
+ <div class="case-body">
+ <div class="subproj">
+ <div class="subproj-title">01 · CRM 기반 고객 여정 개선</div>
+ <p class="subproj-sub">단순 발송이 아니라 고객군을 나누고, 행동 데이터에 맞춰 메시지와 콘텐츠를 조정했습니다.</p>
+ <div class="chip-row" style="margin-bottom:14px;">
+ <span class="chip">Segmentation — 유입 채널·행동 데이터 기반 고객군 구분</span>
+ <span class="chip">Message &amp; Content — 관심사·행동 맥락별 메시지 설계</span>
+ <span class="chip">Measurement — 재방문·전환 추적 후 다음 액션 연결</span>
+ </div>
+ <img class="case-img" src="portfolio_assets/ga4_dashboard.jpg" alt="GA4 기반 고객 여정 분석 대시보드" style="margin-bottom:18px;">
+ <div class="result-banner"><span class="tag">RESULT</span> 저효율 매체 예산을 조정하고 고효율 영역에 집중하는 운영 기준을 확보했습니다.</div>
+ </div>
+ <div class="subproj">
+ <div class="subproj-title">02 · 기술 기반 SEO 최적화 및 유입 자동화</div>
+ <p class="subproj-sub">검색엔진 기본 구조부터 콘텐츠, 추적, 리포팅까지 직접 연결했습니다.</p>
+ <div class="chip-row" style="margin-bottom:14px;">
+ <span class="chip">Technical SEO — 메타 태그·사이트맵·구조화 데이터 개선</span>
+ <span class="chip">Content SEO — GitHub 기반 웹문서로 노출 영역 확대</span>
+ <span class="chip">Tracking — GA4 기반 Organic 트래픽 월간 대시보드</span>
+ </div>
+ <img class="case-img" src="portfolio_assets/incruit_news.jpg" alt="인크루트 콘텐츠 SEO 노출 사례">
+ <div class="result-banner" style="margin-top:18px;"><span class="tag">RESULT</span> 광고 비용 증액 없이 Organic 유입이 지속적으로 우상향하도록 운영 기반을 구축했습니다. 단순 노출보다 "측정 가능한 구조"를 만드는 데 집중했습니다.</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="case reveal">
+ <div class="case-head">
+ <div class="case-tag">PROJECT 02 · 고유알앤디 (바로연)</div>
+ <div class="case-title">오프라인과 디지털을 잇는 통합 마케팅</div>
+ <p class="case-desc">광고, 콘텐츠, 홈페이지, 행사, 제휴까지 브랜드가 고객과 만나는 접점을 직접 운영한 경험입니다.</p>
+ </div>
+ <div class="case-body">
+ <div class="subproj">
+ <div class="subproj-title">01 · 온라인 마케팅 전략 수립 및 실행</div>
+ <p class="subproj-sub">SA·DA 매체 운영부터 랜딩·소재 기획, 대행사 관리까지 성과 개선을 주도했습니다.</p>
+ <div class="stat-row">
+ <span class="stat-pill">SA 전환단가 18만원 → 7만원</span>
+ <span class="stat-pill">DA 전환단가 6만원 → 2만원</span>
+ <span class="stat-pill alt">DB +1,000건 / 월</span>
+ </div>
+ <div class="chip-row" style="margin-bottom:14px;">
+ <span class="chip">대행사 관리를 통한 월간 캠페인 성과 개선 주도</span>
+ <span class="chip">신규 매체 발굴 및 ROI 비교 분석</span>
+ <span class="chip">브랜드 타깃 맞춤형 랜딩페이지·배너 기획</span>
+ <span class="chip">A/B 테스트 운영으로 전환율 향상</span>
+ </div>
+ <div class="result-banner"><span class="tag">RESULT</span> SA/DA 전환 단가 절감과 신규 매체 선점으로 월 DB 수량을 확대했습니다.</div>
+ </div>
+ <div class="subproj">
+ <div class="subproj-title">02 · 홈페이지 리뉴얼 및 전환 구조 개선</div>
+ <p class="subproj-sub">방문자 체류 시간과 온라인 상담건수를 높이기 위한 홈페이지 리뉴얼을 기획하고 제작했습니다.</p>
+ <div class="chip-row" style="margin-bottom:14px;">
+ <span class="chip">기존 ASP 코드 → React + Express 전환</span>
+ <span class="chip">UX/UI 개선 및 웹디자인팀 협업</span>
+ <span class="chip">페이지 콘텐츠 기획 및 서비스 제휴사 협업</span>
+ <span class="chip">DB 입력 페이지 카카오 싱크 도입</span>
+ </div>
+ <img class="case-img" src="portfolio_assets/baroyeon_site.jpg" alt="바로연 홈페이지 리뉴얼">
+ <div class="result-banner" style="margin-top:18px;"><span class="tag">RESULT</span> 브랜드 조회수·체류시간이 증가했고, 카카오 싱크 도입으로 DB 질이 개선됐습니다.</div>
+ </div>
+ <div class="subproj">
+ <div class="subproj-title">03 · 콘텐츠 · 브랜딩 · 채널 확장</div>
+ <p class="subproj-sub">한 채널의 성과보다 브랜드가 노출되는 접점을 넓히는 데 집중했습니다.</p>
+ <div class="chip-row" style="margin-bottom:14px;">
+ <span class="chip">SNS — 인스타그램·페이스북 운영 → KPI 120% 초과 달성</span>
+ <span class="chip">PR — 블로그·카페·보도기사 → 브랜드 언론 홍보</span>
+ <span class="chip">인플루언서 — 섭외·기획·성과분석 → 준 메가 인플루언서 15명 확보</span>
+ <span class="chip">B2B/제휴 — 커뮤니티 제휴·프로모션 → 연 매출 8천만원 발생</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="ai-project">
+ <div class="wrap reveal">
+ <div class="ai-spot">
+ <div class="ai-top">
+ <div>
+ <div class="ai-eyebrow">AI-BUILT PRODUCT · SIDE PROJECT</div>
+ <div class="ai-title">기획부터 배포·운영까지, AI와 함께 처음부터 끝까지 만든 서비스</div>
+ <p class="ai-desc">'어라운드툴'은 실무 마케팅 지식을 바탕으로 주제를 기획하고, AI와 함께 콘텐츠 설계 · 코드 작성 · 배포 · 데이터 분석까지 전 과정을 직접 진행한 생활 계산기 플랫폼입니다.</p>
+ </div>
+ <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" class="ai-cta">aroundtool.com 방문하기 ↗</a>
+ </div>
+
+ <div class="ai-stats">
+ <div class="ai-stat"><div class="num">44+</div><div class="lab">무료 생활 계산기 콘텐츠</div></div>
+ <div class="ai-stat"><div class="num">GitHub</div><div class="lab">저장소 직접 연동·버전 관리</div></div>
+ <div class="ai-stat"><div class="num">Domain</div><div class="lab">도메인 직접 구매 및 배포</div></div>
+ <div class="ai-stat"><div class="num">GA4</div><div class="lab">실시간 분석 대시보드 자체 구축</div></div>
+ </div>
+
+ <div class="ai-mock">
+ <div class="ai-mock-bar">
+ <div class="ai-mock-dot"></div><div class="ai-mock-dot"></div><div class="ai-mock-dot"></div>
+ <div class="ai-mock-url">🔒 www.aroundtool.com</div>
+ </div>
+ <div class="ai-mock-body">
+ <div class="ai-mock-grid">
+ <div class="ai-tool-card"><div class="ic">💰</div><div class="t">연봉 실수령액 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">🏠</div><div class="t">DSR 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">👶</div><div class="t">육아휴직급여 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">💡</div><div class="t">전기요금 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">🏃</div><div class="t">BMI 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">🤰</div><div class="t">출산예정일 계산기</div></div>
+ <div class="ai-tool-card"><div class="ic">👴</div><div class="t">국민연금 수급나이</div></div>
+ <div class="ai-tool-card"><div class="ic">✍️</div><div class="t">맞춤법 검사기</div></div>
+ </div>
+ </div>
+ </div>
+
+ <div class="ai-process">
+ <div class="ai-step"><div class="n">01 · 기획</div><div class="t">주제·카테고리 설계</div><div class="d">실사용 수요가 있는 계산기 주제를 선정하고 카테고리 구조를 기획했습니다.</div></div>
+ <div class="ai-step"><div class="n">02 · 제작</div><div class="t">콘텐츠 · 코드 생성</div><div class="d">계산 로직, 콘텐츠, 디자인을 AI와 함께 페이지 단위로 생성했습니다.</div></div>
+ <div class="ai-step"><div class="n">03 · 배포</div><div class="t">GitHub · 도메인 연동</div><div class="d">GitHub 저장소에 연결하고 도메인을 구매해 실제 서비스로 배포했습니다.</div></div>
+ <div class="ai-step"><div class="n">04 · 운영</div><div class="t">데이터 기반 개선</div><div class="d">GA4를 연동해 대시보드를 만들고, 트래픽 데이터를 보며 콘텐츠를 개선합니다.</div></div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="wrap">
+ <div class="sec-head reveal">
+ <div class="sec-eyebrow">SKILLS &amp; CERTIFICATIONS</div>
+ <h2 class="sec-title">다뤄온 도구와 자격</h2>
+ <p class="sec-desc">매체 운영부터 데이터 분석, 개발, AI 활용까지 실무에서 직접 사용한 도구들입니다.</p>
+ </div>
+ <div class="skill-wrap reveal">
+ <span class="skill-tag">GA4</span>
+ <span class="skill-tag">에어브릿지</span>
+ <span class="skill-tag">Meta Ads</span>
+ <span class="skill-tag">카카오모먼트</span>
+ <span class="skill-tag">네이버 광고</span>
+ <span class="skill-tag">Google Ads</span>
+ <span class="skill-tag">SEO</span>
+ <span class="skill-tag">React</span>
+ <span class="skill-tag">Express</span>
+ <span class="skill-tag">GitHub</span>
+ <span class="skill-tag">생성형 AI 활용</span>
+ <span class="skill-tag">프롬프트 설계</span>
+ <span class="skill-tag">Photoshop</span>
+ <span class="skill-tag">Premiere Pro</span>
+ <span class="skill-tag">Excel</span>
+ </div>
+ <div class="cert-list reveal">
+ <div class="cert-item">검색광고마케터 1급</div>
+ <div class="cert-item">Google Analytics Certification</div>
+ <div class="cert-item">AI 기초 · 응용 인공지능 기초</div>
+ </div>
+ </div>
+</section>
+
+<section class="closing" id="contact">
+ <div class="wrap reveal">
+ <img src="portfolio_assets/profile.jpg" alt="이재열" style="width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 28px;border:2px solid var(--dark-line);">
+ <div class="closing-quote">유입부터 전환까지,<br>감이 아닌 <span class="sig">데이터와 실행</span>으로 증명하는<br>마케터 이재열입니다.</div>
+ <div class="closing-sub">LEE JAE YEOL · MARKETING PORTFOLIO</div>
+ <div class="closing-contacts">
+ <a href="mailto:dlwoduf87@kakao.com">✉️ dlwoduf87@kakao.com</a>
+ <a href="tel:010-0000-3296">📞 010-0000-3296</a>
+ <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer">🔧 aroundtool.com</a>
+ <a href="https://jaeyeol8712.github.io/resume/" target="_blank" rel="noopener noreferrer">📄 이력서 원본</a>
+ </div>
+ </div>
+</section>
+
+<footer>© 2026 이재열. LEE JAE YEOL PORTFOLIO.</footer>
+
+<script>
+// nav scroll shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+ nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// reveal on scroll (with safety fallback so content never stays hidden)
+const revealEls = document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ const io = new IntersectionObserver((entries) => {
+ entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+ }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
+ revealEls.forEach(el => io.observe(el));
+} else {
+ revealEls.forEach(el => el.classList.add('in'));
+}
+// safety net: force-reveal anything still hidden after 2.5s (slow devices, edge cases)
+setTimeout(() => { revealEls.forEach(el => el.classList.add('in')); }, 2500);
+
+// sparkline draw-in animation
+const spark = document.getElementById('sparkline');
+if(spark){
+ const len = spark.getTotalLength();
+ spark.style.strokeDasharray = len;
+ spark.style.strokeDashoffset = len;
+ requestAnimationFrame(() => {
+ spark.style.transition = 'stroke-dashoffset 1.6s ease';
+ spark.style.strokeDashoffset = '0';
+ });
+}
+</script>
+
+</body>
+</html>
