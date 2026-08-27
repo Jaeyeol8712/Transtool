@@ -19,6 +19,25 @@
   ::selection { background: #C8F5E1; }
   body { -webkit-text-size-adjust: 100%; }
 
+
+  /* ===== 대분류별 배경 그라데이션 =====
+     각 구분의 머리 420px 구간에만 옅은 색을 깔고 흰색으로 풀어, 스크롤하다
+     색이 바뀌면 새 구분이 시작됐다는 신호가 되도록 했습니다.
+     좌우 여백까지 색이 닿도록 full-bleed 처리합니다. */
+  [data-slide="profile"], [data-slide="projects"], [data-slide="side"], [data-slide="experience"], [data-slide="journey"], [data-slide="contact"] {
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: calc(50vw - 50%) !important;
+    padding-right: calc(50vw - 50%) !important;
+    background-repeat: no-repeat;
+  }
+  [data-slide="profile"] { background-image: linear-gradient(180deg, #EFFAF4 0px, #FFFFFF 420px); }
+  [data-slide="projects"] { background-image: linear-gradient(180deg, #EFF5FC 0px, #FFFFFF 420px); }
+  [data-slide="side"] { background-image: linear-gradient(180deg, #F5F5F2 0px, #FFFFFF 420px); }
+  [data-slide="experience"] { background-image: linear-gradient(180deg, #FDF7EC 0px, #FFFFFF 420px); }
+  [data-slide="journey"] { background-image: linear-gradient(180deg, #F4F2FC 0px, #FFFFFF 420px); }
+  [data-slide="contact"] { background-image: linear-gradient(180deg, #EFFAF4 0px, #FFFFFF 420px); }
+
   @media (max-width: 780px) {
     #top { word-break: keep-all; }
     [data-m="mono"] { letter-spacing: 0.08em !important; }
@@ -135,10 +154,10 @@
     </div>
 
     <div id="profile" data-slide="profile" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">01 / PROFILE</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#0E9F6E;">01</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">PROFILE</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
       </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">짧은 프로필</h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">매체 단위가 아니라, 고객 여정과 문제 해결 단위로 마케팅을 봅니다.</p>
@@ -204,10 +223,10 @@
     </div>
 
     <div id="projects" data-slide="projects" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">02 / PROJECTS</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#2F6FB0;">02</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">PROJECTS</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
       </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">최근 프로젝트 <span style="color:#9CA0A4;">일부</span></h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">플랫폼과 매칭 서비스라는 다른 환경에서, 공통적으로 문제를 보고 다음 액션을 설계해왔습니다.</p>
@@ -352,10 +371,10 @@
     </sc-if>
 
     <div id="experience" data-slide="experience" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">03 / EXPERTISE</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#C0872A;">03</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">EXPERTISE</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
       </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">저의 <span style="color:#0E9F6E;">역량</span></h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">한 역할에 머물지 않고, 퍼널 전체를 직접 만지며 쌓은 네 가지 축입니다.</p>
@@ -388,10 +407,10 @@
     </div>
 
     <div id="journey" data-slide="journey" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">04 / CAREER</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#6E5FB0;">04</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">CAREER</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
       </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">경력 여정</h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 40px;">약 10년간 B2C 플랫폼 · 매칭 서비스 산업에서 퍼포먼스와 바이럴 마케팅을 운영해 왔습니다.</p>
@@ -458,10 +477,11 @@
     </div>
 
     <div id="contact" data-slide="contact" style="padding:clamp(64px,11vw,110px) 0 clamp(56px,9vw,90px);text-align:center;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:34px;">
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">05 / CONTACT</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      <div data-section-divider style="display:flex;align-items:baseline;justify-content:center;gap:13px;margin-bottom:30px;">
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#0E9F6E;">05</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">CONTACT</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
       </div>
       <img src="profile.jpg" alt="이재열" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 26px;border:1px solid #EDEDEA;" />
       <div style="font-size:clamp(29px,7.6vw,64px);font-weight:800;letter-spacing:-0.045em;line-height:1.1;margin-bottom:20px;">함께 <span style="color:#0E9F6E;">이야기</span>해요</div>
