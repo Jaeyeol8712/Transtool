@@ -6,9 +6,79 @@
 <title>어라운드툴 - 무료 생활 계산기 44종</title>
 <meta name="description" content="연봉, 대출, 세금, 부동산, 노동, 건강, 생활에 필요한 44가지 무료 계산기와 실용 도구를 제공합니다. 각 도구의 계산 기준과 주의사항도 함께 안내합니다.">
 <link rel="canonical" href="https://www.aroundtool.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--brand:#0f172a}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}.mast{background:var(--card);border-bottom:3px solid var(--brand);padding:24px 20px;text-align:center}.mast h1{font-size:2.2rem;margin-bottom:8px}.mast p{color:var(--muted);font-size:.95rem}main{max-width:1050px;margin:auto;padding:28px 18px 60px}.intro,.guide,.faq{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:24px}.intro h2,.guide h2,.faq h2{font-size:1.35rem;margin-bottom:12px}.intro p,.guide p{color:#4b5563;margin-bottom:10px}.toc{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.toc a{background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 14px;color:#374151;text-decoration:none;font-size:.9rem}.category{margin:36px 0}.category h2{font-size:1.35rem;border-bottom:2px solid var(--brand);padding-bottom:9px;margin-bottom:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.tool{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;min-height:150px}.tool:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,23,42,.08)}.tool strong{font-size:1.05rem;margin-bottom:6px}.tool span{font-size:.88rem;color:var(--muted);flex:1}.tool em{font-style:normal;font-weight:700;font-size:.82rem;margin-top:12px;color:#1d4ed8}.faq-item{border-top:1px solid var(--border);padding:15px 0}.faq-item:first-of-type{border-top:0}.faq-item h3{font-size:1rem;margin-bottom:5px}.faq-item p{color:#4b5563;font-size:.92rem}.footer{background:#fff;border-top:1px solid var(--border);text-align:center;padding:25px;color:var(--muted);font-size:.85rem}.footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px}@media(max-width:600px){.mast h1{font-size:1.8rem}.grid{grid-template-columns:1fr}}
+:root{--bg:#f6f9ff;--card:#fff;--text:#1b2432;--muted:#6b7a90;--border:#e8eefb;--accent:oklch(0.55 0.17 258)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:oklch(0.47 0.17 258)}
+.mast{background:linear-gradient(180deg,#fff 0%,#f9fbff 100%);border-bottom:1px solid var(--border);padding:64px 24px 56px;text-align:center}
+.mast .inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+.mast .pill{display:inline-flex;align-items:center;gap:8px;background:oklch(0.96 0.035 258);color:oklch(0.5 0.15 258);border-radius:999px;padding:7px 15px;font-size:.78rem;font-weight:700;letter-spacing:.02em}
+.mast .pill i{width:6px;height:6px;border-radius:999px;background:oklch(0.63 0.16 258)}
+.mast h1{font-size:3rem;line-height:1.2;letter-spacing:-.03em;font-weight:700}
+.mast p{color:#5c6b81;font-size:1.08rem;max-width:520px;text-wrap:pretty}
+main{max-width:1080px;margin:auto;padding:36px 20px 72px}
+.intro,.faq{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:30px 32px;box-shadow:0 1px 2px rgba(24,39,75,.04)}
+.intro{margin-bottom:28px}
+.intro h2,.faq h2{font-size:1.28rem;letter-spacing:-.02em;margin-bottom:14px}
+.intro p{color:#5c6b81;font-size:.97rem;margin-bottom:12px;text-wrap:pretty}
+.intro p:last-child{margin-bottom:0}
+.intro a{font-weight:500}
+.toc{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 40px}
+.toc a{background:#fff;border:1px solid #e2eafa;border-radius:999px;padding:9px 16px;color:#3f4f66;font-size:.9rem;font-weight:500;box-shadow:0 1px 2px rgba(24,39,75,.04);transition:background .15s,border-color .15s,color .15s}
+.category{margin:0 0 48px}
+.cat-head{display:flex;align-items:center;gap:11px;padding-bottom:14px;border-bottom:1px solid #e6edfa;margin-bottom:18px}
+.cat-head h2{font-size:1.26rem;letter-spacing:-.02em}
+.cat-head .dot{width:9px;height:9px;border-radius:999px;flex:none}
+.cat-head .count{font-family:'Outfit',sans-serif;font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:16px}
+.tool{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;min-height:156px;color:var(--text);box-shadow:0 1px 2px rgba(24,39,75,.04);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.tool:hover{transform:translateY(-3px)}
+.tool strong{font-size:1.02rem;letter-spacing:-.015em}
+.tool span{font-size:.875rem;color:var(--muted);flex:1;text-wrap:pretty}
+.tool em{font-style:normal;font-weight:700;font-size:.8rem}
+.notice{background:oklch(0.975 0.025 258);border:1px solid oklch(0.91 0.045 258);border-radius:22px;padding:30px 32px;margin-bottom:24px}
+.notice h2{font-size:1.2rem;letter-spacing:-.02em;color:oklch(0.38 0.12 258);margin-bottom:12px}
+.notice p{color:#4f5f76;font-size:.95rem;margin-bottom:10px;text-wrap:pretty}
+.notice p:last-child{margin-bottom:0}
+.faq-item{padding:18px 0;border-top:1px solid #eef2fb}
+.faq-item:first-of-type{border-top:0}
+.faq-item:last-child{padding-bottom:0}
+.faq-item h3{font-size:1rem;margin-bottom:6px}
+.faq-item p{color:var(--muted);font-size:.92rem;text-wrap:pretty}
+.footer{background:#fff;border-top:1px solid var(--border);padding:36px 24px 44px;text-align:center;color:#7b899e;font-size:.85rem}
+.footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-bottom:14px}
+.footer .links a{color:#3f4f66;font-weight:500}
+.cat-finance .dot{background:oklch(0.63 0.16 258)}
+.cat-finance .count{color:oklch(0.5 0.15 258);background:oklch(0.96 0.035 258)}
+.cat-finance .tool em{color:oklch(0.55 0.17 258)}
+.cat-finance .tool:hover{border-color:oklch(0.86 0.07 258);box-shadow:0 14px 30px rgba(37,99,235,.10)}
+.toc a.t-finance:hover{background:oklch(0.96 0.035 258);border-color:oklch(0.86 0.07 258);color:oklch(0.5 0.15 258)}
+.cat-job .dot{background:oklch(0.63 0.16 165)}
+.cat-job .count{color:oklch(0.45 0.13 165);background:oklch(0.96 0.035 165)}
+.cat-job .tool em{color:oklch(0.5 0.14 165)}
+.cat-job .tool:hover{border-color:oklch(0.86 0.07 165);box-shadow:0 14px 30px rgba(16,150,120,.12)}
+.toc a.t-job:hover{background:oklch(0.96 0.035 165);border-color:oklch(0.86 0.07 165);color:oklch(0.45 0.13 165)}
+.cat-life .dot{background:oklch(0.68 0.15 55)}
+.cat-life .count{color:oklch(0.48 0.13 55);background:oklch(0.96 0.035 55)}
+.cat-life .tool em{color:oklch(0.53 0.14 55)}
+.cat-life .tool:hover{border-color:oklch(0.87 0.07 55);box-shadow:0 14px 30px rgba(180,110,20,.12)}
+.toc a.t-life:hover{background:oklch(0.96 0.035 55);border-color:oklch(0.87 0.07 55);color:oklch(0.48 0.13 55)}
+.cat-text .dot{background:oklch(0.65 0.16 330)}
+.cat-text .count{color:oklch(0.48 0.15 330);background:oklch(0.96 0.035 330)}
+.cat-text .tool em{color:oklch(0.53 0.16 330)}
+.cat-text .tool:hover{border-color:oklch(0.87 0.07 330);box-shadow:0 14px 30px rgba(170,60,140,.12)}
+.toc a.t-text:hover{background:oklch(0.96 0.035 330);border-color:oklch(0.87 0.07 330);color:oklch(0.48 0.15 330)}
+.cat-info .dot{background:oklch(0.66 0.14 210)}
+.cat-info .count{color:oklch(0.46 0.12 210);background:oklch(0.96 0.035 210)}
+.cat-info .tool em{color:oklch(0.51 0.13 210)}
+.cat-info .tool:hover{border-color:oklch(0.87 0.06 210);box-shadow:0 14px 30px rgba(20,110,160,.12)}
+.toc a.t-info:hover{background:oklch(0.96 0.035 210);border-color:oklch(0.87 0.06 210);color:oklch(0.46 0.12 210)}
+@media(max-width:600px){.mast{padding:48px 20px 40px}.mast h1{font-size:2.2rem}.mast p{font-size:1rem}.intro,.faq,.notice{padding:24px 20px}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -19,19 +89,32 @@
   1. 새 페이지 파일을 만든 뒤, 아래 5개 카테고리(finance/job/life/text/info) 중
      알맞은 <div class="grid"> 안에 있는 "새 도구는 이 주석 바로 위에 추가하세요"
      주석 바로 위에 <a class="tool"> 카드를 추가합니다. (형식은 기존 카드와 동일)
-  2. 상단 <title>, <meta name="description">의 도구 개수 숫자를 갱신합니다.
-  3. sitemap.xml에도 같은 URL을 반드시 함께 추가합니다. (index.html에만 추가하고
-     sitemap.xml을 빠뜨리면 검색엔진이 새 페이지를 늦게 발견하거나 못 찾을 수 있습니다.)
+  2. 상단 <title>, <meta name="description">의 도구 개수 숫자와 카테고리 헤더의
+     <span class="count"> 숫자를 갱신합니다.
+  3. sitemap.xml에도 같은 URL을 반드시 함께 추가합니다.
   4. 저품질/저가치 콘텐츠로 분류되지 않도록, 새 도구 페이지는 계산 로직 외에
      예시 표·공식 설명·FAQ 3개 이상·공식 출처 링크를 포함해 주세요.
-     (참고: about.html의 '운영 원칙', 기존 salary_calculator.html 등을 템플릿으로 사용)
   ============================================================
 -->
-<header class="mast"><h1>어라운드툴</h1><p>일상에 필요한 계산을 쉽고 투명하게 확인하는 무료 온라인 도구</p></header>
+<header class="mast"><div class="inner">
+<span class="pill"><i></i>무료 생활 계산기 44종</span>
+<h1>어라운드툴</h1>
+<p>연봉·대출·세금·건강까지, 일상에 필요한 계산을 쉽고 투명하게 확인하는 무료 온라인 도구</p>
+</div></header>
 <main>
-<section class="intro"><h2>어라운드툴을 이렇게 사용하세요</h2><p>어라운드툴은 숫자만 보여주는 계산기 모음이 아니라, 사용자가 계산 결과를 이해하고 다음 행동을 결정할 수 있도록 계산 기준과 주의사항을 함께 제공하는 생활 도구 서비스입니다.</p><p>세금·노동·금융처럼 기준이 바뀔 수 있는 항목은 공식 기관의 최신 안내를 우선 확인하고, 사이트 계산기는 사전 확인용 추정치로 제공합니다. 실제 신고·계약·대출 등 중요한 판단 전에는 해당 기관의 공식 자료를 다시 확인해 주세요.</p><p>사이트 소개, 계산 기준, 개인정보 처리 원칙은 <a href="about.html">사이트 소개</a>, <a href="privacy.html">개인정보처리방침</a>, <a href="terms.html">이용약관</a>에서 자세히 확인할 수 있습니다.</p></section>
-<nav class="toc" aria-label="도구 카테고리"><a href="#finance">재테크·부동산</a><a href="#job">노동·구직</a><a href="#life">생활·건강</a><a href="#text">텍스트</a><a href="#info">정보·가이드</a></nav>
-<section id="finance" class="category"><h2>💰 재테크 및 부동산</h2><div class="grid">
+<section class="intro">
+<h2>어라운드툴을 이렇게 사용하세요</h2>
+<p>어라운드툴은 숫자만 보여주는 계산기 모음이 아니라, 사용자가 계산 결과를 이해하고 다음 행동을 결정할 수 있도록 계산 기준과 주의사항을 함께 제공하는 생활 도구 서비스입니다.</p>
+<p>세금·노동·금융처럼 기준이 바뀔 수 있는 항목은 공식 기관의 최신 안내를 우선 확인하고, 사이트 계산기는 사전 확인용 추정치로 제공합니다. 실제 신고·계약·대출 등 중요한 판단 전에는 해당 기관의 공식 자료를 다시 확인해 주세요.</p>
+<p>사이트 소개, 계산 기준, 개인정보 처리 원칙은 <a href="about.html">사이트 소개</a>, <a href="privacy.html">개인정보처리방침</a>, <a href="terms.html">이용약관</a>에서 자세히 확인할 수 있습니다.</p>
+</section>
+<nav class="toc" aria-label="도구 카테고리">
+<a class="t-finance" href="#finance">재테크·부동산</a><a class="t-job" href="#job">노동·구직</a><a class="t-life" href="#life">생활·건강</a><a class="t-text" href="#text">텍스트</a><a class="t-info" href="#info">정보·가이드</a>
+</nav>
+
+<section id="finance" class="category cat-finance">
+<div class="cat-head"><span class="dot"></span><h2>재테크 및 부동산</h2><span class="count">13</span></div>
+<div class="grid">
 <a class="tool" href="salary_calculator.html"><strong>연봉 실수령액 계산기</strong><span>4대보험과 소득세를 반영해 예상 실수령액을 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="loan_calculator.html"><strong>대출 이자 계산기</strong><span>원리금균등·원금균등 등 방식별 상환액을 비교합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="savings_calculator.html"><strong>예적금 이자 계산기</strong><span>납입액과 기간, 금리를 바탕으로 세전·세후 금액을 확인합니다.</span><em>계산하기 →</em></a>
@@ -46,16 +129,24 @@
 <a class="tool" href="pension_age_calculator.html"><strong>국민연금 수급개시나이 계산기</strong><span>출생연도로 노령연금을 받을 수 있는 나이를 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="prepayment_penalty_calculator.html"><strong>중도상환수수료 계산기</strong><span>대출 조기상환 시 예상 수수료를 계산합니다.</span><em>계산하기 →</em></a>
 <!-- 재테크·부동산 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div></section>
-<section id="job" class="category"><h2>💼 노동 및 구직</h2><div class="grid">
+</div>
+</section>
+
+<section id="job" class="category cat-job">
+<div class="cat-head"><span class="dot"></span><h2>노동 및 구직</h2><span class="count">5</span></div>
+<div class="grid">
 <a class="tool" href="severance_calculator.html"><strong>퇴직금 계산기</strong><span>평균임금 등을 바탕으로 예상 퇴직금을 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="unemployment_benefit_calculator.html"><strong>실업급여 계산기</strong><span>가입기간과 평균임금을 입력해 예상액을 확인합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="pto_calculator.html"><strong>연차 계산기</strong><span>입사일과 근무기간을 기준으로 연차를 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="holiday_pay_calculator.html"><strong>주휴수당 계산기</strong><span>근로시간과 시급을 바탕으로 주휴수당을 모의 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="parental_leave_calculator.html"><strong>육아휴직급여 계산기</strong><span>2026년 개편 기준으로 예상 육아휴직급여를 계산합니다.</span><em>계산하기 →</em></a>
 <!-- 노동·구직 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div></section>
-<section id="life" class="category"><h2>🧩 생활 및 건강</h2><div class="grid">
+</div>
+</section>
+
+<section id="life" class="category cat-life">
+<div class="cat-head"><span class="dot"></span><h2>생활 및 건강</h2><span class="count">20</span></div>
+<div class="grid">
 <a class="tool" href="discount_calculator.html"><strong>할인율 계산기</strong><span>정가와 할인가를 비교해 할인율을 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="discount_rate_calculator.html"><strong>할인율 역산 계산기</strong><span>할인 전·후 가격으로 할인율을 역산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="percent_calculator.html"><strong>퍼센트 계산기</strong><span>비율과 전체·일부 값을 다양한 방식으로 계산합니다.</span><em>계산하기 →</em></a>
@@ -77,22 +168,44 @@
 <a class="tool" href="electricity_bill_calculator.html"><strong>전기요금 계산기</strong><span>사용량 기준 누진제 적용 예상 전기요금을 계산합니다.</span><em>계산하기 →</em></a>
 <a class="tool" href="due_date_calculator.html"><strong>출산예정일 계산기</strong><span>최종월경일을 기준으로 출산예정일과 임신 주수를 계산합니다.</span><em>계산하기 →</em></a>
 <!-- 생활·건강 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div></section>
-<section id="text" class="category"><h2>✍️ 텍스트 도구</h2><div class="grid">
+</div>
+</section>
+
+<section id="text" class="category cat-text">
+<div class="cat-head"><span class="dot"></span><h2>텍스트 도구</h2><span class="count">3</span></div>
+<div class="grid">
 <a class="tool" href="character_counter.html"><strong>글자수 세기</strong><span>문자·단어·바이트 수를 확인합니다.</span><em>확인하기 →</em></a>
 <a class="tool" href="spell_checker.html"><strong>맞춤법 검사기</strong><span>문장의 맞춤법을 점검하는 도구입니다.</span><em>검사하기 →</em></a>
 <a class="tool" href="spacing_checker.html"><strong>띄어쓰기 검사기</strong><span>문장 띄어쓰기를 점검하는 도구입니다.</span><em>검사하기 →</em></a>
 <!-- 텍스트 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div></section>
-<section id="info" class="category"><h2>💡 정보 및 가이드</h2><div class="grid">
+</div>
+</section>
+
+<section id="info" class="category cat-info">
+<div class="cat-head"><span class="dot"></span><h2>정보 및 가이드</h2><span class="count">3</span></div>
+<div class="grid">
 <a class="tool" href="guide_2026_wage.html"><strong>2026년 최저임금·노동법 가이드</strong><span>최저임금과 노동 관련 변경사항을 정리한 안내 글입니다.</span><em>읽어보기 →</em></a>
 <a class="tool" href="guide_2026_tax.html"><strong>2026년 세금·연말정산 가이드</strong><span>직장인과 프리랜서를 위한 세금 관련 핵심 내용을 정리했습니다.</span><em>읽어보기 →</em></a>
 <a class="tool" href="about.html"><strong>어라운드툴 사이트 소개</strong><span>서비스 운영 목적, 계산 기준, 참고자료와 오류 제보 방법을 안내합니다.</span><em>읽어보기 →</em></a>
 <!-- 정보·가이드 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div></section>
-<section class="guide"><h2>계산 결과를 이용할 때 주의하세요</h2><p>세금·노동·금융·건강 관련 계산 결과는 입력 조건과 적용 기준에 따라 달라질 수 있습니다. 사이트의 결과는 사전 확인용이며 공식 증빙이나 전문적인 자문을 대신하지 않습니다.</p><p>특히 법령이나 요율이 변경된 경우에는 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 중요한 금액을 결정하기 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 최신 안내를 확인해 주세요.</p></section>
-<section class="faq"><h2>자주 묻는 질문</h2><div class="faq-item"><h3>입력한 계산값이 서버에 저장되나요?</h3><p>사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다.</p></div><div class="faq-item"><h3>계산 결과를 공식 신고에 사용해도 되나요?</h3><p>아니요. 계산 결과는 참고용 추정치입니다. 신고·계약·대출 등 중요한 절차에서는 해당 기관의 공식 계산이나 전문가 확인을 이용해 주세요.</p></div><div class="faq-item"><h3>오류가 있으면 어떻게 알려주나요?</h3><p><a href="contact.html">문의하기</a>에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다.</p></div></section>
+</div>
+</section>
+
+<section class="notice">
+<h2>계산 결과를 이용할 때 주의하세요</h2>
+<p>세금·노동·금융·건강 관련 계산 결과는 입력 조건과 적용 기준에 따라 달라질 수 있습니다. 사이트의 결과는 사전 확인용이며 공식 증빙이나 전문적인 자문을 대신하지 않습니다.</p>
+<p>특히 법령이나 요율이 변경된 경우에는 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 중요한 금액을 결정하기 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 최신 안내를 확인해 주세요.</p>
+</section>
+<section class="faq">
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><h3>입력한 계산값이 서버에 저장되나요?</h3><p>사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다.</p></div>
+<div class="faq-item"><h3>계산 결과를 공식 신고에 사용해도 되나요?</h3><p>아니요. 계산 결과는 참고용 추정치입니다. 신고·계약·대출 등 중요한 절차에서는 해당 기관의 공식 계산이나 전문가 확인을 이용해 주세요.</p></div>
+<div class="faq-item"><h3>오류가 있으면 어떻게 알려주나요?</h3><p><a href="contact.html">문의하기</a>에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다.</p></div>
+</section>
 </main>
-<footer class="footer"><div><a href="about.html">사이트 소개</a> | <a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div><p style="margin-top:10px">© 2026 어라운드툴. 계산 결과는 참고용입니다.</p></footer>
+<footer class="footer">
+<div class="links"><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="contact.html">문의하기</a></div>
+<p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+</footer>
 </body>
 </html>
