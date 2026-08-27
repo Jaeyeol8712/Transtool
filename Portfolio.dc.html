@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>이재열 · 마케팅 포트폴리오</title>
-<meta name="description" content="퍼포먼스 · 바이럴 · CRM 통합 마케팅 10년차 이재열 포트폴리오" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
 <style>
@@ -15,19 +18,8 @@
   img { display: block; max-width: 100%; }
   ::selection { background: #C8F5E1; }
 </style>
-<style>
-  a:hover { opacity: .85; }
-  @media (max-width: 900px) {
-    [style*="grid-template-columns:1.15fr"], [style*="grid-template-columns:repeat(4,1fr)"],
-    [style*="grid-template-columns:1fr 1fr"], [style*="grid-template-columns:1fr 1fr 1fr"],
-    [style*="grid-template-columns:repeat(3,1fr)"], [style*="grid-template-columns:200px 1fr"] {
-      grid-template-columns: 1fr !important;
-    }
-    [style*="grid-column:span 2"] { grid-column: span 1 !important; }
-  }
-</style>
-</head>
-<body>
+</helmet>
+
 <div style="width:100%;background:#FFFFFF;overflow-x:hidden;">
 
   <div style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.86);backdrop-filter:blur(14px);border-bottom:1px solid #EDEDEA;">
@@ -42,11 +34,11 @@
         <a href="#experience" style="color:inherit;">경력</a>
         <a href="#journey" style="color:inherit;">여정</a>
       </div>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:7px;background:#111213;color:#FFFFFF;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;">연락하기 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:7px;background:#111213;color:#FFFFFF;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;" style-hover="background:#0E9F6E;color:#FFFFFF;">연락하기 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
     </div>
   </div>
 
-  
+  <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0E9F6E"></rect><text x="50" y="62" font-family="monospace" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">LJY</text></svg></template>
   <div id="top" style="max-width:1180px;margin:0 auto;padding:0 32px;">
 
     <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:end;padding:92px 0 56px;">
@@ -55,13 +47,14 @@
         <h1 style="font-size:clamp(40px,5.6vw,76px);font-weight:800;letter-spacing:-0.045em;line-height:1.02;margin:0 0 26px;text-wrap:pretty;">안녕하세요,<br />마케터 <span style="color:#0E9F6E;">이재열</span><br />입니다.</h1>
         <p style="font-size:17px;line-height:1.7;color:#6B6F73;max-width:520px;margin:0 0 32px;text-wrap:pretty;">데이터로 원인을 진단하고 콘텐츠로 흐름을 만드는 약 10년 차 통합 마케팅 스페셜리스트. 시장 분석부터 캠페인 기획, 데이터 분석까지 전체 퍼널을 직접 운영합니다.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
-          <a href="portfolio_assets/lee_jaeyeol_resume.pdf" download="이재열_이력서.pdf" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;">이력서 다운로드 <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
-          <a href="portfolio_assets/lee_jaeyeol_portfolio.pdf" download="이재열_포트폴리오.pdf" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;color:#111213;border:1px solid #DFDFDB;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;">포트폴리오 PDF <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
+          <a href="portfolio_assets/lee_jaeyeol_resume.pdf" download="이재열_이력서.pdf" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="background:#0E9F6E;color:#FFFFFF;">이력서 다운로드 <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
+          <a href="portfolio_assets/lee_jaeyeol_portfolio.pdf" download="이재열_포트폴리오.pdf" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;color:#111213;border:1px solid #DFDFDB;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="border-color:#111213;">포트폴리오 PDF <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
         </div>
         <div style="display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;">
-          <a href="https://www.aroundtool.com" target="_blank" rel="noopener noreferrer" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">운영 사이트 aroundtool.com</a>
+          <a href="https://www.aroundtool.com" target="_blank" rel="noopener noreferrer" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">aroundtool.com</a>
           <a href="mailto:dlwoduf87@kakao.com" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">dlwoduf87@kakao.com</a>
-                  </div>
+          <a href="https://jaeyeol8712.github.io/resume/" target="_blank" rel="noopener noreferrer" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">github.io/resume</a>
+        </div>
       </div>
       <div style="position:relative;">
         <div style="border-radius:26px;overflow:hidden;background:#F5F5F2;border:1px solid #EDEDEA;aspect-ratio:4/5;">
@@ -136,8 +129,8 @@
           <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;">자격 · 교육</div>
           <div style="display:flex;flex-direction:column;gap:9px;">
             <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> 검색광고마케터 1급</div>
-            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span>OpenAI Academy 인공지능 기초</div>
-            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> OpenAI Academy 인공지능 응용</div>
+            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> Google Analytics Certification</div>
+            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> OpenAI Academy 인공지능 기초 · 응용</div>
           </div>
         </div>
 
@@ -147,9 +140,9 @@
             <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">궁금한 점이 있으신가요?</div>
             <p style="font-size:14px;color:#6B6F73;line-height:1.6;margin:0;max-width:400px;">이력서·포트폴리오 상세본, 캠페인 로우데이터까지 언제든 공유드릴 수 있습니다.</p>
           </div>
-          <a href="mailto:dlwoduf87@kakao.com" style="display:inline-flex;align-items:center;gap:10px;background:#111213;color:#FFFFFF;border:none;cursor:pointer;padding:15px 24px;border-radius:999px;font-size:14px;font-weight:700;font-family:inherit;">
-            <span style="font-family:'JetBrains Mono',monospace;">dlwoduf87@kakao.com 이메일 문의</span>
-          </a>
+          <button type="button" onClick="{{ copyEmail }}" style="display:inline-flex;align-items:center;gap:10px;background:#111213;color:#FFFFFF;border:none;cursor:pointer;padding:15px 24px;border-radius:999px;font-size:14px;font-weight:700;font-family:inherit;" style-hover="background:#0E9F6E;">
+            <span style="font-family:'JetBrains Mono',monospace;">{{ copyLabel }}</span>
+          </button>
         </div>
       </div>
     </div>
@@ -242,7 +235,7 @@
       </div>
     </div>
 
-    
+    <sc-if value="{{ sideProject }}" hint-placeholder-val="{{ true }}">
     <div style="padding:88px 0 0;">
       <div style="background:#111213;color:#FFFFFF;border-radius:28px;padding:44px;position:relative;overflow:hidden;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:32px;">
@@ -251,7 +244,7 @@
             <div style="font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-0.035em;line-height:1.25;margin-bottom:14px;text-wrap:pretty;">기획부터 배포·운영까지, AI와 함께 처음부터 끝까지 만든 서비스</div>
             <p style="font-size:14.5px;color:#8A9096;line-height:1.7;margin:0;">'어라운드툴'은 실무 마케팅 지식으로 주제를 기획하고, AI와 함께 콘텐츠 설계 · 코드 작성 · 배포 · 데이터 분석까지 전 과정을 직접 진행한 생활 계산기 플랫폼입니다.</p>
           </div>
-          <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#111213;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;">사이트 방문 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
+          <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#111213;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;" style-hover="background:#4ADE80;color:#111213;">사이트 방문 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;">
           <div style="background:rgba(255,255,255,0.05);border:1px solid #2E3134;border-radius:14px;padding:18px;">
@@ -295,7 +288,7 @@
         </div>
       </div>
     </div>
-    
+    </sc-if>
 
     <div id="experience" style="padding:88px 0 0;scroll-margin-top:80px;">
       <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">저의 <span style="color:#0E9F6E;">역량</span></h2>
@@ -341,12 +334,12 @@
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">고유알앤디 (바로연 결혼정보)</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">퍼포먼스 및 바이럴 마케팅 운영</div>
           <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 16px;max-width:640px;">SA/DA 매체 운영, 홈페이지 리뉴얼, 콘텐츠·브랜딩·채널 확장까지 온·오프라인 통합 마케팅을 담당합니다. SA 전환단가를 18만원에서 7만원으로 낮추고 월 신규 DB를 1,000건 이상 늘렸습니다.</p>
-          
+          <sc-if value="{{ journeyImages }}" hint-placeholder-val="{{ true }}">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;">
             <div style="border:1px solid #EDEDEA;border-radius:14px;overflow:hidden;height:150px;background:#FFFFFF;"><img src="baroyeon_site.jpg" alt="바로연 사이트" style="width:100%;height:100%;object-fit:cover;" /></div>
             <div style="border:1px solid #EDEDEA;border-radius:14px;overflow:hidden;height:150px;background:#FFFFFF;"><img src="pt1.png" alt="캠페인 소재" style="width:100%;height:100%;object-fit:cover;" /></div>
           </div>
-          
+          </sc-if>
         </div>
       </div>
 
@@ -359,12 +352,12 @@
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">인크루트</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">통합 마케팅</div>
           <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 16px;max-width:640px;">CRM 및 퍼포먼스 고도화, 유기적 트래픽 확대를 담당하며 데이터 기반 운영 체계를 구축했습니다. 저효율 매체 예산을 조정하고 고효율 영역에 집중하는 운영 기준을 확보했습니다.</p>
-          
+          <sc-if value="{{ journeyImages }}" hint-placeholder-val="{{ true }}">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;">
             <div style="border:1px solid #EDEDEA;border-radius:14px;overflow:hidden;height:150px;background:#FFFFFF;"><img src="ga4_dashboard.jpg" alt="GA4 대시보드" style="width:100%;height:100%;object-fit:cover;" /></div>
             <div style="border:1px solid #EDEDEA;border-radius:14px;overflow:hidden;height:150px;background:#FFFFFF;"><img src="incruit_news.jpg" alt="콘텐츠 SEO 노출" style="width:100%;height:100%;object-fit:cover;" /></div>
           </div>
-          
+          </sc-if>
         </div>
       </div>
 
@@ -398,9 +391,9 @@
       <div style="font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-0.045em;line-height:1.1;margin-bottom:20px;">함께 <span style="color:#0E9F6E;">이야기</span>해요</div>
       <p style="font-size:16px;color:#6B6F73;line-height:1.7;max-width:520px;margin:0 auto 32px;text-wrap:pretty;">유입부터 전환까지, 감이 아닌 데이터와 실행으로 증명하는 마케터입니다. 어떤 문제를 풀고 계신지 편하게 들려주세요.</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:dlwoduf87@kakao.com" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">dlwoduf87@kakao.com</a>
-        <a href="tel:010-0000-3296" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">010-0000-3296</a>
-        <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">aroundtool.com ↗</a>
+        <a href="mailto:dlwoduf87@kakao.com" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="background:#0E9F6E;color:#FFFFFF;">dlwoduf87@kakao.com</a>
+        <a href="tel:010-0000-3296" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="border-color:#111213;">010-0000-3296</a>
+        <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="border-color:#111213;">aroundtool.com ↗</a>
       </div>
     </div>
 
@@ -415,5 +408,30 @@
 
   </div>
 </div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSideProject&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션&quot;},&quot;showJourneyImages&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션&quot;}}">
+class Component extends DCLogic {
+  state = { copied: false };
+  renderVals() {
+    return {
+      sideProject: this.props.showSideProject ?? true,
+      journeyImages: this.props.showJourneyImages ?? true,
+      copyLabel: this.state.copied ? '복사 완료 ✓' : '이메일 주소 복사',
+      copyEmail: () => {
+        const email = 'dlwoduf87@kakao.com';
+        const done = () => {
+          this.setState({ copied: true });
+          clearTimeout(this._t);
+          this._t = setTimeout(() => this.setState({ copied: false }), 1800);
+        };
+        if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, done);
+        else done();
+      }
+    };
+  }
+}
+
+</script>
 </body>
 </html>
