@@ -33,12 +33,46 @@
     [data-m="btn"] { flex: 1 1 100% !important; justify-content: center !important; }
     [data-m="nav"] { flex-wrap: wrap !important; gap: 10px !important; }
     [data-m="navlinks"] { order: 3; width: 100% !important; gap: 24px !important; font-size: 15px !important; overflow-x: auto !important; padding-bottom: 2px !important; }
+  
+    /* ===== 모바일 슬라이드 (스크롤 스냅) =====
+       대분류마다 화면 한 장. 내용이 길면 그 슬라이드 안에서 이어서 스크롤되고,
+       경계에 닿으면 다음 장 머리로 붙습니다. 데스크톱에는 적용되지 않습니다. */
+    /* overflow-x:hidden 이 스크롤 컨테이너를 만들어 상단 내비의 position:sticky 가
+       동작하지 않던 것을 clip 으로 바꿔 되살립니다 (clip 은 스크롤 컨테이너를 만들지 않음). */
+    [data-m="wrap"] { overflow-x: clip !important; }
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-padding-top: 92px;
+    }
+    [data-slide] {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+      scroll-margin-top: 0 !important;
+      box-sizing: border-box;
+      min-height: calc(100vh - 92px);
+      min-height: calc(100svh - 92px);
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+    [data-slide="hero"] { padding-top: 16px !important; }
+    /* 통계 바와 푸터는 원래 높이를 유지하되 스냅 지점으로만 잡습니다.
+       스냅 영역이 비는 구간이 있으면 그 부분을 지나칠 수 없게 되므로 필요합니다. */
+    [data-slide="stats"], [data-slide="footer"] {
+      min-height: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    [data-slide="footer"] { padding-bottom: 40px !important; }
+    [data-slide="contact"] { min-height: 0 !important; padding-bottom: 28px !important; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-snap-type: none; }
+    }
   }
 
 </style>
 </helmet>
 
-<div style="width:100%;background:#FFFFFF;overflow-x:hidden;">
+<div data-m="wrap" style="width:100%;background:#FFFFFF;overflow-x:hidden;">
 
   <div style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.86);backdrop-filter:blur(14px);border-bottom:1px solid #EDEDEA;">
     <div data-m="nav" style="max-width:1180px;margin:0 auto;padding:12px clamp(18px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:24px;">
@@ -59,7 +93,7 @@
   <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0E9F6E"></rect><text x="50" y="62" font-family="monospace" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">LJY</text></svg></template>
   <div id="top" style="max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,32px);">
 
-    <div data-m="hero" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:end;padding:92px 0 56px;">
+    <div data-slide="hero" data-m="hero" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:end;padding:92px 0 56px;">
       <div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;letter-spacing:0.12em;color:#0E9F6E;text-transform:uppercase;margin-bottom:26px;">Performance · Viral · CRM</div>
         <h1 style="font-size:clamp(33px,8.5vw,76px);font-weight:800;letter-spacing:-0.045em;line-height:1.02;margin:0 0 26px;text-wrap:pretty;">안녕하세요,<br />마케터 <span style="color:#0E9F6E;">이재열</span><br />입니다.</h1>
@@ -81,7 +115,7 @@
       </div>
     </div>
 
-    <div data-m="g2" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#EDEDEA;border-top:1px solid #EDEDEA;border-bottom:1px solid #EDEDEA;">
+    <div data-slide="stats" data-m="g2" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#EDEDEA;border-top:1px solid #EDEDEA;border-bottom:1px solid #EDEDEA;">
       <div style="background:#FFFFFF;padding:clamp(20px,4.5vw,30px) clamp(16px,4vw,26px);">
         <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(27px,7vw,34px);font-weight:700;letter-spacing:-0.04em;margin-bottom:8px;">10<span style="font-size:16px;color:#9CA0A4;font-weight:500;">년차</span></div>
         <div data-m="small" style="font-size:13px;color:#6B6F73;line-height:1.45;">통합 마케팅 실무<br />퍼포먼스 · 바이럴 · CRM</div>
@@ -100,7 +134,12 @@
       </div>
     </div>
 
-    <div id="profile" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+    <div id="profile" data-slide="profile" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">01 / PROFILE</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">짧은 프로필</h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">매체 단위가 아니라, 고객 여정과 문제 해결 단위로 마케팅을 봅니다.</p>
 
@@ -164,7 +203,12 @@
       </div>
     </div>
 
-    <div id="projects" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+    <div id="projects" data-slide="projects" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">02 / PROJECTS</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">최근 프로젝트 <span style="color:#9CA0A4;">일부</span></h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">플랫폼과 매칭 서비스라는 다른 환경에서, 공통적으로 문제를 보고 다음 액션을 설계해왔습니다.</p>
 
@@ -253,7 +297,7 @@
     </div>
 
     <sc-if value="{{ sideProject }}" hint-placeholder-val="{{ true }}">
-    <div style="padding:clamp(52px,9vw,88px) 0 0;">
+    <div data-slide="side" style="padding:clamp(52px,9vw,88px) 0 0;">
       <div style="background:#111213;color:#FFFFFF;border-radius:28px;padding:clamp(22px,5vw,44px);position:relative;overflow:hidden;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:32px;">
           <div style="max-width:620px;">
@@ -307,7 +351,12 @@
     </div>
     </sc-if>
 
-    <div id="experience" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+    <div id="experience" data-slide="experience" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">03 / EXPERTISE</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">저의 <span style="color:#0E9F6E;">역량</span></h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">한 역할에 머물지 않고, 퍼널 전체를 직접 만지며 쌓은 네 가지 축입니다.</p>
       <div data-m="g1" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
@@ -338,7 +387,12 @@
       </div>
     </div>
 
-    <div id="journey" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+    <div id="journey" data-slide="journey" style="padding:clamp(52px,9vw,88px) 0 0;scroll-margin-top:80px;">
+      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#0E9F6E;flex:none;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">04 / CAREER</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      </div>
       <h2 style="font-size:clamp(25px,6.2vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">경력 여정</h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 40px;">약 10년간 B2C 플랫폼 · 매칭 서비스 산업에서 퍼포먼스와 바이럴 마케팅을 운영해 왔습니다.</p>
 
@@ -403,7 +457,12 @@
       </div>
     </div>
 
-    <div id="contact" style="padding:clamp(64px,11vw,110px) 0 clamp(56px,9vw,90px);text-align:center;scroll-margin-top:80px;">
+    <div id="contact" data-slide="contact" style="padding:clamp(64px,11vw,110px) 0 clamp(56px,9vw,90px);text-align:center;scroll-margin-top:80px;">
+      <div data-section-divider style="display:flex;align-items:center;gap:12px;margin-bottom:34px;">
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">05 / CONTACT</span>
+        <span style="flex:1;height:1px;background:#E4E4E0;"></span>
+      </div>
       <img src="profile.jpg" alt="이재열" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 26px;border:1px solid #EDEDEA;" />
       <div style="font-size:clamp(29px,7.6vw,64px);font-weight:800;letter-spacing:-0.045em;line-height:1.1;margin-bottom:20px;">함께 <span style="color:#0E9F6E;">이야기</span>해요</div>
       <p style="font-size:16px;color:#6B6F73;line-height:1.7;max-width:520px;margin:0 auto 32px;text-wrap:pretty;">유입부터 전환까지, 감이 아닌 데이터와 실행으로 증명하는 마케터입니다. 어떤 문제를 풀고 계신지 편하게 들려주세요.</p>
@@ -414,7 +473,7 @@
       </div>
     </div>
 
-    <div style="border-top:1px solid #EDEDEA;padding:26px 0 40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#9CA0A4;">
+    <div data-slide="footer" style="border-top:1px solid #EDEDEA;padding:26px 0 40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#9CA0A4;">
       <div>© 2026 LEE JAE YEOL · MARKETING PORTFOLIO</div>
       <div style="display:flex;gap:18px;">
                 <a href="https://www.aroundtool.com" target="_blank" rel="noopener noreferrer" style="color:inherit;">AROUNDTOOL</a>
