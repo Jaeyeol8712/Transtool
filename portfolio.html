@@ -47,6 +47,25 @@
   [data-ga4] { aspect-ratio: 1200 / 337; overflow: hidden; background: #FFFFFF; }
   [data-ga4] img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
+
+  /* ===== 경력 여정 · 프로젝트 썸네일 =====
+     칸에는 이미지 번호(1-1 …)가 먼저 깔려 있고 그 위로 사진이 올라옵니다.
+     파일이 아직 없으면 사진만 빠지고 번호가 남아, 어느 자리에 무엇을 넣어야
+     하는지 화면에서 바로 보입니다. 썸네일은 화면 윗단부터 보여주고(cover),
+     클릭하면 원본 비율 그대로(contain) 크게 뜹니다. */
+  /* 한글은 단어 중간에서 끊으면 읽기 나쁘므로 어절 단위로만 줄을 바꿉니다. */
+  [data-slide="journey"] p, [data-slide="journey"] h2, [data-shot-title] { word-break: keep-all; }
+
+  [data-shot] { position: relative; aspect-ratio: 4 / 3; border: 1px solid #EDEDEA; border-radius: 9px; overflow: hidden; background: #FAFAF8; }
+  [data-shot]::after { content: attr(data-shot); position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #BFBFB9; }
+  [data-shot] img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; background: #FFFFFF; cursor: zoom-in; transition: transform .25s ease; }
+  [data-shot]:hover img { transform: scale(1.04); }
+
+  [data-lightbox] { position: fixed; inset: 0; z-index: 200; background: rgba(17,18,19,0.88); display: flex; align-items: center; justify-content: center; padding: 28px; cursor: zoom-out; }
+  [data-lightbox][hidden] { display: none; }
+  [data-lightbox] img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; background: #FFFFFF; }
+  @media (prefers-reduced-motion: reduce) { [data-shot] img { transition: none; } [data-shot]:hover img { transform: none; } }
+
   @media (max-width: 860px) {
     [data-m~="shell"] { padding-left: 18px !important; padding-right: 18px !important; }
     [data-m~="navlinks"] { display: none !important; }
@@ -67,6 +86,7 @@
     [data-ga4] { aspect-ratio: 1200 / 639 !important; }
     [data-ga4] img { object-fit: contain !important; }
     [data-m~="jthumb"] { height: 170px !important; }
+    [data-shot] { border-radius: 8px !important; }
     [data-fit] { padding: 8px !important; }
     [style*="font-size: 34px"], [style*="font-size:34px"] { font-size: 27px !important; }
     [style*="font-size: 26px"], [style*="font-size:26px"] { font-size: 21px !important; }
@@ -333,76 +353,144 @@
       <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">경력 여정</h2>
       <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 40px;">B2C 플랫폼 · 매칭 서비스 산업에서의 10년.</p>
 
+      <!-- ── 01. 고유알앤디 (바로연) · BAROYEON ───────────────────────── -->
       <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
         <div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2025.07</div>
           <div style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#0E9F6E;background:#EAF7F1;border-radius:999px;padding:5px 11px;">재직중</div>
         </div>
         <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#9CA0A4;margin-bottom:7px;">BAROYEON</div>
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">고유알앤디 (바로연 결혼정보)</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">퍼포먼스 및 바이럴 마케팅 운영</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 18px;max-width:640px;">결혼정보 브랜드의 디지털 마케팅 총괄. 프리미엄 브랜드 강화부터 타깃 회원 확보, 오프라인 이벤트, 전환 마케팅까지 담당했습니다. <span style="color:#111213;font-weight:700;">전환단가 18만 → 7만원, 월 DB +1,000건.</span></p>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;max-width:640px;margin:0 0 18px;">
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">01 · 브랜드 &amp; 상품 마케팅</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">프리미엄 브랜드 포지셔닝 · PM 파트너 브랜딩 · VIP 상품 마케팅</p>
+          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 14px;max-width:660px;">결혼정보회사 바로연의 브랜드 · 디지털 마케팅을 담당하며 프리미엄 브랜드 강화, 타깃 회원 확보, 오프라인 이벤트, 콘텐츠 · 전환 마케팅 프로젝트를 수행했습니다.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px;"><span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.02em;color:#111213;background:#F5F4FB;border:1px solid #E7E4F5;border-radius:999px;padding:5px 11px;">SA 전환단가 18만 → 7만원</span><span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.02em;color:#111213;background:#F5F4FB;border:1px solid #E7E4F5;border-radius:999px;padding:5px 11px;">월 DB +1,000건</span></div>
+          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">01</span>
+            <span style="color:#9CA0A4;">2025–2026</span>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">02 · 타깃 회원 모집</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">전문직 · 엘리트 · VIP 타깃, 연령 · 직업 · 지역별 콘텐츠와 가입 전환</p>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">브랜드 &amp; 상품 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">프리미엄 브랜드 포지셔닝 · PM 파트너 서비스 브랜딩 · VIP 상품 및 차별화 서비스 마케팅</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="5-1"><img src="portfolio_assets/journey/5-1.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="5-2"><img src="portfolio_assets/journey/5-2.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="5-3"><img src="portfolio_assets/journey/5-3.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">03 · 미팅파티 &amp; 이벤트</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">정기 미팅파티 · VIP 프라이빗 파티 · 문화 이벤트 페이지 기획</p>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">02</span>
+            <span style="color:#9CA0A4;">2025–2026</span>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">04 · 콘텐츠 &amp; 퍼포먼스</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">블로그 · 카페 운영, SEO 콘텐츠, 랜딩페이지 전환 최적화</p>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">타깃 회원 모집 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">전문직 · 엘리트 · VIP 타깃 마케팅 · 연령/직업/지역별 콘텐츠 · 상담 및 가입 전환 마케팅</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="6-1"><img src="portfolio_assets/journey/6-1.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="6-2"><img src="portfolio_assets/journey/6-2.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="6-3"><img src="portfolio_assets/journey/6-3.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">03</span>
+            <span style="color:#9CA0A4;">2025–2026</span>
           </div>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;">
-            <div data-fit data-m="jthumb" style="border:1px solid #EDEDEA;border-radius:14px;height:190px;"><img src="baroyeon_site.jpg" alt="바로연 사이트" /></div>
-            <div data-fit data-m="jthumb" style="border:1px solid #EDEDEA;border-radius:14px;height:190px;"><img src="pt1.png" alt="캠페인 소재" /></div>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">미팅파티 &amp; 이벤트 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">정기 미팅파티 · VIP 프라이빗 파티 · 문화 이벤트 · 행사 콘텐츠 및 이벤트 페이지 기획</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="7-1"><img src="portfolio_assets/journey/7-1.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="7-2"><img src="portfolio_assets/journey/7-2.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="7-3"><img src="portfolio_assets/journey/7-3.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
-          
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">04</span>
+            <span style="color:#9CA0A4;">2025–2026</span>
+          </div>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">콘텐츠 &amp; 퍼포먼스 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">네이버 블로그 · 카페 운영 · SEO 콘텐츠 · 광고/홍보 콘텐츠 · 랜딩페이지 · 상담 및 가입 전환 최적화</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="8-1"><img src="portfolio_assets/journey/8-1.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="8-2"><img src="portfolio_assets/journey/8-2.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="8-3"><img src="portfolio_assets/journey/8-3.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
+          </div>
+        </div>
+          </div>
         </div>
       </div>
 
+      <!-- ── 02. 인크루트 · INCRUIT ──────────────────────────────────── -->
       <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
         <div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2017.02</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;margin-top:6px;">— 2025.06</div>
         </div>
         <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#9CA0A4;margin-bottom:7px;">INCRUIT</div>
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">인크루트</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">통합 마케팅</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 18px;max-width:640px;">취업 플랫폼의 브랜드 · 디지털 마케팅 8년. 신규 브랜드 론칭부터 HR Tech, 콘텐츠 · 퍼포먼스까지 사업 확장 단계에 맞춰 수행하며 데이터 기반 운영 체계를 구축했습니다.</p>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;max-width:640px;margin:0 0 18px;">
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">01 · 신규 브랜드 · 플랫폼 론칭</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">알바콜 · 뉴워커 · 셜록N · 잘쓸랩 · 오퍼박스 · 고사장</p>
+          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 20px;max-width:660px;">8년간 취업 플랫폼의 브랜드 · 디지털 마케팅을 담당하며 신규 브랜드 론칭, 채용 서비스 디지털 전환, B2B HR Tech, 콘텐츠 · 퍼포먼스 마케팅 등 사업 확장 단계별 프로젝트를 수행했습니다.</p>
+          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">01</span>
+            <span style="color:#9CA0A4;">2018–2025</span>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">02 · 채용 서비스 &amp; HR Tech</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">인크루트 VIEW · 화상 면접 · 온라인 채용박람회 · AI면접 · 인크루트웍스</p>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">신규 브랜드 &amp; 플랫폼 론칭</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">알바콜 · 뉴워커 · 셜록N · 잘쓸랩 · 오퍼박스 · 고사장</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="1-1"><img src="portfolio_assets/journey/1-1.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="1-2"><img src="portfolio_assets/journey/1-2.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="1-3"><img src="portfolio_assets/journey/1-3.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">03 · 채용설명회 &amp; 콘텐츠</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">제16~23회 채용설명회 홍보, 취업 트렌드 시즌 콘텐츠, SEO · SNS</p>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">02</span>
+            <span style="color:#9CA0A4;">2020–2025</span>
           </div>
-          <div style="border-top:1px solid #EDEDEA;padding-top:11px;">
-            <div style="font-size:13.5px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">04 · Brand Campaign · 회원 활성화</div>
-            <p style="font-size:12.5px;color:#6B6F73;line-height:1.55;margin:0;">창립기념 프로모션 · 참여형 캠페인 · 회원 유입 및 전환</p>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">채용 서비스 &amp; HR Tech 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">인크루트 VIEW · 화상/온라인 면접 · 온라인 채용박람회 · 메타버스 · 인크루트웍스 · ATS/CRM · AI면접 · 평가/검사 솔루션</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="2-1"><img src="portfolio_assets/journey/2-1.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="2-2"><img src="portfolio_assets/journey/2-2.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="2-3"><img src="portfolio_assets/journey/2-3.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">03</span>
+            <span style="color:#9CA0A4;">2018–2025</span>
           </div>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;">
-            <div data-fit data-m="jthumb" style="border:1px solid #EDEDEA;border-radius:14px;height:190px;"><img src="ga4_dashboard.jpg" alt="GA4 대시보드" /></div>
-            <div data-fit data-m="jthumb" style="border:1px solid #EDEDEA;border-radius:14px;height:190px;"><img src="incruit_news.jpg" alt="콘텐츠 SEO 노출" /></div>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">채용설명회 &amp; 콘텐츠 마케팅</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">제16~23회 온·오프라인 채용설명회 홍보 · 취업/채용 트렌드 기반 시즌 콘텐츠 기획 및 확산 · SEO/SNS 콘텐츠</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="3-1"><img src="portfolio_assets/journey/3-1.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="3-2"><img src="portfolio_assets/journey/3-2.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="3-3"><img src="portfolio_assets/journey/3-3.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
           </div>
-          
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
+            <span style="font-weight:700;color:#6E5FB0;">04</span>
+            <span style="color:#9CA0A4;">2018–2025</span>
+          </div>
+          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">Brand Campaign &amp; 회원 활성화</div>
+          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">창립기념 프로모션 · 회원 활성화 이벤트 · 서비스 연계 참여형 캠페인 · 광고 및 온라인 채널 운영 · 회원 유입/전환</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
+            <div data-shot="4-1"><img src="portfolio_assets/journey/4-1.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 1" loading="lazy" /></div>
+            <div data-shot="4-2"><img src="portfolio_assets/journey/4-2.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 2" loading="lazy" /></div>
+            <div data-shot="4-3"><img src="portfolio_assets/journey/4-3.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 3" loading="lazy" /></div>
+          </div>
+        </div>
+          </div>
         </div>
       </div>
 
+      <!-- ── 03. 주식회사 바로연 ─────────────────────────────────────── -->
       <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
         <div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2015.11</div>
@@ -411,10 +499,11 @@
         <div>
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">주식회사 바로연</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">바이럴 마케팅</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:640px;">네이버 · 다음 키워드 상위노출로 브랜드 인지도 구축.</p>
+          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:660px;">네이버 · 다음 키워드 상위노출로 브랜드 인지도 구축.</p>
         </div>
       </div>
 
+      <!-- ── 04. 수현(주) ───────────────────────────────────────────── -->
       <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;border-bottom:1px solid #EDEDEA;padding:32px 0;">
         <div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2013.09</div>
@@ -423,7 +512,7 @@
         <div>
           <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">수현(주)</div>
           <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">온라인 마케터</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:640px;">바이럴 · 퍼포먼스 마케팅 병행 운영.</p>
+          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:660px;">바이럴 · 퍼포먼스 마케팅 병행 운영.</p>
         </div>
       </div>
     </div>
@@ -548,5 +637,51 @@
 
   </div>
 </div>
+
+<div data-lightbox hidden><img alt="" /></div>
+<script>
+(function () {
+  /* 썸네일 파일이 .jpg 가 아닐 수도 있어 확장자를 차례로 시도하고,
+     끝내 없으면 이미지를 감춰 자리 번호만 남깁니다. */
+  var EXT = ['.jpg', '.png', '.jpeg', '.webp'];
+  var shots = Array.prototype.slice.call(document.querySelectorAll('[data-shot] img'));
+
+  shots.forEach(function (img) {
+    img.addEventListener('error', function () {
+      var n = (parseInt(img.getAttribute('data-try'), 10) || 0) + 1;
+      if (n < EXT.length) {
+        img.setAttribute('data-try', n);
+        img.src = img.src.replace(/\.[a-zA-Z]+$/, EXT[n]);
+      } else {
+        img.style.display = 'none';
+      }
+    });
+  });
+
+  /* 클릭하면 원본 비율 그대로 크게 보기 */
+  var box = document.querySelector('[data-lightbox]');
+  var big = box.querySelector('img');
+
+  function close() {
+    box.hidden = true;
+    big.removeAttribute('src');
+    document.body.style.overflow = '';
+  }
+
+  shots.forEach(function (img) {
+    img.addEventListener('click', function () {
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !box.hidden) close();
+  });
+})();
+</script>
 </body>
 </html>
