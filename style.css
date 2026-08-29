@@ -1,0 +1,146 @@
+/* ==========================================================
+   동네 식당 기록 — 공용 스타일시트
+   모든 카테고리 페이지가 이 파일 하나를 공유합니다.
+   HTML과 같은 폴더에 올리세요.
+   ========================================================== */
+
+:root{
+  --paper:#E9EDE8;
+  --card:#F4F6F2;
+  --ink:#17242B;
+  --ink-soft:#556770;
+  --rule:#C4CEC5;
+  --okryeon:#3F6B4F;
+  --yeonsu:#A06D18;
+  --songdo:#1F5F8B;
+  --hambak:#94373B;
+  --maxw:44rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,sans-serif;
+  font-weight:400;font-size:16px;line-height:1.8;letter-spacing:-0.01em;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1.15rem}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--ink)}
+
+/* ---------- 상단 ---------- */
+.masthead{border-bottom:1px solid var(--rule);padding:1.5rem 0 1.25rem}
+.brand{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-soft);margin:0}
+.brand b{font-weight:500;color:var(--ink)}
+.nav{display:flex;flex-wrap:wrap;gap:.9rem 1.15rem;margin-top:1rem}
+.nav a{font-size:.8125rem;color:var(--ink-soft);text-decoration:none;padding-bottom:2px;
+  border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+
+/* ---------- 히어로 ---------- */
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
+  color:var(--ink-soft);margin:0 0 .75rem;text-transform:uppercase}
+h1{font-family:"Gowun Batang",serif;font-weight:700;
+  font-size:clamp(2rem,7.5vw,3rem);line-height:1.2;margin:0 0 1rem;letter-spacing:-0.02em}
+.lede{font-size:1.0625rem;color:var(--ink-soft);margin:0;max-width:34rem}
+
+.intro{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.intro h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+  margin:0 0 1.25rem;letter-spacing:-0.01em}
+
+/* ---------- 식당 항목 ---------- */
+.entry{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.chip::before{content:"■";margin-right:.45em}
+.chip--okryeon{color:var(--okryeon)}
+.chip--yeonsu{color:var(--yeonsu)}
+.chip--songdo{color:var(--songdo)}
+.chip--hambak{color:var(--hambak)}
+.entry h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.875rem;
+  line-height:1.25;margin:0 0 .85rem;letter-spacing:-0.02em}
+.entry h2 .rom{font-family:"IBM Plex Mono",monospace;font-size:.875rem;font-weight:400;
+  color:var(--ink-soft);letter-spacing:.06em;margin-left:.5rem;white-space:nowrap}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
+  color:var(--ink-soft);margin:0 0 1.5rem;padding-left:1rem;
+  border-left:3px solid var(--rule)}
+.meta span{display:block}
+.entry--okryeon .meta{border-left-color:var(--okryeon)}
+.entry--yeonsu .meta{border-left-color:var(--yeonsu)}
+.entry--songdo .meta{border-left-color:var(--songdo)}
+.entry--hambak .meta{border-left-color:var(--hambak)}
+h3{font-size:.8125rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin:2rem 0 .85rem}
+
+/* ---------- 검증 블록 ---------- */
+.verify{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.verify ul{margin:0;padding:0;list-style:none}
+.verify li{font-size:.9375rem;line-height:1.65;margin-bottom:.65rem;
+  padding-left:1.75rem;position:relative}
+.verify li:last-child{margin-bottom:0}
+.verify li::before{position:absolute;left:0;top:0;
+  font-family:"IBM Plex Mono",monospace;font-size:.9375rem}
+.verify li.pass::before{content:"▣";color:var(--okryeon)}
+.verify li.open::before{content:"□";color:var(--ink-soft)}
+.verify li.open{color:var(--ink-soft)}
+
+/* ---------- 맞다/안맞다 ---------- */
+.fit-grid{display:grid;gap:1rem;margin-top:2rem}
+.fit{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.fit h4{margin:0 0 .7rem;font-size:.8125rem;font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.fit h4::before{margin-right:.5em;font-family:"IBM Plex Mono",monospace}
+.fit--yes h4::before{content:"▣";color:var(--okryeon)}
+.fit--no h4::before{content:"□";color:var(--hambak)}
+.fit ul{margin:0;padding-left:1.05rem}
+.fit li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.fit li:last-child{margin-bottom:0}
+
+.tips{margin:0;padding-left:1.05rem}
+.tips li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.tips li:last-child{margin-bottom:0}
+
+/* ---------- 경고 / 참고 ---------- */
+.alert{background:#F4E9E7;border:1px solid var(--hambak);
+  padding:1.15rem 1.25rem;font-size:.9375rem;margin-top:1.5rem}
+.alert b{font-weight:600}
+.note{background:var(--card);border:1px solid var(--rule);
+  padding:1.1rem 1.25rem;font-size:.9375rem;color:var(--ink-soft);margin:1.5rem 0 0}
+.note b{color:var(--ink);font-weight:600}
+.entry--alert h2{color:var(--hambak)}
+
+/* ---------- 비교표 ---------- */
+.compare{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.compare h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+  margin:0 0 1.25rem;letter-spacing:-0.01em}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.9375rem;min-width:30rem}
+th,td{text-align:left;padding:.7rem .75rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+
+/* ---------- 가이드 ---------- */
+.guide{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.guide h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+  margin:0 0 1.25rem;letter-spacing:-0.01em}
+.guide h3{margin-top:1.75rem}
+.guide ul{margin:0;padding-left:1.05rem}
+.guide li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.guide li:last-child{margin-bottom:0}
+
+footer{padding:2.5rem 0 4rem;font-size:.8125rem;color:var(--ink-soft)}
+footer p{margin:0 0 .6rem}
+
+@media (min-width:40rem){
+  .fit-grid{grid-template-columns:1fr 1fr}
+  body{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
