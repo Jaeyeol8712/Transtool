@@ -3,5 +3,7 @@ Allow: /
 Disallow: /stats.html
 Disallow: /portfolio.html
 Disallow: /portfolio_assets/
+Disallow: /Portfolio.dc.html
+Disallow: /categories-section.html
 
 Sitemap: https://www.aroundtool.com/sitemap.xml
