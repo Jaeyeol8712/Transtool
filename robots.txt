@@ -1,9 +1,39 @@
+# aroundtool.com
+# 최종 갱신: 2026-08-29
+
 User-agent: *
 Allow: /
-Disallow: /stats.html
-Disallow: /portfolio.html
-Disallow: /portfolio_assets/
-Disallow: /Portfolio.dc.html
-Disallow: /categories-section.html
 
+# AI 검색·답변 엔진 (GEO)
+# 콘텐츠 인용을 허용하려면 그대로 두고,
+# 차단하려면 각 항목을 Disallow: / 로 바꾸세요.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+Disallow: /portfolio.html
+s
 Sitemap: https://www.aroundtool.com/sitemap.xml

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카페·디저트 — 서울 강남구 식당 기록</title>
+<meta name="description" content="다이닝코드 강남 베이커리 최상위 베통. 아직 얇은 카테고리입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9EDE8;--card:#F4F6F2;--ink:#17242B;--ink-soft:#556770;--rule:#C4CEC5;
+--office:#1F5F8B;--apgu:#7A5578;--station:#A0651C;--nopo:#94373B;--maxw:44rem}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,sans-serif;font-weight:400;font-size:16px;
+line-height:1.8;letter-spacing:-0.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1.15rem}p:last-child{margin-bottom:0}strong{font-weight:600}a{color:inherit}
+.masthead{border-bottom:1px solid var(--rule);padding:1.5rem 0 1.25rem}
+.brand{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.18em;
+text-transform:uppercase;color:var(--ink-soft);margin:0}
+.brand a{text-decoration:none}.brand a:hover{border-bottom:1px solid currentColor}
+.brand b{font-weight:500;color:var(--ink)}.brand .sep{margin:0 .5em;opacity:.45}
+.nav{display:flex;flex-wrap:wrap;gap:.85rem 1.1rem;margin-top:1rem}
+.nav a{font-size:.8125rem;color:var(--ink-soft);text-decoration:none;padding-bottom:2px;
+border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
+color:var(--ink-soft);margin:0 0 .75rem;text-transform:uppercase}
+h1{font-family:"Gowun Batang",serif;font-weight:700;font-size:clamp(2rem,7.5vw,3rem);
+line-height:1.2;margin:0 0 1rem;letter-spacing:-0.02em}
+.lede{font-size:1.0625rem;color:var(--ink-soft);margin:0;max-width:34rem}
+.intro{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.entry{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.chip::before{content:"\25A0";margin-right:.45em}
+.chip--office{color:var(--office)}.chip--apgu{color:var(--apgu)}
+.chip--station{color:var(--station)}.chip--nopo{color:var(--nopo)}
+.entry h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.875rem;
+line-height:1.25;margin:0 0 .85rem;letter-spacing:-0.02em}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
+color:var(--ink-soft);margin:0 0 1.5rem;padding-left:1rem;border-left:3px solid var(--rule)}
+.meta span{display:block}
+.entry--office .meta{border-left-color:var(--office)}
+.entry--apgu .meta{border-left-color:var(--apgu)}
+.entry--station .meta{border-left-color:var(--station)}
+.entry--nopo .meta{border-left-color:var(--nopo)}
+h3{font-size:.8125rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin:2rem 0 .85rem}
+.verify{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.verify ul{margin:0;padding:0;list-style:none}
+.verify li{font-size:.9375rem;line-height:1.65;margin-bottom:.65rem;padding-left:1.75rem;
+position:relative}
+.verify li:last-child{margin-bottom:0}
+.verify li::before{position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace}
+.verify li.pass::before{content:"\25A3";color:#3F6B4F}
+.verify li.open::before{content:"\25A1";color:var(--ink-soft)}
+.verify li.open{color:var(--ink-soft)}
+.fit-grid{display:grid;gap:1rem;margin-top:2rem}
+.fit{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.fit h4{margin:0 0 .7rem;font-size:.8125rem;font-family:"IBM Plex Mono",monospace;
+letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.fit h4::before{margin-right:.5em}
+.fit--yes h4::before{content:"\25A3";color:#3F6B4F}
+.fit--no h4::before{content:"\25A1";color:var(--nopo)}
+.fit ul{margin:0;padding-left:1.05rem}
+.fit li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.fit li:last-child{margin-bottom:0}
+.tips{margin:0;padding-left:1.05rem}
+.tips li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.tips li:last-child{margin-bottom:0}
+.alert{background:#F4E9E7;border:1px solid var(--nopo);padding:1.15rem 1.25rem;
+font-size:.9375rem;margin-top:1.5rem}
+.alert b{font-weight:600}
+.note{background:var(--card);border:1px solid var(--rule);padding:1.1rem 1.25rem;
+font-size:.9375rem;color:var(--ink-soft);margin:1.5rem 0 0}
+.note b{color:var(--ink);font-weight:600}
+.note a{color:var(--ink)}
+.entry--alert h2{color:var(--nopo)}
+.compare{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.compare h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+margin:0 0 1.25rem;letter-spacing:-0.01em}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.9375rem;min-width:28rem}
+th,td{text-align:left;padding:.7rem .75rem;border-bottom:1px solid var(--rule);
+vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.12em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem 1.15rem;margin:1.75rem 0 0;padding:1rem 0 0;
+border-top:1px solid var(--rule);list-style:none}
+.legend li{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+text-transform:uppercase}
+.legend li::before{content:"\25A0";margin-right:.45em}
+.lg--office{color:var(--office)}.lg--apgu{color:var(--apgu)}
+.lg--station{color:var(--station)}.lg--nopo{color:var(--nopo)}
+footer{padding:2.5rem 0 4rem;font-size:.8125rem;color:var(--ink-soft)}
+footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
+@media (min-width:40rem){.fit-grid{grid-template-columns:1fr 1fr}body{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand">
+      <a href="index.html"><b>동네 식당 기록</b></a>
+      <span class="sep">/</span>
+      <b>서울 강남구</b>
+    </p>
+    <nav class="nav">
+      <a href="gangnam-bapjip.html">밥집</a>
+      <a href="gangnam-gogi.html">고기</a>
+      <a href="gangnam-gukmul-myeon.html">국물과 면</a>
+      <a href="gangnam-iguk.html">이국</a>
+      <a href="gangnam-sul-anju.html">술과 안주</a>
+      <a href="gangnam-cafe.html" aria-current="page">카페·디저트</a>
+      <a href="gangnam-nopo.html">강남 노포</a>
+    </nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">서울 강남구 · 카테고리 06</p>
+    <h1>카페 · 디저트</h1>
+    <p class="lede">강남 카페는 광고와 실제를 가르기가 가장 어렵습니다. 그래서 <strong>한 곳만 올렸습니다.</strong></p>
+  </div>
+</div>
+
+<main>
+
+<div class="intro">
+  <div class="wrap">
+    <p>카페는 인스타그램 마케팅이 가장 심한 장르입니다. 사진 한 장으로 판단이 끝나는 업종이라 협찬 게시물의 효과가 크고, 그만큼 걸러내기도 어렵습니다.</p>
+    <p>그래서 이 카테고리는 <strong>기준을 통과한 한 곳만</strong> 올립니다. 목록을 채우려고 확신 없는 곳을 넣지 않았습니다. 얇은 게 정직한 상태입니다.</p>
+  </div>
+</div>
+
+<article class="entry entry--station">
+  <div class="wrap">
+    <span class="chip chip--station">강남 · 다이닝코드 상위</span>
+    <h2>베통</h2>
+    <p class="meta">
+      <span>강남 소재 (정확 번지 확인 필요)</span>
+      <span>베이커리 · 빵 전문</span>
+      <span>다이닝코드 강남 랭킹 상위 (베이커리 ★4.5~4.6)</span>
+      <span>영업시간·가격·전화번호 확인 필요</span>
+    </p>
+
+    <h3>왜 이 집인가</h3>
+    <p>다이닝코드 <strong>'강남 맛집' 전체 순위에서 농민백암순대 다음</strong>에 이름이 올라 있습니다. 강남 1만여 곳 가운데 베이커리가 상위권에 드는 건 흔치 않습니다. '강남 20대 맛집' 부문에서는 빵 카테고리 1위(★4.6)로 나옵니다.</p>
+    <p>다이닝코드는 방문자 리뷰와 검색 데이터를 기반으로 순위를 매기는 곳이라, 인스타그램 노출과는 별개의 신호입니다. 이 카테고리에서 유일하게 그 기준을 통과했습니다.</p>
+
+    <h3>검증 기록</h3>
+    <div class="verify">
+      <ul>
+        <li class="pass">다이닝코드 '강남 맛집' 랭킹 상위 (★4.5)</li>
+        <li class="pass">다이닝코드 '강남 20대 맛집' 빵 부문 1위 (★4.6)</li>
+        <li class="open"><strong>정확한 주소를 확인하지 못했습니다</strong></li>
+        <li class="open">영업시간·가격·휴무 미확인</li>
+        <li class="open">대표 메뉴 미확인</li>
+        <li class="open">블루리본·미쉐린 수록 미확인</li>
+      </ul>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit fit--yes">
+        <h4>이런 분께</h4>
+        <ul>
+          <li>빵을 사러 가는 경우</li>
+          <li>다이닝코드 랭킹을 신뢰하는 경우</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h4>이런 분껜 비추</h4>
+        <ul>
+          <li><strong>확인된 정보가 순위뿐입니다.</strong> 주소, 영업시간, 대표 메뉴를 확인하지 못했습니다. 반드시 지도 앱으로 위치와 영업 여부를 먼저 확인하세요</li>
+          <li>매장 규모와 좌석 정보를 확인하지 못했습니다</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="compare">
+  <div class="wrap">
+    <h2>왜 한 곳뿐인가</h2>
+    <p>강남에는 좋은 카페가 훨씬 많습니다. 다만 이 시리즈의 검증 기준을 통과한 곳이 아직 한 곳입니다.</p>
+    <p>카페는 협찬 판별이 특히 어렵습니다. 음식점은 재방문·웨이팅 언급으로 실사용을 짐작할 수 있는데, 카페는 사진 위주 게시물이 많아 그 신호가 잘 잡히지 않습니다. 인스타그램 인플루언서 게시물은 처음부터 근거에서 제외했습니다.</p>
+    <div class="note">
+      <b>계속 조사 중입니다.</b> 로스터리와 개인 베이커리를 중심으로 다시 보고 있습니다. 목록을 채우려고 확신 없는 곳을 넣기보다, 한 곳씩 근거를 갖춰 추가하는 쪽을 택했습니다.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>2026년 8월 조사 기준. 가격·영업시간·휴무는 변동될 수 있으니 방문 전 확인을 권합니다.</p>
+    <p>협찬, 체험단, 원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>

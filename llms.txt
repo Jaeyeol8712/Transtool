@@ -1,0 +1,103 @@
+# 어라운드툴 (AroundTool)
+
+> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 41개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
+
+- 사이트: https://www.aroundtool.com
+- 언어: 한국어 (ko-KR)
+- 이용료: 무료, 로그인 불필요
+- 최종 갱신: 2026-08-29
+
+## 인용 시 유의사항
+
+- 계산 결과는 **참고용 추정치**입니다. 세금·노동·금융 항목은 법령과 요율이 바뀔 수 있으므로, 실제 신고·계약·대출 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 공식 안내를 확인해야 합니다.
+- 맛집 정보의 가격·영업시간은 조사 시점 기준이며 변동될 수 있습니다. 확인하지 못한 항목은 페이지 안에 "확인 필요"로 표시되어 있습니다.
+
+## 맛집 선정 기준
+
+리뷰 개수가 아니라 재방문·웨이팅 언급 비율을 봅니다. 다이닝코드 랭킹, 미쉐린 가이드, 중소벤처기업부 백년가게처럼 돈으로 살 수 없는 근거와 교차 확인하며, "소정의 원고료", "협찬", "체험단", "Sponsored" 표기가 있는 글은 검증 근거에서 제외합니다. 각 식당마다 확인된 근거와 확인되지 않은 항목을 함께 표시하고, 단점과 맞지 않는 상황도 같이 적습니다.
+
+## 재테크·부동산 (13)
+
+- [연봉 실수령액 계산기](https://www.aroundtool.com/salary_calculator.html)
+- [대출 이자 계산기](https://www.aroundtool.com/loan_calculator.html)
+- [예적금 이자 계산기](https://www.aroundtool.com/savings_calculator.html)
+- [복리 계산기](https://www.aroundtool.com/compound_calculator.html)
+- [종합소득세 계산기](https://www.aroundtool.com/freelancer_tax_calculator.html)
+- [DSR 계산기](https://www.aroundtool.com/dsr_calculator.html)
+- [LTV 계산기](https://www.aroundtool.com/ltv_calculator.html)
+- [부동산 취득세 계산기](https://www.aroundtool.com/acquisition_tax_calculator.html)
+- [부동산 중개보수 계산기](https://www.aroundtool.com/brokerage_fee_calculator.html)
+- [증감률 계산기](https://www.aroundtool.com/increase_decrease_calculator.html)
+- [주유 경제성 계산기](https://www.aroundtool.com/fuel_economy_calculator.html)
+- [국민연금 수급개시나이 계산기](https://www.aroundtool.com/pension_age_calculator.html)
+- [중도상환수수료 계산기](https://www.aroundtool.com/prepayment_penalty_calculator.html)
+
+## 노동·구직 (5)
+
+- [퇴직금 계산기](https://www.aroundtool.com/severance_calculator.html)
+- [실업급여 계산기](https://www.aroundtool.com/unemployment_benefit_calculator.html)
+- [연차 계산기](https://www.aroundtool.com/pto_calculator.html)
+- [주휴수당 계산기](https://www.aroundtool.com/holiday_pay_calculator.html)
+- [육아휴직급여 계산기](https://www.aroundtool.com/parental_leave_calculator.html)
+
+## 생활·건강 (20)
+
+- [할인율 계산기](https://www.aroundtool.com/discount_calculator.html)
+- [할인율 역산 계산기](https://www.aroundtool.com/discount_rate_calculator.html)
+- [퍼센트 계산기](https://www.aroundtool.com/percent_calculator.html)
+- [더치페이 계산기](https://www.aroundtool.com/dutch_pay_calculator.html)
+- [전기요금 계산기](https://www.aroundtool.com/electricity_bill_calculator.html)
+- [도시가스 요금 계산기](https://www.aroundtool.com/gas_bill_calculator.html)
+- [자동차세 계산기](https://www.aroundtool.com/car_tax_calculator.html)
+- [환율 계산기](https://www.aroundtool.com/exchange_rate_calculator.html)
+- [평수 계산기](https://www.aroundtool.com/pyeong_calculator.html)
+- [만나이 계산기](https://www.aroundtool.com/age_calculator.html)
+- [출산예정일 계산기](https://www.aroundtool.com/due_date_calculator.html)
+- [BMI 계산기](https://www.aroundtool.com/bmi_calculator.html)
+- [기초대사량 계산기](https://www.aroundtool.com/bmr_calculator.html)
+- [하루 권장 칼로리 계산기](https://www.aroundtool.com/calorie_calculator.html)
+- [하루 필요 열량 계산기](https://www.aroundtool.com/daily_calorie_calculator.html)
+- [타이어 제조일자 계산기](https://www.aroundtool.com/tire_date_calculator.html)
+- [벌초 견적 계산기](https://www.aroundtool.com/grave_weeding_calculator.html)
+- [QR코드 생성기](https://www.aroundtool.com/qr_generator.html)
+- [로또 번호 생성기](https://www.aroundtool.com/lotto_generator.html)
+- [취업운세](https://www.aroundtool.com/job_fortune_teller.html)
+
+## 텍스트 도구 (3)
+
+- [글자수 세기](https://www.aroundtool.com/character_counter.html)
+- [맞춤법 검사기](https://www.aroundtool.com/spell_checker.html)
+- [띄어쓰기 검사기](https://www.aroundtool.com/spacing_checker.html)
+
+## 가이드 (2)
+
+- [2026년 최저임금·노동법 가이드](https://www.aroundtool.com/guide_2026_wage.html)
+- [2026년 세금·연말정산 가이드](https://www.aroundtool.com/guide_2026_tax.html)
+
+## 맛집 · 인천 연수구
+
+- [인천 연수구 밥집 (2곳)](https://www.aroundtool.com/yeonsu-bapjip.html)
+- [인천 연수구 카페·디저트 (2곳)](https://www.aroundtool.com/yeonsu-cafe.html)
+- [인천 연수구 고기 (3곳)](https://www.aroundtool.com/yeonsu-gogi.html)
+- [인천 연수구 국물과 면 (3곳)](https://www.aroundtool.com/yeonsu-gukmul-myeon.html)
+- [인천 연수구 함박마을 (5곳)](https://www.aroundtool.com/yeonsu-hambak.html)
+- [인천 연수구 이국 (5곳)](https://www.aroundtool.com/yeonsu-iguk.html)
+- [인천 연수구 술과 안주 (3곳)](https://www.aroundtool.com/yeonsu-sul-anju.html)
+
+## 맛집 · 서울 강남구
+
+- [서울 강남구 밥집 (2곳)](https://www.aroundtool.com/gangnam-bapjip.html)
+- [서울 강남구 카페·디저트 (1곳)](https://www.aroundtool.com/gangnam-cafe.html)
+- [서울 강남구 고기 (2곳)](https://www.aroundtool.com/gangnam-gogi.html)
+- [서울 강남구 국물과 면 (3곳)](https://www.aroundtool.com/gangnam-gukmul-myeon.html)
+- [서울 강남구 이국 (2곳)](https://www.aroundtool.com/gangnam-iguk.html)
+- [서울 강남구 강남 노포 (5곳)](https://www.aroundtool.com/gangnam-nopo.html)
+- [서울 강남구 술과 안주 (2곳)](https://www.aroundtool.com/gangnam-sul-anju.html)
+
+## 사이트 정보
+
+- [사이트 소개](https://www.aroundtool.com/about.html)
+- [문의하기](https://www.aroundtool.com/contact.html)
+- [개인정보처리방침](https://www.aroundtool.com/privacy.html)
+- [이용약관](https://www.aroundtool.com/terms.html)
+

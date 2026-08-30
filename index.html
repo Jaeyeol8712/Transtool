@@ -1,484 +1,1669 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어라운드툴 - 무료 생활 계산기 44종</title>
-<meta name="description" content="연봉, 대출, 세금, 부동산, 노동, 건강, 생활에 필요한 44가지 무료 계산기와 실용 도구를 제공합니다. 각 도구의 계산 기준과 주의사항도 함께 안내합니다.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어라운드툴 — 무료 생활 계산기 41종과 지역 맛집 기록</title>
+<meta name="description" content="연봉·대출·세금·부동산·노동·건강 계산기 41개를 로그인 없이 무료로 사용하세요. 계산 기준과 주의사항을 함께 안내하며, 광고와 협찬을 배제한 인천 연수구·서울 강남구 맛집 34곳 기록도 제공합니다.">
 <link rel="canonical" href="https://www.aroundtool.com/">
+
+<meta name="theme-color" content="#0D7A6F">
+<meta name="author" content="어라운드툴">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/">
+<meta property="og:title" content="어라운드툴 — 무료 생활 계산기 41종과 지역 맛집 기록">
+<meta property="og:description" content="연봉·대출·세금·건강 계산기 41개를 로그인 없이 무료로. 광고와 협찬을 뺀 지역 맛집 34곳 기록도 함께.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="어라운드툴 — 무료 생활 계산기 41종과 지역 맛집 기록">
+<meta name="twitter:description" content="연봉·대출·세금·건강 계산기 41개를 로그인 없이 무료로. 광고와 협찬을 뺀 지역 맛집 34곳 기록도 함께.">
+
+<!-- ⚠ og:image 는 대표 이미지 URL을 직접 넣으세요 (권장 1200x630)
+<meta property="og:image" content="https://www.aroundtool.com/og-image.png">
+<meta name="twitter:image" content="https://www.aroundtool.com/og-image.png">
+-->
+
+
+<!-- ============================================================
+     ⚠ 기존 index.html에 있던 아래 항목은 여기로 옮겨 붙이세요
+       · 애드센스 / 광고 스크립트
+       · Google Analytics · 서치콘솔 인증 태그
+       · 파비콘, OG 태그, 기타 meta
+     이 파일에는 포함돼 있지 않습니다.
+     ============================================================ -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f9ff;--card:#fff;--text:#1b2432;--muted:#6b7a90;--border:#e8eefb;--accent:oklch(0.55 0.17 258)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{color:oklch(0.47 0.17 258)}
-.mast{background:linear-gradient(180deg,#fff 0%,#f9fbff 100%);border-bottom:1px solid var(--border);padding:64px 24px 56px;text-align:center}
-.mast .inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
-.mast .pill{display:inline-flex;align-items:center;gap:8px;background:oklch(0.96 0.035 258);color:oklch(0.5 0.15 258);border-radius:999px;padding:7px 15px;font-size:.78rem;font-weight:700;letter-spacing:.02em}
-.mast .pill i{width:6px;height:6px;border-radius:999px;background:oklch(0.63 0.16 258)}
-.mast h1{font-size:3rem;line-height:1.2;letter-spacing:-.03em;font-weight:700}
-.mast p{color:#5c6b81;font-size:1.08rem;max-width:520px;text-wrap:pretty}
-main{max-width:1080px;margin:auto;padding:36px 20px 72px}
-.intro,.faq{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:30px 32px;box-shadow:0 1px 2px rgba(24,39,75,.04)}
-.intro{margin-bottom:28px}
-.intro h2,.faq h2{font-size:1.28rem;letter-spacing:-.02em;margin-bottom:14px}
-.intro p{color:#5c6b81;font-size:.97rem;margin-bottom:12px;text-wrap:pretty}
-.intro p:last-child{margin-bottom:0}
-.intro a{font-weight:500}
-.toc{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 40px}
-.toc a{background:#fff;border:1px solid #e2eafa;border-radius:999px;padding:9px 16px;color:#3f4f66;font-size:.9rem;font-weight:500;box-shadow:0 1px 2px rgba(24,39,75,.04);transition:background .15s,border-color .15s,color .15s}
-.category{margin:0 0 48px}
-.cat-head{display:flex;align-items:center;gap:11px;padding-bottom:14px;border-bottom:1px solid #e6edfa;margin-bottom:18px}
-.cat-head h2{font-size:1.26rem;letter-spacing:-.02em}
-.cat-head .dot{width:9px;height:9px;border-radius:999px;flex:none}
-.cat-head .count{font-family:'Outfit',sans-serif;font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:999px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:16px}
-.tool{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;min-height:156px;color:var(--text);box-shadow:0 1px 2px rgba(24,39,75,.04);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.tool:hover{transform:translateY(-3px)}
-.tool strong{font-size:1.02rem;letter-spacing:-.015em}
-.tool span{font-size:.875rem;color:var(--muted);flex:1;text-wrap:pretty}
-.tool em{font-style:normal;font-weight:700;font-size:.8rem}
-.notice{background:oklch(0.975 0.025 258);border:1px solid oklch(0.91 0.045 258);border-radius:22px;padding:30px 32px;margin-bottom:24px}
-.notice h2{font-size:1.2rem;letter-spacing:-.02em;color:oklch(0.38 0.12 258);margin-bottom:12px}
-.notice p{color:#4f5f76;font-size:.95rem;margin-bottom:10px;text-wrap:pretty}
-.notice p:last-child{margin-bottom:0}
-.faq-item{padding:18px 0;border-top:1px solid #eef2fb}
-.faq-item:first-of-type{border-top:0}
-.faq-item:last-child{padding-bottom:0}
-.faq-item h3{font-size:1rem;margin-bottom:6px}
-.faq-item p{color:var(--muted);font-size:.92rem;text-wrap:pretty}
-.footer{background:#fff;border-top:1px solid var(--border);padding:36px 24px 44px;text-align:center;color:#7b899e;font-size:.85rem}
-.footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-bottom:14px}
-.footer .links a{color:#3f4f66;font-weight:500}
-.cat-finance .dot{background:oklch(0.63 0.16 258)}
-.cat-finance .count{color:oklch(0.5 0.15 258);background:oklch(0.96 0.035 258)}
-.cat-finance .tool em{color:oklch(0.55 0.17 258)}
-.cat-finance .tool:hover{border-color:oklch(0.86 0.07 258);box-shadow:0 14px 30px rgba(37,99,235,.10)}
-.toc a.t-finance:hover{background:oklch(0.96 0.035 258);border-color:oklch(0.86 0.07 258);color:oklch(0.5 0.15 258)}
-.cat-job .dot{background:oklch(0.63 0.16 165)}
-.cat-job .count{color:oklch(0.45 0.13 165);background:oklch(0.96 0.035 165)}
-.cat-job .tool em{color:oklch(0.5 0.14 165)}
-.cat-job .tool:hover{border-color:oklch(0.86 0.07 165);box-shadow:0 14px 30px rgba(16,150,120,.12)}
-.toc a.t-job:hover{background:oklch(0.96 0.035 165);border-color:oklch(0.86 0.07 165);color:oklch(0.45 0.13 165)}
-.cat-life .dot{background:oklch(0.68 0.15 55)}
-.cat-life .count{color:oklch(0.48 0.13 55);background:oklch(0.96 0.035 55)}
-.cat-life .tool em{color:oklch(0.53 0.14 55)}
-.cat-life .tool:hover{border-color:oklch(0.87 0.07 55);box-shadow:0 14px 30px rgba(180,110,20,.12)}
-.toc a.t-life:hover{background:oklch(0.96 0.035 55);border-color:oklch(0.87 0.07 55);color:oklch(0.48 0.13 55)}
-.cat-text .dot{background:oklch(0.65 0.16 330)}
-.cat-text .count{color:oklch(0.48 0.15 330);background:oklch(0.96 0.035 330)}
-.cat-text .tool em{color:oklch(0.53 0.16 330)}
-.cat-text .tool:hover{border-color:oklch(0.87 0.07 330);box-shadow:0 14px 30px rgba(170,60,140,.12)}
-.toc a.t-text:hover{background:oklch(0.96 0.035 330);border-color:oklch(0.87 0.07 330);color:oklch(0.48 0.15 330)}
-.cat-info .dot{background:oklch(0.66 0.14 210)}
-.cat-info .count{color:oklch(0.46 0.12 210);background:oklch(0.96 0.035 210)}
-.cat-info .tool em{color:oklch(0.51 0.13 210)}
-.cat-info .tool:hover{border-color:oklch(0.87 0.06 210);box-shadow:0 14px 30px rgba(20,110,160,.12)}
-.toc a.t-info:hover{background:oklch(0.96 0.035 210);border-color:oklch(0.87 0.06 210);color:oklch(0.46 0.12 210)}
-@media(max-width:600px){.mast{padding:48px 20px 40px}.mast h1{font-size:2.2rem}.mast p{font-size:1rem}.intro,.faq,.notice{padding:24px 20px}.grid{grid-template-columns:1fr}}
+:root{
+  /* 바탕 */
+  --bg:#F6F8F7;
+  --panel:#FFFFFF;
+  --panel-alt:#EEF2F0;
+  --ink:#15181B;
+  --soft:#5C6873;
+  --rule:#E1E6E3;
+  --rule-strong:#C7CFCB;
+
+  /* 브랜드 */
+  --brand:#0D7A6F;
+  --brand-dark:#095B53;
+  --brand-tint:#E2F1EF;
+
+  /* 카테고리 — 색이 곧 길찾기 */
+  --c-finance:#1B6FB8;  --t-finance:#E9F1FA;
+  --c-job:#B5690E;      --t-job:#FBF1E1;
+  --c-life:#1B855C;     --t-life:#E5F4EC;
+  --c-text:#7A5CA8;     --t-text:#F1ECF9;
+  --c-info:#4A5A66;     --t-info:#EBEFF2;
+  --c-food:#BC3C3C;     --t-food:#FBECEC;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em;
+}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
+.wrap--wide{max-width:68rem}
+a{color:inherit}
+h1,h2,h3{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* ---------- 공지 바 ---------- */
+.notebar{background:var(--brand-dark);color:#DCEBE9}
+.notebar .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.5rem 1rem;font-size:.75rem}
+.notebar-msg{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  display:flex;align-items:center;gap:.5rem}
+.notebar-msg b{flex-shrink:0;background:#FFFFFF;color:var(--brand-dark);
+  font-weight:700;font-size:.6875rem;border-radius:2px;padding:.1rem .4rem}
+.notebar nav{display:flex;gap:.9rem;flex-shrink:0}
+.notebar nav a{color:#A9C8C4;text-decoration:none}
+.notebar nav a:hover{color:#fff}
+
+/* ---------- 헤더 ---------- */
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;
+  padding-top:.85rem;padding-bottom:.85rem;flex-wrap:wrap}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;
+  letter-spacing:-0.02em;flex-shrink:0}
+.logo span{color:var(--brand)}
+.top-search{position:relative;flex:1 1 14rem;min-width:10rem}
+.top-search input{
+  width:100%;padding:.55rem 2.4rem .55rem .85rem;font:inherit;font-size:.875rem;
+  color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+}
+.top-search input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.top-search .icon{position:absolute;right:.8rem;top:50%;transform:translateY(-50%);
+  color:#94A0A8;pointer-events:none;font-size:.875rem}
+
+/* ---------- 카테고리 네비 ---------- */
+.meganav{background:var(--panel);border-bottom:1px solid var(--rule-strong)}
+.meganav .wrap{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none}
+.meganav .wrap::-webkit-scrollbar{display:none}
+.mnav{display:flex;align-items:center;gap:.45rem;white-space:nowrap;
+  text-decoration:none;font-size:.8125rem;font-weight:500;color:var(--ink);
+  padding:.75rem .9rem;border-bottom:2px solid transparent;flex-shrink:0}
+.mnav::before{content:"";width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.mnav b{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.6875rem;
+  border-radius:99px;padding:.05rem .4rem}
+.mnav--finance::before{background:var(--c-finance)}
+.mnav--finance b{background:var(--t-finance);color:var(--c-finance)}
+.mnav--finance:hover,.mnav--finance:focus-visible{color:var(--c-finance);border-bottom-color:var(--c-finance)}
+.mnav--job::before{background:var(--c-job)}
+.mnav--job b{background:var(--t-job);color:var(--c-job)}
+.mnav--job:hover,.mnav--job:focus-visible{color:var(--c-job);border-bottom-color:var(--c-job)}
+.mnav--life::before{background:var(--c-life)}
+.mnav--life b{background:var(--t-life);color:var(--c-life)}
+.mnav--life:hover,.mnav--life:focus-visible{color:var(--c-life);border-bottom-color:var(--c-life)}
+.mnav--text::before{background:var(--c-text)}
+.mnav--text b{background:var(--t-text);color:var(--c-text)}
+.mnav--text:hover,.mnav--text:focus-visible{color:var(--c-text);border-bottom-color:var(--c-text)}
+.mnav--info::before{background:var(--c-info)}
+.mnav--info b{background:var(--t-info);color:var(--c-info)}
+.mnav--info:hover,.mnav--info:focus-visible{color:var(--c-info);border-bottom-color:var(--c-info)}
+.mnav--food::before{background:var(--c-food)}
+.mnav--food b{background:var(--t-food);color:var(--c-food)}
+.mnav--food:hover,.mnav--food:focus-visible{color:var(--c-food);border-bottom-color:var(--c-food)}
+
+/* ---------- 히어로 ---------- */
+.hero{padding:2.5rem 0}
+.hero-in{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+  color:var(--brand);margin:0 0 .6rem;font-weight:500}
+.hero h1{font-size:clamp(1.75rem,6vw,2.5rem);line-height:1.25;
+  margin:0 0 .7rem;letter-spacing:-0.03em;font-weight:700}
+.hero-copy > p.lede{color:var(--soft);margin:0 0 1.35rem;font-size:.9375rem;max-width:31rem}
+.hero-copy > p.lede b{color:var(--brand);font-weight:600}
+.herosearch{position:relative}
+.herosearch input{
+  width:100%;padding:.85rem 2.5rem .85rem .95rem;font:inherit;font-size:1rem;
+  color:var(--ink);background:var(--panel);border:1px solid var(--rule-strong);border-radius:3px;
+}
+.herosearch input:focus{outline:none;border-color:var(--brand);
+  box-shadow:0 0 0 3px rgba(13,122,111,.14)}
+.herosearch .icon{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);
+  color:#94A0A8;font-size:.9375rem}
+.search-info{font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  color:var(--brand);margin:.55rem 0 0;min-height:1.2em;font-weight:500}
+
+/* ---------- 라이브 위젯 ---------- */
+.widget{background:var(--panel);border:1px solid var(--rule-strong);
+  border-top:3px solid var(--brand);border-radius:4px;padding:1.35rem 1.4rem 1.2rem}
+.widget-label{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;
+  font-size:.75rem;color:var(--brand);margin:0 0 1.1rem;
+  font-family:"IBM Plex Mono",monospace;font-weight:500}
+.widget-label b{font-family:"IBM Plex Sans KR",sans-serif;font-size:1rem;
+  font-weight:700;color:var(--ink);letter-spacing:-0.01em}
+.widget-body{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1.1rem}
+.widget-body label{display:block;font-size:.75rem;color:var(--soft);font-weight:500}
+.widget-inputwrap{position:relative;margin-top:.4rem}
+.widget-inputwrap input{
+  width:100%;padding:.6rem 2.1rem .6rem .7rem;font:inherit;font-size:.9375rem;
+  color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+  -moz-appearance:textfield;
+}
+.widget-inputwrap input::-webkit-outer-spin-button,
+.widget-inputwrap input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.widget-inputwrap input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.widget-inputwrap span{position:absolute;right:.65rem;top:50%;transform:translateY(-50%);
+  font-size:.8125rem;color:var(--soft);pointer-events:none}
+.widget-result{display:flex;align-items:baseline;justify-content:space-between;
+  background:var(--brand-tint);border-radius:3px;padding:.9rem 1rem}
+.widget-result span{font-size:.8125rem;color:var(--brand-dark)}
+.widget-result strong{font-family:"IBM Plex Mono",monospace;font-size:1.5rem;
+  font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em}
+.widget-more{display:block;text-align:right;margin-top:.85rem;
+  font-size:.75rem;color:var(--brand);text-decoration:none;font-weight:500}
+.widget-more:hover{text-decoration:underline}
+
+/* ---------- 자주 찾는 계산기 (탭) ---------- */
+.picks{padding:1rem 0 2.25rem;border-top:1px solid var(--rule)}
+.picks-head{display:flex;align-items:baseline;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;margin:1.75rem 0 1rem}
+.picks-head h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em}
+.picks-head p{margin:0;font-size:.75rem;color:var(--soft)}
+.tabs{display:flex;gap:.3rem;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;margin-bottom:-1px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;font:inherit;font-size:.8125rem;font-weight:500;
+  color:var(--soft);background:transparent;border:1px solid transparent;
+  border-bottom:none;border-radius:4px 4px 0 0;padding:.55rem .9rem;cursor:pointer}
+.tab:hover{color:var(--ink);background:var(--panel-alt)}
+.tab.is-active{background:var(--panel);font-weight:700;
+  border-color:var(--rule-strong);border-top-width:2px}
+.tab[data-tab="finance"].is-active{color:var(--c-finance);border-top-color:var(--c-finance)}
+.tab[data-tab="job"].is-active{color:var(--c-job);border-top-color:var(--c-job)}
+.tab[data-tab="life"].is-active{color:var(--c-life);border-top-color:var(--c-life)}
+.tab[data-tab="text"].is-active{color:var(--c-text);border-top-color:var(--c-text)}
+.tab[data-tab="info"].is-active{color:var(--c-info);border-top-color:var(--c-info)}
+.rankwrap{background:var(--panel);border:1px solid var(--rule-strong);
+  border-radius:0 4px 4px 4px;padding:.4rem 1.1rem}
+.ranklist{list-style:none;margin:0;padding:0}
+.ranklist.is-hidden{display:none}
+.ranklist li{border-bottom:1px dotted var(--rule)}
+.ranklist li:last-child{border-bottom:none}
+.ranklist a{display:flex;align-items:baseline;gap:.75rem;
+  text-decoration:none;color:var(--ink);font-size:.9375rem;padding:.75rem .1rem}
+.ranklist .rk{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;
+  font-weight:600;flex-shrink:0;width:1.4rem}
+.ranklist[data-panel="finance"] .rk{color:var(--c-finance)}
+.ranklist[data-panel="finance"] a:hover{color:var(--c-finance)}
+.ranklist[data-panel="job"] .rk{color:var(--c-job)}
+.ranklist[data-panel="job"] a:hover{color:var(--c-job)}
+.ranklist[data-panel="life"] .rk{color:var(--c-life)}
+.ranklist[data-panel="life"] a:hover{color:var(--c-life)}
+.ranklist[data-panel="text"] .rk{color:var(--c-text)}
+.ranklist[data-panel="text"] a:hover{color:var(--c-text)}
+.ranklist[data-panel="info"] .rk{color:var(--c-info)}
+.ranklist[data-panel="info"] a:hover{color:var(--c-info)}
+
+/* ---------- 계산기 그리드 ---------- */
+.group{padding:1.85rem 0 0}
+.group-head{display:flex;align-items:center;gap:.5rem;
+  padding:.5rem .85rem;border:1px solid var(--rule-strong);border-bottom:none;
+  border-top:2px solid var(--rule-strong);border-radius:4px 4px 0 0}
+.group-head h2{font-size:.875rem;font-weight:700;letter-spacing:-0.01em}
+.group-head .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;
+  font-size:.6875rem;font-weight:600;background:var(--panel);
+  border-radius:99px;padding:.05rem .5rem}
+.g-finance .group-head{background:var(--t-finance);border-top-color:var(--c-finance)}
+.g-finance .group-head h2,.g-finance .group-head .n{color:var(--c-finance)}
+.g-job .group-head{background:var(--t-job);border-top-color:var(--c-job)}
+.g-job .group-head h2,.g-job .group-head .n{color:var(--c-job)}
+.g-life .group-head{background:var(--t-life);border-top-color:var(--c-life)}
+.g-life .group-head h2,.g-life .group-head .n{color:var(--c-life)}
+.g-text .group-head{background:var(--t-text);border-top-color:var(--c-text)}
+.g-text .group-head h2,.g-text .group-head .n{color:var(--c-text)}
+.g-info .group-head{background:var(--t-info);border-top-color:var(--c-info)}
+.g-info .group-head h2,.g-info .group-head .n{color:var(--c-info)}
+
+.tools{list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--rule);border:1px solid var(--rule-strong);
+  border-radius:0 0 4px 4px;overflow:hidden}
+.tools li{background:var(--panel);display:flex}
+.tools a{display:flex;align-items:center;width:100%;
+  text-decoration:none;font-size:.875rem;line-height:1.35;
+  padding:.75rem .8rem;word-break:keep-all;
+  transition:background .12s ease,color .12s ease}
+.g-finance .tools a:hover,.g-finance .tools a:focus-visible{background:var(--t-finance);color:var(--c-finance);outline:none}
+.g-job .tools a:hover,.g-job .tools a:focus-visible{background:var(--t-job);color:var(--c-job);outline:none}
+.g-life .tools a:hover,.g-life .tools a:focus-visible{background:var(--t-life);color:var(--c-life);outline:none}
+.g-text .tools a:hover,.g-text .tools a:focus-visible{background:var(--t-text);color:var(--c-text);outline:none}
+.g-info .tools a:hover,.g-info .tools a:focus-visible{background:var(--t-info);color:var(--c-info);outline:none}
+
+/* ---------- 최근 추가 ---------- */
+.updates{padding:2.25rem 0 0}
+.updates h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.updates ul{list-style:none;margin:0;padding:0;
+  background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px}
+.updates li{display:flex;align-items:baseline;gap:.9rem;
+  padding:.8rem 1.1rem;border-bottom:1px dotted var(--rule)}
+.updates li:last-child{border-bottom:none}
+.updates .u-date{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:600;color:var(--c-food);background:var(--t-food);
+  border-radius:2px;padding:.1rem .45rem;flex-shrink:0;white-space:nowrap}
+.updates a{text-decoration:none;font-size:.875rem;color:var(--ink)}
+.updates a:hover{color:var(--c-food)}
+
+/* ---------- 맛집 ---------- */
+.food{margin:2.5rem 0 0;background:var(--panel);
+  border:1px solid var(--rule-strong);border-top:3px solid var(--c-food);
+  border-radius:4px;overflow:hidden}
+.food-head{display:flex;align-items:baseline;justify-content:space-between;
+  gap:.75rem;flex-wrap:wrap;background:var(--t-food);padding:.85rem 1.4rem .8rem}
+.food-head h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.02em;color:var(--c-food)}
+.food-stat{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:600;color:var(--c-food);white-space:nowrap}
+.food-desc{font-size:.8125rem;color:var(--soft);margin:0;padding:.9rem 1.4rem 0}
+.arealist{list-style:none;margin:0;padding:0 1.4rem 1.35rem}
+.area{border-top:1px solid var(--rule);padding:1.1rem 0 0;margin-top:1.1rem}
+.area:first-child{border-top:none;margin-top:.9rem;padding-top:0}
+.area-top{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.7rem}
+.area-top .rk{font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  font-weight:700;color:#fff;background:var(--c-food);
+  border-radius:2px;padding:.1rem .35rem}
+.area-top h3{font-size:1rem;font-weight:700;letter-spacing:-0.01em;flex:1}
+.area-top .area-n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;color:var(--soft)}
+.area-cats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;padding:0;
+  list-style:none;background:var(--rule);border:1px solid var(--rule);
+  border-radius:3px;overflow:hidden}
+.area-cats li{background:var(--panel);display:flex}
+.area-cats a{display:flex;align-items:center;justify-content:space-between;
+  width:100%;gap:.4rem;text-decoration:none;font-size:.8125rem;
+  color:var(--ink);padding:.6rem .7rem;transition:background .12s ease,color .12s ease}
+.area-cats a:hover,.area-cats a:focus-visible{background:var(--t-food);color:var(--c-food);outline:none}
+.area-cats .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;color:var(--soft)}
+
+/* ---------- 자주 묻는 질문 ---------- */
+.faq{padding:2.25rem 0 0}
+.faq h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.faq-list{background:var(--panel);border:1px solid var(--rule-strong);
+  border-radius:4px;overflow:hidden}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq details:last-child{border-bottom:none}
+.faq summary{list-style:none;cursor:pointer;padding:.9rem 1.1rem;
+  font-size:.9375rem;font-weight:500;display:flex;align-items:flex-start;gap:.6rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+  font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;
+  padding:.1rem .35rem;flex-shrink:0;line-height:1.5}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;
+  font-family:"IBM Plex Mono",monospace;flex-shrink:0}
+.faq details[open] summary{background:var(--brand-tint)}
+.faq details[open] summary::after{content:"−"}
+.faq summary:hover{background:var(--brand-tint)}
+.faq .ans{display:flex;gap:.6rem;padding:.9rem 1.1rem 1.05rem 1.1rem;
+  font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans::before{content:"A";font-family:"IBM Plex Mono",monospace;font-weight:700;
+  font-size:.75rem;color:var(--brand);background:var(--brand-tint);border-radius:2px;
+  padding:.1rem .35rem;flex-shrink:0;line-height:1.5;height:fit-content}
+.faq .ans a{color:var(--brand);text-decoration:none;font-weight:600}
+.faq .ans b{color:var(--ink);font-weight:600}
+
+/* ---------- 안내 ---------- */
+.notice{margin:2.25rem 0 0;padding:1.1rem 1.25rem;background:var(--t-job);
+  border:1px solid #EBDCBE;border-radius:4px;
+  font-size:.8125rem;color:#6B5622;line-height:1.75}
+.notice b{color:var(--c-job);font-weight:700}
+.notice a{color:var(--c-job);text-decoration:underline;font-weight:600}
+
+/* ---------- 푸터 ---------- */
+footer{margin-top:2.5rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+.is-hidden{display:none !important}
+
+@media (min-width:30rem){
+  .tools{grid-template-columns:1fr 1fr 1fr}
+  .area-cats{grid-template-columns:1fr 1fr 1fr}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 1.25rem}
+  .hero-in{grid-template-columns:1.1fr .9fr;gap:3rem}
+  .tools{grid-template-columns:repeat(4,1fr)}
+  .area-cats{grid-template-columns:repeat(4,1fr)}
+  .tools a{font-size:.9375rem;padding:.85rem .9rem}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"어라운드툴","alternateName":"aroundtool","url":"https://www.aroundtool.com/","logo":"https://www.aroundtool.com/apple-touch-icon.png","description":"연봉, 대출, 세금, 부동산, 노동, 건강, 생활에 필요한 44가지 무료 계산기와 실용 도구를 제공하는 서비스입니다.","email":"wodouf8712@gmail.com"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"어라운드툴","url":"https://www.aroundtool.com/","inLanguage":"ko","publisher":{"@type":"Organization","name":"어라운드툴","url":"https://www.aroundtool.com/"}}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":"어라운드툴 무료 생활 계산기 44종","numberOfItems":44,"itemListElement":[
-{"@type":"ListItem","position":1,"url":"https://www.aroundtool.com/salary_calculator.html","name":"연봉 실수령액 계산기"},
-{"@type":"ListItem","position":2,"url":"https://www.aroundtool.com/loan_calculator.html","name":"대출 이자 계산기"},
-{"@type":"ListItem","position":3,"url":"https://www.aroundtool.com/savings_calculator.html","name":"예적금 이자 계산기"},
-{"@type":"ListItem","position":4,"url":"https://www.aroundtool.com/compound_calculator.html","name":"복리 계산기"},
-{"@type":"ListItem","position":5,"url":"https://www.aroundtool.com/freelancer_tax_calculator.html","name":"종합소득세 계산기"},
-{"@type":"ListItem","position":6,"url":"https://www.aroundtool.com/dsr_calculator.html","name":"DSR 계산기"},
-{"@type":"ListItem","position":7,"url":"https://www.aroundtool.com/ltv_calculator.html","name":"LTV 계산기"},
-{"@type":"ListItem","position":8,"url":"https://www.aroundtool.com/acquisition_tax_calculator.html","name":"부동산 취득세 계산기"},
-{"@type":"ListItem","position":9,"url":"https://www.aroundtool.com/brokerage_fee_calculator.html","name":"부동산 중개보수 계산기"},
-{"@type":"ListItem","position":10,"url":"https://www.aroundtool.com/increase_decrease_calculator.html","name":"증감률 계산기"},
-{"@type":"ListItem","position":11,"url":"https://www.aroundtool.com/fuel_economy_calculator.html","name":"주유 경제성 계산기"},
-{"@type":"ListItem","position":12,"url":"https://www.aroundtool.com/pension_age_calculator.html","name":"국민연금 수급개시나이 계산기"},
-{"@type":"ListItem","position":13,"url":"https://www.aroundtool.com/prepayment_penalty_calculator.html","name":"중도상환수수료 계산기"},
-{"@type":"ListItem","position":14,"url":"https://www.aroundtool.com/severance_calculator.html","name":"퇴직금 계산기"},
-{"@type":"ListItem","position":15,"url":"https://www.aroundtool.com/unemployment_benefit_calculator.html","name":"실업급여 계산기"},
-{"@type":"ListItem","position":16,"url":"https://www.aroundtool.com/pto_calculator.html","name":"연차 계산기"},
-{"@type":"ListItem","position":17,"url":"https://www.aroundtool.com/holiday_pay_calculator.html","name":"주휴수당 계산기"},
-{"@type":"ListItem","position":18,"url":"https://www.aroundtool.com/parental_leave_calculator.html","name":"육아휴직급여 계산기"},
-{"@type":"ListItem","position":19,"url":"https://www.aroundtool.com/discount_calculator.html","name":"할인율 계산기"},
-{"@type":"ListItem","position":20,"url":"https://www.aroundtool.com/discount_rate_calculator.html","name":"할인율 역산 계산기"},
-{"@type":"ListItem","position":21,"url":"https://www.aroundtool.com/percent_calculator.html","name":"퍼센트 계산기"},
-{"@type":"ListItem","position":22,"url":"https://www.aroundtool.com/dutch_pay_calculator.html","name":"더치페이 계산기"},
-{"@type":"ListItem","position":23,"url":"https://www.aroundtool.com/grave_weeding_calculator.html","name":"벌초 견적 계산기"},
-{"@type":"ListItem","position":24,"url":"https://www.aroundtool.com/tire_date_calculator.html","name":"타이어 제조일자 계산기"},
-{"@type":"ListItem","position":25,"url":"https://www.aroundtool.com/gas_bill_calculator.html","name":"도시가스 요금 계산기"},
-{"@type":"ListItem","position":26,"url":"https://www.aroundtool.com/bmi_calculator.html","name":"BMI 계산기"},
-{"@type":"ListItem","position":27,"url":"https://www.aroundtool.com/age_calculator.html","name":"만나이 계산기"},
-{"@type":"ListItem","position":28,"url":"https://www.aroundtool.com/calorie_calculator.html","name":"하루 권장 칼로리 계산기"},
-{"@type":"ListItem","position":29,"url":"https://www.aroundtool.com/daily_calorie_calculator.html","name":"하루 필요 열량 계산기"},
-{"@type":"ListItem","position":30,"url":"https://www.aroundtool.com/job_fortune_teller.html","name":"취업운세"},
-{"@type":"ListItem","position":31,"url":"https://www.aroundtool.com/bmr_calculator.html","name":"기초대사량 계산기"},
-{"@type":"ListItem","position":32,"url":"https://www.aroundtool.com/pyeong_calculator.html","name":"평수 계산기"},
-{"@type":"ListItem","position":33,"url":"https://www.aroundtool.com/car_tax_calculator.html","name":"자동차세 계산기"},
-{"@type":"ListItem","position":34,"url":"https://www.aroundtool.com/exchange_rate_calculator.html","name":"환율 계산기"},
-{"@type":"ListItem","position":35,"url":"https://www.aroundtool.com/lotto_generator.html","name":"로또 번호 생성기"},
-{"@type":"ListItem","position":36,"url":"https://www.aroundtool.com/qr_generator.html","name":"QR코드 생성기"},
-{"@type":"ListItem","position":37,"url":"https://www.aroundtool.com/electricity_bill_calculator.html","name":"전기요금 계산기"},
-{"@type":"ListItem","position":38,"url":"https://www.aroundtool.com/due_date_calculator.html","name":"출산예정일 계산기"},
-{"@type":"ListItem","position":39,"url":"https://www.aroundtool.com/character_counter.html","name":"글자수 세기"},
-{"@type":"ListItem","position":40,"url":"https://www.aroundtool.com/spell_checker.html","name":"맞춤법 검사기"},
-{"@type":"ListItem","position":41,"url":"https://www.aroundtool.com/spacing_checker.html","name":"띄어쓰기 검사기"},
-{"@type":"ListItem","position":42,"url":"https://www.aroundtool.com/guide_2026_wage.html","name":"2026년 최저임금·노동법 가이드"},
-{"@type":"ListItem","position":43,"url":"https://www.aroundtool.com/guide_2026_tax.html","name":"2026년 세금·연말정산 가이드"},
-{"@type":"ListItem","position":44,"url":"https://www.aroundtool.com/about.html","name":"어라운드툴 사이트 소개"}
-]}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":"전국 맛집 - 인천 연수구 카테고리","description":"전국 맛집 기록 중 현재 수록된 인천 연수구 지역의 카테고리 목록입니다.","numberOfItems":7,"itemListElement":[
-{"@type":"ListItem","position":1,"url":"https://www.aroundtool.com/yeonsu-bapjip.html","name":"밥집"},
-{"@type":"ListItem","position":2,"url":"https://www.aroundtool.com/yeonsu-gogi.html","name":"고기"},
-{"@type":"ListItem","position":3,"url":"https://www.aroundtool.com/yeonsu-gukmul-myeon.html","name":"국물과 면"},
-{"@type":"ListItem","position":4,"url":"https://www.aroundtool.com/yeonsu-iguk.html","name":"이국"},
-{"@type":"ListItem","position":5,"url":"https://www.aroundtool.com/yeonsu-sul-anju.html","name":"술과 안주"},
-{"@type":"ListItem","position":6,"url":"https://www.aroundtool.com/yeonsu-cafe.html","name":"카페·디저트"},
-{"@type":"ListItem","position":7,"url":"https://www.aroundtool.com/yeonsu-hambak.html","name":"함박마을"}
-]}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"입력한 계산값이 서버에 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다."}},
-{"@type":"Question","name":"계산 결과를 공식 신고에 사용해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 계산 결과는 참고용 추정치입니다. 신고·계약·대출 등 중요한 절차에서는 해당 기관의 공식 계산이나 전문가 확인을 이용해 주세요."}},
-{"@type":"Question","name":"오류가 있으면 어떻게 알려주나요?","acceptedAnswer":{"@type":"Answer","text":"문의하기 페이지에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인합니다."}}
-]}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://www.aroundtool.com/#website",
+   "name": "어라운드툴",
+   "alternateName": "AroundTool",
+   "url": "https://www.aroundtool.com/",
+   "inLanguage": "ko-KR",
+   "description": "연봉·대출·세금·부동산·노동·건강 계산기 41개를 로그인 없이 무료로 제공하는 생활 도구 사이트. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.",
+   "publisher": {
+    "@id": "https://www.aroundtool.com/#org"
+   },
+   "isAccessibleForFree": true
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.aroundtool.com/#org",
+   "name": "어라운드툴",
+   "url": "https://www.aroundtool.com/",
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://www.aroundtool.com/contact.html",
+    "availableLanguage": [
+     "Korean"
+    ]
+   }
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://www.aroundtool.com/#tools",
+   "name": "어라운드툴 무료 계산기 41종",
+   "numberOfItems": 41,
+   "itemListOrder": "https://schema.org/ItemListUnordered",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "WebApplication",
+      "name": "연봉 실수령액 계산기",
+      "url": "https://www.aroundtool.com/salary_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "WebApplication",
+      "name": "대출 이자 계산기",
+      "url": "https://www.aroundtool.com/loan_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "WebApplication",
+      "name": "예적금 이자 계산기",
+      "url": "https://www.aroundtool.com/savings_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "item": {
+      "@type": "WebApplication",
+      "name": "복리 계산기",
+      "url": "https://www.aroundtool.com/compound_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "item": {
+      "@type": "WebApplication",
+      "name": "종합소득세 계산기",
+      "url": "https://www.aroundtool.com/freelancer_tax_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "item": {
+      "@type": "WebApplication",
+      "name": "DSR 계산기",
+      "url": "https://www.aroundtool.com/dsr_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "item": {
+      "@type": "WebApplication",
+      "name": "LTV 계산기",
+      "url": "https://www.aroundtool.com/ltv_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "item": {
+      "@type": "WebApplication",
+      "name": "부동산 취득세 계산기",
+      "url": "https://www.aroundtool.com/acquisition_tax_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "item": {
+      "@type": "WebApplication",
+      "name": "부동산 중개보수 계산기",
+      "url": "https://www.aroundtool.com/brokerage_fee_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "item": {
+      "@type": "WebApplication",
+      "name": "증감률 계산기",
+      "url": "https://www.aroundtool.com/increase_decrease_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "item": {
+      "@type": "WebApplication",
+      "name": "주유 경제성 계산기",
+      "url": "https://www.aroundtool.com/fuel_economy_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "item": {
+      "@type": "WebApplication",
+      "name": "국민연금 수급개시나이 계산기",
+      "url": "https://www.aroundtool.com/pension_age_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "item": {
+      "@type": "WebApplication",
+      "name": "중도상환수수료 계산기",
+      "url": "https://www.aroundtool.com/prepayment_penalty_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "재테크 및 부동산"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "item": {
+      "@type": "WebApplication",
+      "name": "퇴직금 계산기",
+      "url": "https://www.aroundtool.com/severance_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "노동 및 구직"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "item": {
+      "@type": "WebApplication",
+      "name": "실업급여 계산기",
+      "url": "https://www.aroundtool.com/unemployment_benefit_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "노동 및 구직"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "item": {
+      "@type": "WebApplication",
+      "name": "연차 계산기",
+      "url": "https://www.aroundtool.com/pto_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "노동 및 구직"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "item": {
+      "@type": "WebApplication",
+      "name": "주휴수당 계산기",
+      "url": "https://www.aroundtool.com/holiday_pay_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "노동 및 구직"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "item": {
+      "@type": "WebApplication",
+      "name": "육아휴직급여 계산기",
+      "url": "https://www.aroundtool.com/parental_leave_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "노동 및 구직"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "item": {
+      "@type": "WebApplication",
+      "name": "할인율 계산기",
+      "url": "https://www.aroundtool.com/discount_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "item": {
+      "@type": "WebApplication",
+      "name": "할인율 역산 계산기",
+      "url": "https://www.aroundtool.com/discount_rate_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "item": {
+      "@type": "WebApplication",
+      "name": "퍼센트 계산기",
+      "url": "https://www.aroundtool.com/percent_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "item": {
+      "@type": "WebApplication",
+      "name": "더치페이 계산기",
+      "url": "https://www.aroundtool.com/dutch_pay_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "item": {
+      "@type": "WebApplication",
+      "name": "전기요금 계산기",
+      "url": "https://www.aroundtool.com/electricity_bill_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "item": {
+      "@type": "WebApplication",
+      "name": "도시가스 요금 계산기",
+      "url": "https://www.aroundtool.com/gas_bill_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "item": {
+      "@type": "WebApplication",
+      "name": "자동차세 계산기",
+      "url": "https://www.aroundtool.com/car_tax_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "item": {
+      "@type": "WebApplication",
+      "name": "환율 계산기",
+      "url": "https://www.aroundtool.com/exchange_rate_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "item": {
+      "@type": "WebApplication",
+      "name": "평수 계산기",
+      "url": "https://www.aroundtool.com/pyeong_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "item": {
+      "@type": "WebApplication",
+      "name": "만나이 계산기",
+      "url": "https://www.aroundtool.com/age_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "item": {
+      "@type": "WebApplication",
+      "name": "출산예정일 계산기",
+      "url": "https://www.aroundtool.com/due_date_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "item": {
+      "@type": "WebApplication",
+      "name": "BMI 계산기",
+      "url": "https://www.aroundtool.com/bmi_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "item": {
+      "@type": "WebApplication",
+      "name": "기초대사량 계산기",
+      "url": "https://www.aroundtool.com/bmr_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "item": {
+      "@type": "WebApplication",
+      "name": "하루 권장 칼로리 계산기",
+      "url": "https://www.aroundtool.com/calorie_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "item": {
+      "@type": "WebApplication",
+      "name": "하루 필요 열량 계산기",
+      "url": "https://www.aroundtool.com/daily_calorie_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "item": {
+      "@type": "WebApplication",
+      "name": "타이어 제조일자 계산기",
+      "url": "https://www.aroundtool.com/tire_date_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "item": {
+      "@type": "WebApplication",
+      "name": "벌초 견적 계산기",
+      "url": "https://www.aroundtool.com/grave_weeding_calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "item": {
+      "@type": "WebApplication",
+      "name": "QR코드 생성기",
+      "url": "https://www.aroundtool.com/qr_generator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 37,
+     "item": {
+      "@type": "WebApplication",
+      "name": "로또 번호 생성기",
+      "url": "https://www.aroundtool.com/lotto_generator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 38,
+     "item": {
+      "@type": "WebApplication",
+      "name": "취업운세",
+      "url": "https://www.aroundtool.com/job_fortune_teller.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "생활 및 건강"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 39,
+     "item": {
+      "@type": "WebApplication",
+      "name": "글자수 세기",
+      "url": "https://www.aroundtool.com/character_counter.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "텍스트 도구"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 40,
+     "item": {
+      "@type": "WebApplication",
+      "name": "맞춤법 검사기",
+      "url": "https://www.aroundtool.com/spell_checker.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "텍스트 도구"
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 41,
+     "item": {
+      "@type": "WebApplication",
+      "name": "띄어쓰기 검사기",
+      "url": "https://www.aroundtool.com/spacing_checker.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "isAccessibleForFree": true,
+      "offers": {
+       "@type": "Offer",
+       "price": "0",
+       "priceCurrency": "KRW"
+      },
+      "about": "텍스트 도구"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://www.aroundtool.com/#food",
+   "name": "어라운드툴 전국 맛집 기록",
+   "numberOfItems": 14,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "url": "https://www.aroundtool.com/gangnam-bapjip.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "url": "https://www.aroundtool.com/gangnam-cafe.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "url": "https://www.aroundtool.com/gangnam-gogi.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "url": "https://www.aroundtool.com/gangnam-gukmul-myeon.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "url": "https://www.aroundtool.com/gangnam-iguk.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "url": "https://www.aroundtool.com/gangnam-nopo.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "url": "https://www.aroundtool.com/gangnam-sul-anju.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "url": "https://www.aroundtool.com/yeonsu-bapjip.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "url": "https://www.aroundtool.com/yeonsu-cafe.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "url": "https://www.aroundtool.com/yeonsu-gogi.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "url": "https://www.aroundtool.com/yeonsu-gukmul-myeon.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "url": "https://www.aroundtool.com/yeonsu-hambak.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "url": "https://www.aroundtool.com/yeonsu-iguk.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "url": "https://www.aroundtool.com/yeonsu-sul-anju.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://www.aroundtool.com/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "어라운드툴은 어떤 사이트인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 41개를 무료로 제공하는 사이트입니다. 회원가입이나 로그인 없이 바로 사용할 수 있습니다. 숫자만 보여주는 것이 아니라 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 2026년 8월부터는 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공하고 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "어떤 계산기가 있나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "재테크·부동산 13개(연봉 실수령액, 대출 이자, 예적금 이자, 복리, 종합소득세, DSR, LTV, 부동산 취득세, 중개보수, 증감률, 주유 경제성, 국민연금 수급개시나이, 중도상환수수료), 노동·구직 5개(퇴직금, 실업급여, 연차, 주휴수당, 육아휴직급여), 생활·건강 20개(할인율, 퍼센트, 더치페이, 전기요금, 도시가스 요금, 자동차세, 환율, 평수, 만나이, 출산예정일, BMI, 기초대사량, 칼로리, 타이어 제조일자, QR코드 생성 등), 텍스트 도구 3개(글자수 세기, 맞춤법 검사, 띄어쓰기 검사)가 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "회원가입이나 로그인이 필요한가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "필요 없습니다. 모든 계산기와 도구는 로그인 없이 무료로 사용할 수 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "계산 결과를 공식 신고나 계약에 사용해도 되나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "아니요. 계산 결과는 참고용 추정치입니다. 세금·노동·금융 항목은 법령과 요율이 바뀔 수 있어 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 실제 신고·계약·대출 등 중요한 절차에서는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 공식 계산이나 전문가 확인을 이용해 주세요."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "입력한 계산값이 저장되나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "맛집은 어떤 기준으로 고르나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "리뷰 개수보다 재방문·웨이팅 언급 비율을 봅니다. 다이닝코드 랭킹, 미쉐린 가이드, 중소벤처기업부 백년가게처럼 돈으로 살 수 없는 근거와 교차 확인하고, \"소정의 원고료\", \"협찬\", \"체험단\", \"Sponsored\" 표기가 있는 글은 검증 근거에서 제외합니다. 각 식당마다 어떤 근거가 확인됐고 무엇이 확인되지 않았는지를 함께 표시하며, 단점과 맞지 않는 상황도 같이 적습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "계산기에 오류가 있으면 어떻게 알리나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "문의하기 페이지에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다."
+     }
+    }
+   ]
+  }
+ ]
+}
 </script>
 </head>
 <body>
-<!--
-  ============================================================
-  유지보수 안내 (새 계산기/도구를 추가할 때)
-  ============================================================
-  1. 새 페이지 파일을 만든 뒤, 아래 5개 카테고리(finance/job/life/text/info) 중
-     알맞은 <div class="grid"> 안에 있는 "새 도구는 이 주석 바로 위에 추가하세요"
-     주석 바로 위에 <a class="tool"> 카드를 추가합니다. (형식은 기존 카드와 동일)
-  2. 상단 <title>, <meta name="description">의 도구 개수 숫자와 카테고리 헤더의
-     <span class="count"> 숫자를 갱신합니다.
-  3. sitemap.xml에도 같은 URL을 반드시 함께 추가합니다.
-  4. 저품질/저가치 콘텐츠로 분류되지 않도록, 새 도구 페이지는 계산 로직 외에
-     예시 표·공식 설명·FAQ 3개 이상·공식 출처 링크를 포함해 주세요.
-  ============================================================
--->
-<header class="mast"><div class="inner">
-<span class="pill"><i></i>무료 생활 계산기 44종</span>
-<h1>어라운드툴</h1>
-<p>연봉·대출·세금·건강까지, 일상에 필요한 계산을 쉽고 투명하게 확인하는 무료 온라인 도구</p>
-</div></header>
-<main>
-<section class="intro">
-<h2>어라운드툴을 이렇게 사용하세요</h2>
-<p>어라운드툴은 숫자만 보여주는 계산기 모음이 아니라, 사용자가 계산 결과를 이해하고 다음 행동을 결정할 수 있도록 계산 기준과 주의사항을 함께 제공하는 생활 도구 서비스입니다.</p>
-<p>세금·노동·금융처럼 기준이 바뀔 수 있는 항목은 공식 기관의 최신 안내를 우선 확인하고, 사이트 계산기는 사전 확인용 추정치로 제공합니다. 실제 신고·계약·대출 등 중요한 판단 전에는 해당 기관의 공식 자료를 다시 확인해 주세요.</p>
-<p>사이트 소개, 계산 기준, 개인정보 처리 원칙은 <a href="about.html">사이트 소개</a>, <a href="privacy.html">개인정보처리방침</a>, <a href="terms.html">이용약관</a>에서 자세히 확인할 수 있습니다.</p>
-</section>
-<nav class="toc" aria-label="도구 카테고리">
-<a class="t-finance" href="#finance">재테크·부동산</a><a class="t-job" href="#job">노동·구직</a><a class="t-life" href="#life">생활·건강</a><a class="t-text" href="#text">텍스트</a><a class="t-info" href="#info">정보·가이드</a><a class="t-info" href="#dsg-heading">전국 맛집</a>
+
+<div class="notebar">
+  <div class="wrap">
+    <p class="notebar-msg"><b>새 소식</b> 서울 강남구 맛집 7개 카테고리 추가 · 육아휴직급여 계산기 2026년 개편 기준 반영</p>
+    <nav>
+      <a href="about.html">사이트 소개</a>
+      <a href="contact.html">문의</a>
+    </nav>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <div class="top-search">
+      <label for="q" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">계산기 검색</label>
+      <input type="search" id="q" placeholder="계산기 찾기 — 예: 연봉, 퇴직금, BMI" autocomplete="off">
+      <span class="icon" aria-hidden="true">⌕</span>
+    </div>
+  </div>
+</header>
+
+<nav class="meganav" aria-label="카테고리">
+  <div class="wrap" id="jump">
+    <a class="mnav mnav--finance" href="#finance">재테크·부동산<b>13</b></a>
+    <a class="mnav mnav--job" href="#job">노동·구직<b>5</b></a>
+    <a class="mnav mnav--life" href="#life">생활·건강<b>20</b></a>
+    <a class="mnav mnav--text" href="#text">텍스트<b>3</b></a>
+    <a class="mnav mnav--info" href="#info-guide">정보·가이드<b>3</b></a>
+    <a class="mnav mnav--food" href="#food">전국맛집<b>34</b></a>
+  </div>
 </nav>
 
-<section id="finance" class="category cat-finance">
-<div class="cat-head"><span class="dot"></span><h2>재테크 및 부동산</h2><span class="count">13</span></div>
-<div class="grid">
-<a class="tool" href="salary_calculator.html"><strong>연봉 실수령액 계산기</strong><span>4대보험과 소득세를 반영해 예상 실수령액을 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="loan_calculator.html"><strong>대출 이자 계산기</strong><span>원리금균등·원금균등 등 방식별 상환액을 비교합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="savings_calculator.html"><strong>예적금 이자 계산기</strong><span>납입액과 기간, 금리를 바탕으로 세전·세후 금액을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="compound_calculator.html"><strong>복리 계산기</strong><span>기간과 수익률에 따른 복리 효과를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="freelancer_tax_calculator.html"><strong>종합소득세 계산기</strong><span>프리랜서·N잡러의 3.3% 원천징수 소득을 모의 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="dsr_calculator.html"><strong>DSR 계산기</strong><span>소득과 부채 정보를 바탕으로 DSR을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="ltv_calculator.html"><strong>LTV 계산기</strong><span>주택가액과 대출액을 기준으로 LTV를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="acquisition_tax_calculator.html"><strong>부동산 취득세 계산기</strong><span>주택·부동산 취득 시 예상 세액을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="brokerage_fee_calculator.html"><strong>부동산 중개보수 계산기</strong><span>매매·임대차 거래의 중개보수 상한을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="increase_decrease_calculator.html"><strong>증감률 계산기</strong><span>이전 값과 현재 값의 변화율을 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="fuel_economy_calculator.html"><strong>주유 경제성 계산기</strong><span>연비와 주행거리를 이용해 예상 연료비를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="pension_age_calculator.html"><strong>국민연금 수급개시나이 계산기</strong><span>출생연도로 노령연금을 받을 수 있는 나이를 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="prepayment_penalty_calculator.html"><strong>중도상환수수료 계산기</strong><span>대출 조기상환 시 예상 수수료를 계산합니다.</span><em>계산하기 →</em></a>
-<!-- 재테크·부동산 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div>
-</section>
+<section class="hero">
+  <div class="wrap wrap--wide hero-in">
 
-<section id="job" class="category cat-job">
-<div class="cat-head"><span class="dot"></span><h2>노동 및 구직</h2><span class="count">5</span></div>
-<div class="grid">
-<a class="tool" href="severance_calculator.html"><strong>퇴직금 계산기</strong><span>평균임금 등을 바탕으로 예상 퇴직금을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="unemployment_benefit_calculator.html"><strong>실업급여 계산기</strong><span>가입기간과 평균임금을 입력해 예상액을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="pto_calculator.html"><strong>연차 계산기</strong><span>입사일과 근무기간을 기준으로 연차를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="holiday_pay_calculator.html"><strong>주휴수당 계산기</strong><span>근로시간과 시급을 바탕으로 주휴수당을 모의 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="parental_leave_calculator.html"><strong>육아휴직급여 계산기</strong><span>2026년 개편 기준으로 예상 육아휴직급여를 계산합니다.</span><em>계산하기 →</em></a>
-<!-- 노동·구직 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div>
-</section>
-
-<section id="life" class="category cat-life">
-<div class="cat-head"><span class="dot"></span><h2>생활 및 건강</h2><span class="count">20</span></div>
-<div class="grid">
-<a class="tool" href="discount_calculator.html"><strong>할인율 계산기</strong><span>정가와 할인가를 비교해 할인율을 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="discount_rate_calculator.html"><strong>할인율 역산 계산기</strong><span>할인 전·후 가격으로 할인율을 역산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="percent_calculator.html"><strong>퍼센트 계산기</strong><span>비율과 전체·일부 값을 다양한 방식으로 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="dutch_pay_calculator.html"><strong>더치페이 계산기</strong><span>총액과 인원수로 간편하게 1/N 정산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="grave_weeding_calculator.html"><strong>벌초 견적 계산기</strong><span>벌초 조건을 입력해 예상 비용을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="tire_date_calculator.html"><strong>타이어 제조일자 계산기</strong><span>DOT 4자리 번호로 생산 주차를 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="gas_bill_calculator.html"><strong>도시가스 요금 계산기</strong><span>사용량을 기준으로 예상 가스요금을 모의 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="bmi_calculator.html"><strong>BMI 계산기</strong><span>키와 체중으로 체질량지수를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="age_calculator.html"><strong>만나이 계산기</strong><span>생년월일을 기준으로 만나이를 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="calorie_calculator.html"><strong>하루 권장 칼로리 계산기</strong><span>목표에 따른 하루 권장 섭취량을 확인합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="daily_calorie_calculator.html"><strong>하루 필요 열량 계산기</strong><span>활동량과 목표를 반영해 필요 열량을 추정합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="job_fortune_teller.html"><strong>취업운세</strong><span>가볍게 즐길 수 있는 취업 관련 운세 콘텐츠입니다.</span><em>확인하기 →</em></a>
-<a class="tool" href="bmr_calculator.html"><strong>기초대사량 계산기</strong><span>기초대사량을 공식에 따라 추정합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="pyeong_calculator.html"><strong>평수 계산기</strong><span>㎡와 평 단위를 서로 변환합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="car_tax_calculator.html"><strong>자동차세 계산기</strong><span>차량 정보를 바탕으로 자동차세를 모의 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="exchange_rate_calculator.html"><strong>환율 계산기</strong><span>환율을 입력해 통화 간 금액을 변환합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="lotto_generator.html"><strong>로또 번호 생성기</strong><span>1~45 범위의 무작위 번호를 생성합니다.</span><em>생성하기 →</em></a>
-<a class="tool" href="qr_generator.html"><strong>QR코드 생성기</strong><span>텍스트나 링크를 QR코드로 변환합니다.</span><em>생성하기 →</em></a>
-<a class="tool" href="electricity_bill_calculator.html"><strong>전기요금 계산기</strong><span>사용량 기준 누진제 적용 예상 전기요금을 계산합니다.</span><em>계산하기 →</em></a>
-<a class="tool" href="due_date_calculator.html"><strong>출산예정일 계산기</strong><span>최종월경일을 기준으로 출산예정일과 임신 주수를 계산합니다.</span><em>계산하기 →</em></a>
-<!-- 생활·건강 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div>
-</section>
-
-<section id="text" class="category cat-text">
-<div class="cat-head"><span class="dot"></span><h2>텍스트 도구</h2><span class="count">3</span></div>
-<div class="grid">
-<a class="tool" href="character_counter.html"><strong>글자수 세기</strong><span>문자·단어·바이트 수를 확인합니다.</span><em>확인하기 →</em></a>
-<a class="tool" href="spell_checker.html"><strong>맞춤법 검사기</strong><span>문장의 맞춤법을 점검하는 도구입니다.</span><em>검사하기 →</em></a>
-<a class="tool" href="spacing_checker.html"><strong>띄어쓰기 검사기</strong><span>문장 띄어쓰기를 점검하는 도구입니다.</span><em>검사하기 →</em></a>
-<!-- 텍스트 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div>
-</section>
-
-<section id="info" class="category cat-info">
-<div class="cat-head"><span class="dot"></span><h2>정보 및 가이드</h2><span class="count">3</span></div>
-<div class="grid">
-<a class="tool" href="guide_2026_wage.html"><strong>2026년 최저임금·노동법 가이드</strong><span>최저임금과 노동 관련 변경사항을 정리한 안내 글입니다.</span><em>읽어보기 →</em></a>
-<a class="tool" href="guide_2026_tax.html"><strong>2026년 세금·연말정산 가이드</strong><span>직장인과 프리랜서를 위한 세금 관련 핵심 내용을 정리했습니다.</span><em>읽어보기 →</em></a>
-<a class="tool" href="about.html"><strong>어라운드툴 사이트 소개</strong><span>서비스 운영 목적, 계산 기준, 참고자료와 오류 제보 방법을 안내합니다.</span><em>읽어보기 →</em></a>
-<!-- 정보·가이드 카테고리: 새 도구는 이 주석 바로 위에 같은 형식으로 추가하세요 -->
-</div>
-</section>
-
-<section class="notice">
-<h2>계산 결과를 이용할 때 주의하세요</h2>
-<p>세금·노동·금융·건강 관련 계산 결과는 입력 조건과 적용 기준에 따라 달라질 수 있습니다. 사이트의 결과는 사전 확인용이며 공식 증빙이나 전문적인 자문을 대신하지 않습니다.</p>
-<p>특히 법령이나 요율이 변경된 경우에는 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 중요한 금액을 결정하기 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 최신 안내를 확인해 주세요.</p>
-</section>
-<section class="faq">
-<h2>자주 묻는 질문</h2>
-<div class="faq-item"><h3>입력한 계산값이 서버에 저장되나요?</h3><p>사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 개인정보처리방침에서 확인할 수 있습니다.</p></div>
-<div class="faq-item"><h3>계산 결과를 공식 신고에 사용해도 되나요?</h3><p>아니요. 계산 결과는 참고용 추정치입니다. 신고·계약·대출 등 중요한 절차에서는 해당 기관의 공식 계산이나 전문가 확인을 이용해 주세요.</p></div>
-<div class="faq-item"><h3>오류가 있으면 어떻게 알려주나요?</h3><p><a href="contact.html">문의하기</a>에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다.</p></div>
-</section>
-
-<style>
-.dsg{
-  --dsg-paper:#E9EDE8;
-  --dsg-card:#F4F6F2;
-  --dsg-ink:#17242B;
-  --dsg-soft:#556770;
-  --dsg-rule:#C4CEC5;
-  --dsg-okryeon:#3F6B4F;
-  --dsg-yeonsu:#A06D18;
-  --dsg-songdo:#1F5F8B;
-  --dsg-hambak:#94373B;
-
-  background:var(--dsg-paper);
-  color:var(--dsg-ink);
-  font-family:"IBM Plex Sans KR",system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.75;
-  letter-spacing:-0.01em;
-  margin-top:28px;
-  border-radius:22px;
-  padding:2.5rem 0;
-}
-.dsg *{box-sizing:border-box}
-.dsg-wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
-
-.dsg-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--dsg-soft);margin:0 0 .75rem}
-.dsg-title{font-family:"Gowun Batang",serif;font-weight:700;
-  font-size:clamp(1.875rem,6vw,2.75rem);line-height:1.2;
-  margin:0 0 .9rem;letter-spacing:-0.02em;color:var(--dsg-ink)}
-.dsg-lede{font-size:1.0625rem;color:var(--dsg-soft);margin:0;max-width:36rem}
-
-.dsg-legend{display:flex;flex-wrap:wrap;gap:.35rem 1.15rem;
-  margin:1.75rem 0 0;padding:1rem 0 0;border-top:1px solid var(--dsg-rule);list-style:none}
-.dsg-legend li{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-  letter-spacing:.1em;text-transform:uppercase}
-.dsg-legend li::before{content:"■";margin-right:.45em}
-.dsg-lg-okryeon{color:var(--dsg-okryeon)}
-.dsg-lg-yeonsu{color:var(--dsg-yeonsu)}
-.dsg-lg-songdo{color:var(--dsg-songdo)}
-.dsg-lg-hambak{color:var(--dsg-hambak)}
-
-.dsg-grid{display:grid;grid-template-columns:1fr;gap:1px;
-  margin:2.25rem 0 0;background:var(--dsg-rule);border:1px solid var(--dsg-rule)}
-.dsg-cat{background:var(--dsg-card);display:block;padding:1.4rem 1.5rem;
-  text-decoration:none;color:inherit;border-left:3px solid transparent;
-  transition:background .15s ease}
-a.dsg-cat:hover,a.dsg-cat:focus-visible{background:#FFFFFF;outline:none}
-a.dsg-cat:focus-visible{box-shadow:inset 0 0 0 2px var(--dsg-ink)}
-
-.dsg-cat-top{display:flex;align-items:baseline;justify-content:space-between;
-  gap:1rem;margin-bottom:.4rem}
-.dsg-cat-name{font-family:"Gowun Batang",serif;font-weight:700;
-  font-size:1.375rem;line-height:1.3;margin:0;letter-spacing:-0.01em}
-.dsg-status{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-  letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;
-  color:var(--dsg-okryeon)}
-.dsg-status::before{content:"▣";margin-right:.4em}
-
-.dsg-cat-desc{font-size:.9375rem;color:var(--dsg-soft);margin:0 0 .7rem}
-.dsg-cat-pick{font-family:"IBM Plex Mono",monospace;font-size:.75rem;
-  color:var(--dsg-soft);margin:0;letter-spacing:.02em}
-.dsg-cat-pick b{color:var(--dsg-ink);font-weight:500}
-.dsg-cat-pick .dsg-dot{margin:0 .5em;opacity:.5}
-
-.dsg-cat--okryeon{border-left-color:var(--dsg-okryeon)}
-.dsg-cat--yeonsu{border-left-color:var(--dsg-yeonsu)}
-.dsg-cat--songdo{border-left-color:var(--dsg-songdo)}
-.dsg-cat--hambak{border-left-color:var(--dsg-hambak)}
-
-.dsg-region{margin:2.5rem 0 0;padding-top:2rem;border-top:1px solid var(--dsg-rule)}
-.dsg-region:first-of-type{margin-top:1.75rem;padding-top:1.75rem}
-.dsg-region-head{margin-bottom:.25rem}
-.dsg-region-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--dsg-soft);margin:0 0 .35rem}
-.dsg-region-name{font-family:"Gowun Batang",serif;font-weight:700;
-  font-size:1.5rem;line-height:1.3;margin:0 0 .5rem;letter-spacing:-0.01em}
-.dsg-region-desc{font-size:.9375rem;color:var(--dsg-soft);margin:0 0 1.25rem;max-width:38rem}
-
-.dsg-basis{margin:2rem 0 0;padding:1.25rem 1.5rem;
-  background:var(--dsg-card);border:1px solid var(--dsg-rule)}
-.dsg-basis h3{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--dsg-soft);font-weight:500;margin:0 0 .75rem}
-.dsg-basis p{font-size:.9375rem;color:var(--dsg-soft);margin:0 0 .7rem}
-.dsg-basis p:last-child{margin-bottom:0}
-.dsg-basis b{color:var(--dsg-ink);font-weight:600}
-
-@media (min-width:44rem){
-  .dsg-grid{grid-template-columns:1fr 1fr}
-  .dsg-cat{padding:1.6rem 1.75rem}
-}
-@media (prefers-reduced-motion:reduce){
-  .dsg *{transition:none!important;animation:none!important}
-}
-</style>
-
-<section class="dsg" aria-labelledby="dsg-heading">
-  <div class="dsg-wrap">
-
-    <p class="dsg-eyebrow">전국 맛집 기록 · 지역별로 계속 추가됩니다</p>
-    <h2 class="dsg-title" id="dsg-heading">전국 맛집</h2>
-    <p class="dsg-lede">동네마다 진짜 재방문이 있는 집을 지역별로 기록합니다. 리뷰 수보다 재방문·근거를 봅니다. 현재는 인천 연수구부터 시작했고, 앞으로 다른 지역도 계속 추가할 예정입니다.</p>
-
-    <!-- ============================================================
-         지역 블록: 인천 연수구
-         새 지역을 추가할 때는 이 div.dsg-region 블록 전체를 복제해
-         지역명·설명·범례·카드를 바꿔 아래에 이어 붙이세요.
-         ============================================================ -->
-    <div class="dsg-region">
-      <div class="dsg-region-head">
-        <p class="dsg-region-eyebrow">지역 01 · 2026.08 조사</p>
-        <h3 class="dsg-region-name">인천 연수구</h3>
-        <p class="dsg-region-desc">연수구는 성격이 다른 세 블록으로 나뉩니다. 어느 동네에 있는지부터 밝히고, 왜 뽑았는지와 누구에겐 안 맞는지를 함께 적었습니다.</p>
+    <div class="hero-copy">
+      <p class="eyebrow">2026.08 기준 · 로그인 없이 무료</p>
+      <h1>계산도, 맛집도<br>여기서 끝냅니다</h1>
+      <p class="lede">연봉·대출·세금부터 BMI·QR코드까지 <b>계산기 41개</b>.
+        그리고 광고와 협찬을 뺀 <b>지역 맛집 34곳</b> 기록. 매번 다시 검색하지 않아도 되게 한곳에 모았습니다.</p>
+      <div class="herosearch">
+        <input type="search" id="q2" placeholder="계산기 찾기 — 예: 연봉, 퇴직금, BMI" autocomplete="off" aria-label="계산기 검색">
+        <span class="icon" aria-hidden="true">⌕</span>
       </div>
-
-      <ul class="dsg-legend">
-        <li class="dsg-lg-okryeon">옥련동 · 구도심</li>
-        <li class="dsg-lg-yeonsu">연수동 · 1기 신도시</li>
-        <li class="dsg-lg-songdo">송도 · 매립 신도시</li>
-        <li class="dsg-lg-hambak">함박마을 · 고려인 마을</li>
-      </ul>
-
-      <div class="dsg-grid">
-
-      <a class="dsg-cat dsg-cat--yeonsu" href="yeonsu-bapjip.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">밥집</h3>
-          <span class="dsg-status">2곳</span>
-        </div>
-        <p class="dsg-cat-desc">백반과 국밥. 혼밥 가능 여부에서 성격이 갈립니다.</p>
-        <p class="dsg-cat-pick"><b>한박궁</b><span class="dsg-dot">·</span>여기손맛국밥</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--yeonsu" href="yeonsu-gogi.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">고기</h3>
-          <span class="dsg-status">3곳</span>
-        </div>
-        <p class="dsg-cat-desc">막창, 한우 등심, 키조개 삼합. 주차로 갈립니다.</p>
-        <p class="dsg-cat-pick"><b>남도막창구이</b><span class="dsg-dot">·</span>우판등심<span class="dsg-dot">·</span>부원집</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--okryeon" href="yeonsu-gukmul-myeon.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">국물과 면</h3>
-          <span class="dsg-status">3곳</span>
-        </div>
-        <p class="dsg-cat-desc">평양냉면과 칼국수. 셋 다 구도심 쪽에 있습니다.</p>
-        <p class="dsg-cat-pick"><b>백면옥</b><span class="dsg-dot">·</span>윤가네칼국수<span class="dsg-dot">·</span>최고집칼국수</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--songdo" href="yeonsu-iguk.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">이국</h3>
-          <span class="dsg-status">5곳</span>
-        </div>
-        <p class="dsg-cat-desc">짬뽕, 태국, 멕시칸. 전부 송도에 몰려 있습니다.</p>
-        <p class="dsg-cat-pick"><b>정아각</b><span class="dsg-dot">·</span>드렁킨타이<span class="dsg-dot">·</span>모리토스<span class="dsg-dot">·</span>갓잇</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--okryeon" href="yeonsu-sul-anju.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">술과 안주</h3>
-          <span class="dsg-status">3곳</span>
-        </div>
-        <p class="dsg-cat-desc">1984년부터 이어진 산낙지 노포가 기준선입니다.</p>
-        <p class="dsg-cat-pick"><b>송도식당</b><span class="dsg-dot">·</span>부원집<span class="dsg-dot">·</span>여기손맛국밥</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--yeonsu" href="yeonsu-cafe.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">카페 · 디저트</h3>
-          <span class="dsg-status">2곳</span>
-        </div>
-        <p class="dsg-cat-desc">제과명장 빵집과 1,500평 식물원 카페.</p>
-        <p class="dsg-cat-pick"><b>안스베이커리</b><span class="dsg-dot">·</span>포레스트아웃팅스</p>
-      </a>
-
-      <a class="dsg-cat dsg-cat--hambak" href="yeonsu-hambak.html">
-        <div class="dsg-cat-top">
-          <h3 class="dsg-cat-name">함박마을</h3>
-          <span class="dsg-status">5곳</span>
-        </div>
-        <p class="dsg-cat-desc">중앙아시아 요리. 연수구에만 있는 자리입니다.</p>
-        <p class="dsg-cat-pick"><b>차이하나</b><span class="dsg-dot">·</span>쇼쉬<span class="dsg-dot">·</span>이흘라스<span class="dsg-dot">·</span>탄드르하우스</p>
-      </a>
-
-      </div>
+      <p class="search-info" id="info" role="status" aria-live="polite"></p>
     </div>
-    <!-- ▲▲▲ 인천 연수구 지역 블록 끝 — 새 지역은 이 위에 dsg-region 블록을 추가하세요 ▲▲▲ -->
 
-    <div class="dsg-basis">
-      <h3>어떻게 골랐나</h3>
-      <p>리뷰 수보다 <b>재방문·웨이팅 언급 비율</b>을 봅니다. 다이닝코드 랭킹, 언론 취재, 공공 아카이브처럼 돈으로 살 수 없는 근거와 교차 확인하고, 서로 무관한 사람들이 각자 언급했는지 따집니다. "소정의 원고료", "협찬", "Sponsored" 표기가 있는 글은 검증에서 제외합니다.</p>
-      <p>다만 리뷰 조작을 100% 걸러낼 수는 없습니다. 그래서 각 식당마다 <b>어떤 근거가 확인됐고 무엇이 확인되지 않았는지</b>를 채운 네모와 빈 네모로 표시했습니다. 가격과 영업시간은 자주 바뀌니 방문 전 확인을 권합니다.</p>
+    <div class="widget">
+      <p class="widget-label">지금 바로 써보기 <b>더치페이 계산기</b></p>
+      <div class="widget-body">
+        <label for="w-total">총 금액
+          <div class="widget-inputwrap">
+            <input type="number" id="w-total" inputmode="numeric" min="0" placeholder="0">
+            <span>원</span>
+          </div>
+        </label>
+        <label for="w-people">인원
+          <div class="widget-inputwrap">
+            <input type="number" id="w-people" inputmode="numeric" min="1" placeholder="2">
+            <span>명</span>
+          </div>
+        </label>
+      </div>
+      <div class="widget-result">
+        <span>1인당</span>
+        <strong id="w-result">0원</strong>
+      </div>
+      <a class="widget-more" href="dutch_pay_calculator.html">전체 화면으로 열기 →</a>
     </div>
 
   </div>
 </section>
+
+<section class="picks">
+  <div class="wrap wrap--wide">
+    <div class="picks-head">
+      <h2>카테고리별로 자주 찾는 계산기</h2>
+      <p>실시간 순위가 아닌 편집 추천입니다</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="finance" role="tab" aria-selected="true">재테크·부동산</button>
+      <button class="tab" data-tab="job" role="tab" aria-selected="false">노동·구직</button>
+      <button class="tab" data-tab="life" role="tab" aria-selected="false">생활·건강</button>
+      <button class="tab" data-tab="text" role="tab" aria-selected="false">텍스트</button>
+      <button class="tab" data-tab="info" role="tab" aria-selected="false">정보·가이드</button>
+    </div>
+
+    <div class="rankwrap">
+      <ol class="ranklist" data-panel="finance">
+        <li><a href="salary_calculator.html"><span class="rk">01</span>연봉 실수령액 계산기</a></li>
+        <li><a href="loan_calculator.html"><span class="rk">02</span>대출 이자 계산기</a></li>
+        <li><a href="dsr_calculator.html"><span class="rk">03</span>DSR 계산기</a></li>
+        <li><a href="acquisition_tax_calculator.html"><span class="rk">04</span>부동산 취득세 계산기</a></li>
+        <li><a href="savings_calculator.html"><span class="rk">05</span>예적금 이자 계산기</a></li>
+      </ol>
+      <ol class="ranklist is-hidden" data-panel="job">
+        <li><a href="severance_calculator.html"><span class="rk">01</span>퇴직금 계산기</a></li>
+        <li><a href="unemployment_benefit_calculator.html"><span class="rk">02</span>실업급여 계산기</a></li>
+        <li><a href="pto_calculator.html"><span class="rk">03</span>연차 계산기</a></li>
+        <li><a href="holiday_pay_calculator.html"><span class="rk">04</span>주휴수당 계산기</a></li>
+        <li><a href="parental_leave_calculator.html"><span class="rk">05</span>육아휴직급여 계산기</a></li>
+      </ol>
+      <ol class="ranklist is-hidden" data-panel="life">
+        <li><a href="bmi_calculator.html"><span class="rk">01</span>BMI 계산기</a></li>
+        <li><a href="dutch_pay_calculator.html"><span class="rk">02</span>더치페이 계산기</a></li>
+        <li><a href="electricity_bill_calculator.html"><span class="rk">03</span>전기요금 계산기</a></li>
+        <li><a href="age_calculator.html"><span class="rk">04</span>만나이 계산기</a></li>
+        <li><a href="due_date_calculator.html"><span class="rk">05</span>출산예정일 계산기</a></li>
+      </ol>
+      <ol class="ranklist is-hidden" data-panel="text">
+        <li><a href="character_counter.html"><span class="rk">01</span>글자수 세기</a></li>
+        <li><a href="spell_checker.html"><span class="rk">02</span>맞춤법 검사기</a></li>
+        <li><a href="spacing_checker.html"><span class="rk">03</span>띄어쓰기 검사기</a></li>
+      </ol>
+      <ol class="ranklist is-hidden" data-panel="info">
+        <li><a href="guide_2026_tax.html"><span class="rk">01</span>2026년 세금·연말정산 가이드</a></li>
+        <li><a href="guide_2026_wage.html"><span class="rk">02</span>2026년 최저임금·노동법 가이드</a></li>
+        <li><a href="about.html"><span class="rk">03</span>사이트 소개</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<main class="wrap" id="list">
+
+  <section class="group g-finance" id="finance">
+    <div class="group-head"><h2>재테크 및 부동산</h2><span class="n">13</span></div>
+    <ul class="tools">
+      <li><a href="salary_calculator.html" title="연봉 실수령액 계산기">연봉 실수령액</a></li>
+      <li><a href="loan_calculator.html" title="대출 이자 계산기">대출 이자</a></li>
+      <li><a href="savings_calculator.html" title="예적금 이자 계산기">예적금 이자</a></li>
+      <li><a href="compound_calculator.html" title="복리 계산기">복리</a></li>
+      <li><a href="freelancer_tax_calculator.html" title="종합소득세 계산기">종합소득세</a></li>
+      <li><a href="dsr_calculator.html" title="DSR 계산기">DSR</a></li>
+      <li><a href="ltv_calculator.html" title="LTV 계산기">LTV</a></li>
+      <li><a href="acquisition_tax_calculator.html" title="부동산 취득세 계산기">부동산 취득세</a></li>
+      <li><a href="brokerage_fee_calculator.html" title="부동산 중개보수 계산기">중개보수</a></li>
+      <li><a href="increase_decrease_calculator.html" title="증감률 계산기">증감률</a></li>
+      <li><a href="fuel_economy_calculator.html" title="주유 경제성 계산기">주유 경제성</a></li>
+      <li><a href="pension_age_calculator.html" title="국민연금 수급개시나이 계산기">국민연금 수급나이</a></li>
+      <li><a href="prepayment_penalty_calculator.html" title="중도상환수수료 계산기">중도상환수수료</a></li>
+    </ul>
+  </section>
+
+  <section class="group g-job" id="job">
+    <div class="group-head"><h2>노동 및 구직</h2><span class="n">5</span></div>
+    <ul class="tools">
+      <li><a href="severance_calculator.html" title="퇴직금 계산기">퇴직금</a></li>
+      <li><a href="unemployment_benefit_calculator.html" title="실업급여 계산기">실업급여</a></li>
+      <li><a href="pto_calculator.html" title="연차 계산기">연차</a></li>
+      <li><a href="holiday_pay_calculator.html" title="주휴수당 계산기">주휴수당</a></li>
+      <li><a href="parental_leave_calculator.html" title="육아휴직급여 계산기">육아휴직급여</a></li>
+    </ul>
+  </section>
+
+  <section class="group g-life" id="life">
+    <div class="group-head"><h2>생활 및 건강</h2><span class="n">20</span></div>
+    <ul class="tools">
+      <li><a href="discount_calculator.html" title="할인율 계산기">할인율</a></li>
+      <li><a href="discount_rate_calculator.html" title="할인율 역산 계산기">할인율 역산</a></li>
+      <li><a href="percent_calculator.html" title="퍼센트 계산기">퍼센트</a></li>
+      <li><a href="dutch_pay_calculator.html" title="더치페이 계산기">더치페이</a></li>
+      <li><a href="electricity_bill_calculator.html" title="전기요금 계산기">전기요금</a></li>
+      <li><a href="gas_bill_calculator.html" title="도시가스 요금 계산기">도시가스 요금</a></li>
+      <li><a href="car_tax_calculator.html" title="자동차세 계산기">자동차세</a></li>
+      <li><a href="exchange_rate_calculator.html" title="환율 계산기">환율</a></li>
+      <li><a href="pyeong_calculator.html" title="평수 계산기">평수</a></li>
+      <li><a href="age_calculator.html" title="만나이 계산기">만나이</a></li>
+      <li><a href="due_date_calculator.html" title="출산예정일 계산기">출산예정일</a></li>
+      <li><a href="bmi_calculator.html" title="BMI 계산기">BMI</a></li>
+      <li><a href="bmr_calculator.html" title="기초대사량 계산기">기초대사량</a></li>
+      <li><a href="calorie_calculator.html" title="하루 권장 칼로리 계산기">권장 칼로리</a></li>
+      <li><a href="daily_calorie_calculator.html" title="하루 필요 열량 계산기">필요 열량</a></li>
+      <li><a href="tire_date_calculator.html" title="타이어 제조일자 계산기">타이어 제조일자</a></li>
+      <li><a href="grave_weeding_calculator.html" title="벌초 견적 계산기">벌초 견적</a></li>
+      <li><a href="qr_generator.html" title="QR코드 생성기">QR코드 생성</a></li>
+      <li><a href="lotto_generator.html" title="로또 번호 생성기">로또 번호</a></li>
+      <li><a href="job_fortune_teller.html" title="취업운세">취업운세</a></li>
+    </ul>
+  </section>
+
+  <section class="group g-text" id="text">
+    <div class="group-head"><h2>텍스트 도구</h2><span class="n">3</span></div>
+    <ul class="tools">
+      <li><a href="character_counter.html" title="글자수 세기">글자수 세기</a></li>
+      <li><a href="spell_checker.html" title="맞춤법 검사기">맞춤법 검사</a></li>
+      <li><a href="spacing_checker.html" title="띄어쓰기 검사기">띄어쓰기 검사</a></li>
+    </ul>
+  </section>
+
+  <section class="group g-info" id="info-guide">
+    <div class="group-head"><h2>정보 및 가이드</h2><span class="n">3</span></div>
+    <ul class="tools">
+      <li><a href="guide_2026_wage.html" title="2026년 최저임금·노동법 가이드">2026 최저임금·노동법</a></li>
+      <li><a href="guide_2026_tax.html" title="2026년 세금·연말정산 가이드">2026 세금·연말정산</a></li>
+      <li><a href="about.html" title="어라운드툴 사이트 소개">사이트 소개</a></li>
+    </ul>
+  </section>
+
+  <section class="updates">
+    <h2>최근 추가된 콘텐츠</h2>
+    <ul>
+      <li><span class="u-date">2026.08.29</span><a href="gangnam-nopo.html">서울 강남구 맛집 7개 카테고리 공개 — 강남 노포 포함 11곳</a></li>
+      <li><span class="u-date">2026.08</span><a href="yeonsu-hambak.html">인천 연수구 맛집 7개 카테고리 공개 — 함박마을 포함 23곳</a></li>
+    </ul>
+  </section>
+
+  <section class="food" id="food">
+    <div class="food-head">
+      <h2>전국 맛집</h2>
+      <span class="food-stat">2개 지역 · 34곳</span>
+    </div>
+    <p class="food-desc">광고와 협찬을 뺀 지역 맛집 기록. 리뷰 수보다 재방문 언급을 봅니다. 지역별로 계속 추가됩니다.</p>
+
+    <ol class="arealist">
+      <li class="area">
+        <div class="area-top">
+          <span class="rk">01</span>
+          <h3>인천 연수구</h3>
+          <span class="area-n">23곳</span>
+        </div>
+        <ul class="area-cats">
+          <li><a href="yeonsu-bapjip.html">밥집<span class="n">2</span></a></li>
+          <li><a href="yeonsu-gogi.html">고기<span class="n">3</span></a></li>
+          <li><a href="yeonsu-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
+          <li><a href="yeonsu-iguk.html">이국<span class="n">5</span></a></li>
+          <li><a href="yeonsu-sul-anju.html">술과 안주<span class="n">3</span></a></li>
+          <li><a href="yeonsu-cafe.html">카페·디저트<span class="n">2</span></a></li>
+          <li><a href="yeonsu-hambak.html">함박마을<span class="n">5</span></a></li>
+        </ul>
+      </li>
+
+      <li class="area">
+        <div class="area-top">
+          <span class="rk">02</span>
+          <h3>서울 강남구</h3>
+          <span class="area-n">11곳 · 신규</span>
+        </div>
+        <ul class="area-cats">
+          <li><a href="gangnam-bapjip.html">밥집<span class="n">2</span></a></li>
+          <li><a href="gangnam-gogi.html">고기<span class="n">2</span></a></li>
+          <li><a href="gangnam-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
+          <li><a href="gangnam-iguk.html">이국<span class="n">2</span></a></li>
+          <li><a href="gangnam-sul-anju.html">술과 안주<span class="n">2</span></a></li>
+          <li><a href="gangnam-cafe.html">카페·디저트<span class="n">1</span></a></li>
+          <li><a href="gangnam-nopo.html">강남 노포<span class="n">5</span></a></li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-list">
+      <details open>
+        <summary>어라운드툴은 어떤 사이트인가요?</summary>
+        <div class="ans"><p style="margin:0">연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 <b>41개</b>를 무료로 제공하는 사이트입니다. 회원가입이나 로그인 없이 바로 사용할 수 있습니다. 숫자만 보여주는 것이 아니라 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 2026년 8월부터는 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공하고 있습니다.</p></div>
+      </details>
+      <details>
+        <summary>어떤 계산기가 있나요?</summary>
+        <div class="ans"><p style="margin:0"><b>재테크·부동산 13개</b> — 연봉 실수령액, 대출 이자, 예적금 이자, 복리, 종합소득세, DSR, LTV, 부동산 취득세, 중개보수, 증감률, 주유 경제성, 국민연금 수급개시나이, 중도상환수수료<br><b>노동·구직 5개</b> — 퇴직금, 실업급여, 연차, 주휴수당, 육아휴직급여<br><b>생활·건강 20개</b> — 할인율, 퍼센트, 더치페이, 전기요금, 도시가스 요금, 자동차세, 환율, 평수, 만나이, 출산예정일, BMI, 기초대사량, 칼로리, 타이어 제조일자, QR코드 생성 등<br><b>텍스트 도구 3개</b> — 글자수 세기, 맞춤법 검사, 띄어쓰기 검사</p></div>
+      </details>
+      <details>
+        <summary>회원가입이나 로그인이 필요한가요?</summary>
+        <div class="ans"><p style="margin:0">필요 없습니다. 모든 계산기와 도구는 로그인 없이 무료로 사용할 수 있습니다.</p></div>
+      </details>
+      <details>
+        <summary>계산 결과를 공식 신고나 계약에 사용해도 되나요?</summary>
+        <div class="ans"><p style="margin:0">아니요. 계산 결과는 <b>참고용 추정치</b>입니다. 세금·노동·금융 항목은 법령과 요율이 바뀔 수 있어 계산기 업데이트 시점과 실제 적용 기준이 다를 수 있습니다. 실제 신고·계약·대출 등 중요한 절차에서는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 공식 계산이나 전문가 확인을 이용해 주세요.</p></div>
+      </details>
+      <details>
+        <summary>입력한 계산값이 저장되나요?</summary>
+        <div class="ans"><p style="margin:0">사이트 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 광고·분석 등 제3자 서비스의 처리 방식은 <a href="privacy.html">개인정보처리방침</a>에서 확인할 수 있습니다.</p></div>
+      </details>
+      <details>
+        <summary>맛집은 어떤 기준으로 고르나요?</summary>
+        <div class="ans"><p style="margin:0">리뷰 <b>개수</b>보다 재방문·웨이팅 언급 <b>비율</b>을 봅니다. 다이닝코드 랭킹, 미쉐린 가이드, 중소벤처기업부 백년가게처럼 돈으로 살 수 없는 근거와 교차 확인하고, “소정의 원고료”, “협찬”, “체험단”, “Sponsored” 표기가 있는 글은 검증 근거에서 제외합니다. 각 식당마다 어떤 근거가 확인됐고 무엇이 확인되지 않았는지를 함께 표시하며, 단점과 맞지 않는 상황도 같이 적습니다.</p></div>
+      </details>
+      <details>
+        <summary>계산기에 오류가 있으면 어떻게 알리나요?</summary>
+        <div class="ans"><p style="margin:0"><a href="contact.html">문의하기</a>에서 계산기 이름과 문제가 발생한 조건을 알려주시면 확인하겠습니다.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <div class="notice">
+    <b>계산 결과는 참고용 추정치입니다.</b> 세금·노동·금융 항목은 법령과 요율이 바뀔 수 있어, 실제 신고·계약·대출 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 최신 안내를 확인해 주세요. 계산 기준과 자주 묻는 질문은 <a href="about.html">사이트 소개</a>에 정리했습니다.
+  </div>
+
 </main>
-<footer class="footer">
-<div class="links"><a href="about.html">사이트 소개</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="contact.html">문의하기</a><a href="#dsg-heading">전국 맛집</a></div>
-<p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="about.html">사이트 소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="terms.html">이용약관</a>
+      <a href="contact.html">문의하기</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+  </div>
 </footer>
+
+<script>
+(function(){
+  /* ---------- 검색 (헤더 + 히어로 두 입력 동기화) ---------- */
+  var q1    = document.getElementById('q');
+  var q2    = document.getElementById('q2');
+  var info  = document.getElementById('info');
+  var jump  = document.getElementById('jump');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.tools li, .area-cats li'));
+  var secs  = Array.prototype.slice.call(document.querySelectorAll('.group, .food'));
+
+  items.forEach(function(li){
+    var a = li.querySelector('a');
+    var full = (a && a.getAttribute('title')) || '';
+    li.dataset.k = (full + ' ' + li.textContent).toLowerCase().replace(/\s+/g,'');
+  });
+
+  function run(v){
+    v = v.trim().toLowerCase().replace(/\s+/g,'');
+    if(!v){
+      items.forEach(function(li){ li.classList.remove('is-hidden'); });
+      secs.forEach(function(s){ s.classList.remove('is-hidden'); });
+      jump.classList.remove('is-hidden');
+      info.textContent = '';
+      return;
+    }
+    var hit = 0;
+    items.forEach(function(li){
+      var ok = li.dataset.k.indexOf(v) !== -1;
+      li.classList.toggle('is-hidden', !ok);
+      if(ok) hit++;
+    });
+    secs.forEach(function(s){
+      s.classList.toggle('is-hidden', s.querySelectorAll('li:not(.is-hidden)').length === 0);
+    });
+    jump.classList.add('is-hidden');
+    info.textContent = hit ? hit + '개 찾음' : '검색 결과가 없습니다. 다른 단어로 찾아보세요.';
+  }
+
+  function sync(src, dst){
+    src.addEventListener('input', function(){
+      if(dst.value !== src.value) dst.value = src.value;
+      run(src.value);
+    });
+    src.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ src.value=''; dst.value=''; run(''); }
+    });
+  }
+  sync(q1, q2);
+  sync(q2, q1);
+
+  /* ---------- 카테고리별 자주 찾는 계산기 탭 ---------- */
+  var tabs   = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.ranklist'));
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
+      var key = btn.dataset.tab;
+      panels.forEach(function(p){ p.classList.toggle('is-hidden', p.dataset.panel !== key); });
+    });
+  });
+
+  /* ---------- 더치페이 라이브 위젯 ---------- */
+  var wTotal  = document.getElementById('w-total');
+  var wPeople = document.getElementById('w-people');
+  var wResult = document.getElementById('w-result');
+  function calcWidget(){
+    var total  = parseFloat(wTotal.value) || 0;
+    var people = parseInt(wPeople.value, 10) || 0;
+    if(people < 1 || total <= 0){ wResult.textContent = '0원'; return; }
+    var per = Math.ceil((total / people) / 10) * 10;
+    wResult.textContent = per.toLocaleString('ko-KR') + '원';
+  }
+  wTotal.addEventListener('input', calcWidget);
+  wPeople.addEventListener('input', calcWidget);
+})();
+</script>
+
 </body>
 </html>

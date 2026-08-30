@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고기 — 서울 강남구 식당 기록</title>
+<meta name="description" content="역삼동 30년 차돌박이와 논현동 영동시장 갈비. 회식 자리를 가르는 두 곳.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9EDE8;--card:#F4F6F2;--ink:#17242B;--ink-soft:#556770;--rule:#C4CEC5;
+--office:#1F5F8B;--apgu:#7A5578;--station:#A0651C;--nopo:#94373B;--maxw:44rem}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,sans-serif;font-weight:400;font-size:16px;
+line-height:1.8;letter-spacing:-0.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1.15rem}p:last-child{margin-bottom:0}strong{font-weight:600}a{color:inherit}
+.masthead{border-bottom:1px solid var(--rule);padding:1.5rem 0 1.25rem}
+.brand{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.18em;
+text-transform:uppercase;color:var(--ink-soft);margin:0}
+.brand a{text-decoration:none}.brand a:hover{border-bottom:1px solid currentColor}
+.brand b{font-weight:500;color:var(--ink)}.brand .sep{margin:0 .5em;opacity:.45}
+.nav{display:flex;flex-wrap:wrap;gap:.85rem 1.1rem;margin-top:1rem}
+.nav a{font-size:.8125rem;color:var(--ink-soft);text-decoration:none;padding-bottom:2px;
+border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
+color:var(--ink-soft);margin:0 0 .75rem;text-transform:uppercase}
+h1{font-family:"Gowun Batang",serif;font-weight:700;font-size:clamp(2rem,7.5vw,3rem);
+line-height:1.2;margin:0 0 1rem;letter-spacing:-0.02em}
+.lede{font-size:1.0625rem;color:var(--ink-soft);margin:0;max-width:34rem}
+.intro{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.entry{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.chip::before{content:"\25A0";margin-right:.45em}
+.chip--office{color:var(--office)}.chip--apgu{color:var(--apgu)}
+.chip--station{color:var(--station)}.chip--nopo{color:var(--nopo)}
+.entry h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.875rem;
+line-height:1.25;margin:0 0 .85rem;letter-spacing:-0.02em}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
+color:var(--ink-soft);margin:0 0 1.5rem;padding-left:1rem;border-left:3px solid var(--rule)}
+.meta span{display:block}
+.entry--office .meta{border-left-color:var(--office)}
+.entry--apgu .meta{border-left-color:var(--apgu)}
+.entry--station .meta{border-left-color:var(--station)}
+.entry--nopo .meta{border-left-color:var(--nopo)}
+h3{font-size:.8125rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin:2rem 0 .85rem}
+.verify{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.verify ul{margin:0;padding:0;list-style:none}
+.verify li{font-size:.9375rem;line-height:1.65;margin-bottom:.65rem;padding-left:1.75rem;
+position:relative}
+.verify li:last-child{margin-bottom:0}
+.verify li::before{position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace}
+.verify li.pass::before{content:"\25A3";color:#3F6B4F}
+.verify li.open::before{content:"\25A1";color:var(--ink-soft)}
+.verify li.open{color:var(--ink-soft)}
+.fit-grid{display:grid;gap:1rem;margin-top:2rem}
+.fit{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.fit h4{margin:0 0 .7rem;font-size:.8125rem;font-family:"IBM Plex Mono",monospace;
+letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.fit h4::before{margin-right:.5em}
+.fit--yes h4::before{content:"\25A3";color:#3F6B4F}
+.fit--no h4::before{content:"\25A1";color:var(--nopo)}
+.fit ul{margin:0;padding-left:1.05rem}
+.fit li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.fit li:last-child{margin-bottom:0}
+.tips{margin:0;padding-left:1.05rem}
+.tips li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.tips li:last-child{margin-bottom:0}
+.alert{background:#F4E9E7;border:1px solid var(--nopo);padding:1.15rem 1.25rem;
+font-size:.9375rem;margin-top:1.5rem}
+.alert b{font-weight:600}
+.note{background:var(--card);border:1px solid var(--rule);padding:1.1rem 1.25rem;
+font-size:.9375rem;color:var(--ink-soft);margin:1.5rem 0 0}
+.note b{color:var(--ink);font-weight:600}
+.note a{color:var(--ink)}
+.entry--alert h2{color:var(--nopo)}
+.compare{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.compare h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+margin:0 0 1.25rem;letter-spacing:-0.01em}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.9375rem;min-width:28rem}
+th,td{text-align:left;padding:.7rem .75rem;border-bottom:1px solid var(--rule);
+vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.12em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem 1.15rem;margin:1.75rem 0 0;padding:1rem 0 0;
+border-top:1px solid var(--rule);list-style:none}
+.legend li{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+text-transform:uppercase}
+.legend li::before{content:"\25A0";margin-right:.45em}
+.lg--office{color:var(--office)}.lg--apgu{color:var(--apgu)}
+.lg--station{color:var(--station)}.lg--nopo{color:var(--nopo)}
+footer{padding:2.5rem 0 4rem;font-size:.8125rem;color:var(--ink-soft)}
+footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
+@media (min-width:40rem){.fit-grid{grid-template-columns:1fr 1fr}body{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand">
+      <a href="index.html"><b>동네 식당 기록</b></a>
+      <span class="sep">/</span>
+      <b>서울 강남구</b>
+    </p>
+    <nav class="nav">
+      <a href="gangnam-bapjip.html">밥집</a>
+      <a href="gangnam-gogi.html" aria-current="page">고기</a>
+      <a href="gangnam-gukmul-myeon.html">국물과 면</a>
+      <a href="gangnam-iguk.html">이국</a>
+      <a href="gangnam-sul-anju.html">술과 안주</a>
+      <a href="gangnam-cafe.html">카페·디저트</a>
+      <a href="gangnam-nopo.html">강남 노포</a>
+    </nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">서울 강남구 · 카테고리 02</p>
+    <h1>고기</h1>
+    <p class="lede">메뉴가 짧은 집과 회식을 받는 집. 목적이 다르면 가는 곳도 달라야 합니다.</p>
+  </div>
+</div>
+
+<main>
+
+<div class="intro">
+  <div class="wrap">
+    <p>강남 고깃집은 수천 곳입니다. 그중 광고 없이 이름이 남은 곳은 대개 <strong>메뉴를 늘리지 않은 집</strong>이거나 <strong>직장인 상권에서 회식을 받아온 집</strong>, 둘 중 하나입니다.</p>
+    <p>두 곳 모두 테헤란로·영동시장 쪽 오피스 블록에 있습니다. 압구정·청담의 고급 고깃집은 이 시리즈의 검증 기준(가격 대비, 재방문 언급)과 성격이 달라 별도로 다룹니다.</p>
+  </div>
+</div>
+
+<article class="entry entry--office">
+  <div class="wrap">
+    <span class="chip chip--office">역삼동 · 오피스</span>
+    <h2>서원정육식당</h2>
+    <p class="meta">
+      <span>강남구 역삼동</span>
+      <span>한우 차돌박이 · 생삼겹살 · 된장찌개</span>
+      <span>업력 30년 이상</span>
+      <span>정확 번지·영업시간·전화번호 확인 필요</span>
+    </p>
+
+    <h3>왜 이 집인가</h3>
+    <p><strong>메뉴가 세 개입니다.</strong> 한우 차돌박이, 생삼겹살, 된장찌개. 그게 전부입니다. 강남에서 30년 넘게 버티면서 메뉴를 늘리지 않았다는 건, 늘릴 필요가 없었다는 뜻입니다.</p>
+    <p>차돌박이는 부위 특성상 고기 질이 그대로 드러납니다. 양념으로 덮을 수 없어서 좋은 고기가 아니면 팔 수가 없습니다. 이 집이 차돌박이 한 품목으로 30년을 간 이유가 여기 있습니다. 밑반찬은 화려하지 않고 기름진 고기의 느끼함을 잡는 쪽으로 짜여 있습니다.</p>
+
+    <h3>검증 기록</h3>
+    <div class="verify">
+      <ul>
+        <li class="pass">업력 30년 이상, 역삼동 동일 위치</li>
+        <li class="pass">식신 '강남 노포' 부문 수록</li>
+        <li class="pass">단일 품목 집중 구조 확인</li>
+        <li class="open">정확한 주소·영업시간·가격 미확인</li>
+        <li class="open">다이닝코드 랭킹·블루리본 수록 미확인</li>
+      </ul>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit fit--yes">
+        <h4>이런 분께</h4>
+        <ul>
+          <li>차돌박이를 제대로 먹고 싶을 때</li>
+          <li>선택지가 적은 게 편한 경우</li>
+          <li>역삼 직장인 저녁 자리</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h4>이런 분껜 비추</h4>
+        <ul>
+          <li><strong>주소와 영업시간을 확인하지 못했습니다.</strong> 지도 앱으로 먼저 확인하세요</li>
+          <li>메뉴가 셋뿐이라 취향이 갈리면 대안이 없습니다</li>
+          <li>노포라 좌석·주차 정보가 확인되지 않았습니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>실전 팁</h3>
+    <ul class="tips">
+      <li>된장찌개로 마무리하는 게 이 집 순서입니다</li>
+    </ul>
+  </div>
+</article>
+
+<article class="entry entry--office">
+  <div class="wrap">
+    <span class="chip chip--office">논현동 · 영동시장</span>
+    <h2>영동삼미숯불갈비</h2>
+    <p class="meta">
+      <span>강남구 논현동 영동시장 먹자골목</span>
+      <span>돼지갈비 · LA갈비 · 소갈비</span>
+      <span>1층·2층 운영 — 회식 가능</span>
+      <span>정확 번지·영업시간·가격 확인 필요</span>
+    </p>
+
+    <h3>왜 이 집인가</h3>
+    <p>논현동 직장인이라면 아는 집이라는 서술이 반복됩니다. 이건 관광 수요가 아니라 <strong>같은 사람들이 계속 온다</strong>는 뜻이고, 강남에서 가장 믿을 만한 신호입니다.</p>
+    <p>영동시장 먹자골목이라는 입지가 이 집의 성격을 결정했습니다. 1층과 2층을 함께 써서 단체를 받을 수 있고, 돼지갈비·LA갈비·소갈비로 예산대를 나눠 놓았습니다. 밑반찬 하나하나가 좋다는 언급이 여러 곳에서 겹칩니다.</p>
+
+    <h3>검증 기록</h3>
+    <div class="verify">
+      <ul>
+        <li class="pass">식신 '강남 맛집' 부문 수록</li>
+        <li class="pass">논현동 직장인 재방문 언급 반복</li>
+        <li class="pass">1·2층 회식 수용 구조 확인</li>
+        <li class="open">정확한 주소·전화·가격 미확인</li>
+        <li class="open">주차 정보 미확인</li>
+      </ul>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit fit--yes">
+        <h4>이런 분께</h4>
+        <ul>
+          <li>논현·학동 근처 회식</li>
+          <li>예산대를 조절하고 싶을 때 — 돼지갈비부터 소갈비까지</li>
+          <li>밑반찬을 중요하게 보는 경우</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h4>이런 분껜 비추</h4>
+        <ul>
+          <li><strong>좌석 간격이 좁아 시끄럽습니다.</strong> 조용한 대화가 필요한 자리엔 맞지 않습니다</li>
+          <li>먹자골목이라 주차가 어려울 가능성이 큽니다</li>
+          <li>정확한 영업시간을 확인하지 못했습니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>실전 팁</h3>
+    <ul class="tips">
+      <li>회식은 2층이 낫다는 언급이 있습니다</li>
+    </ul>
+  </div>
+</article>
+
+<section class="compare">
+  <div class="wrap">
+    <h2>두 곳 비교</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>서원정육식당</th><th>영동삼미숯불갈비</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">동네</th><td>역삼동</td><td>논현동 영동시장</td></tr>
+          <tr><th scope="row">목적</th><td>소수 인원·고기 자체</td><td>회식·단체</td></tr>
+          <tr><th scope="row">메뉴</th><td>3개 (차돌·삼겹·된장)</td><td>돼지/LA/소갈비</td></tr>
+          <tr><th scope="row">약점</th><td>정보 미확인</td><td>좌석 협소·소음</td></tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="note">강남 고깃집은 수가 많은 만큼 협찬 글도 압도적입니다. 두 곳 모두 상세 정보가 부족해 <b>확인 필요</b> 항목이 많습니다. 방문 전 지도 앱 확인을 권합니다.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>2026년 8월 조사 기준. 가격·영업시간·휴무는 변동될 수 있으니 방문 전 확인을 권합니다.</p>
+    <p>협찬, 체험단, 원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>술과 안주 — 서울 강남구 식당 기록</title>
+<meta name="description" content="24시간 곱창전골과 1988년 분식 노포. 강남에서 늦게까지 여는 곳.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9EDE8;--card:#F4F6F2;--ink:#17242B;--ink-soft:#556770;--rule:#C4CEC5;
+--office:#1F5F8B;--apgu:#7A5578;--station:#A0651C;--nopo:#94373B;--maxw:44rem}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,sans-serif;font-weight:400;font-size:16px;
+line-height:1.8;letter-spacing:-0.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1.15rem}p:last-child{margin-bottom:0}strong{font-weight:600}a{color:inherit}
+.masthead{border-bottom:1px solid var(--rule);padding:1.5rem 0 1.25rem}
+.brand{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.18em;
+text-transform:uppercase;color:var(--ink-soft);margin:0}
+.brand a{text-decoration:none}.brand a:hover{border-bottom:1px solid currentColor}
+.brand b{font-weight:500;color:var(--ink)}.brand .sep{margin:0 .5em;opacity:.45}
+.nav{display:flex;flex-wrap:wrap;gap:.85rem 1.1rem;margin-top:1rem}
+.nav a{font-size:.8125rem;color:var(--ink-soft);text-decoration:none;padding-bottom:2px;
+border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.16em;
+color:var(--ink-soft);margin:0 0 .75rem;text-transform:uppercase}
+h1{font-family:"Gowun Batang",serif;font-weight:700;font-size:clamp(2rem,7.5vw,3rem);
+line-height:1.2;margin:0 0 1rem;letter-spacing:-0.02em}
+.lede{font-size:1.0625rem;color:var(--ink-soft);margin:0;max-width:34rem}
+.intro{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.entry{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.chip::before{content:"\25A0";margin-right:.45em}
+.chip--office{color:var(--office)}.chip--apgu{color:var(--apgu)}
+.chip--station{color:var(--station)}.chip--nopo{color:var(--nopo)}
+.entry h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.875rem;
+line-height:1.25;margin:0 0 .85rem;letter-spacing:-0.02em}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
+color:var(--ink-soft);margin:0 0 1.5rem;padding-left:1rem;border-left:3px solid var(--rule)}
+.meta span{display:block}
+.entry--office .meta{border-left-color:var(--office)}
+.entry--apgu .meta{border-left-color:var(--apgu)}
+.entry--station .meta{border-left-color:var(--station)}
+.entry--nopo .meta{border-left-color:var(--nopo)}
+h3{font-size:.8125rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.16em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin:2rem 0 .85rem}
+.verify{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.verify ul{margin:0;padding:0;list-style:none}
+.verify li{font-size:.9375rem;line-height:1.65;margin-bottom:.65rem;padding-left:1.75rem;
+position:relative}
+.verify li:last-child{margin-bottom:0}
+.verify li::before{position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace}
+.verify li.pass::before{content:"\25A3";color:#3F6B4F}
+.verify li.open::before{content:"\25A1";color:var(--ink-soft)}
+.verify li.open{color:var(--ink-soft)}
+.fit-grid{display:grid;gap:1rem;margin-top:2rem}
+.fit{background:var(--card);border:1px solid var(--rule);padding:1.15rem 1.25rem}
+.fit h4{margin:0 0 .7rem;font-size:.8125rem;font-family:"IBM Plex Mono",monospace;
+letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.fit h4::before{margin-right:.5em}
+.fit--yes h4::before{content:"\25A3";color:#3F6B4F}
+.fit--no h4::before{content:"\25A1";color:var(--nopo)}
+.fit ul{margin:0;padding-left:1.05rem}
+.fit li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.fit li:last-child{margin-bottom:0}
+.tips{margin:0;padding-left:1.05rem}
+.tips li{font-size:.9375rem;line-height:1.7;margin-bottom:.55rem}
+.tips li:last-child{margin-bottom:0}
+.alert{background:#F4E9E7;border:1px solid var(--nopo);padding:1.15rem 1.25rem;
+font-size:.9375rem;margin-top:1.5rem}
+.alert b{font-weight:600}
+.note{background:var(--card);border:1px solid var(--rule);padding:1.1rem 1.25rem;
+font-size:.9375rem;color:var(--ink-soft);margin:1.5rem 0 0}
+.note b{color:var(--ink);font-weight:600}
+.note a{color:var(--ink)}
+.entry--alert h2{color:var(--nopo)}
+.compare{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+.compare h2{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.5rem;
+margin:0 0 1.25rem;letter-spacing:-0.01em}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.9375rem;min-width:28rem}
+th,td{text-align:left;padding:.7rem .75rem;border-bottom:1px solid var(--rule);
+vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.12em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem 1.15rem;margin:1.75rem 0 0;padding:1rem 0 0;
+border-top:1px solid var(--rule);list-style:none}
+.legend li{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+text-transform:uppercase}
+.legend li::before{content:"\25A0";margin-right:.45em}
+.lg--office{color:var(--office)}.lg--apgu{color:var(--apgu)}
+.lg--station{color:var(--station)}.lg--nopo{color:var(--nopo)}
+footer{padding:2.5rem 0 4rem;font-size:.8125rem;color:var(--ink-soft)}
+footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
+@media (min-width:40rem){.fit-grid{grid-template-columns:1fr 1fr}body{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="brand">
+      <a href="index.html"><b>동네 식당 기록</b></a>
+      <span class="sep">/</span>
+      <b>서울 강남구</b>
+    </p>
+    <nav class="nav">
+      <a href="gangnam-bapjip.html">밥집</a>
+      <a href="gangnam-gogi.html">고기</a>
+      <a href="gangnam-gukmul-myeon.html">국물과 면</a>
+      <a href="gangnam-iguk.html">이국</a>
+      <a href="gangnam-sul-anju.html" aria-current="page">술과 안주</a>
+      <a href="gangnam-cafe.html">카페·디저트</a>
+      <a href="gangnam-nopo.html">강남 노포</a>
+    </nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">서울 강남구 · 카테고리 05</p>
+    <h1>술과 안주</h1>
+    <p class="lede">강남은 술집이 가장 많은 동네인데, <strong>오래 남은 술집은 가장 적습니다.</strong></p>
+  </div>
+</div>
+
+<main>
+
+<div class="intro">
+  <div class="wrap">
+    <p>임대료 회전이 빨라서 술집 간판이 2~3년마다 바뀝니다. 그래서 이 카테고리는 <strong>몇 년째 같은 자리에 있는가</strong>를 기준으로 좁혔습니다.</p>
+    <p>결과적으로 남은 건 24시간 해장국집과 1988년에 문 연 분식집입니다. 화려하지 않지만 강남에서 이만큼 버틴 술자리 선택지는 드뭅니다.</p>
+  </div>
+</div>
+
+<article class="entry entry--office">
+  <div class="wrap">
+    <span class="chip chip--office">삼성동 · 24시간</span>
+    <h2>중앙해장</h2>
+    <p class="meta">
+      <span>강남구 영동대로86길 17 육인빌딩 (삼성동)</span>
+      <span>삼성역 1·2번 출구 도보 5분 · 02-558-7905</span>
+      <span>화–토 24시간 · 일 –21:30 · 월 11:00–24:00</span>
+      <span>곱창전골 · 해장국</span>
+    </p>
+
+    <h3>왜 이 집인가</h3>
+    <p>강남에서 <strong>화요일부터 토요일까지 24시간</strong> 문을 여는 곱창전골집입니다. 1차를 끝내고 갈 곳이 마땅치 않은 시간대를 이 집이 받습니다.</p>
+    <p>마장동 한우 부산물 유통사 '중앙축산'이 직접 운영합니다. 곱창전골에 일품진로로 시작해 육수 리필로 이어가는 게 단골 방식이고, 곱 누린내가 없다는 평이 반복됩니다.</p>
+
+    <h3>검증 기록</h3>
+    <div class="verify">
+      <ul>
+        <li class="pass">다이닝코드 강남구 랭킹 2위 (★4.4)</li>
+        <li class="pass">마장동 중앙축산 직영 구조 확인</li>
+        <li class="pass">24시간 영업 확인 (화–토)</li>
+        <li class="open">블루리본·미쉐린 수록 미확인</li>
+      </ul>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit fit--yes">
+        <h4>이런 분께</h4>
+        <ul>
+          <li>새벽 술자리 또는 해장</li>
+          <li>곱창전골에 소주</li>
+          <li>삼성역·코엑스 일정 후</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h4>이런 분껜 비추</h4>
+        <ul>
+          <li>포장이 안 됩니다</li>
+          <li>해장국치고 비싸다는 평가가 있습니다</li>
+          <li>곱창전골은 저녁 늦게 품절되는 경우가 있습니다</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="note" style="max-width:44rem;margin:0 auto 2.75rem;padding-left:1.25rem;padding-right:1.25rem">상세 정보와 검증 기록은 <a href="gangnam-gukmul-myeon.html">국물과 면 카테고리</a>에 정리했습니다.</div>
+
+<article class="entry entry--office">
+  <div class="wrap">
+    <span class="chip chip--office">역삼동 · 1988년~</span>
+    <h2>모퉁이집</h2>
+    <p class="meta">
+      <span>강남구 테헤란로1길 20 (역삼동)</span>
+      <span>매일 11:00–22:00</span>
+      <span>떡라면 6,000원 / 칼국수 8,000원 / 치즈짬뽕라면 7,000원</span>
+      <span>라면 · 김밥 · 주먹밥</span>
+    </p>
+
+    <h3>왜 이 집인가</h3>
+    <p><strong>1988년부터 강남의 한 모퉁이를 지켰습니다.</strong> 서울올림픽이 열리던 해에 문을 열어 지금까지입니다. 테헤란로 상권이 통째로 몇 번 바뀌는 동안 라면집 하나가 남았다는 게 이 집의 전부이자 근거입니다.</p>
+    <p>메뉴는 라면과 김밥, 주먹밥입니다. 수제비라면, 짬뽕라면, 부대라면, 치즈라면으로 라면 종류를 늘려 놓았고, 단품으로도 세트로도 먹을 수 있습니다. 6천 원부터 시작하는 가격은 강남 물가에서 거의 유일한 수준입니다.</p>
+
+    <h3>검증 기록</h3>
+    <div class="verify">
+      <ul>
+        <li class="pass">1988년 개업, 역삼동 동일 위치 확인</li>
+        <li class="pass">식신 '강남 노포' 부문 수록</li>
+        <li class="pass">가격·메뉴 구성 확인</li>
+        <li class="open">다이닝코드 랭킹·주차 정보 미확인</li>
+      </ul>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit fit--yes">
+        <h4>이런 분께</h4>
+        <ul>
+          <li><strong>혼밥·혼술</strong> — 분식집이라 눈치 볼 일이 없습니다</li>
+          <li>해장</li>
+          <li>강남에서 1만 원 아래로 해결하고 싶을 때</li>
+          <li>가볍게 한 잔 곁들일 때</li>
+        </ul>
+      </div>
+      <div class="fit fit--no">
+        <h4>이런 분껜 비추</h4>
+        <ul>
+          <li><strong>제대로 된 술집이 아닙니다.</strong> 분식집에서 가볍게 마시는 자리입니다</li>
+          <li>22시에 닫아서 늦은 술자리엔 맞지 않습니다</li>
+          <li>노포라 좌석이 넓지 않습니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>실전 팁</h3>
+    <ul class="tips">
+      <li>떡라면과 김밥 조합이 기본입니다</li>
+      <li>점심 피크에는 인근 직장인으로 붐빕니다</li>
+    </ul>
+  </div>
+</article>
+
+<section class="compare">
+  <div class="wrap">
+    <h2>두 곳 비교</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>중앙해장</th><th>모퉁이집</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">동네</th><td>삼성동</td><td>역삼동</td></tr>
+          <tr><th scope="row">시간대</th><td>화–토 24시간</td><td>11:00–22:00</td></tr>
+          <tr><th scope="row">예산</th><td>확인 필요</td><td>6,000원~</td></tr>
+          <tr><th scope="row">성격</th><td>곱창전골·해장</td><td>분식·가벼운 한 잔</td></tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="note">이 카테고리는 두 곳으로 얇습니다. 강남 술집은 회전이 빨라 '3년 이상 같은 자리' 조건을 통과한 곳이 적었습니다. 압구정·청담 쪽 이자카야와 포차를 계속 조사 중입니다.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>2026년 8월 조사 기준. 가격·영업시간·휴무는 변동될 수 있으니 방문 전 확인을 권합니다.</p>
+    <p>협찬, 체험단, 원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
