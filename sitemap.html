@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사이트맵 — 어라운드툴 전체 페이지 목록</title>
+<meta name="description" content="어라운드툴의 모든 페이지를 한눈에. 계산기 41종, 가이드 2편, 전국 맛집 3개 지역 21페이지, 사이트 정보를 카테고리별로 정리했습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/sitemap.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D7A6F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/sitemap.html">
+<meta property="og:title" content="사이트맵 — 어라운드툴 전체 페이지 목록">
+<meta property="og:description" content="계산기 41종, 가이드 2편, 전국 맛집 3개 지역을 카테고리별로 정리한 전체 목록입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-dark:#095B53;--brand-tint:#E2F1EF;
+  --c-finance:#1B6FB8;--t-finance:#E9F1FA;--c-job:#B5690E;--t-job:#FBF1E1;
+  --c-life:#1B855C;--t-life:#E5F4EC;--c-text:#7A5CA8;--t-text:#F1ECF9;
+  --c-info:#4A5A66;--t-info:#EBEFF2;--c-food:#BC3C3C;--t-food:#FBECEC;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}
+h1,h2,h3{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--brand)}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+  color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+
+.hero{padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--rule)}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.125rem);line-height:1.25;
+  margin:0 0 .55rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:34rem}
+.stat{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.25rem 0 0;padding:0;list-style:none}
+.stat li{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--soft);
+  background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:.25rem .65rem}
+.stat b{color:var(--ink);font-weight:600}
+
+main{padding:1.75rem 0 0}
+.smap{margin-bottom:2rem;background:var(--panel);
+  border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.smap h2{display:flex;align-items:center;gap:.6rem;
+  font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;
+  padding:.65rem 1.1rem;border-top:2px solid var(--rule-strong)}
+.smap h2 .cnt{margin-left:auto;font-family:"IBM Plex Mono",monospace;
+  font-size:.6875rem;font-weight:600;background:var(--panel);
+  border-radius:99px;padding:.05rem .55rem}
+.smap--finance h2{background:var(--t-finance);border-top-color:var(--c-finance);color:var(--c-finance)}
+.smap--job h2{background:var(--t-job);border-top-color:var(--c-job);color:var(--c-job)}
+.smap--life h2{background:var(--t-life);border-top-color:var(--c-life);color:var(--c-life)}
+.smap--text h2{background:var(--t-text);border-top-color:var(--c-text);color:var(--c-text)}
+.smap--info h2{background:var(--t-info);border-top-color:var(--c-info);color:var(--c-info)}
+.smap--food h2{background:var(--t-food);border-top-color:var(--c-food);color:var(--c-food)}
+
+.smap-sub{display:flex;align-items:baseline;gap:.5rem;font-size:.875rem;font-weight:700;
+  padding:.9rem 1.1rem .5rem;border-top:1px solid var(--rule)}
+.smap-sub .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:500;color:var(--soft)}
+.smap--food .smap-sub:first-of-type{border-top:none}
+
+.smap-list{list-style:none;margin:0;padding:0 1.1rem 1rem;
+  display:grid;grid-template-columns:1fr;gap:0}
+.smap-list li{border-bottom:1px dotted var(--rule)}
+.smap-list a{display:flex;align-items:baseline;gap:.5rem;
+  text-decoration:none;font-size:.875rem;padding:.55rem .15rem;color:var(--ink)}
+.smap-list a::before{content:"·";color:var(--soft);flex-shrink:0}
+.smap-list a:hover{color:var(--brand)}
+.smap-list .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  color:var(--soft);flex-shrink:0}
+.smap-list li:has(.n){display:flex;align-items:baseline;gap:.4rem;justify-content:space-between}
+.smap-list li > .n{padding-right:.15rem}
+
+.note{margin:0 0 2rem;padding:1.05rem 1.2rem;background:var(--panel);
+  border:1px solid var(--rule);border-radius:4px;font-size:.8125rem;
+  color:var(--soft);line-height:1.75}
+.note b{color:var(--ink);font-weight:600}
+.note a{color:var(--brand);text-decoration:none;font-weight:500}
+
+footer{margin-top:1.5rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+@media (min-width:34rem){ .smap-list{grid-template-columns:1fr 1fr;column-gap:1.5rem} }
+@media (min-width:52rem){
+  .wrap{padding:0 1.25rem}
+  .smap-list{grid-template-columns:1fr 1fr 1fr;column-gap:1.75rem}
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "사이트맵",
+     "item": "https://www.aroundtool.com/sitemap.html"
+    }
+   ]
+  },
+  {
+   "@type": "CollectionPage",
+   "name": "어라운드툴 사이트맵",
+   "url": "https://www.aroundtool.com/sitemap.html",
+   "description": "어라운드툴의 모든 페이지를 카테고리별로 정리한 전체 목록입니다.",
+   "inLanguage": "ko-KR"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="index.html">홈</a><span class="sep">/</span>사이트맵</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>사이트맵</h1>
+    <p>어라운드툴의 모든 페이지입니다. 카테고리별로 나눠 정리했습니다.</p>
+    <ul class="stat">
+      <li>계산기·도구 <b>41</b></li>
+      <li>가이드 <b>2</b></li>
+      <li>맛집 <b>3개 지역 · 21페이지</b></li>
+      <li>최종 갱신 <b>2026-08-29</b></li>
+    </ul>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="smap smap--finance">
+    <h2>재테크 및 부동산<span class="cnt">13</span></h2>
+    <ul class="smap-list">
+      <li><a href="salary_calculator.html">연봉 실수령액 계산기</a></li>
+      <li><a href="loan_calculator.html">대출 이자 계산기</a></li>
+      <li><a href="savings_calculator.html">예적금 이자 계산기</a></li>
+      <li><a href="compound_calculator.html">복리 계산기</a></li>
+      <li><a href="freelancer_tax_calculator.html">종합소득세 계산기</a></li>
+      <li><a href="dsr_calculator.html">DSR 계산기</a></li>
+      <li><a href="ltv_calculator.html">LTV 계산기</a></li>
+      <li><a href="acquisition_tax_calculator.html">부동산 취득세 계산기</a></li>
+      <li><a href="brokerage_fee_calculator.html">부동산 중개보수 계산기</a></li>
+      <li><a href="increase_decrease_calculator.html">증감률 계산기</a></li>
+      <li><a href="fuel_economy_calculator.html">주유 경제성 계산기</a></li>
+      <li><a href="pension_age_calculator.html">국민연금 수급개시나이 계산기</a></li>
+      <li><a href="prepayment_penalty_calculator.html">중도상환수수료 계산기</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--job">
+    <h2>노동 및 구직<span class="cnt">5</span></h2>
+    <ul class="smap-list">
+      <li><a href="severance_calculator.html">퇴직금 계산기</a></li>
+      <li><a href="unemployment_benefit_calculator.html">실업급여 계산기</a></li>
+      <li><a href="pto_calculator.html">연차 계산기</a></li>
+      <li><a href="holiday_pay_calculator.html">주휴수당 계산기</a></li>
+      <li><a href="parental_leave_calculator.html">육아휴직급여 계산기</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--life">
+    <h2>생활 및 건강<span class="cnt">20</span></h2>
+    <ul class="smap-list">
+      <li><a href="discount_calculator.html">할인율 계산기</a></li>
+      <li><a href="discount_rate_calculator.html">할인율 역산 계산기</a></li>
+      <li><a href="percent_calculator.html">퍼센트 계산기</a></li>
+      <li><a href="dutch_pay_calculator.html">더치페이 계산기</a></li>
+      <li><a href="electricity_bill_calculator.html">전기요금 계산기</a></li>
+      <li><a href="gas_bill_calculator.html">도시가스 요금 계산기</a></li>
+      <li><a href="car_tax_calculator.html">자동차세 계산기</a></li>
+      <li><a href="exchange_rate_calculator.html">환율 계산기</a></li>
+      <li><a href="pyeong_calculator.html">평수 계산기</a></li>
+      <li><a href="age_calculator.html">만나이 계산기</a></li>
+      <li><a href="due_date_calculator.html">출산예정일 계산기</a></li>
+      <li><a href="bmi_calculator.html">BMI 계산기</a></li>
+      <li><a href="bmr_calculator.html">기초대사량 계산기</a></li>
+      <li><a href="calorie_calculator.html">하루 권장 칼로리 계산기</a></li>
+      <li><a href="daily_calorie_calculator.html">하루 필요 열량 계산기</a></li>
+      <li><a href="tire_date_calculator.html">타이어 제조일자 계산기</a></li>
+      <li><a href="grave_weeding_calculator.html">벌초 견적 계산기</a></li>
+      <li><a href="qr_generator.html">QR코드 생성기</a></li>
+      <li><a href="lotto_generator.html">로또 번호 생성기</a></li>
+      <li><a href="job_fortune_teller.html">취업운세</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--text">
+    <h2>텍스트 도구<span class="cnt">3</span></h2>
+    <ul class="smap-list">
+      <li><a href="character_counter.html">글자수 세기</a></li>
+      <li><a href="spell_checker.html">맞춤법 검사기</a></li>
+      <li><a href="spacing_checker.html">띄어쓰기 검사기</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--info">
+    <h2>정보 및 가이드<span class="cnt">2</span></h2>
+    <ul class="smap-list">
+      <li><a href="guide_2026_wage.html">2026년 최저임금·노동법 가이드</a></li>
+      <li><a href="guide_2026_tax.html">2026년 세금·연말정산 가이드</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--food">
+    <h2>전국 맛집<span class="cnt">3개 지역 · 48곳</span></h2>
+    <h3 class="smap-sub">인천 연수구<span class="n">23곳</span></h3>
+    <ul class="smap-list">
+      <li><a href="yeonsu-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="yeonsu-gogi.html">고기</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-iguk.html">이국</a><span class="n">5곳</span></li>
+      <li><a href="yeonsu-sul-anju.html">술과 안주</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
+      <li><a href="yeonsu-hambak.html">함박마을 (지역 슬롯)</a><span class="n">5곳</span></li>
+    </ul>
+    <h3 class="smap-sub">서울 강남구<span class="n">11곳</span></h3>
+    <ul class="smap-list">
+      <li><a href="gangnam-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-gogi.html">고기</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="gangnam-iguk.html">이국</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-sul-anju.html">술과 안주</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-cafe.html">카페·디저트</a><span class="n">1곳</span></li>
+      <li><a href="gangnam-nopo.html">강남 노포 (지역 슬롯)</a><span class="n">5곳</span></li>
+    </ul>
+    <h3 class="smap-sub">부산 해운대구<span class="n">14곳</span></h3>
+    <ul class="smap-list">
+      <li><a href="haeundae-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-gogi.html">고기</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="haeundae-iguk.html">이국</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-sul-anju.html">술과 안주</a><span class="n">조사 중</span></li>
+      <li><a href="haeundae-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-michelin.html">미쉐린 해운대 (지역 슬롯)</a><span class="n">7곳</span></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--info">
+    <h2>사이트 정보<span class="cnt">6</span></h2>
+    <ul class="smap-list">
+      <li><a href="index.html">홈 — 계산기와 맛집 전체</a></li>
+      <li><a href="about.html">사이트 소개</a></li>
+      <li><a href="contact.html">문의하기</a></li>
+      <li><a href="privacy.html">개인정보처리방침</a></li>
+      <li><a href="terms.html">이용약관</a></li>
+      <li><a href="sitemap.html">사이트맵</a></li>
+    </ul>
+  </section>
+
+  <div class="note">
+    <b>검색엔진용 XML 사이트맵</b>은 <a href="sitemap.xml">/sitemap.xml</a>에 있습니다.
+    AI 검색 엔진용 요약은 <a href="llms.txt">/llms.txt</a>에서 확인할 수 있습니다.
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="about.html">사이트 소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="terms.html">이용약관</a>
+      <a href="contact.html">문의하기</a>
+      <a href="sitemap.html">사이트맵</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>

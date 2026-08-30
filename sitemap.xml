@@ -3,22 +3,15 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 62 URL
-    · 홈 1
-    · 계산기·도구 41
-    · 가이드 2
-    · 맛집 14 (인천 연수구 7 + 서울 강남구 7)
-    · 정책·안내 4
-
-  [업로드]
-  1. 이 파일을 사이트 루트에 sitemap.xml 로 올립니다
-  2. robots.txt 에 Sitemap 줄이 있는지 확인합니다
-  3. Google Search Console · 네이버 서치어드바이저에 제출합니다
+  총 70 URL
+    · 홈 1 / 계산기·도구 41 / 가이드 2
+    · 맛집 21 (연수구 7 + 강남구 7 + 해운대구 7)
+    · 사이트맵·정책 5
   ============================================================
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- 홈 — 계산기 41종 + 전국 맛집 -->
+  <!-- 홈 — 계산기 41종 + 전국 맛집 3개 지역 -->
   <url>
     <loc>https://www.aroundtool.com/</loc>
     <lastmod>2026-08-29</lastmod>
@@ -291,51 +284,93 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 텍스트 도구 · 글자수 세기 -->
+  <!-- 텍스트 · 글자수 세기 -->
   <url>
     <loc>https://www.aroundtool.com/character_counter.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 텍스트 도구 · 맞춤법 검사기 -->
+  <!-- 텍스트 · 맞춤법 검사기 -->
   <url>
     <loc>https://www.aroundtool.com/spell_checker.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 텍스트 도구 · 띄어쓰기 검사기 -->
+  <!-- 텍스트 · 띄어쓰기 검사기 -->
   <url>
     <loc>https://www.aroundtool.com/spacing_checker.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 가이드 · 2026년 최저임금·노동법 가이드 -->
+  <!-- 가이드 · 2026년 최저임금·노동법 -->
   <url>
     <loc>https://www.aroundtool.com/guide_2026_wage.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- 가이드 · 2026년 세금·연말정산 가이드 -->
+  <!-- 가이드 · 2026년 세금·연말정산 -->
   <url>
     <loc>https://www.aroundtool.com/guide_2026_tax.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- 맛집 · 서울 강남구 밥집 (2곳) -->
+  <!-- 맛집 · 인천 연수구 밥집 (2곳) -->
   <url>
-    <loc>https://www.aroundtool.com/gangnam-bapjip.html</loc>
+    <loc>https://www.aroundtool.com/yeonsu-bapjip.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 맛집 · 서울 강남구 카페·디저트 (1곳) -->
+  <!-- 맛집 · 인천 연수구 고기 (3곳) -->
   <url>
-    <loc>https://www.aroundtool.com/gangnam-cafe.html</loc>
+    <loc>https://www.aroundtool.com/yeonsu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 인천 연수구 국물과 면 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yeonsu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 인천 연수구 이국 (5곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yeonsu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 인천 연수구 술과 안주 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yeonsu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 인천 연수구 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yeonsu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 인천 연수구 함박마을 지역슬롯 (5곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yeonsu-hambak.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 서울 강남구 밥집 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gangnam-bapjip.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -361,13 +396,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 맛집 · 서울 강남구 강남 노포 (5곳) -->
-  <url>
-    <loc>https://www.aroundtool.com/gangnam-nopo.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
   <!-- 맛집 · 서울 강남구 술과 안주 (2곳) -->
   <url>
     <loc>https://www.aroundtool.com/gangnam-sul-anju.html</loc>
@@ -375,54 +403,75 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 맛집 · 인천 연수구 밥집 (2곳) -->
+  <!-- 맛집 · 서울 강남구 카페·디저트 (1곳) -->
   <url>
-    <loc>https://www.aroundtool.com/yeonsu-bapjip.html</loc>
+    <loc>https://www.aroundtool.com/gangnam-cafe.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-  <!-- 맛집 · 인천 연수구 카페·디저트 (2곳) -->
+  <!-- 맛집 · 서울 강남구 노포 지역슬롯 (5곳) -->
   <url>
-    <loc>https://www.aroundtool.com/yeonsu-cafe.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- 맛집 · 인천 연수구 고기 (3곳) -->
-  <url>
-    <loc>https://www.aroundtool.com/yeonsu-gogi.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- 맛집 · 인천 연수구 국물과 면 (3곳) -->
-  <url>
-    <loc>https://www.aroundtool.com/yeonsu-gukmul-myeon.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- 맛집 · 인천 연수구 함박마을 (5곳) -->
-  <url>
-    <loc>https://www.aroundtool.com/yeonsu-hambak.html</loc>
+    <loc>https://www.aroundtool.com/gangnam-nopo.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- 맛집 · 인천 연수구 이국 (5곳) -->
+  <!-- 맛집 · 부산 해운대구 밥집 (2곳) -->
   <url>
-    <loc>https://www.aroundtool.com/yeonsu-iguk.html</loc>
+    <loc>https://www.aroundtool.com/haeundae-bapjip.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 맛집 · 인천 연수구 술과 안주 (3곳) -->
+  <!-- 맛집 · 부산 해운대구 고기 (2곳) -->
   <url>
-    <loc>https://www.aroundtool.com/yeonsu-sul-anju.html</loc>
+    <loc>https://www.aroundtool.com/haeundae-gogi.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 부산 해운대구 국물과 면 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/haeundae-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 부산 해운대구 이국 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/haeundae-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 부산 해운대구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/haeundae-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 부산 해운대구 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/haeundae-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 맛집 · 부산 해운대구 미쉐린 지역슬롯 (7곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/haeundae-michelin.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 사이트맵 — 전체 페이지 목록 -->
+  <url>
+    <loc>https://www.aroundtool.com/sitemap.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <!-- 사이트 소개 -->
   <url>
