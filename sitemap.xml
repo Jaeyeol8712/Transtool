@@ -3,9 +3,9 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 119 URL
+  총 154 URL
     · 홈 1 / 계산기·도구 41 / 가이드 2
-    · 맛집 70 (연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
+    · 맛집 105 (광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
 -->
@@ -807,6 +807,252 @@
   <!-- 맛집 · 대전 대덕구 신탄진 (지역 슬롯) (2곳) -->
   <url>
     <loc>https://www.aroundtool.com/daejeon-daedeok-sintanjin.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맛집 · 광주 동구 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 동구 충장로 원도심 (지역 슬롯) (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-donggu-chungjang.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 밥집 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 서구 상무지구 (지역 슬롯) (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-seogu-sangmu.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 밥집 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 남구 양림동 (지역 슬롯) (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-namgu-yangnim.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 북구 유동오리탕거리 (지역 슬롯) (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-bukgu-oritang.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 밥집 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 이국 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 카페·디저트 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 광주 광산구 송정리 떡갈비거리 (지역 슬롯) (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/gwangju-gwangsan-songjeong.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
