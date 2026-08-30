@@ -284,15 +284,50 @@ h1,h2,h3{margin:0}
 .food-stat{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
   font-weight:600;color:var(--c-food);white-space:nowrap}
 .food-desc{font-size:.8125rem;color:var(--soft);margin:0;padding:.9rem 1.4rem 0}
-.arealist{list-style:none;margin:0;padding:0 1.4rem 1.35rem}
-.area{border-top:1px solid var(--rule);padding:1.1rem 0 0;margin-top:1.1rem}
-.area:first-child{border-top:none;margin-top:.9rem;padding-top:0}
-.area-top{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.7rem}
-.area-top .rk{font-family:"IBM Plex Mono",monospace;font-size:.75rem;
-  font-weight:700;color:#fff;background:var(--c-food);
-  border-radius:2px;padding:.1rem .35rem}
-.area-top h3{font-size:1rem;font-weight:700;letter-spacing:-0.01em;flex:1}
-.area-top .area-n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;color:var(--soft)}
+
+/* 전국 시도 도식 지도 */
+.kmap{padding:1.1rem 1.4rem 0}
+.kmap-grid{display:grid;grid-template-columns:repeat(5,1fr);
+  grid-template-rows:repeat(5,auto);gap:.3rem;max-width:24rem;margin:0 auto}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  aspect-ratio:1;border-radius:4px;font:inherit;gap:.1rem;
+  border:1px solid transparent;padding:0;text-align:center}
+.t-name{font-size:.75rem;font-weight:600;letter-spacing:-0.02em;line-height:1.1}
+.t-n{font-family:"IBM Plex Mono",monospace;font-size:.625rem;font-weight:600;opacity:.85}
+.tile.lv0{background:var(--panel-alt);border-color:var(--rule);color:#A8B0B5;cursor:default}
+.tile.lv1{background:#F7DCDC;border-color:#E9BEBE;color:#8E2F2F;cursor:pointer}
+.tile.lv2{background:#DD8B8B;border-color:#CE7373;color:#FFFFFF;cursor:pointer}
+.tile.lv3{background:var(--c-food);border-color:#A63333;color:#FFFFFF;cursor:pointer}
+button.tile:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.12)}
+button.tile:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+button.tile[aria-expanded="true"]{box-shadow:inset 0 0 0 2px var(--ink)}
+
+.kmap-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem .85rem;
+  margin:1rem 0 0;padding:0;list-style:none}
+.kmap-legend li{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft);
+  display:flex;align-items:center;gap:.3rem}
+.kmap-legend li::before{content:"";width:9px;height:9px;border-radius:2px;
+  border:1px solid var(--rule)}
+.kmap-legend .lg0::before{background:var(--panel-alt)}
+.kmap-legend .lg1::before{background:#F7DCDC;border-color:#E9BEBE}
+.kmap-legend .lg2::before{background:#DD8B8B;border-color:#CE7373}
+.kmap-legend .lg3::before{background:var(--c-food);border-color:#A63333}
+.kmap-hint{text-align:center;font-size:.75rem;color:var(--soft);margin:.7rem 0 0}
+.kmap-hint b{color:var(--c-food);font-weight:700}
+
+/* 시도별 상세 */
+.sido-panels{padding:0 1.4rem 1.35rem}
+.sido-panel{border-top:1px solid var(--rule);margin-top:1.1rem;padding-top:1.1rem}
+.sido-panel h3{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+  font-size:1rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.85rem}
+.sido-panel h3 .s-n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:500;color:var(--soft)}
+.gu{margin-bottom:1.1rem}
+.gu:last-child{margin-bottom:0}
+.gu h4{display:flex;align-items:baseline;gap:.5rem;font-size:.875rem;font-weight:700;
+  margin:0 0 .5rem;letter-spacing:-0.01em}
+.gu h4 .g-n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:500;color:var(--soft)}
 .area-cats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;padding:0;
   list-style:none;background:var(--rule);border:1px solid var(--rule);
   border-radius:3px;overflow:hidden}
@@ -349,6 +384,7 @@ footer p{margin:0}
 @media (min-width:30rem){
   .tools{grid-template-columns:1fr 1fr 1fr}
   .area-cats{grid-template-columns:1fr 1fr 1fr}
+  .kmap-grid{gap:.4rem}
 }
 @media (min-width:48rem){
   .wrap{padding:0 1.25rem}
@@ -1579,79 +1615,138 @@ footer p{margin:0}
   <section class="food" id="food">
     <div class="food-head">
       <h2>전국 맛집</h2>
-      <span class="food-stat">4개 지역 · 60곳</span>
+      <span class="food-stat">4개 구 · 60곳</span>
     </div>
-    <p class="food-desc">광고와 협찬을 뺀 지역 맛집 기록. 리뷰 수보다 재방문 언급을 봅니다. 지역별로 계속 추가됩니다.</p>
+    <p class="food-desc">광고와 협찬을 뺀 지역 맛집 기록. 리뷰 수보다 재방문 언급을 봅니다. 조사한 지역부터 색이 채워집니다.</p>
 
-    <ol class="arealist">
-      <li class="area">
-        <div class="area-top">
-          <span class="rk">01</span>
-          <h3>인천 연수구</h3>
-          <span class="area-n">23곳</span>
-        </div>
-        <ul class="area-cats">
-          <li><a href="yeonsu-bapjip.html">밥집<span class="n">2</span></a></li>
-          <li><a href="yeonsu-gogi.html">고기<span class="n">3</span></a></li>
-          <li><a href="yeonsu-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
-          <li><a href="yeonsu-iguk.html">이국<span class="n">5</span></a></li>
-          <li><a href="yeonsu-sul-anju.html">술과 안주<span class="n">3</span></a></li>
-          <li><a href="yeonsu-cafe.html">카페·디저트<span class="n">2</span></a></li>
-          <li><a href="yeonsu-hambak.html">함박마을<span class="n">5</span></a></li>
-        </ul>
-      </li>
+    <div class="kmap">
+      <div class="kmap-grid" role="group" aria-label="전국 시도 지도. 색이 채워진 지역을 누르면 수록된 구가 나옵니다">
+        <button class="tile lv1" data-sido="incheon" style="grid-row:1;grid-column:2"
+                aria-label="인천 1개 구 23곳 보기">
+          <span class="t-name">인천</span>
+          <span class="t-n">23</span>
+        </button>
+        <button class="tile lv2" data-sido="seoul" style="grid-row:1;grid-column:3"
+                aria-label="서울 2개 구 23곳 보기">
+          <span class="t-name">서울</span>
+          <span class="t-n">23</span>
+        </button>
+        <span class="tile lv0" style="grid-row:1;grid-column:4" aria-hidden="true">
+          <span class="t-name">경기</span>
+        </span>
+        <span class="tile lv0" style="grid-row:1;grid-column:5" aria-hidden="true">
+          <span class="t-name">강원</span>
+        </span>
+        <span class="tile lv0" style="grid-row:2;grid-column:2" aria-hidden="true">
+          <span class="t-name">충남</span>
+        </span>
+        <span class="tile lv0" style="grid-row:2;grid-column:3" aria-hidden="true">
+          <span class="t-name">세종</span>
+        </span>
+        <span class="tile lv0" style="grid-row:2;grid-column:4" aria-hidden="true">
+          <span class="t-name">충북</span>
+        </span>
+        <span class="tile lv0" style="grid-row:2;grid-column:5" aria-hidden="true">
+          <span class="t-name">경북</span>
+        </span>
+        <span class="tile lv0" style="grid-row:3;grid-column:2" aria-hidden="true">
+          <span class="t-name">전북</span>
+        </span>
+        <span class="tile lv0" style="grid-row:3;grid-column:3" aria-hidden="true">
+          <span class="t-name">대전</span>
+        </span>
+        <span class="tile lv0" style="grid-row:3;grid-column:4" aria-hidden="true">
+          <span class="t-name">대구</span>
+        </span>
+        <span class="tile lv0" style="grid-row:4;grid-column:1" aria-hidden="true">
+          <span class="t-name">광주</span>
+        </span>
+        <span class="tile lv0" style="grid-row:4;grid-column:2" aria-hidden="true">
+          <span class="t-name">전남</span>
+        </span>
+        <span class="tile lv0" style="grid-row:4;grid-column:3" aria-hidden="true">
+          <span class="t-name">경남</span>
+        </span>
+        <span class="tile lv0" style="grid-row:4;grid-column:4" aria-hidden="true">
+          <span class="t-name">울산</span>
+        </span>
+        <span class="tile lv0" style="grid-row:5;grid-column:1" aria-hidden="true">
+          <span class="t-name">제주</span>
+        </span>
+        <button class="tile lv1" data-sido="busan" style="grid-row:5;grid-column:4"
+                aria-label="부산 1개 구 14곳 보기">
+          <span class="t-name">부산</span>
+          <span class="t-n">14</span>
+        </button>
+      </div>
+      <ul class="kmap-legend">
+        <li class="lg0">미조사</li>
+        <li class="lg1">1개 구</li>
+        <li class="lg2">2~3개 구</li>
+        <li class="lg3">4개 구 이상</li>
+      </ul>
+      <p class="kmap-hint" id="kmap-hint">17개 시도 중 <b>3곳</b> 조사 완료. 색이 있는 지역을 눌러 보세요.</p>
+    </div>
 
-      <li class="area">
-        <div class="area-top">
-          <span class="rk">02</span>
-          <h3>서울 강남구</h3>
-          <span class="area-n">11곳</span>
-        </div>
+    <div class="sido-panels">
+    <div class="sido-panel" data-sido="incheon" hidden>
+      <h3>인천 <span class="s-n">1개 구 · 23곳</span></h3>
+      <div class="gu">
+        <h4>연수구<span class="g-n">23곳</span></h4>
         <ul class="area-cats">
-          <li><a href="gangnam-bapjip.html">밥집<span class="n">2</span></a></li>
-          <li><a href="gangnam-gogi.html">고기<span class="n">2</span></a></li>
-          <li><a href="gangnam-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
-          <li><a href="gangnam-iguk.html">이국<span class="n">2</span></a></li>
-          <li><a href="gangnam-sul-anju.html">술과 안주<span class="n">2</span></a></li>
-          <li><a href="gangnam-cafe.html">카페·디저트<span class="n">1</span></a></li>
-          <li><a href="gangnam-nopo.html">강남 노포<span class="n">5</span></a></li>
+            <li><a href="yeonsu-bapjip.html">밥집<span class="n">2</span></a></li>
+            <li><a href="yeonsu-gogi.html">고기<span class="n">3</span></a></li>
+            <li><a href="yeonsu-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
+            <li><a href="yeonsu-iguk.html">이국<span class="n">5</span></a></li>
+            <li><a href="yeonsu-sul-anju.html">술과 안주<span class="n">3</span></a></li>
+            <li><a href="yeonsu-cafe.html">카페·디저트<span class="n">2</span></a></li>
+            <li><a href="yeonsu-hambak.html">함박마을<span class="n">5</span></a></li>
         </ul>
-      </li>
-      <li class="area">
-        <div class="area-top">
-          <span class="rk">03</span>
-          <h3>부산 해운대구</h3>
-          <span class="area-n">14곳</span>
-        </div>
+      </div>
+    </div>
+    <div class="sido-panel" data-sido="seoul" hidden>
+      <h3>서울 <span class="s-n">2개 구 · 23곳</span></h3>
+      <div class="gu">
+        <h4>강남구<span class="g-n">11곳</span></h4>
         <ul class="area-cats">
-          <li><a href="haeundae-bapjip.html">밥집<span class="n">2</span></a></li>
-          <li><a href="haeundae-gogi.html">고기<span class="n">2</span></a></li>
-          <li><a href="haeundae-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
-          <li><a href="haeundae-iguk.html">이국<span class="n">2</span></a></li>
-          <li><a href="haeundae-sul-anju.html">술과 안주<span class="n">–</span></a></li>
-          <li><a href="haeundae-cafe.html">카페·디저트<span class="n">2</span></a></li>
-          <li><a href="haeundae-michelin.html">미쉐린 해운대<span class="n">7</span></a></li>
+            <li><a href="gangnam-bapjip.html">밥집<span class="n">2</span></a></li>
+            <li><a href="gangnam-gogi.html">고기<span class="n">2</span></a></li>
+            <li><a href="gangnam-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
+            <li><a href="gangnam-iguk.html">이국<span class="n">2</span></a></li>
+            <li><a href="gangnam-sul-anju.html">술과 안주<span class="n">2</span></a></li>
+            <li><a href="gangnam-cafe.html">카페·디저트<span class="n">1</span></a></li>
+            <li><a href="gangnam-nopo.html">강남 노포<span class="n">5</span></a></li>
         </ul>
-      </li>
-
-      <li class="area">
-        <div class="area-top">
-          <span class="rk">04</span>
-          <h3>서울 용산구</h3>
-          <span class="area-n">12곳 · 신규</span>
-        </div>
+      </div>
+      <div class="gu">
+        <h4>용산구<span class="g-n">12곳</span></h4>
         <ul class="area-cats">
-          <li><a href="yongsan-bapjip.html">밥집<span class="n">2</span></a></li>
-          <li><a href="yongsan-gogi.html">고기<span class="n">2</span></a></li>
-          <li><a href="yongsan-gukmul-myeon.html">국물과 면<span class="n">2</span></a></li>
-          <li><a href="yongsan-iguk.html">이국<span class="n">1</span></a></li>
-          <li><a href="yongsan-sul-anju.html">술과 안주<span class="n">1</span></a></li>
-          <li><a href="yongsan-cafe.html">카페·디저트<span class="n">2</span></a></li>
-          <li><a href="yongsan-usadan.html">우사단로<span class="n">2</span></a></li>
+            <li><a href="yongsan-bapjip.html">밥집<span class="n">2</span></a></li>
+            <li><a href="yongsan-gogi.html">고기<span class="n">2</span></a></li>
+            <li><a href="yongsan-gukmul-myeon.html">국물과 면<span class="n">2</span></a></li>
+            <li><a href="yongsan-iguk.html">이국<span class="n">1</span></a></li>
+            <li><a href="yongsan-sul-anju.html">술과 안주<span class="n">1</span></a></li>
+            <li><a href="yongsan-cafe.html">카페·디저트<span class="n">2</span></a></li>
+            <li><a href="yongsan-usadan.html">우사단로<span class="n">2</span></a></li>
         </ul>
-      </li>
-
-    </ol>
+      </div>
+    </div>
+    <div class="sido-panel" data-sido="busan" hidden>
+      <h3>부산 <span class="s-n">1개 구 · 14곳</span></h3>
+      <div class="gu">
+        <h4>해운대구<span class="g-n">14곳</span></h4>
+        <ul class="area-cats">
+            <li><a href="haeundae-bapjip.html">밥집<span class="n">2</span></a></li>
+            <li><a href="haeundae-gogi.html">고기<span class="n">2</span></a></li>
+            <li><a href="haeundae-gukmul-myeon.html">국물과 면<span class="n">3</span></a></li>
+            <li><a href="haeundae-iguk.html">이국<span class="n">2</span></a></li>
+            <li><a href="haeundae-sul-anju.html">술과 안주<span class="n">–</span></a></li>
+            <li><a href="haeundae-cafe.html">카페·디저트<span class="n">2</span></a></li>
+            <li><a href="haeundae-michelin.html">미쉐린 해운대<span class="n">7</span></a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
   </section>
 
   <section class="faq" id="faq">
@@ -1734,6 +1829,9 @@ footer p{margin:0}
     if(!v){
       items.forEach(function(li){ li.classList.remove('is-hidden'); });
       secs.forEach(function(s){ s.classList.remove('is-hidden'); });
+      document.querySelectorAll('.kmap').forEach(function(k){ k.classList.remove('is-hidden'); });
+      if(typeof closeAll === 'function') closeAll();
+      if(tiles.length) openSido(tiles[tiles.length-1].dataset.sido, false);
       jump.classList.remove('is-hidden');
       info.textContent = '';
       return;
@@ -1747,6 +1845,9 @@ footer p{margin:0}
     secs.forEach(function(s){
       s.classList.toggle('is-hidden', s.querySelectorAll('li:not(.is-hidden)').length === 0);
     });
+    // 검색 중에는 시도 패널을 모두 펼쳐 맛집 결과도 보이게 합니다
+    panels.forEach(function(p){ p.hidden = false; });
+    document.querySelectorAll('.kmap').forEach(function(k){ k.classList.add('is-hidden'); });
     jump.classList.add('is-hidden');
     info.textContent = hit ? hit + '개 찾음' : '검색 결과가 없습니다. 다른 단어로 찾아보세요.';
   }
@@ -1774,6 +1875,39 @@ footer p{margin:0}
       panels.forEach(function(p){ p.classList.toggle('is-hidden', p.dataset.panel !== key); });
     });
   });
+
+
+  /* ---------- 전국 시도 지도 ---------- */
+  var tiles  = Array.prototype.slice.call(document.querySelectorAll('button.tile'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.sido-panel'));
+  var hint   = document.getElementById('kmap-hint');
+  var hintText = hint ? hint.innerHTML : '';
+
+  function openSido(key, scroll){
+    tiles.forEach(function(b){ b.setAttribute('aria-expanded', String(b.dataset.sido === key)); });
+    panels.forEach(function(p){ p.hidden = (p.dataset.sido !== key); });
+    if(hint) hint.innerHTML = '다른 지역을 누르면 바뀝니다. 한 번 더 누르면 닫힙니다.';
+    if(scroll){
+      var open = panels.filter(function(p){ return !p.hidden; })[0];
+      if(open) open.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+  }
+  function closeAll(){
+    tiles.forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+    panels.forEach(function(p){ p.hidden = true; });
+    if(hint) hint.innerHTML = hintText;
+  }
+
+  tiles.forEach(function(btn){
+    btn.setAttribute('aria-expanded','false');
+    btn.addEventListener('click', function(){
+      if(btn.getAttribute('aria-expanded') === 'true') closeAll();
+      else openSido(btn.dataset.sido, true);
+    });
+  });
+
+  // 첫 화면에서는 가장 최근에 추가된 지역을 열어 둡니다.
+  if(tiles.length) openSido(tiles[tiles.length - 1].dataset.sido, false);
 
   /* ---------- 더치페이 라이브 위젯 ---------- */
   var wTotal  = document.getElementById('w-total');
