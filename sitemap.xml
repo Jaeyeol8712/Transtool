@@ -3,9 +3,9 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 77 URL
+  총 119 URL
     · 홈 1 / 계산기·도구 41 / 가이드 2
-    · 맛집 28 (연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7)
+    · 맛집 70 (연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
 -->
@@ -511,6 +511,302 @@
   <!-- 맛집 · 서울 용산구 우사단로 지역슬롯 (2곳) -->
   <url>
     <loc>https://www.aroundtool.com/yongsan-usadan.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맛집 · 강원 속초시 밥집 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 고기 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 국물과 면 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 술과 안주 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 강원 속초시 아바이마을 지역슬롯 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/sokcho-abai.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맛집 · 대전 동구 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 국물과 면 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 동구 대전역 노포 (지역 슬롯) (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-donggu-station.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 밥집 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 국물과 면 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 이국 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 카페·디저트 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 중구 두부두루치기 (지역 슬롯) (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-junggu-durus.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 밥집 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 국물과 면 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 서구 둔산 신도심 (지역 슬롯) (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-seogu-dunsan.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 이국 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 카페·디저트 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 유성구 봉명동 (지역 슬롯) (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-yuseong-bongmyeong.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 고기 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 국물과 면 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 술과 안주 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 카페·디저트 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 대전 대덕구 신탄진 (지역 슬롯) (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/daejeon-daedeok-sintanjin.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
