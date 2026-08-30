@@ -34,6 +34,5 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
-Disallow: /portfolio.html
-s
 Sitemap: https://www.aroundtool.com/sitemap.xml
+Sitemap: https://www.aroundtool.com/feed.xml

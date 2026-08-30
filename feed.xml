@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  어라운드툴 맛집 콘텐츠 RSS 피드
+  네이버 서치어드바이저 → 요청 → RSS 제출 에 등록하세요.
+  새 지역을 추가할 때마다 이 파일에 <item> 을 위에 끼워 넣으면 됩니다.
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>어라운드툴 — 전국 맛집 기록</title>
+    <link>https://www.aroundtool.com/#food</link>
+    <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>광고와 협찬을 배제하고 선정 근거를 공개하는 지역 맛집 기록. 리뷰 수보다 재방문 언급을 봅니다.</description>
+    <language>ko</language>
+    <lastBuildDate>Sat, 29 Aug 2026 09:00:00 +0900</lastBuildDate>
+    <generator>aroundtool</generator>
+
+    <item>
+      <title>우사단로 이슬람 거리 — 서울 안의 할랄 푸드 거리 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-usadan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-usadan.html</guid>
+      <description>서울 용산구 우사단로 이슬람 거리 안내. 1976년 개원한 서울중앙성원을 중심으로 형성된 터키·이집트·레바논·파키스탄 할랄 음식 거리의 역사와 방문 가이드, 그리고 확인하지 못한 항목까지 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 국물과 면 — 50년 감자탕 노포와 손칼국수 2곳 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-gukmul-myeon.html</guid>
+      <description>서울 용산구 국물 요리. 후암동 50년 감자탕 노포 일미집과 용산역 정성손칼국수. 주소·검증 근거·단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 이국 — 미쉐린 빕구르망 타이 비스트로 유한 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-iguk.html</guid>
+      <description>서울 용산구 이국 요리. 미쉐린 가이드 2026 빕 구르망에 오른 한남동 타이 비스트로 유한. 김유한 셰프의 태국식 소시지와 커리 요리를 소개합니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 밥집 — 후암동 순대국과 용산동 생선구이 2곳 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-bapjip.html</guid>
+      <description>서울 용산구 밥집. 다이닝코드 후암로 순대국 1위 순대국가마솥족발과 용산동 노포 대원식당. 검증 근거와 단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 고기 — 대구식 막창과 연탄 삼겹살 2곳 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-gogi.html</guid>
+      <description>서울 용산구 고깃집. 용산역 노포 손문 대구막창 갈매기살과 쌍대포소금구이. 다이닝코드 근거와 단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 카페·디저트 — 후암동 콤포타블과 더백푸드트럭 2곳 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-cafe.html</guid>
+      <description>서울 용산구 카페. 다이닝코드 후암동 1위 콤포타블과 수제버거 더백푸드트럭. 이태원·한남 대신 후암동을 본 이유를 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>용산 술과 안주 — 용산역 은행나무포차 | 서울 용산구 맛집 기록</title>
+      <link>https://www.aroundtool.com/yongsan-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/yongsan-sul-anju.html</guid>
+      <description>서울 용산구 술집. 다이닝코드 용산역 노포 부문 ★4.7 은행나무포차. 이태원 상권을 제외한 이유와 검증 근거를 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>미쉐린 해운대 — 1스타 3곳·빕구르망 4곳 전체 정리 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-michelin.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-michelin.html</guid>
+      <description>2026 미쉐린 가이드 부산 기준 해운대구 수록 7곳. 1스타 Mori·Fiotto·Palette와 빕 구르망 뫼밀집·해목·나가하마만게츠·부다면옥의 주소와 장르를 정리했습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 국물과 면 — 미쉐린 빕구르망 메밀·냉면과 밀면 노포 3곳 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-gukmul-myeon.html</guid>
+      <description>부산 해운대구 면 요리. 2026 미쉐린 빕 구르망 뫼밀집·부다면옥과 밀면 노포 해운대밀면. 주소·영업시간·검증 근거와 단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 이국 — 미쉐린 빕구르망 일식 2곳 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-iguk.html</guid>
+      <description>부산 해운대구 이국 요리. 미쉐린 빕 구르망 수록 나고야식 장어덮밥 해목과 후쿠오카식 돈코츠 라멘 나가하마만게츠. 주소와 검증 근거를 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 밥집 — 곰탕·돼지국밥 2곳 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-bapjip.html</guid>
+      <description>부산 해운대구 밥집. 다이닝코드 해운대 전체 1위 거대곰탕과 24시간 영업하는 수변최고돼지국밥. 검증 근거와 단점을 함께 밝힌 기록입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 고기 — 암소갈비 2곳 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-gogi.html</guid>
+      <description>부산 해운대구 고깃집. 지역 대표 노포 해운대암소갈비집과 다이닝코드 소고기 1위 대궐암소갈비. 검증 근거와 단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 카페·디저트 — 소금빵과 스페셜티 로스터리 2곳 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-cafe.html</guid>
+      <description>부산 해운대구 카페. 다이닝코드 베이커리 1위 자연도 소금빵과 부산 대표 로스터리 모모스커피. 확인된 근거와 확인하지 못한 항목을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해운대 술과 안주 — 조사 중 | 부산 해운대구 맛집 기록</title>
+      <link>https://www.aroundtool.com/haeundae-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/haeundae-sul-anju.html</guid>
+      <description>부산 해운대구 술집은 아직 검증을 통과한 곳이 없어 비워 두었습니다. 목록을 채우기보다 근거를 갖춘 뒤 추가합니다. 대신 24시간 국밥집을 안내합니다.</description>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강남 노포 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-nopo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-nopo.html</guid>
+      <description>1977년 추어탕, 1988년 분식집, 30년 차돌박이. 강남 임대료를 버틴 집들.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>국물과 면 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-gukmul-myeon.html</guid>
+      <description>강남구에서 가장 층이 두꺼운 카테고리. 순대국, 평양냉면, 곱창전골 세 곳.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>밥집 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-bapjip.html</guid>
+      <description>강남구 추어탕과 부대찌개. 1977년과 백년가게 인증으로 검증한 두 곳.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고기 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-gogi.html</guid>
+      <description>역삼동 30년 차돌박이와 논현동 영동시장 갈비. 회식 자리를 가르는 두 곳.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>이국 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-iguk.html</guid>
+      <description>미쉐린 빕구르망 딤섬과 백년가게 북경오리. 공인된 근거가 있는 두 곳.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>술과 안주 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-sul-anju.html</guid>
+      <description>24시간 곱창전골과 1988년 분식 노포. 강남에서 늦게까지 여는 곳.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>카페·디저트 — 서울 강남구 식당 기록</title>
+      <link>https://www.aroundtool.com/gangnam-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gangnam-cafe.html</guid>
+      <description>다이닝코드 강남 베이커리 최상위 베통. 아직 얇은 카테고리입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 07:00:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss>

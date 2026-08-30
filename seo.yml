@@ -1,0 +1,72 @@
+name: SEO 자동화
+
+# HTML 이 바뀌어 main 에 올라갈 때마다 실행됩니다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+  # 필요할 때 손으로도 돌릴 수 있습니다.
+  workflow_dispatch:
+    inputs:
+      submit_all:
+        description: "sitemap 전체 URL 을 다시 보낼까요?"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 소스 받기
+        uses: actions/checkout@v4
+        with:
+          # lastmod 계산과 git diff 에 커밋 이력이 필요합니다.
+          fetch-depth: 0
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # ── 1. sitemap lastmod 를 실제 커밋 날짜로 맞춤 ──
+      - name: sitemap lastmod 갱신
+        run: node scripts/update-sitemap.mjs
+        env:
+          SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
+
+      - name: sitemap 변경분 커밋
+        run: |
+          if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sitemap.xml
+            git commit -m "chore: sitemap lastmod 자동 갱신"
+            git push
+          else
+            echo "· sitemap 변경 없음"
+          fi
+
+      # ── 2. 네이버·Bing 등에 색인 요청 ──
+      - name: IndexNow 전송
+        run: |
+          if [[ "${{ inputs.submit_all }}" == "true" ]]; then
+            node scripts/indexnow.mjs --all
+          else
+            node scripts/indexnow.mjs
+          fi
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
+
+      # ── 3. 구글에는 사이트맵 재제출만 가능 (선택) ──
+      # 구글은 IndexNow 를 지원하지 않습니다. 아래는 sitemap ping 대체로,
+      # Search Console API 를 쓰려면 SEO-AUTOMATION.md 의 안내를 따르세요.
+      - name: 요약
+        run: |
+          echo "네이버·Bing·Yandex·Seznam → IndexNow 전송 완료"
+          echo "구글 → sitemap lastmod 갱신으로 대응 (Indexing API 는 정책상 사용 불가)"
