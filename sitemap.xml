@@ -3,9 +3,9 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 70 URL
+  총 77 URL
     · 홈 1 / 계산기·도구 41 / 가이드 2
-    · 맛집 21 (연수구 7 + 강남구 7 + 해운대구 7)
+    · 맛집 28 (연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7)
     · 사이트맵·정책 5
   ============================================================
 -->
@@ -466,6 +466,56 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- 맛집 · 서울 용산구 밥집 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 고기 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 국물과 면 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 이국 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 술과 안주 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 서울 용산구 우사단로 지역슬롯 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-usadan.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- 사이트맵 — 전체 페이지 목록 -->
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
