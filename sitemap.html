@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사이트맵 — 어라운드툴 전체 페이지 목록</title>
-<meta name="description" content="어라운드툴의 모든 페이지를 한눈에. 계산기 41종, 가이드 2편, 전국 맛집 15개 시군구 105페이지, 사이트 정보를 카테고리별로 정리했습니다.">
+<meta name="description" content="어라운드툴의 모든 페이지를 한눈에. 계산기 41종, 가이드 2편, 전국 맛집 15개 시군구 105페이지를 카테고리별로 정리했습니다.">
 <link rel="canonical" href="https://www.aroundtool.com/sitemap.html">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0D7A6F">
@@ -20,10 +20,11 @@
 <style>
 :root{
   --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
-  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-dark:#095B53;--brand-tint:#E2F1EF;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-tint:#E2F1EF;
   --c-finance:#1B6FB8;--t-finance:#E9F1FA;--c-job:#B5690E;--t-job:#FBF1E1;
   --c-life:#1B855C;--t-life:#E5F4EC;--c-text:#7A5CA8;--t-text:#F1ECF9;
-  --c-info:#4A5A66;--t-info:#EBEFF2;--c-food:#BC3C3C;--t-food:#FBECEC;
+  --c-guide:#4A5A66;--t-guide:#EBEFF2;--c-food:#BC3C3C;--t-food:#FBECEC;
+  --c-site:#5C6873;--t-site:#EEF0F1;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -32,7 +33,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
   font-size:16px;line-height:1.7;letter-spacing:-0.01em}
 .wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
 a{color:inherit}
-h1,h2,h3{margin:0}
+h1,h2,h3,h4{margin:0}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
 .top{border-bottom:1px solid var(--rule);background:var(--panel)}
@@ -68,26 +69,29 @@ main{padding:1.75rem 0 0}
 .smap--job h2{background:var(--t-job);border-top-color:var(--c-job);color:var(--c-job)}
 .smap--life h2{background:var(--t-life);border-top-color:var(--c-life);color:var(--c-life)}
 .smap--text h2{background:var(--t-text);border-top-color:var(--c-text);color:var(--c-text)}
-.smap--info h2{background:var(--t-info);border-top-color:var(--c-info);color:var(--c-info)}
+.smap--guide h2{background:var(--t-guide);border-top-color:var(--c-guide);color:var(--c-guide)}
 .smap--food h2{background:var(--t-food);border-top-color:var(--c-food);color:var(--c-food)}
+.smap--site h2{background:var(--t-site);border-top-color:var(--c-site);color:var(--c-site)}
 
+/* 맛집: 시도 > 시군구 2단 */
+.smap-sido{font-size:.8125rem;font-weight:700;letter-spacing:.02em;color:var(--c-food);
+  background:var(--t-food);padding:.45rem 1.1rem;border-top:1px solid var(--rule)}
+.smap--food .smap-sido:first-of-type{border-top:none}
 .smap-sub{display:flex;align-items:baseline;gap:.5rem;font-size:.875rem;font-weight:700;
-  padding:.9rem 1.1rem .5rem;border-top:1px solid var(--rule)}
+  padding:.8rem 1.1rem .45rem}
 .smap-sub .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
   font-weight:500;color:var(--soft)}
-.smap--food .smap-sub:first-of-type{border-top:none}
 
 .smap-list{list-style:none;margin:0;padding:0 1.1rem 1rem;
   display:grid;grid-template-columns:1fr;gap:0}
-.smap-list li{border-bottom:1px dotted var(--rule)}
-.smap-list a{display:flex;align-items:baseline;gap:.5rem;
+.smap-list li{border-bottom:1px dotted var(--rule);
+  display:flex;align-items:baseline;gap:.4rem;justify-content:space-between}
+.smap-list a{display:flex;align-items:baseline;gap:.5rem;flex:1;
   text-decoration:none;font-size:.875rem;padding:.55rem .15rem;color:var(--ink)}
 .smap-list a::before{content:"·";color:var(--soft);flex-shrink:0}
 .smap-list a:hover{color:var(--brand)}
 .smap-list .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-  color:var(--soft);flex-shrink:0}
-.smap-list li:has(.n){display:flex;align-items:baseline;gap:.4rem;justify-content:space-between}
-.smap-list li > .n{padding-right:.15rem}
+  color:var(--soft);flex-shrink:0;padding-right:.15rem}
 
 .note{margin:0 0 2rem;padding:1.05rem 1.2rem;background:var(--panel);
   border:1px solid var(--rule);border-radius:4px;font-size:.8125rem;
@@ -133,7 +137,7 @@ footer p{margin:0}
    "@type": "CollectionPage",
    "name": "어라운드툴 사이트맵",
    "url": "https://www.aroundtool.com/sitemap.html",
-   "description": "어라운드툴의 모든 페이지를 카테고리별로 정리한 전체 목록입니다.",
+   "description": "어라운드툴의 모든 페이지 154개를 카테고리별로 정리한 전체 목록입니다.",
    "inLanguage": "ko-KR"
   }
  ]
@@ -157,6 +161,7 @@ footer p{margin:0}
       <li>계산기·도구 <b>41</b></li>
       <li>가이드 <b>2</b></li>
       <li>맛집 <b>15개 시군구 · 105페이지</b></li>
+      <li>전체 <b>154페이지</b></li>
       <li>최종 갱신 <b>2026-08-29</b></li>
     </ul>
   </div>
@@ -227,7 +232,41 @@ footer p{margin:0}
       <li><a href="spell_checker.html">맞춤법 검사기</a></li>
       <li><a href="spacing_checker.html">띄어쓰기 검사기</a></li>
     </ul>
-    <h3 class="smap-sub">서울 용산구<span class="n">12곳</span></h3>
+  </section>
+
+  <section class="smap smap--guide">
+    <h2>정보 및 가이드<span class="cnt">2</span></h2>
+    <ul class="smap-list">
+      <li><a href="guide_2026_wage.html">2026년 최저임금·노동법 가이드</a></li>
+      <li><a href="guide_2026_tax.html">2026년 세금·연말정산 가이드</a></li>
+    </ul>
+  </section>
+
+  <section class="smap smap--food">
+    <h2>전국 맛집<span class="cnt">15개 시군구 · 106곳</span></h2>
+    <h3 class="smap-sido">인천광역시</h3>
+    <h4 class="smap-sub">연수구<span class="n">23곳</span></h4>
+    <ul class="smap-list">
+      <li><a href="yeonsu-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="yeonsu-gogi.html">고기</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-iguk.html">이국</a><span class="n">5곳</span></li>
+      <li><a href="yeonsu-sul-anju.html">술과 안주</a><span class="n">3곳</span></li>
+      <li><a href="yeonsu-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
+      <li><a href="yeonsu-hambak.html">함박마을 (지역 슬롯)</a><span class="n">5곳</span></li>
+    </ul>
+    <h3 class="smap-sido">서울특별시</h3>
+    <h4 class="smap-sub">강남구<span class="n">11곳</span></h4>
+    <ul class="smap-list">
+      <li><a href="gangnam-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-gogi.html">고기</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="gangnam-iguk.html">이국</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-sul-anju.html">술과 안주</a><span class="n">2곳</span></li>
+      <li><a href="gangnam-cafe.html">카페·디저트</a><span class="n">1곳</span></li>
+      <li><a href="gangnam-nopo.html">강남 노포 (지역 슬롯)</a><span class="n">5곳</span></li>
+    </ul>
+    <h4 class="smap-sub">용산구<span class="n">12곳</span></h4>
     <ul class="smap-list">
       <li><a href="yongsan-bapjip.html">밥집</a><span class="n">2곳</span></li>
       <li><a href="yongsan-gogi.html">고기</a><span class="n">2곳</span></li>
@@ -237,7 +276,19 @@ footer p{margin:0}
       <li><a href="yongsan-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
       <li><a href="yongsan-usadan.html">우사단로 (지역 슬롯)</a><span class="n">2곳</span></li>
     </ul>
-    <h3 class="smap-sub">강원 속초시<span class="n">12곳</span></h3>
+    <h3 class="smap-sido">부산광역시</h3>
+    <h4 class="smap-sub">해운대구<span class="n">14곳</span></h4>
+    <ul class="smap-list">
+      <li><a href="haeundae-bapjip.html">밥집</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-gogi.html">고기</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
+      <li><a href="haeundae-iguk.html">이국</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-sul-anju.html">술과 안주</a><span class="n">조사 중</span></li>
+      <li><a href="haeundae-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
+      <li><a href="haeundae-michelin.html">미쉐린 해운대 (지역 슬롯)</a><span class="n">7곳</span></li>
+    </ul>
+    <h3 class="smap-sido">강원특별자치도</h3>
+    <h4 class="smap-sub">속초시<span class="n">12곳</span></h4>
     <ul class="smap-list">
       <li><a href="sokcho-bapjip.html">밥집</a><span class="n">2곳</span></li>
       <li><a href="sokcho-gogi.html">고기</a><span class="n">1곳</span></li>
@@ -247,7 +298,8 @@ footer p{margin:0}
       <li><a href="sokcho-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
       <li><a href="sokcho-abai.html">아바이마을 (지역 슬롯)</a><span class="n">2곳</span></li>
     </ul>
-    <h3 class="smap-sub">대전 동구<span class="n">5곳</span></h3>
+    <h3 class="smap-sido">대전광역시</h3>
+    <h4 class="smap-sub">동구<span class="n">5곳</span></h4>
     <ul class="smap-list">
       <li><a href="daejeon-donggu-bapjip.html">밥집</a><span class="n">1곳</span></li>
       <li><a href="daejeon-donggu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -257,7 +309,7 @@ footer p{margin:0}
       <li><a href="daejeon-donggu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="daejeon-donggu-station.html">대전역 노포 (지역 슬롯)</a><span class="n">2곳</span></li>
     </ul>
-    <h3 class="smap-sub">대전 중구<span class="n">6곳</span></h3>
+    <h4 class="smap-sub">중구<span class="n">6곳</span></h4>
     <ul class="smap-list">
       <li><a href="daejeon-junggu-bapjip.html">밥집</a><span class="n">조사 중</span></li>
       <li><a href="daejeon-junggu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -267,7 +319,7 @@ footer p{margin:0}
       <li><a href="daejeon-junggu-cafe.html">카페·디저트</a><span class="n">1곳</span></li>
       <li><a href="daejeon-junggu-durus.html">두부두루치기 (지역 슬롯)</a><span class="n">3곳</span></li>
     </ul>
-    <h3 class="smap-sub">대전 서구<span class="n">3곳</span></h3>
+    <h4 class="smap-sub">서구<span class="n">3곳</span></h4>
     <ul class="smap-list">
       <li><a href="daejeon-seogu-bapjip.html">밥집</a><span class="n">조사 중</span></li>
       <li><a href="daejeon-seogu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -277,7 +329,7 @@ footer p{margin:0}
       <li><a href="daejeon-seogu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="daejeon-seogu-dunsan.html">둔산 신도심 (지역 슬롯)</a><span class="n">2곳</span></li>
     </ul>
-    <h3 class="smap-sub">대전 유성구<span class="n">6곳</span></h3>
+    <h4 class="smap-sub">유성구<span class="n">6곳</span></h4>
     <ul class="smap-list">
       <li><a href="daejeon-yuseong-bapjip.html">밥집</a><span class="n">1곳</span></li>
       <li><a href="daejeon-yuseong-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -287,7 +339,7 @@ footer p{margin:0}
       <li><a href="daejeon-yuseong-cafe.html">카페·디저트</a><span class="n">1곳</span></li>
       <li><a href="daejeon-yuseong-bongmyeong.html">봉명동 (지역 슬롯)</a><span class="n">3곳</span></li>
     </ul>
-    <h3 class="smap-sub">대전 대덕구<span class="n">4곳</span></h3>
+    <h4 class="smap-sub">대덕구<span class="n">4곳</span></h4>
     <ul class="smap-list">
       <li><a href="daejeon-daedeok-bapjip.html">밥집</a><span class="n">1곳</span></li>
       <li><a href="daejeon-daedeok-gogi.html">고기</a><span class="n">1곳</span></li>
@@ -297,7 +349,8 @@ footer p{margin:0}
       <li><a href="daejeon-daedeok-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="daejeon-daedeok-sintanjin.html">신탄진 (지역 슬롯)</a><span class="n">2곳</span></li>
     </ul>
-    <h3 class="smap-sub">광주 동구<span class="n">1곳</span></h3>
+    <h3 class="smap-sido">광주광역시</h3>
+    <h4 class="smap-sub">동구<span class="n">1곳</span></h4>
     <ul class="smap-list">
       <li><a href="gwangju-donggu-bapjip.html">밥집</a><span class="n">1곳</span></li>
       <li><a href="gwangju-donggu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -307,7 +360,7 @@ footer p{margin:0}
       <li><a href="gwangju-donggu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-donggu-chungjang.html">충장로 원도심 (지역 슬롯)</a><span class="n">조사 중</span></li>
     </ul>
-    <h3 class="smap-sub">광주 서구<span class="n">1곳</span></h3>
+    <h4 class="smap-sub">서구<span class="n">1곳</span></h4>
     <ul class="smap-list">
       <li><a href="gwangju-seogu-bapjip.html">밥집</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-seogu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -317,7 +370,7 @@ footer p{margin:0}
       <li><a href="gwangju-seogu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-seogu-sangmu.html">상무지구 (지역 슬롯)</a><span class="n">1곳</span></li>
     </ul>
-    <h3 class="smap-sub">광주 남구<span class="n">0곳</span></h3>
+    <h4 class="smap-sub">남구<span class="n">조사 중</span></h4>
     <ul class="smap-list">
       <li><a href="gwangju-namgu-bapjip.html">밥집</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-namgu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -327,7 +380,7 @@ footer p{margin:0}
       <li><a href="gwangju-namgu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-namgu-yangnim.html">양림동 (지역 슬롯)</a><span class="n">조사 중</span></li>
     </ul>
-    <h3 class="smap-sub">광주 북구<span class="n">2곳</span></h3>
+    <h4 class="smap-sub">북구<span class="n">2곳</span></h4>
     <ul class="smap-list">
       <li><a href="gwangju-bukgu-bapjip.html">밥집</a><span class="n">1곳</span></li>
       <li><a href="gwangju-bukgu-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -337,7 +390,7 @@ footer p{margin:0}
       <li><a href="gwangju-bukgu-cafe.html">카페·디저트</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-bukgu-oritang.html">유동오리탕거리 (지역 슬롯)</a><span class="n">1곳</span></li>
     </ul>
-    <h3 class="smap-sub">광주 광산구<span class="n">6곳</span></h3>
+    <h4 class="smap-sub">광산구<span class="n">6곳</span></h4>
     <ul class="smap-list">
       <li><a href="gwangju-gwangsan-bapjip.html">밥집</a><span class="n">조사 중</span></li>
       <li><a href="gwangju-gwangsan-gogi.html">고기</a><span class="n">조사 중</span></li>
@@ -349,49 +402,7 @@ footer p{margin:0}
     </ul>
   </section>
 
-  <section class="smap smap--info">
-    <h2>정보 및 가이드<span class="cnt">2</span></h2>
-    <ul class="smap-list">
-      <li><a href="guide_2026_wage.html">2026년 최저임금·노동법 가이드</a></li>
-      <li><a href="guide_2026_tax.html">2026년 세금·연말정산 가이드</a></li>
-    </ul>
-  </section>
-
-  <section class="smap smap--food">
-    <h2>전국 맛집<span class="cnt">15개 시군구 · 106곳</span></h2>
-    <h3 class="smap-sub">인천 연수구<span class="n">23곳</span></h3>
-    <ul class="smap-list">
-      <li><a href="yeonsu-bapjip.html">밥집</a><span class="n">2곳</span></li>
-      <li><a href="yeonsu-gogi.html">고기</a><span class="n">3곳</span></li>
-      <li><a href="yeonsu-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
-      <li><a href="yeonsu-iguk.html">이국</a><span class="n">5곳</span></li>
-      <li><a href="yeonsu-sul-anju.html">술과 안주</a><span class="n">3곳</span></li>
-      <li><a href="yeonsu-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
-      <li><a href="yeonsu-hambak.html">함박마을 (지역 슬롯)</a><span class="n">5곳</span></li>
-    </ul>
-    <h3 class="smap-sub">서울 강남구<span class="n">11곳</span></h3>
-    <ul class="smap-list">
-      <li><a href="gangnam-bapjip.html">밥집</a><span class="n">2곳</span></li>
-      <li><a href="gangnam-gogi.html">고기</a><span class="n">2곳</span></li>
-      <li><a href="gangnam-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
-      <li><a href="gangnam-iguk.html">이국</a><span class="n">2곳</span></li>
-      <li><a href="gangnam-sul-anju.html">술과 안주</a><span class="n">2곳</span></li>
-      <li><a href="gangnam-cafe.html">카페·디저트</a><span class="n">1곳</span></li>
-      <li><a href="gangnam-nopo.html">강남 노포 (지역 슬롯)</a><span class="n">5곳</span></li>
-    </ul>
-    <h3 class="smap-sub">부산 해운대구<span class="n">14곳</span></h3>
-    <ul class="smap-list">
-      <li><a href="haeundae-bapjip.html">밥집</a><span class="n">2곳</span></li>
-      <li><a href="haeundae-gogi.html">고기</a><span class="n">2곳</span></li>
-      <li><a href="haeundae-gukmul-myeon.html">국물과 면</a><span class="n">3곳</span></li>
-      <li><a href="haeundae-iguk.html">이국</a><span class="n">2곳</span></li>
-      <li><a href="haeundae-sul-anju.html">술과 안주</a><span class="n">조사 중</span></li>
-      <li><a href="haeundae-cafe.html">카페·디저트</a><span class="n">2곳</span></li>
-      <li><a href="haeundae-michelin.html">미쉐린 해운대 (지역 슬롯)</a><span class="n">7곳</span></li>
-    </ul>
-  </section>
-
-  <section class="smap smap--info">
+  <section class="smap smap--site">
     <h2>사이트 정보<span class="cnt">6</span></h2>
     <ul class="smap-list">
       <li><a href="index.html">홈 — 계산기와 맛집 전체</a></li>
@@ -405,7 +416,7 @@ footer p{margin:0}
 
   <div class="note">
     <b>검색엔진용 XML 사이트맵</b>은 <a href="sitemap.xml">/sitemap.xml</a>에 있습니다.
-    AI 검색 엔진용 요약은 <a href="llms.txt">/llms.txt</a>에서 확인할 수 있습니다.
+    AI 검색 엔진용 요약은 <a href="llms.txt">/llms.txt</a>, 맛집 콘텐츠 RSS는 <a href="feed.xml">/feed.xml</a>에서 확인할 수 있습니다.
   </div>
 
 </main>
