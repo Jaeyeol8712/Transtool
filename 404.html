@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>준비 중입니다 — 어라운드툴</title>
+<meta name="description" content="요청하신 페이지는 서비스 준비를 위한 자료 조사 중입니다. 계산기 41종과 전국 맛집 17개 시군구 기록을 이용하실 수 있습니다.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0D7A6F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-tint:#E2F1EF;
+  --warn:#C99A2E;--t-warn:#FBF1E1;--c-food:#BC3C3C;--t-food:#FBECEC;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.25rem}
+a{color:inherit}
+h1,h2,h3{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--brand)}
+.top nav{display:flex;gap:1rem;font-size:.8125rem}
+.top nav a{color:var(--soft);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+.hero{padding:3.5rem 0 2.5rem;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:.45rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.12em;
+  font-weight:600;color:#8A6D1F;background:var(--t-warn);border:1px solid #EBDCBE;
+  border-radius:99px;padding:.3rem .8rem;margin-bottom:1.4rem}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--warn)}
+.hero h1{font-family:"Gowun Batang",serif;font-weight:700;
+  font-size:clamp(1.875rem,7vw,2.5rem);line-height:1.25;
+  margin:0 0 1rem;letter-spacing:-0.02em}
+.hero p{color:var(--soft);margin:0 auto;font-size:1rem;max-width:30rem}
+
+.steps{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;
+  padding:1.5rem 1.6rem;margin:2.25rem 0 0}
+.steps h2{font-size:.75rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--soft);font-weight:600;margin:0 0 1.1rem}
+.steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding-left:2.1rem;
+  font-size:.9375rem;line-height:1.7;color:var(--soft);margin-bottom:.7rem}
+.steps li:last-child{margin-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.15rem;
+  width:1.4rem;height:1.4rem;border-radius:50%;background:var(--panel-alt);
+  border:1px solid var(--rule-strong);font-family:"IBM Plex Mono",monospace;
+  font-size:.6875rem;font-weight:600;color:var(--soft);
+  display:flex;align-items:center;justify-content:center}
+.steps li.done::before{background:#1B855C;border-color:#1B855C;color:#fff;content:"\2713"}
+.steps li.now::before{background:var(--warn);border-color:var(--warn);color:#fff}
+.steps b{color:var(--ink);font-weight:600}
+
+.go{display:grid;grid-template-columns:1fr;gap:1px;margin:2rem 0 0;
+  background:var(--rule);border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.go a{background:var(--panel);text-decoration:none;padding:1.1rem 1.3rem;
+  display:block;transition:background .12s ease}
+.go a:hover{background:var(--brand-tint)}
+.go .t{font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.go .t::after{content:"→";color:var(--soft);font-weight:400}
+.go a:hover .t::after{color:var(--brand)}
+.go .d{font-size:.8125rem;color:var(--soft);margin-top:.2rem}
+
+.note{margin:2rem 0 0;padding:1.05rem 1.2rem;background:var(--panel);
+  border:1px solid var(--rule);border-radius:4px;font-size:.8125rem;
+  color:var(--soft);line-height:1.75}
+.note b{color:var(--ink);font-weight:600}
+.note a{color:var(--brand);text-decoration:none;font-weight:500}
+
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+@media (min-width:34rem){ .go{grid-template-columns:1fr 1fr} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <nav>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/about.html">소개</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">자료 조사 중</span>
+    <h1>아직 준비 중인 페이지입니다</h1>
+    <p>찾으시는 내용은 서비스 준비를 위해 자료를 조사하고 있습니다.
+    근거가 확인되는 대로 순차적으로 공개합니다.</p>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="steps">
+    <h2>어떤 단계인가</h2>
+    <ol>
+      <li class="done"><b>후보 수집</b> — 지역 랭킹과 공공 자료에서 이름을 모읍니다</li>
+      <li class="now"><b>근거 교차 확인</b> — 협찬·체험단 표기가 있는 글을 걸러내고, 서로 무관한 출처에서 겹치는지 봅니다</li>
+      <li><b>단점 확인</b> — 주차, 웨이팅, 휴무, 플랫폼별 평점 차이를 함께 찾습니다</li>
+      <li><b>공개</b> — 확인한 것과 확인하지 못한 것을 나눠 표시해 올립니다</li>
+    </ol>
+  </div>
+
+  <div class="go">
+    <a href="/">
+      <span class="t">홈으로</span>
+      <span class="d">계산기 41종과 전국 맛집 지도</span>
+    </a>
+    <a href="/sitemap.html">
+      <span class="t">전체 페이지 보기</span>
+      <span class="d">공개된 모든 페이지 목록</span>
+    </a>
+    <a href="/#food">
+      <span class="t">전국 맛집</span>
+      <span class="d">17개 시군구 129곳</span>
+    </a>
+    <a href="/about.html">
+      <span class="t">선정 기준</span>
+      <span class="d">어떤 근거로 고르는지</span>
+    </a>
+  </div>
+
+  <div class="note">
+    <b>주소를 잘못 입력하셨을 수도 있습니다.</b>
+    <a href="/sitemap.html">사이트맵</a>에서 원하시는 페이지를 찾아보세요.
+    계속 같은 문제가 생기면 <a href="/contact.html">문의하기</a>로 알려주시면 확인하겠습니다.
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/about.html">사이트 소개</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/contact.html">문의하기</a>
+      <a href="/sitemap.html">사이트맵</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
