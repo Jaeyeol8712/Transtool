@@ -3,9 +3,9 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 154 URL
+  총 168 URL
     · 홈 1 / 계산기·도구 41 / 가이드 2
-    · 맛집 105 (광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
+    · 맛집 119 (제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
 -->
@@ -1053,6 +1053,105 @@
   <!-- 맛집 · 광주 광산구 송정리 떡갈비거리 (지역 슬롯) (3곳) -->
   <url>
     <loc>https://www.aroundtool.com/gwangju-gwangsan-songjeong.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맛집 · 제주 제주시 밥집 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 고기 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 국물과 면 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 이국 (조사 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 술과 안주 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 제주시 제주 향토국 (지역 슬롯) (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-jejusi-hyangto.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 밥집 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 고기 (3곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 국물과 면 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 이국 (1곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 술과 안주 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 카페·디저트 (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 제주 서귀포시 갈치 (지역 슬롯) (2곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeju-seogwipo-galchi.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
