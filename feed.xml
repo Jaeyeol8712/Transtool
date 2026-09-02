@@ -2,10 +2,10 @@
 <!--
   ============================================================
   어라운드툴 콘텐츠 RSS 피드
-  최종 갱신: 2026-08-29 · 121개 항목
+  최종 갱신: 2026-08-29 · 149개 항목
 
   [무엇이 들어 있나]
-    · 전국 맛집 119페이지
+    · 전국 맛집 147페이지
     · 연도별 가이드 2편
 
   [계산기가 없는 이유]
@@ -27,9 +27,233 @@
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>광고와 협찬을 배제하고 선정 근거를 공개하는 지역 맛집 기록, 그리고 매년 갱신하는 생활 가이드. 리뷰 수보다 재방문 언급을 봅니다.</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 29 Aug 2026 13:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 14:00:00 +0900</lastBuildDate>
     <generator>aroundtool</generator>
 
+    <item>
+      <title>남도음식거리 남부권 — 전라남도 공식 지정 6곳 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-namdo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-namdo.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 공식 지정 남도음식거리 중 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 소재 6곳. 보성 벌교 꼬막 · 고흥 녹동장어 · 장흥 바지락·키조개 · 강진 병영 돼지불고기 · 강진 마량 미항횟집거리 · 완도 전복. 한 곳당 10억 원을 들여 조성한 지자체 지정 음식거리입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 밥집 — 1곳 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-bapjip.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 밥집. 원조꼬막식당. 검증 근거와 단점을 함께 밝혔습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 고기 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-gogi.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 고기. 전라남도가 지정한 시군 대표 음식 장흥 한우삼합 · 강진 병영 돼지불고기.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 국물과 면 — 시군 대표 음식 1가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-gukmul-myeon.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 국물과 면. 전라남도가 지정한 시군 대표 음식 고흥 피굴.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 이국 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-iguk.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 이국은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 술과 안주 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-sul-anju.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 술과 안주. 전라남도가 지정한 시군 대표 음식 강진 마량 회 · 완도 전복.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 남부권 카페·디저트 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-nambu-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-nambu-cafe.html</guid>
+      <category>전남 남부권</category>
+      <description>전라남도 남부권(보성 · 고흥 · 장흥 · 강진 · 완도) 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>남도음식거리 서부권 — 전라남도 공식 지정 5곳 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-namdo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-namdo.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 공식 지정 남도음식거리 중 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 소재 5곳. 목포 평화광장 맛의 거리 · 무안 뻘낙지 · 신안 섬뻘낙지 · 진도 서촌 간재미거리 · 해남 닭 코스. 한 곳당 10억 원을 들여 조성한 지자체 지정 음식거리입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 밥집 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-bapjip.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 밥집. 전라남도가 지정한 시군 대표 음식 무안 낙지비빔밥 · 해남 닭코스요리.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 고기 — 시군 대표 음식 1가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-gogi.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 고기. 전라남도가 지정한 시군 대표 음식 해남 닭코스요리.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 국물과 면 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-gukmul-myeon.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 국물과 면. 전라남도가 지정한 시군 대표 음식 영암 짱뚱어탕 · 신안 홍어애탕.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 이국 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-iguk.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 이국은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 술과 안주 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-sul-anju.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 술과 안주. 전라남도가 지정한 시군 대표 음식 목포 홍어삼합 · 진도 꽃게요리.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 서부권 카페·디저트 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-seobu-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-seobu-cafe.html</guid>
+      <category>전남 서부권</category>
+      <description>전라남도 서부권(목포 · 무안 · 영암 · 신안 · 진도 · 해남) 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:55:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>남도음식거리 중부권 — 전라남도 공식 지정 5곳 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-namdo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-namdo.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 공식 지정 남도음식거리 중 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 소재 5곳. 나주 영산포 홍어거리 · 담양 창평국밥 · 장성 장어 · 함평 함평천지 맛거리 · 영광 법성포 굴비. 한 곳당 10억 원을 들여 조성한 지자체 지정 음식거리입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 밥집 — 시군 대표 음식 4가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-bapjip.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 밥집. 전라남도가 지정한 시군 대표 음식 나주 나주곰탕 · 담양 대통밥 · 함평 한우생고기비빔밥 · 영광 굴비한정식.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 고기 — 시군 대표 음식 1가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-gogi.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 고기. 전라남도가 지정한 시군 대표 음식 화순 흑염소 전골.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 국물과 면 — 시군 대표 음식 3가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-gukmul-myeon.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 국물과 면. 전라남도가 지정한 시군 대표 음식 담양 창평국밥 · 장성 장어정식 · 나주 나주곰탕.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 이국 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-iguk.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 이국은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 술과 안주 — 시군 대표 음식 1가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-sul-anju.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 술과 안주. 전라남도가 지정한 시군 대표 음식 나주 영산포 홍어.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 중부권 카페·디저트 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-jungbu-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-jungbu-cafe.html</guid>
+      <category>전남 중부권</category>
+      <description>전라남도 중부권(나주 · 담양 · 화순 · 장성 · 함평 · 영광) 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:50:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>남도음식거리 동부권 — 전라남도 공식 지정 5곳 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-namdo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-namdo.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 공식 지정 남도음식거리 중 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 소재 5곳. 여수 해양공원 삼합거리 · 순천 웃장국밥 · 광양 불고기 · 광양 섬진강 망덕포구 횟집거리 · 곡성 압록 참게·은어. 한 곳당 10억 원을 들여 조성한 지자체 지정 음식거리입니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 밥집 — 시군 대표 음식 1가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-bapjip.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-bapjip.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 밥집. 전라남도가 지정한 시군 대표 음식 여수 돌산갓김치.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 고기 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-gogi.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 고기. 전라남도가 지정한 시군 대표 음식 순천 떡갈비 · 광양 닭숯불구이.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 국물과 면 — 시군 대표 음식 3가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 국물과 면. 전라남도가 지정한 시군 대표 음식 순천 웃장국밥 · 곡성 참게매운탕 · 구례 자연산버섯샤브전골.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 이국 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-iguk.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-iguk.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 이국은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 술과 안주 — 시군 대표 음식 2가지 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-sul-anju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-sul-anju.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 술과 안주. 전라남도가 지정한 시군 대표 음식 여수 해양공원 삼합 · 광양 망덕포구 회.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전남 동부권 카페·디저트 — 자료 조사 중 | 전남 맛집 기록</title>
+      <link>https://www.aroundtool.com/jeonnam-dongbu-cafe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonnam-dongbu-cafe.html</guid>
+      <category>전남 동부권</category>
+      <description>전라남도 동부권(여수 · 순천 · 광양 · 곡성 · 구례) 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 13:45:00 +0900</pubDate>
+    </item>
     <item>
       <title>제주 서귀포시 갈치 — 2곳 | 제주도 맛집 기록</title>
       <link>https://www.aroundtool.com/jeju-seogwipo-galchi.html</link>
@@ -103,11 +327,11 @@
       <pubDate>Sat, 29 Aug 2026 12:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>제주 제주시 고기 — 조사 중 | 제주도 맛집 기록</title>
+      <title>제주 제주시 고기 — 자료 조사 중 | 제주도 맛집 기록</title>
       <link>https://www.aroundtool.com/jeju-jejusi-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/jeju-jejusi-gogi.html</guid>
       <category>제주 제주시</category>
-      <description>제주특별자치도 제주시 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 제주에서 이 카테고리가 강한 시를 안내합니다.</description>
+      <description>제주특별자치도 제주시 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 제주에서 이 카테고리가 강한 시를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:55:00 +0900</pubDate>
     </item>
     <item>
@@ -119,11 +343,11 @@
       <pubDate>Sat, 29 Aug 2026 12:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>제주 제주시 이국 — 조사 중 | 제주도 맛집 기록</title>
+      <title>제주 제주시 이국 — 자료 조사 중 | 제주도 맛집 기록</title>
       <link>https://www.aroundtool.com/jeju-jejusi-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/jeju-jejusi-iguk.html</guid>
       <category>제주 제주시</category>
-      <description>제주특별자치도 제주시 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 제주에서 이 카테고리가 강한 시를 안내합니다.</description>
+      <description>제주특별자치도 제주시 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 제주에서 이 카테고리가 강한 시를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:55:00 +0900</pubDate>
     </item>
     <item>
@@ -151,27 +375,27 @@
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 광산구 밥집 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 광산구 밥집 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-gwangsan-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-gwangsan-bapjip.html</guid>
       <category>광주광역시 광산구</category>
-      <description>광주광역시 광산구 밥집은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 광산구 밥집은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 광산구 고기 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 광산구 고기 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-gwangsan-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-gwangsan-gogi.html</guid>
       <category>광주광역시 광산구</category>
-      <description>광주광역시 광산구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 광산구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 광산구 국물과 면 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 광산구 국물과 면 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-gwangsan-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-gwangsan-gukmul-myeon.html</guid>
       <category>광주광역시 광산구</category>
-      <description>광주광역시 광산구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 광산구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
@@ -183,11 +407,11 @@
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 광산구 술과 안주 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 광산구 술과 안주 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-gwangsan-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-gwangsan-sul-anju.html</guid>
       <category>광주광역시 광산구</category>
-      <description>광주광역시 광산구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 광산구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 12:00:00 +0900</pubDate>
     </item>
     <item>
@@ -215,99 +439,99 @@
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 북구 고기 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 북구 고기 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-bukgu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-bukgu-gogi.html</guid>
       <category>광주광역시 북구</category>
-      <description>광주광역시 북구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 북구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 북구 국물과 면 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 북구 국물과 면 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-bukgu-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-bukgu-gukmul-myeon.html</guid>
       <category>광주광역시 북구</category>
-      <description>광주광역시 북구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 북구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 북구 이국 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 북구 이국 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-bukgu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-bukgu-iguk.html</guid>
       <category>광주광역시 북구</category>
-      <description>광주광역시 북구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 북구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 북구 술과 안주 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 북구 술과 안주 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-bukgu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-bukgu-sul-anju.html</guid>
       <category>광주광역시 북구</category>
-      <description>광주광역시 북구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 북구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 북구 카페·디저트 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 북구 카페·디저트 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-bukgu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-bukgu-cafe.html</guid>
       <category>광주광역시 북구</category>
-      <description>광주광역시 북구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 북구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 양림동 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 양림동 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-yangnim.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-yangnim.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 양림동은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 양림동은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 밥집 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 밥집 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-bapjip.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 밥집은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 밥집은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 고기 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 고기 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-gogi.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 국물과 면 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 국물과 면 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-gukmul-myeon.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 이국 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 이국 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-iguk.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 술과 안주 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 술과 안주 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-sul-anju.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 남구 카페·디저트 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 남구 카페·디저트 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-namgu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-namgu-cafe.html</guid>
       <category>광주광역시 남구</category>
-      <description>광주광역시 남구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 남구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:50:00 +0900</pubDate>
     </item>
     <item>
@@ -319,59 +543,59 @@
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 밥집 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 밥집 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-bapjip.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 밥집은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 밥집은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 고기 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 고기 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-gogi.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 국물과 면 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 국물과 면 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-gukmul-myeon.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 이국 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 이국 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-iguk.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 술과 안주 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 술과 안주 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-sul-anju.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 서구 카페·디저트 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 서구 카페·디저트 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-seogu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-seogu-cafe.html</guid>
       <category>광주광역시 서구</category>
-      <description>광주광역시 서구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 서구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 충장로 원도심 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 충장로 원도심 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-chungjang.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-chungjang.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 충장로 원도심은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 충장로 원도심은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
@@ -383,43 +607,43 @@
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 고기 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 고기 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-gogi.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 국물과 면 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 국물과 면 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-gukmul-myeon.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 이국 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 이국 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-iguk.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 술과 안주 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 술과 안주 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-sul-anju.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>광주 동구 카페·디저트 — 조사 중 | 광주 맛집 기록</title>
+      <title>광주 동구 카페·디저트 — 자료 조사 중 | 광주 맛집 기록</title>
       <link>https://www.aroundtool.com/gwangju-donggu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/gwangju-donggu-cafe.html</guid>
       <category>광주광역시 동구</category>
-      <description>광주광역시 동구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>광주광역시 동구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 광주에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:40:00 +0900</pubDate>
     </item>
     <item>
@@ -447,35 +671,35 @@
       <pubDate>Sat, 29 Aug 2026 11:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 대덕구 국물과 면 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 대덕구 국물과 면 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-daedeok-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-daedeok-gukmul-myeon.html</guid>
       <category>대전광역시 대덕구</category>
-      <description>대전광역시 대덕구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 대덕구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 대덕구 이국 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 대덕구 이국 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-daedeok-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-daedeok-iguk.html</guid>
       <category>대전광역시 대덕구</category>
-      <description>대전광역시 대덕구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 대덕구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 대덕구 술과 안주 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 대덕구 술과 안주 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-daedeok-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-daedeok-sul-anju.html</guid>
       <category>대전광역시 대덕구</category>
-      <description>대전광역시 대덕구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 대덕구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 대덕구 카페·디저트 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 대덕구 카페·디저트 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-daedeok-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-daedeok-cafe.html</guid>
       <category>대전광역시 대덕구</category>
-      <description>대전광역시 대덕구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 대덕구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 11:00:00 +0900</pubDate>
     </item>
     <item>
@@ -495,19 +719,19 @@
       <pubDate>Sat, 29 Aug 2026 10:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 유성구 고기 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 유성구 고기 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-yuseong-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-yuseong-gogi.html</guid>
       <category>대전광역시 유성구</category>
-      <description>대전광역시 유성구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 유성구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 유성구 국물과 면 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 유성구 국물과 면 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-yuseong-gukmul-myeon.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-yuseong-gukmul-myeon.html</guid>
       <category>대전광역시 유성구</category>
-      <description>대전광역시 유성구 국물과 면은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 유성구 국물과 면은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:55:00 +0900</pubDate>
     </item>
     <item>
@@ -519,11 +743,11 @@
       <pubDate>Sat, 29 Aug 2026 10:55:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 유성구 술과 안주 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 유성구 술과 안주 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-yuseong-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-yuseong-sul-anju.html</guid>
       <category>대전광역시 유성구</category>
-      <description>대전광역시 유성구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 유성구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:55:00 +0900</pubDate>
     </item>
     <item>
@@ -543,19 +767,19 @@
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 서구 밥집 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 서구 밥집 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-seogu-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-seogu-bapjip.html</guid>
       <category>대전광역시 서구</category>
-      <description>대전광역시 서구 밥집은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 서구 밥집은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 서구 고기 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 서구 고기 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-seogu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-seogu-gogi.html</guid>
       <category>대전광역시 서구</category>
-      <description>대전광역시 서구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 서구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
@@ -567,27 +791,27 @@
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 서구 이국 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 서구 이국 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-seogu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-seogu-iguk.html</guid>
       <category>대전광역시 서구</category>
-      <description>대전광역시 서구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 서구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 서구 술과 안주 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 서구 술과 안주 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-seogu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-seogu-sul-anju.html</guid>
       <category>대전광역시 서구</category>
-      <description>대전광역시 서구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 서구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 서구 카페·디저트 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 서구 카페·디저트 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-seogu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-seogu-cafe.html</guid>
       <category>대전광역시 서구</category>
-      <description>대전광역시 서구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 서구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:50:00 +0900</pubDate>
     </item>
     <item>
@@ -599,19 +823,19 @@
       <pubDate>Sat, 29 Aug 2026 10:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 중구 밥집 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 중구 밥집 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-junggu-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-junggu-bapjip.html</guid>
       <category>대전광역시 중구</category>
-      <description>대전광역시 중구 밥집은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 중구 밥집은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 중구 고기 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 중구 고기 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-junggu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-junggu-gogi.html</guid>
       <category>대전광역시 중구</category>
-      <description>대전광역시 중구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 중구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:45:00 +0900</pubDate>
     </item>
     <item>
@@ -631,11 +855,11 @@
       <pubDate>Sat, 29 Aug 2026 10:45:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 중구 술과 안주 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 중구 술과 안주 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-junggu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-junggu-sul-anju.html</guid>
       <category>대전광역시 중구</category>
-      <description>대전광역시 중구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 중구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:45:00 +0900</pubDate>
     </item>
     <item>
@@ -663,11 +887,11 @@
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 동구 고기 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 동구 고기 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-donggu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-donggu-gogi.html</guid>
       <category>대전광역시 동구</category>
-      <description>대전광역시 동구 고기은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 동구 고기은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
@@ -679,27 +903,27 @@
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 동구 이국 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 동구 이국 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-donggu-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-donggu-iguk.html</guid>
       <category>대전광역시 동구</category>
-      <description>대전광역시 동구 이국은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 동구 이국은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 동구 술과 안주 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 동구 술과 안주 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-donggu-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-donggu-sul-anju.html</guid>
       <category>대전광역시 동구</category>
-      <description>대전광역시 동구 술과 안주은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 동구 술과 안주은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
-      <title>대전 동구 카페·디저트 — 조사 중 | 대전 맛집 기록</title>
+      <title>대전 동구 카페·디저트 — 자료 조사 중 | 대전 맛집 기록</title>
       <link>https://www.aroundtool.com/daejeon-donggu-cafe.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/daejeon-donggu-cafe.html</guid>
       <category>대전광역시 동구</category>
-      <description>대전광역시 동구 카페·디저트은 검증을 통과한 곳이 없어 비워 두었습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
+      <description>대전광역시 동구 카페·디저트은 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 대전에서 이 카테고리가 강한 구를 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:40:00 +0900</pubDate>
     </item>
     <item>
@@ -735,11 +959,11 @@
       <pubDate>Sat, 29 Aug 2026 10:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>속초 이국 — 조사 중 | 강원 속초시 맛집 기록</title>
+      <title>속초 이국 — 자료 조사 중 | 강원 속초시 맛집 기록</title>
       <link>https://www.aroundtool.com/sokcho-iguk.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/sokcho-iguk.html</guid>
       <category>강원 속초시</category>
-      <description>강원 속초시 이국 요리는 검증을 통과한 곳이 없어 비워 두었습니다. 대신 이 도시에서 '이국적인' 음식이 무엇인지 안내합니다.</description>
+      <description>강원 속초시 이국 요리는 서비스 준비를 위해 자료를 조사하고 있습니다. 대신 이 도시에서 '이국적인' 음식이 무엇인지 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 10:00:00 +0900</pubDate>
     </item>
     <item>
@@ -855,11 +1079,11 @@
       <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>해운대 술과 안주 — 조사 중 | 부산 해운대구 맛집 기록</title>
+      <title>해운대 술과 안주 — 자료 조사 중 | 부산 해운대구 맛집 기록</title>
       <link>https://www.aroundtool.com/haeundae-sul-anju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/haeundae-sul-anju.html</guid>
       <category>부산 해운대구</category>
-      <description>부산 해운대구 술집은 아직 검증을 통과한 곳이 없어 비워 두었습니다. 목록을 채우기보다 근거를 갖춘 뒤 추가합니다. 대신 24시간 국밥집을 안내합니다.</description>
+      <description>부산 해운대구 술집은 아직 서비스 준비를 위해 자료를 조사하고 있습니다. 목록을 채우기보다 근거를 갖춘 뒤 추가합니다. 대신 24시간 국밥집을 안내합니다.</description>
       <pubDate>Sat, 29 Aug 2026 08:00:00 +0900</pubDate>
     </item>
     <item>

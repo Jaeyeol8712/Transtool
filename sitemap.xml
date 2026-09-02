@@ -3,9 +3,9 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 168 URL
+  총 196 URL
     · 홈 1 / 계산기·도구 41 / 가이드 2
-    · 맛집 119 (제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
+    · 맛집 147 (전남 4개 권역 28 + 제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
 -->
@@ -1152,6 +1152,203 @@
   <!-- 맛집 · 제주 서귀포시 갈치 (지역 슬롯) (2곳) -->
   <url>
     <loc>https://www.aroundtool.com/jeju-seogwipo-galchi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맛집 · 전남 동부권 밥집 (1가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 고기 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 국물과 면 (3가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 이국 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 술과 안주 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 카페·디저트 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 동부권 남도음식거리 (지역 슬롯) (5곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-dongbu-namdo.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 밥집 (4가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 고기 (1가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 국물과 면 (3가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 이국 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 술과 안주 (1가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 카페·디저트 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 중부권 남도음식거리 (지역 슬롯) (5곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-jungbu-namdo.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 밥집 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 고기 (1가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 국물과 면 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 이국 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 술과 안주 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 카페·디저트 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 서부권 남도음식거리 (지역 슬롯) (5곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-seobu-namdo.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 밥집 (4가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-bapjip.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 고기 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-gogi.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 국물과 면 (1가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-gukmul-myeon.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 이국 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-iguk.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 술과 안주 (2가지) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-sul-anju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 카페·디저트 (준비 중) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-cafe.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 맛집 · 전남 남부권 남도음식거리 (지역 슬롯) (6곳) -->
+  <url>
+    <loc>https://www.aroundtool.com/jeonnam-nambu-namdo.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
