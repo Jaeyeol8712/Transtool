@@ -1,153 +1,478 @@
-<!-- 46. parental_leave_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <title>육아휴직급여 계산기 - 2026년 개편 기준 무료 계산</title>
- <meta name="description" content="2026년 개편된 육아휴직급여(1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한) 기준으로 예상 수령액을 계산합니다. 사후지급금 폐지 반영.">
- <link rel="canonical" href="https://www.aroundtool.com/parental_leave_calculator">
- <style>
- :root{--primary:#4f46e5;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .checkbox-row{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
- .checkbox-row input{width:auto;margin:0;}
- .checkbox-row label{margin:0;font-weight:500;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .breakdown{margin-top:12px;font-size:0.85rem;color:var(--muted);}
- .breakdown table{width:100%;border-collapse:collapse;margin-top:8px;}
- .breakdown th,.breakdown td{padding:6px 4px;text-align:right;border-bottom:1px solid var(--border);font-size:0.82rem;}
- .breakdown th:first-child,.breakdown td:first-child{text-align:left;}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- .seo-text table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem;}
- .seo-text th,.seo-text td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:right;}
- .seo-text th:first-child,.seo-text td:first-child{text-align:left;}
- .seo-text th{color:var(--muted);font-weight:600;font-size:0.8rem;}
- .seo-text .faq-item{padding:12px 0;border-top:1px solid var(--border);}
- .seo-text .faq-item:first-of-type{border-top:none;}
- .seo-text .faq-item h3{font-size:0.98rem;margin-bottom:6px;color:#111827;}
- .seo-text .source-links{margin-top:10px;font-size:0.85rem;}
- .seo-text .source-links a{color:#1d4ed8;text-decoration:none;}
- .seo-text .note{font-size:0.82rem;color:var(--muted);margin-top:6px;}
- </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>육아휴직급여 계산기 — 2026년 사후지급금 폐지 반영 | 어라운드툴</title>
+<meta name="description" content="2026년 기준 육아휴직급여 계산기. 1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한과 6+6 부모육아휴직제, 한부모 특례까지 반영해 총 수령액을 계산합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/parental_leave_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#B5690E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/parental_leave_calculator.html">
+<meta property="og:title" content="육아휴직급여 계산기 — 2026년 사후지급금 폐지 반영 | 어라운드툴">
+<meta property="og:description" content="2026년 기준 육아휴직급여 계산기. 1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한과 6+6 부모육아휴직제, 한부모 특례까지 반영해 총 수령액을 계산합니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="육아휴직급여 계산기 — 2026년 사후지급금 폐지 반영 | 어라운드툴">
+<meta name="twitter:description" content="2026년 기준 육아휴직급여 계산기. 1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한과 6+6 부모육아휴직제, 한부모 특례까지 반영해 총 수령액을 계산합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+--rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#B5690E;--brand-dark:#8A5009;--brand-tint:#FBF1E1;
+--warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;--t-hot:#FBECEC;--ok:#1B855C;--t-ok:#E5F4EC}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:#0D7A6F}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+.hero{padding:2.25rem 0 1.25rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:38rem}
+.alert-up{display:flex;gap:.7rem;align-items:flex-start;margin-top:1rem;padding:.9rem 1.1rem;
+background:var(--t-warn);border:1px solid #EBDCBE;border-radius:4px;font-size:.8125rem;
+color:#6B5622;line-height:1.7}
+.alert-up b{color:#8A6D1F;font-weight:700}
+.alert-up::before{content:"\26A0";flex-shrink:0;font-size:.95rem}
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card>h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);letter-spacing:-0.01em}
+.card>h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+font-weight:600;color:var(--soft)}
+.card-body{padding:1.1rem}
+label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.ip{position:relative}
+.ip input{width:100%;padding:.68rem 3rem .68rem .8rem;font:inherit;font-size:1.0625rem;
+color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+-moz-appearance:textfield;font-family:"IBM Plex Mono",monospace}
+.ip input[type=date]{font-size:.9375rem;padding-right:.8rem}
+.ip input::-webkit-outer-spin-button,.ip input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ip input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.ip .unit{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);
+font-size:.8125rem;color:var(--soft);pointer-events:none}
+.readout{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+margin:.35rem 0 0;font-weight:600;min-height:1.1em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1rem}
+.fld{margin-bottom:1rem}
+.seg{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.58rem .25rem;
+background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;opacity:.75;font-weight:400}
+.stepper{display:flex;align-items:center;gap:.5rem}
+.stepper button{width:2.1rem;height:2.1rem;border:1px solid var(--rule-strong);background:var(--panel);
+border-radius:3px;font:inherit;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--soft)}
+.stepper button:hover{border-color:var(--brand);color:var(--brand)}
+.stepper .v{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;
+font-size:.9375rem;font-weight:600;background:var(--panel-alt);
+border:1px solid var(--rule);border-radius:3px;padding:.5rem .3rem}
+.chk{display:flex;align-items:flex-start;gap:.55rem;font-size:.875rem;cursor:pointer;
+padding:.6rem .75rem;background:var(--panel-alt);border-radius:3px;margin-bottom:.5rem}
+.chk input{width:1.05rem;height:1.05rem;accent-color:var(--brand);margin-top:.15rem;flex-shrink:0}
+.chk small{display:block;color:var(--soft);font-size:.75rem}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+.hint b{color:var(--ink)}
+.total{background:var(--brand-tint);border-radius:4px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.5rem,6.5vw,2.1rem);
+font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.2}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+opacity:.85;margin-top:.4rem;line-height:1.6}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .l small{display:block;font-size:.75rem;color:var(--soft);font-weight:400}
+.bd .v{font-family:"IBM Plex Mono",monospace;font-size:.875rem;font-weight:600;
+white-space:nowrap;color:var(--soft)}
+.bd li.sum{border-top:2px solid var(--rule-strong);border-bottom:none;
+margin-top:.35rem;padding-top:.7rem;font-weight:700}
+.bd li.sum .v{color:var(--ink);font-size:1rem}
+.bd li.hl{background:var(--brand-tint);margin:.5rem -.5rem 0;padding:.7rem .5rem;
+border-radius:3px;border-bottom:none;font-weight:700}
+.bd li.hl .v{color:var(--brand-dark);font-size:1rem}
+.flag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;
+letter-spacing:.06em;font-weight:600;border-radius:2px;padding:.05rem .35rem;margin-left:.35rem}
+.f-cap{background:var(--t-hot);color:var(--hot)}
+.f-floor{background:var(--t-ok);color:var(--ok)}
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px;font-size:.8125rem;color:var(--soft);line-height:1.75}
+.notice b{color:var(--ink);font-weight:700}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+.formula{background:var(--panel-alt);border-radius:4px;padding:1rem 1.1rem;
+font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;color:var(--ink)}
+.formula .op{color:var(--soft)}
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:28rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr.hl{background:var(--brand-tint)}
+tbody tr.hl th,tbody tr.hl td{font-weight:700;color:var(--brand-dark)}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap;text-align:right}
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans b{color:var(--ink)}
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+@media (min-width:56rem){.wrap{padding:0 1.25rem}
+.app{grid-template-columns:1fr 1fr;align-items:start}
+.col-r{position:sticky;top:1rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "육아휴직급여 계산기",
+     "item": "https://www.aroundtool.com/parental_leave_calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "육아휴직급여 계산기",
+   "url": "https://www.aroundtool.com/parental_leave_calculator.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "All",
+   "inLanguage": "ko-KR",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+   },
+   "description": "2026년 기준 육아휴직급여 계산기. 1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한과 6+6 부모육아휴직제, 한부모 특례까지 반영해 총 수령액을 계산합니다."
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "2026년 육아휴직급여는 얼마인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1~3개월은 통상임금 100%에 상한 250만 원, 4~6개월은 100%에 상한 200만 원, 7개월부터는 80%에 상한 160만 원입니다. 하한액은 전 기간 70만 원입니다. 1년을 전부 사용하면 상한 기준 최대 2,310만 원입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "사후지급금이 폐지됐다는데 무슨 뜻인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "예전에는 육아휴직 급여의 25%를 복직 후 6개월 이상 근무해야 받을 수 있었습니다. 2025년 1월 1일부터 이 제도가 폐지되어 휴직 기간 중에 매달 전액을 바로 받습니다. 복직 여부와 무관하게 지급되므로 육아휴직을 쓰기가 훨씬 수월해졌습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "6+6 부모육아휴직제가 무엇인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "생후 18개월 이내 자녀에 대해 부모가 모두 육아휴직을 사용하면 첫 6개월간 통상임금 100%를 더 높은 상한으로 지급하는 제도입니다. 1인당 상한이 1~2개월 250만 원에서 시작해 6개월차에는 450만 원까지 올라가며, 부부 합산으로는 최대 900만 원입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "육아휴직은 최대 얼마나 쓸 수 있나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "기본은 1년이지만 부모가 같은 자녀에 대해 각각 3개월 이상 사용하거나 한부모 또는 중증 장애아동의 부모인 경우 각각 최대 1년 6개월까지 쓸 수 있습니다. 대상 자녀는 만 8세 이하 또는 초등학교 2학년 이하입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "나눠서 쓸 수 있나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "2026년부터 분할 횟수가 2회에서 3회로 늘어 최대 4번에 나눠 쓸 수 있습니다. 여기에 더해 연 1회 2주 내외의 단기 육아휴직을 쓸 수 있고 이것은 분할 횟수에 포함되지 않습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "신청 조건과 방법은 어떻게 되나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "고용보험 피보험 단위기간이 180일 이상이어야 하고 육아휴직을 30일 이상 사용해야 합니다. 신청은 고용24 온라인 또는 고용센터에서 매월 해야 하며, 휴직 종료 후 12개월 이내에 신청하지 않으면 받을 수 없습니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>육아휴직급여 계산기</span></nav>
- <header>
- <h1>👶 육아휴직급여 계산기</h1>
- <p>2026년 개편 기준 (사후지급금 폐지 반영)</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card">
- <label>육아휴직 전 통상임금 (월, 원)</label>
- <input type="number" id="wage" placeholder="예: 3000000">
- <label>육아휴직 사용 예정 기간 (개월, 최대 18개월)</label>
- <input type="number" id="months" placeholder="예: 12" max="18">
- <div class="checkbox-row">
- <input type="checkbox" id="singleParent">
- <label for="singleParent">한부모 근로자입니다 (1~3개월 상한 300만원 적용)</label>
- </div>
- <button onclick="calcLeave()">예상 수령액 계산하기</button>
- <div class="result" id="result">
- <div class="result-row"><span class="result-label">1개월차 예상 수령액</span><span class="result-value" id="firstMonth">-</span></div>
- <div class="result-row"><span class="result-label">선택 기간 총 예상 수령액</span><span class="result-value" id="totalAmount">-</span></div>
- <div class="breakdown">
- <table id="breakdownTable"><tr><th>구간</th><th>적용률</th><th>월 상한</th><th>월 지급액</th></tr></table>
- </div>
- </div>
- </div>
- <article class="seo-text">
- <h2>2026년 육아휴직급여 지급 기준</h2>
- <table>
- <tr><th>기간</th><th>지급률</th><th>월 상한액</th><th>월 하한액</th></tr>
- <tr><td>1~3개월차</td><td>통상임금 100%</td><td>250만원 (한부모 300만원)</td><td>70만원</td></tr>
- <tr><td>4~6개월차</td><td>통상임금 100%</td><td>200만원</td><td>70만원</td></tr>
- <tr><td>7개월차~종료</td><td>통상임금 80%</td><td>160만원</td><td>70만원</td></tr>
- </table>
- <p>2025년부터 복직 후 6개월 뒤에 급여의 25%를 지급하던 '사후지급금' 제도가 폐지되어, 이제는 휴직 기간 중 매월 전액이 즉시 지급됩니다. 만 8세 이하 또는 초등학교 2학년 이하 자녀를 양육하는 근로자가 대상이며, 최대 사용 기간은 조건에 따라 1년 6개월까지 가능합니다.</p>
- <h2>월 통상임금 300만원, 12개월 사용 시 예시</h2>
- <table>
- <tr><th>구간</th><th>월 지급액</th><th>구간 합계</th></tr>
- <tr><td>1~3개월 (100%, 상한 250만원 적용)</td><td>2,500,000원</td><td>7,500,000원</td></tr>
- <tr><td>4~6개월 (100%, 상한 200만원 적용)</td><td>2,000,000원</td><td>6,000,000원</td></tr>
- <tr><td>7~12개월 (80%, 상한 160만원 적용)</td><td>1,600,000원</td><td>9,600,000원</td></tr>
- </table>
- <p><b>12개월 총 예상 수령액: 23,100,000원</b> (통상임금 300만원, 배우자와 별도로 단독 사용 기준)</p>
- <h2>'6+6 부모육아휴직제'란?</h2>
- <p>생후 18개월 이내 자녀에 대해 부모가 모두(동시 또는 순차로) 육아휴직을 사용하면, 각자의 첫 6개월 급여가 통상임금 100%로 지급되며 월 상한액도 1개월차 200만원에서 6개월차 450만원까지 단계적으로 높아지는 특례 제도입니다. 부부가 함께 활용하면 이 계산기의 '단독 사용' 기준보다 훨씬 많은 금액을 받을 수 있으니, 배우자와 함께 사용 가능한지 먼저 검토해 보는 것이 좋습니다.</p>
- <div class="faq-item"><h3>육아휴직급여는 매달 통장에 그대로 들어오나요?</h3><p>네, 2025년 사후지급금 폐지 이후에는 신청한 달의 급여가 유보 없이 전액 지급됩니다. 복직 여부나 재직 기간과 무관하게 이미 지급된 금액을 반환할 필요가 없습니다.</p></div>
- <div class="faq-item"><h3>통상임금과 세전 월급은 같은 개념인가요?</h3><p>통상임금은 기본급과 정기적·일률적으로 지급되는 수당을 포함한 개념으로, 세전 총급여와 다를 수 있습니다. 정확한 통상임금은 급여명세서나 인사팀 확인을 통해 산정하는 것이 정확합니다.</p></div>
- <div class="faq-item"><h3>신청은 언제, 어떻게 하나요?</h3><p>육아휴직 개시 후 매월 고용센터(또는 고용보험 홈페이지)를 통해 신청합니다. 휴직 종료일로부터 12개월 이내에 신청해야 지급받을 수 있습니다.</p></div>
- <p class="source-links">근거 자료: <a href="https://www.ei.go.kr" rel="noopener noreferrer" target="_blank">고용보험 홈페이지</a> · <a href="https://www.moel.go.kr" rel="noopener noreferrer" target="_blank">고용노동부</a></p>
- <p class="note">본 계산기는 단독 육아휴직 기준 참고용 추정치이며, 6+6 부모육아휴직제·한부모 특례 등을 적용하면 실제 수령액이 달라질 수 있습니다. 정확한 금액은 고용센터 상담을 통해 확인하세요.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
- </footer>
- <script>
- function calcLeave(){
- const wage = parseFloat(document.getElementById('wage').value);
- let months = parseInt(document.getElementById('months').value);
- const single = document.getElementById('singleParent').checked;
- if(!wage || !months) return alert('통상임금과 사용 예정 기간을 입력해주세요.');
- if(months > 18) months = 18;
 
- function monthlyPay(m){
- let rate, cap;
- if(m <= 3){ rate = 1.0; cap = single ? 3000000 : 2500000; }
- else if(m <= 6){ rate = 1.0; cap = 2000000; }
- else { rate = 0.8; cap = 1600000; }
- let pay = wage * rate;
- if(pay > cap) pay = cap;
- if(pay < 700000) pay = 700000;
- return { pay, rate, cap };
- }
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>육아휴직급여</p>
+  </div>
+</header>
 
- const first = monthlyPay(1);
- document.getElementById('firstMonth').textContent = Math.round(first.pay).toLocaleString() + '원';
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">2026년 기준 · 사후지급금 폐지 반영</p>
+    <h1>육아휴직급여 계산기</h1>
+    <p>통상임금과 사용 기간을 넣으면 <strong>기간별 급여와 총 수령액</strong>이 나옵니다. 6+6 부모육아휴직제와 한부모 특례도 계산합니다.</p>
+    <div class="alert-up"><span><b>2026년부터 사후지급금 25%가 완전 폐지</b>됐습니다. 복직 여부와 무관하게 <b>매달 전액</b>을 바로 받습니다. 1년 사용 시 상한 기준 최대 <b>2,310만 원</b>입니다.</span></div>
+  </div>
+</div>
 
- let total = 0;
- const phases = [
- {label:'1~3개월', m:1},
- {label:'4~6개월', m:4},
- {label:'7개월~', m:7}
- ];
- let tableHtml = '<tr><th>구간</th><th>적용률</th><th>월 상한</th><th>월 지급액</th></tr>';
- for(let m=1; m<=months; m++){
- const r = monthlyPay(m);
- total += r.pay;
- }
- [1,4,7].forEach(startM=>{
- if(startM <= months){
- const r = monthlyPay(startM);
- const label = startM===1?'1~3개월차':(startM===4?'4~6개월차':'7개월차~');
- tableHtml += `<tr><td>${label}</td><td>${(r.rate*100).toFixed(0)}%</td><td>${r.cap.toLocaleString()}원</td><td>${Math.round(r.pay).toLocaleString()}원</td></tr>`;
- }
- });
- document.getElementById('breakdownTable').innerHTML = tableHtml;
- document.getElementById('totalAmount').textContent = Math.round(total).toLocaleString() + '원';
- document.getElementById('result').classList.add('show');
- }
- </script>
+<main class="wrap">
+  <div class="app">
+    <div class="col-l">
+      <div class="card">
+        <h2>1 · 통상임금과 기간</h2>
+        <div class="card-body">
+          <div class="fld">
+            <label class="lb" for="pay">월 통상임금</label>
+            <div class="ip"><input type="number" id="pay" value="300" min="0" step="10" inputmode="numeric">
+              <span class="unit">만원</span></div>
+            <p class="readout" id="pay-r"></p>
+          </div>
+          <div class="fld">
+            <label class="lb">사용 개월 수</label>
+            <div class="stepper">
+              <button type="button" data-d="-1">−</button>
+              <span class="v" id="mo-v">12개월</span>
+              <button type="button" data-d="1">+</button>
+            </div>
+            <p class="hint">최대 <b>18개월</b>(1년 6개월). 부모가 각각 3개월 이상 사용하거나 한부모·중증장애아동 부모인 경우입니다.</p>
+          </div>
+          <div class="fld">
+            <label class="lb">유형</label>
+            <div class="seg" id="type">
+              <button data-t="0" class="on" type="button">일반<small>1~3월 250만</small></button>
+              <button data-t="1" type="button">한부모<small>1~3월 300만</small></button>
+              <button data-t="2" type="button">6+6 특례<small>18개월 이내 자녀</small></button>
+            </div>
+            <p class="hint" id="type-hint"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-r">
+      <div class="card">
+        <h2>육아휴직급여<span class="n" id="cap"></span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">총 예상 수령액</p>
+            <p class="total-num" id="tot">0원</p>
+            <p class="total-sub" id="tot-sub"></p>
+          </div>
+          <ul class="bd" id="bd"></ul>
+        </div>
+      </div>
+      <div class="notice">
+        <b>2026년 핵심 변경</b>
+        <ul>
+          <li><b>사후지급금 25% 완전 폐지</b> — 매달 전액을 바로 받습니다</li>
+          <li>분할 횟수 2회 → <b>3회</b> (최대 4번 나눠 사용)</li>
+          <li>연 1회 <b>2주 단기 육아휴직</b> 신설 (분할 횟수 미포함)</li>
+          <li>육아기 근로시간 단축 급여 상한 220만 → <b>250만원</b></li>
+          <li>출산전후휴가 급여 상한 210만 → <b>220만원</b></li>
+        </ul>
+        신청은 고용24(work24.go.kr)에서 <b>매월</b> 합니다. 휴직 종료 후 12개월 이내에 신청해야 합니다.
+      </div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>2026년 육아휴직급여 지급 구조</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>기간</th><th>지급률</th><th>상한액</th><th>하한액</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1~3개월</th><td class="num">통상임금 100%</td><td class="num">250만원</td><td class="num">70만원</td></tr>
+          <tr><th scope="row">4~6개월</th><td class="num">통상임금 100%</td><td class="num">200만원</td><td class="num">70만원</td></tr>
+          <tr><th scope="row">7개월~</th><td class="num">통상임금 80%</td><td class="num">160만원</td><td class="num">70만원</td></tr>
+          <tr class="hl"><th scope="row">1년 전액 사용</th><td>—</td><td class="num">최대 2,310만원</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">2024년까지는 전 기간 통상임금 80%에 상한 150만 원이었습니다.
+    2025년 개편으로 <b>1년 기준 상한 합계가 510만 원 늘었습니다.</b></p>
+  </section>
+
+  <section class="doc">
+    <h2>6+6 부모육아휴직제 (생후 18개월 이내 자녀)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>개월차</th><th>1인당 상한</th><th>부부 합산</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1개월</th><td class="num">250만원</td><td class="num">500만원</td></tr>
+          <tr><th scope="row">2개월</th><td class="num">250만원</td><td class="num">500만원</td></tr>
+          <tr><th scope="row">3개월</th><td class="num">300만원</td><td class="num">600만원</td></tr>
+          <tr><th scope="row">4개월</th><td class="num">350만원</td><td class="num">700만원</td></tr>
+          <tr><th scope="row">5개월</th><td class="num">400만원</td><td class="num">800만원</td></tr>
+          <tr class="hl"><th scope="row">6개월</th><td class="num">450만원</td><td class="num">900만원</td></tr>
+          <tr><th scope="row">7개월~</th><td class="num">통상임금 80% · 160만원</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem"><b>부모가 모두 육아휴직을 써야</b> 적용됩니다.
+    첫 6개월은 통상임금 100%가 지급되며, 부부 합산 최대 약 3,900만 원까지 받을 수 있습니다.</p>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>2026년 육아휴직급여는 얼마인가요?</summary>
+      <div class="ans"><b>1~3개월 통상임금 100%·상한 250만 원, 4~6개월 100%·상한 200만 원, 7개월부터 80%·상한 160만 원</b>입니다. 하한액은 전 기간 70만 원입니다. 1년을 전부 사용하면 상한 기준 <b>최대 2,310만 원</b>입니다.</div>
+    </details>
+    <details>
+      <summary>사후지급금이 폐지됐다는데 무슨 뜻인가요?</summary>
+      <div class="ans">예전에는 급여의 <b>25%를 복직 후 6개월 이상 근무해야</b> 받을 수 있었습니다. 2025년 1월 1일부터 이 제도가 폐지되어 <b>휴직 기간 중에 매달 전액</b>을 바로 받습니다. 복직 여부와 무관하게 지급되므로 육아휴직을 쓰기가 훨씬 수월해졌습니다.</div>
+    </details>
+    <details>
+      <summary>6+6 부모육아휴직제가 무엇인가요?</summary>
+      <div class="ans">생후 18개월 이내 자녀에 대해 <b>부모가 모두</b> 육아휴직을 사용하면 첫 6개월간 통상임금 100%를 더 높은 상한으로 지급하는 제도입니다. 1인당 상한이 1~2개월 250만 원에서 시작해 <b>6개월차에는 450만 원</b>까지 올라가며 부부 합산 최대 900만 원입니다. 부부 합산 총 수령액은 약 3,900만 원까지 가능합니다.</div>
+    </details>
+    <details>
+      <summary>육아휴직은 최대 얼마나 쓸 수 있나요?</summary>
+      <div class="ans">기본은 1년이지만 <b>부모가 각각 3개월 이상 사용</b>하거나 <b>한부모·중증 장애아동의 부모</b>인 경우 각각 <b>최대 1년 6개월</b>까지 쓸 수 있습니다. 대상 자녀는 만 8세 이하 또는 초등학교 2학년 이하입니다.</div>
+    </details>
+    <details>
+      <summary>나눠서 쓸 수 있나요?</summary>
+      <div class="ans">2026년부터 <b>분할 횟수가 2회 → 3회</b>로 늘어 최대 4번에 나눠 쓸 수 있습니다. 여기에 더해 <b>연 1회 2주 내외의 단기 육아휴직</b>을 쓸 수 있고 이것은 분할 횟수에 포함되지 않습니다.</div>
+    </details>
+    <details>
+      <summary>신청 조건과 방법은 어떻게 되나요?</summary>
+      <div class="ans"><b>고용보험 피보험 단위기간 180일 이상</b>이어야 하고 육아휴직을 <b>30일 이상</b> 사용해야 합니다. 신청은 고용24(work24.go.kr) 또는 고용센터에서 <b>매월</b> 해야 하며, <b>휴직 종료 후 12개월 이내</b>에 신청하지 않으면 받을 수 없습니다.</div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/severance_calculator.html">퇴직금</a>
+      <a href="/unemployment_benefit_calculator.html">실업급여</a>
+      <a href="/pto_calculator.html">연차</a>
+      <a href="/holiday_pay_calculator.html">주휴수당</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  function w(n){return Math.round(n).toLocaleString("ko-KR");}
+  function man(n){if(n>=100000000){var e=Math.floor(n/100000000),r=Math.round((n%100000000)/10000);
+    return e+"억"+(r?" "+w(r)+"만":"");}return w(n/10000)+"만";}
+
+  var mo=12, ty=0;
+  var HINT=["일반 근로자 기준입니다.",
+    "한부모는 1~3개월 상한이 300만 원으로 50만 원 높습니다.",
+    "생후 18개월 이내 자녀에 대해 <b>부모가 모두</b> 육아휴직을 쓸 때 적용됩니다. 아래 금액은 1인 기준입니다."];
+  function cap(m,t){
+    if(t===2){ var six=[250,250,300,350,400,450];
+      return m<=6? six[m-1]*10000 : 1600000; }
+    if(m<=3) return (t===1?300:250)*10000;
+    if(m<=6) return 2000000;
+    return 1600000;
+  }
+  function rate(m,t){ return (t===2? (m<=6?1:0.8) : (m<=6?1:0.8)); }
+  function calc(){
+    var pay=(parseFloat($("pay").value)||0)*10000;
+    var tot=0, seg=[[1,3,0],[4,6,0],[7,mo,0]];
+    for(var m=1;m<=mo;m++){
+      var v=Math.min(cap(m,ty), pay*rate(m,ty));
+      v=Math.max(700000,v);
+      tot+=v;
+      if(m<=3) seg[0][2]+=v; else if(m<=6) seg[1][2]+=v; else seg[2][2]+=v;
+    }
+    $("pay-r").textContent = pay? man(pay)+"원" : "—";
+    $("cap").textContent = mo+"개월 · "+["일반","한부모","6+6"][ty];
+    $("tot").textContent = w(tot)+"원";
+    $("tot-sub").innerHTML = "월 평균 "+w(tot/mo)+"원 · "+
+      (ty===2?"<b>부부 합산 시 약 "+man(tot*2)+"원</b>":"사후지급금 없이 <b>매달 전액</b> 지급");
+
+    var rows="";
+    seg.forEach(function(s){
+      if(s[0]>mo) return;
+      var e=Math.min(s[1],mo), n=e-s[0]+1;
+      if(n<=0) return;
+      var r=rate(s[0],ty)*100;
+      rows+='<li><span class="l">'+s[0]+'~'+e+'개월 ('+n+'개월)<small>통상임금 '+r+'% · 상한 '+
+        man(cap(s[0],ty))+'원</small></span><span class="v">'+w(s[2])+'원</span></li>';
+    });
+    $("bd").innerHTML=rows+
+      '<li class="hl"><span class="l">총 수령액<small>'+mo+'개월</small></span><span class="v">'+w(tot)+'원</span></li>';
+    $("type-hint").innerHTML=HINT[ty];
+  }
+  $("pay").addEventListener("input",calc);
+  document.querySelectorAll(".stepper button").forEach(function(b){
+    b.addEventListener("click",function(){
+      mo=Math.max(1,Math.min(18,mo+parseInt(this.dataset.d,10)));
+      $("mo-v").textContent=mo+"개월"; calc();
+    });
+  });
+  $("type").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on"); ty=parseInt(b.dataset.t,10); calc();
+  });
+  calc();
+
+})();
+</script>
+
 </body>
 </html>

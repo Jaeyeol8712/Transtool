@@ -1,101 +1,474 @@
-<!-- 28. pto_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <title>연차 개수 계산기 - 입사일 기준 무료 계산</title>
- <meta name="description" content="내 연차가 몇 개 남았지? 입사일을 입력하면 근로기준법에 따라 현재까지 발생한 총 연차 휴가 일수를 계산해 줍니다.">
- <link rel="canonical" href="https://www.aroundtool.com/pto_calculator">
- <style>
- :root{--primary:#0891b2;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴</title>
+<meta name="description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/pto_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#B5690E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/pto_calculator.html">
+<meta property="og:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴">
+<meta property="og:description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴">
+<meta name="twitter:description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+--rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#B5690E;--brand-dark:#8A5009;--brand-tint:#FBF1E1;
+--warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;--t-hot:#FBECEC;--ok:#1B855C;--t-ok:#E5F4EC}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:#0D7A6F}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+.hero{padding:2.25rem 0 1.25rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:38rem}
+.alert-up{display:flex;gap:.7rem;align-items:flex-start;margin-top:1rem;padding:.9rem 1.1rem;
+background:var(--t-warn);border:1px solid #EBDCBE;border-radius:4px;font-size:.8125rem;
+color:#6B5622;line-height:1.7}
+.alert-up b{color:#8A6D1F;font-weight:700}
+.alert-up::before{content:"\26A0";flex-shrink:0;font-size:.95rem}
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card>h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);letter-spacing:-0.01em}
+.card>h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+font-weight:600;color:var(--soft)}
+.card-body{padding:1.1rem}
+label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.ip{position:relative}
+.ip input{width:100%;padding:.68rem 3rem .68rem .8rem;font:inherit;font-size:1.0625rem;
+color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+-moz-appearance:textfield;font-family:"IBM Plex Mono",monospace}
+.ip input[type=date]{font-size:.9375rem;padding-right:.8rem}
+.ip input::-webkit-outer-spin-button,.ip input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ip input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.ip .unit{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);
+font-size:.8125rem;color:var(--soft);pointer-events:none}
+.readout{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+margin:.35rem 0 0;font-weight:600;min-height:1.1em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1rem}
+.fld{margin-bottom:1rem}
+.seg{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.58rem .25rem;
+background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;opacity:.75;font-weight:400}
+.stepper{display:flex;align-items:center;gap:.5rem}
+.stepper button{width:2.1rem;height:2.1rem;border:1px solid var(--rule-strong);background:var(--panel);
+border-radius:3px;font:inherit;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--soft)}
+.stepper button:hover{border-color:var(--brand);color:var(--brand)}
+.stepper .v{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;
+font-size:.9375rem;font-weight:600;background:var(--panel-alt);
+border:1px solid var(--rule);border-radius:3px;padding:.5rem .3rem}
+.chk{display:flex;align-items:flex-start;gap:.55rem;font-size:.875rem;cursor:pointer;
+padding:.6rem .75rem;background:var(--panel-alt);border-radius:3px;margin-bottom:.5rem}
+.chk input{width:1.05rem;height:1.05rem;accent-color:var(--brand);margin-top:.15rem;flex-shrink:0}
+.chk small{display:block;color:var(--soft);font-size:.75rem}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+.hint b{color:var(--ink)}
+.total{background:var(--brand-tint);border-radius:4px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.5rem,6.5vw,2.1rem);
+font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.2}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+opacity:.85;margin-top:.4rem;line-height:1.6}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .l small{display:block;font-size:.75rem;color:var(--soft);font-weight:400}
+.bd .v{font-family:"IBM Plex Mono",monospace;font-size:.875rem;font-weight:600;
+white-space:nowrap;color:var(--soft)}
+.bd li.sum{border-top:2px solid var(--rule-strong);border-bottom:none;
+margin-top:.35rem;padding-top:.7rem;font-weight:700}
+.bd li.sum .v{color:var(--ink);font-size:1rem}
+.bd li.hl{background:var(--brand-tint);margin:.5rem -.5rem 0;padding:.7rem .5rem;
+border-radius:3px;border-bottom:none;font-weight:700}
+.bd li.hl .v{color:var(--brand-dark);font-size:1rem}
+.flag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;
+letter-spacing:.06em;font-weight:600;border-radius:2px;padding:.05rem .35rem;margin-left:.35rem}
+.f-cap{background:var(--t-hot);color:var(--hot)}
+.f-floor{background:var(--t-ok);color:var(--ok)}
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px;font-size:.8125rem;color:var(--soft);line-height:1.75}
+.notice b{color:var(--ink);font-weight:700}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+.formula{background:var(--panel-alt);border-radius:4px;padding:1rem 1.1rem;
+font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;color:var(--ink)}
+.formula .op{color:var(--soft)}
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:28rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr.hl{background:var(--brand-tint)}
+tbody tr.hl th,tbody tr.hl td{font-weight:700;color:var(--brand-dark)}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap;text-align:right}
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans b{color:var(--ink)}
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+@media (min-width:56rem){.wrap{padding:0 1.25rem}
+.app{grid-template-columns:1fr 1fr;align-items:start}
+.col-r{position:sticky;top:1rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "연차 계산기",
+     "item": "https://www.aroundtool.com/pto_calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "연차 계산기",
+   "url": "https://www.aroundtool.com/pto_calculator.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "All",
+   "inLanguage": "ko-KR",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+   },
+   "description": "입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다."
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "연차는 몇 일부터 생기나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "입사 1년 미만이면 1개월 개근할 때마다 1일씩 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 80% 이상 출근하면 15일이 별도로 발생합니다. 3년째부터는 2년마다 1일씩 가산되어 최대 25일까지 늘어납니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "연차가 최대 몇 일까지 늘어나나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "25일이 상한입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 15일에 근속연수에서 1을 뺀 값을 2로 나눈 몫을 더하는 방식입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "연차수당은 어떻게 계산하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "미사용 연차일수에 1일 통상임금을 곱합니다. 1일 통상임금은 월 통상임금을 209시간으로 나눈 뒤 8시간을 곱한 금액입니다. 통상임금에는 기본급과 고정수당만 들어가고 상여금이나 연장수당은 제외됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "연차사용촉진을 하면 수당을 못 받나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "회사가 법에 정해진 절차와 기한을 지켜 서면으로 사용을 촉진했는데도 근로자가 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 절차를 하나라도 어기면 촉진의 효력이 없어 수당을 청구할 수 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "5인 미만 사업장도 연차가 있나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "없습니다. 근로기준법상 연차유급휴가 규정은 상시 5인 이상 사업장에만 적용됩니다. 4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "입사일 기준과 회계연도 기준은 뭐가 다른가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "법 원칙은 입사일 기준입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 회계연도 기준을 쓰더라도 퇴사 시점에 입사일 기준으로 계산한 것보다 적으면 그 차액을 정산해 줘야 합니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>연차 계산기</span></nav>
- <header>
- <h1>🌴 연차 계산기</h1>
- <p>근로기준법 기준 발생 연차(월차) 개수</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card">
- <label>입사일</label>
- <input type="date" id="ptoStart">
- <label>기준일 (기본: 오늘)</label>
- <input type="date" id="ptoTarget">
- <button onclick="calcPTO()">연차 개수 계산하기</button>
- <div class="result" id="result">
- <div class="result-row"><span class="result-label">근속 기간</span><span class="result-value" id="workPeriod" style="font-size:1.1rem; color:var(--text);">-</span></div>
- <div class="result-row"><span class="result-label">발생한 총 연차 휴가 (개)</span><span class="result-value" id="ptoTotal">-</span></div>
- </div>
- </div>
- <div class="info-box">
- <h2>ℹ️ 근로기준법 연차 발생 기준</h2>
- <p>입사 후 1년 미만: 1개월 개근 시 1일 발생 (최대 11일)</p>
- <p style="margin-top:4px;">1년 이상: 기본 15일 발생. 이후 3년 차부터 매 2년마다 1일씩 가산 (최대 25일)</p>
- <p style="margin-top:4px;color:#ef4444;">* 본 도구는 회사 자체 회계연도가 아닌 법적 '입사일 기준'으로 산정됩니다.</p>
- </div>
- <article class="seo-text">
- <h2>하반기 황금연휴 공략! 오차 없는 내 연차 카운팅</h2>
- <p>본격적인 여름휴가 시즌의 절정인 2026년 7월입니다. 다가오는 8월 광복절 징검다리 연휴나 9월 추석 명절 연휴에 맞춰 해외여행 비행기표를 끊으려다 보면, 당장 내 이름 앞으로 발생한 누적 연차가 총 몇 개인지 헷갈려 엑셀을 뒤적거리기 십상입니다. 바쁜 사내 인사팀이나 경영지원팀에 메신저로 매번 물어보기 눈치 보이셨다면, 여러분의 최초 입사일 단 하나만 정확하게 달력 폼에 입력해 보세요. 최신 근로기준법 개정안을 완벽히 반영하여 1년 미만 신입사원의 한 달 만근 시 생기는 소중한 월차 1개부터, 3년 차 이상 장기 근속자에게 추가로 쏠쏠하게 가산되는 휴가 일수까지 단 1일의 오차도 없이 총발생 개수를 명확히 카운팅해 드립니다. 남은 하반기 스케줄을 전략적으로 기획하고 지친 심신을 달래줄 완벽한 바캉스 계획을 쟁취하세요.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 참고용 정보이며 회사 내부 취업규칙에 따라 다를 수 있습니다.</p>
- </footer>
- <script>
- document.getElementById('ptoTarget').valueAsDate = new Date();
- function calcPTO(){
- const start = new Date(document.getElementById('ptoStart').value);
- const target = new Date(document.getElementById('ptoTarget').value);
- if(isNaN(start)) return alert('입사일을 입력해주세요.');
- if(target < start) return alert('기준일은 입사일 이후여야 합니다.');
- const diffTime = Math.abs(target - start);
- const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
- const years = Math.floor(diffDays / 365);
- const months = Math.floor(diffDays / 30.416);
- let totalPto = 0;
- if(years < 1) {
- totalPto = Math.min(months, 11);
- } else {
- totalPto = 11; 
- for(let i=1; i<=years; i++){
- if(i === 1) totalPto += 15;
- else {
- let add = Math.floor((i - 1) / 2);
- let currentYearPto = 15 + add;
- if(currentYearPto > 25) currentYearPto = 25;
- totalPto += currentYearPto;
- }
- }
- }
- document.getElementById('workPeriod').textContent = `${years}년 ${months % 12}개월`;
- document.getElementById('ptoTotal').textContent = totalPto + '개';
- document.getElementById('result').classList.add('show');
- }
- </script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>연차</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">근로기준법 제60조 기준 · 로그인 없이 무료</p>
+    <h1>연차 계산기</h1>
+    <p>입사일을 넣으면 <strong>지금까지 발생한 연차</strong>가 나옵니다. 1년 미만 월차와 가산 연차를 나눠 보여주고 미사용 연차수당도 계산합니다.</p>
+    <div class="alert-up"><span>연차는 <b>1년 이상 15일</b>에서 시작해 <b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>입니다. <b>5인 미만 사업장</b>과 주 15시간 미만 근로자는 대상이 아닙니다.</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="app">
+    <div class="col-l">
+      <div class="card">
+        <h2>1 · 입사일과 기준일</h2>
+        <div class="card-body">
+          <div class="grid2">
+            <div><label class="lb" for="in">입사일</label>
+              <div class="ip"><input type="date" id="in" value="2022-04-01"></div></div>
+            <div><label class="lb" for="base">기준일</label>
+              <div class="ip"><input type="date" id="base" value="2026-09-01"></div></div>
+          </div>
+          <p class="readout" id="yr-r"></p>
+          <p class="hint">기준일은 <b>연차를 확인하려는 날짜</b>입니다. 오늘 날짜를 넣으면 현재 발생한 연차를 볼 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1.25rem">
+        <h2>2 · 연차수당 계산 (선택)</h2>
+        <div class="card-body">
+          <div class="fld">
+            <label class="lb" for="pay">월 통상임금</label>
+            <div class="ip"><input type="number" id="pay" value="300" min="0" step="10" inputmode="numeric">
+              <span class="unit">만원</span></div>
+            <p class="hint">기본급과 고정수당 합계. <b>상여금·연장수당은 제외</b>합니다.</p>
+          </div>
+          <div class="fld">
+            <label class="lb">미사용 연차</label>
+            <div class="stepper">
+              <button type="button" data-d="-1">−</button>
+              <span class="v" id="un-v">5일</span>
+              <button type="button" data-d="1">+</button>
+            </div>
+          </div>
+          <p class="hint">1일 통상임금 = <b>월 통상임금 ÷ 209시간 × 8시간</b>으로 계산합니다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-r">
+      <div class="card">
+        <h2>발생 연차<span class="n" id="cap"></span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">현재 발생 연차</p>
+            <p class="total-num" id="days">0일</p>
+            <p class="total-sub" id="days-sub"></p>
+          </div>
+          <ul class="bd" id="bd"></ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1.25rem">
+        <h2>연차수당</h2>
+        <div class="card-body"><ul class="bd" id="pay-bd"></ul></div>
+      </div>
+      <div class="notice">
+        <b>알아두실 점</b>
+        <ul>
+          <li>5인 미만 사업장은 <b>연차 규정이 적용되지 않습니다</b></li>
+          <li>4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다</li>
+          <li>회사가 <b>연차사용촉진</b>을 적법하게 했다면 미사용 연차수당이 소멸할 수 있습니다</li>
+          <li>회계연도 기준으로 운영하는 회사는 입사일 기준과 일수가 달라집니다</li>
+        </ul>
+        연차수당 청구권 소멸시효는 <b>3년</b>입니다.
+      </div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>근속연수별 연차일수 (근로기준법 제60조)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>근속</th><th>연차일수</th><th>근거</th></tr></thead>
+        <tbody id="tbl"></tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem"><b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>에서 멈춥니다.
+    21년 이상 근속하면 더 늘지 않습니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>1년 미만 근로자의 연차</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>구분</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">발생 방식</th><td>1개월 개근할 때마다 1일씩 발생. 최대 11일</td></tr>
+          <tr><th scope="row">1년 되는 날</th><td>1년 이상 근속 요건을 채우면 <b>15일이 별도로</b> 발생. 앞의 11일과 합쳐 최대 26일</td></tr>
+          <tr><th scope="row">사용 기한</th><td>2020년 3월 개정으로 <b>입사일부터 1년 이내</b>에 써야 함</td></tr>
+          <tr><th scope="row">퇴사 시</th><td>미사용분은 연차수당으로 정산</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>연차는 몇 일부터 생기나요?</summary>
+      <div class="ans">입사 1년 미만이면 <b>1개월 개근할 때마다 1일씩</b> 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 <b>80% 이상 출근</b>하면 15일이 별도로 발생합니다. 3년째부터는 <b>2년마다 1일씩 가산</b>되어 최대 25일까지 늘어납니다.</div>
+    </details>
+    <details>
+      <summary>연차가 최대 몇 일까지 늘어나나요?</summary>
+      <div class="ans"><b>25일이 상한</b>입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 <b>15 + (근속연수 − 1) ÷ 2의 몫</b>입니다.</div>
+    </details>
+    <details>
+      <summary>연차수당은 어떻게 계산하나요?</summary>
+      <div class="ans">미사용 연차일수 × 1일 통상임금입니다. <b>1일 통상임금 = 월 통상임금 ÷ 209시간 × 8시간</b>입니다. 통상임금에는 기본급과 고정수당만 들어가고 <b>상여금이나 연장수당은 제외</b>됩니다.</div>
+    </details>
+    <details>
+      <summary>연차사용촉진을 하면 수당을 못 받나요?</summary>
+      <div class="ans">회사가 법에 정해진 <b>절차와 기한을 지켜 서면으로</b> 촉진했는데도 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 <b>절차를 하나라도 어기면 촉진의 효력이 없어</b> 수당을 청구할 수 있습니다. 구두 통보만으로는 인정되지 않습니다.</div>
+    </details>
+    <details>
+      <summary>5인 미만 사업장도 연차가 있나요?</summary>
+      <div class="ans">없습니다. 근로기준법상 연차유급휴가 규정은 <b>상시 5인 이상 사업장</b>에만 적용됩니다. <b>4주 평균 주 15시간 미만</b> 근로자도 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다.</div>
+    </details>
+    <details>
+      <summary>입사일 기준과 회계연도 기준은 뭐가 다른가요?</summary>
+      <div class="ans">법 원칙은 <b>입사일 기준</b>입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 다만 회계연도 기준을 쓰더라도 <b>퇴사 시점에 입사일 기준보다 적으면 차액을 정산</b>해 줘야 합니다. 이 계산기는 입사일 기준입니다.</div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/severance_calculator.html">퇴직금</a>
+      <a href="/unemployment_benefit_calculator.html">실업급여</a>
+      <a href="/holiday_pay_calculator.html">주휴수당</a>
+      <a href="/parental_leave_calculator.html">육아휴직급여</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  function w(n){return Math.round(n).toLocaleString("ko-KR");}
+  function man(n){if(n>=100000000){var e=Math.floor(n/100000000),r=Math.round((n%100000000)/10000);
+    return e+"억"+(r?" "+w(r)+"만":"");}return w(n/10000)+"만";}
+
+  var un=5;
+  function annual(y){ if(y<1) return 0; if(y<3) return 15;
+    return Math.min(25, 15+Math.floor((y-1)/2)); }
+  function calc(){
+    var i=new Date($("in").value), b=new Date($("base").value);
+    var days=Math.max(0,Math.round((b-i)/86400000));
+    var y=days/365, yi=Math.floor(y);
+    var mon=Math.floor(days/30.4);
+    var pay=(parseFloat($("pay").value)||0)*10000;
+    var d1=pay/209*8;
+
+    var total, detail;
+    if(y<1){
+      var m=Math.min(11,mon);
+      total=m;
+      detail='<li><span class="l">1년 미만 월차<small>1개월 개근당 1일 · 최대 11일</small></span><span class="v">'+m+'일</span></li>'+
+             '<li><span class="l">연차 (1년 이상)<small>아직 미발생</small></span><span class="v">0일</span></li>';
+    }else{
+      var a=annual(yi), extra=Math.min(25,a)-15;
+      total=a;
+      detail='<li><span class="l">기본 연차<small>1년 이상 · 80% 이상 출근</small></span><span class="v">15일</span></li>'+
+             '<li><span class="l">가산 연차<small>3년째부터 2년마다 1일 · 최대 10일</small></span><span class="v">'+extra+'일</span></li>';
+    }
+    $("yr-r").textContent = days? "근속 "+w(days)+"일 · "+yi+"년 "+(mon-yi*12)+"개월" : "—";
+    $("cap").textContent = yi+"년차";
+    $("days").textContent = total+"일";
+    $("days-sub").innerHTML = y<1
+      ? "입사 1년 전까지는 <b>매월 개근할 때마다 1일씩</b> 쌓입니다"
+      : "근속 "+yi+"년 기준 · 다음 가산은 "+(annual(yi)>=25?"없음 (최대 25일 도달)":(yi%2===1?yi+2:yi+1)+"년차");
+    $("bd").innerHTML = detail +
+      '<li class="hl"><span class="l">합계</span><span class="v">'+total+'일</span></li>';
+    $("pay-bd").innerHTML=
+      '<li><span class="l">월 통상임금</span><span class="v">'+w(pay)+'원</span></li>'+
+      '<li><span class="l">1일 통상임금<small>월 통상임금 ÷ 209 × 8</small></span><span class="v">'+w(d1)+'원</span></li>'+
+      '<li><span class="l">미사용 연차</span><span class="v">'+un+'일</span></li>'+
+      '<li class="hl"><span class="l">연차수당</span><span class="v">'+w(d1*un)+'원</span></li>';
+
+    var rows=[1,2,3,5,7,10,15,20,21];
+    $("tbl").innerHTML=rows.map(function(n){
+      var a=annual(n), why = n<3? "기본 15일" : (a>=25? "상한 도달":"15일 + 가산 "+(a-15)+"일");
+      return '<tr'+(n===yi?' class="hl"':'')+'><th scope="row">'+n+'년</th>'+
+        '<td class="num"><b>'+a+'일</b></td><td>'+why+'</td></tr>';
+    }).join("");
+  }
+  ["in","base","pay"].forEach(function(id){$(id).addEventListener("input",calc);});
+  document.querySelectorAll(".stepper button").forEach(function(b){
+    b.addEventListener("click",function(){
+      un=Math.max(0,Math.min(25,un+parseInt(this.dataset.d,10)));
+      $("un-v").textContent=un+"일"; calc();
+    });
+  });
+  calc();
+
+})();
+</script>
+
 </body>
 </html>
