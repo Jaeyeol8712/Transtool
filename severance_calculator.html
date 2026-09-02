@@ -1,112 +1,485 @@
-<!-- 33. severance_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <title>퇴직금 계산기 - 평균임금 기준 무료 계산</title>
- <meta name="description" content="입사일, 퇴사일, 최근 3개월 급여를 입력하면 평균임금과 예상 퇴직금을 계산해주는 무료 계산기입니다.">
- <link rel="canonical" href="https://www.aroundtool.com/severance_calculator">
- <style>
- :root{--primary:#7c3aed;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
- .hint{font-size:0.78rem;color:var(--muted);margin-top:-12px;margin-bottom:16px;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{background:#6d28d9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .result-value.small{font-size:1.05rem;color:var(--text);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
- .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>퇴직금 계산기 — 평균임금·상여금 반영 | 어라운드툴</title>
+<meta name="description" content="재직 기간과 퇴직 전 3개월 임금을 넣으면 1일 평균임금과 퇴직금을 계산합니다. 상여금 3/12, 연차수당 3/12 반영과 평균임금 포함·제외 항목까지 정리했습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/severance_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#B5690E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/severance_calculator.html">
+<meta property="og:title" content="퇴직금 계산기 — 평균임금·상여금 반영 | 어라운드툴">
+<meta property="og:description" content="재직 기간과 퇴직 전 3개월 임금을 넣으면 1일 평균임금과 퇴직금을 계산합니다. 상여금 3/12, 연차수당 3/12 반영과 평균임금 포함·제외 항목까지 정리했습니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="퇴직금 계산기 — 평균임금·상여금 반영 | 어라운드툴">
+<meta name="twitter:description" content="재직 기간과 퇴직 전 3개월 임금을 넣으면 1일 평균임금과 퇴직금을 계산합니다. 상여금 3/12, 연차수당 3/12 반영과 평균임금 포함·제외 항목까지 정리했습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+--rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#B5690E;--brand-dark:#8A5009;--brand-tint:#FBF1E1;
+--warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;--t-hot:#FBECEC;--ok:#1B855C;--t-ok:#E5F4EC}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:#0D7A6F}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+.hero{padding:2.25rem 0 1.25rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:38rem}
+.alert-up{display:flex;gap:.7rem;align-items:flex-start;margin-top:1rem;padding:.9rem 1.1rem;
+background:var(--t-warn);border:1px solid #EBDCBE;border-radius:4px;font-size:.8125rem;
+color:#6B5622;line-height:1.7}
+.alert-up b{color:#8A6D1F;font-weight:700}
+.alert-up::before{content:"\26A0";flex-shrink:0;font-size:.95rem}
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card>h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);letter-spacing:-0.01em}
+.card>h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+font-weight:600;color:var(--soft)}
+.card-body{padding:1.1rem}
+label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.ip{position:relative}
+.ip input{width:100%;padding:.68rem 3rem .68rem .8rem;font:inherit;font-size:1.0625rem;
+color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+-moz-appearance:textfield;font-family:"IBM Plex Mono",monospace}
+.ip input[type=date]{font-size:.9375rem;padding-right:.8rem}
+.ip input::-webkit-outer-spin-button,.ip input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ip input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.ip .unit{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);
+font-size:.8125rem;color:var(--soft);pointer-events:none}
+.readout{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+margin:.35rem 0 0;font-weight:600;min-height:1.1em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1rem}
+.fld{margin-bottom:1rem}
+.seg{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.58rem .25rem;
+background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;opacity:.75;font-weight:400}
+.stepper{display:flex;align-items:center;gap:.5rem}
+.stepper button{width:2.1rem;height:2.1rem;border:1px solid var(--rule-strong);background:var(--panel);
+border-radius:3px;font:inherit;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--soft)}
+.stepper button:hover{border-color:var(--brand);color:var(--brand)}
+.stepper .v{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;
+font-size:.9375rem;font-weight:600;background:var(--panel-alt);
+border:1px solid var(--rule);border-radius:3px;padding:.5rem .3rem}
+.chk{display:flex;align-items:flex-start;gap:.55rem;font-size:.875rem;cursor:pointer;
+padding:.6rem .75rem;background:var(--panel-alt);border-radius:3px;margin-bottom:.5rem}
+.chk input{width:1.05rem;height:1.05rem;accent-color:var(--brand);margin-top:.15rem;flex-shrink:0}
+.chk small{display:block;color:var(--soft);font-size:.75rem}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+.hint b{color:var(--ink)}
+.total{background:var(--brand-tint);border-radius:4px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.5rem,6.5vw,2.1rem);
+font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.2}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+opacity:.85;margin-top:.4rem;line-height:1.6}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .l small{display:block;font-size:.75rem;color:var(--soft);font-weight:400}
+.bd .v{font-family:"IBM Plex Mono",monospace;font-size:.875rem;font-weight:600;
+white-space:nowrap;color:var(--soft)}
+.bd li.sum{border-top:2px solid var(--rule-strong);border-bottom:none;
+margin-top:.35rem;padding-top:.7rem;font-weight:700}
+.bd li.sum .v{color:var(--ink);font-size:1rem}
+.bd li.hl{background:var(--brand-tint);margin:.5rem -.5rem 0;padding:.7rem .5rem;
+border-radius:3px;border-bottom:none;font-weight:700}
+.bd li.hl .v{color:var(--brand-dark);font-size:1rem}
+.flag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;
+letter-spacing:.06em;font-weight:600;border-radius:2px;padding:.05rem .35rem;margin-left:.35rem}
+.f-cap{background:var(--t-hot);color:var(--hot)}
+.f-floor{background:var(--t-ok);color:var(--ok)}
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px;font-size:.8125rem;color:var(--soft);line-height:1.75}
+.notice b{color:var(--ink);font-weight:700}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+.formula{background:var(--panel-alt);border-radius:4px;padding:1rem 1.1rem;
+font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;color:var(--ink)}
+.formula .op{color:var(--soft)}
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:28rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr.hl{background:var(--brand-tint)}
+tbody tr.hl th,tbody tr.hl td{font-weight:700;color:var(--brand-dark)}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap;text-align:right}
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans b{color:var(--ink)}
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+@media (min-width:56rem){.wrap{padding:0 1.25rem}
+.app{grid-template-columns:1fr 1fr;align-items:start}
+.col-r{position:sticky;top:1rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "퇴직금 계산기",
+     "item": "https://www.aroundtool.com/severance_calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "퇴직금 계산기",
+   "url": "https://www.aroundtool.com/severance_calculator.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "All",
+   "inLanguage": "ko-KR",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+   },
+   "description": "재직 기간과 퇴직 전 3개월 임금을 넣으면 1일 평균임금과 퇴직금을 계산합니다. 상여금 3/12, 연차수당 3/12 반영과 평균임금 포함·제외 항목까지 정리했습니다."
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "퇴직금은 어떻게 계산하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1일 평균임금에 30일을 곱한 뒤 재직일수를 365로 나눈 값을 곱합니다. 1일 평균임금은 퇴직 전 3개월 임금 총액에 연간 상여금의 3/12과 전년도 미사용 연차수당의 3/12을 더해 그 기간 총일수로 나눈 금액입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "1년을 못 채우면 퇴직금을 못 받나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "계속근로기간이 1년 미만이면 법정 퇴직금 지급 의무가 없습니다. 다만 회사 취업규칙이나 근로계약에 더 유리한 조항이 있으면 그에 따릅니다. 또 4주 평균 주 15시간 미만 근로자는 1년을 넘겨도 대상에서 제외됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "평균임금과 통상임금 중 어느 것으로 계산하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "원칙은 평균임금이지만 평균임금이 통상임금보다 적으면 통상임금을 기준으로 합니다. 근로기준법 제2조에 정해진 내용입니다. 퇴직 직전에 무급휴직이나 결근이 많아 평균임금이 낮아진 경우에 이 규정이 적용됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "상여금은 전액 반영되나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "아닙니다. 퇴직 전 1년간 받은 상여금 총액의 3/12만 평균임금 산정에 들어갑니다. 3개월치만 반영한다는 뜻입니다. 연차수당도 같은 방식으로 3/12만 반영됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "퇴직금은 언제까지 받아야 하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "퇴직일로부터 14일 이내가 원칙입니다. 당사자 합의가 있으면 기일을 연장할 수 있습니다. 기한을 넘기면 연 20%의 지연이자가 붙고, 미지급 시 고용노동부에 진정을 넣을 수 있습니다. 퇴직금 청구권 소멸시효는 3년입니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "퇴직소득세는 얼마나 떼나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "퇴직소득세는 근속연수공제와 환산급여공제를 거쳐 계산되며 근속 기간이 길수록 세율이 낮아집니다. 일반 소득세보다 크게 낮은 편이라 근속 10년 이상이면 실효세율이 한 자릿수인 경우가 많습니다. 이 계산기 금액은 세전입니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>노동·구직 계산기</span><span>/</span><span>퇴직금 계산기</span></nav>
- <header>
- <h1>💼 퇴직금 계산기</h1>
- <p>입사일, 퇴사일, 최근 급여로 예상 퇴직금을 계산합니다</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card">
- <label for="startDate">입사일</label>
- <input type="date" id="startDate">
- <label for="endDate">퇴사일</label>
- <input type="date" id="endDate">
- <label for="salary3m">퇴직 전 3개월 급여 총액 (세전, 원)</label>
- <input type="number" id="salary3m" placeholder="예: 9000000">
- <div class="hint">최근 3개월 급여명세서상 세전 총액을 더한 값입니다</div>
- <label for="bonus">최근 1년 상여금 총액 (원, 없으면 0)</label>
- <input type="number" id="bonus" placeholder="예: 3000000" value="0">
- <label for="annualLeave">최근 1년 연차수당 (원, 없으면 0)</label>
- <input type="number" id="annualLeave" placeholder="예: 0" value="0">
- <button onclick="calculateSeverance()">계산하기</button>
- <div class="result" id="result">
- <div class="result-row">
- <span class="result-label">재직일수</span>
- <span class="result-value small" id="workDays">-</span>
- </div>
- <div class="result-row">
- <span class="result-label">1일 평균임금</span>
- <span class="result-value small" id="avgWage">-</span>
- </div>
- <div class="result-row">
- <span class="result-label">예상 퇴직금</span>
- <span class="result-value" id="severancePay">-</span>
- </div>
- </div>
- </div>
- <div class="info-box">
- <h2>ℹ️ 퇴직금 계산 방식</h2>
- <p>근로기준법상 퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</p>
- <p style="margin-top:8px;">평균임금 = (3개월 급여 + 상여금×3/12 + 연차수당×3/12) ÷ 최근 3개월 총 일수</p>
- <p style="margin-top:8px;color:#ef4444;">* 계속 근로기간 1년 미만은 퇴직금 지급 대상이 아니며, 이 계산기는 참고용으로 실제 금액과 차이가 있을 수 있습니다.</p>
- </div>
- <article class="seo-text">
- <h2>여름휴가 후 퇴사 고민? 하반기 이직 전 퇴직금 챙기기</h2>
- <p>2026년 여름, 꿀 같은 여름휴가를 다녀온 직후 하반기 공채나 경력직 이직을 준비하며 마음속에 품어둔 사직서를 꺼내려는 직장인들이 많습니다. 퇴사 날짜를 정할 때 가장 예민하게 계산해야 하는 것이 바로 퇴직금 정산입니다. 법정 퇴직금은 퇴사 직전 3개월의 '평균임금'을 베이스로 굴러가기 때문에, 연장 수당이 많았던 달 직후에 퇴사하는 것이 금액 면에서 압도적으로 유리합니다. 입사일과 퇴사일, 그리고 명세서에 찍힌 최근 석 달 치 세전 월급의 합계를 입력해 보세요. 1년 동안 받은 보너스 상여금과 미사용 연차수당까지 꼼꼼히 안배하여 근로기준법 규정에 맞춘 정확한 예상 퇴직금을 뽑아드립니다. 새로운 커리어 도전을 위한 비상금의 규모를 확인하고 안정적인 환승 이직을 준비해 보세요.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 계산 결과는 참고용이며 법적 분쟁의 증빙 자료로 사용할 수 없습니다.</p>
- </footer>
- <script>
- function calculateSeverance(){
- const start = new Date(document.getElementById('startDate').value);
- const end = new Date(document.getElementById('endDate').value);
- const salary3m = parseFloat(document.getElementById('salary3m').value);
- const bonus = parseFloat(document.getElementById('bonus').value) || 0;
- const annualLeave = parseFloat(document.getElementById('annualLeave').value) || 0;
- if(!document.getElementById('startDate').value || !document.getElementById('endDate').value || !salary3m){
- alert('입사일, 퇴사일, 3개월 급여를 모두 입력해주세요.');
- return;
- }
- if(end <= start){ alert('퇴사일은 입사일 이후여야 합니다.'); return; }
- const workDays = Math.round((end - start) / (1000*60*60*24));
- const threeMonthDays = 91;
- const avgWage = (salary3m + bonus*(3/12) + annualLeave*(3/12)) / threeMonthDays;
- const severancePay = avgWage * 30 * (workDays/365);
- document.getElementById('workDays').textContent = workDays.toLocaleString() + '일';
- document.getElementById('avgWage').textContent = Math.round(avgWage).toLocaleString() + '원';
- document.getElementById('severancePay').textContent = Math.round(severancePay).toLocaleString() + '원';
- document.getElementById('result').classList.add('show');
- }
- </script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>퇴직금</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">근로자퇴직급여보장법 기준 · 로그인 없이 무료</p>
+    <h1>퇴직금 계산기</h1>
+    <p>재직 기간과 퇴직 전 3개월 임금을 넣으면 <strong>1일 평균임금과 퇴직금</strong>이 나옵니다. 상여금과 연차수당 반영분까지 항목별로 보여줍니다.</p>
+    <div class="alert-up"><span><b>1년 근무당 약 한 달치 급여</b>가 퇴직금으로 쌓입니다. 계속근로 <b>1년 미만</b>이거나 <b>4주 평균 주 15시간 미만</b>이면 법정 지급 대상이 아닙니다.</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="app">
+    <div class="col-l">
+      <div class="card">
+        <h2>1 · 재직 기간</h2>
+        <div class="card-body">
+          <div class="grid2">
+            <div><label class="lb" for="in">입사일</label>
+              <div class="ip"><input type="date" id="in" value="2021-03-02"></div></div>
+            <div><label class="lb" for="out">퇴사일</label>
+              <div class="ip"><input type="date" id="out" value="2026-08-31"></div></div>
+          </div>
+          <p class="readout" id="days-r"></p>
+          <p class="hint">퇴사일은 <b>마지막 근무일의 다음 날</b>을 넣습니다.
+          8월 31일까지 일했다면 9월 1일이 퇴사일입니다. 이 계산기는 입력한 두 날짜의 차이를 그대로 씁니다.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>2 · 퇴직 전 3개월 임금</h2>
+        <div class="card-body">
+          <div class="fld">
+            <label class="lb" for="m1">최근 3개월 급여 합계</label>
+            <div class="ip"><input type="number" id="m1" value="1050" min="0" step="10" inputmode="numeric">
+              <span class="unit">만원</span></div>
+            <p class="readout" id="m1-r"></p>
+            <p class="hint">기본급, 각종 수당, 식대 등 <b>세전 총액</b>을 넣습니다. 비과세 항목도 포함합니다.</p>
+          </div>
+          <div class="fld">
+            <label class="lb" for="bonus">연간 상여금 총액</label>
+            <div class="ip"><input type="number" id="bonus" value="0" min="0" step="10" inputmode="numeric">
+              <span class="unit">만원</span></div>
+            <p class="hint">퇴직 전 1년간 받은 상여금. <b>3/12만</b> 평균임금에 더해집니다.</p>
+          </div>
+          <div class="fld">
+            <label class="lb" for="pto">연차수당 (전년도 미사용분)</label>
+            <div class="ip"><input type="number" id="pto" value="0" min="0" step="10" inputmode="numeric">
+              <span class="unit">만원</span></div>
+            <p class="hint">퇴직 전전년도에 발생해 전년도에 미사용한 연차수당. <b>3/12만</b> 반영됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-r">
+      <div class="card">
+        <h2>퇴직금<span class="n" id="yr-cap"></span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">예상 퇴직금 (세전)</p>
+            <p class="total-num" id="sev">0원</p>
+            <p class="total-sub" id="sev-sub"></p>
+          </div>
+          <ul class="bd" id="bd"></ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>계산 공식</h2>
+        <div class="card-body">
+          <div class="formula">
+            1일 평균임금<br>
+            <span class="op">= (3개월 임금 + 상여 × 3/12 + 연차수당 × 3/12)</span><br>
+            <span class="op">&nbsp;&nbsp;÷ 3개월 총일수</span><br><br>
+            퇴직금<br>
+            <span class="op">= 1일 평균임금 × 30일 × (재직일수 ÷ 365)</span>
+          </div>
+          <p class="hint">평균임금이 통상임금보다 적으면 <b>통상임금을 기준</b>으로 계산합니다(근로기준법 제2조).
+          이 계산기는 평균임금 기준으로만 산출합니다.</p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <b>참고용 추정치입니다.</b>
+        <ul>
+          <li>계속근로기간 <b>1년 미만</b>이면 퇴직금 지급 의무가 없습니다</li>
+          <li>4주 평균 주 15시간 미만 근로자는 대상에서 제외됩니다</li>
+          <li>퇴직소득세는 별도로 공제됩니다. 이 금액은 세전입니다</li>
+          <li>퇴직연금(DC형)은 회사 납입액과 운용 수익에 따라 달라져 이 공식과 다릅니다</li>
+        </ul>
+        퇴직금은 퇴직일로부터 <b>14일 이내</b> 지급이 원칙입니다.
+      </div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>평균임금에 넣는 것과 빼는 것</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>구분</th><th>항목</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">포함</th><td>기본급, 직책수당, 자격수당, 정기상여금(3/12), 연장·야간·휴일수당, 식대, 차량유지비 등 정기적·일률적으로 지급된 금품</td></tr>
+          <tr><th scope="row">제외</th><td>경조사비, 실비변상적 출장비, 개인 실적에 따른 비정기 인센티브, 회사가 임의로 준 격려금</td></tr>
+          <tr><th scope="row">기간 제외</th><td>수습기간(3개월 이내), 업무상 부상·질병 요양기간, 육아휴직기간, 사용자 귀책 휴업기간은 평균임금 산정 기간에서 뺍니다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">위 제외 기간이 있으면 그 기간과 임금을 뺀 나머지로 평균임금을 냅니다.
+    이 계산기는 <b>제외 기간이 없다고 가정</b>합니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>재직 기간별 퇴직금 (월급 350만 원 기준)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>재직 기간</th><th>재직일수</th><th>퇴직금 (세전)</th></tr></thead>
+        <tbody id="tbl"></tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">퇴직금은 <b>재직 일수에 정비례</b>합니다.
+    1년 더 다니면 약 한 달치 급여가 더 쌓이는 구조입니다.</p>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>퇴직금은 어떻게 계산하나요?</summary>
+      <div class="ans">1일 평균임금에 30일을 곱한 뒤 재직일수를 365로 나눈 값을 곱합니다. <b>1일 평균임금</b>은 퇴직 전 3개월 임금 총액에 연간 상여금의 3/12과 전년도 미사용 연차수당의 3/12을 더해 그 기간 총일수로 나눈 금액입니다. 쉽게 말해 <b>1년 근무당 약 한 달치 급여</b>가 쌓이는 구조입니다.</div>
+    </details>
+    <details>
+      <summary>1년을 못 채우면 퇴직금을 못 받나요?</summary>
+      <div class="ans">계속근로기간이 <b>1년 미만이면 법정 퇴직금 지급 의무가 없습니다.</b> 다만 회사 취업규칙이나 근로계약에 더 유리한 조항이 있으면 그에 따릅니다. 또 <b>4주 평균 주 15시간 미만</b> 근로자는 1년을 넘겨도 대상에서 제외됩니다.</div>
+    </details>
+    <details>
+      <summary>평균임금과 통상임금 중 어느 것으로 계산하나요?</summary>
+      <div class="ans">원칙은 평균임금이지만 <b>평균임금이 통상임금보다 적으면 통상임금을 기준</b>으로 합니다(근로기준법 제2조). 퇴직 직전에 무급휴직이나 결근이 많아 평균임금이 낮아진 경우에 이 규정이 적용됩니다. 이 계산기는 평균임금 기준으로만 산출합니다.</div>
+    </details>
+    <details>
+      <summary>상여금은 전액 반영되나요?</summary>
+      <div class="ans">아닙니다. 퇴직 전 1년간 받은 상여금 총액의 <b>3/12만</b> 평균임금 산정에 들어갑니다. 3개월치만 반영한다는 뜻입니다. 전년도 미사용 연차수당도 같은 방식으로 3/12만 반영됩니다.</div>
+    </details>
+    <details>
+      <summary>퇴직금은 언제까지 받아야 하나요?</summary>
+      <div class="ans">퇴직일로부터 <b>14일 이내</b>가 원칙입니다. 당사자 합의가 있으면 기일을 연장할 수 있습니다. 기한을 넘기면 <b>연 20%의 지연이자</b>가 붙고, 미지급 시 고용노동부에 진정을 넣을 수 있습니다. 퇴직금 청구권 <b>소멸시효는 3년</b>입니다.</div>
+    </details>
+    <details>
+      <summary>퇴직소득세는 얼마나 떼나요?</summary>
+      <div class="ans">퇴직소득세는 <b>근속연수공제</b>와 <b>환산급여공제</b>를 거쳐 계산되며 근속 기간이 길수록 세율이 낮아집니다. 일반 소득세보다 크게 낮은 편이라 근속 10년 이상이면 실효세율이 한 자릿수인 경우가 많습니다. 이 계산기 금액은 세전입니다.</div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/unemployment_benefit_calculator.html">실업급여</a>
+      <a href="/pto_calculator.html">연차</a>
+      <a href="/holiday_pay_calculator.html">주휴수당</a>
+      <a href="/parental_leave_calculator.html">육아휴직급여</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  function w(n){return Math.round(n).toLocaleString("ko-KR");}
+  function man(n){if(n>=100000000){var e=Math.floor(n/100000000),r=Math.round((n%100000000)/10000);
+    return e+"억"+(r?" "+w(r)+"만":"");}return w(n/10000)+"만";}
+
+  function calc(){
+    var i=new Date($("in").value), o=new Date($("out").value);
+    var days=Math.max(0,Math.round((o-i)/86400000));
+    var m1=(parseFloat($("m1").value)||0)*10000;
+    var bo=(parseFloat($("bonus").value)||0)*10000;
+    var pt=(parseFloat($("pto").value)||0)*10000;
+    /* 퇴직 전 3개월 총일수: 퇴사일 기준 직전 3개월 */
+    var e=new Date(o), s=new Date(o); s.setMonth(s.getMonth()-3);
+    var d3=Math.max(1,Math.round((e-s)/86400000));
+    var base=m1+bo*3/12+pt*3/12;
+    var avg=base/d3;
+    var sev=avg*30*(days/365);
+    var yrs=Math.floor(days/365), rem=days%365;
+
+    $("days-r").textContent = days? "재직 "+w(days)+"일 · "+yrs+"년 "+Math.floor(rem/30)+"개월" : "—";
+    $("m1-r").textContent = m1? man(m1)+"원 · 월평균 "+w(m1/3)+"원" : "—";
+    $("yr-cap").textContent = days? yrs+"년 "+Math.floor(rem/30)+"개월" : "—";
+
+    if(days<365){
+      $("sev").textContent="지급 대상 아님";
+      $("sev-sub").innerHTML="계속근로기간이 <b>1년 미만</b>이면 법정 퇴직금 지급 의무가 없습니다.";
+    }else{
+      $("sev").textContent=w(sev)+"원";
+      $("sev-sub").innerHTML="1일 평균임금 "+w(avg)+"원 × 30일 × ("+w(days)+"일 ÷ 365)";
+    }
+    $("bd").innerHTML=
+      '<li><span class="l">3개월 임금<small>세전 총액</small></span><span class="v">'+w(m1)+'원</span></li>'+
+      '<li><span class="l">상여금 반영분<small>연간 상여 × 3/12</small></span><span class="v">'+w(bo*3/12)+'원</span></li>'+
+      '<li><span class="l">연차수당 반영분<small>× 3/12</small></span><span class="v">'+w(pt*3/12)+'원</span></li>'+
+      '<li class="sum"><span class="l">평균임금 산정 총액<small>÷ '+d3+'일</small></span><span class="v">'+w(base)+'원</span></li>'+
+      '<li><span class="l">1일 평균임금</span><span class="v">'+w(avg)+'원</span></li>'+
+      '<li><span class="l">30일분<small>1년치 퇴직금</small></span><span class="v">'+w(avg*30)+'원</span></li>'+
+      '<li class="hl"><span class="l">퇴직금 (세전)</span><span class="v">'+(days<365?"—":w(sev)+"원")+'</span></li>';
+
+    var rows=[[1,365],[2,730],[3,1095],[5,1825],[7,2555],[10,3650],[15,5475],[20,7300]];
+    var A=3500000*3/91;
+    $("tbl").innerHTML=rows.map(function(r){
+      return '<tr><th scope="row">'+r[0]+'년</th><td class="num">'+w(r[1])+'일</td>'+
+        '<td class="num"><b>'+w(A*30*(r[1]/365))+'원</b></td></tr>';
+    }).join("");
+  }
+  ["in","out","m1","bonus","pto"].forEach(function(id){$(id).addEventListener("input",calc);});
+  calc();
+
+})();
+</script>
+
 </body>
 </html>
