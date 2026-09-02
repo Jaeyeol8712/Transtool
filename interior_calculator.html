@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인테리어 가견적 계산기 — 항목별 단가와 예상 구도 | 어라운드툴</title>
+<meta name="description" content="2026년 시세 기준 아파트 인테리어 가견적 계산기. 평수와 마감 등급, 공사 항목을 고르면 항목별 금액과 평면도 예상 구도가 함께 나옵니다. 철거·바닥·도배·주방·욕실·창호·확장까지 13개 항목.">
+<link rel="canonical" href="https://www.aroundtool.com/interior_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#0D7A6F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/interior_calculator.html">
+<meta property="og:title" content="인테리어 가견적 계산기 — 항목별 단가와 예상 구도">
+<meta property="og:description" content="평수와 등급, 공사 항목을 고르면 항목별 금액과 평면도가 실시간으로 바뀝니다. 2026년 시세 기준.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="인테리어 가견적 계산기 — 항목별 단가와 예상 구도">
+<meta name="twitter:description" content="평수와 등급, 공사 항목을 고르면 항목별 금액과 평면도가 실시간으로 바뀝니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-dark:#095B53;--brand-tint:#E2F1EF;
+  --warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;--t-hot:#FBECEC;
+  /* 평면도 */
+  --fp-wall:#3C4750;--fp-room:#F1F3F1;--fp-line:#B9C2BC;--fp-text:#5C6873;
+  --fp-on:#D8ECE8;--fp-kitchen:#F4E3CE;--fp-bath:#DCE8F5;--fp-win:#1B6FB8;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--brand)}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+  color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+
+.hero{padding:2.25rem 0 1.5rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+  color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+  margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:36rem}
+
+/* ---------- 레이아웃 ---------- */
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card > h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+  padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);
+  letter-spacing:-0.01em}
+.card > h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:600;color:var(--soft)}
+.card-body{padding:1.1rem}
+
+/* ---------- 기본 입력 ---------- */
+.f-row{display:grid;grid-template-columns:1fr;gap:.9rem}
+.f label{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.f .ip{position:relative}
+.f input[type=number]{width:100%;padding:.65rem 2.4rem .65rem .8rem;font:inherit;font-size:1rem;
+  color:var(--ink);background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+  -moz-appearance:textfield}
+.f input[type=number]::-webkit-outer-spin-button,.f input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.f input:focus{outline:none;border-color:var(--brand);background:var(--panel)}
+.f .unit{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);
+  font-size:.8125rem;color:var(--soft);pointer-events:none}
+.seg{display:flex;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.6rem .3rem;
+  background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+  color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.625rem;opacity:.75;font-weight:400}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+
+/* ---------- 공사 항목 ---------- */
+.items{list-style:none;margin:0;padding:0}
+.items li{border-bottom:1px solid var(--rule)}
+.items li:last-child{border-bottom:none}
+.it{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem 0;cursor:pointer}
+.it input{margin:.3rem 0 0;width:1.05rem;height:1.05rem;accent-color:var(--brand);flex-shrink:0}
+.it-main{flex:1;min-width:0}
+.it-name{font-size:.9375rem;font-weight:600;letter-spacing:-0.01em;
+  display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap}
+.it-tag{font-family:"IBM Plex Mono",monospace;font-size:.5625rem;letter-spacing:.08em;
+  font-weight:600;border-radius:2px;padding:.05rem .3rem;background:var(--t-warn);color:#8A6D1F}
+.it-tag.big{background:var(--t-hot);color:var(--hot)}
+.it-desc{font-size:.8125rem;color:var(--soft);margin-top:.15rem;line-height:1.55}
+.it-cost{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  color:var(--soft);white-space:nowrap;text-align:right;padding-top:.15rem;min-width:6.5rem}
+.it input:checked ~ .it-main .it-name{color:var(--brand-dark)}
+.it-qty{display:flex;align-items:center;gap:.4rem;margin-top:.45rem}
+.it-qty button{width:1.6rem;height:1.6rem;border:1px solid var(--rule-strong);background:var(--panel);
+  border-radius:3px;font:inherit;font-size:.9375rem;line-height:1;cursor:pointer;color:var(--soft)}
+.it-qty button:hover{border-color:var(--brand);color:var(--brand)}
+.it-qty span{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;min-width:2.6rem;text-align:center}
+
+/* ---------- 평면도 ---------- */
+.fp-wrap{padding:1rem 1.1rem 1.1rem}
+svg.fp{width:100%;height:auto;display:block;background:var(--panel);border-radius:4px}
+.fp-legend{display:flex;flex-wrap:wrap;gap:.3rem .85rem;margin:.8rem 0 0;padding:0;list-style:none}
+.fp-legend li{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft);
+  display:flex;align-items:center;gap:.3rem}
+.fp-legend li::before{content:"";width:9px;height:9px;border-radius:2px;border:1px solid var(--fp-line)}
+.lg-on::before{background:var(--fp-on)}
+.lg-kit::before{background:var(--fp-kitchen)}
+.lg-bath::before{background:var(--fp-bath)}
+.lg-off::before{background:var(--fp-room)}
+.fp-note{font-size:.75rem;color:var(--soft);margin:.7rem 0 0;line-height:1.6;
+  padding-top:.7rem;border-top:1px dotted var(--rule)}
+
+/* ---------- 결과 ---------- */
+.total{background:var(--brand-tint);border-radius:4px;padding:1.1rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.375rem,5vw,1.75rem);
+  font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.25}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+  opacity:.8;margin-top:.35rem}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+  padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .lab{color:var(--ink)}
+.bd .lab small{display:block;font-size:.75rem;color:var(--soft);font-weight:400}
+.bd .val{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  white-space:nowrap;color:var(--soft)}
+.bd .pct{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft);
+  background:var(--panel-alt);border-radius:99px;padding:.05rem .4rem;margin-left:.35rem}
+.empty{text-align:center;color:var(--soft);font-size:.875rem;padding:1.5rem 0}
+.bars{margin:1rem 0 0;padding-top:1rem;border-top:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;font-size:.75rem}
+.bar-lab{width:5.5rem;color:var(--soft);flex-shrink:0}
+.bar-track{flex:1;height:.5rem;background:var(--panel-alt);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;background:var(--brand);border-radius:99px;transition:width .25s ease}
+.bar-val{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--soft);
+  white-space:nowrap;min-width:4.5rem;text-align:right}
+
+/* ---------- 안내 ---------- */
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--t-warn);
+  border:1px solid #EBDCBE;border-radius:4px;font-size:.8125rem;color:#6B5622;line-height:1.75}
+.notice b{color:#8A6D1F;font-weight:700}
+.notice a{color:#8A6D1F;text-decoration:underline;font-weight:600}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+  border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:30rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+  font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+  font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+  flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+@media (min-width:34rem){ .f-row{grid-template-columns:1fr 1fr} }
+@media (min-width:56rem){
+  .wrap{padding:0 1.25rem}
+  .app{grid-template-columns:1.05fr .95fr;align-items:start}
+  .col-r{position:sticky;top:1rem}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
+</style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"BreadcrumbList","itemListElement":[
+   {"@type":"ListItem","position":1,"name":"어라운드툴","item":"https://www.aroundtool.com/"},
+   {"@type":"ListItem","position":2,"name":"인테리어 가견적 계산기","item":"https://www.aroundtool.com/interior_calculator.html"}]},
+  {"@type":"WebApplication","name":"인테리어 가견적 계산기",
+   "url":"https://www.aroundtool.com/interior_calculator.html",
+   "applicationCategory":"UtilitiesApplication","operatingSystem":"All",
+   "inLanguage":"ko-KR","isAccessibleForFree":true,
+   "offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},
+   "description":"평수와 마감 등급, 공사 항목을 고르면 항목별 금액과 평면도 예상 구도가 함께 나오는 인테리어 가견적 계산기입니다. 2026년 시세 기준."},
+  {"@type":"FAQPage","mainEntity":[
+   {"@type":"Question","name":"30평 아파트 인테리어 비용은 얼마인가요?",
+    "acceptedAnswer":{"@type":"Answer","text":"2026년 시세 기준 30평대 전체 리모델링은 창호를 제외하면 약 3,500만~6,000만 원, 창호 교체와 확장까지 포함하면 6,000만~9,500만 원 수준입니다. 부분 리모델링(주방+욕실 중심)은 1,500만~3,000만 원입니다. 평당 단가로는 100만~180만 원 선이며 자재 등급과 지역에 따라 편차가 큽니다."}},
+   {"@type":"Question","name":"창호(샷시) 교체는 얼마나 드나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"30평대 아파트 전체 창호를 KCC, LX하우시스 같은 인지도 있는 브랜드로 교체할 경우 약 1,300만~1,500만 원 수준입니다. 단열과 방음 성능을 크게 좌우하는 공사라 전체 예산에서 차지하는 비중이 큽니다."}},
+   {"@type":"Question","name":"욕실 2개 리모델링 비용은?",
+    "acceptedAnswer":{"@type":"Answer","text":"기존 타일 위에 덧방 시공이 가능한 경우 2개 기준 약 500만~600만 원이 평균입니다. 철거 후 방수부터 다시 하는 전체 시공은 2개 기준 850만 원 안팎의 견적 사례가 있습니다."}},
+   {"@type":"Question","name":"견적서에 안 나오는 추가 비용이 있나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"있습니다. 폐기물 처리비, 발코니 확장(300만~500만 원), 엘리베이터 보양, 관리사무소 예치금, 준공 청소, 설계 변경분 등이 있습니다. 업계에서는 추가 비용까지 포함하면 최초 견적보다 20~30% 더 나오는 경우가 많다고 봅니다."}},
+   {"@type":"Question","name":"공사 기간은 얼마나 걸리나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"전체 리모델링은 6~10주, 부분 리모델링은 3~5주, 도배와 장판, 조명만 바꾸는 수준은 1~2주가 일반적입니다. 전체 리모델링은 거주가 어려워 임시 거처가 필요합니다."}},
+   {"@type":"Question","name":"업체는 어떻게 고르나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"최소 3곳 이상에서 세부 내역서를 받아 비교하는 것이 기본입니다. 총액만 적힌 견적서가 아니라 항목별 수량과 자재 브랜드, 모델명이 적힌 내역서를 요구해야 비교가 됩니다."}}
+  ]}
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>인테리어 가견적</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">2026년 시세 기준 · 로그인 없이 무료</p>
+    <h1>인테리어 가견적 계산기</h1>
+    <p>평수와 마감 등급을 정하고 공사 항목을 켜면, <strong>항목별 금액과 평면도가 같이 바뀝니다.</strong>
+    어디에 돈이 들어가는지 눈으로 보면서 범위를 조절할 수 있습니다.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="app">
+
+    <!-- ══════ 왼쪽: 입력 ══════ -->
+    <div class="col-l">
+
+      <div class="card">
+        <h2>1 · 기본 조건</h2>
+        <div class="card-body f">
+          <div class="f-row">
+            <div>
+              <label for="pyeong">공급면적</label>
+              <div class="ip">
+                <input type="number" id="pyeong" value="30" min="5" max="200" step="1" inputmode="numeric">
+                <span class="unit">평</span>
+              </div>
+            </div>
+            <div>
+              <label for="baths">욕실 개수</label>
+              <div class="ip">
+                <input type="number" id="baths" value="2" min="0" max="5" step="1" inputmode="numeric">
+                <span class="unit">개</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem">
+            <label>마감 등급</label>
+            <div class="seg" id="grade" role="group" aria-label="마감 등급">
+              <button data-lo="0" data-hi="0.35" type="button">보급형<small>국산 보급</small></button>
+              <button data-lo="0.2" data-hi="0.75" class="on" type="button">중급형<small>브랜드 표준</small></button>
+              <button data-lo="0.55" data-hi="1" type="button">고급형<small>수입·프리미엄</small></button>
+            </div>
+            <p class="hint">각 항목의 시세 범위 안에서 <b>어느 구간을 쓸지</b>를 정합니다. 보급형은 아래쪽, 고급형은 위쪽 구간입니다. 같은 공사도 자재 등급에 따라 두 배 넘게 벌어집니다.</p>
+          </div>
+
+          <div style="margin-top:1rem">
+            <label>빠른 설정</label>
+            <div class="seg" id="preset" role="group" aria-label="빠른 설정">
+              <button data-p="min" type="button">최소형<small>도배·바닥·욕실1</small></button>
+              <button data-p="std" type="button">기본형<small>창호 제외 올수리</small></button>
+              <button data-p="max" type="button">고급형<small>창호·확장 포함</small></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>2 · 공사 항목<span class="n" id="cnt">0개 선택</span></h2>
+        <div class="card-body">
+          <ul class="items" id="items"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ 오른쪽: 평면도 + 견적 ══════ -->
+    <div class="col-r">
+
+      <div class="card">
+        <h2>예상 구도<span class="n" id="fp-cap">30평 · 방3 · 욕실2</span></h2>
+        <div class="fp-wrap">
+          <svg class="fp" id="fp" viewBox="0 0 420 320" role="img" aria-labelledby="fp-title">
+            <title id="fp-title">선택한 공사 항목이 반영된 평면도</title>
+
+            <!-- 방 바닥 -->
+            <g id="floors">
+              <rect id="r-balcony" x="14" y="14" width="392" height="34" fill="var(--fp-room)"/>
+              <rect id="r-living"  x="14" y="48" width="196" height="130" fill="var(--fp-room)"/>
+              <rect id="r-master"  x="210" y="48" width="196" height="106" fill="var(--fp-room)"/>
+              <rect id="r-kitchen" x="14" y="178" width="118" height="90" fill="var(--fp-room)"/>
+              <rect id="r-hall"    x="132" y="178" width="78" height="90" fill="var(--fp-room)"/>
+              <rect id="r-bath2"   x="210" y="154" width="90" height="57" fill="var(--fp-room)"/>
+              <rect id="r-bath1"   x="210" y="211" width="90" height="57" fill="var(--fp-room)"/>
+              <rect id="r-room2"   x="300" y="154" width="106" height="114" fill="var(--fp-room)"/>
+              <rect id="r-entry"   x="14" y="268" width="118" height="38" fill="var(--fp-room)"/>
+              <rect id="r-room3"   x="132" y="268" width="274" height="38" fill="var(--fp-room)"/>
+            </g>
+
+            <!-- 확장 시 사라지는 발코니 경계선 -->
+            <line id="balcony-wall" x1="14" y1="48" x2="210" y2="48"
+                  stroke="var(--fp-wall)" stroke-width="3"/>
+
+            <!-- 내벽 -->
+            <g id="walls" stroke="var(--fp-wall)" stroke-width="2" fill="none">
+              <line x1="210" y1="48" x2="210" y2="268"/>
+              <line x1="210" y1="154" x2="406" y2="154"/>
+              <line x1="300" y1="154" x2="300" y2="268"/>
+              <line x1="210" y1="211" x2="300" y2="211"/>
+              <line x1="14"  y1="178" x2="210" y2="178"/>
+              <line x1="132" y1="178" x2="132" y2="306"/>
+              <line x1="14"  y1="268" x2="406" y2="268"/>
+              <line x1="210" y1="48" x2="406" y2="48"/>
+            </g>
+
+            <!-- 외벽 -->
+            <rect x="14" y="14" width="392" height="292" fill="none"
+                  stroke="var(--fp-wall)" stroke-width="4"/>
+
+            <!-- 창호 -->
+            <g id="windows" stroke="var(--fp-line)" stroke-width="5" stroke-linecap="round">
+              <line x1="46"  y1="14" x2="150" y2="14"/>
+              <line x1="240" y1="14" x2="360" y2="14"/>
+              <line x1="406" y1="70" x2="406" y2="132"/>
+              <line x1="406" y1="180" x2="406" y2="240"/>
+              <line x1="14"  y1="200" x2="14"  y2="250"/>
+            </g>
+
+            <!-- 주방 가구 -->
+            <g id="kitchen-unit" opacity="0">
+              <rect x="22" y="186" width="102" height="16" rx="2" fill="#C99A5E"/>
+              <rect x="22" y="244" width="60" height="16" rx="2" fill="#C99A5E"/>
+              <circle cx="52" cy="194" r="4" fill="#F6F8F7"/>
+            </g>
+            <!-- 욕실 설비 -->
+            <g id="bath-unit" opacity="0">
+              <rect x="218" y="162" width="26" height="16" rx="3" fill="#8FAEC9"/>
+              <rect x="256" y="162" width="36" height="20" rx="3" fill="#8FAEC9"/>
+              <rect x="218" y="219" width="26" height="16" rx="3" fill="#8FAEC9"/>
+              <rect x="256" y="219" width="36" height="20" rx="3" fill="#8FAEC9"/>
+            </g>
+            <!-- 조명 -->
+            <g id="lights" opacity="0" fill="#E8B84B">
+              <circle cx="112" cy="105" r="5"/><circle cx="308" cy="98" r="5"/>
+              <circle cx="352" cy="208" r="5"/><circle cx="270" cy="288" r="5"/>
+              <circle cx="73" cy="222" r="4"/>
+            </g>
+            <!-- 중문 -->
+            <g id="middoor" opacity="0">
+              <rect x="126" y="272" width="12" height="30" rx="2" fill="#7FA8A2"/>
+            </g>
+            <!-- 시스템에어컨 -->
+            <g id="aircon" opacity="0" fill="#9AA8B2">
+              <rect x="90" y="52" width="34" height="7" rx="2"/>
+              <rect x="290" y="52" width="34" height="7" rx="2"/>
+            </g>
+            <!-- 붙박이장 -->
+            <g id="closet" opacity="0" fill="#B9A88C">
+              <rect x="214" y="58" width="16" height="88" rx="2"/>
+              <rect x="386" y="160" width="16" height="100" rx="2"/>
+            </g>
+
+            <!-- 라벨 -->
+            <g font-family="IBM Plex Sans KR, sans-serif" font-size="11" fill="var(--fp-text)" text-anchor="middle">
+              <text id="lb-balcony" x="210" y="36">발코니</text>
+              <text x="112" y="118">거실</text>
+              <text x="308" y="106">안방</text>
+              <text x="73" y="228">주방</text>
+              <text x="171" y="228">복도</text>
+              <text x="255" y="188" font-size="10">욕실2</text>
+              <text x="255" y="245" font-size="10">욕실1</text>
+              <text x="353" y="216">방2</text>
+              <text x="73" y="292" font-size="10">현관</text>
+              <text x="269" y="292">방3</text>
+            </g>
+          </svg>
+
+          <ul class="fp-legend">
+            <li class="lg-off">미시공</li>
+            <li class="lg-on">바닥·도배 시공</li>
+            <li class="lg-kit">주방 시공</li>
+            <li class="lg-bath">욕실 시공</li>
+          </ul>
+          <p class="fp-note" id="fp-note">항목을 켜면 해당 공간이 채워집니다.
+          <b>표준 3룸 평면</b>을 기준으로 그린 것이라 실제 구조와는 다릅니다.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>가견적<span class="n" id="pp">평당 —</span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">예상 범위</p>
+            <p class="total-num" id="total">0원</p>
+            <p class="total-sub" id="total-sub">항목을 선택하세요</p>
+          </div>
+          <ul class="bd" id="bd"><li class="empty">공사 항목을 선택하면 내역이 나옵니다</li></ul>
+          <div class="bars" id="bars" hidden>
+            <div class="bar"><span class="bar-lab">골조·설비</span><span class="bar-track"><span class="bar-fill" id="bf-1"></span></span><span class="bar-val" id="bv-1">0</span></div>
+            <div class="bar"><span class="bar-lab">마감</span><span class="bar-track"><span class="bar-fill" id="bf-2"></span></span><span class="bar-val" id="bv-2">0</span></div>
+            <div class="bar"><span class="bar-lab">주방·욕실</span><span class="bar-track"><span class="bar-fill" id="bf-3"></span></span><span class="bar-val" id="bv-3">0</span></div>
+            <div class="bar"><span class="bar-lab">창호·기타</span><span class="bar-track"><span class="bar-fill" id="bf-4"></span></span><span class="bar-val" id="bv-4">0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        <b>이 금액은 가견적입니다.</b> 실제 계약 금액이 아닙니다. 아래 항목은 이 계산에 들어 있지 않습니다.
+        <ul>
+          <li>엘리베이터·복도 보양비, 관리사무소 예치금</li>
+          <li>준공 청소, 입주 청소</li>
+          <li>설계 변경분, 현장 상황에 따른 추가 철거</li>
+          <li>가구·가전·커튼·조명 기구 구입비</li>
+        </ul>
+        업계에서는 이런 항목까지 더하면 <b>최초 견적보다 20~30% 더 나오는</b> 경우가 많다고 봅니다.
+        반드시 최소 3곳 이상에서 <b>항목별 수량과 자재 모델명이 적힌 내역서</b>를 받아 비교하세요.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 문서 ══════ -->
+  <section class="doc">
+    <h2>2026년 30평 기준 항목별 시세</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>항목</th><th>포함 내용</th><th>30평 기준</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">철거·폐기물</th><td>기존 마감재 철거, 폐기물 처리·반출</td><td class="num">150만~350만</td></tr>
+          <tr><th scope="row">바닥</th><td>강마루 전체 시공</td><td class="num">320만~900만</td></tr>
+          <tr><th scope="row">도배</th><td>실크 벽지 + 천장 합지</td><td class="num">200만~700만</td></tr>
+          <tr><th scope="row">천장·목공</th><td>우물천장, 몰딩, 간접조명 몰딩</td><td class="num">150만~400만</td></tr>
+          <tr><th scope="row">전기·조명</th><td>간접등, 매입등, 콘센트 증설</td><td class="num">220만~450만</td></tr>
+          <tr><th scope="row">주방</th><td>상하부장, 아일랜드, 후드, 상판, 타일</td><td class="num">680만~1,800만</td></tr>
+          <tr><th scope="row">욕실 (1개)</th><td>철거~시공, 위생도기, 수납장</td><td class="num">425만~600만</td></tr>
+          <tr><th scope="row">도어·중문</th><td>방문 4개 + 현관 중문</td><td class="num">300만~600만</td></tr>
+          <tr><th scope="row">창호(샷시)</th><td>KCC·LX하우시스 등 브랜드 전체 교체</td><td class="num">1,300만~1,500만</td></tr>
+          <tr><th scope="row">발코니 확장</th><td>확장 + 단열 + 바닥</td><td class="num">300만~500만</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">출처는 2026년 기준 인테리어 시세 자료와 실제 견적서 사례입니다.
+    자료마다 편차가 있어 <b>이 계산기는 단일 금액이 아니라 범위로 보여줍니다.</b></p>
+  </section>
+
+  <section class="doc">
+    <h2>공사 유형별 비교</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>구분</th><th>공사 범위</th><th>30평 비용</th><th>기간</th><th>거주</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">셀프·최소</th><td>도배, 장판, 조명 교체</td><td class="num">500만~1,000만</td><td class="num">1~2주</td><td>가능</td></tr>
+          <tr><th scope="row">부분</th><td>주방+욕실 중심</td><td class="num">1,500만~3,000만</td><td class="num">3~5주</td><td>부분 가능</td></tr>
+          <tr><th scope="row">전체 (창호 제외)</th><td>도배·바닥·욕실·주방·조명·도어</td><td class="num">3,500만~6,000만</td><td class="num">6~10주</td><td>임시 거처 필요</td></tr>
+          <tr><th scope="row">전체 + 창호·확장</th><td>위 + 창호 전체 + 확장 + 고급 자재</td><td class="num">6,000만~9,500만</td><td class="num">8~12주</td><td>임시 거처 필요</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">구축 아파트는 어차피 배관·전기 교체 비용이 발생하므로,
+    10년 이상 거주할 계획이면 전체 리모델링이 장기적으로 유리하다는 것이 업계의 일반적인 견해입니다.</p>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>30평 아파트 인테리어 비용은 얼마인가요?</summary>
+      <div class="ans">2026년 시세 기준 전체 리모델링은 <b>창호를 제외하면 3,500만~6,000만 원</b>,
+      창호 교체와 확장까지 포함하면 <b>6,000만~9,500만 원</b> 수준입니다.
+      부분 리모델링(주방+욕실 중심)은 1,500만~3,000만 원입니다.
+      평당 단가로는 100만~180만 원 선이며 자재 등급과 지역에 따라 편차가 큽니다.</div>
+    </details>
+    <details>
+      <summary>창호(샷시) 교체는 얼마나 드나요?</summary>
+      <div class="ans">30평대 전체 창호를 KCC, LX하우시스 같은 인지도 있는 브랜드로 교체하면
+      <b>약 1,300만~1,500만 원</b>입니다. 단열과 방음을 크게 좌우하는 공사라
+      전체 예산에서 차지하는 비중이 가장 큰 단일 항목입니다.</div>
+    </details>
+    <details>
+      <summary>욕실 2개 리모델링 비용은?</summary>
+      <div class="ans">기존 타일 위에 <b>덧방 시공</b>이 가능하면 2개 기준 500만~600만 원이 평균입니다.
+      철거 후 방수부터 다시 하는 전체 시공은 2개 기준 850만 원 안팎의 견적 사례가 있습니다.
+      누수 이력이 있거나 20년 이상 구축이면 덧방이 어려울 수 있습니다.</div>
+    </details>
+    <details>
+      <summary>견적서에 안 나오는 추가 비용이 있나요?</summary>
+      <div class="ans">있습니다. 폐기물 처리비, 발코니 확장(300만~500만 원), 엘리베이터 보양,
+      관리사무소 예치금, 준공 청소, 설계 변경분 같은 것들입니다.
+      업계에서는 추가 비용까지 포함하면 <b>최초 견적보다 20~30% 더 나오는</b> 경우가 많다고 봅니다.</div>
+    </details>
+    <details>
+      <summary>공사 기간은 얼마나 걸리나요?</summary>
+      <div class="ans">전체 리모델링 6~10주, 부분 리모델링 3~5주, 도배·장판·조명만 바꾸는 수준은 1~2주가 일반적입니다.
+      전체 리모델링은 거주가 어려워 <b>임시 거처와 이사 비용</b>을 예산에 같이 잡아야 합니다.</div>
+    </details>
+    <details>
+      <summary>업체는 어떻게 고르나요?</summary>
+      <div class="ans">최소 3곳 이상에서 세부 내역서를 받아 비교하는 것이 기본입니다.
+      총액만 적힌 견적서가 아니라 <b>항목별 수량과 자재 브랜드, 모델명</b>이 적힌 내역서를 요구하세요.
+      그래야 같은 조건으로 비교가 됩니다.</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/about.html">사이트 소개</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/contact.html">문의하기</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 실제 계약 금액과 다릅니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ── 항목 정의: 30평 기준 [최소, 최대] 만원, cat: 1골조 2마감 3주방욕실 4창호기타 ── */
+  var ITEMS = [
+    {id:"demo",  n:"철거·폐기물",   d:"기존 마감재 철거와 폐기물 반출. 전체 공사의 출발점입니다.", lo:150, hi:350, cat:1, scale:1},
+    {id:"plumb", n:"설비·배관",     d:"급배수 배관, 난방 배관 교체. 20년 이상 구축이면 사실상 필수입니다.", lo:250, hi:600, cat:1, scale:1, tag:"구축 필수"},
+    {id:"elec",  n:"전기·조명",     d:"간접등, 매입등, 콘센트 증설. 조명 기구 구입비는 별도입니다.", lo:220, hi:450, cat:1, scale:1, fp:["lights"]},
+    {id:"carp",  n:"천장·목공",     d:"우물천장, 몰딩, 간접조명 몰딩, 아트월.", lo:150, hi:400, cat:2, scale:1},
+    {id:"paper", n:"도배",          d:"실크 벽지 + 천장 합지. 벽 색이 바뀝니다.", lo:200, hi:700, cat:2, scale:1, fp:["wall"]},
+    {id:"floor", n:"바닥재",        d:"강마루 전체 시공. 장판이면 더 저렴합니다.", lo:320, hi:900, cat:2, scale:1, fp:["floor"]},
+    {id:"kitch", n:"주방",          d:"상하부장, 아일랜드, 후드, 상판, 벽·바닥 타일.", lo:680, hi:1800, cat:3, scale:.6, fp:["kitchen"]},
+    {id:"bath",  n:"욕실",          d:"철거~방수~시공, 위생도기, 수납장. 개수만큼 곱해집니다.", lo:425, hi:600, cat:3, per:"bath", fp:["bath"]},
+    {id:"door",  n:"도어·문틀",     d:"방문 교체와 문틀. 방 개수에 따라 달라집니다.", lo:200, hi:400, cat:4, scale:.8},
+    {id:"mdoor", n:"현관 중문",     d:"단열과 냄새 차단에 효과가 큽니다.", lo:100, hi:200, cat:4, scale:0, fp:["middoor"]},
+    {id:"win",   n:"창호(샷시) 전체",d:"KCC·LX하우시스 등 브랜드 기준. 단일 항목 중 가장 큽니다.", lo:1300, hi:1500, cat:4, scale:1, tag:"최대 비중", big:true, fp:["windows"]},
+    {id:"balc",  n:"발코니 확장",   d:"확장 + 단열 + 바닥. 거실이 넓어집니다.", lo:300, hi:500, cat:4, scale:.5, fp:["balcony"]},
+    {id:"ac",    n:"시스템에어컨",  d:"매립형 기준. 실외기와 배관 포함, 대수에 따라 달라집니다.", lo:400, hi:800, cat:4, scale:.7, fp:["aircon"]},
+    {id:"closet",n:"붙박이장",      d:"안방·방2 기준 맞춤 제작.", lo:250, hi:600, cat:4, scale:.7, fp:["closet"]}
+  ];
+  var PRESET = {
+    min:["demo","paper","floor","bath"],
+    std:["demo","elec","carp","paper","floor","kitch","bath","door","mdoor"],
+    max:["demo","elec","carp","paper","floor","kitch","bath","door","mdoor","win","balc"]
+  };
+
+  var state = {gLo:0.2, gHi:0.75, on:{}, bathN:2, pyeong:30};
+  var $ = function(id){ return document.getElementById(id); };
+  var won = function(m){ // 만원 → 표기
+    if(m >= 10000){ var e=Math.floor(m/10000), r=Math.round(m%10000);
+      return e + "억" + (r ? " " + r.toLocaleString("ko-KR") + "만" : ""); }
+    return Math.round(m).toLocaleString("ko-KR") + "만";
+  };
+
+  /* ── 항목 렌더 ── */
+  var ul = $("items");
+  ITEMS.forEach(function(it){
+    var li = document.createElement("li");
+    li.innerHTML =
+      '<label class="it">' +
+        '<input type="checkbox" data-id="'+it.id+'">' +
+        '<span class="it-main">' +
+          '<span class="it-name">'+it.n+
+            (it.tag ? '<span class="it-tag'+(it.big?" big":"")+'">'+it.tag+'</span>' : '')+
+          '</span>' +
+          '<span class="it-desc">'+it.d+'</span>' +
+          (it.per==="bath" ? '<span class="it-qty" hidden><button type="button" data-q="-1" aria-label="욕실 줄이기">−</button><span id="q-bath">2개</span><button type="button" data-q="1" aria-label="욕실 늘리기">+</button></span>' : '') +
+        '</span>' +
+        '<span class="it-cost" id="c-'+it.id+'">—</span>' +
+      '</label>';
+    ul.appendChild(li);
+  });
+
+  /* ── 평면도 제어 ── */
+  var FLOORS = ["r-balcony","r-living","r-master","r-kitchen","r-hall","r-room2","r-entry","r-room3"];
+  function paint(){
+    var on = state.on;
+    // 바닥
+    FLOORS.forEach(function(id){
+      var el = $(id); if(!el) return;
+      el.setAttribute("fill", on.floor ? "var(--fp-on)" : "var(--fp-room)");
+    });
+    // 주방 / 욕실은 전용 색
+    $("r-kitchen").setAttribute("fill", on.kitch ? "var(--fp-kitchen)" : (on.floor ? "var(--fp-on)" : "var(--fp-room)"));
+    ["r-bath1","r-bath2"].forEach(function(id,i){
+      var show = on.bath && state.bathN > i;
+      $(id).setAttribute("fill", show ? "var(--fp-bath)" : "var(--fp-room)");
+    });
+    // 벽(도배) — 외벽 색으로 표현
+    document.querySelectorAll("#walls line").forEach(function(l){
+      l.setAttribute("stroke", on.paper ? "#6E8C86" : "var(--fp-wall)");
+    });
+    // 창호
+    document.querySelectorAll("#windows line").forEach(function(l){
+      l.setAttribute("stroke", on.win ? "var(--fp-win)" : "var(--fp-line)");
+      l.setAttribute("stroke-width", on.win ? 6 : 5);
+    });
+    // 발코니 확장
+    $("balcony-wall").setAttribute("opacity", on.balc ? 0 : 1);
+    $("r-balcony").setAttribute("fill", on.balc ? (on.floor ? "var(--fp-on)" : "var(--fp-room)") : ($("r-balcony").getAttribute("fill")));
+    $("lb-balcony").textContent = on.balc ? "거실 확장" : "발코니";
+    // 부속
+    $("kitchen-unit").setAttribute("opacity", on.kitch ? 1 : 0);
+    $("bath-unit").setAttribute("opacity", on.bath ? 1 : 0);
+    $("lights").setAttribute("opacity", on.elec ? 1 : 0);
+    $("middoor").setAttribute("opacity", on.mdoor ? 1 : 0);
+    $("aircon").setAttribute("opacity", on.ac ? 1 : 0);
+    $("closet").setAttribute("opacity", on.closet ? 1 : 0);
+  }
+
+  /* ── 계산 ── */
+  function calc(){
+    var p = Math.max(5, Math.min(200, parseFloat($("pyeong").value) || 30));
+    state.pyeong = p;
+    var ratio = p / 30;
+    var lo = 0, hi = 0, cats = {1:0,2:0,3:0,4:0}, rows = [];
+
+    ITEMS.forEach(function(it){
+      var c = $("c-"+it.id);
+      // 평수 반영 정도: scale 1이면 완전 비례, 0이면 고정
+      var sc = (it.scale === undefined) ? 1 : it.scale;
+      var f = 1 + (ratio - 1) * sc;
+      var qty = (it.per === "bath") ? state.bathN : 1;
+      var span = it.hi - it.lo;
+      var l = (it.lo + span * state.gLo) * f * qty,
+          h = (it.lo + span * state.gHi) * f * qty;
+      c.textContent = state.on[it.id] ? won(l) + "~" + won(h) : "—";
+      c.style.color = state.on[it.id] ? "var(--brand-dark)" : "";
+      if(!state.on[it.id]) return;
+      lo += l; hi += h; cats[it.cat] += (l + h) / 2;
+      rows.push({n: it.n + (it.per==="bath" ? " ×"+qty : ""), l:l, h:h});
+    });
+
+    var n = rows.length;
+    $("cnt").textContent = n + "개 선택";
+    $("fp-cap").textContent = p + "평 · 방3 · 욕실" + state.bathN;
+
+    if(!n){
+      $("total").textContent = "0원";
+      $("total-sub").textContent = "항목을 선택하세요";
+      $("pp").textContent = "평당 —";
+      $("bd").innerHTML = '<li class="empty">공사 항목을 선택하면 내역이 나옵니다</li>';
+      $("bars").hidden = true;
+      return;
+    }
+    $("total").textContent = won(lo) + "원 ~ " + won(hi) + "원";
+    $("total-sub").textContent = "여기에 예비비 20~30%를 더해 잡으세요 → " +
+      won(lo*1.2) + "원 ~ " + won(hi*1.3) + "원";
+    $("pp").textContent = "평당 " + won(lo/p) + "~" + won(hi/p);
+
+    var mid = (lo + hi) / 2;
+    $("bd").innerHTML = rows.map(function(r){
+      var pct = Math.round(((r.l+r.h)/2) / mid * 100);
+      return '<li><span class="lab">'+r.n+'<span class="pct">'+pct+'%</span></span>'+
+             '<span class="val">'+won(r.l)+"~"+won(r.h)+'</span></li>';
+    }).join("");
+
+    $("bars").hidden = false;
+    var max = Math.max(cats[1],cats[2],cats[3],cats[4],1);
+    [1,2,3,4].forEach(function(k){
+      $("bf-"+k).style.width = (cats[k]/max*100) + "%";
+      $("bv-"+k).textContent = cats[k] ? won(cats[k]) : "—";
+    });
+  }
+
+  function sync(){ paint(); calc(); }
+
+  /* ── 이벤트 ── */
+  ul.addEventListener("change", function(e){
+    var cb = e.target.closest("input[type=checkbox]"); if(!cb) return;
+    state.on[cb.dataset.id] = cb.checked;
+    if(cb.dataset.id === "bath"){
+      var q = cb.closest(".it").querySelector(".it-qty");
+      if(q) q.hidden = !cb.checked;
+    }
+    sync();
+  });
+  ul.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-q]"); if(!b) return;
+    e.preventDefault();
+    state.bathN = Math.max(1, Math.min(5, state.bathN + parseInt(b.dataset.q,10)));
+    $("q-bath").textContent = state.bathN + "개";
+    $("baths").value = state.bathN;
+    sync();
+  });
+  $("baths").addEventListener("input", function(){
+    state.bathN = Math.max(0, Math.min(5, parseInt(this.value,10) || 0));
+    var q = $("q-bath"); if(q) q.textContent = state.bathN + "개";
+    sync();
+  });
+  $("pyeong").addEventListener("input", sync);
+  $("grade").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on");
+    state.gLo = parseFloat(b.dataset.lo); state.gHi = parseFloat(b.dataset.hi);
+    sync();
+  });
+  $("preset").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    var list = PRESET[b.dataset.p] || [];
+    state.on = {};
+    list.forEach(function(id){ state.on[id] = true; });
+    ul.querySelectorAll("input[type=checkbox]").forEach(function(cb){
+      cb.checked = !!state.on[cb.dataset.id];
+      if(cb.dataset.id === "bath"){
+        var q = cb.closest(".it").querySelector(".it-qty");
+        if(q) q.hidden = !cb.checked;
+      }
+    });
+    if(b.dataset.p === "min"){ state.bathN = 1; $("baths").value = 1; }
+    var q = $("q-bath"); if(q) q.textContent = state.bathN + "개";
+    // 등급도 함께 맞춤
+    var gi = {min:0, std:1, max:2}[b.dataset.p];
+    $("grade").querySelectorAll("button").forEach(function(x, i){
+      var on = (i === gi);
+      x.classList.toggle("on", on);
+      if(on){ state.gLo = parseFloat(x.dataset.lo); state.gHi = parseFloat(x.dataset.hi); }
+    });
+    sync();
+  });
+
+  sync();
+})();
+</script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 어라운드툴 (AroundTool)
 
-> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 41개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
+> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 42개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
 
 - 사이트: https://www.aroundtool.com
 - 언어: 한국어 (ko-KR)
@@ -32,6 +32,7 @@
 - [주유 경제성 계산기](https://www.aroundtool.com/fuel_economy_calculator.html)
 - [국민연금 수급개시나이 계산기](https://www.aroundtool.com/pension_age_calculator.html)
 - [중도상환수수료 계산기](https://www.aroundtool.com/prepayment_penalty_calculator.html)
+- [인테리어 가견적 계산기](https://www.aroundtool.com/interior_calculator.html)
 
 ## 노동·구직 (5)
 

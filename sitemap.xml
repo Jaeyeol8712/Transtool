@@ -3,8 +3,8 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 196 URL
-    · 홈 1 / 계산기·도구 41 / 가이드 2
+  총 197 URL
+    · 홈 1 / 계산기·도구 42 / 가이드 2
     · 맛집 147 (전남 4개 권역 28 + 제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
@@ -102,6 +102,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 재테크·부동산 · 인테리어 가견적 계산기 -->
+  <url>
+    <loc>https://www.aroundtool.com/interior_calculator.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 재테크·부동산 · 중도상환수수료 계산기 -->
   <url>
     <loc>https://www.aroundtool.com/prepayment_penalty_calculator.html</loc>
