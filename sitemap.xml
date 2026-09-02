@@ -3,8 +3,8 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 198 URL
-    · 홈 1 / 계산기·도구 43 / 가이드 2
+  총 199 URL
+    · 홈 1 / 계산기·도구 44 / 가이드 2
     · 맛집 147 (전남 4개 권역 28 + 제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
   ============================================================
@@ -285,6 +285,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 생활·건강 · 캠핑 장비 견적 계산기 -->
+  <url>
+    <loc>https://www.aroundtool.com/camping_gear_calculator.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 생활·건강 · 일본 여행 경비 계산기 -->
   <url>
     <loc>https://www.aroundtool.com/japan_travel_calculator.html</loc>

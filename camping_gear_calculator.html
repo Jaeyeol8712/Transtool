@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분 | 어라운드툴</title>
+<meta name="description" content="2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.">
+<link rel="canonical" href="https://www.aroundtool.com/camping_gear_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#0D7A6F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/camping_gear_calculator.html">
+<meta property="og:title" content="캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분">
+<meta property="og:description" content="텐트 캠핑과 차박은 필요 장비가 다릅니다. 모드를 고르면 그에 맞는 품목만 나옵니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분">
+<meta name="twitter:description" content="텐트 캠핑과 차박은 필요 장비가 다릅니다. 모드를 고르면 그에 맞는 품목만 나옵니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-dark:#095B53;--brand-tint:#E2F1EF;
+  --warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;
+  --tent:#1B7A55;--t-tent:#E4F2EC;
+  --car:#1B6FB8;--t-car:#E9F1FA;
+  --both:#7A5CA8;--t-both:#F1ECF9;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--brand)}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+  color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+
+.hero{padding:2.25rem 0 1.25rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+  color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+  margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:38rem}
+
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card > h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+  padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);letter-spacing:-0.01em}
+.card > h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:600;color:var(--soft)}
+.card-body{padding:1.1rem}
+
+label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+.modes button{font:inherit;font-size:.8125rem;font-weight:700;padding:.75rem .3rem;
+  background:var(--panel-alt);border:1px solid var(--rule);border-radius:4px;
+  color:var(--soft);cursor:pointer;line-height:1.35}
+.modes button small{display:block;font-family:"IBM Plex Sans KR",sans-serif;font-size:.6875rem;
+  font-weight:400;opacity:.85;margin-top:.15rem}
+.modes button[data-m="tent"].on{background:var(--tent);color:#fff;border-color:var(--tent)}
+.modes button[data-m="car"].on{background:var(--car);color:#fff;border-color:var(--car)}
+.modes button[data-m="both"].on{background:var(--both);color:#fff;border-color:var(--both)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1rem}
+.seg{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.58rem .25rem;
+  background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+  color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;opacity:.75;font-weight:400}
+.stepper{display:flex;align-items:center;gap:.5rem}
+.stepper button{width:2.1rem;height:2.1rem;border:1px solid var(--rule-strong);background:var(--panel);
+  border-radius:3px;font:inherit;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--soft)}
+.stepper button:hover{border-color:var(--brand);color:var(--brand)}
+.stepper .v{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;
+  font-size:.9375rem;font-weight:600;background:var(--panel-alt);
+  border:1px solid var(--rule);border-radius:3px;padding:.5rem .3rem}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+.hint b{color:var(--ink)}
+
+.gsec{margin-bottom:.4rem}
+.gsec-h{display:flex;align-items:center;gap:.5rem;font-family:"IBM Plex Mono",monospace;
+  font-size:.625rem;letter-spacing:.12em;font-weight:600;text-transform:uppercase;
+  padding:.5rem .6rem;border-radius:3px;margin:1rem 0 .2rem}
+.gsec-h:first-child{margin-top:0}
+.g-both .gsec-h{background:var(--t-both);color:var(--both)}
+.g-tent .gsec-h{background:var(--t-tent);color:var(--tent)}
+.g-car .gsec-h{background:var(--t-car);color:var(--car)}
+.gsec-h .c{margin-left:auto;font-weight:500;opacity:.8}
+.items{list-style:none;margin:0;padding:0}
+.items li{border-bottom:1px solid var(--rule)}
+.items li:last-child{border-bottom:none}
+.it{display:flex;align-items:flex-start;gap:.7rem;padding:.65rem 0;cursor:pointer}
+.it input{margin:.28rem 0 0;width:1.05rem;height:1.05rem;accent-color:var(--brand);flex-shrink:0}
+.it-m{flex:1;min-width:0}
+.it-n{font-size:.9375rem;font-weight:600;letter-spacing:-0.01em;
+  display:flex;align-items:baseline;gap:.35rem;flex-wrap:wrap}
+.badge{font-family:"IBM Plex Mono",monospace;font-size:.5625rem;letter-spacing:.06em;
+  font-weight:600;border-radius:2px;padding:.05rem .3rem}
+.b-must{background:#FBECEC;color:var(--hot)}
+.b-opt{background:var(--panel-alt);color:var(--soft)}
+.b-win{background:var(--t-car);color:var(--car)}
+.it-d{font-size:.8125rem;color:var(--soft);margin-top:.1rem;line-height:1.55}
+.it-c{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  color:var(--soft);white-space:nowrap;text-align:right;padding-top:.15rem;min-width:6rem}
+.it input:checked ~ .it-m .it-n{color:var(--brand-dark)}
+.qty{display:flex;align-items:center;gap:.35rem;margin-top:.4rem}
+.qty button{width:1.5rem;height:1.5rem;border:1px solid var(--rule-strong);background:var(--panel);
+  border-radius:3px;font:inherit;font-size:.875rem;line-height:1;cursor:pointer;color:var(--soft)}
+.qty span{font-family:"IBM Plex Mono",monospace;font-size:.75rem;font-weight:600;min-width:2.2rem;text-align:center}
+
+.total{background:var(--brand-tint);border-radius:4px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.5rem,6vw,2rem);
+  font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.2}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+  opacity:.85;margin-top:.4rem;line-height:1.6}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+  padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .l{display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap}
+.bd .v{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  white-space:nowrap;color:var(--soft)}
+.bars{margin:1rem 0 0;padding-top:.9rem;border-top:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:.55rem;margin-bottom:.45rem;font-size:.75rem}
+.bar-lab{width:4.2rem;color:var(--soft);flex-shrink:0}
+.bar-track{flex:1;height:.5rem;background:var(--panel-alt);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;transition:width .25s ease}
+.bar-val{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--soft);
+  white-space:nowrap;min-width:4rem;text-align:right}
+
+.bep{background:var(--t-warn);border:1px solid #EBDCBE;border-radius:4px;
+  padding:1rem 1.1rem;margin-top:1rem}
+.bep h3{font-size:.8125rem;font-weight:700;color:#8A6D1F;margin-bottom:.5rem}
+.bep p{font-size:.8125rem;color:#6B5622;margin:0 0 .5rem;line-height:1.7}
+.bep p:last-child{margin-bottom:0}
+.bep b{color:#8A6D1F;font-weight:700}
+
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--panel);
+  border:1px solid var(--rule-strong);border-radius:4px;font-size:.8125rem;color:var(--soft);line-height:1.75}
+.notice b{color:var(--ink);font-weight:700}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+  border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:30rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+  font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+  font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+  flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans b{color:var(--ink)}
+
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+@media (min-width:56rem){
+  .wrap{padding:0 1.25rem}
+  .app{grid-template-columns:1.05fr .95fr;align-items:start}
+  .col-r{position:sticky;top:1rem}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "캠핑 장비 견적 계산기",
+     "item": "https://www.aroundtool.com/camping_gear_calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "캠핑 장비 견적 계산기",
+   "url": "https://www.aroundtool.com/camping_gear_calculator.html",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "All",
+   "inLanguage": "ko-KR",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+   },
+   "description": "텐트 캠핑과 차박을 구분해 필요한 장비만 보여주고 등급별 예상 금액과 대여 대비 손익분기점을 계산하는 캠핑 장비 견적 계산기입니다."
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "캠핑 장비 처음 갖추는 데 얼마나 드나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "텐트 캠핑 2인 기준으로 필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "차박과 텐트 캠핑 중 뭐가 더 저렴한가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "통념과 다릅니다. 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 차박이 오히려 조금 더 듭니다. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 파워뱅크 없이 시작할 때입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "차박에 꼭 필요한 장비는 무엇인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼 이렇게 세 가지가 최소 구성입니다. 여기에 전기를 쓸 계획이면 파워뱅크, 여름이면 써큘레이터, 겨울이면 전기장판이 추가됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "장비를 사는 게 나을까요, 빌리는 게 나을까요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "장비 세트 대여는 1박에 약 3만 원입니다. 연 1~5회라면 대여가 유리하고, 연 6회 전후가 손익분기점입니다. 연 8회 이상 정기적으로 다닌다면 구매가 유리합니다. 대여로는 계절별 장비 교체가 어렵다는 점도 고려하세요."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "텐트는 얼마짜리를 사야 하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "같은 스펙이라도 가격 차이가 최대 5배까지 납니다. 데카트론 원터치가 3만~5만 원, 데카트론 퀘차 2인용이 11만 원, 네이처하이크가 15만~17만 원, 스노우피크 어메니티돔M이 57만 원 수준입니다. 10만 원 이하 초저가는 내구성이 떨어지므로 입문자는 15만~25만 원대를 권합니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "파워뱅크는 몇 Wh짜리를 사야 하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "휴대폰 충전과 조명 정도면 300Wh급(24만~37만 원)으로 충분합니다. 전기장판이나 소형 냉장고를 쓰려면 700Wh 이상, 무시동 히터나 전기포트까지 쓰려면 1000Wh 이상이 필요하며 100만 원을 넘어갑니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "첫 캠핑 1박 2일 총비용은 얼마인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "장비를 빌리는 경우 4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원입니다. 사이트 이용료 4만4천 원, 장비 세트 대여 3만 원, 전기·샤워 1만3천 원, 먹거리 8만 원, 교통비 5만 원 구성입니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>캠핑 장비 견적</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">2026년 시세 · 32개 품목</p>
+    <h1>캠핑 장비 견적 계산기</h1>
+    <p><strong>텐트 캠핑과 차박은 필요한 장비가 다릅니다.</strong>
+    모드를 고르면 그에 맞는 품목만 나오고, 등급을 바꾸면 금액대가 바뀝니다.
+    대여와 비교한 손익분기점도 같이 계산합니다.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="app">
+
+    <!-- ══ 왼쪽 ══ -->
+    <div class="col-l">
+      <div class="card">
+        <h2>1 · 어떤 캠핑인가요</h2>
+        <div class="card-body">
+          <div class="modes" id="mode">
+            <button data-m="tent" class="on" type="button">텐트 캠핑<small>사이트에 텐트 설치</small></button>
+            <button data-m="car" type="button">차박<small>차에서 자기</small></button>
+            <button data-m="both" type="button">둘 다<small>상황 따라</small></button>
+          </div>
+          <p class="hint" id="mode-hint"></p>
+
+          <div class="grid2" style="margin-top:1rem">
+            <div>
+              <label class="lb">인원</label>
+              <div class="stepper">
+                <button type="button" data-p="-1" aria-label="줄이기">−</button>
+                <span class="v" id="pax-v">2명</span>
+                <button type="button" data-p="1" aria-label="늘리기">+</button>
+              </div>
+            </div>
+            <div>
+              <label class="lb">연간 캠핑 횟수</label>
+              <div class="stepper">
+                <button type="button" data-f="-1" aria-label="줄이기">−</button>
+                <span class="v" id="freq-v">6회</span>
+                <button type="button" data-f="1" aria-label="늘리기">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem">
+            <label class="lb">계절</label>
+            <div class="seg" id="season">
+              <button data-s="3" class="on" type="button">3계절<small>봄·여름·가을</small></button>
+              <button data-s="4" type="button">동계 포함<small>영하 대비</small></button>
+            </div>
+          </div>
+
+          <div>
+            <label class="lb">장비 등급</label>
+            <div class="seg" id="grade">
+              <button data-g="0" type="button">입문<small>데카트론급</small></button>
+              <button data-g="1" class="on" type="button">중급<small>네이처하이크급</small></button>
+              <button data-g="2" type="button">프리미엄<small>헬리녹스·스노우피크</small></button>
+            </div>
+            <p class="hint" id="grade-hint"></p>
+          <p class="hint" style="margin-top:.4rem">처음에는 <b>필수 품목만 선택된 상태</b>로 시작합니다. 선택 품목을 켜면 금액이 올라갑니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>2 · 품목 선택<span class="n" id="pick-n">0개</span></h2>
+        <div class="card-body" id="gear"></div>
+      </div>
+    </div>
+
+    <!-- ══ 오른쪽 ══ -->
+    <div class="col-r">
+      <div class="card">
+        <h2>견적<span class="n" id="cap"></span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">예상 구매 금액</p>
+            <p class="total-num" id="total">0원</p>
+            <p class="total-sub" id="total-sub">품목을 선택하세요</p>
+          </div>
+          <ul class="bd" id="bd"></ul>
+          <div class="bars" id="bars"></div>
+          <div class="bep" id="bep" hidden>
+            <h3>대여와 비교하면</h3>
+            <p id="bep-1"></p>
+            <p id="bep-2"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        <b>이 견적에 들어 있지 않은 것</b>
+        <ul>
+          <li>캠핑장 이용료 — 오토캠핑 사이트 1박 4만 원 안팎, 강원권은 10% 정도 더 비쌉니다</li>
+          <li>전기·샤워 이용료, 먹거리, 왕복 교통비</li>
+          <li>차량 개조비 — 차박 평탄화 작업, 시트 회전 등은 별도입니다</li>
+          <li>소모품 — 가스, 화로대 숯, 건전지, 방충제</li>
+        </ul>
+        <b>같은 품목이라도 브랜드에 따라 5배까지 벌어집니다.</b> 이 계산기는 등급별 평균 시세를 씁니다.
+      </div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>텐트 캠핑 vs 차박 — 무엇이 다른가</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>구분</th><th>텐트 캠핑</th><th>차박</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">초기 비용</th><td>높음 — 텐트·타프가 큰 비중</td><td>낮음 — 매트만 있으면 시작 가능</td></tr>
+          <tr><th scope="row">잠자리</th><td class="num">텐트 + 매트 + 침낭</td><td class="num">평탄화 매트 + 침낭</td></tr>
+          <tr><th scope="row">설치 시간</th><td class="num">30분~1시간</td><td class="num">5~10분</td></tr>
+          <tr><th scope="row">전기</th><td>캠핑장 전기 사이트 이용 가능</td><td>파워뱅크 필수 — 비용이 여기서 커집니다</td></tr>
+          <tr><th scope="row">여름 취약점</th><td>더위. 타프 그늘 필수</td><td><b>차 안 온도 급상승.</b> 방충망 + 써큘레이터 필수</td></tr>
+          <tr><th scope="row">겨울 취약점</th><td>바닥 냉기. 동계 텐트·난로 필요</td><td><b>결로와 일산화탄소.</b> 환기 필수</td></tr>
+          <tr><th scope="row">짐 부피</th><td>큼 — 별도 적재 공간 필요</td><td>작음 — 다만 잘 공간을 침범합니다</td></tr>
+          <tr><th scope="row">장소 제약</th><td>캠핑장 위주</td><td>노지 가능하나 취사·주차 규정 확인 필요</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>2026년 품목별 시세</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>품목</th><th>입문</th><th>중급</th><th>프리미엄</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">텐트 (2~4인)</th><td class="num">3만~11만</td><td class="num">15만~25만</td><td class="num">57만~73만</td></tr>
+          <tr><th scope="row">침낭 (1인)</th><td class="num">1만8천~5만</td><td class="num">5만~12만</td><td class="num">43만~47만</td></tr>
+          <tr><th scope="row">자충매트 (2인)</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">15만~25만</td></tr>
+          <tr><th scope="row">캠핑의자 (1인)</th><td class="num">1만5천~3만</td><td class="num">3만~5만</td><td class="num">11만5천~16만5천</td></tr>
+          <tr><th scope="row">테이블</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">13만7천~14만7천</td></tr>
+          <tr><th scope="row">차박 에어매트</th><td class="num">4만3천~6만4천</td><td class="num">7만~10만</td><td class="num">15만9천~</td></tr>
+          <tr><th scope="row">파워뱅크</th><td class="num">7만 (소형)</td><td class="num">24만~37만 (300Wh)</td><td class="num">100만~250만 (1000Wh+)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">텐트는 <b>같은 스펙에 가격차가 최대 5배</b>입니다.
+    데카트론 원터치 3만 원부터 스노우피크 어메니티돔M 57만 원까지 있습니다.
+    10만 원 이하 초저가는 내구성이 떨어져 입문자도 15만~25만 원대를 권하는 것이 일반적입니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>대여 vs 구매 — 손익분기</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>연간 횟수</th><th>판단</th><th>근거</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1~5회</th><td><b>대여 유리</b></td><td>세트 대여 3만 원 × 3회 = 9만 원. 신규 구매 60만~100만 원 대비 훨씬 저렴</td></tr>
+          <tr><th scope="row">6회 전후</th><td>손익분기점</td><td>연 6회 대여 18만 원 → 3년이면 54만 원. 기본 세트 구매 비용과 비슷해짐</td></tr>
+          <tr><th scope="row">8회 이상</th><td><b>구매 유리</b></td><td>대여로는 계절별 장비 교체가 어렵고 스타일 구성이 제한됨</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">초보 단계에서는 <b>여러 캠핑장을 다녀보며 본인 스타일을 파악한 뒤</b>
+    구매를 결정하는 것이 안전하다는 것이 일반적인 조언입니다.
+    한 번에 10개 넘는 품목을 사는 것이 초보자가 가장 자주 하는 실수로 꼽힙니다.</p>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>캠핑 장비 처음 갖추는 데 얼마나 드나요?</summary>
+      <div class="ans">텐트 캠핑 2인 기준으로 <b>필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원</b>입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 <b>선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원</b>이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다.</div>
+    </details>
+    <details>
+      <summary>차박과 텐트 캠핑 중 뭐가 더 저렴한가요?</summary>
+      <div class="ans"><b>통념과 다릅니다.</b> 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 <b>차박이 오히려 조금 더 듭니다</b>. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 <b>파워뱅크 없이 시작할 때</b>입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다.</div>
+    </details>
+    <details>
+      <summary>차박에 꼭 필요한 장비는 무엇인가요?</summary>
+      <div class="ans"><b>평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼</b>
+      이렇게 세 가지가 최소 구성입니다.
+      여기에 전기를 쓸 계획이면 파워뱅크, 여름이면 써큘레이터, 겨울이면 전기장판이 추가됩니다.
+      방충망은 여름에 창문을 열고 자야 하기 때문에 사실상 필수입니다.</div>
+    </details>
+    <details>
+      <summary>장비를 사는 게 나을까요, 빌리는 게 나을까요?</summary>
+      <div class="ans">장비 세트 대여는 <b>1박에 약 3만 원</b>입니다.
+      연 1~5회라면 대여가 유리하고, <b>연 6회 전후가 손익분기점</b>입니다.
+      연 8회 이상 정기적으로 다닌다면 구매가 유리합니다.
+      대여로는 동계 텐트나 화목난로 같은 계절별 장비 교체가 어렵다는 점도 고려하세요.</div>
+    </details>
+    <details>
+      <summary>텐트는 얼마짜리를 사야 하나요?</summary>
+      <div class="ans">같은 스펙이라도 <b>가격 차이가 최대 5배</b>까지 납니다.
+      데카트론 원터치가 3만~5만 원, 데카트론 퀘차 2인용이 11만 원,
+      네이처하이크가 15만~17만 원, 스노우피크 어메니티돔M이 57만 원 수준입니다.
+      <b>10만 원 이하 초저가는 내구성이 떨어지므로</b> 입문자도 15만~25만 원대를 권합니다.</div>
+    </details>
+    <details>
+      <summary>파워뱅크는 몇 Wh짜리를 사야 하나요?</summary>
+      <div class="ans">휴대폰 충전과 조명 정도면 <b>300Wh급(24만~37만 원)</b>으로 충분합니다.
+      전기장판이나 소형 냉장고를 쓰려면 <b>700Wh 이상</b>,
+      무시동 히터나 전기포트까지 쓰려면 <b>1000Wh 이상</b>이 필요하며 100만 원을 넘어갑니다.
+      차박에서 예산이 가장 크게 갈리는 품목입니다.</div>
+    </details>
+    <details>
+      <summary>첫 캠핑 1박 2일 총비용은 얼마인가요?</summary>
+      <div class="ans">장비를 빌리는 경우 <b>4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원</b>입니다.
+      사이트 이용료 4만4천 원, 장비 세트 대여 3만 원, 전기·샤워 1만3천 원,
+      먹거리 8만 원, 교통비 5만 원 구성입니다. 장비 구매비는 별도입니다.</div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/japan_travel_calculator.html">일본 여행 경비</a>
+      <a href="/dutch_pay_calculator.html">더치페이 계산기</a>
+      <a href="/contact.html">문의하기</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치입니다. 브랜드와 시기에 따라 실제 가격은 크게 달라집니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* 품목: [id, 이름, 설명, 그룹(both/tent/car), 필수도(must/opt/win), 가격 3등급 [입문,중급,프리미엄] 만원, 인원비례] */
+  var GEAR = [
+    /* ── 공통 ── */
+    ["sleep","침낭","계절 등급이 가격을 좌우합니다. 동계용은 다운 충전재라 값이 뜁니다.","both","must",[[1.8,5],[5,12],[43,47]],true],
+    ["light","LED 랜턴","메인 1개 + 보조 1개가 기본입니다.","both","must",[[2,4],[4,7],[8,15]],false],
+    ["head","헤드랜턴","밤에 화장실 갈 때 손이 자유로워집니다.","both","opt",[[1,2],[2,4],[5,9]],true],
+    ["chair","캠핑 의자","헬리녹스 정품과 카피 제품 가격차가 7배입니다.","both","must",[[1.5,3],[3,5],[11.5,16.5]],true],
+    ["table","캠핑 테이블","접이식 1개면 시작할 수 있습니다.","both","must",[[3,5],[5,8],[13.7,14.7]],false],
+    ["stove","버너","가스 버너 기준. 세트 상품이 저렴합니다.","both","must",[[1.5,3],[3,6],[8,20]],false],
+    ["cook","코펠·식기","버너와 세트로 사면 3~5만 원에 해결됩니다.","both","must",[[1.5,3],[3,6],[8,24]],false],
+    ["cooler","아이스박스","여름엔 보냉력이 중요합니다.","both","opt",[[2,4],[5,12],[20,45]],false],
+    ["water","워터저그","캠핑장 수도가 멀면 필요합니다.","both","opt",[[1,2],[2,4],[5,10]],false],
+    ["fire","화로대","불멍용. 숯·장작은 소모품으로 별도입니다.","both","opt",[[2,4],[5,10],[15,35]],false],
+    ["knife","칼·도마·집게","조리 소도구 세트.","both","opt",[[1,2],[2,4],[5,10]],false],
+    ["ebed","전기장판","동계 필수. USB형은 8만 원 안팎입니다.","both","win",[[3,5],[8,15],[15,23]],false],
+    ["heater","난로","동계용. 석유·가스·전기 방식에 따라 편차가 큽니다.","both","win",[[8,15],[20,40],[50,90]],false],
+    ["first","구급함·방충용품","벌레퇴치제와 상비약. 자주 빠뜨리는 품목입니다.","both","opt",[[1,2],[2,3],[3,5]],false],
+    /* ── 텐트 전용 ── */
+    ["tent","텐트","같은 스펙에 가격차가 최대 5배입니다.","tent","must",[[3,11],[15,25],[57,73]],false],
+    ["tarp","타프","여름 그늘막. 사실상 필수입니다.","tent","must",[[3,6],[8,15],[25,45]],false],
+    ["mat","자충매트","텐트 바닥 냉기를 막습니다. 2인 기준.","tent","must",[[3,5],[5,8],[15,25]],false],
+    ["peg","팩·해머·스트링","기본 동봉품은 약해서 교체하는 경우가 많습니다.","tent","opt",[[1,2],[2,4],[5,12]],false],
+    ["ground","그라운드시트","텐트 바닥 보호용.","tent","opt",[[1,2],[2,4],[5,10]],false],
+    ["cot","야전침대","바닥 냉기와 습기를 완전히 피합니다.","tent","opt",[[5.9,9],[14,20],[25,40]],true],
+    ["carpet","텐트 카페트·이너매트","동계에 바닥 온도 차이가 큽니다.","tent","win",[[2,4],[5,9],[12,20]],false],
+    ["wtent","동계 텐트·스커트","일반 텐트로 겨울을 나기는 어렵습니다.","tent","win",[[15,25],[35,60],[80,150]],false],
+    /* ── 차박 전용 ── */
+    ["cmat","차박 매트·평탄화","자충식 5만~7만, 두꺼운 에어매트 16만 원대까지 있습니다.","car","must",[[4.3,6.4],[7,10],[15.9,20]],false],
+    ["mesh","도어 방충망","여름에 창문 열고 자려면 사실상 필수입니다.","car","must",[[1.1,2.2],[2.2,4],[4,7]],false],
+    ["shade","햇빛가리개·암막","한 대분 세트. 프라이버시와 온도 관리 둘 다.","car","must",[[0.6,1.5],[1.5,4],[4,9]],false],
+    ["power","파워뱅크","차박 예산이 가장 크게 갈리는 품목입니다.","car","must",[[7,10],[24,37],[100,250]],false],
+    ["dock","도킹텐트·어닝","트렁크에 붙여 공간을 넓힙니다.","car","opt",[[8,12],[15,30],[40,90]],false],
+    ["fan","써큘레이터","여름 차박에 없으면 잠들기 어렵습니다.","car","opt",[[2,4],[4.9,8],[10,18]],false],
+    ["fridge","차량용 냉장고","15L 기준 10만 원대. 파워뱅크 용량이 받쳐줘야 합니다.","car","opt",[[6,9],[10.5,18],[25,50]],false],
+    ["inv","시거잭 인버터","소형 가전용. 파워뱅크 대신 쓸 수 있습니다.","car","opt",[[1.5,3],[3,6],[8,15]],false],
+    ["roof","루프박스·캐리어","짐 때문에 잘 공간이 없을 때.","car","opt",[[10,18],[25,45],[60,120]],false],
+    ["dheat","무시동 히터","동계 차박용. 설치비 별도, 환기 필수입니다.","car","win",[[20,35],[40,70],[80,160]],false]
+  ];
+  var GN = {both:"공통 장비", tent:"텐트 캠핑 전용", car:"차박 전용"};
+  var BADGE = {must:["필수","b-must"], opt:["선택","b-opt"], win:["동계","b-win"]};
+  var GRADE = ["입문","중급","프리미엄"];
+  var GHINT = [
+    "데카트론·알리 등 가성비 위주. 내구성은 낮지만 시작하기엔 충분합니다.",
+    "네이처하이크·코베아급. 입문자에게 가장 권장되는 구간입니다.",
+    "헬리녹스·스노우피크급 정품. 오래 쓸 생각이면 결국 여기로 옵니다."
+  ];
+  var MHINT = {
+    tent:"텐트·타프·팩이 필요합니다. 설치에 30분~1시간 걸리지만 공간이 넓습니다.",
+    car:"텐트가 필요 없어 초기 비용이 낮습니다. 다만 <b>파워뱅크에서 예산이 크게 갈립니다.</b>",
+    both:"두 방식의 장비를 모두 보여줍니다. 겹치는 공통 장비는 한 번만 계산됩니다."
+  };
+
+  var S = {mode:"tent", pax:2, freq:6, season:3, grade:1, on:{}, qty:{}};
+
+  function won(m){
+    if(m >= 10000){ var e=Math.floor(m/10000), r=Math.round(m%10000);
+      return e+"억"+(r?" "+r.toLocaleString("ko-KR")+"만":""); }
+    return Math.round(m).toLocaleString("ko-KR")+"만";
+  }
+  function full(m){ return Math.round(m*10000).toLocaleString("ko-KR")+"원"; }
+
+  function visible(g){
+    if(g[5] === "win" && S.season === 3) return false;
+    if(S.mode === "both") return true;
+    return g[3] === "both" || g[3] === S.mode;
+  }
+
+  function render(){
+    var groups = S.mode === "both" ? ["both","tent","car"] : ["both", S.mode];
+    var html = "";
+    groups.forEach(function(gk){
+      var list = GEAR.filter(function(g){ return g[3] === gk && visible(g); });
+      if(!list.length) return;
+      html += '<div class="gsec g-'+gk+'"><div class="gsec-h">'+GN[gk]+
+              '<span class="c">'+list.length+'품목</span></div><ul class="items">';
+      list.forEach(function(g){
+        var b = BADGE[g[4]];
+        html += '<li><label class="it"><input type="checkbox" data-id="'+g[0]+'"'+
+          (S.on[g[0]]?" checked":"")+'>'+
+          '<span class="it-m"><span class="it-n">'+g[1]+
+          '<span class="badge '+b[1]+'">'+b[0]+'</span></span>'+
+          '<span class="it-d">'+g[2]+'</span>'+
+          (g[6] ? '<span class="qty"><button type="button" data-q="'+g[0]+'" data-d="-1">−</button>'+
+                  '<span id="q-'+g[0]+'">'+(S.qty[g[0]]||S.pax)+'개</span>'+
+                  '<button type="button" data-q="'+g[0]+'" data-d="1">+</button></span>' : '')+
+          '</span><span class="it-c" id="c-'+g[0]+'">—</span></label></li>';
+      });
+      html += '</ul></div>';
+    });
+    $("gear").innerHTML = html;
+    calc();
+  }
+
+  function calc(){
+    var lo=0, hi=0, rows=[], cats={both:0,tent:0,car:0}, n=0, must=0, mustOn=0;
+    GEAR.forEach(function(g){
+      var el = $("c-"+g[0]); if(!el) return;
+      var p = g[5][S.grade];
+      var q = g[6] ? (S.qty[g[0]] || S.pax) : 1;
+      var l = p[0]*q, h = p[1]*q;
+      if(visible(g) && g[4]==="must" && (S.mode==="both" || g[3]==="both" || g[3]===S.mode)) must++;
+      el.textContent = S.on[g[0]] ? won(l)+"~"+won(h) : "—";
+      el.style.color = S.on[g[0]] ? "var(--brand-dark)" : "";
+      if(!S.on[g[0]]) return;
+      lo += l; hi += h; n++;
+      if(g[4]==="must") mustOn++;
+      cats[g[3]] += (l+h)/2;
+      rows.push([g[1], g[3], g[6] ? q+"개" : "", l, h]);
+    });
+
+    $("pick-n").textContent = n + "개";
+    $("cap").textContent = (S.mode==="tent"?"텐트 캠핑":S.mode==="car"?"차박":"텐트+차박") +
+      " · " + S.pax + "명 · " + GRADE[S.grade];
+    $("grade-hint").innerHTML = "<b>"+GRADE[S.grade]+"</b> — "+GHINT[S.grade];
+    $("mode-hint").innerHTML = MHINT[S.mode];
+
+    if(!n){
+      $("total").textContent = "0원";
+      $("total-sub").textContent = "품목을 선택하세요";
+      $("bd").innerHTML = ""; $("bars").innerHTML = ""; $("bep").hidden = true;
+      return;
+    }
+    $("total").textContent = full(lo)+" ~ "+full(hi);
+    $("total-sub").innerHTML = "필수 품목 "+mustOn+"/"+must+"개 선택 · 1인당 약 "+
+      won(lo/S.pax)+"~"+won(hi/S.pax)+"원";
+
+    $("bd").innerHTML = rows.map(function(r){
+      var c = r[1]==="tent"?"var(--tent)":r[1]==="car"?"var(--car)":"var(--both)";
+      return '<li><span class="l"><span style="width:6px;height:6px;border-radius:50%;background:'+c+
+        ';display:inline-block"></span>'+r[0]+(r[2]?' <span style="color:var(--soft);font-size:.75rem">'+r[2]+'</span>':'')+
+        '</span><span class="v">'+won(r[3])+"~"+won(r[4])+'</span></li>';
+    }).join("") +
+    '<li style="border-top:2px solid var(--rule-strong);margin-top:.35rem;padding-top:.7rem;font-weight:700">'+
+    '<span class="l">합계</span><span class="v" style="color:var(--ink);font-size:1rem">'+won(lo)+"~"+won(hi)+'</span></li>';
+
+    var mx = Math.max(cats.both,cats.tent,cats.car,0.01);
+    var tot = cats.both+cats.tent+cats.car;
+    $("bars").innerHTML = [["공통",cats.both,"var(--both)"],["텐트",cats.tent,"var(--tent)"],["차박",cats.car,"var(--car)"]]
+      .filter(function(b){ return b[1] > 0; })
+      .map(function(b){
+        return '<div class="bar"><span class="bar-lab">'+b[0]+'</span>'+
+          '<span class="bar-track"><span class="bar-fill" style="width:'+(b[1]/mx*100)+'%;background:'+b[2]+'"></span></span>'+
+          '<span class="bar-val">'+Math.round(b[1]/tot*100)+'%</span></div>';
+      }).join("");
+
+    /* 대여 손익분기 */
+    var mid = (lo+hi)/2, rent = 3;  /* 세트 대여 1박 3만원 */
+    var yearRent = rent * S.freq;
+    var years = yearRent > 0 ? mid / yearRent : 0;
+    $("bep").hidden = false;
+    $("bep-1").innerHTML = "장비 세트 대여는 1박 <b>약 3만 원</b>입니다. 연 "+S.freq+
+      "회면 대여비가 <b>연 "+won(yearRent)+"원</b>입니다.";
+    if(S.freq <= 5){
+      $("bep-2").innerHTML = "연 5회 이하는 <b>대여가 유리한 구간</b>입니다. 지금 견적으로 사면 회수에 <b>약 "+
+        years.toFixed(1)+"년</b> 걸립니다. 여러 캠핑장을 다녀보며 스타일을 파악한 뒤 사는 편이 안전합니다.";
+    } else if(S.freq <= 7){
+      $("bep-2").innerHTML = "연 6~7회는 <b>손익분기 구간</b>입니다. 지금 견적 기준 회수까지 <b>약 "+
+        years.toFixed(1)+"년</b>. 앞으로도 이 빈도를 유지할지가 판단 기준입니다.";
+    } else {
+      $("bep-2").innerHTML = "연 8회 이상이면 <b>구매가 유리합니다.</b> 지금 견적 기준 회수까지 <b>약 "+
+        years.toFixed(1)+"년</b>이고, 대여로는 계절별 장비 교체가 어렵습니다.";
+    }
+  }
+
+  /* 이벤트 */
+  $("mode").addEventListener("click", function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on"); S.mode=b.dataset.m; render();
+  });
+  ["season","grade"].forEach(function(id){
+    $(id).addEventListener("click", function(e){
+      var b=e.target.closest("button"); if(!b) return;
+      this.querySelectorAll("button").forEach(function(x){x.classList.remove("on");});
+      b.classList.add("on");
+      S[id] = parseInt(id==="season"?b.dataset.s:b.dataset.g,10);
+      render();
+    });
+  });
+  document.querySelectorAll(".stepper button").forEach(function(b){
+    b.addEventListener("click", function(){
+      if(this.dataset.p){ S.pax=Math.max(1,Math.min(8,S.pax+parseInt(this.dataset.p,10)));
+        $("pax-v").textContent=S.pax+"명"; S.qty={}; render(); }
+      if(this.dataset.f){ S.freq=Math.max(1,Math.min(30,S.freq+parseInt(this.dataset.f,10)));
+        $("freq-v").textContent=S.freq+"회"; calc(); }
+    });
+  });
+  $("gear").addEventListener("change", function(e){
+    var cb=e.target.closest("input"); if(!cb) return;
+    S.on[cb.dataset.id]=cb.checked; calc();
+  });
+  $("gear").addEventListener("click", function(e){
+    var b=e.target.closest("button[data-q]"); if(!b) return;
+    e.preventDefault();
+    var id=b.dataset.q, cur=S.qty[id]||S.pax;
+    S.qty[id]=Math.max(1,Math.min(10,cur+parseInt(b.dataset.d,10)));
+    $("q-"+id).textContent=S.qty[id]+"개"; calc();
+  });
+
+  /* 초기: 필수 품목 자동 선택 */
+  GEAR.forEach(function(g){ if(g[4]==="must") S.on[g[0]]=true; });
+  render();
+})();
+</script>
+
+</body>
+</html>
