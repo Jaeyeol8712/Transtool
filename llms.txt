@@ -1,6 +1,6 @@
 # 어라운드툴 (AroundTool)
 
-> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 42개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
+> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 43개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
 
 - 사이트: https://www.aroundtool.com
 - 언어: 한국어 (ko-KR)
@@ -64,6 +64,7 @@
 - [QR코드 생성기](https://www.aroundtool.com/qr_generator.html)
 - [로또 번호 생성기](https://www.aroundtool.com/lotto_generator.html)
 - [취업운세](https://www.aroundtool.com/job_fortune_teller.html)
+- [일본 여행 경비 계산기](https://www.aroundtool.com/japan_travel_calculator.html)
 
 ## 텍스트 도구 (3)
 

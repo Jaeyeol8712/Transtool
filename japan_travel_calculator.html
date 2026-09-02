@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일본 여행 경비 계산기 — 항공비·코스·맛집 예산 | 어라운드툴</title>
+<meta name="description" content="2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.">
+<link rel="canonical" href="https://www.aroundtool.com/japan_travel_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#0D7A6F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/japan_travel_calculator.html">
+<meta property="og:title" content="일본 여행 경비 계산기 — 항공비·코스·맛집 예산">
+<meta property="og:description" content="도시와 기간을 고르면 경비 내역과 일자별 코스, 맛집 예산이 함께 나옵니다. 2026년 시세 기준.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="일본 여행 경비 계산기 — 항공비·코스·맛집 예산">
+<meta name="twitter:description" content="도시와 기간을 고르면 경비 내역과 일자별 코스, 맛집 예산이 함께 나옵니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
+  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-dark:#095B53;--brand-tint:#E2F1EF;
+  --warn:#C99A2E;--t-warn:#FBF1E1;--jp:#C0392B;--t-jp:#FBECEC;
+  --air:#1B6FB8;--t-air:#E9F1FA;--food:#B5690E;--t-food:#FBF1E1;
+  --stay:#7A5CA8;--t-stay:#F1ECF9;--move:#1B855C;--t-move:#E5F4EC;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1rem}
+a{color:inherit}h1,h2,h3,h4{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.top{border-bottom:1px solid var(--rule);background:var(--panel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-top:.85rem;padding-bottom:.85rem}
+.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
+.logo span{color:var(--brand)}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+  color:var(--soft);text-transform:uppercase}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 .45em;opacity:.45}
+
+.hero{padding:2.25rem 0 1.25rem}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;
+  color:var(--brand);margin:0 0 .55rem;font-weight:500}
+.hero h1{font-size:clamp(1.625rem,5.5vw,2.25rem);line-height:1.25;
+  margin:0 0 .6rem;letter-spacing:-0.03em;font-weight:700}
+.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:38rem}
+
+.app{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:.5rem}
+.card{background:var(--panel);border:1px solid var(--rule-strong);border-radius:5px;overflow:hidden}
+.card > h2{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:700;
+  padding:.7rem 1.1rem;background:var(--panel-alt);border-bottom:1px solid var(--rule);letter-spacing:-0.01em}
+.card > h2 .n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  font-weight:600;color:var(--soft)}
+.card.jp > h2{background:var(--t-jp);color:var(--jp);border-bottom-color:#F0D6D4}
+.card-body{padding:1.1rem}
+
+label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin-bottom:.35rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1rem}
+.seg{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.seg button{flex:1;font:inherit;font-size:.8125rem;font-weight:500;padding:.58rem .25rem;
+  background:var(--panel-alt);border:none;border-right:1px solid var(--rule);
+  color:var(--soft);cursor:pointer;line-height:1.3}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--brand);color:#fff;font-weight:700}
+.seg small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;opacity:.75;font-weight:400}
+.cities{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+.cities button{font:inherit;font-size:.8125rem;font-weight:600;padding:.6rem .3rem;
+  background:var(--panel-alt);border:1px solid var(--rule);border-radius:3px;
+  color:var(--soft);cursor:pointer;line-height:1.3}
+.cities button.on{background:var(--jp);color:#fff;border-color:var(--jp)}
+.cities small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;
+  opacity:.8;font-weight:400;margin-top:.1rem}
+.stepper{display:flex;align-items:center;gap:.5rem}
+.stepper button{width:2.1rem;height:2.1rem;border:1px solid var(--rule-strong);background:var(--panel);
+  border-radius:3px;font:inherit;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--soft)}
+.stepper button:hover{border-color:var(--brand);color:var(--brand)}
+.stepper .v{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;
+  font-size:.9375rem;font-weight:600;background:var(--panel-alt);
+  border:1px solid var(--rule);border-radius:3px;padding:.5rem .3rem}
+.hint{font-size:.75rem;color:var(--soft);margin:.5rem 0 0;line-height:1.6}
+.hint b{color:var(--ink)}
+
+.opts{list-style:none;margin:0;padding:0}
+.opts li{border-bottom:1px solid var(--rule)}
+.opts li:last-child{border-bottom:none}
+.opts .it{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem 0;cursor:pointer}
+.opts input{margin:.28rem 0 0;width:1.05rem;height:1.05rem;accent-color:var(--brand);flex-shrink:0}
+.opts .main{flex:1;min-width:0}
+.opts .nm{font-size:.9375rem;font-weight:600;letter-spacing:-0.01em}
+.opts .de{font-size:.8125rem;color:var(--soft);margin-top:.1rem;line-height:1.55}
+.opts .amt{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  color:var(--soft);white-space:nowrap;text-align:right;padding-top:.15rem;min-width:5.5rem}
+.opts input:checked ~ .main .nm{color:var(--brand-dark)}
+
+.total{background:var(--brand-tint);border-radius:4px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.total-lab{font-size:.75rem;color:var(--brand-dark);font-weight:600;margin-bottom:.3rem}
+.total-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(1.5rem,6vw,2rem);
+  font-weight:600;color:var(--brand-dark);letter-spacing:-0.02em;line-height:1.2}
+.total-sub{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--brand-dark);
+  opacity:.85;margin-top:.4rem;line-height:1.6}
+.bd{list-style:none;margin:0;padding:0}
+.bd li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+  padding:.55rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.bd li:last-child{border-bottom:none}
+.bd .l{color:var(--ink);display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap}
+.bd .l small{display:block;width:100%;font-size:.75rem;color:var(--soft);font-weight:400}
+.bd .v{font-family:"IBM Plex Mono",monospace;font-size:.875rem;font-weight:600;
+  white-space:nowrap;color:var(--soft)}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:.5625rem;letter-spacing:.06em;
+  font-weight:600;border-radius:2px;padding:.05rem .3rem}
+.t-air{background:var(--t-air);color:var(--air)}
+.t-stay{background:var(--t-stay);color:var(--stay)}
+.t-food{background:var(--t-food);color:var(--food)}
+.t-move{background:var(--t-move);color:var(--move)}
+.t-etc{background:var(--panel-alt);color:var(--soft)}
+.bars{margin:1rem 0 0;padding-top:.9rem;border-top:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:.55rem;margin-bottom:.45rem;font-size:.75rem}
+.bar-lab{width:3.6rem;color:var(--soft);flex-shrink:0}
+.bar-track{flex:1;height:.5rem;background:var(--panel-alt);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;transition:width .25s ease}
+.bar-val{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--soft);
+  white-space:nowrap;min-width:3.4rem;text-align:right}
+
+/* 코스 */
+.days{list-style:none;margin:0;padding:0}
+.days li{display:flex;gap:.9rem;padding:.85rem 0;border-bottom:1px dotted var(--rule)}
+.days li:last-child{border-bottom:none}
+.day-n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;font-weight:700;
+  color:#fff;background:var(--jp);border-radius:3px;padding:.2rem .45rem;
+  height:fit-content;flex-shrink:0;white-space:nowrap}
+.day-b{flex:1;min-width:0}
+.day-t{font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.2rem}
+.day-c{font-size:.8125rem;color:var(--soft);line-height:1.65}
+.day-f{font-size:.75rem;color:var(--food);margin-top:.35rem;font-weight:500}
+.day-f::before{content:"\1F374";margin-right:.3rem;font-size:.7rem}
+
+/* 맛집 */
+.eats{list-style:none;margin:0;padding:0}
+.eats li{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem;
+  padding:.55rem 0;border-bottom:1px dotted var(--rule);font-size:.875rem}
+.eats li:last-child{border-bottom:none}
+.eats .n{font-weight:600}
+.eats .n small{display:block;font-size:.75rem;color:var(--soft);font-weight:400}
+.eats .p{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;font-weight:600;
+  color:var(--food);white-space:nowrap;text-align:right}
+.eats .p small{display:block;font-size:.6875rem;color:var(--soft);font-weight:400}
+
+.notice{margin:1.5rem 0 0;padding:1.1rem 1.25rem;background:var(--t-warn);
+  border:1px solid #EBDCBE;border-radius:4px;font-size:.8125rem;color:#6B5622;line-height:1.75}
+.notice b{color:#8A6D1F;font-weight:700}
+.notice ul{margin:.6rem 0 0;padding-left:1.1rem}
+.notice li{margin-bottom:.3rem}
+
+section.doc{margin-top:2.25rem}
+section.doc h2{font-size:1.0625rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.9rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--panel);
+  border:1px solid var(--rule-strong);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:30rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--panel-alt)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+
+.faq{margin-top:2.25rem}
+.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
+.faq details{background:var(--panel);border:1px solid var(--rule-strong);border-radius:4px;margin-bottom:.5rem}
+.faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
+  font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:"IBM Plex Mono",monospace;font-weight:700;
+  font-size:.75rem;color:#fff;background:var(--brand);border-radius:2px;padding:.05rem .3rem;
+  flex-shrink:0;line-height:1.6}
+.faq summary::after{content:"+";margin-left:auto;color:var(--brand);font-weight:600;flex-shrink:0}
+.faq details[open] summary::after{content:"\2212"}
+.faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
+.faq .ans b{color:var(--ink)}
+
+footer{margin-top:3rem;border-top:1px solid var(--rule);background:var(--panel);
+  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
+footer nav a{color:var(--soft);text-decoration:none}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+
+@media (min-width:56rem){
+  .wrap{padding:0 1.25rem}
+  .app{grid-template-columns:1fr 1fr;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
+</style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"BreadcrumbList","itemListElement":[
+   {"@type":"ListItem","position":1,"name":"어라운드툴","item":"https://www.aroundtool.com/"},
+   {"@type":"ListItem","position":2,"name":"일본 여행 경비 계산기","item":"https://www.aroundtool.com/japan_travel_calculator.html"}]},
+  {"@type":"WebApplication","name":"일본 여행 경비 계산기",
+   "url":"https://www.aroundtool.com/japan_travel_calculator.html",
+   "applicationCategory":"TravelApplication","operatingSystem":"All",
+   "inLanguage":"ko-KR","isAccessibleForFree":true,
+   "offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},
+   "description":"도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나오는 일본 여행 경비 계산기입니다."},
+  {"@type":"FAQPage","mainEntity":[
+   {"@type":"Question","name":"일본 여행 3박 4일 경비는 얼마인가요?",
+    "acceptedAnswer":{"@type":"Answer","text":"2026년 시세 기준으로 후쿠오카나 오사카 3박 4일은 1인당 약 70만~110만 원, 도쿄는 90만~145만 원 수준입니다. 항공권 20만~38만 원, 숙박 21만~36만 원, 식비 18만~30만 원, 교통 8만~12만 원이 기본 구성이며 쇼핑은 별도입니다."}},
+   {"@type":"Question","name":"2026년 엔화 환율은 얼마인가요?",
+    "acceptedAnswer":{"@type":"Answer","text":"2026년 기준 100엔은 약 930~960원 수준입니다. 2022년 초 1,050~1,100원과 비교하면 15% 이상 낮아 한국인 여행자에게 유리한 환경입니다. 이 계산기는 100엔 940원을 기준으로 계산합니다."}},
+   {"@type":"Question","name":"일본 출국세가 올랐다던데요?",
+    "acceptedAnswer":{"@type":"Answer","text":"2026년 7월 1일부터 일본 국제관광여객세(출국세)가 1인당 1,000엔에서 3,000엔으로 인상됐습니다. 약 28,000원이며 대부분 항공권 요금에 포함되어 자동으로 부과됩니다. 후지산 입산료 4,000엔도 신설됐습니다."}},
+   {"@type":"Question","name":"JR패스는 사는 게 이득인가요?",
+    "acceptedAnswer":{"@type":"Answer","text":"7일권이 약 5만 엔(47만 원)이라 신칸센으로 도시를 두 곳 이상 이동할 때만 유리합니다. 한 도시에만 머문다면 지하철 1일권이나 IC카드가 훨씬 저렴합니다. 오사카·후쿠오카 단일 도시 여행이라면 사지 않는 편이 낫습니다."}},
+   {"@type":"Question","name":"일본 여행 현금은 얼마나 가져가야 하나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"도시 여행이라면 하루 5,000~8,000엔 정도의 현금을 예상하면 됩니다. 도쿄·오사카 같은 대도시는 카드와 함께 5만~8만 엔이면 충분하고, 료칸이나 온천 마을이 포함되면 카드를 안 받는 곳이 많아 현금을 더 준비해야 합니다."}},
+   {"@type":"Question","name":"한 끼 식사비는 얼마나 잡아야 하나요?",
+    "acceptedAnswer":{"@type":"Answer","text":"한 끼 1,500~2,000엔(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다. 라멘이나 규동 같은 단품은 800~1,200엔, 이자카야에서 맥주를 곁들이면 3,000엔 이상을 예상해야 합니다."}},
+   {"@type":"Question","name":"성수기와 비수기 항공권 차이가 큰가요?",
+    "acceptedAnswer":{"@type":"Answer","text":"큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 비수기 대비 1.5~2배까지 오릅니다. 화요일에서 목요일 사이 출발, 방학 기간 회피, 두 달 이상 앞선 예약이 기본 절약 전략입니다."}}
+  ]}
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">어라운드<span>툴</span></a>
+    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>일본 여행 경비</p>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">2026년 시세 · 100엔 = 940원 기준</p>
+    <h1>일본 여행 경비 계산기</h1>
+    <p>도시와 기간을 고르면 <strong>항공권부터 식비까지 항목별 내역</strong>이 나오고,
+    <strong>일자별 추천 코스</strong>와 <strong>그 도시의 맛집 예산</strong>이 함께 붙습니다.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="app">
+
+    <!-- ══ 왼쪽 ══ -->
+    <div class="col-l">
+      <div class="card jp">
+        <h2>1 · 어디로, 언제</h2>
+        <div class="card-body">
+          <label class="lb">도시</label>
+          <div class="cities" id="city"></div>
+
+          <div class="grid2">
+            <div>
+              <label class="lb">기간</label>
+              <div class="stepper">
+                <button type="button" data-n="-1" aria-label="줄이기">−</button>
+                <span class="v" id="nights-v">3박 4일</span>
+                <button type="button" data-n="1" aria-label="늘리기">+</button>
+              </div>
+            </div>
+            <div>
+              <label class="lb">인원</label>
+              <div class="stepper">
+                <button type="button" data-p="-1" aria-label="줄이기">−</button>
+                <span class="v" id="pax-v">2명</span>
+                <button type="button" data-p="1" aria-label="늘리기">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem">
+            <label class="lb">시기</label>
+            <div class="seg" id="season">
+              <button data-s="0.8" type="button">비수기<small>1~2월·6월</small></button>
+              <button data-s="1" class="on" type="button">준성수기<small>평상시</small></button>
+              <button data-s="1.6" type="button">성수기<small>벚꽃·연휴·여름</small></button>
+            </div>
+          </div>
+
+          <div>
+            <label class="lb">여행 스타일</label>
+            <div class="seg" id="style">
+              <button data-t="0" type="button">알뜰<small>게하·편의점</small></button>
+              <button data-t="1" class="on" type="button">표준<small>비즈니스호텔</small></button>
+              <button data-t="2" type="button">여유<small>시티호텔·맛집</small></button>
+            </div>
+            <p class="hint" id="style-hint"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>2 · 추가 항목<span class="n" id="opt-n">0개</span></h2>
+        <div class="card-body">
+          <ul class="opts" id="opts"></ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>3 · 이 도시의 맛집 예산<span class="n" id="eat-cap"></span></h2>
+        <div class="card-body">
+          <ul class="eats" id="eats"></ul>
+          <p class="hint">현지 대표 메뉴의 <b>1인 기준 가격대</b>입니다.
+          위 계산의 식비는 스타일에 따라 이 중 어느 급을 주로 먹는지로 잡았습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 오른쪽 ══ -->
+    <div class="col-r">
+      <div class="card">
+        <h2>예상 경비<span class="n" id="trip-cap"></span></h2>
+        <div class="card-body">
+          <div class="total">
+            <p class="total-lab">1인당</p>
+            <p class="total-num" id="per">0원</p>
+            <p class="total-sub" id="total-sub"></p>
+          </div>
+          <ul class="bd" id="bd"></ul>
+          <div class="bars" id="bars"></div>
+        </div>
+      </div>
+
+      <div class="card jp" style="margin-top:1.25rem">
+        <h2>일자별 코스<span class="n" id="course-cap"></span></h2>
+        <div class="card-body">
+          <ul class="days" id="days"></ul>
+          <p class="hint">각 도시에서 <b>가장 많이 도는 동선</b>을 기간에 맞춰 잘랐습니다.
+          이동 시간을 줄이려고 같은 권역끼리 묶었습니다.</p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <b>이 금액은 참고용 추정치입니다.</b> 아래는 계산에 들어 있지 않습니다.
+        <ul>
+          <li>쇼핑비 — 사람마다 편차가 가장 큰 항목이라 뺐습니다. 별도 항목으로 켜서 잡으세요</li>
+          <li>여권 발급비, 공항 주차비, 국내 공항까지 가는 교통비</li>
+          <li>환전 수수료 — 방식에 따라 3,000~8,000엔까지 차이가 납니다</li>
+          <li>기내 수하물 추가, 좌석 지정, 사전 좌석 구매 등 LCC 부가 요금</li>
+        </ul>
+        항공권과 숙박은 <b>예약 시점에 따라 두 배까지</b> 벌어집니다. 실제 예약 전에 비교 사이트에서 확인하세요.
+      </div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>2026년 항목별 시세</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>항목</th><th>알뜰</th><th>표준</th><th>여유</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">숙박 (1박 · 1인)</th><td class="num">3만~5만</td><td class="num">7만~12만</td><td class="num">15만~25만</td></tr>
+          <tr><th scope="row">식비 (1일 · 1인)</th><td class="num">4만~6만</td><td class="num">6만~9만</td><td class="num">12만~20만</td></tr>
+          <tr><th scope="row">시내 교통 (1일)</th><td class="num">8천~1만2천</td><td class="num">1만~1만5천</td><td class="num">2만~4만</td></tr>
+          <tr><th scope="row">관광·입장료 (1일)</th><td class="num">5천~1만</td><td class="num">1만~2만</td><td class="num">3만~6만</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">숙박은 <b>2인 1실 기준 1인 부담액</b>입니다.
+    혼자 가면 1인실 요금이 2인실과 크게 다르지 않아 1인당 부담이 올라갑니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>도시별 왕복 항공권 (인천 출발)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>도시</th><th>LCC 특가</th><th>일반</th><th>성수기</th><th>비행</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">후쿠오카</th><td class="num">16만~20만</td><td class="num">20만~28만</td><td class="num">32만~45만</td><td class="num">1시간 20분</td></tr>
+          <tr><th scope="row">오사카</th><td class="num">18만~24만</td><td class="num">24만~33만</td><td class="num">38만~53만</td><td class="num">1시간 50분</td></tr>
+          <tr><th scope="row">나고야</th><td class="num">20만~26만</td><td class="num">26만~35만</td><td class="num">42만~56만</td><td class="num">2시간</td></tr>
+          <tr><th scope="row">도쿄</th><td class="num">22만~30만</td><td class="num">30만~42만</td><td class="num">48만~67만</td><td class="num">2시간 20분</td></tr>
+          <tr><th scope="row">삿포로</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 50분</td></tr>
+          <tr><th scope="row">오키나와</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 20분</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:.7rem">
+    <b>2026년 7월 1일부터 일본 출국세가 1,000엔에서 3,000엔으로 인상</b>됐습니다(약 2만 8천 원).
+    대부분 항공권 요금에 포함되어 자동 부과됩니다. 후지산 입산료 4,000엔도 신설됐습니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>실제 여행 예산 사례</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>일정</th><th>구성</th><th>1인 총액</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">일본 1박 2일</th><td>LCC + 비즈니스호텔 + 3식</td><td class="num">42만~63만</td></tr>
+          <tr><th scope="row">4박 5일</th><td>직항 + 3~4성 호텔 + 하루 6~7만 식비</td><td class="num">105만~150만</td></tr>
+          <tr><th scope="row">도쿄 7일 · 알뜰</th><td>LCC + 게하 + 편의점·라멘 위주</td><td class="num">약 118만</td></tr>
+          <tr><th scope="row">오사카 5일 · 맛집 중심</th><td>LCC + 도톤보리 호텔 + 쇼핑 30만</td><td class="num">약 152만</td></tr>
+          <tr><th scope="row">도쿄+오사카 7일 · 표준</th><td>JR패스 7일권 포함 + 쇼핑 40만</td><td class="num">약 256만</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>자주 묻는 질문</h2>
+    <details open>
+      <summary>일본 여행 3박 4일 경비는 얼마인가요?</summary>
+      <div class="ans">2026년 시세 기준으로 <b>후쿠오카·오사카 3박 4일은 1인당 약 70만~110만 원</b>,
+      도쿄는 90만~145만 원 수준입니다.
+      항공권 20만~38만, 숙박 21만~36만, 식비 18만~30만, 교통 8만~12만이 기본 구성이고 쇼핑은 별도입니다.</div>
+    </details>
+    <details>
+      <summary>2026년 엔화 환율은 얼마인가요?</summary>
+      <div class="ans">2026년 기준 <b>100엔은 약 930~960원</b> 수준입니다.
+      2022년 초 1,050~1,100원과 비교하면 15% 이상 낮아 한국인 여행자에게 유리합니다.
+      이 계산기는 <b>100엔 940원</b>을 기준으로 계산합니다.
+      환율은 매일 바뀌므로 실제 환전 시점에 확인하세요.</div>
+    </details>
+    <details>
+      <summary>일본 출국세가 올랐다던데요?</summary>
+      <div class="ans"><b>2026년 7월 1일부터 국제관광여객세(출국세)가 1,000엔에서 3,000엔으로 인상</b>됐습니다.
+      약 2만 8천 원이며 대부분 항공권 요금에 포함되어 자동으로 부과됩니다.
+      같은 시기 <b>후지산 입산료 4,000엔</b>도 신설됐으니 하코네·후지산 일정이 있다면 감안하세요.</div>
+    </details>
+    <details>
+      <summary>JR패스는 사는 게 이득인가요?</summary>
+      <div class="ans">7일권이 약 5만 엔(47만 원)이라 <b>신칸센으로 도시를 두 곳 이상 이동할 때만</b> 유리합니다.
+      한 도시에만 머문다면 지하철 1일권이나 IC카드가 훨씬 저렴합니다.
+      오사카나 후쿠오카 단일 도시 여행이라면 사지 않는 편이 낫습니다.</div>
+    </details>
+    <details>
+      <summary>일본 여행 현금은 얼마나 가져가야 하나요?</summary>
+      <div class="ans">도시 여행이라면 <b>하루 5,000~8,000엔</b> 정도의 현금을 예상하면 됩니다.
+      도쿄·오사카 같은 대도시는 카드와 함께 5만~8만 엔이면 충분합니다.
+      다만 <b>료칸이나 온천 마을</b>이 포함되면 카드를 안 받는 곳이 많아 현금을 더 준비해야 합니다.
+      공항 환전은 수수료가 비싸니 교통비 정도만 바꾸고 현지 ATM을 쓰는 편이 낫습니다.</div>
+    </details>
+    <details>
+      <summary>한 끼 식사비는 얼마나 잡아야 하나요?</summary>
+      <div class="ans"><b>한 끼 1,500~2,000엔</b>(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다.
+      라멘이나 규동 같은 단품은 800~1,200엔, 이자카야에서 맥주를 곁들이면 <b>3,000엔 이상</b>을 예상해야 합니다.
+      편의점과 슈퍼 도시락을 섞으면 하루 식비를 크게 줄일 수 있습니다.</div>
+    </details>
+    <details>
+      <summary>성수기와 비수기 항공권 차이가 큰가요?</summary>
+      <div class="ans">큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 <b>비수기 대비 1.5~2배</b>까지 오릅니다.
+      화요일에서 목요일 사이 출발, 방학 기간 회피, 두 달 이상 앞선 예약이 기본 절약 전략입니다.
+      도쿄 입국·오사카 출국 같은 오픈조 루트도 성수기에는 더 쌀 수 있습니다.</div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">홈</a>
+      <a href="/sitemap.html">사이트맵</a>
+      <a href="/exchange_rate_calculator.html">환율 계산기</a>
+      <a href="/dutch_pay_calculator.html">더치페이 계산기</a>
+      <a href="/contact.html">문의하기</a>
+    </nav>
+    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치입니다. 항공권·숙박 요금은 예약 시점에 따라 크게 달라집니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var RATE = 9.4; /* 1엔 = 9.4원 (100엔 940원) */
+
+  /* 도시: 항공권[LCC,일반,성수기] 만원, 숙박·물가 배수, 코스, 맛집 */
+  var CITY = {
+    fuk:{n:"후쿠오카", sub:"1h20m", air:[18,24,38], lv:0.92,
+      course:[
+        ["하카타 · 나카스","하카타역 도착 → 캐널시티 하카타 → 구시다 신사 → 나카스 야타이 거리","야타이에서 라멘·오뎅·야키토리"],
+        ["다자이후 · 텐진","다자이후 텐만구 → 스타벅스 다자이후점 → 오호리공원 → 텐진 지하상가 쇼핑","모츠나베 저녁"],
+        ["유후인 or 벳푸","고속버스 2시간 → 유후인 긴린코 호수·유노츠보 거리 → 온천 → 저녁 복귀","유후인 롤케이크·고로케"],
+        ["모지코 · 기타큐슈","JR 40분 → 모지코 레트로 → 간몬해협 → 시모노세키 당일치기","야키카레"],
+        ["이토시마","렌터카 or 버스 → 사쿠라이 후타미가우라 → 시라이토 폭포 → 해안 카페","해변 카페 브런치"],
+        ["텐진 · 나카스 마무리","오호리공원 산책 → 텐진 백화점 → 면세 쇼핑 → 공항","멘타이코 선물 구입"],
+        ["여유 일정","가라토 시장 or 나가사키 당일치기","해산물 덮밥"]],
+      eats:[["하카타 라멘","돈코츠 국물의 원조",800,1200],["모츠나베","곱창전골. 후쿠오카 대표",2500,4000],
+        ["야타이 포장마차","나카스 강변. 2~3가지 주문 기준",2000,3000],["멘타이코 정식","명란 정식",1500,2500],
+        ["미즈타키","닭 백숙 전골",3000,5000]]},
+    osa:{n:"오사카", sub:"1h50m", air:[21,28,45], lv:1.0,
+      course:[
+        ["도톤보리 · 난바","간사이공항 → 난바 → 도톤보리 글리코상 → 신사이바시 → 구로몬시장","타코야키·오코노미야키"],
+        ["오사카성 · 우메다","오사카성 천수각 → 니시노마루 정원 → 우메다 공중정원 → 헵파이브","쿠시카츠 저녁"],
+        ["교토 당일","JR 30분 → 후시미이나리 → 기요미즈데라 → 기온 → 아라시야마","니신소바·유도후"],
+        ["나라 당일","긴테츠 40분 → 나라공원 사슴 → 도다이지 → 가스가타이샤","가키노하즈시"],
+        ["유니버설 스튜디오","USJ 하루 종일. 익스프레스패스 권장","공원 내 식사"],
+        ["고베 or 아리마온천","한큐 30분 → 고베 기타노이진칸 → 하버랜드 → 아리마온천","고베규 스테이크"],
+        ["신세카이 · 마무리","츠텐카쿠 → 신세카이 → 덴덴타운 → 공항","쿠시카츠 마지막 한 끼"]],
+      eats:[["타코야키","길거리 8알 기준",600,800],["오코노미야키","오사카식 부침",1000,1500],
+        ["쿠시카츠","신세카이. 10꼬치 기준. 소스 두 번 찍기 금지",2000,3000],
+        ["야키니쿠","츠루하시 코리아타운 일대",4000,7000],["카이센동","구로몬시장 해산물덮밥",2000,3500]]},
+    tyo:{n:"도쿄", sub:"2h20m", air:[26,36,58], lv:1.15,
+      course:[
+        ["아사쿠사 · 스카이트리","나리타/하네다 → 아사쿠사 센소지 → 나카미세 거리 → 도쿄 스카이트리 → 우에노","몬자야키·텐동"],
+        ["시부야 · 신주쿠","시부야 스크램블 → 하치코 → 하라주쿠 다케시타 거리 → 신주쿠 오모이데요코초","야키토리 골목"],
+        ["긴자 · 츠키지","츠키지 장외시장 아침 → 긴자 쇼핑 → 도쿄역 → 마루노우치","스시 아침·장어덮밥"],
+        ["하코네 or 가마쿠라","오다큐 90분 → 하코네 온천·아시노호 or 가마쿠라 대불·에노시마","소바·시라스동"],
+        ["디즈니랜드 / 디즈니씨","마이하마역. 하루 종일","공원 내 식사"],
+        ["오다이바 · 도요스","유리카모메 → 오다이바 → 도요스 시장 → 팀랩","도요스 카이센동"],
+        ["시모키타자와 · 나카메구로","빈티지 거리 → 나카메구로 강변 카페 → 에비스","커피·베이커리"]],
+      eats:[["스시","회전초밥 vs 오마카세 편차 큼",1500,10000],["라멘","이치란·잇푸도 등",900,1500],
+        ["텐동","튀김덮밥",1500,2500],["야키토리","이자카야. 술 포함",3000,5000],
+        ["몬자야키","츠키시마 명물",1500,2500]]},
+    spk:{n:"삿포로", sub:"2h50m", air:[30,40,64], lv:1.05,
+      course:[
+        ["삿포로 시내","신치토세 → 삿포로역 → 오도리공원 → 시계탑 → 스스키노","징기스칸 저녁"],
+        ["오타루 당일","JR 40분 → 오타루 운하 → 사카이마치 거리 → 오르골당 → 유리공방","해산물 스시"],
+        ["노보리베츠 온천","특급 70분 → 지옥계곡 → 온천 → 곰목장","온천 료칸 가이세키"],
+        ["비에이 · 후라노","여름은 라벤더 밭, 겨울은 스키장. 렌터카 권장","후라노 카레·멜론"],
+        ["아사히야마 동물원","JR 90분 → 동물원 → 아사히카와 라멘촌","아사히카와 쇼유라멘"],
+        ["니세코 or 조잔케이","스키 or 온천 당일","화이트 카레"],
+        ["삿포로 마무리","시로이코이비토 파크 → 니조시장 → 공항","니조시장 카이센동"]],
+      eats:[["미소라멘","삿포로 원조",900,1300],["징기스칸","양고기 구이. 삿포로 대표",3000,4500],
+        ["카이센동","니조시장·오타루",2500,4000],["수프카레","삿포로 발상",1200,1800],
+        ["털게·킹크랩","시세. 예산 크게 잡을 것",6000,15000]]},
+    oka:{n:"오키나와", sub:"2h20m", air:[30,40,64], lv:1.05,
+      course:[
+        ["나하 시내","나하공항 → 국제거리 → 마키시 공설시장 → 슈리성","오키나와 소바"],
+        ["츄라우미 수족관","렌터카 2시간 → 츄라우미 수족관 → 고래상어 → 비세 후쿠기 가로수길","아구돼지 샤브샤브"],
+        ["중부 해안","아메리칸 빌리지 → 만좌모 → 잔파곶 → 선셋 비치","타코라이스·스테이크"],
+        ["게라마 제도","페리 50분 → 자마미섬 스노클링 → 고래 관찰(겨울)","섬 도시락"],
+        ["남부 해안","니라이카나이 다리 → 세나가섬 → 아시비나 아울렛","해변 카페"],
+        ["코우리섬 · 고자","코우리대교 드라이브 → 하트락 → 고자 상점가","젤라또·블루씰"],
+        ["나하 마무리","오키나와 월드 → 국제거리 쇼핑 → 공항","사타안다기·아와모리"]],
+      eats:[["오키나와 소바","돼지고기 얹은 면",700,1000],["아구돼지","흑돼지 샤브샤브",3000,5000],
+        ["타코라이스","미군 문화에서 온 현지식",800,1200],["스테이크","심야 스테이크 문화",2500,4500],
+        ["블루씰 아이스크림","현지 브랜드",400,700]]},
+    ngo:{n:"나고야", sub:"2h", air:[23,31,50], lv:0.98,
+      course:[
+        ["나고야 시내","주부공항 → 나고야성 → 오스 상점가 → 사카에 오아시스21","히츠마부시"],
+        ["지브리파크 or 나가시마","리니모 30분 → 지브리파크 (예약 필수) or 나가시마 스파랜드","미소카츠"],
+        ["다카야마 · 시라카와고","고속버스 2~3시간 → 다카야마 옛거리 → 시라카와고 갓쇼즈쿠리","히다규"],
+        ["이누야마 · 도자기","이누야마성 → 메이지무라 → 세토·도코나메 도자기 마을","우나기"],
+        ["교토 or 오사카 당일","신칸센 35~50분","현지 식사"],
+        ["이세 · 도바","긴테츠 90분 → 이세신궁 → 오카게요코초 → 도바 수족관","이세우동·아카후쿠"],
+        ["나고야 마무리","도요타 산업기술기념관 → 나고야역 지하상가 → 공항","테바사키·우이로"]],
+      eats:[["히츠마부시","장어덮밥. 세 단계로 먹는 방식",4000,6000],["미소카츠","야바톤 등. 된장 돈까스",1500,2200],
+        ["테바사키","닭날개 튀김. 술안주",1000,1500],["미소니코미우동","된장 우동",1200,1800],
+        ["앙카케 스파게티","나고야 명물 양식",1000,1500]]}
+  };
+
+  /* 스타일: [숙박1박, 식비1일, 시내교통1일, 관광1일] 만원 */
+  var STYLE = [
+    {n:"알뜰", stay:[3,5],  food:[4,6],  move:[0.8,1.2], see:[0.5,1.0], air:0, d:"게스트하우스·도미토리, 편의점과 라멘 위주, 지하철 1일권"},
+    {n:"표준", stay:[7,12], food:[6,9],  move:[1.0,1.5], see:[1.0,2.0], air:1, d:"비즈니스 호텔 2인 1실, 하루 한 끼는 제대로 된 식사"},
+    {n:"여유", stay:[15,25],food:[12,20],move:[2.0,4.0], see:[3.0,6.0], air:1, d:"시티호텔·4성급, 맛집 위주, 택시 이용"}
+  ];
+  var OPTS = [
+    {id:"jr",   n:"JR패스 7일권",     d:"약 5만 엔. 신칸센으로 도시를 두 곳 이상 이동할 때만 유리합니다.", cost:[47,47], per:"pax"},
+    {id:"park", n:"테마파크 1일권",   d:"USJ·디즈니랜드 기준. 익스프레스패스는 별도입니다.", cost:[9,16], per:"pax"},
+    {id:"onsen",n:"온천 료칸 1박",    d:"가이세키 석식·조식 포함. 숙박비에 추가로 얹힙니다.", cost:[18,35], per:"pax"},
+    {id:"car",  n:"렌터카 (1일)",     d:"오키나와·홋카이도는 사실상 필수. 보험과 주유 포함.", cost:[8,14], per:"day"},
+    {id:"shop", n:"쇼핑 예산",        d:"드러그스토어·돈키호테·면세점. 사람마다 편차가 가장 큽니다.", cost:[15,40], per:"pax"},
+    {id:"ins",  n:"여행자보험 + eSIM",d:"보험 1만~2만, eSIM 1만~2만 수준입니다.", cost:[2,4], per:"pax"}
+  ];
+
+  var S = {city:"fuk", nights:3, pax:2, season:1, style:1, on:{}};
+
+  function won(m){
+    if(m >= 10000){ var e=Math.floor(m/10000), r=Math.round(m%10000);
+      return e + "억" + (r ? " " + r.toLocaleString("ko-KR") + "만" : ""); }
+    return Math.round(m).toLocaleString("ko-KR") + "만";
+  }
+  function full(m){ return Math.round(m*10000).toLocaleString("ko-KR") + "원"; }
+  function yen(y){ return "¥" + y.toLocaleString("ko-KR"); }
+
+  /* 도시 버튼 */
+  $("city").innerHTML = Object.keys(CITY).map(function(k){
+    return '<button type="button" data-c="'+k+'"'+(k===S.city?' class="on"':'')+'>'+
+           CITY[k].n+'<small>'+CITY[k].sub+'</small></button>';
+  }).join("");
+  /* 옵션 */
+  $("opts").innerHTML = OPTS.map(function(o){
+    return '<li><label class="it"><input type="checkbox" data-id="'+o.id+'">'+
+      '<span class="main"><span class="nm">'+o.n+'</span><span class="de">'+o.d+'</span></span>'+
+      '<span class="amt" id="o-'+o.id+'">—</span></label></li>';
+  }).join("");
+
+  function calc(){
+    var c = CITY[S.city], st = STYLE[S.style], nights = S.nights, days = nights + 1, pax = S.pax;
+
+    /* 항공 */
+    var airBase = c.air[st.air];                    /* 알뜰=LCC특가, 표준·여유=일반 */
+    var air = airBase * S.season;
+    if(S.style === 2) air *= 1.25;                  /* 여유는 FSC·좌석 상향 */
+    var airLo = air * 0.85, airHi = air * 1.2;
+
+    /* 현지비: 도시 물가 배수 */
+    var lv = c.lv;
+    var stayLo = st.stay[0]*lv*nights, stayHi = st.stay[1]*lv*nights;
+    var foodLo = st.food[0]*lv*days,   foodHi = st.food[1]*lv*days;
+    var moveLo = st.move[0]*lv*days + 2, moveHi = st.move[1]*lv*days + 3;  /* +공항 왕복 */
+    var seeLo  = st.see[0]*days,  seeHi = st.see[1]*days;
+
+    var rows = [
+      ["항공권 왕복","t-air", c.n + " · " + (st.air ? "일반" : "LCC 특가") + (S.season>1?" · 성수기":S.season<1?" · 비수기":""), airLo, airHi],
+      ["숙박","t-stay", nights + "박 · " + st.n + " · 2인 1실 기준", stayLo, stayHi],
+      ["식비","t-food", days + "일 × 3식 + 카페", foodLo, foodHi],
+      ["교통","t-move", "공항 왕복 + 시내 " + days + "일", moveLo, moveHi],
+      ["관광·입장료","t-etc", days + "일 · " + st.n, seeLo, seeHi]
+    ];
+    var lo = airLo+stayLo+foodLo+moveLo+seeLo, hi = airHi+stayHi+foodHi+moveHi+seeHi;
+
+    OPTS.forEach(function(o){
+      var mult = o.per === "day" ? days : 1;
+      var l = o.cost[0]*mult, h = o.cost[1]*mult;
+      $("o-"+o.id).textContent = S.on[o.id] ? won(l)+"~"+won(h) : "—";
+      $("o-"+o.id).style.color = S.on[o.id] ? "var(--brand-dark)" : "";
+      if(!S.on[o.id]) return;
+      rows.push([o.n,"t-etc", o.per==="day" ? days+"일" : "1인 기준", l, h]);
+      lo += l; hi += h;
+    });
+    $("opt-n").textContent = Object.keys(S.on).filter(function(k){return S.on[k];}).length + "개";
+
+    /* 출력 */
+    $("per").textContent = full(lo) + " ~ " + full(hi);
+    $("total-sub").innerHTML = pax + "명 합계 " + full(lo*pax) + " ~ " + full(hi*pax) +
+      "<br>현지 엔화 환산 약 " + yen(Math.round((foodLo+moveLo+seeLo)*10000/RATE/1000)*1000) +
+      " ~ " + yen(Math.round((foodHi+moveHi+seeHi)*10000/RATE/1000)*1000) + " (숙박·항공 제외)";
+    $("trip-cap").textContent = c.n + " " + nights + "박" + days + "일 · " + pax + "명";
+    $("course-cap").textContent = c.n + " " + days + "일";
+    $("eat-cap").textContent = c.n;
+    $("style-hint").innerHTML = "<b>" + st.n + "</b> — " + st.d;
+
+    $("bd").innerHTML = rows.map(function(r){
+      return '<li><span class="l"><span class="tag '+r[1]+'">'+r[0]+'</span>'+
+             '<small>'+r[2]+'</small></span><span class="v">'+won(r[3])+"~"+won(r[4])+'</span></li>';
+    }).join("") +
+    '<li style="border-top:2px solid var(--rule-strong);margin-top:.35rem;padding-top:.7rem;font-weight:700">'+
+    '<span class="l">1인 합계</span><span class="v" style="color:var(--ink);font-size:1rem">'+won(lo)+"~"+won(hi)+'</span></li>';
+
+    /* 비중 막대 */
+    var mids = [[ "항공",(airLo+airHi)/2,"var(--air)"],["숙박",(stayLo+stayHi)/2,"var(--stay)"],
+                ["식비",(foodLo+foodHi)/2,"var(--food)"],["교통",(moveLo+moveHi)/2,"var(--move)"],
+                ["관광",(seeLo+seeHi)/2,"var(--soft)"]];
+    var mx = Math.max.apply(null, mids.map(function(m){return m[1];}));
+    var tot = mids.reduce(function(a,m){return a+m[1];},0);
+    $("bars").innerHTML = mids.map(function(m){
+      return '<div class="bar"><span class="bar-lab">'+m[0]+'</span>'+
+        '<span class="bar-track"><span class="bar-fill" style="width:'+(m[1]/mx*100)+'%;background:'+m[2]+'"></span></span>'+
+        '<span class="bar-val">'+Math.round(m[1]/tot*100)+'%</span></div>';
+    }).join("");
+
+    /* 코스 */
+    $("days").innerHTML = c.course.slice(0, days).map(function(d,i){
+      return '<li><span class="day-n">DAY '+(i+1)+'</span><span class="day-b">'+
+        '<span class="day-t">'+d[0]+'</span><span class="day-c">'+d[1]+'</span>'+
+        '<span class="day-f">'+d[2]+'</span></span></li>';
+    }).join("");
+
+    /* 맛집 */
+    $("eats").innerHTML = c.eats.map(function(e){
+      return '<li><span class="n">'+e[0]+'<small>'+e[1]+'</small></span>'+
+        '<span class="p">'+yen(e[2])+"~"+yen(e[3])+
+        '<small>'+Math.round(e[2]*RATE/100)*100+"~"+Math.round(e[3]*RATE/100)*100+'원</small></span></li>';
+    }).join("");
+  }
+
+  /* 이벤트 */
+  $("city").addEventListener("click", function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on"); S.city=b.dataset.c; calc();
+  });
+  ["season","style"].forEach(function(id){
+    $(id).addEventListener("click", function(e){
+      var b=e.target.closest("button"); if(!b) return;
+      this.querySelectorAll("button").forEach(function(x){x.classList.remove("on");});
+      b.classList.add("on");
+      S[id] = id==="season" ? parseFloat(b.dataset.s) : parseInt(b.dataset.t,10);
+      calc();
+    });
+  });
+  document.querySelectorAll(".stepper button").forEach(function(b){
+    b.addEventListener("click", function(){
+      if(this.dataset.n){ S.nights = Math.max(1, Math.min(7, S.nights + parseInt(this.dataset.n,10)));
+        $("nights-v").textContent = S.nights + "박 " + (S.nights+1) + "일"; }
+      if(this.dataset.p){ S.pax = Math.max(1, Math.min(8, S.pax + parseInt(this.dataset.p,10)));
+        $("pax-v").textContent = S.pax + "명"; }
+      calc();
+    });
+  });
+  $("opts").addEventListener("change", function(e){
+    var cb=e.target.closest("input"); if(!cb) return;
+    S.on[cb.dataset.id]=cb.checked; calc();
+  });
+
+  calc();
+})();
+</script>
+
+</body>
+</html>
