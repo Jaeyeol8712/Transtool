@@ -3,40 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>여행 — 일본 여행 경비·캠핑 장비 견적 | 어라운드툴</title>
-<meta name="description" content="떠나기 전 경비를 세워보는 도구. 일본 여행 경비 계산기(항공비·코스·맛집 예산), 캠핑 장비 견적, 환율, 주유 경제성 계산기와 여행지 맛집 기록.">
+<title>여행 — 국내·해외 코스와 예산 | 어라운드툴</title>
+<meta name="description" content="국내 제주도와 해외 오사카의 여행 코스, 일정별 추천, 예산 구성, 교통 방법을 정리했습니다. 맛집 기록과 여행 경비 계산기가 함께 연결됩니다.">
 <link rel="canonical" href="https://www.aroundtool.com/travel.html">
 <meta name="robots" content="index, follow, max-snippet:-1">
-<meta name="theme-color" content="#0D7A6F">
+<meta name="theme-color" content="#1B6FB8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/travel.html">
-<meta property="og:title" content="여행 — 일본 여행 경비·캠핑 장비 견적 | 어라운드툴">
-<meta property="og:description" content="떠나기 전 경비를 세워보는 도구. 일본 여행 경비 계산기(항공비·코스·맛집 예산), 캠핑 장비 견적, 환율, 주유 경제성 계산기와 여행지 맛집 기록.">
+<meta property="og:title" content="여행 — 국내·해외 코스와 예산 | 어라운드툴">
+<meta property="og:description" content="국내 제주도와 해외 오사카의 여행 코스, 일정별 추천, 예산 구성, 교통 방법을 정리했습니다. 맛집 기록과 여행 경비 계산기가 함께 연결됩니다.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="여행 — 일본 여행 경비·캠핑 장비 견적 | 어라운드툴">
-<meta name="twitter:description" content="떠나기 전 경비를 세워보는 도구. 일본 여행 경비 계산기(항공비·코스·맛집 예산), 캠핑 장비 견적, 환율, 주유 경제성 계산기와 여행지 맛집 기록.">
+<meta name="twitter:title" content="여행 — 국내·해외 코스와 예산 | 어라운드툴">
+<meta name="twitter:description" content="국내 제주도와 해외 오사카의 여행 코스, 일정별 추천, 예산 구성, 교통 방법을 정리했습니다. 맛집 기록과 여행 경비 계산기가 함께 연결됩니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#15181B;--soft:#5C6873;--rule:#E6E9E8;--rule-2:#D2D7D5;
---soft-bg:#F7F8F8;--brand:#0D7A6F;--brand-2:#095B53;
---food:#BC3C3C;--food-2:#9E3030;--tool:#0D7A6F;--tool-2:#08514A;
---trip:#1B6FB8;--trip-2:#14568F;--etc:#6B5A8E;--etc-2:#544471}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+--soft-bg:#F7F8F8;--brand:#0D7A6F;--trip:#1B6FB8;--trip-2:#14568F;
+--dom:#1B7A55;--dom-2:#146044;--abr:#C2560E;--abr-2:#9E460B;--food:#BC3C3C}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
 font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
 font-size:16px;line-height:1.7;letter-spacing:-0.01em}
 a{color:inherit;text-decoration:none}h1,h2,h3,h4{margin:0}ul{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 2.5rem;font-size:.8125rem;color:var(--soft)}
-footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.8rem}
-footer nav a:hover{color:var(--brand)}
-footer p{margin:0}
-
 .top{border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:20}
 .top .in{max-width:76rem;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;gap:1rem}
 .logo{font-size:1.125rem;font-weight:700;letter-spacing:-0.03em}
@@ -47,23 +40,36 @@ color:var(--soft);text-transform:uppercase;margin-left:auto}
 .head{color:#fff;padding:2.5rem 0 2.25rem}
 .head .in{max-width:76rem;margin:0 auto;padding:0 1rem}
 .head h1{font-size:clamp(1.75rem,5.5vw,2.5rem);letter-spacing:-0.03em;font-weight:700;margin-bottom:.5rem}
-.head p{font-size:.9375rem;opacity:.88;margin:0;max-width:36rem;line-height:1.7}
+.head p{font-size:.9375rem;opacity:.9;margin:0;max-width:38rem;line-height:1.7}
 .head .n{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
 font-weight:600;background:rgba(255,255,255,.2);border-radius:99px;padding:.2rem .7rem;margin-bottom:.8rem}
-.h-food{background:linear-gradient(145deg,var(--food),var(--food-2))}
-.h-tool{background:linear-gradient(145deg,var(--tool),var(--tool-2))}
 .h-trip{background:linear-gradient(145deg,var(--trip),var(--trip-2))}
-.h-etc{background:linear-gradient(145deg,var(--etc),var(--etc-2))}
+.h-dom{background:linear-gradient(145deg,var(--dom),var(--dom-2))}
+.h-abr{background:linear-gradient(145deg,var(--abr),var(--abr-2))}
 main{max-width:76rem;margin:0 auto;padding:2rem 1rem 1rem}
-.search{position:relative;max-width:26rem;margin-bottom:1.75rem}
-.search input{width:100%;padding:.6rem 2.2rem .6rem .9rem;font:inherit;font-size:.875rem;
-background:var(--soft-bg);border:1px solid var(--rule);border-radius:99px;color:var(--ink)}
-.search input:focus{outline:none;border-color:var(--brand);background:#fff}
-.search .ic{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--soft);pointer-events:none}
-.grp{margin-bottom:1.6rem}
-.grp h2{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;
+h2.sec{font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;margin:2rem 0 .3rem}
+h2.sec:first-child{margin-top:0}
+p.lead{color:var(--soft);font-size:.875rem;margin:0 0 1rem}
+.dests{display:grid;grid-template-columns:1fr;gap:.75rem;margin-bottom:.5rem}
+.dest{border-radius:8px;padding:1.4rem 1.4rem;color:#fff;display:flex;flex-direction:column;
+position:relative;overflow:hidden;min-height:10rem;transition:filter .15s ease}
+.dest:hover{filter:brightness(1.08)}
+.dest::after{content:"";position:absolute;right:-2.5rem;bottom:-3rem;width:10rem;height:10rem;
+border-radius:50%;background:rgba(255,255,255,.08)}
+.d-dom{background:linear-gradient(145deg,var(--dom),var(--dom-2))}
+.d-abr{background:linear-gradient(145deg,var(--abr),var(--abr-2))}
+.dest h3{font-size:1.375rem;font-weight:700;letter-spacing:-0.02em;position:relative;z-index:1}
+.dest .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;font-weight:600;
+background:rgba(255,255,255,.2);border-radius:99px;padding:.15rem .6rem;align-self:flex-start;
+margin-top:.45rem;position:relative;z-index:1}
+.dest p{font-size:.8125rem;opacity:.88;margin:.7rem 0 0;position:relative;z-index:1;line-height:1.6}
+.dest .go{margin-top:auto;padding-top:.9rem;font-size:.8125rem;font-weight:600;
+position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
+.dest .go::after{content:"\2192"}
+.grp{margin-bottom:1.4rem}
+.grp h3{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;
 padding:.5rem .8rem;border-radius:4px;margin-bottom:.5rem;background:var(--soft-bg);color:var(--soft)}
-.grp h2 .c{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.625rem;font-weight:600;opacity:.8}
+.grp h3 .c{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.625rem;font-weight:600}
 .grp ul{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
 border:1px solid var(--rule);border-radius:4px;overflow:hidden}
 .grp li{background:#fff}
@@ -71,27 +77,33 @@ border:1px solid var(--rule);border-radius:4px;overflow:hidden}
 padding:.65rem .8rem;font-size:.8125rem}
 .grp li a:hover{background:var(--soft-bg);color:var(--brand)}
 .grp li .q{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft)}
-.is-hidden{display:none}
-.rg{border:1px solid var(--rule);border-radius:5px;overflow:hidden;margin-bottom:.5rem}
-.rg summary{list-style:none;cursor:pointer;padding:.75rem .95rem;display:flex;align-items:baseline;gap:.5rem}
-.rg summary::-webkit-details-marker{display:none}
-.rg summary::after{content:"+";margin-left:auto;color:var(--food);font-weight:600}
-.rg[open] summary::after{content:"\2212"}
-.rg[open] summary,.rg summary:hover{background:#FBECEC}
-.rg[open] summary{border-bottom:1px solid var(--rule)}
-.rg .r{font-size:.9375rem;font-weight:700}
-.rg .c{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;color:var(--soft)}
-.rg-body{padding:.8rem .95rem 1rem}
-.gu{margin-bottom:.85rem}.gu:last-child{margin-bottom:0}
-.gu h3{font-size:.8125rem;font-weight:700;margin-bottom:.4rem;color:var(--food)}
-.gu-links{display:flex;flex-wrap:wrap;gap:.3rem}
-.gu-links a{font-size:.75rem;border:1px solid var(--rule);border-radius:99px;padding:.2rem .6rem;color:var(--soft)}
-.gu-links a:hover{border-color:var(--food);color:var(--food);background:#FBECEC}
-.note{margin:1.5rem 0 0;padding:1.05rem 1.2rem;background:#FBF1E1;border:1px solid #EBDCBE;
+.days{border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-bottom:1rem}
+.days>li{border-bottom:1px solid var(--rule);display:flex;gap:.9rem;padding:.9rem 1rem}
+.days>li:last-child{border-bottom:none}
+.dn{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;font-weight:700;color:#fff;
+border-radius:3px;padding:.2rem .45rem;height:fit-content;flex-shrink:0;white-space:nowrap}
+.dn-dom{background:var(--dom)}.dn-abr{background:var(--abr)}
+.db{flex:1;min-width:0}
+.dt{font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:.15rem}
+.dc{font-size:.8125rem;color:var(--soft);line-height:1.65}
+.df{font-size:.75rem;color:var(--food);margin-top:.3rem;font-weight:500}
+.df::before{content:"\1F374";margin-right:.3rem;font-size:.7rem}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule-2);
+border-radius:5px;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:28rem}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--soft-bg)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr.hl{background:#E2F1EF}
+tbody tr.hl th,tbody tr.hl td{font-weight:700;color:#095B53}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap;text-align:right}
+.note{margin:1.25rem 0;padding:1.05rem 1.2rem;background:#FBF1E1;border:1px solid #EBDCBE;
 border-radius:5px;font-size:.8125rem;color:#6B5622;line-height:1.75}
 .note b{color:#8A6D1F;font-weight:700}
+.note a{color:#8A6D1F;text-decoration:underline;font-weight:600}
 .faq{margin-top:2rem}
-.faq h2{font-size:1.0625rem;font-weight:700;margin-bottom:.9rem}
 .faq details{border:1px solid var(--rule);border-radius:5px;margin-bottom:.5rem}
 .faq summary{list-style:none;cursor:pointer;padding:.8rem 1rem;font-size:.9375rem;
 font-weight:500;display:flex;gap:.55rem;align-items:flex-start}
@@ -103,9 +115,14 @@ flex-shrink:0;line-height:1.6}
 .faq details[open] summary::after{content:"\2212"}
 .faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--soft);line-height:1.8}
 .faq .ans b{color:var(--ink)}
-@media (min-width:40rem){.grp ul{grid-template-columns:repeat(3,1fr)}}
+footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.8rem}
+footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
+@media (min-width:40rem){.dests{grid-template-columns:1fr 1fr}.grp ul{grid-template-columns:repeat(3,1fr)}}
 @media (min-width:64rem){.grp ul{grid-template-columns:repeat(4,1fr)}
   .head .in,main,.top .in{padding-left:1.5rem;padding-right:1.5rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -130,77 +147,20 @@ flex-shrink:0;line-height:1.6}
   },
   {
    "@type": "ItemList",
-   "@id": "https://www.aroundtool.com/travel.html#list",
-   "name": "여행 도구",
-   "numberOfItems": 4,
+   "name": "여행 목적지",
+   "numberOfItems": 2,
    "itemListElement": [
     {
      "@type": "ListItem",
      "position": 1,
-     "item": {
-      "@type": "WebApplication",
-      "name": "주유 경제성",
-      "url": "https://www.aroundtool.com/fuel_economy_calculator.html",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "All",
-      "isAccessibleForFree": true,
-      "offers": {
-       "@type": "Offer",
-       "price": "0",
-       "priceCurrency": "KRW"
-      }
-     }
+     "name": "제주도",
+     "url": "https://www.aroundtool.com/travel-jeju.html"
     },
     {
      "@type": "ListItem",
      "position": 2,
-     "item": {
-      "@type": "WebApplication",
-      "name": "환율",
-      "url": "https://www.aroundtool.com/exchange_rate_calculator.html",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "All",
-      "isAccessibleForFree": true,
-      "offers": {
-       "@type": "Offer",
-       "price": "0",
-       "priceCurrency": "KRW"
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "item": {
-      "@type": "WebApplication",
-      "name": "일본 여행 경비",
-      "url": "https://www.aroundtool.com/japan_travel_calculator.html",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "All",
-      "isAccessibleForFree": true,
-      "offers": {
-       "@type": "Offer",
-       "price": "0",
-       "priceCurrency": "KRW"
-      }
-     }
-    },
-    {
-     "@type": "ListItem",
-     "position": 4,
-     "item": {
-      "@type": "WebApplication",
-      "name": "캠핑 장비 견적",
-      "url": "https://www.aroundtool.com/camping_gear_calculator.html",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "All",
-      "isAccessibleForFree": true,
-      "offers": {
-       "@type": "Offer",
-       "price": "0",
-       "priceCurrency": "KRW"
-      }
-     }
+     "name": "오사카",
+     "url": "https://www.aroundtool.com/travel-osaka.html"
     }
    ]
   }
@@ -209,60 +169,62 @@ flex-shrink:0;line-height:1.6}
 </script>
 </head>
 <body>
-
 <header class="top">
   <div class="in">
     <a class="logo" href="/">어라운드<span>툴</span></a>
     <p class="crumb"><a href="/">홈</a><span class="sep">/</span>여행</p>
   </div>
 </header>
-
 <div class="head h-trip">
   <div class="in">
-    <span class="n">4종 + 맛집 연계</span>
+    <span class="n">국내 1곳 · 해외 1곳 · 도구 4종</span>
     <h1>여행</h1>
-    <p>떠나기 전에 <b>경비를 세워보는 도구</b>. 항공비와 코스, 맛집 예산까지 한 번에 나옵니다.</p>
+    <p>코스와 <b>일정별 추천</b>, 예산 구성, 교통 방법을 한 페이지에 정리했습니다. 맛집 기록과도 연결됩니다.</p>
   </div>
 </div>
-
 <main>
-  <section class="grp">
-    <h2>여행 도구<span class="c">4</span></h2>
+  <h2 class="sec">국내</h2>
+  <p class="lead">항공권이 싸고 일정이 짧아도 되는 곳부터. 맛집 기록이 있는 지역을 먼저 다룹니다.</p>
+  <div class="dests">
+    <a class="dest d-dom" href="/travel-jeju.html">
+      <h3>제주도</h3><span class="n">2박3일~4박5일 · 1인 45만~90만</span>
+      <p>렌터카 없이는 다니기 어려운 섬. 코스를 동부·서부로 나누는 이유부터 예산 구성까지.
+      제주시·서귀포시 맛집 23곳 기록과 연결됩니다.</p>
+      <span class="go">코스·예산 보기</span>
+    </a>
+  </div>
+
+  <h2 class="sec">해외</h2>
+  <p class="lead">비행 2시간 이내, 짧게 다녀올 수 있는 곳부터.</p>
+  <div class="dests">
+    <a class="dest d-abr" href="/travel-osaka.html">
+      <h3>오사카</h3><span class="n">2박3일~4박5일 · 1인 60만~130만</span>
+      <p>교토·나라를 당일치기로 붙일 수 있는 간사이의 거점. 지하철 패스 선택과
+      도톤보리 먹거리 예산을 엔화·원화로 함께 보여줍니다.</p>
+      <span class="go">코스·예산 보기</span>
+    </a>
+  </div>
+
+  <h2 class="sec">여행 도구</h2>
+  <p class="lead">떠나기 전에 경비를 세워보는 계산기입니다.</p>
+  <div class="grp"><h3>계산기<span class="c">4</span></h3>
     <ul>
       <li><a href="/fuel_economy_calculator.html">주유 경제성</a></li>
       <li><a href="/exchange_rate_calculator.html">환율</a></li>
       <li><a href="/japan_travel_calculator.html">일본 여행 경비</a></li>
       <li><a href="/camping_gear_calculator.html">캠핑 장비 견적</a></li>
-    </ul>
-  </section>
-  <section class="grp">
-    <h2>여행지 맛집<span class="c">21개 시군구</span></h2>
-    <ul>
-      <li><a href="/food.html">전국 맛집 기록 전체<span class="q">162곳</span></a></li>
-      <li><a href="/sokcho-abai.html">속초 아바이마을<span class="q">실향민 음식</span></a></li>
-      <li><a href="/haeundae-michelin.html">해운대 미쉐린<span class="q">스타 3·빕구르망 4</span></a></li>
-      <li><a href="/jeju-jejusi-hyangto.html">제주 향토국<span class="q">몸국·고사리육개장</span></a></li>
-      <li><a href="/jeonnam-nambu-namdo.html">남도음식거리<span class="q">전남도 지정 21곳</span></a></li>
-      <li><a href="/gwangju-gwangsan-songjeong.html">송정리 떡갈비거리<span class="q">광주시 지정</span></a></li>
-    </ul>
-  </section>
+    </ul></div>
   <div class="note">
-    <b>여행 경비는 예약 시점에 따라 두 배까지 벌어집니다.</b>
-    항공권과 숙박은 계산기 결과를 참고치로 보시고, 실제 예약 전 비교 사이트에서 확인하세요.
-    2026년 7월부터 일본 출국세가 1,000엔에서 3,000엔으로 인상됐습니다.
+    <b>목적지는 계속 늘려갑니다.</b> 맛집 기록이 있는 지역(속초·해운대·여수·전남)과
+    비행 2시간대 해외 도시(후쿠오카·도쿄·타이베이)를 순서대로 추가할 예정입니다.
   </div>
 </main>
-
 <footer>
   <nav>
-    <a href="/">홈</a>
-    <a href="/sitemap.html">사이트맵</a>
-    <a href="/about.html">사이트 소개</a>
-    <a href="/privacy.html">개인정보처리방침</a>
-    <a href="/terms.html">이용약관</a>
-    <a href="/contact.html">문의하기</a>
+    <a href="/">홈</a><a href="/travel.html">여행</a><a href="/food.html">맛집</a>
+    <a href="/tools.html">생활툴</a><a href="/sitemap.html">사이트맵</a><a href="/contact.html">문의하기</a>
   </nav>
-  <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
+  <p>© 2026 어라운드툴. 경비와 일정은 참고용 추정치입니다. 항공·숙박 요금은 예약 시점에 따라 크게 달라집니다.</p>
 </footer>
 </body>
 </html>

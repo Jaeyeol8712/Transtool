@@ -70,6 +70,7 @@ position:relative;overflow:hidden;min-height:9.5rem;transition:filter .15s ease;
 grid-column:span 12}
 .a-food{grid-column:span 12}
 .a-tool{grid-column:span 12}
+.a-trip{grid-column:span 12}
 .a-etc{grid-column:span 12}
 .t:hover{filter:brightness(1.08)}
 .t::after{content:"";position:absolute;right:-3rem;bottom:-3.5rem;width:12rem;height:12rem;
@@ -88,14 +89,18 @@ position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
 .t .go::after{content:"\2192";transition:transform .15s ease}
 .t:hover .go::after{transform:translateX(3px)}
 @media (min-width:40rem){
+  .a-food{grid-column:span 12}
   .a-tool{grid-column:span 7}
-  .a-etc{grid-column:span 5}
+  .a-trip{grid-column:span 5}
+  .a-etc{grid-column:span 12}
 }
 @media (min-width:64rem){
   .box{grid-template-columns:19.5rem 1fr}
-  .a-food{min-height:15rem}
-  .a-tool,.a-etc{min-height:12rem}
-  .a-food h2{font-size:1.9rem}
+  .a-food{grid-column:span 7;min-height:14rem}
+  .a-tool{grid-column:span 5;min-height:14rem}
+  .a-trip{grid-column:span 5;min-height:11rem}
+  .a-etc{grid-column:span 7;min-height:11rem}
+  .a-food h2{font-size:1.75rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -139,7 +144,7 @@ position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
    "@type": "ItemList",
    "@id": "https://www.aroundtool.com/#sections",
    "name": "어라운드툴 주요 섹션",
-   "numberOfItems": 3,
+   "numberOfItems": 4,
    "itemListElement": [
     {
      "@type": "ListItem",
@@ -156,6 +161,12 @@ position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
     {
      "@type": "ListItem",
      "position": 3,
+     "name": "여행",
+     "url": "https://www.aroundtool.com/travel.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
      "name": "기타",
      "url": "https://www.aroundtool.com/etc.html"
     }
@@ -195,6 +206,11 @@ position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
       <a class="t t-tool a-tool" href="/tools.html">
         <h2>생활툴</h2><span class="n">44종</span>
         <p>연봉·퇴직금·세금·요금부터 여행 경비까지. 2026년 바뀐 요율과 법령을 반영했습니다.</p>
+        <span class="go">바로가기</span>
+      </a>
+      <a class="t t-trip a-trip" href="/travel.html">
+        <h2>여행</h2><span class="n">국내 1 · 해외 1 · 도구 4</span>
+        <p>코스와 일정별 추천, 예산, 교통 방법. 맛집 기록과 연결됩니다.</p>
         <span class="go">바로가기</span>
       </a>
       <a class="t t-etc a-etc" href="/etc.html">

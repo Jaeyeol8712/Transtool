@@ -3,7 +3,7 @@
   ============================================================
   aroundtool.com · sitemap.xml (전체)
   최종 갱신: 2026-08-29
-  총 199 URL
+  총 205 URL
     · 홈 1 / 계산기·도구 44 / 가이드 2
     · 맛집 147 (전남 4개 권역 28 + 제주 2개 시 14 + 광주 5개 구 35 + 연수구 7 + 강남구 7 + 해운대구 7 + 용산구 7 + 속초시 7 + 대전 5개 구 35)
     · 사이트맵·정책 5
@@ -1376,6 +1376,50 @@
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- 허브 · 전국 맛집 -->
+  <url>
+    <loc>https://www.aroundtool.com/food.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 허브 · 생활툴 -->
+  <url>
+    <loc>https://www.aroundtool.com/tools.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 허브 · 여행 -->
+  <url>
+    <loc>https://www.aroundtool.com/travel.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 허브 · 기타 -->
+  <url>
+    <loc>https://www.aroundtool.com/etc.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 여행 · 제주도 여행 -->
+  <url>
+    <loc>https://www.aroundtool.com/travel-jeju.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 여행 · 오사카 여행 -->
+  <url>
+    <loc>https://www.aroundtool.com/travel-osaka.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 사이트맵 — 전체 페이지 목록 -->

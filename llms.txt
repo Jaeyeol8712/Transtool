@@ -310,6 +310,15 @@
 - [전남 남부권 카페·디저트 (준비 중)](https://www.aroundtool.com/jeonnam-nambu-cafe.html)
 - [전남 남부권 남도음식거리 (지역 슬롯) (6곳)](https://www.aroundtool.com/jeonnam-nambu-namdo.html)
 
+## 주요 섹션 (허브)
+
+- [전국 맛집](https://www.aroundtool.com/food.html) — 21개 시군구 162곳
+- [생활툴](https://www.aroundtool.com/tools.html) — 무료 계산기 40종
+- [여행](https://www.aroundtool.com/travel.html) — 국내·해외 코스와 예산
+  - [제주도 여행](https://www.aroundtool.com/travel-jeju.html) — 코스·일정별·예산·교통·맛집
+  - [오사카 여행](https://www.aroundtool.com/travel-osaka.html) — 코스·일정별·예산·교통·맛집
+- [기타](https://www.aroundtool.com/etc.html) — 텍스트 도구·연도별 가이드·FAQ
+
 ## 사이트 정보
 
 - [사이트 소개](https://www.aroundtool.com/about.html)
