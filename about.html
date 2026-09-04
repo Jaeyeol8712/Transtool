@@ -1,67 +1,191 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어라운드툴 소개 - 계산 기준과 콘텐츠 운영 원칙</title>
-<meta name="description" content="어라운드툴의 서비스 목적, 계산 기준, 콘텐츠 작성 및 검증 원칙, 개인정보 보호와 문의 방법을 안내합니다.">
+<title>사이트 소개 — 어라운드툴은 무엇을 어떻게 만드나</title>
+<meta name="description" content="어라운드툴은 무료 생활 계산기 47종과 지역 맛집 기록 21개 시군구를 만듭니다. 계산 기준을 화면에 적고, 광고비로 살 수 없는 근거로만 맛집을 고르는 이유와 방법을 정리했습니다.">
 <link rel="canonical" href="https://www.aroundtool.com/about.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D7A6F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/about.html">
+<meta property="og:title" content="사이트 소개 — 어라운드툴은 무엇을 어떻게 만드나">
+<meta property="og:description" content="어라운드툴은 무료 생활 계산기 47종과 지역 맛집 기록 21개 시군구를 만듭니다. 계산 기준을 화면에 적고, 광고비로 살 수 없는 근거로만 맛집을 고르는 이유와 방법을 정리했습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--brand:#0f172a;--link:#1d4ed8;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
-header{background:var(--card);border-bottom:2px solid var(--brand);padding:28px 20px;text-align:center}
-header h1{font-size:1.9rem;margin-bottom:8px} header p{color:var(--muted)}
-main{max-width:820px;margin:28px auto 60px;padding:0 16px}.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:18px}
-h2{font-size:1.25rem;margin-bottom:14px;border-left:4px solid var(--brand);padding-left:10px}h3{font-size:1rem;margin:20px 0 8px}p{margin-bottom:12px;color:#4b5563}ul{padding-left:22px;color:#4b5563}li{margin-bottom:8px}.source-list a{color:var(--link);text-decoration:none}.source-list a:hover{text-decoration:underline}
-.notice{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:16px;font-size:.92rem}.site-footer{text-align:center;background:var(--card);border-top:1px solid var(--border);padding:24px;color:var(--muted);font-size:.85rem}.site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px}
+:root{--bg:#FFFFFF;--ink:#15181B;--soft:#5C6873;--rule:#E6E9E8;--rule-2:#D2D7D5;
+--soft-bg:#F7F8F8;--brand:#0D7A6F;--brand-2:#095B53;--warn:#C99A2E;--t-warn:#FBF1E1}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+font-size:16px;line-height:1.8;letter-spacing:-0.01em}
+a{color:inherit}h1,h2,h3{margin:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.top{border-bottom:1px solid var(--rule);background:#fff}
+.top .in{max-width:52rem;margin:0 auto;padding:.8rem 1.15rem;display:flex;align-items:center;gap:1rem}
+.logo{font-size:1.125rem;font-weight:700;letter-spacing:-0.03em;text-decoration:none}
+.logo span{color:var(--brand)}
+.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
+color:var(--soft);text-transform:uppercase;margin-left:auto}
+.crumb a{text-decoration:none}.crumb .sep{margin:0 .45em;opacity:.45}
+.hero{background:var(--soft-bg);border-bottom:1px solid var(--rule);padding:2.25rem 0}
+.hero .in{max-width:52rem;margin:0 auto;padding:0 1.15rem}
+.hero h1{font-size:clamp(1.5rem,5vw,2rem);letter-spacing:-0.03em;font-weight:700;margin-bottom:.4rem}
+.hero p{color:var(--soft);font-size:.9375rem;margin:0}
+.upd{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;color:var(--soft);margin-top:.7rem}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.15rem 1rem}
+h2{font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;margin:2rem 0 .7rem;
+padding-top:1.4rem;border-top:1px solid var(--rule)}
+h2:first-child{margin-top:0;padding-top:0;border-top:none}
+h3{font-size:.9375rem;font-weight:700;margin:1.3rem 0 .4rem}
+p{margin:0 0 1rem}
+ul,ol{margin:0 0 1rem;padding-left:1.3rem}
+li{margin-bottom:.4rem}
+b,strong{font-weight:600}
+.box{background:var(--soft-bg);border:1px solid var(--rule);border-radius:5px;
+padding:1.1rem 1.25rem;margin:1.2rem 0;font-size:.9375rem}
+.box b{color:var(--ink)}
+.warn{background:var(--t-warn);border-color:#EBDCBE;color:#6B5622}
+.warn b{color:#8A6D1F}
+table{width:100%;border-collapse:collapse;font-size:.875rem;margin:1rem 0;
+border:1px solid var(--rule-2);border-radius:5px;overflow:hidden}
+th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.625rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--soft);font-weight:600;background:var(--soft-bg)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+.wrapT{overflow-x:auto}
+footer{border-top:1px solid var(--rule);margin-top:2.5rem}
+footer .in{max-width:52rem;margin:0 auto;padding:1.5rem 1.15rem 2.5rem;font-size:.8125rem;color:var(--soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.8rem}
+footer nav a{text-decoration:none}footer nav a:hover{color:var(--brand)}
+footer p{margin:0}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"AboutPage","name":"어라운드툴 소개 - 계산 기준과 콘텐츠 운영 원칙","description":"어라운드툴의 서비스 목적, 계산 기준, 콘텐츠 작성 및 검증 원칙, 개인정보 보호와 문의 방법을 안내합니다.","url":"https://www.aroundtool.com/about.html","inLanguage":"ko","isPartOf":{"@type":"WebSite","name":"어라운드툴","url":"https://www.aroundtool.com/"}}
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "어라운드툴",
+     "item": "https://www.aroundtool.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "사이트 소개",
+     "item": "https://www.aroundtool.com/about.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "name": "사이트 소개",
+   "url": "https://www.aroundtool.com/about.html",
+   "description": "어라운드툴은 무료 생활 계산기 47종과 지역 맛집 기록 21개 시군구를 만듭니다. 계산 기준을 화면에 적고, 광고비로 살 수 없는 근거로만 맛집을 고르는 이유와 방법을 정리했습니다.",
+   "inLanguage": "ko-KR",
+   "dateModified": "2026-08-29",
+   "publisher": {
+    "@type": "Organization",
+    "name": "어라운드툴",
+    "url": "https://www.aroundtool.com/"
+   }
+  }
+ ]
+}
 </script>
 </head>
 <body>
-<header><h1>어라운드툴 소개</h1><p>계산기와 생활 도구를 직접 만들고 관리하는 무료 웹 서비스입니다.</p></header>
+<header class="top"><div class="in">
+  <a class="logo" href="/">어라운드<span>툴</span></a>
+  <p class="crumb"><a href="/">홈</a><span class="sep">/</span>사이트 소개</p>
+</div></header>
+<div class="hero"><div class="in">
+  <h1>사이트 소개</h1>
+  <p>무엇을, 왜, 어떻게 만드는지 적어둡니다.</p>
+  <p class="upd">최종 수정: 2026년 8월 29일</p>
+</div></div>
 <main>
-<section class="card">
-<h2>어라운드툴은 어떤 사이트인가요?</h2>
-<p>어라운드툴은 연봉·대출·세금·부동산·노동·건강·생활 등 일상에서 반복적으로 필요한 계산을 브라우저에서 바로 확인할 수 있도록 만든 무료 도구 모음입니다. 회원가입이나 결제 없이 필요한 기능을 선택해 사용할 수 있도록 단순한 사용 흐름을 유지하고 있습니다.</p>
-<p>단순히 계산기 화면만 나열하는 것을 목표로 하지 않습니다. 각 도구의 입력값이 무엇을 의미하는지, 어떤 공식이나 기준으로 결과가 만들어지는지, 결과를 실제 의사결정에 사용할 때 무엇을 다시 확인해야 하는지를 함께 설명하는 것을 운영 원칙으로 삼고 있습니다.</p>
-</section>
-<section class="card">
-<h2>계산 결과를 만드는 원칙</h2>
-<h3>1. 입력값과 계산 과정을 공개합니다.</h3>
-<p>가능한 도구에는 계산에 사용되는 항목과 산식의 의미를 화면에서 설명합니다. 사용자는 결과 숫자만 보는 것이 아니라 어떤 값을 넣었고 어떤 방식으로 계산했는지 확인할 수 있어야 한다고 생각합니다.</p>
-<h3>2. 법령·공식 기준이 필요한 도구는 원자료를 우선합니다.</h3>
-<p>세금, 노동, 사회보험, 금융처럼 기준이 바뀔 수 있는 항목은 임의의 블로그 자료만을 근거로 확정적인 표현을 사용하지 않습니다. 관련 기관의 공식 안내를 우선 확인하고, 계산기는 그 기준을 이해하기 쉽게 모의 계산하는 용도로 제공합니다.</p>
-<h3>3. 계산기는 공식 증빙이나 전문 상담을 대신하지 않습니다.</h3>
-<p>개별 계약, 소득, 주택, 근로 형태 등에 따라 실제 결과가 달라질 수 있습니다. 따라서 사이트의 결과는 사전 확인용 추정치이며, 신고·계약·대출·의료 등 중요한 판단을 하기 전에는 해당 기관의 공식 자료나 전문가의 확인을 권장합니다.</p>
-</section>
-<section class="card">
-<h2>주요 참고 자료</h2>
-<p>다음과 같은 공식 기관의 공개 자료를 확인하여 계산 기준과 안내 내용을 점검합니다.</p>
-<ul class="source-list">
-<li><a href="https://www.nts.go.kr" rel="noopener noreferrer">국세청</a> — 세금·연말정산·종합소득세 관련 기준</li>
-<li><a href="https://www.moel.go.kr" rel="noopener noreferrer">고용노동부</a> — 최저임금·근로기준·고용보험 관련 안내</li>
-<li><a href="https://www.gov.kr" rel="noopener noreferrer">정부24</a> — 행정서비스 및 정부 정책 안내</li>
-<li><a href="https://www.fss.or.kr" rel="noopener noreferrer">금융감독원</a> — 금융소비자 및 금융 관련 정보</li>
+<h2>어라운드툴이 만드는 것</h2>
+<p>어라운드툴은 <b>무료 생활 계산기</b>와 <b>지역 맛집 기록</b> 두 가지를 만듭니다.
+2026년 8월 기준으로 계산기 47종, 맛집 기록 21개 시군구를 공개하고 있습니다.
+회원가입도 앱 설치도 필요 없고, 모든 페이지를 로그인 없이 볼 수 있습니다.</p>
+
+<h2>왜 만들었나</h2>
+<p>계산기부터 이야기하면, 연봉 실수령액이나 퇴직금을 알아보려고 검색하면 결과가 제각각입니다.
+법이 바뀌었는데 옛 요율을 그대로 쓰는 곳이 많기 때문입니다.
+실제로 2026년 1월부터 국민연금이 9.0%에서 9.5%로, 건강보험이 7.09%에서 7.19%로 올랐는데
+이걸 반영하지 않은 계산기가 여전히 많습니다. 그래서 <b>어떤 기준으로 계산했는지 화면에 적어두는</b> 계산기를 만들기로 했습니다.</p>
+<p>맛집은 다른 이유입니다. 검색해서 나오는 상위 결과 대부분이 광고입니다.
+"소정의 원고료를 받았습니다" 같은 문구가 글 맨 아래 작게 붙어 있거나, 아예 없는 경우도 많습니다.
+그래서 <b>돈으로 살 수 없는 근거만 모아서</b> 판단하고, 그 근거를 페이지에 그대로 적기로 했습니다.</p>
+
+<h2>계산기는 이렇게 만듭니다</h2>
+<ul>
+  <li><b>계산 공식을 화면에 적습니다.</b> 어떤 요율을 곱했고 어떤 공제를 뺐는지 항목별로 보여줍니다.</li>
+  <li><b>기준 연도를 명시합니다.</b> 2026년 요율인지 2025년 요율인지 페이지 상단에 적습니다.</li>
+  <li><b>바뀐 것은 비교해서 보여줍니다.</b> 연봉 계산기는 2025년 대비 실수령액이 얼마나 줄었는지 함께 표시합니다.</li>
+  <li><b>한계를 적습니다.</b> 회사가 쓰는 국세청 간이세액표와 계산 방식이 다르다는 점, 상·하한선이 있다는 점을 안내에 넣습니다.</li>
 </ul>
-<div class="notice" style="margin-top:18px">정책이나 법령은 수시로 변경될 수 있습니다. 각 계산기에는 적용 기준과 한계가 표시되며, 중요한 금액을 결정하기 전에는 위 공식 기관의 최신 안내를 함께 확인해 주세요.</div>
-</section>
-<section class="card">
-<h2>개인정보와 이용자 입력값</h2>
-<p>계산기에서 입력한 숫자는 해당 기능을 실행하기 위한 브라우저 내 계산에 사용되며, 어라운드툴 자체 서버에 계산 입력값을 저장하는 방식으로 운영하지 않습니다. 다만 사이트 운영 과정에서 Google Analytics와 Google AdSense 같은 제3자 서비스가 쿠키 또는 유사 기술을 통해 방문·사용 정보를 처리할 수 있으므로 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>에서 확인할 수 있습니다.</p>
-</section>
-<section class="card">
-<h2>문의 및 오류 제보</h2>
-<p>계산식 오류, 잘못된 설명, 깨진 링크, 모바일 화면 문제를 발견했다면 <a href="contact.html">문의하기</a>를 통해 알려주세요. 계산기 이름과 문제가 발생한 입력 조건을 함께 보내주시면 확인하기 쉽습니다.</p>
-<p>문의 이메일: <strong>wodouf8712@gmail.com</strong></p>
-</section>
+<div class="box warn">
+  <b>계산 결과는 참고용입니다.</b> 실제 급여명세서, 고지서, 견적서와 다를 수 있습니다.
+  세무·법률 판단이 필요한 사안은 반드시 전문가나 관할 기관에 확인하시기 바랍니다.
+</div>
+
+<h2>맛집 기록은 이렇게 만듭니다</h2>
+<p>자세한 절차는 <a href="/editorial.html">편집 방침</a>에 따로 정리했습니다. 요약하면 이렇습니다.</p>
+<ul>
+  <li>리뷰 개수가 아니라 <b>재방문 언급 비율</b>을 봅니다.</li>
+  <li>다이닝코드 지역 랭킹, 미쉐린 가이드, 지자체 공식 지정, 중소벤처기업부 백년가게처럼
+  <b>광고비로 살 수 없는 근거</b>와 교차 확인합니다.</li>
+  <li>"소정의 원고료", "협찬", "체험단", "Sponsored" 표기가 있는 글은 검증 근거에서 제외합니다.</li>
+  <li><b>확인하지 못한 항목을 그대로 표시합니다.</b> 주소를 못 찾았으면 "확인 필요"라고 적습니다.</li>
+  <li><b>단점을 반드시 적습니다.</b> 주차 불가, 휴무일, 웨이팅, 평점 대비 아쉬운 점을 함께 씁니다.</li>
+</ul>
+
+<h2>수익과 독립성</h2>
+<p>이 사이트는 <b>광고 수익으로 운영됩니다.</b> 서버 비용과 자료 조사 시간을 감당하기 위해서입니다.</p>
+<div class="box">
+  <p style="margin-bottom:.6rem"><b>다만 아래는 지킵니다.</b></p>
+  <ul style="margin-bottom:0">
+    <li>식당이나 업체로부터 <b>대가를 받고 콘텐츠를 만들지 않습니다.</b> 협찬·체험단 제안은 받지 않습니다.</li>
+    <li>광고는 콘텐츠와 <b>시각적으로 구분되게</b> 배치합니다.</li>
+    <li>특정 업체를 추천하는 대가로 수수료를 받는 제휴 링크를 쓰지 않습니다.</li>
+    <li>수익과 무관하게 <b>단점을 그대로 적습니다.</b> 좋은 말만 쓰면 이 기록이 존재할 이유가 없습니다.</li>
+  </ul>
+</div>
+
+<h2>수정과 삭제 요청</h2>
+<p>정보가 틀렸거나 폐업·이전한 곳을 발견하시면 <a href="/contact.html">문의하기</a>로 알려주세요.
+가게를 운영하시는 분이 수정이나 삭제를 요청하시는 경우에도 같은 경로로 연락 주시면 확인 후 처리합니다.
+확인에는 보통 며칠이 걸립니다.</p>
+
+<h2>업데이트 주기</h2>
+<div class="wrapT"><table>
+  <thead><tr><th>구분</th><th>주기</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">계산기</th><td>법령·요율 변경 시</td><td>4대보험, 최저임금, 세율, 감면 한도 개정 시 즉시 반영</td></tr>
+    <tr><th scope="row">연도별 가이드</th><td>매년 1회</td><td>최저임금·노동법, 세금·연말정산 개정분 반영</td></tr>
+    <tr><th scope="row">맛집 기록</th><td>수시</td><td>새 지역 추가, 폐업·이전 확인 시 수정</td></tr>
+  </tbody>
+</table></div>
 </main>
-<footer class="site-footer">
-<div><a href="index.html">홈</a> | <a href="about.html">사이트 소개</a> | <a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
-<p style="margin-top:10px">© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
-</footer>
+<footer><div class="in">
+  <nav>
+    <a href="/">홈</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a>
+    <a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+    <a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a>
+  </nav>
+  <p>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</p>
+</div></footer>
 </body>
 </html>

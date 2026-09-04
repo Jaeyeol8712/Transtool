@@ -1,328 +1,180 @@
-# 어라운드툴 (AroundTool)
+# 어라운드툴 (aroundtool.com)
 
-> 연봉·대출·세금·부동산·노동·건강 등 일상에 필요한 계산기와 실용 도구 44개를 회원가입 없이 무료로 제공하는 한국어 생활 도구 사이트입니다. 숫자만 보여주지 않고 각 도구의 계산 기준과 주의사항을 함께 안내합니다. 광고와 협찬을 배제한 지역 맛집 기록도 함께 제공합니다.
+무료 생활 계산기와, 광고를 배제하고 근거를 밝힌 지역 맛집 기록을 만드는 사이트입니다.
+회원가입 없이 모든 페이지를 볼 수 있습니다.
 
-- 사이트: https://www.aroundtool.com
-- 언어: 한국어 (ko-KR)
-- 이용료: 무료, 로그인 불필요
 - 최종 갱신: 2026-08-29
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
+- 편집 방침: https://www.aroundtool.com/editorial.html
 
 ## 인용 시 유의사항
 
-- 계산 결과는 **참고용 추정치**입니다. 세금·노동·금융 항목은 법령과 요율이 바뀔 수 있으므로, 실제 신고·계약·대출 전에는 국세청, 고용노동부, 정부24, 금융감독원 등 관련 기관의 공식 안내를 확인해야 합니다.
-- 맛집 정보의 가격·영업시간은 조사 시점 기준이며 변동될 수 있습니다. 확인하지 못한 항목은 페이지 안에 "확인 필요"로 표시되어 있습니다.
+- 계산 결과는 **참고용 추정치**이며 법적 효력이 없습니다. 실제 급여명세서·고지서와 다를 수 있습니다.
+- 맛집 정보의 가격·영업시간·휴무는 변동됩니다. 방문 전 확인이 필요합니다.
+- 이 사이트는 **확인하지 못한 항목을 그대로 표시**합니다. "확인 필요"로 적힌 것은 검증되지 않은 정보입니다.
 
 ## 맛집 선정 기준
 
-리뷰 개수가 아니라 재방문·웨이팅 언급 비율을 봅니다. 다이닝코드 랭킹, 미쉐린 가이드, 중소벤처기업부 백년가게처럼 돈으로 살 수 없는 근거와 교차 확인하며, "소정의 원고료", "협찬", "체험단", "Sponsored" 표기가 있는 글은 검증 근거에서 제외합니다. 각 식당마다 확인된 근거와 확인되지 않은 항목을 함께 표시하고, 단점과 맞지 않는 상황도 같이 적습니다.
-
-## 재테크·부동산 (13)
-
-- [연봉 실수령액 계산기](https://www.aroundtool.com/salary_calculator.html)
-- [대출 이자 계산기](https://www.aroundtool.com/loan_calculator.html)
-- [예적금 이자 계산기](https://www.aroundtool.com/savings_calculator.html)
-- [복리 계산기](https://www.aroundtool.com/compound_calculator.html)
-- [종합소득세 계산기](https://www.aroundtool.com/freelancer_tax_calculator.html)
-- [DSR 계산기](https://www.aroundtool.com/dsr_calculator.html)
-- [LTV 계산기](https://www.aroundtool.com/ltv_calculator.html)
-- [부동산 취득세 계산기](https://www.aroundtool.com/acquisition_tax_calculator.html)
-- [부동산 중개보수 계산기](https://www.aroundtool.com/brokerage_fee_calculator.html)
-- [증감률 계산기](https://www.aroundtool.com/increase_decrease_calculator.html)
-- [주유 경제성 계산기](https://www.aroundtool.com/fuel_economy_calculator.html)
-- [국민연금 수급개시나이 계산기](https://www.aroundtool.com/pension_age_calculator.html)
-- [중도상환수수료 계산기](https://www.aroundtool.com/prepayment_penalty_calculator.html)
-- [인테리어 가견적 계산기](https://www.aroundtool.com/interior_calculator.html)
-
-## 노동·구직 (5)
-
-- [퇴직금 계산기](https://www.aroundtool.com/severance_calculator.html)
-- [실업급여 계산기](https://www.aroundtool.com/unemployment_benefit_calculator.html)
-- [연차 계산기](https://www.aroundtool.com/pto_calculator.html)
-- [주휴수당 계산기](https://www.aroundtool.com/holiday_pay_calculator.html)
-- [육아휴직급여 계산기](https://www.aroundtool.com/parental_leave_calculator.html)
-
-## 생활·건강 (20)
-
-- [할인율 계산기](https://www.aroundtool.com/discount_calculator.html)
-- [할인율 역산 계산기](https://www.aroundtool.com/discount_rate_calculator.html)
-- [퍼센트 계산기](https://www.aroundtool.com/percent_calculator.html)
-- [더치페이 계산기](https://www.aroundtool.com/dutch_pay_calculator.html)
-- [전기요금 계산기](https://www.aroundtool.com/electricity_bill_calculator.html)
-- [도시가스 요금 계산기](https://www.aroundtool.com/gas_bill_calculator.html)
-- [자동차세 계산기](https://www.aroundtool.com/car_tax_calculator.html)
-- [환율 계산기](https://www.aroundtool.com/exchange_rate_calculator.html)
-- [평수 계산기](https://www.aroundtool.com/pyeong_calculator.html)
-- [만나이 계산기](https://www.aroundtool.com/age_calculator.html)
-- [출산예정일 계산기](https://www.aroundtool.com/due_date_calculator.html)
-- [BMI 계산기](https://www.aroundtool.com/bmi_calculator.html)
-- [기초대사량 계산기](https://www.aroundtool.com/bmr_calculator.html)
-- [하루 권장 칼로리 계산기](https://www.aroundtool.com/calorie_calculator.html)
-- [하루 필요 열량 계산기](https://www.aroundtool.com/daily_calorie_calculator.html)
-- [타이어 제조일자 계산기](https://www.aroundtool.com/tire_date_calculator.html)
-- [벌초 견적 계산기](https://www.aroundtool.com/grave_weeding_calculator.html)
-- [QR코드 생성기](https://www.aroundtool.com/qr_generator.html)
-- [로또 번호 생성기](https://www.aroundtool.com/lotto_generator.html)
-- [취업운세](https://www.aroundtool.com/job_fortune_teller.html)
-- [일본 여행 경비 계산기](https://www.aroundtool.com/japan_travel_calculator.html)
-- [캠핑 장비 견적 계산기](https://www.aroundtool.com/camping_gear_calculator.html)
-
-## 텍스트 도구 (3)
-
-- [글자수 세기](https://www.aroundtool.com/character_counter.html)
-- [맞춤법 검사기](https://www.aroundtool.com/spell_checker.html)
-- [띄어쓰기 검사기](https://www.aroundtool.com/spacing_checker.html)
-
-## 가이드 (2)
-
-- [2026년 최저임금·노동법 가이드](https://www.aroundtool.com/guide_2026_wage.html)
-- [2026년 세금·연말정산 가이드](https://www.aroundtool.com/guide_2026_tax.html)
-
-## 맛집 · 인천 연수구
-
-- [인천 연수구 밥집 (2곳)](https://www.aroundtool.com/yeonsu-bapjip.html)
-- [인천 연수구 카페·디저트 (2곳)](https://www.aroundtool.com/yeonsu-cafe.html)
-- [인천 연수구 고기 (3곳)](https://www.aroundtool.com/yeonsu-gogi.html)
-- [인천 연수구 국물과 면 (3곳)](https://www.aroundtool.com/yeonsu-gukmul-myeon.html)
-- [인천 연수구 함박마을 (5곳)](https://www.aroundtool.com/yeonsu-hambak.html)
-- [인천 연수구 이국 (5곳)](https://www.aroundtool.com/yeonsu-iguk.html)
-- [인천 연수구 술과 안주 (3곳)](https://www.aroundtool.com/yeonsu-sul-anju.html)
-
-## 맛집 · 서울 강남구
-
-- [서울 강남구 밥집 (2곳)](https://www.aroundtool.com/gangnam-bapjip.html)
-- [서울 강남구 카페·디저트 (1곳)](https://www.aroundtool.com/gangnam-cafe.html)
-- [서울 강남구 고기 (2곳)](https://www.aroundtool.com/gangnam-gogi.html)
-- [서울 강남구 국물과 면 (3곳)](https://www.aroundtool.com/gangnam-gukmul-myeon.html)
-- [서울 강남구 이국 (2곳)](https://www.aroundtool.com/gangnam-iguk.html)
-- [서울 강남구 강남 노포 (5곳)](https://www.aroundtool.com/gangnam-nopo.html)
-- [서울 강남구 술과 안주 (2곳)](https://www.aroundtool.com/gangnam-sul-anju.html)
-
-## 맛집 · 부산 해운대구
-
-부산 미쉐린 1스타 4곳 중 3곳과 빕 구르망 4곳이 해운대구에 있습니다. 지역 슬롯은 '미쉐린 해운대'입니다.
-
-- [부산 해운대구 밥집 (2곳)](https://www.aroundtool.com/haeundae-bapjip.html)
-- [부산 해운대구 고기 (2곳)](https://www.aroundtool.com/haeundae-gogi.html)
-- [부산 해운대구 국물과 면 (3곳)](https://www.aroundtool.com/haeundae-gukmul-myeon.html)
-- [부산 해운대구 이국 (2곳)](https://www.aroundtool.com/haeundae-iguk.html)
-- [부산 해운대구 술과 안주 (조사 중)](https://www.aroundtool.com/haeundae-sul-anju.html)
-- [부산 해운대구 카페·디저트 (2곳)](https://www.aroundtool.com/haeundae-cafe.html)
-- [부산 해운대구 미쉐린 — 지역 슬롯 (7곳)](https://www.aroundtool.com/haeundae-michelin.html)
-
-## 맛집 · 서울 용산구
-
-한 구 안에 물가 차이가 가장 큰 두 상권(한남동 부촌 / 후암동 남산 아래)이 있습니다. 지역 슬롯은 1976년 서울중앙성원을 중심으로 형성된 '우사단로 이슬람 거리'입니다.
-
-- [서울 용산구 밥집 (2곳)](https://www.aroundtool.com/yongsan-bapjip.html)
-- [서울 용산구 고기 (2곳)](https://www.aroundtool.com/yongsan-gogi.html)
-- [서울 용산구 국물과 면 (2곳)](https://www.aroundtool.com/yongsan-gukmul-myeon.html)
-- [서울 용산구 이국 (1곳)](https://www.aroundtool.com/yongsan-iguk.html)
-- [서울 용산구 술과 안주 (1곳)](https://www.aroundtool.com/yongsan-sul-anju.html)
-- [서울 용산구 카페·디저트 (2곳)](https://www.aroundtool.com/yongsan-cafe.html)
-- [서울 용산구 우사단로 — 지역 슬롯 (2곳)](https://www.aroundtool.com/yongsan-usadan.html)
-
-## 맛집 · 강원 속초시
-
-관광 도시라 빅데이터 상위가 물회·생선구이·대구탕·홍게로 채워집니다. 지역 슬롯은 1951년 형성된 국내 유일 실향민 집단정착촌 '아바이마을'(청호동)입니다.
-
-- [강원 속초시 밥집 (2곳)](https://www.aroundtool.com/sokcho-bapjip.html)
-- [강원 속초시 고기 (1곳)](https://www.aroundtool.com/sokcho-gogi.html)
-- [강원 속초시 국물과 면 (3곳)](https://www.aroundtool.com/sokcho-gukmul-myeon.html)
-- [강원 속초시 이국 (조사 중)](https://www.aroundtool.com/sokcho-iguk.html)
-- [강원 속초시 술과 안주 (2곳)](https://www.aroundtool.com/sokcho-sul-anju.html)
-- [강원 속초시 카페·디저트 (2곳)](https://www.aroundtool.com/sokcho-cafe.html)
-- [강원 속초시 아바이마을 — 지역 슬롯 (2곳)](https://www.aroundtool.com/sokcho-abai.html)
-
-## 맛집 · 대전광역시 (5개 구 전체)
-
-대전은 구마다 상권 성격이 뚜렷하게 갈립니다. 원도심(중구·동구)은 두부두루치기와 칼국수, 서구 둔산은 행정 중심 상권, 유성구 봉명동은 온천 상권, 대덕구 신탄진은 관광 유입이 없는 주민 상권입니다. 지역 슬롯도 구마다 다릅니다.
-
-### 대전 동구 (5곳)
-
-- [대전 동구 밥집 (1곳)](https://www.aroundtool.com/daejeon-donggu-bapjip.html)
-- [대전 동구 고기 (조사 중)](https://www.aroundtool.com/daejeon-donggu-gogi.html)
-- [대전 동구 국물과 면 (2곳)](https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html)
-- [대전 동구 이국 (조사 중)](https://www.aroundtool.com/daejeon-donggu-iguk.html)
-- [대전 동구 술과 안주 (조사 중)](https://www.aroundtool.com/daejeon-donggu-sul-anju.html)
-- [대전 동구 카페·디저트 (조사 중)](https://www.aroundtool.com/daejeon-donggu-cafe.html)
-- [대전 동구 대전역 노포 (지역 슬롯) (2곳)](https://www.aroundtool.com/daejeon-donggu-station.html)
-
-### 대전 중구 (6곳)
-
-- [대전 중구 밥집 (조사 중)](https://www.aroundtool.com/daejeon-junggu-bapjip.html)
-- [대전 중구 고기 (조사 중)](https://www.aroundtool.com/daejeon-junggu-gogi.html)
-- [대전 중구 국물과 면 (1곳)](https://www.aroundtool.com/daejeon-junggu-gukmul-myeon.html)
-- [대전 중구 이국 (1곳)](https://www.aroundtool.com/daejeon-junggu-iguk.html)
-- [대전 중구 술과 안주 (조사 중)](https://www.aroundtool.com/daejeon-junggu-sul-anju.html)
-- [대전 중구 카페·디저트 (1곳)](https://www.aroundtool.com/daejeon-junggu-cafe.html)
-- [대전 중구 두부두루치기 (지역 슬롯) (3곳)](https://www.aroundtool.com/daejeon-junggu-durus.html)
-
-### 대전 서구 (3곳)
-
-- [대전 서구 밥집 (조사 중)](https://www.aroundtool.com/daejeon-seogu-bapjip.html)
-- [대전 서구 고기 (조사 중)](https://www.aroundtool.com/daejeon-seogu-gogi.html)
-- [대전 서구 국물과 면 (1곳)](https://www.aroundtool.com/daejeon-seogu-gukmul-myeon.html)
-- [대전 서구 이국 (조사 중)](https://www.aroundtool.com/daejeon-seogu-iguk.html)
-- [대전 서구 술과 안주 (조사 중)](https://www.aroundtool.com/daejeon-seogu-sul-anju.html)
-- [대전 서구 카페·디저트 (조사 중)](https://www.aroundtool.com/daejeon-seogu-cafe.html)
-- [대전 서구 둔산 신도심 (지역 슬롯) (2곳)](https://www.aroundtool.com/daejeon-seogu-dunsan.html)
-
-### 대전 유성구 (6곳)
-
-- [대전 유성구 밥집 (1곳)](https://www.aroundtool.com/daejeon-yuseong-bapjip.html)
-- [대전 유성구 고기 (조사 중)](https://www.aroundtool.com/daejeon-yuseong-gogi.html)
-- [대전 유성구 국물과 면 (조사 중)](https://www.aroundtool.com/daejeon-yuseong-gukmul-myeon.html)
-- [대전 유성구 이국 (1곳)](https://www.aroundtool.com/daejeon-yuseong-iguk.html)
-- [대전 유성구 술과 안주 (조사 중)](https://www.aroundtool.com/daejeon-yuseong-sul-anju.html)
-- [대전 유성구 카페·디저트 (1곳)](https://www.aroundtool.com/daejeon-yuseong-cafe.html)
-- [대전 유성구 봉명동 (지역 슬롯) (3곳)](https://www.aroundtool.com/daejeon-yuseong-bongmyeong.html)
-
-### 대전 대덕구 (4곳)
-
-- [대전 대덕구 밥집 (1곳)](https://www.aroundtool.com/daejeon-daedeok-bapjip.html)
-- [대전 대덕구 고기 (1곳)](https://www.aroundtool.com/daejeon-daedeok-gogi.html)
-- [대전 대덕구 국물과 면 (조사 중)](https://www.aroundtool.com/daejeon-daedeok-gukmul-myeon.html)
-- [대전 대덕구 이국 (조사 중)](https://www.aroundtool.com/daejeon-daedeok-iguk.html)
-- [대전 대덕구 술과 안주 (조사 중)](https://www.aroundtool.com/daejeon-daedeok-sul-anju.html)
-- [대전 대덕구 카페·디저트 (조사 중)](https://www.aroundtool.com/daejeon-daedeok-cafe.html)
-- [대전 대덕구 신탄진 (지역 슬롯) (2곳)](https://www.aroundtool.com/daejeon-daedeok-sintanjin.html)
-
-## 맛집 · 광주광역시 (5개 구 전체)
-
-광주광역시가 공식 지정한 맛집거리 4곳 중 3곳이 북구(유동오리탕거리·무등산보리밥거리)와 광산구(송정리향토떡갈비거리)에 있습니다. 시가 맛·서비스·위생을 종합 평가해 지정하는 제도라 돈으로 살 수 없는 근거입니다.
-
-### 광주 동구 (1곳)
-
-- [광주 동구 밥집 (1곳)](https://www.aroundtool.com/gwangju-donggu-bapjip.html)
-- [광주 동구 고기 (조사 중)](https://www.aroundtool.com/gwangju-donggu-gogi.html)
-- [광주 동구 국물과 면 (조사 중)](https://www.aroundtool.com/gwangju-donggu-gukmul-myeon.html)
-- [광주 동구 이국 (조사 중)](https://www.aroundtool.com/gwangju-donggu-iguk.html)
-- [광주 동구 술과 안주 (조사 중)](https://www.aroundtool.com/gwangju-donggu-sul-anju.html)
-- [광주 동구 카페·디저트 (조사 중)](https://www.aroundtool.com/gwangju-donggu-cafe.html)
-- [광주 동구 충장로 원도심 (지역 슬롯) (조사 중)](https://www.aroundtool.com/gwangju-donggu-chungjang.html)
-
-### 광주 서구 (1곳)
-
-- [광주 서구 밥집 (조사 중)](https://www.aroundtool.com/gwangju-seogu-bapjip.html)
-- [광주 서구 고기 (조사 중)](https://www.aroundtool.com/gwangju-seogu-gogi.html)
-- [광주 서구 국물과 면 (조사 중)](https://www.aroundtool.com/gwangju-seogu-gukmul-myeon.html)
-- [광주 서구 이국 (조사 중)](https://www.aroundtool.com/gwangju-seogu-iguk.html)
-- [광주 서구 술과 안주 (조사 중)](https://www.aroundtool.com/gwangju-seogu-sul-anju.html)
-- [광주 서구 카페·디저트 (조사 중)](https://www.aroundtool.com/gwangju-seogu-cafe.html)
-- [광주 서구 상무지구 (지역 슬롯) (1곳)](https://www.aroundtool.com/gwangju-seogu-sangmu.html)
-
-### 광주 남구 (0곳)
-
-- [광주 남구 밥집 (조사 중)](https://www.aroundtool.com/gwangju-namgu-bapjip.html)
-- [광주 남구 고기 (조사 중)](https://www.aroundtool.com/gwangju-namgu-gogi.html)
-- [광주 남구 국물과 면 (조사 중)](https://www.aroundtool.com/gwangju-namgu-gukmul-myeon.html)
-- [광주 남구 이국 (조사 중)](https://www.aroundtool.com/gwangju-namgu-iguk.html)
-- [광주 남구 술과 안주 (조사 중)](https://www.aroundtool.com/gwangju-namgu-sul-anju.html)
-- [광주 남구 카페·디저트 (조사 중)](https://www.aroundtool.com/gwangju-namgu-cafe.html)
-- [광주 남구 양림동 (지역 슬롯) (조사 중)](https://www.aroundtool.com/gwangju-namgu-yangnim.html)
-
-### 광주 북구 (2곳)
-
-- [광주 북구 밥집 (1곳)](https://www.aroundtool.com/gwangju-bukgu-bapjip.html)
-- [광주 북구 고기 (조사 중)](https://www.aroundtool.com/gwangju-bukgu-gogi.html)
-- [광주 북구 국물과 면 (조사 중)](https://www.aroundtool.com/gwangju-bukgu-gukmul-myeon.html)
-- [광주 북구 이국 (조사 중)](https://www.aroundtool.com/gwangju-bukgu-iguk.html)
-- [광주 북구 술과 안주 (조사 중)](https://www.aroundtool.com/gwangju-bukgu-sul-anju.html)
-- [광주 북구 카페·디저트 (조사 중)](https://www.aroundtool.com/gwangju-bukgu-cafe.html)
-- [광주 북구 유동오리탕거리 (지역 슬롯) (1곳)](https://www.aroundtool.com/gwangju-bukgu-oritang.html)
-
-### 광주 광산구 (6곳)
-
-- [광주 광산구 밥집 (조사 중)](https://www.aroundtool.com/gwangju-gwangsan-bapjip.html)
-- [광주 광산구 고기 (조사 중)](https://www.aroundtool.com/gwangju-gwangsan-gogi.html)
-- [광주 광산구 국물과 면 (조사 중)](https://www.aroundtool.com/gwangju-gwangsan-gukmul-myeon.html)
-- [광주 광산구 이국 (2곳)](https://www.aroundtool.com/gwangju-gwangsan-iguk.html)
-- [광주 광산구 술과 안주 (조사 중)](https://www.aroundtool.com/gwangju-gwangsan-sul-anju.html)
-- [광주 광산구 카페·디저트 (1곳)](https://www.aroundtool.com/gwangju-gwangsan-cafe.html)
-- [광주 광산구 송정리 떡갈비거리 (지역 슬롯) (3곳)](https://www.aroundtool.com/gwangju-gwangsan-songjeong.html)
-
-## 맛집 · 제주특별자치도 (제주시·서귀포시)
-
-제주시는 향토국(몸국·고사리육개장)과 고기국수, 서귀포시는 갈치와 흑돼지로 갈립니다. 지역 슬롯은 제주시가 '제주 향토국', 서귀포시가 '갈치'입니다.
-
-### 제주 제주시 (10곳)
-
-- [제주 제주시 밥집 (1곳)](https://www.aroundtool.com/jeju-jejusi-bapjip.html)
-- [제주 제주시 고기 (조사 중)](https://www.aroundtool.com/jeju-jejusi-gogi.html)
-- [제주 제주시 국물과 면 (3곳)](https://www.aroundtool.com/jeju-jejusi-gukmul-myeon.html)
-- [제주 제주시 이국 (조사 중)](https://www.aroundtool.com/jeju-jejusi-iguk.html)
-- [제주 제주시 술과 안주 (1곳)](https://www.aroundtool.com/jeju-jejusi-sul-anju.html)
-- [제주 제주시 카페·디저트 (2곳)](https://www.aroundtool.com/jeju-jejusi-cafe.html)
-- [제주 제주시 제주 향토국 (지역 슬롯) (3곳)](https://www.aroundtool.com/jeju-jejusi-hyangto.html)
-
-### 제주 서귀포시 (13곳)
-
-- [제주 서귀포시 밥집 (2곳)](https://www.aroundtool.com/jeju-seogwipo-bapjip.html)
-- [제주 서귀포시 고기 (3곳)](https://www.aroundtool.com/jeju-seogwipo-gogi.html)
-- [제주 서귀포시 국물과 면 (1곳)](https://www.aroundtool.com/jeju-seogwipo-gukmul-myeon.html)
-- [제주 서귀포시 이국 (1곳)](https://www.aroundtool.com/jeju-seogwipo-iguk.html)
-- [제주 서귀포시 술과 안주 (2곳)](https://www.aroundtool.com/jeju-seogwipo-sul-anju.html)
-- [제주 서귀포시 카페·디저트 (2곳)](https://www.aroundtool.com/jeju-seogwipo-cafe.html)
-- [제주 서귀포시 갈치 (지역 슬롯) (2곳)](https://www.aroundtool.com/jeju-seogwipo-galchi.html)
-
-## 맛집 · 전라남도 (4개 권역 · 22개 시군)
-
-전라남도가 공식 지정한 '남도음식거리' 21곳이 지역 슬롯입니다. 2016년부터 추진된 제도로 선정된 곳에는 한 곳당 10억 원(도비 5억·시군비 5억)을 들여 환경개선 사업을 합니다. 아울러 전라남도가 22개 시군마다 지정한 대표 음식을 카테고리별로 재배치했습니다. 구례·화순·영암 3개 군은 아직 남도음식거리로 조성되지 않았습니다.
-
-### 전남 동부권
-
-- [전남 동부권 밥집 (1가지)](https://www.aroundtool.com/jeonnam-dongbu-bapjip.html)
-- [전남 동부권 고기 (2가지)](https://www.aroundtool.com/jeonnam-dongbu-gogi.html)
-- [전남 동부권 국물과 면 (3가지)](https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html)
-- [전남 동부권 이국 (준비 중)](https://www.aroundtool.com/jeonnam-dongbu-iguk.html)
-- [전남 동부권 술과 안주 (2가지)](https://www.aroundtool.com/jeonnam-dongbu-sul-anju.html)
-- [전남 동부권 카페·디저트 (준비 중)](https://www.aroundtool.com/jeonnam-dongbu-cafe.html)
-- [전남 동부권 남도음식거리 (지역 슬롯) (5곳)](https://www.aroundtool.com/jeonnam-dongbu-namdo.html)
-
-### 전남 중부권
-
-- [전남 중부권 밥집 (4가지)](https://www.aroundtool.com/jeonnam-jungbu-bapjip.html)
-- [전남 중부권 고기 (1가지)](https://www.aroundtool.com/jeonnam-jungbu-gogi.html)
-- [전남 중부권 국물과 면 (3가지)](https://www.aroundtool.com/jeonnam-jungbu-gukmul-myeon.html)
-- [전남 중부권 이국 (준비 중)](https://www.aroundtool.com/jeonnam-jungbu-iguk.html)
-- [전남 중부권 술과 안주 (1가지)](https://www.aroundtool.com/jeonnam-jungbu-sul-anju.html)
-- [전남 중부권 카페·디저트 (준비 중)](https://www.aroundtool.com/jeonnam-jungbu-cafe.html)
-- [전남 중부권 남도음식거리 (지역 슬롯) (5곳)](https://www.aroundtool.com/jeonnam-jungbu-namdo.html)
-
-### 전남 서부권
-
-- [전남 서부권 밥집 (2가지)](https://www.aroundtool.com/jeonnam-seobu-bapjip.html)
-- [전남 서부권 고기 (1가지)](https://www.aroundtool.com/jeonnam-seobu-gogi.html)
-- [전남 서부권 국물과 면 (2가지)](https://www.aroundtool.com/jeonnam-seobu-gukmul-myeon.html)
-- [전남 서부권 이국 (준비 중)](https://www.aroundtool.com/jeonnam-seobu-iguk.html)
-- [전남 서부권 술과 안주 (2가지)](https://www.aroundtool.com/jeonnam-seobu-sul-anju.html)
-- [전남 서부권 카페·디저트 (준비 중)](https://www.aroundtool.com/jeonnam-seobu-cafe.html)
-- [전남 서부권 남도음식거리 (지역 슬롯) (5곳)](https://www.aroundtool.com/jeonnam-seobu-namdo.html)
-
-### 전남 남부권
-
-- [전남 남부권 밥집 (4가지)](https://www.aroundtool.com/jeonnam-nambu-bapjip.html)
-- [전남 남부권 고기 (2가지)](https://www.aroundtool.com/jeonnam-nambu-gogi.html)
-- [전남 남부권 국물과 면 (1가지)](https://www.aroundtool.com/jeonnam-nambu-gukmul-myeon.html)
-- [전남 남부권 이국 (준비 중)](https://www.aroundtool.com/jeonnam-nambu-iguk.html)
-- [전남 남부권 술과 안주 (2가지)](https://www.aroundtool.com/jeonnam-nambu-sul-anju.html)
-- [전남 남부권 카페·디저트 (준비 중)](https://www.aroundtool.com/jeonnam-nambu-cafe.html)
-- [전남 남부권 남도음식거리 (지역 슬롯) (6곳)](https://www.aroundtool.com/jeonnam-nambu-namdo.html)
-
-## 주요 섹션 (허브)
-
-- [전국 맛집](https://www.aroundtool.com/food.html) — 21개 시군구 162곳
-- [생활툴](https://www.aroundtool.com/tools.html) — 무료 계산기 40종
-- [여행](https://www.aroundtool.com/travel.html) — 국내·해외 코스와 예산
-  - [제주도 여행](https://www.aroundtool.com/travel-jeju.html) — 코스·일정별·예산·교통·맛집
-  - [오사카 여행](https://www.aroundtool.com/travel-osaka.html) — 코스·일정별·예산·교통·맛집
-- [기타](https://www.aroundtool.com/etc.html) — 텍스트 도구·연도별 가이드·FAQ
+리뷰 개수가 아니라 재방문 언급 비율을 봅니다. 다이닝코드 지역 랭킹, 미쉐린 가이드,
+중소벤처기업부 백년가게, 지자체 공식 지정처럼 **광고비로 살 수 없는 근거** 3개 이상과 교차 확인합니다.
+"소정의 원고료", "협찬", "체험단", "Sponsored" 표기가 있는 글은 검증 근거에서 제외합니다.
+각 식당마다 확인된 것과 확인되지 않은 것을 나눠 표시하고, **단점도 함께** 적습니다.
+
+## 주요 섹션
+
+- [전국 맛집](https://www.aroundtool.com/food.html) — 89페이지
+- [생활툴](https://www.aroundtool.com/tools.html) — 계산기 44종
+- [여행](https://www.aroundtool.com/travel.html) — 제주도·오사카 코스와 예산
+- [기타](https://www.aroundtool.com/etc.html) — 텍스트 도구·연도별 가이드
+
+## 여행
+
+- [제주도 여행](https://www.aroundtool.com/travel-jeju.html) — 코스·일정별·예산·교통·맛집
+- [오사카 여행](https://www.aroundtool.com/travel-osaka.html) — 코스·일정별·예산·교통·맛집
+
+## 계산기
+
+- https://www.aroundtool.com/acquisition_tax_calculator.html
+- https://www.aroundtool.com/age_calculator.html
+- https://www.aroundtool.com/bmi_calculator.html
+- https://www.aroundtool.com/bmr_calculator.html
+- https://www.aroundtool.com/brokerage_fee_calculator.html
+- https://www.aroundtool.com/calorie_calculator.html
+- https://www.aroundtool.com/camping_gear_calculator.html
+- https://www.aroundtool.com/car_tax_calculator.html
+- https://www.aroundtool.com/character_counter.html
+- https://www.aroundtool.com/compound_calculator.html
+- https://www.aroundtool.com/daily_calorie_calculator.html
+- https://www.aroundtool.com/discount_calculator.html
+- https://www.aroundtool.com/discount_rate_calculator.html
+- https://www.aroundtool.com/dsr_calculator.html
+- https://www.aroundtool.com/due_date_calculator.html
+- https://www.aroundtool.com/dutch_pay_calculator.html
+- https://www.aroundtool.com/electricity_bill_calculator.html
+- https://www.aroundtool.com/exchange_rate_calculator.html
+- https://www.aroundtool.com/freelancer_tax_calculator.html
+- https://www.aroundtool.com/fuel_economy_calculator.html
+- https://www.aroundtool.com/gas_bill_calculator.html
+- https://www.aroundtool.com/grave_weeding_calculator.html
+- https://www.aroundtool.com/holiday_pay_calculator.html
+- https://www.aroundtool.com/increase_decrease_calculator.html
+- https://www.aroundtool.com/interior_calculator.html
+- https://www.aroundtool.com/japan_travel_calculator.html
+- https://www.aroundtool.com/job_fortune_teller.html
+- https://www.aroundtool.com/loan_calculator.html
+- https://www.aroundtool.com/lotto_generator.html
+- https://www.aroundtool.com/ltv_calculator.html
+- https://www.aroundtool.com/parental_leave_calculator.html
+- https://www.aroundtool.com/pension_age_calculator.html
+- https://www.aroundtool.com/percent_calculator.html
+- https://www.aroundtool.com/prepayment_penalty_calculator.html
+- https://www.aroundtool.com/pto_calculator.html
+- https://www.aroundtool.com/pyeong_calculator.html
+- https://www.aroundtool.com/qr_generator.html
+- https://www.aroundtool.com/salary_calculator.html
+- https://www.aroundtool.com/savings_calculator.html
+- https://www.aroundtool.com/severance_calculator.html
+- https://www.aroundtool.com/spacing_checker.html
+- https://www.aroundtool.com/spell_checker.html
+- https://www.aroundtool.com/tire_date_calculator.html
+- https://www.aroundtool.com/unemployment_benefit_calculator.html
+
+## 맛집
+
+- https://www.aroundtool.com/daejeon-daedeok-bapjip.html
+- https://www.aroundtool.com/daejeon-daedeok-gogi.html
+- https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+- https://www.aroundtool.com/daejeon-donggu-bapjip.html
+- https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html
+- https://www.aroundtool.com/daejeon-donggu-station.html
+- https://www.aroundtool.com/daejeon-junggu-cafe.html
+- https://www.aroundtool.com/daejeon-junggu-durus.html
+- https://www.aroundtool.com/daejeon-junggu-gukmul-myeon.html
+- https://www.aroundtool.com/daejeon-junggu-iguk.html
+- https://www.aroundtool.com/daejeon-seogu-dunsan.html
+- https://www.aroundtool.com/daejeon-seogu-gukmul-myeon.html
+- https://www.aroundtool.com/daejeon-yuseong-bapjip.html
+- https://www.aroundtool.com/daejeon-yuseong-bongmyeong.html
+- https://www.aroundtool.com/daejeon-yuseong-cafe.html
+- https://www.aroundtool.com/daejeon-yuseong-iguk.html
+- https://www.aroundtool.com/gangnam-bapjip.html
+- https://www.aroundtool.com/gangnam-cafe.html
+- https://www.aroundtool.com/gangnam-gogi.html
+- https://www.aroundtool.com/gangnam-gukmul-myeon.html
+- https://www.aroundtool.com/gangnam-iguk.html
+- https://www.aroundtool.com/gangnam-nopo.html
+- https://www.aroundtool.com/gangnam-sul-anju.html
+- https://www.aroundtool.com/gwangju-bukgu-bapjip.html
+- https://www.aroundtool.com/gwangju-bukgu-oritang.html
+- https://www.aroundtool.com/gwangju-donggu-bapjip.html
+- https://www.aroundtool.com/gwangju-gwangsan-cafe.html
+- https://www.aroundtool.com/gwangju-gwangsan-iguk.html
+- https://www.aroundtool.com/gwangju-gwangsan-songjeong.html
+- https://www.aroundtool.com/gwangju-seogu-sangmu.html
+- https://www.aroundtool.com/haeundae-bapjip.html
+- https://www.aroundtool.com/haeundae-cafe.html
+- https://www.aroundtool.com/haeundae-gogi.html
+- https://www.aroundtool.com/haeundae-gukmul-myeon.html
+- https://www.aroundtool.com/haeundae-iguk.html
+- https://www.aroundtool.com/haeundae-michelin.html
+- https://www.aroundtool.com/haeundae-sul-anju.html
+- https://www.aroundtool.com/jeju-jejusi-bapjip.html
+- https://www.aroundtool.com/jeju-jejusi-cafe.html
+- https://www.aroundtool.com/jeju-jejusi-gukmul-myeon.html
+- https://www.aroundtool.com/jeju-jejusi-hyangto.html
+- https://www.aroundtool.com/jeju-jejusi-sul-anju.html
+- https://www.aroundtool.com/jeju-seogwipo-bapjip.html
+- https://www.aroundtool.com/jeju-seogwipo-cafe.html
+- https://www.aroundtool.com/jeju-seogwipo-galchi.html
+- https://www.aroundtool.com/jeju-seogwipo-gogi.html
+- https://www.aroundtool.com/jeju-seogwipo-gukmul-myeon.html
+- https://www.aroundtool.com/jeju-seogwipo-iguk.html
+- https://www.aroundtool.com/jeju-seogwipo-sul-anju.html
+- https://www.aroundtool.com/jeonnam-dongbu-bapjip.html
+- https://www.aroundtool.com/jeonnam-dongbu-gogi.html
+- https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html
+- https://www.aroundtool.com/jeonnam-dongbu-namdo.html
+- https://www.aroundtool.com/jeonnam-dongbu-sul-anju.html
+- https://www.aroundtool.com/jeonnam-jungbu-bapjip.html
+- https://www.aroundtool.com/jeonnam-jungbu-gogi.html
+- https://www.aroundtool.com/jeonnam-jungbu-gukmul-myeon.html
+- https://www.aroundtool.com/jeonnam-jungbu-namdo.html
+- https://www.aroundtool.com/jeonnam-jungbu-sul-anju.html
+- https://www.aroundtool.com/jeonnam-nambu-bapjip.html
+- https://www.aroundtool.com/jeonnam-nambu-gogi.html
+- https://www.aroundtool.com/jeonnam-nambu-gukmul-myeon.html
+- https://www.aroundtool.com/jeonnam-nambu-namdo.html
+- https://www.aroundtool.com/jeonnam-nambu-sul-anju.html
+- https://www.aroundtool.com/jeonnam-seobu-bapjip.html
+- https://www.aroundtool.com/jeonnam-seobu-gogi.html
+- https://www.aroundtool.com/jeonnam-seobu-gukmul-myeon.html
+- https://www.aroundtool.com/jeonnam-seobu-namdo.html
+- https://www.aroundtool.com/jeonnam-seobu-sul-anju.html
+- https://www.aroundtool.com/sokcho-abai.html
+- https://www.aroundtool.com/sokcho-bapjip.html
+- https://www.aroundtool.com/sokcho-cafe.html
+- https://www.aroundtool.com/sokcho-gogi.html
+- https://www.aroundtool.com/sokcho-gukmul-myeon.html
+- https://www.aroundtool.com/sokcho-sul-anju.html
+- https://www.aroundtool.com/yeonsu-bapjip.html
+- https://www.aroundtool.com/yeonsu-cafe.html
+- https://www.aroundtool.com/yeonsu-gogi.html
+- https://www.aroundtool.com/yeonsu-gukmul-myeon.html
+- https://www.aroundtool.com/yeonsu-hambak.html
+- https://www.aroundtool.com/yeonsu-iguk.html
+- https://www.aroundtool.com/yeonsu-sul-anju.html
+- https://www.aroundtool.com/yongsan-bapjip.html
+- https://www.aroundtool.com/yongsan-cafe.html
+- https://www.aroundtool.com/yongsan-gogi.html
+- https://www.aroundtool.com/yongsan-gukmul-myeon.html
+- https://www.aroundtool.com/yongsan-iguk.html
+- https://www.aroundtool.com/yongsan-sul-anju.html
+- https://www.aroundtool.com/yongsan-usadan.html
 
 ## 사이트 정보
 
 - [사이트 소개](https://www.aroundtool.com/about.html)
-- [문의하기](https://www.aroundtool.com/contact.html)
+- [편집 방침](https://www.aroundtool.com/editorial.html)
 - [개인정보처리방침](https://www.aroundtool.com/privacy.html)
 - [이용약관](https://www.aroundtool.com/terms.html)
-
+- [문의하기](https://www.aroundtool.com/contact.html)
