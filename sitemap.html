@@ -98,6 +98,18 @@ main{padding:1.75rem 0 0}
 .note b{color:var(--ink);font-weight:600}
 .note a{color:var(--brand);text-decoration:none;font-weight:500}
 
+
+.smap-list a{display:flex;flex-direction:column;align-items:flex-start;gap:.1rem}
+.smap-list a::before{display:none}
+.smap-list .u{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft);
+opacity:.75;word-break:break-all;line-height:1.4}
+.smap-list a:hover .u{color:var(--brand);opacity:1}
+.smap-list li{align-items:center}
+.smap-list a{padding:.5rem .15rem}
+.dom{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--soft);
+background:var(--panel-alt);border:1px solid var(--rule);border-radius:4px;
+padding:.5rem .8rem;margin:0 0 1.25rem;display:inline-block}
+.dom b{color:var(--ink);font-weight:600}
 footer{margin-top:1.5rem;border-top:1px solid var(--rule);background:var(--panel);
   padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
 footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
@@ -127,249 +139,253 @@ footer p{margin:0}
   </ul>
 </div></div>
 <main class="wrap">
+  <p class="dom">기준 도메인 <b>https://www.aroundtool.com</b> — 아래 경로를 붙여 쓰세요</p>
   <section class="smap"><h2>재테크 및 부동산<span class="cnt">13</span></h2>
     <ul class="smap-list">
-      <li><a href="salary_calculator.html">연봉 실수령액</a></li>
-      <li><a href="loan_calculator.html">대출 이자</a></li>
-      <li><a href="savings_calculator.html">예적금 이자</a></li>
-      <li><a href="compound_calculator.html">복리</a></li>
-      <li><a href="freelancer_tax_calculator.html">종합소득세</a></li>
-      <li><a href="dsr_calculator.html">DSR</a></li>
-      <li><a href="ltv_calculator.html">LTV</a></li>
-      <li><a href="acquisition_tax_calculator.html">부동산 취득세</a></li>
-      <li><a href="brokerage_fee_calculator.html">중개보수</a></li>
-      <li><a href="increase_decrease_calculator.html">증감률</a></li>
-      <li><a href="pension_age_calculator.html">국민연금 수급나이</a></li>
-      <li><a href="prepayment_penalty_calculator.html">중도상환수수료</a></li>
-      <li><a href="interior_calculator.html">인테리어 가견적</a></li>
+      <li><a href="salary_calculator.html">연봉 실수령액<span class="u">/salary_calculator.html</span></a></li>
+      <li><a href="loan_calculator.html">대출 이자<span class="u">/loan_calculator.html</span></a></li>
+      <li><a href="savings_calculator.html">예적금 이자<span class="u">/savings_calculator.html</span></a></li>
+      <li><a href="compound_calculator.html">복리<span class="u">/compound_calculator.html</span></a></li>
+      <li><a href="freelancer_tax_calculator.html">종합소득세<span class="u">/freelancer_tax_calculator.html</span></a></li>
+      <li><a href="dsr_calculator.html">DSR<span class="u">/dsr_calculator.html</span></a></li>
+      <li><a href="ltv_calculator.html">LTV<span class="u">/ltv_calculator.html</span></a></li>
+      <li><a href="acquisition_tax_calculator.html">부동산 취득세<span class="u">/acquisition_tax_calculator.html</span></a></li>
+      <li><a href="brokerage_fee_calculator.html">중개보수<span class="u">/brokerage_fee_calculator.html</span></a></li>
+      <li><a href="increase_decrease_calculator.html">증감률<span class="u">/increase_decrease_calculator.html</span></a></li>
+      <li><a href="pension_age_calculator.html">국민연금 수급나이<span class="u">/pension_age_calculator.html</span></a></li>
+      <li><a href="prepayment_penalty_calculator.html">중도상환수수료<span class="u">/prepayment_penalty_calculator.html</span></a></li>
+      <li><a href="interior_calculator.html">인테리어 가견적<span class="u">/interior_calculator.html</span></a></li>
     </ul>
   </section>
 
   <section class="smap"><h2>노동 및 구직<span class="cnt">5</span></h2>
     <ul class="smap-list">
-      <li><a href="severance_calculator.html">퇴직금</a></li>
-      <li><a href="unemployment_benefit_calculator.html">실업급여</a></li>
-      <li><a href="pto_calculator.html">연차</a></li>
-      <li><a href="holiday_pay_calculator.html">주휴수당</a></li>
-      <li><a href="parental_leave_calculator.html">육아휴직급여</a></li>
+      <li><a href="severance_calculator.html">퇴직금<span class="u">/severance_calculator.html</span></a></li>
+      <li><a href="unemployment_benefit_calculator.html">실업급여<span class="u">/unemployment_benefit_calculator.html</span></a></li>
+      <li><a href="pto_calculator.html">연차<span class="u">/pto_calculator.html</span></a></li>
+      <li><a href="holiday_pay_calculator.html">주휴수당<span class="u">/holiday_pay_calculator.html</span></a></li>
+      <li><a href="parental_leave_calculator.html">육아휴직급여<span class="u">/parental_leave_calculator.html</span></a></li>
     </ul>
   </section>
 
   <section class="smap"><h2>생활 및 건강<span class="cnt">16</span></h2>
     <ul class="smap-list">
-      <li><a href="discount_calculator.html">할인율</a></li>
-      <li><a href="discount_rate_calculator.html">할인율 역산</a></li>
-      <li><a href="percent_calculator.html">퍼센트</a></li>
-      <li><a href="dutch_pay_calculator.html">더치페이</a></li>
-      <li><a href="electricity_bill_calculator.html">전기요금</a></li>
-      <li><a href="gas_bill_calculator.html">도시가스 요금</a></li>
-      <li><a href="car_tax_calculator.html">자동차세</a></li>
-      <li><a href="pyeong_calculator.html">평수</a></li>
-      <li><a href="age_calculator.html">만나이</a></li>
-      <li><a href="due_date_calculator.html">출산예정일</a></li>
-      <li><a href="bmi_calculator.html">BMI</a></li>
-      <li><a href="bmr_calculator.html">기초대사량</a></li>
-      <li><a href="calorie_calculator.html">권장 칼로리</a></li>
-      <li><a href="daily_calorie_calculator.html">필요 열량</a></li>
-      <li><a href="tire_date_calculator.html">타이어 제조일자</a></li>
-      <li><a href="grave_weeding_calculator.html">벌초 견적</a></li>
+      <li><a href="discount_calculator.html">할인율<span class="u">/discount_calculator.html</span></a></li>
+      <li><a href="discount_rate_calculator.html">할인율 역산<span class="u">/discount_rate_calculator.html</span></a></li>
+      <li><a href="percent_calculator.html">퍼센트<span class="u">/percent_calculator.html</span></a></li>
+      <li><a href="dutch_pay_calculator.html">더치페이<span class="u">/dutch_pay_calculator.html</span></a></li>
+      <li><a href="electricity_bill_calculator.html">전기요금<span class="u">/electricity_bill_calculator.html</span></a></li>
+      <li><a href="gas_bill_calculator.html">도시가스 요금<span class="u">/gas_bill_calculator.html</span></a></li>
+      <li><a href="car_tax_calculator.html">자동차세<span class="u">/car_tax_calculator.html</span></a></li>
+      <li><a href="pyeong_calculator.html">평수<span class="u">/pyeong_calculator.html</span></a></li>
+      <li><a href="age_calculator.html">만나이<span class="u">/age_calculator.html</span></a></li>
+      <li><a href="due_date_calculator.html">출산예정일<span class="u">/due_date_calculator.html</span></a></li>
+      <li><a href="bmi_calculator.html">BMI<span class="u">/bmi_calculator.html</span></a></li>
+      <li><a href="bmr_calculator.html">기초대사량<span class="u">/bmr_calculator.html</span></a></li>
+      <li><a href="calorie_calculator.html">권장 칼로리<span class="u">/calorie_calculator.html</span></a></li>
+      <li><a href="daily_calorie_calculator.html">필요 열량<span class="u">/daily_calorie_calculator.html</span></a></li>
+      <li><a href="tire_date_calculator.html">타이어 제조일자<span class="u">/tire_date_calculator.html</span></a></li>
+      <li><a href="grave_weeding_calculator.html">벌초 견적<span class="u">/grave_weeding_calculator.html</span></a></li>
     </ul>
   </section>
 
   <section class="smap"><h2>여행<span class="cnt">4</span></h2>
     <ul class="smap-list">
-      <li><a href="japan_travel_calculator.html">일본 여행 경비</a></li>
-      <li><a href="camping_gear_calculator.html">캠핑 장비 견적</a></li>
-      <li><a href="exchange_rate_calculator.html">환율</a></li>
-      <li><a href="fuel_economy_calculator.html">주유 경제성</a></li>
+      <li><a href="japan_travel_calculator.html">일본 여행 경비<span class="u">/japan_travel_calculator.html</span></a></li>
+      <li><a href="camping_gear_calculator.html">캠핑 장비 견적<span class="u">/camping_gear_calculator.html</span></a></li>
+      <li><a href="exchange_rate_calculator.html">환율<span class="u">/exchange_rate_calculator.html</span></a></li>
+      <li><a href="fuel_economy_calculator.html">주유 경제성<span class="u">/fuel_economy_calculator.html</span></a></li>
     </ul>
   </section>
 
   <section class="smap"><h2>생성기·텍스트 도구<span class="cnt">6</span></h2>
     <ul class="smap-list">
-      <li><a href="lotto_generator.html">로또 번호</a></li>
-      <li><a href="qr_generator.html">QR코드 생성</a></li>
-      <li><a href="job_fortune_teller.html">취업운세</a></li>
-      <li><a href="character_counter.html">글자수 세기</a></li>
-      <li><a href="spell_checker.html">맞춤법 검사</a></li>
-      <li><a href="spacing_checker.html">띄어쓰기 검사</a></li>
+      <li><a href="lotto_generator.html">로또 번호<span class="u">/lotto_generator.html</span></a></li>
+      <li><a href="qr_generator.html">QR코드 생성<span class="u">/qr_generator.html</span></a></li>
+      <li><a href="job_fortune_teller.html">취업운세<span class="u">/job_fortune_teller.html</span></a></li>
+      <li><a href="character_counter.html">글자수 세기<span class="u">/character_counter.html</span></a></li>
+      <li><a href="spell_checker.html">맞춤법 검사<span class="u">/spell_checker.html</span></a></li>
+      <li><a href="spacing_checker.html">띄어쓰기 검사<span class="u">/spacing_checker.html</span></a></li>
     </ul>
   </section>
 
-  <section class="smap"><h2>정보 및 가이드<span class="cnt">2</span></h2>
+  <section class="smap"><h2>정보 및 가이드<span class="cnt">3</span></h2>
     <ul class="smap-list">
-      <li><a href="guide_2026_wage.html">2026 최저임금·노동법 가이드</a></li>
-      <li><a href="guide_2026_tax.html">2026 세금·연말정산 가이드</a></li>
+      <li><a href="guide_2026_changes.html">2026년 달라지는 것 총정리<span class="u">/guide_2026_changes.html</span></a></li>
+      <li><a href="guide_2026_wage.html">2026 최저임금·노동법 가이드<span class="u">/guide_2026_wage.html</span></a></li>
+      <li><a href="guide_2026_tax.html">2026 세금·연말정산 가이드<span class="u">/guide_2026_tax.html</span></a></li>
     </ul>
   </section>
 
   <section class="smap smap--food"><h2>전국 맛집<span class="cnt">89페이지</span></h2>
     <h3 class="smap-sub">인천 연수구<span class="n">7p</span></h3>
     <ul class="smap-list">
-      <li><a href="yeonsu-bapjip.html">밥집</a></li>
-      <li><a href="yeonsu-cafe.html">카페·디저트</a></li>
-      <li><a href="yeonsu-gogi.html">고기</a></li>
-      <li><a href="yeonsu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="yeonsu-hambak.html">함박마을</a></li>
-      <li><a href="yeonsu-iguk.html">이국</a></li>
-      <li><a href="yeonsu-sul-anju.html">술과 안주</a></li>
+      <li><a href="yeonsu-bapjip.html">밥집<span class="u">/yeonsu-bapjip.html</span></a></li>
+      <li><a href="yeonsu-cafe.html">카페·디저트<span class="u">/yeonsu-cafe.html</span></a></li>
+      <li><a href="yeonsu-gogi.html">고기<span class="u">/yeonsu-gogi.html</span></a></li>
+      <li><a href="yeonsu-gukmul-myeon.html">국물과 면<span class="u">/yeonsu-gukmul-myeon.html</span></a></li>
+      <li><a href="yeonsu-hambak.html">함박마을<span class="u">/yeonsu-hambak.html</span></a></li>
+      <li><a href="yeonsu-iguk.html">이국<span class="u">/yeonsu-iguk.html</span></a></li>
+      <li><a href="yeonsu-sul-anju.html">술과 안주<span class="u">/yeonsu-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">서울 강남구<span class="n">7p</span></h3>
     <ul class="smap-list">
-      <li><a href="gangnam-bapjip.html">밥집</a></li>
-      <li><a href="gangnam-cafe.html">카페·디저트</a></li>
-      <li><a href="gangnam-gogi.html">고기</a></li>
-      <li><a href="gangnam-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="gangnam-iguk.html">이국</a></li>
-      <li><a href="gangnam-nopo.html">강남 노포</a></li>
-      <li><a href="gangnam-sul-anju.html">술과 안주</a></li>
+      <li><a href="gangnam-bapjip.html">밥집<span class="u">/gangnam-bapjip.html</span></a></li>
+      <li><a href="gangnam-cafe.html">카페·디저트<span class="u">/gangnam-cafe.html</span></a></li>
+      <li><a href="gangnam-gogi.html">고기<span class="u">/gangnam-gogi.html</span></a></li>
+      <li><a href="gangnam-gukmul-myeon.html">국물과 면<span class="u">/gangnam-gukmul-myeon.html</span></a></li>
+      <li><a href="gangnam-iguk.html">이국<span class="u">/gangnam-iguk.html</span></a></li>
+      <li><a href="gangnam-nopo.html">강남 노포<span class="u">/gangnam-nopo.html</span></a></li>
+      <li><a href="gangnam-sul-anju.html">술과 안주<span class="u">/gangnam-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">서울 용산구<span class="n">7p</span></h3>
     <ul class="smap-list">
-      <li><a href="yongsan-bapjip.html">밥집</a></li>
-      <li><a href="yongsan-cafe.html">카페·디저트</a></li>
-      <li><a href="yongsan-gogi.html">고기</a></li>
-      <li><a href="yongsan-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="yongsan-iguk.html">이국</a></li>
-      <li><a href="yongsan-sul-anju.html">술과 안주</a></li>
-      <li><a href="yongsan-usadan.html">우사단로</a></li>
+      <li><a href="yongsan-bapjip.html">밥집<span class="u">/yongsan-bapjip.html</span></a></li>
+      <li><a href="yongsan-cafe.html">카페·디저트<span class="u">/yongsan-cafe.html</span></a></li>
+      <li><a href="yongsan-gogi.html">고기<span class="u">/yongsan-gogi.html</span></a></li>
+      <li><a href="yongsan-gukmul-myeon.html">국물과 면<span class="u">/yongsan-gukmul-myeon.html</span></a></li>
+      <li><a href="yongsan-iguk.html">이국<span class="u">/yongsan-iguk.html</span></a></li>
+      <li><a href="yongsan-sul-anju.html">술과 안주<span class="u">/yongsan-sul-anju.html</span></a></li>
+      <li><a href="yongsan-usadan.html">우사단로<span class="u">/yongsan-usadan.html</span></a></li>
     </ul>
     <h3 class="smap-sub">부산 해운대구<span class="n">7p</span></h3>
     <ul class="smap-list">
-      <li><a href="haeundae-bapjip.html">밥집</a></li>
-      <li><a href="haeundae-cafe.html">카페·디저트</a></li>
-      <li><a href="haeundae-gogi.html">고기</a></li>
-      <li><a href="haeundae-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="haeundae-iguk.html">이국</a></li>
-      <li><a href="haeundae-michelin.html">미쉐린 해운대</a></li>
-      <li><a href="haeundae-sul-anju.html">술과 안주</a></li>
+      <li><a href="haeundae-bapjip.html">밥집<span class="u">/haeundae-bapjip.html</span></a></li>
+      <li><a href="haeundae-cafe.html">카페·디저트<span class="u">/haeundae-cafe.html</span></a></li>
+      <li><a href="haeundae-gogi.html">고기<span class="u">/haeundae-gogi.html</span></a></li>
+      <li><a href="haeundae-gukmul-myeon.html">국물과 면<span class="u">/haeundae-gukmul-myeon.html</span></a></li>
+      <li><a href="haeundae-iguk.html">이국<span class="u">/haeundae-iguk.html</span></a></li>
+      <li><a href="haeundae-michelin.html">미쉐린 해운대<span class="u">/haeundae-michelin.html</span></a></li>
+      <li><a href="haeundae-sul-anju.html">술과 안주<span class="u">/haeundae-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">강원 속초시<span class="n">6p</span></h3>
     <ul class="smap-list">
-      <li><a href="sokcho-abai.html">아바이마을</a></li>
-      <li><a href="sokcho-bapjip.html">밥집</a></li>
-      <li><a href="sokcho-cafe.html">카페·디저트</a></li>
-      <li><a href="sokcho-gogi.html">고기</a></li>
-      <li><a href="sokcho-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="sokcho-sul-anju.html">술과 안주</a></li>
+      <li><a href="sokcho-abai.html">아바이마을<span class="u">/sokcho-abai.html</span></a></li>
+      <li><a href="sokcho-bapjip.html">밥집<span class="u">/sokcho-bapjip.html</span></a></li>
+      <li><a href="sokcho-cafe.html">카페·디저트<span class="u">/sokcho-cafe.html</span></a></li>
+      <li><a href="sokcho-gogi.html">고기<span class="u">/sokcho-gogi.html</span></a></li>
+      <li><a href="sokcho-gukmul-myeon.html">국물과 면<span class="u">/sokcho-gukmul-myeon.html</span></a></li>
+      <li><a href="sokcho-sul-anju.html">술과 안주<span class="u">/sokcho-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">대전 동구<span class="n">3p</span></h3>
     <ul class="smap-list">
-      <li><a href="daejeon-donggu-bapjip.html">밥집</a></li>
-      <li><a href="daejeon-donggu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="daejeon-donggu-station.html">대전역 노포</a></li>
+      <li><a href="daejeon-donggu-bapjip.html">밥집<span class="u">/daejeon-donggu-bapjip.html</span></a></li>
+      <li><a href="daejeon-donggu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-donggu-gukmul-myeon.html</span></a></li>
+      <li><a href="daejeon-donggu-station.html">대전역 노포<span class="u">/daejeon-donggu-station.html</span></a></li>
     </ul>
     <h3 class="smap-sub">대전 중구<span class="n">4p</span></h3>
     <ul class="smap-list">
-      <li><a href="daejeon-junggu-cafe.html">카페·디저트</a></li>
-      <li><a href="daejeon-junggu-durus.html">두부두루치기</a></li>
-      <li><a href="daejeon-junggu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="daejeon-junggu-iguk.html">이국</a></li>
+      <li><a href="daejeon-junggu-cafe.html">카페·디저트<span class="u">/daejeon-junggu-cafe.html</span></a></li>
+      <li><a href="daejeon-junggu-durus.html">두부두루치기<span class="u">/daejeon-junggu-durus.html</span></a></li>
+      <li><a href="daejeon-junggu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-junggu-gukmul-myeon.html</span></a></li>
+      <li><a href="daejeon-junggu-iguk.html">이국<span class="u">/daejeon-junggu-iguk.html</span></a></li>
     </ul>
     <h3 class="smap-sub">대전 서구<span class="n">2p</span></h3>
     <ul class="smap-list">
-      <li><a href="daejeon-seogu-dunsan.html">둔산 신도심</a></li>
-      <li><a href="daejeon-seogu-gukmul-myeon.html">국물과 면</a></li>
+      <li><a href="daejeon-seogu-dunsan.html">둔산 신도심<span class="u">/daejeon-seogu-dunsan.html</span></a></li>
+      <li><a href="daejeon-seogu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-seogu-gukmul-myeon.html</span></a></li>
     </ul>
     <h3 class="smap-sub">대전 유성구<span class="n">4p</span></h3>
     <ul class="smap-list">
-      <li><a href="daejeon-yuseong-bapjip.html">밥집</a></li>
-      <li><a href="daejeon-yuseong-bongmyeong.html">봉명동</a></li>
-      <li><a href="daejeon-yuseong-cafe.html">카페·디저트</a></li>
-      <li><a href="daejeon-yuseong-iguk.html">이국</a></li>
+      <li><a href="daejeon-yuseong-bapjip.html">밥집<span class="u">/daejeon-yuseong-bapjip.html</span></a></li>
+      <li><a href="daejeon-yuseong-bongmyeong.html">봉명동<span class="u">/daejeon-yuseong-bongmyeong.html</span></a></li>
+      <li><a href="daejeon-yuseong-cafe.html">카페·디저트<span class="u">/daejeon-yuseong-cafe.html</span></a></li>
+      <li><a href="daejeon-yuseong-iguk.html">이국<span class="u">/daejeon-yuseong-iguk.html</span></a></li>
     </ul>
     <h3 class="smap-sub">대전 대덕구<span class="n">3p</span></h3>
     <ul class="smap-list">
-      <li><a href="daejeon-daedeok-bapjip.html">밥집</a></li>
-      <li><a href="daejeon-daedeok-gogi.html">고기</a></li>
-      <li><a href="daejeon-daedeok-sintanjin.html">신탄진</a></li>
+      <li><a href="daejeon-daedeok-bapjip.html">밥집<span class="u">/daejeon-daedeok-bapjip.html</span></a></li>
+      <li><a href="daejeon-daedeok-gogi.html">고기<span class="u">/daejeon-daedeok-gogi.html</span></a></li>
+      <li><a href="daejeon-daedeok-sintanjin.html">신탄진<span class="u">/daejeon-daedeok-sintanjin.html</span></a></li>
     </ul>
     <h3 class="smap-sub">광주 동구<span class="n">1p</span></h3>
     <ul class="smap-list">
-      <li><a href="gwangju-donggu-bapjip.html">밥집</a></li>
+      <li><a href="gwangju-donggu-bapjip.html">밥집<span class="u">/gwangju-donggu-bapjip.html</span></a></li>
     </ul>
     <h3 class="smap-sub">광주 서구<span class="n">1p</span></h3>
     <ul class="smap-list">
-      <li><a href="gwangju-seogu-sangmu.html">상무지구</a></li>
+      <li><a href="gwangju-seogu-sangmu.html">상무지구<span class="u">/gwangju-seogu-sangmu.html</span></a></li>
     </ul>
     <h3 class="smap-sub">광주 북구<span class="n">2p</span></h3>
     <ul class="smap-list">
-      <li><a href="gwangju-bukgu-bapjip.html">밥집</a></li>
-      <li><a href="gwangju-bukgu-oritang.html">유동오리탕거리</a></li>
+      <li><a href="gwangju-bukgu-bapjip.html">밥집<span class="u">/gwangju-bukgu-bapjip.html</span></a></li>
+      <li><a href="gwangju-bukgu-oritang.html">유동오리탕거리<span class="u">/gwangju-bukgu-oritang.html</span></a></li>
     </ul>
     <h3 class="smap-sub">광주 광산구<span class="n">3p</span></h3>
     <ul class="smap-list">
-      <li><a href="gwangju-gwangsan-cafe.html">카페·디저트</a></li>
-      <li><a href="gwangju-gwangsan-iguk.html">이국</a></li>
-      <li><a href="gwangju-gwangsan-songjeong.html">송정리 떡갈비거리</a></li>
+      <li><a href="gwangju-gwangsan-cafe.html">카페·디저트<span class="u">/gwangju-gwangsan-cafe.html</span></a></li>
+      <li><a href="gwangju-gwangsan-iguk.html">이국<span class="u">/gwangju-gwangsan-iguk.html</span></a></li>
+      <li><a href="gwangju-gwangsan-songjeong.html">송정리 떡갈비거리<span class="u">/gwangju-gwangsan-songjeong.html</span></a></li>
     </ul>
     <h3 class="smap-sub">제주시<span class="n">5p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeju-jejusi-bapjip.html">밥집</a></li>
-      <li><a href="jeju-jejusi-cafe.html">카페·디저트</a></li>
-      <li><a href="jeju-jejusi-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeju-jejusi-hyangto.html">제주 향토국</a></li>
-      <li><a href="jeju-jejusi-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeju-jejusi-bapjip.html">밥집<span class="u">/jeju-jejusi-bapjip.html</span></a></li>
+      <li><a href="jeju-jejusi-cafe.html">카페·디저트<span class="u">/jeju-jejusi-cafe.html</span></a></li>
+      <li><a href="jeju-jejusi-gukmul-myeon.html">국물과 면<span class="u">/jeju-jejusi-gukmul-myeon.html</span></a></li>
+      <li><a href="jeju-jejusi-hyangto.html">제주 향토국<span class="u">/jeju-jejusi-hyangto.html</span></a></li>
+      <li><a href="jeju-jejusi-sul-anju.html">술과 안주<span class="u">/jeju-jejusi-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">서귀포시<span class="n">7p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeju-seogwipo-bapjip.html">밥집</a></li>
-      <li><a href="jeju-seogwipo-cafe.html">카페·디저트</a></li>
-      <li><a href="jeju-seogwipo-galchi.html">갈치</a></li>
-      <li><a href="jeju-seogwipo-gogi.html">고기</a></li>
-      <li><a href="jeju-seogwipo-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeju-seogwipo-iguk.html">이국</a></li>
-      <li><a href="jeju-seogwipo-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeju-seogwipo-bapjip.html">밥집<span class="u">/jeju-seogwipo-bapjip.html</span></a></li>
+      <li><a href="jeju-seogwipo-cafe.html">카페·디저트<span class="u">/jeju-seogwipo-cafe.html</span></a></li>
+      <li><a href="jeju-seogwipo-galchi.html">갈치<span class="u">/jeju-seogwipo-galchi.html</span></a></li>
+      <li><a href="jeju-seogwipo-gogi.html">고기<span class="u">/jeju-seogwipo-gogi.html</span></a></li>
+      <li><a href="jeju-seogwipo-gukmul-myeon.html">국물과 면<span class="u">/jeju-seogwipo-gukmul-myeon.html</span></a></li>
+      <li><a href="jeju-seogwipo-iguk.html">이국<span class="u">/jeju-seogwipo-iguk.html</span></a></li>
+      <li><a href="jeju-seogwipo-sul-anju.html">술과 안주<span class="u">/jeju-seogwipo-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">전남 동부권<span class="n">5p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeonnam-dongbu-bapjip.html">밥집</a></li>
-      <li><a href="jeonnam-dongbu-gogi.html">고기</a></li>
-      <li><a href="jeonnam-dongbu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeonnam-dongbu-namdo.html">남도음식거리</a></li>
-      <li><a href="jeonnam-dongbu-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeonnam-dongbu-bapjip.html">밥집<span class="u">/jeonnam-dongbu-bapjip.html</span></a></li>
+      <li><a href="jeonnam-dongbu-gogi.html">고기<span class="u">/jeonnam-dongbu-gogi.html</span></a></li>
+      <li><a href="jeonnam-dongbu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-dongbu-gukmul-myeon.html</span></a></li>
+      <li><a href="jeonnam-dongbu-namdo.html">남도음식거리<span class="u">/jeonnam-dongbu-namdo.html</span></a></li>
+      <li><a href="jeonnam-dongbu-sul-anju.html">술과 안주<span class="u">/jeonnam-dongbu-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">전남 중부권<span class="n">5p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeonnam-jungbu-bapjip.html">밥집</a></li>
-      <li><a href="jeonnam-jungbu-gogi.html">고기</a></li>
-      <li><a href="jeonnam-jungbu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeonnam-jungbu-namdo.html">남도음식거리</a></li>
-      <li><a href="jeonnam-jungbu-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeonnam-jungbu-bapjip.html">밥집<span class="u">/jeonnam-jungbu-bapjip.html</span></a></li>
+      <li><a href="jeonnam-jungbu-gogi.html">고기<span class="u">/jeonnam-jungbu-gogi.html</span></a></li>
+      <li><a href="jeonnam-jungbu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-jungbu-gukmul-myeon.html</span></a></li>
+      <li><a href="jeonnam-jungbu-namdo.html">남도음식거리<span class="u">/jeonnam-jungbu-namdo.html</span></a></li>
+      <li><a href="jeonnam-jungbu-sul-anju.html">술과 안주<span class="u">/jeonnam-jungbu-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">전남 서부권<span class="n">5p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeonnam-seobu-bapjip.html">밥집</a></li>
-      <li><a href="jeonnam-seobu-gogi.html">고기</a></li>
-      <li><a href="jeonnam-seobu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeonnam-seobu-namdo.html">남도음식거리</a></li>
-      <li><a href="jeonnam-seobu-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeonnam-seobu-bapjip.html">밥집<span class="u">/jeonnam-seobu-bapjip.html</span></a></li>
+      <li><a href="jeonnam-seobu-gogi.html">고기<span class="u">/jeonnam-seobu-gogi.html</span></a></li>
+      <li><a href="jeonnam-seobu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-seobu-gukmul-myeon.html</span></a></li>
+      <li><a href="jeonnam-seobu-namdo.html">남도음식거리<span class="u">/jeonnam-seobu-namdo.html</span></a></li>
+      <li><a href="jeonnam-seobu-sul-anju.html">술과 안주<span class="u">/jeonnam-seobu-sul-anju.html</span></a></li>
     </ul>
     <h3 class="smap-sub">전남 남부권<span class="n">5p</span></h3>
     <ul class="smap-list">
-      <li><a href="jeonnam-nambu-bapjip.html">밥집</a></li>
-      <li><a href="jeonnam-nambu-gogi.html">고기</a></li>
-      <li><a href="jeonnam-nambu-gukmul-myeon.html">국물과 면</a></li>
-      <li><a href="jeonnam-nambu-namdo.html">남도음식거리</a></li>
-      <li><a href="jeonnam-nambu-sul-anju.html">술과 안주</a></li>
+      <li><a href="jeonnam-nambu-bapjip.html">밥집<span class="u">/jeonnam-nambu-bapjip.html</span></a></li>
+      <li><a href="jeonnam-nambu-gogi.html">고기<span class="u">/jeonnam-nambu-gogi.html</span></a></li>
+      <li><a href="jeonnam-nambu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-nambu-gukmul-myeon.html</span></a></li>
+      <li><a href="jeonnam-nambu-namdo.html">남도음식거리<span class="u">/jeonnam-nambu-namdo.html</span></a></li>
+      <li><a href="jeonnam-nambu-sul-anju.html">술과 안주<span class="u">/jeonnam-nambu-sul-anju.html</span></a></li>
     </ul>
   </section>
 
-  <section class="smap"><h2>사이트<span class="cnt">13</span></h2>
+  <section class="smap"><h2>사이트<span class="cnt">15</span></h2>
     <ul class="smap-list">
-      <li><a href="index.html">홈</a></li>
-      <li><a href="food.html">전국 맛집</a></li>
-      <li><a href="tools.html">생활툴</a></li>
-      <li><a href="travel.html">여행</a></li>
-      <li><a href="etc.html">기타</a></li>
-      <li><a href="travel-jeju.html">제주도 여행</a></li>
-      <li><a href="travel-osaka.html">오사카 여행</a></li>
-      <li><a href="about.html">사이트 소개</a></li>
-      <li><a href="editorial.html">편집 방침</a></li>
-      <li><a href="privacy.html">개인정보처리방침</a></li>
-      <li><a href="terms.html">이용약관</a></li>
-      <li><a href="contact.html">문의하기</a></li>
-      <li><a href="sitemap.html">사이트맵</a></li>
+      <li><a href="index.html">홈<span class="u">/index.html</span></a></li>
+      <li><a href="food.html">전국 맛집<span class="u">/food.html</span></a></li>
+      <li><a href="tools.html">생활툴<span class="u">/tools.html</span></a></li>
+      <li><a href="travel.html">여행<span class="u">/travel.html</span></a></li>
+      <li><a href="etc.html">기타<span class="u">/etc.html</span></a></li>
+      <li><a href="travel-jeju.html">제주도 여행<span class="u">/travel-jeju.html</span></a></li>
+      <li><a href="travel-sokcho.html">속초 여행<span class="u">/travel-sokcho.html</span></a></li>
+      <li><a href="travel-busan.html">부산 해운대 여행<span class="u">/travel-busan.html</span></a></li>
+      <li><a href="travel-osaka.html">오사카 여행<span class="u">/travel-osaka.html</span></a></li>
+      <li><a href="about.html">사이트 소개<span class="u">/about.html</span></a></li>
+      <li><a href="editorial.html">편집 방침<span class="u">/editorial.html</span></a></li>
+      <li><a href="privacy.html">개인정보처리방침<span class="u">/privacy.html</span></a></li>
+      <li><a href="terms.html">이용약관<span class="u">/terms.html</span></a></li>
+      <li><a href="contact.html">문의하기<span class="u">/contact.html</span></a></li>
+      <li><a href="sitemap.html">사이트맵<span class="u">/sitemap.html</span></a></li>
     </ul>
   </section>
 

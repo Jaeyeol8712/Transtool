@@ -137,6 +137,22 @@ flex-shrink:0;line-height:1.6}
 .faq summary::after{content:"+";margin-left:auto;color:var(--abai);font-weight:600;flex-shrink:0}
 .faq details[open] summary::after{content:"\2212"}
 .faq .ans{padding:0 1rem 1rem 2.6rem;font-size:.875rem;color:var(--ink-soft);line-height:1.8}
+
+.rel{border-top:1px solid var(--rule);background:var(--card);padding:1.75rem 0 2rem}
+.rel h2{font-size:.6875rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;
+text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:0 0 .8rem}
+.rel-grid{display:grid;grid-template-columns:1fr;gap:.5rem}
+.rel a{display:block;border:1px solid var(--rule-strong);border-radius:5px;
+padding:.85rem 1rem;text-decoration:none;transition:border-color .12s ease}
+.rel a:hover{border-color:var(--brand,#0D7A6F)}
+.rel .t{font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;
+display:flex;align-items:center;gap:.4rem}
+.rel .t::after{content:"\2192";color:var(--ink-soft);font-weight:400}
+.rel .d{font-size:.8125rem;color:var(--ink-soft);margin-top:.15rem;line-height:1.55}
+.rel .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.5625rem;
+letter-spacing:.08em;font-weight:600;border-radius:2px;padding:.05rem .35rem;
+background:#E9F1FA;color:#1B6FB8;margin-right:.35rem;vertical-align:.05em}
+@media (min-width:40rem){.rel-grid{grid-template-columns:1fr 1fr}}
 footer{padding:2.25rem 0 3.5rem;font-size:.8125rem;color:var(--ink-soft)}
 footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
 @media (min-width:40rem){.fit-grid{grid-template-columns:1fr 1fr}body{font-size:17px}}
@@ -275,7 +291,6 @@ footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
       <a href="sokcho-bapjip.html">밥집</a>
       <a href="sokcho-gogi.html">고기</a>
       <a href="sokcho-gukmul-myeon.html">국물과 면</a>
-      <a href="sokcho-iguk.html">이국</a>
       <a href="sokcho-sul-anju.html">술과 안주</a>
       <a href="sokcho-cafe.html">카페·디저트</a>
       <a href="sokcho-abai.html" aria-current="page">아바이마을</a>
@@ -538,10 +553,21 @@ footer p{margin:0 0 .6rem}footer a{color:var(--ink-soft)}
 
 </main>
 
+<section class="rel">
+  <div class="wrap">
+    <h2>이어서 볼 만한 것</h2>
+    <div class="rel-grid">
+      <a href="travel-sokcho.html"><span class="t"><span class="tag">여행</span>속초 여행</span><span class="d">설악산과 동해를 묶는 일정별 코스와 예산</span></a>
+      <a href="food.html"><span class="t">전국 맛집 전체</span><span class="d">21개 시군구 기록을 한곳에서</span></a>
+    </div>
+  </div>
+</section>
+
+
 <footer>
   <div class="wrap">
     <p>2026년 8월 조사 기준. 가격·영업시간·휴무는 변동될 수 있으니 방문 전 확인을 권합니다.</p>
-    <p>협찬, 체험단, 원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다. <a href="index.html#faq">선정 기준 보기</a></p>
+    <p>협찬, 체험단, 원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다. <a href="editorial.html">선정 기준 보기</a></p>
   </div>
 </footer>
 
