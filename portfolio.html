@@ -1,707 +1,664 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이재열 · 마케팅 포트폴리오</title>
-<meta name="description" content="퍼포먼스 · 바이럴 · CRM 통합 마케팅 10년차 이재열 포트폴리오" />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+<meta name="description" content="네이버 키워드 상위노출부터 기술 SEO, 퍼포먼스, CRM까지. 검색으로 들어오는 고객을 10년째 만들어 온 통합 마케터 이재열 포트폴리오.">
+<link rel="canonical" href="https://www.aroundtool.com/portfolio">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="이재열 마케팅 포트폴리오">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/portfolio">
+<meta property="og:title" content="이재열 · 마케팅 포트폴리오">
+<meta property="og:description" content="검색으로 들어오는 고객을 10년째 만들어 온 통합 마케터. 퍼포먼스 · 바이럴 · CRM.">
+<meta property="og:image" content="https://www.aroundtool.com/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="이재열 · 마케팅 포트폴리오">
+<meta name="twitter:description" content="검색으로 들어오는 고객을 10년째 만들어 온 통합 마케터.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #FFFFFF; color: #111213; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #111213; text-decoration: none; }
-  a:hover { color: #0E9F6E; }
-  img { display: block; max-width: 100%; }
-  ::selection { background: #C8F5E1; }
+:root{
+  --blue:#2E5BE8; --blue-l:#F2F5FE; --navy:#1B3A8C;
+  --org:#F5703A; --org-l:#FEF6F2; --org-d:#D4531C;
+  --grey-c:#8A94A6; --grey-l:#F7F8FA;
+  --ink:#141A24; --grey:#5C6672; --line:#E7EAEF; --white:#fff;
+  --mono:"IBM Plex Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:4.2rem}
+body{margin:0;background:var(--white);color:var(--ink);
+  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.75;letter-spacing:-0.01em}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;letter-spacing:-0.02em}
+ul{margin:0;padding:0;list-style:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
 
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .in{max-width:62rem;margin:0 auto;padding:.8rem 1.25rem;display:flex;align-items:center;gap:1rem}
+.nav .brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:.9375rem}
+.nav .brand img{width:1.85rem;height:1.85rem;border-radius:50%;object-fit:cover}
+.nav ul{display:none;gap:1.3rem;margin-left:auto;font-size:.8125rem;color:var(--grey)}
+.nav ul a:hover{color:var(--ink)}
+.nav .cta{margin-left:auto;font-size:.8125rem;font-weight:600;color:var(--blue);
+  border:1px solid var(--blue);padding:.38rem .9rem;border-radius:99px}
+.nav .cta:hover{background:var(--blue);color:#fff}
+@media(min-width:56rem){.nav ul{display:flex}.nav .cta{margin-left:0}}
 
-  /* ===== 대분류별 배경 그라데이션 =====
-     각 구분의 머리 420px 구간에만 옅은 색을 깔고 흰색으로 풀어, 스크롤하다
-     색이 바뀌면 새 구분이 시작됐다는 신호가 되도록 했습니다.
-     좌우 여백까지 색이 닿도록 full-bleed 처리합니다. */
-  [data-slide="profile"], [data-slide="projects"], [data-slide="side"], [data-slide="experience"], [data-slide="journey"], [data-slide="contact"] {
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
-    padding-left: calc(50vw - 50%) !important;
-    padding-right: calc(50vw - 50%) !important;
-    background-repeat: no-repeat;
-  }
-  [data-slide="profile"] { background-image: linear-gradient(180deg, #EFFAF4 0px, #FFFFFF 420px); }
-  [data-slide="projects"] { background-image: linear-gradient(180deg, #EFF5FC 0px, #FFFFFF 420px); }
-  [data-slide="side"] { background-image: linear-gradient(180deg, #F5F5F2 0px, #FFFFFF 420px); }
-  [data-slide="experience"] { background-image: linear-gradient(180deg, #FDF7EC 0px, #FFFFFF 420px); }
-  [data-slide="journey"] { background-image: linear-gradient(180deg, #F4F2FC 0px, #FFFFFF 420px); }
-  [data-slide="contact"] { background-image: linear-gradient(180deg, #EFFAF4 0px, #FFFFFF 420px); }
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--line)}
+.hero .in{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+.kick{font-family:var(--mono);font-size:.6875rem;letter-spacing:.22em;
+  color:var(--blue);font-weight:600;margin-bottom:.9rem}
+.hero h1{font-size:clamp(1.8rem,5vw,2.75rem);line-height:1.3;font-weight:700;margin-bottom:1rem}
+.hero .lede{font-size:clamp(.9375rem,2vw,1.0625rem);color:var(--grey);margin:0 0 1.6rem;max-width:33rem}
+.btns{display:flex;flex-wrap:wrap;gap:.55rem}
+.btn{font-size:.8125rem;font-weight:600;padding:.55rem 1.1rem;border-radius:99px;
+  border:1px solid var(--line);color:var(--ink);transition:.15s}
+.btn:hover{border-color:var(--ink)}
+.btn--solid{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn--solid:hover{background:var(--navy);border-color:var(--navy)}
+.hero .photo{width:10rem;border-radius:14px;border:1px solid var(--line)}
+@media(min-width:48rem){.hero .in{grid-template-columns:1fr auto}}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:2.25rem}
+@media(min-width:48rem){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{border:1px solid var(--line);border-radius:10px;padding:.95rem 1.1rem}
+.stat b{display:block;font-family:var(--mono);font-size:1.4rem;font-weight:600;
+  color:var(--blue);line-height:1.25}
+.stat span{font-size:.75rem;color:var(--grey)}
 
-  /* ===== 이미지 프레임 =====
-     스크린샷·목업은 가로세로 비율이 제각각이라 박스에 꽉 채우면(cover) 위아래나
-     좌우가 잘립니다. contain 으로 전체를 담고 남는 여백은 흰색으로 두어
-     '액자에 넣은 화면'처럼 보이게 했습니다. 어떤 화면 폭에서도 잘리지 않습니다. */
-  [data-fit] { display: flex; align-items: center; justify-content: center; background: #FFFFFF; padding: 10px; box-sizing: border-box; overflow: hidden; }
-  [data-fit] img { width: 100%; height: 100%; object-fit: contain; }
+section{padding:3.25rem 0;border-bottom:1px solid var(--line)}
+.sec-h{margin-bottom:1.75rem}
+.sec-n{font-family:var(--mono);font-size:.6875rem;letter-spacing:.2em;font-weight:600;
+  color:var(--grey-c);margin-bottom:.45rem}
+.sec-h h2{font-size:clamp(1.35rem,3.4vw,1.85rem);font-weight:700;margin-bottom:.35rem}
+.sec-h p{color:var(--grey);font-size:.9375rem;margin:0;max-width:42rem}
 
-  /* GA4 대시보드는 폭이 넓은 자리라 화면 윗단(요약 카드 줄)만 보여줍니다.
-     비율을 고정해 두었기 때문에 창 크기가 바뀌어도 카드 중간이 잘리지 않고
-     항상 카드와 카드 사이 여백에서 끊깁니다. */
-  [data-ga4] { aspect-ratio: 1200 / 337; overflow: hidden; background: #FFFFFF; }
-  [data-ga4] img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.co{display:flex;flex-wrap:wrap;align-items:flex-end;gap:.75rem 1.25rem;
+  padding-bottom:1rem;border-bottom:2px solid var(--blue);margin-bottom:1.75rem}
+.co.o{border-bottom-color:var(--org)}
+.co.g{border-bottom-color:var(--grey-c)}
+.co-yr{font-family:var(--mono);font-size:.75rem;font-weight:600;color:var(--blue);
+  border:1px solid var(--blue);border-radius:99px;padding:.15rem .7rem}
+.co.o .co-yr{color:var(--org-d);border-color:var(--org)}
+.co.g .co-yr{color:var(--grey-c);border-color:var(--grey-c)}
+.co h2{font-size:clamp(1.3rem,3.2vw,1.75rem)}
+.co .pos{font-size:.875rem;color:var(--grey);font-weight:500}
+.co .sum{width:100%;font-size:.9375rem;color:var(--grey);margin:.15rem 0 0}
 
+.proj{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:1rem}
+.proj-top{padding:1.25rem 1.4rem;display:flex;flex-wrap:wrap;gap:.9rem;
+  align-items:flex-start;border-bottom:1px solid var(--line);background:var(--blue-l)}
+.proj.o .proj-top{background:var(--org-l)}
+.proj-no{font-family:var(--mono);font-size:.625rem;letter-spacing:.15em;font-weight:600;
+  color:var(--blue);margin-bottom:.25rem}
+.proj.o .proj-no{color:var(--org-d)}
+.proj-top h3{font-size:clamp(1.05rem,2.6vw,1.3rem);margin-bottom:.25rem}
+.proj-top .obj{font-size:.8125rem;color:var(--grey);margin:0;line-height:1.7}
+.contrib{flex-shrink:0;background:#fff;border:1.5px solid var(--blue);border-radius:9px;
+  padding:.55rem .85rem;text-align:center;min-width:6.2rem}
+.proj.o .contrib{border-color:var(--org)}
+.contrib b{display:block;font-family:var(--mono);font-size:1.35rem;font-weight:600;
+  color:var(--blue);line-height:1.15}
+.proj.o .contrib b{color:var(--org-d)}
+.contrib span{display:block;font-size:.5875rem;color:var(--grey);line-height:1.45;margin-top:.1rem}
+.proj-body{padding:1.25rem 1.4rem;display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:52rem){.proj-body{grid-template-columns:1.05fr .95fr}}
+.role-t{font-family:var(--mono);font-size:.625rem;letter-spacing:.18em;font-weight:600;
+  color:var(--grey-c);margin-bottom:.65rem}
+.roles li{position:relative;padding-left:1rem;font-size:.9375rem;margin-bottom:.5rem;line-height:1.65}
+.roles li::before{content:"";position:absolute;left:0;top:.62rem;width:5px;height:5px;
+  border-radius:50%;background:var(--blue)}
+.proj.o .roles li::before{background:var(--org)}
+.shots{display:grid;gap:.5rem;align-content:start}
+.shots.s2{grid-template-columns:1fr 1fr}
+.shots.s3{grid-template-columns:repeat(3,1fr)}
+.shots img{border:1px solid var(--line);border-radius:7px}
+.shots figure{margin:0}
+.shots figcaption{font-size:.6875rem;color:var(--grey-c);margin-top:.3rem;line-height:1.4}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;padding:0 1.4rem 1.25rem}
+@media(min-width:48rem){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:9px;padding:.75rem .9rem}
+.kpi .l{font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;font-weight:600;color:var(--grey-c)}
+.kpi .n{font-family:var(--mono);font-size:1.15rem;font-weight:600;color:var(--blue);line-height:1.35}
+.proj.o .kpi .n{color:var(--org-d)}
+.kpi .s{font-size:.7375rem;color:var(--grey)}
+.did{margin:0 1.4rem 1rem;padding:.8rem 1rem;background:var(--grey-l);border-radius:8px;
+  font-size:.875rem;color:var(--grey);line-height:1.7}
+.did b{color:var(--ink)}
+.result{margin:0 1.4rem 1.4rem;padding:.8rem 1rem;border-radius:8px;background:var(--blue-l);
+  display:flex;flex-wrap:wrap;gap:.5rem .8rem;align-items:baseline}
+.proj.o .result{background:var(--org-l)}
+.result .lab{font-family:var(--mono);font-size:.5875rem;letter-spacing:.15em;
+  font-weight:600;color:var(--blue)}
+.proj.o .result .lab{color:var(--org-d)}
+.result .v{font-size:.9375rem;font-weight:700;flex:1;min-width:14rem}
 
-  /* ===== 경력 여정 · 프로젝트 썸네일 =====
-     칸에는 이미지 번호(1-1 …)가 먼저 깔려 있고 그 위로 사진이 올라옵니다.
-     파일이 아직 없으면 사진만 빠지고 번호가 남아, 어느 자리에 무엇을 넣어야
-     하는지 화면에서 바로 보입니다. 썸네일은 화면 윗단부터 보여주고(cover),
-     클릭하면 원본 비율 그대로(contain) 크게 뜹니다. */
-  /* 한글은 단어 중간에서 끊으면 읽기 나쁘므로 어절 단위로만 줄을 바꿉니다. */
-  [data-slide="journey"] p, [data-slide="journey"] h2, [data-shot-title] { word-break: keep-all; }
+.jn{display:grid;grid-template-columns:1fr;gap:.85rem;margin-top:.25rem}
+@media(min-width:48rem){.jn{grid-template-columns:1fr 1fr}}
+.jn-c{border:1px solid var(--line);border-radius:11px;padding:1.15rem 1.25rem}
+.jn-c .no{font-family:var(--mono);font-size:.625rem;letter-spacing:.15em;font-weight:600;color:var(--blue)}
+.jn-c.o .no{color:var(--org-d)}
+.jn-c h4{font-size:1rem;margin:.2rem 0 .3rem}
+.jn-c p{font-size:.8125rem;color:var(--grey);margin:0 0 .7rem;line-height:1.65}
+.jn-img{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+.jn-img img{border:1px solid var(--line);border-radius:6px;aspect-ratio:4/3;object-fit:cover}
 
-  [data-shot] { position: relative; aspect-ratio: 4 / 3; border: 1px solid #EDEDEA; border-radius: 9px; overflow: hidden; background: #FAFAF8; }
-  [data-shot]::after { content: attr(data-shot); position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #BFBFB9; }
-  [data-shot] img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; background: #FFFFFF; cursor: zoom-in; transition: transform .25s ease; }
-  [data-shot]:hover img { transform: scale(1.04); }
+.grid{display:grid;grid-template-columns:1fr;gap:.85rem}
+@media(min-width:48rem){.grid.c2{grid-template-columns:1fr 1fr}
+ .grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.card{border:1px solid var(--line);border-radius:11px;padding:1.2rem 1.3rem}
+.card h3{font-size:.9375rem;margin-bottom:.3rem}
+.card p{font-size:.8125rem;color:var(--grey);margin:0;line-height:1.65}
+.card .lab{font-family:var(--mono);font-size:.625rem;letter-spacing:.13em;
+  color:var(--grey-c);font-weight:600;margin-bottom:.4rem}
 
-  [data-lightbox] { position: fixed; inset: 0; z-index: 200; background: rgba(17,18,19,0.88); display: flex; align-items: center; justify-content: center; padding: 28px; cursor: zoom-out; }
-  [data-lightbox][hidden] { display: none; }
-  [data-lightbox] img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; background: #FFFFFF; }
-  @media (prefers-reduced-motion: reduce) { [data-shot] img { transition: none; } [data-shot]:hover img { transform: none; } }
+.sum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+@media(min-width:48rem){.sum-grid{grid-template-columns:repeat(3,1fr)}}
+.sum-c{border:1px solid var(--line);border-radius:11px;padding:1.25rem 1.35rem}
+.sum-c b{display:block;font-family:var(--mono);font-size:1.6rem;font-weight:600;
+  color:var(--org-d);line-height:1.25;margin-bottom:.35rem}
+.sum-c b.blue{color:var(--blue)}
+.sum-c .t{font-size:.9375rem;font-weight:700}
+.sum-c .s{font-size:.8125rem;color:var(--grey)}
+.note{margin-top:1.4rem;font-size:.9375rem;color:var(--navy);font-style:italic}
 
-  @media (max-width: 860px) {
-    [data-m~="shell"] { padding-left: 18px !important; padding-right: 18px !important; }
-    [data-m~="navlinks"] { display: none !important; }
-    [data-m~="hero"], [data-m~="grid3"], [data-m~="grid2"], [data-m~="journey"] { grid-template-columns: 1fr !important; gap: 12px !important; }
-    [data-m~="grid4"] { grid-template-columns: 1fr 1fr !important; }
-    [data-m~="hero"] > div:last-child { order: -1; }
-    [data-m~="wide"] { grid-column: span 1 !important; }
-    [data-m~="section"] { padding-top: 60px !important; }
-    [data-m~="card"] { padding: 22px !important; border-radius: 18px !important; }
-    [data-m~="card2"] { border-radius: 18px !important; }
-    [data-m~="card2"] > div:last-child { padding: 22px !important; }
-    [data-m~="contact"] { padding: 72px 0 56px !important; }
-    [data-m~="herowrap"] { padding: 44px 0 36px !important; }
-    [data-m~="jrow"] { padding: 24px 0 !important; }
-    [data-m~="portrait"] { aspect-ratio: 5 / 4 !important; border-radius: 18px !important; }
-    [data-m~="spacer"] { margin-bottom: 16px !important; }
-    [data-m~="thumb"] { height: 200px !important; }
-    [data-ga4] { aspect-ratio: 1200 / 639 !important; }
-    [data-ga4] img { object-fit: contain !important; }
-    [data-m~="jthumb"] { height: 170px !important; }
-    [data-shot] { border-radius: 8px !important; }
-    [data-fit] { padding: 8px !important; }
-    [style*="font-size: 34px"], [style*="font-size:34px"] { font-size: 27px !important; }
-    [style*="font-size: 26px"], [style*="font-size:26px"] { font-size: 21px !important; }
-    [style*="font-size: 24px"], [style*="font-size:24px"], [style*="font-size: 22px"], [style*="font-size:22px"] { font-size: 19px !important; }
-    [style*="font-size: 20px"], [style*="font-size:20px"], [style*="font-size: 19px"], [style*="font-size:19px"] { font-size: 17.5px !important; }
-    [style*="font-size: 17px"], [style*="font-size:17px"], [style*="font-size: 16px"], [style*="font-size:16px"] { font-size: 15px !important; }
-    [style*="font-size: 15.5px"], [style*="font-size:15.5px"] { font-size: 14px !important; }
-  
-    /* ===== 모바일 슬라이드 (스크롤 스냅) =====
-       대분류마다 화면 한 장. 내용이 길면 그 슬라이드 안에서 이어서 스크롤되고,
-       경계에 닿으면 다음 장 머리로 붙습니다. 데스크톱에는 적용되지 않습니다. */
-    /* overflow-x:hidden 이 스크롤 컨테이너를 만들어 상단 내비의 position:sticky 가
-       동작하지 않던 것을 clip 으로 바꿔 되살립니다 (clip 은 스크롤 컨테이너를 만들지 않음). */
-    [data-m="wrap"] { overflow-x: clip !important; }
-    html {
-      scroll-snap-type: y mandatory;
-      scroll-padding-top: 65px;
-    }
-    [data-slide] {
-      scroll-snap-align: start;
-      scroll-snap-stop: normal;
-      scroll-margin-top: 0 !important;
-      box-sizing: border-box;
-      min-height: calc(100vh - 65px);
-      min-height: calc(100svh - 65px);
-      padding-top: 40px !important;
-      padding-bottom: 40px !important;
-    }
-    [data-slide="hero"] { padding-top: 16px !important; }
-    /* 통계 바와 푸터는 원래 높이를 유지하되 스냅 지점으로만 잡습니다.
-       스냅 영역이 비는 구간이 있으면 그 부분을 지나칠 수 없게 되므로 필요합니다. */
-    [data-slide="stats"], [data-slide="footer"] {
-      min-height: 0 !important;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-    }
-    [data-slide="footer"] { padding-bottom: 40px !important; }
-    [data-slide="contact"] { min-height: 0 !important; padding-bottom: 28px !important; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-snap-type: none; }
-    }
-  }
+.contact{border-bottom:none;text-align:center}
+.contact h2{font-size:clamp(1.4rem,3.6vw,2rem);margin-bottom:.6rem}
+.contact p{color:var(--grey);margin:0 auto 1.6rem;font-size:.9375rem;max-width:30rem}
+.contact .btns{justify-content:center}
+footer{border-top:1px solid var(--line);font-size:.8125rem;color:var(--grey-c);padding:1.4rem 0}
+footer .in{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between}
+footer a:hover{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
-</head>
-<body>
-<div data-m="wrap" style="width:100%;background:#FFFFFF;overflow-x:hidden;">
-
-  <div style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.86);backdrop-filter:blur(14px);border-bottom:1px solid #EDEDEA;">
-    <div data-m="shell" style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-      <a href="#top" style="display:flex;align-items:center;gap:10px;">
-        <img src="profile.jpg" alt="이재열" style="width:30px;height:30px;border-radius:50%;object-fit:cover;" />
-        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;letter-spacing:-0.02em;">JAEYEOL<span style="color:#0E9F6E;">.</span></span>
-      </a>
-      <div data-m="navlinks" style="display:flex;align-items:center;gap:26px;font-size:13.5px;font-weight:600;color:#6B6F73;">
-        <a href="#profile" style="color:inherit;">프로필</a>
-        <a href="#experience" style="color:inherit;">역량</a>
-        <a href="#journey" style="color:inherit;">경력</a>
-        <a href="#projects" style="color:inherit;">프로젝트</a>
-      </div>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:7px;background:#111213;color:#FFFFFF;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;">연락하기 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
-    </div>
-  </div>
-
-  
-  <div id="top" data-m="shell" style="max-width:1180px;margin:0 auto;padding:0 32px;">
-
-    <div data-slide="hero" data-m="hero herowrap" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:end;padding:92px 0 56px;">
-      <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;letter-spacing:0.12em;color:#0E9F6E;text-transform:uppercase;margin-bottom:26px;">Performance · Viral · CRM</div>
-        <h1 style="font-size:clamp(40px,5.6vw,76px);font-weight:800;letter-spacing:-0.045em;line-height:1.02;margin:0 0 26px;text-wrap:pretty;">안녕하세요,<br />마케터 <span style="color:#0E9F6E;">이재열</span><br />입니다.</h1>
-        <p style="font-size:17px;line-height:1.7;color:#6B6F73;max-width:520px;margin:0 0 32px;text-wrap:pretty;">데이터로 원인을 찾고, 콘텐츠로 흐름을 만드는 10년차 통합 마케터.</p>
-       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
-          <a href="portfolio_assets/lee_jaeyeol_resume.pdf" download="이재열_이력서.pdf" data-m="btn" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="background:#0E9F6E;color:#FFFFFF;">이력서 다운로드 <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
-          <a href="portfolio_assets/lee_jaeyeol_portfolio.pdf" download="이재열_포트폴리오.pdf" data-m="btn" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;color:#111213;border:1px solid #DFDFDB;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;" style-hover="border-color:#111213;">포트폴리오 PDF <span style="font-family:'JetBrains Mono',monospace;">↓</span></a>
-        </div>
-        <div style="display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;">
-          <a href="https://www.aroundtool.com" target="_blank" rel="noopener noreferrer" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">운영사이트 aroundtool.com</a>
-          <a href="mailto:dlwoduf87@kakao.com" style="color:inherit;border-bottom:1px solid #E4E4E0;padding-bottom:3px;">dlwoduf87@kakao.com</a>
-                  </div>
-      </div>
-      <div style="position:relative;">
-        <div data-m="portrait" style="border-radius:26px;overflow:hidden;background:#F5F5F2;border:1px solid #EDEDEA;aspect-ratio:4/5;">
-          <img src="profile.jpg" alt="이재열 프로필" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border:1px solid #EDEDEA;border-radius:999px;padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6F73;">SEOUL · 2026 · 재직중</div>
-      </div>
-    </div>
-
-    <div data-slide="stats" data-m="grid4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#EDEDEA;border-top:1px solid #EDEDEA;border-bottom:1px solid #EDEDEA;">
-      <div style="background:#FFFFFF;padding:30px 26px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-0.04em;margin-bottom:8px;">10<span style="font-size:16px;color:#9CA0A4;font-weight:500;">년차</span></div>
-        <div style="font-size:13px;color:#6B6F73;line-height:1.45;">퍼포먼스 · 바이럴 · CRM 통합 실무</div>
-      </div>
-      <div style="background:#FFFFFF;padding:30px 26px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-0.04em;margin-bottom:8px;color:#0E9F6E;">-61<span style="font-size:16px;color:#9CA0A4;font-weight:500;">%</span></div>
-        <div style="font-size:13px;color:#6B6F73;line-height:1.45;">SA 전환단가 18만 → 7만원</div>
-      </div>
-      <div style="background:#FFFFFF;padding:30px 26px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-0.04em;margin-bottom:8px;">+1,000<span style="font-size:16px;color:#9CA0A4;font-weight:500;">건/월</span></div>
-        <div style="font-size:13px;color:#6B6F73;line-height:1.45;">월 신규 DB 문의 증가</div>
-      </div>
-      <div style="background:#FFFFFF;padding:30px 26px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-0.04em;margin-bottom:8px;">44<span style="font-size:16px;color:#9CA0A4;font-weight:500;">+</span></div>
-        <div style="font-size:13px;color:#6B6F73;line-height:1.45;">AI로 직접 만든 서비스</div>
-      </div>
-    </div>
-
-    <div id="profile" data-slide="profile" data-m="section" style="padding:88px 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#0E9F6E;">01</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">PROFILE</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-      </div>
-      <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">짧은 프로필</h2>
-      <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">매체가 아니라 고객 여정 단위로 봅니다.</p>
-
-      <div data-m="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
-        <div data-m="wide card" style="grid-column:span 2;background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;">
-          <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#0E9F6E;margin-bottom:14px;">01 — WHO I AM</div>
-            <div style="font-size:24px;font-weight:800;letter-spacing:-0.03em;line-height:1.4;margin-bottom:12px;text-wrap:pretty;">감이 아닌 데이터로 증명하는 마케터입니다.</div>
-            <p style="font-size:14.5px;color:#6B6F73;line-height:1.65;margin:0;max-width:520px;text-wrap:pretty;">바이럴 · 퍼포먼스 · CRM을 넘나들며 지표의 원인을 찾고 결과로 만듭니다.</p>
-          </div>
-          <div data-ga4 style="border-radius:14px;border:1px solid #EDEDEA;">
-            <img src="ga4_dashboard.jpg" alt="GA4 기반 고객 여정 분석 대시보드" />
-          </div>
-        </div>
-
-        <div data-m="card" style="background:#0E3A2E;color:#FFFFFF;border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:24px;">
-          <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#5FE3A1;margin-bottom:14px;">02 — TOOLKIT</div>
-            <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;line-height:1.4;">실무에서 다뤄온 도구</div>
-          </div>
-          <div style="display:flex;flex-direction:column;justify-content:space-evenly;gap:16px;flex:1;">
-            <div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#A9C9BC;margin-bottom:10px;">ANALYTICS<span style="letter-spacing:0;"> · 분석 측정</span></div>
-              <div style="display:flex;flex-wrap:wrap;gap:7px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">GA4</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">에어브릿지</span>
-              </div>
-            </div>
-            <div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#A9C9BC;margin-bottom:10px;">PAID MEDIA<span style="letter-spacing:0;"> · 광고 매체</span></div>
-              <div style="display:flex;flex-wrap:wrap;gap:7px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">Meta Ads</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">카카오모먼트</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">네이버 광고</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">Google Ads</span>
-              </div>
-            </div>
-            <div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#A9C9BC;margin-bottom:10px;">BUILD<span style="letter-spacing:0;"> · 콘텐츠 개발</span></div>
-              <div style="display:flex;flex-wrap:wrap;gap:7px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">SEO</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">React · Express</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EDEDEA;border:1px solid #2C5A4B;border-radius:999px;padding:6px 12px;">생성형 AI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div data-m="card" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:30px;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#0E9F6E;margin-bottom:14px;">03 — CERTIFICATIONS</div>
-          <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;">자격 · 교육</div>
-          <div style="display:flex;flex-direction:column;gap:9px;">
-            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> 검색광고마케터 1급</div>
-            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> OpenAI Academy 인공지능 기초</div>
-            <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #EDEDEA;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:700;"><span style="color:#0E9F6E;">✓</span> OpenAI Academy 인공지능 응용</div>
-          </div>
-        </div>
-
-        <div data-m="wide card" style="grid-column:span 2;background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;">
-          <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#0E9F6E;margin-bottom:14px;">04 — THE INSIDE SCOOP</div>
-            <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">궁금한 점이 있으신가요?</div>
-            <p style="font-size:14px;color:#6B6F73;line-height:1.6;margin:0;max-width:400px;">이력서 상세본과 캠페인 데이터를 공유드립니다.</p>
-          </div>
-          <a href="mailto:dlwoduf87@kakao.com" style="display:inline-flex;align-items:center;gap:10px;background:#111213;color:#FFFFFF;border:none;cursor:pointer;padding:15px 24px;border-radius:999px;font-size:14px;font-weight:700;font-family:inherit;">
-            <span style="font-family:'JetBrains Mono',monospace;">이메일 주소 복사</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-
-    
-    <div data-slide="side" data-m="section" style="padding:88px 0 0;">
-      <div data-m="card" style="background:#0E3A2E;color:#FFFFFF;border-radius:28px;padding:44px;position:relative;overflow:hidden;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:32px;">
-          <div style="max-width:620px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.12em;color:#5FE3A1;margin-bottom:16px;">SIDE PROJECT · 실행력의 증거</div>
-            <div style="font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-0.035em;line-height:1.25;margin-bottom:14px;text-wrap:pretty;">기획부터 배포 · 운영까지, AI로 직접 만든 서비스</div>
-            <p style="font-size:15px;color:#A9C9BC;line-height:1.75;margin:0;">생활 계산기 44종을 운영하는 '어라운드툴' — 기획 · 코드 · 배포 · 분석 전부 직접 했습니다.</p>
-          </div>
-          <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#111213;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;">사이트 방문 <span style="font-family:'JetBrains Mono',monospace;">↗</span></a>
-        </div>
-        <div data-m="grid4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;">
-          <div style="background:rgba(255,255,255,0.07);border:1px solid #2C5A4B;border-radius:14px;padding:18px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;margin-bottom:5px;">44+</div>
-            <div style="font-size:13px;color:#A9C9BC;line-height:1.5;">생활 계산기 콘텐츠</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.07);border:1px solid #2C5A4B;border-radius:14px;padding:18px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;margin-bottom:5px;">GitHub</div>
-            <div style="font-size:13px;color:#A9C9BC;line-height:1.5;">저장소 연동 · 버전 관리</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.07);border:1px solid #2C5A4B;border-radius:14px;padding:18px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;margin-bottom:5px;">Domain</div>
-            <div style="font-size:13px;color:#A9C9BC;line-height:1.5;">도메인 구매 · 배포</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.07);border:1px solid #2C5A4B;border-radius:14px;padding:18px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;margin-bottom:5px;">GA4</div>
-            <div style="font-size:13px;color:#A9C9BC;line-height:1.5;">실시간 분석 대시보드</div>
-          </div>
-        </div>
-        <div data-m="grid4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-          <div style="border-top:2px solid #2C5A4B;padding-top:14px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FE3A1;font-weight:700;margin-bottom:7px;">01 · 기획</div>
-            <div style="font-size:14.5px;font-weight:700;">주제 · 카테고리 설계</div>
-          </div>
-          <div style="border-top:2px solid #2C5A4B;padding-top:14px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FE3A1;font-weight:700;margin-bottom:7px;">02 · 제작</div>
-            <div style="font-size:14.5px;font-weight:700;">계산 로직 · 콘텐츠 · 디자인</div>
-          </div>
-          <div style="border-top:2px solid #2C5A4B;padding-top:14px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FE3A1;font-weight:700;margin-bottom:7px;">03 · 배포</div>
-            <div style="font-size:14.5px;font-weight:700;">GitHub · 도메인 연동</div>
-          </div>
-          <div style="border-top:2px solid #2C5A4B;padding-top:14px;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5FE3A1;font-weight:700;margin-bottom:7px;">04 · 운영</div>
-            <div style="font-size:14.5px;font-weight:700;">GA4 데이터 기반 개선</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-    <div id="experience" data-slide="experience" data-m="section" style="padding:88px 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#C0872A;">02</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">EXPERTISE</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-      </div>
-      <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">저의 <span style="color:#0E9F6E;">역량</span></h2>
-      <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">퍼널 전체를 직접 다루며 쌓은 네 가지 축.</p>
-      <div data-m="grid4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-        <div data-m="card" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:28px;">
-          <div data-m="spacer" style="width:38px;height:38px;border-radius:11px;background:#EAF7F1;margin-bottom:70px;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.1" fill="#0E9F6E" stroke="none"/></svg></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:8px;">PERFORMANCE</div>
-          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">퍼포먼스</div>
-          <p style="font-size:13.5px;color:#6B6F73;line-height:1.6;margin:0;">메타 · 카카오 · 네이버 · 구글 직접 운영, ROAS · CPA 최적화</p>
-        </div>
-        <div data-m="card" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:28px;">
-          <div data-m="spacer" style="width:38px;height:38px;border-radius:11px;background:#EAF7F1;margin-bottom:70px;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 18h16"/><path d="M7.5 18v-5"/><path d="M12 18v-8"/><path d="M16.5 18v-11.5"/></svg></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:8px;">DATA &amp; CRM</div>
-          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">데이터 &amp; CRM</div>
-          <p style="font-size:13.5px;color:#6B6F73;line-height:1.6;margin:0;">GA4 · 에어브릿지로 전환 경로 분석, 세그먼트 타겟 최적화</p>
-        </div>
-        <div data-m="card" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:28px;">
-          <div data-m="spacer" style="width:38px;height:38px;border-radius:11px;background:#EAF7F1;margin-bottom:70px;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.2 10.8 15.3 6.8"/><path d="M8.2 13.2 15.3 17.2"/></svg></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:8px;">VIRAL &amp; CONTENT</div>
-          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">바이럴 &amp; 콘텐츠</div>
-          <p style="font-size:13.5px;color:#6B6F73;line-height:1.6;margin:0;">검색 노출과 콘텐츠 전략을 연결해 자연 유입 확대</p>
-        </div>
-        <div data-m="card" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:22px;padding:28px;">
-          <div data-m="spacer" style="width:38px;height:38px;border-radius:11px;background:#EAF7F1;margin-bottom:70px;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.5 3.5 12.3 8.2 17 10 12.3 11.8 10.5 16.5 8.7 11.8 4 10 8.7 8.2Z"/><path d="M17.5 15 18.35 17.15 20.5 18 18.35 18.85 17.5 21 16.65 18.85 14.5 18 16.65 17.15Z"/></svg></div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:8px;">PROBLEM SOLVING · AI</div>
-          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;">문제 해결 · AI 활용</div>
-          <p style="font-size:13.5px;color:#6B6F73;line-height:1.6;margin:0;">가설 – 실행 – 검증에 생성형 AI를 붙여 속도를 높입니다</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="journey" data-slide="journey" data-m="section" style="padding:88px 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#6E5FB0;">03</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">CAREER</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-      </div>
-      <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">경력 여정</h2>
-      <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 40px;">B2C 플랫폼 · 매칭 서비스 산업에서의 10년.</p>
-
-      <!-- ── 01. 고유알앤디 (바로연) · BAROYEON ───────────────────────── -->
-      <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2025.07</div>
-          <div style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#0E9F6E;background:#EAF7F1;border-radius:999px;padding:5px 11px;">재직중</div>
-        </div>
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#9CA0A4;margin-bottom:7px;">BAROYEON</div>
-          <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">고유알앤디 (바로연 결혼정보)</div>
-          <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">퍼포먼스 및 바이럴 마케팅 운영</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 14px;max-width:660px;">결혼정보회사 바로연의 브랜드 · 디지털 마케팅을 담당하며 프리미엄 브랜드 강화, 타깃 회원 확보, 오프라인 이벤트, 콘텐츠 · 전환 마케팅 프로젝트를 수행했습니다.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px;"><span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.02em;color:#111213;background:#F5F4FB;border:1px solid #E7E4F5;border-radius:999px;padding:5px 11px;">SA 전환단가 18만 → 7만원</span><span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.02em;color:#111213;background:#F5F4FB;border:1px solid #E7E4F5;border-radius:999px;padding:5px 11px;">월 DB +1,000건</span></div>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">01</span>
-            <span style="color:#9CA0A4;">2025–2026</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">브랜드 &amp; 상품 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">프리미엄 브랜드 포지셔닝 · PM 파트너 서비스 브랜딩 · VIP 상품 및 차별화 서비스 마케팅</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="5-1"><img src="portfolio_assets/journey/5-1.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="5-2"><img src="portfolio_assets/journey/5-2.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="5-3"><img src="portfolio_assets/journey/5-3.jpg" alt="브랜드 및 상품 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">02</span>
-            <span style="color:#9CA0A4;">2025–2026</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">타깃 회원 모집 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">전문직 · 엘리트 · VIP 타깃 마케팅 · 연령/직업/지역별 콘텐츠 · 상담 및 가입 전환 마케팅</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="6-1"><img src="portfolio_assets/journey/6-1.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="6-2"><img src="portfolio_assets/journey/6-2.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="6-3"><img src="portfolio_assets/journey/6-3.jpg" alt="타깃 회원 모집 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">03</span>
-            <span style="color:#9CA0A4;">2025–2026</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">미팅파티 &amp; 이벤트 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">정기 미팅파티 · VIP 프라이빗 파티 · 문화 이벤트 · 행사 콘텐츠 및 이벤트 페이지 기획</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="7-1"><img src="portfolio_assets/journey/7-1.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="7-2"><img src="portfolio_assets/journey/7-2.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="7-3"><img src="portfolio_assets/journey/7-3.jpg" alt="미팅파티 및 이벤트 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">04</span>
-            <span style="color:#9CA0A4;">2025–2026</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">콘텐츠 &amp; 퍼포먼스 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">네이버 블로그 · 카페 운영 · SEO 콘텐츠 · 광고/홍보 콘텐츠 · 랜딩페이지 · 상담 및 가입 전환 최적화</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="8-1"><img src="portfolio_assets/journey/8-1.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="8-2"><img src="portfolio_assets/journey/8-2.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="8-3"><img src="portfolio_assets/journey/8-3.jpg" alt="콘텐츠 및 퍼포먼스 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 02. 인크루트 · INCRUIT ──────────────────────────────────── -->
-      <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2017.02</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;margin-top:6px;">— 2025.06</div>
-        </div>
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#9CA0A4;margin-bottom:7px;">INCRUIT</div>
-          <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">인크루트</div>
-          <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">온라인 마케팅</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0 0 20px;max-width:660px;">8년간 취업 플랫폼의 브랜드 · 디지털 마케팅을 담당하며 신규 브랜드 마케팅 홍보, 채용 서비스 디지털 전환, B2B HR Tech, 콘텐츠 · 퍼포먼스 마케팅 등 사업 확장 단계별 프로젝트를 수행했습니다.</p>
-          <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">01</span>
-            <span style="color:#9CA0A4;">2018–2025</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">신규 브랜드 &amp; 플랫폼 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">알바콜 · 뉴워커 · 셜록N · 잘쓸랩 · 오퍼박스 · 고사장</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="1-1"><img src="portfolio_assets/journey/1-1.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="1-2"><img src="portfolio_assets/journey/1-2.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="1-3"><img src="portfolio_assets/journey/1-3.jpg" alt="신규 브랜드 및 플랫폼 론칭 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">02</span>
-            <span style="color:#9CA0A4;">2020–2025</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">채용 서비스 &amp; HR Tech 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">인크루트 VIEW · 화상/온라인 면접 · 온라인 채용박람회 · 메타버스 · 인크루트웍스 · ATS/CRM · AI면접 · 평가/검사 솔루션</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="2-1"><img src="portfolio_assets/journey/2-1.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="2-2"><img src="portfolio_assets/journey/2-2.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="2-3"><img src="portfolio_assets/journey/2-3.jpg" alt="채용 서비스 및 HR Tech 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">03</span>
-            <span style="color:#9CA0A4;">2018–2025</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">채용설명회 &amp; 콘텐츠 마케팅</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">제16~23회 온·오프라인 채용설명회 홍보 · 취업/채용 트렌드 기반 시즌 콘텐츠 기획 및 확산 · SEO/SNS 콘텐츠</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="3-1"><img src="portfolio_assets/journey/3-1.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="3-2"><img src="portfolio_assets/journey/3-2.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="3-3"><img src="portfolio_assets/journey/3-3.jpg" alt="채용설명회 및 콘텐츠 마케팅 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;border:1px solid #EDEDEA;border-radius:14px;background:#FFFFFF;padding:17px 17px 15px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.09em;margin-bottom:7px;">
-            <span style="font-weight:700;color:#6E5FB0;">04</span>
-            <span style="color:#9CA0A4;">2018–2025</span>
-          </div>
-          <div data-shot-title style="font-size:15px;font-weight:800;letter-spacing:-0.025em;line-height:1.35;margin-bottom:6px;">Brand Campaign &amp; 회원 활성화</div>
-          <p style="font-size:12.5px;color:#6B6F73;line-height:1.6;margin:0 0 13px;">창립기념 프로모션 · 회원 활성화 이벤트 · 서비스 연계 참여형 캠페인 · 광고 및 온라인 채널 운영 · 회원 유입/전환</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:auto;">
-            <div data-shot="4-1"><img src="portfolio_assets/journey/4-1.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 1" loading="lazy" /></div>
-            <div data-shot="4-2"><img src="portfolio_assets/journey/4-2.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 2" loading="lazy" /></div>
-            <div data-shot="4-3"><img src="portfolio_assets/journey/4-3.jpg" alt="Brand Campaign 및 회원 활성화 프로젝트 이미지 3" loading="lazy" /></div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 03. 주식회사 바로연 ─────────────────────────────────────── -->
-      <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;padding:32px 0;">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2015.11</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;margin-top:6px;">— 2017.02</div>
-        </div>
-        <div>
-          <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">주식회사 바로연</div>
-          <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">바이럴 마케팅</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:660px;">네이버 · 다음 키워드 상위노출로 브랜드 인지도 구축.</p>
-        </div>
-      </div>
-
-      <!-- ── 04. 수현(주) ───────────────────────────────────────────── -->
-      <div data-m="journey jrow" style="display:grid;grid-template-columns:200px 1fr;gap:32px;border-top:1px solid #EDEDEA;border-bottom:1px solid #EDEDEA;padding:32px 0;">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-0.03em;">2013.09</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#9CA0A4;margin-top:6px;">— 2015.01</div>
-        </div>
-        <div>
-          <div style="font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;">수현(주)</div>
-          <div style="font-size:14px;font-weight:700;color:#0E9F6E;margin-bottom:10px;">온라인 마케터</div>
-          <p style="font-size:14.5px;color:#6B6F73;line-height:1.7;margin:0;max-width:660px;">바이럴 · 퍼포먼스 마케팅 병행 운영.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="projects" data-slide="projects" data-m="section" style="padding:88px 0 0;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:baseline;gap:13px;margin-bottom:26px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#2F6FB0;">04</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">PROJECTS</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-      </div>
-      <h2 style="font-size:clamp(28px,3.6vw,46px);font-weight:800;letter-spacing:-0.04em;margin:0 0 8px;">최근 프로젝트 <span style="color:#9CA0A4;">일부</span></h2>
-      <p style="font-size:15.5px;color:#9CA0A4;margin:0 0 34px;">서로 다른 환경에서 문제를 진단하고 실행했습니다.</p>
-
-      <div data-m="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div data-m="card2" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;">
-       <div data-m="thumb" style="height:270px;border-bottom:1px solid #EDEDEA;display:grid;grid-template-columns:1fr 1fr;background:#EDEDEA;gap:1px;">
-  <div data-fit style="height:100%;">
-    <img src="incruit_news.jpg" alt="인크루트 콘텐츠 SEO 노출 사례" />
-  </div>
-  <div data-fit style="height:100%;">
-    <img src="ga4.png" alt="ga4" />
-  </div>
-</div>
-          <div style="padding:28px;display:flex;flex-direction:column;gap:18px;flex:1;">
-            <div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:10px;">PROJECT 01 · INCRUIT</div>
-              <div style="font-size:26px;font-weight:800;letter-spacing:-0.035em;line-height:1.25;margin-bottom:10px;">인크루트 통합 마케팅 고도화</div>
-              <p style="font-size:14.5px;color:#6B6F73;line-height:1.65;margin:0;">CRM · 퍼포먼스 · 유기적 트래픽을 한 흐름으로 관리했습니다.</p>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div style="border-top:1px solid #EDEDEA;padding-top:12px;">
-                <div style="font-size:14px;font-weight:800;margin-bottom:4px;">01 · CRM 기반 고객 여정 개선</div>
-                <p style="font-size:13px;color:#6B6F73;line-height:1.55;margin:0;">행동 데이터로 고객군을 나누고 맥락별 메시지를 설계</p>
-              </div>
-              <div style="border-top:1px solid #EDEDEA;padding-top:12px;">
-                <div style="font-size:14px;font-weight:800;margin-bottom:4px;">02 · 기술 기반 SEO · 유입 자동화</div>
-                <p style="font-size:13px;color:#6B6F73;line-height:1.55;margin:0;">메타 · 사이트맵 · 구조화 데이터 개선으로 노출 영역 확대</p>
-              </div>
-            </div>
-            <div style="display:flex;gap:7px;flex-wrap:wrap;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6F73;background:#FFFFFF;border:1px solid #E4E4E0;border-radius:999px;padding:6px 12px;">GA4</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6F73;background:#FFFFFF;border:1px solid #E4E4E0;border-radius:999px;padding:6px 12px;">CRM</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6F73;background:#FFFFFF;border:1px solid #E4E4E0;border-radius:999px;padding:6px 12px;">Technical SEO</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6F73;background:#FFFFFF;border:1px solid #E4E4E0;border-radius:999px;padding:6px 12px;">Segmentation</span>
-            </div>
-            <div style="margin-top:auto;background:#111213;color:#FFFFFF;border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.55;display:flex;gap:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4ADE80;font-weight:700;flex-shrink:0;padding-top:2px;">RESULT</span>
-              <span>광고비 증액 없이 Organic 유입 우상향</span>
-            </div>
-          </div>
-        </div>
-
-        <div data-m="card2" style="background:#FAFAF8;border:1px solid #EDEDEA;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;">
-          <div data-fit data-m="thumb" style="height:270px;border-bottom:1px solid #EDEDEA;">
-            <img src="baroyeon.png" alt="바로연 홈페이지 리뉴얼" />
-          </div>
-          <div style="padding:28px;display:flex;flex-direction:column;gap:18px;flex:1;">
-            <div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9CA0A4;margin-bottom:10px;">PROJECT 02 · 고유알앤디 (바로연)</div>
-              <div style="font-size:26px;font-weight:800;letter-spacing:-0.035em;line-height:1.25;margin-bottom:10px;">오프라인과 디지털을 잇는 통합 마케팅</div>
-              <p style="font-size:14.5px;color:#6B6F73;line-height:1.65;margin:0;">광고 · 콘텐츠 · 홈페이지 · 제휴까지 브랜드 접점을 직접 운영했습니다.</p>
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#0E9F6E;background:#EAF7F1;border-radius:10px;padding:7px 12px;">SA 18만 → 7만원</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#0E9F6E;background:#EAF7F1;border-radius:10px;padding:7px 12px;">DA 6만 → 2만원</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#111213;background:#EDEDEA;border-radius:10px;padding:7px 12px;">DB +1,000건/월</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div style="border-top:1px solid #EDEDEA;padding-top:12px;">
-                <div style="font-size:14px;font-weight:800;margin-bottom:4px;">01 · 온라인 마케팅 전략 수립 · 실행</div>
-                <p style="font-size:13px;color:#6B6F73;line-height:1.55;margin:0;">SA · DA 운영, 랜딩 · 소재 A/B 테스트로 전환율 개선</p>
-              </div>
-              <div style="border-top:1px solid #EDEDEA;padding-top:12px;">
-                <div style="font-size:14px;font-weight:800;margin-bottom:4px;">02 · 홈페이지 리뉴얼 · 전환 구조 개선</div>
-                <p style="font-size:13px;color:#6B6F73;line-height:1.55;margin:0;">ASP → React · Express 전환, 카카오 싱크 도입</p>
-              </div>
-              <div style="border-top:1px solid #EDEDEA;padding-top:12px;">
-                <div style="font-size:14px;font-weight:800;margin-bottom:4px;">03 · 콘텐츠 · 브랜딩 · 채널 확장</div>
-                <p style="font-size:13px;color:#6B6F73;line-height:1.55;margin:0;">SNS KPI 120% 달성 · 인플루언서 15명 · 제휴 매출 연 8천만원</p>
-              </div>
-            </div>
-            <div style="margin-top:auto;background:#111213;color:#FFFFFF;border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.55;display:flex;gap:10px;">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4ADE80;font-weight:700;flex-shrink:0;padding-top:2px;">RESULT</span>
-              <span>전환 단가 절감 + 신규 매체 선점으로 DB 양과 질 동시 개선</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div data-m="grid3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px;">
-        <div data-fit data-m="thumb" style="border:1px solid #EDEDEA;border-radius:18px;height:240px;">
-          <img src="pt1.png" alt="온라인 마케팅 소재 및 세팅 사례" />
-        </div>
-        <div data-fit data-m="thumb" style="border:1px solid #EDEDEA;border-radius:18px;height:240px;">
-          <img src="baroyeon_site.jpg" alt="채널 확장 사례" />
-        </div>
-        <div data-fit data-m="thumb" style="border:1px solid #EDEDEA;border-radius:18px;height:240px;">
-          <img src="news.png" alt="보도기사 · PR 사례" />
-        </div>
-      </div>
-    </div>
-
-    <div id="contact" data-slide="contact" data-m="contact" style="padding:110px 0 90px;text-align:center;scroll-margin-top:80px;">
-      <div data-section-divider style="display:flex;align-items:baseline;justify-content:center;gap:13px;margin-bottom:30px;">
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(38px,9.5vw,58px);font-weight:700;letter-spacing:-0.055em;line-height:0.85;color:#0E9F6E;">05</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;color:#111213;white-space:nowrap;">CONTACT</span>
-        <span style="flex:1;height:1px;background:#E4E4E0;align-self:center;"></span>
-      </div>
-      <img src="profile.jpg" alt="이재열" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 26px;border:1px solid #EDEDEA;" />
-      <div style="font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-0.045em;line-height:1.1;margin-bottom:20px;">함께 <span style="color:#0E9F6E;">이야기</span>해요</div>
-      <p style="font-size:16px;color:#6B6F73;line-height:1.7;max-width:520px;margin:0 auto 32px;text-wrap:pretty;">어떤 문제를 풀고 계신지 편하게 들려주세요.</p>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:dlwoduf87@kakao.com" style="display:inline-flex;align-items:center;gap:9px;background:#111213;color:#FFFFFF;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">dlwoduf87@kakao.com</a>
-        <a href="tel:010-4678-3296" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">010-4678-3296</a>
-        <a href="https://www.aroundtool.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #DFDFDB;color:#111213;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:700;">aroundtool.com ↗</a>
-      </div>
-    </div>
-
-    <div data-slide="footer" style="border-top:1px solid #EDEDEA;padding:26px 0 40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#9CA0A4;">
-      <div>© 2026 LEE JAE YEOL · MARKETING PORTFOLIO</div>
-      <div style="display:flex;gap:18px;">
-                <a href="https://www.aroundtool.com" target="_blank" rel="noopener noreferrer" style="color:inherit;">AROUNDTOOL</a>
-        <a href="#top" style="color:inherit;">TOP ↑</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div data-lightbox hidden><img alt="" /></div>
-<script>
-(function () {
-  /* 썸네일 파일이 .jpg 가 아닐 수도 있어 확장자를 차례로 시도하고,
-     끝내 없으면 이미지를 감춰 자리 번호만 남깁니다. */
-  var EXT = ['.jpg', '.png', '.jpeg', '.webp'];
-  var shots = Array.prototype.slice.call(document.querySelectorAll('[data-shot] img'));
-
-  shots.forEach(function (img) {
-    img.addEventListener('error', function () {
-      var n = (parseInt(img.getAttribute('data-try'), 10) || 0) + 1;
-      if (n < EXT.length) {
-        img.setAttribute('data-try', n);
-        img.src = img.src.replace(/\.[a-zA-Z]+$/, EXT[n]);
-      } else {
-        img.style.display = 'none';
-      }
-    });
-  });
-
-  /* 클릭하면 원본 비율 그대로 크게 보기 */
-  var box = document.querySelector('[data-lightbox]');
-  var big = box.querySelector('img');
-
-  function close() {
-    box.hidden = true;
-    big.removeAttribute('src');
-    document.body.style.overflow = '';
-  }
-
-  shots.forEach(function (img) {
-    img.addEventListener('click', function () {
-      big.src = img.currentSrc || img.src;
-      big.alt = img.alt;
-      box.hidden = false;
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  box.addEventListener('click', close);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !box.hidden) close();
-  });
-})();
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"ProfilePage","url":"https://www.aroundtool.com/portfolio",
+   "name":"이재열 · 마케팅 포트폴리오","inLanguage":"ko-KR","dateModified":"2026-08-29"},
+  {"@type":"Person","name":"이재열","jobTitle":"통합 마케터",
+   "url":"https://www.aroundtool.com/portfolio","image":"https://www.aroundtool.com/profile.jpg",
+   "email":"dlwoduf87@kakao.com","telephone":"+82-10-4678-3296",
+   "description":"네이버 키워드 상위노출부터 기술 SEO, 퍼포먼스, CRM까지 퍼널 전체를 다루는 약 10년 차 통합 마케터",
+   "knowsAbout":["검색엔진최적화","네이버 SEO","퍼포먼스 마케팅","GA4","CRM 마케팅","콘텐츠 마케팅"],
+   "worksFor":{"@type":"Organization","name":"고유알앤디 (바로연 결혼정보)"},
+   "alumniOf":[{"@type":"Organization","name":"인크루트"},
+     {"@type":"Organization","name":"주식회사 바로연"},{"@type":"Organization","name":"수현(주)"}],
+   "hasCredential":[
+     {"@type":"EducationalOccupationalCredential","name":"검색광고마케터 1급"},
+     {"@type":"EducationalOccupationalCredential","name":"Google Analytics Certification"},
+     {"@type":"EducationalOccupationalCredential","name":"OpenAI Academy 인공지능 기초/응용"}]}
+ ]
+}
 </script>
+</head>
+<body id="top">
+
+<nav class="nav">
+  <div class="in">
+    <a class="brand" href="#top"><img src="/profile.jpg" alt="이재열"> JAEYEOL.</a>
+    <ul>
+      <li><a href="#profile">프로필</a></li>
+      <li><a href="#goyu">고유알앤디</a></li>
+      <li><a href="#incruit">인크루트</a></li>
+      <li><a href="#baroyeon">바로연</a></li>
+      <li><a href="#side">사이드</a></li>
+      <li><a href="#summary">성과</a></li>
+    </ul>
+    <a class="cta" href="#contact">연락하기 ↗</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap in">
+    <div>
+      <p class="kick">PORTFOLIO 2026 · PERFORMANCE · VIRAL · CRM</p>
+      <h1>검색으로 들어오는 고객을<br>10년째 만들어 왔습니다</h1>
+      <p class="lede">네이버·다음 키워드 상위노출에서 시작해 기술 SEO와 퍼포먼스, CRM까지.
+      퍼널 전체를 직접 다루는 약 10년 차 통합 마케터 <strong>이재열</strong>입니다.</p>
+      <div class="btns">
+        <a class="btn btn--solid" href="/portfolio_assets/lee_jaeyeol_portfolio.pdf">포트폴리오 PDF ↓</a>
+        <a class="btn" href="/portfolio_assets/lee_jaeyeol_resume.pdf">이력서 ↓</a>
+        <a class="btn" href="/">운영 사이트 aroundtool.com ↗</a>
+      </div>
+    </div>
+    <img class="photo" src="/profile.jpg" alt="이재열 프로필 사진">
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>10년</b><span>퍼포먼스 · 바이럴 · CRM</span></div>
+      <div class="stat"><b>−61%</b><span>SA 전환단가 18만 → 7만원</span></div>
+      <div class="stat"><b>+1,000건</b><span>월 신규 DB 문의 증가</span></div>
+      <div class="stat"><b>44종</b><span>직접 만들어 운영 중인 서비스</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="profile">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="sec-n">01 · PROFILE</p>
+      <h2>감이 아니라 데이터로 증명합니다</h2>
+      <p>매체 단위가 아니라 고객 여정 단위로 봅니다. 지표가 왜 그렇게 나왔는지 원인을 찾고,
+      콘텐츠와 광고를 같은 흐름 안에서 움직여 결과로 만듭니다.</p>
+    </div>
+    <div class="grid c4">
+      <div class="card"><h3>문제 해결</h3><p>데이터로 지표 하락의 원인을 짚고 실행 전략까지 연결</p></div>
+      <div class="card"><h3>통합 운영</h3><p>퍼포먼스 · 바이럴 · CRM을 하나의 퍼널로 연결</p></div>
+      <div class="card"><h3>실행력</h3><p>매체 운영부터 콘텐츠, 랜딩, 채널 관리까지 직접 실행</p></div>
+      <div class="card"><h3>AI 활용</h3><p>생성형 AI를 분석·콘텐츠·개발 업무에 붙여 속도를 높임</p></div>
+    </div>
+    <div class="grid c3" style="margin-top:.85rem">
+      <div class="card"><p class="lab">ANALYTICS</p><h3>GA4 · 에어브릿지</h3>
+        <p>유입 · 이탈 · 전환 경로 분석과 대시보드 구성</p></div>
+      <div class="card"><p class="lab">PAID MEDIA</p><h3>Meta · 카카오 · 네이버 · Google</h3>
+        <p>직접 운영, ROAS/CPA 최적화와 A/B 테스트</p></div>
+      <div class="card"><p class="lab">BUILD</p><h3>SEO · React/Express · AI</h3>
+        <p>구조화 데이터 · 사이트맵 작성, 서비스 배포까지</p></div>
+    </div>
+    <p style="margin-top:1.1rem;font-size:.875rem;color:var(--grey)">
+      검색광고마케터 1급 · Google Analytics Certification · OpenAI Academy 인공지능 기초 / 응용</p>
+  </div>
+</section>
+
+<section id="goyu">
+  <div class="wrap">
+    <div class="co o">
+      <span class="co-yr">2025.07 ~ 재직중</span>
+      <h2>고유알앤디 (바로연 결혼정보)</h2>
+      <span class="pos">퍼포먼스 및 바이럴 마케팅 운영</span>
+      <p class="sum">결혼정보회사 바로연의 브랜드·디지털 마케팅을 담당하며 프리미엄 브랜드 강화,
+      타깃 회원 확보, 오프라인 이벤트, 콘텐츠·전환 마케팅을 수행하고 있습니다.</p>
+    </div>
+
+    <article class="proj o">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 01 · VIRAL &amp; SEO</p>
+          <h3>네이버 블로그·카페 상위노출과 SEO 콘텐츠</h3>
+          <p class="obj"><strong>Objective</strong> 구매 의도가 높은 검색어에서 자연 유입을 확보해 광고 의존도 낮추기<br>
+          <strong>Partners</strong> 디자인 협업(이미지 제작) · 키워드 선정과 콘텐츠 구조는 직접 설계</p>
+        </div>
+        <div class="contrib"><b>90%</b><span>키워드 전략과<br>콘텐츠 실행 주도</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li>네이버 블로그 · 카페 운영 — 발행 주기와 콘텐츠 구조 직접 설계</li>
+            <li>연령 · 직업 · 지역별 타깃 키워드 분류 후 채널별 배분</li>
+            <li>전문직 · 엘리트 · VIP 타깃 콘텐츠를 검색 의도에 맞춰 기획</li>
+            <li>상담 · 가입 전환을 염두에 둔 랜딩페이지 연결 구조 설계</li>
+            <li>순위 이탈 키워드 추적 후 콘텐츠 리라이팅</li>
+          </ul>
+        </div>
+        <div class="shots s2">
+          <figure><img src="/portfolio_assets/journey/8-1.jpg" alt="바로연 SEO 콘텐츠 사례" loading="lazy">
+            <figcaption>SEO 콘텐츠</figcaption></figure>
+          <figure><img src="/portfolio_assets/journey/8-3.jpg" alt="바로연 랜딩페이지 사례" loading="lazy">
+            <figcaption>전환 랜딩페이지</figcaption></figure>
+        </div>
+      </div>
+      <p class="did"><b>직접 한 일 ·</b> 어떤 키워드를 블로그에 쓸지 카페에 쓸지 나누고,
+      순위가 빠진 글을 찾아 다시 쓰는 작업을 반복했습니다.</p>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">광고비를 늘리지 않고 상담 문의로 이어지는 자연 검색 유입 확보</span></div>
+    </article>
+
+    <article class="proj o">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 02 · PERFORMANCE</p>
+          <h3>온라인 마케팅 전략 수립 및 실행</h3>
+          <p class="obj">SA·DA 매체 운영부터 랜딩·소재 기획, 대행사 관리까지 성과 개선을 주도했습니다.</p>
+        </div>
+        <div class="contrib"><b>70%</b><span>캠페인 성과<br>개선 주도</span></div>
+      </div>
+      <div class="kpis" style="padding-top:1.25rem">
+        <div class="kpi"><p class="l">SA</p><p class="n">18만 → 7만원</p><p class="s">전환 단가 −61%</p></div>
+        <div class="kpi"><p class="l">DA</p><p class="n">6만 → 2만원</p><p class="s">전환 단가 −67%</p></div>
+        <div class="kpi"><p class="l">DB</p><p class="n">+1,000 / 월</p><p class="s">카카오 매체 선점 이후</p></div>
+        <div class="kpi"><p class="l">TEST</p><p class="n">A/B 운영</p><p class="s">소재 · 랜딩 조합 검증</p></div>
+      </div>
+      <div class="proj-body" style="padding-top:0">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li>대행사 관리를 통한 월간 캠페인 성과 개선 주도</li>
+            <li>신규 매체 발굴 및 ROI 비교 분석 — 카카오 선점</li>
+            <li>브랜드 타깃 맞춤형 랜딩페이지 · 배너 기획</li>
+            <li>A/B 테스트 운영으로 전환율 향상</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure><img src="/pt1.png" alt="네이버 브랜드 검색·메타·카카오 소재 사례" loading="lazy">
+            <figcaption>네이버 브랜드 검색 · 메타 · 카카오 비즈니스폼 소재 사례</figcaption></figure>
+        </div>
+      </div>
+      <p class="did"><b>직접 한 일 ·</b> 단가만 낮춘 것이 아니라 상담으로 이어지는 비율을 기준으로 매체를 정리했습니다.</p>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">SA/DA 전환 단가 절감 + 신규 매체 선점으로 월 DB 수량 확대</span></div>
+    </article>
+
+    <article class="proj o">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 03 · CONVERSION</p>
+          <h3>홈페이지 리뉴얼 및 전환 구조 개선</h3>
+          <p class="obj"><strong>Objective</strong> 방문자 체류 시간과 온라인 상담 건수를 높이는 구조 만들기<br>
+          <strong>Partners</strong> 웹디자인팀 · 서비스 제휴사 협업 · 전환 설계와 콘텐츠 기획은 직접 수행</p>
+        </div>
+        <div class="contrib"><b>70%</b><span>전환 구조 기획<br>및 실행 총괄</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li>기존 ASP 코드 → React + Express 전환</li>
+            <li>UX/UI 개선 및 웹디자인팀 협업</li>
+            <li>페이지 콘텐츠 기획 및 서비스 제휴사 협업</li>
+            <li>DB 입력 페이지 카카오 싱크 도입</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure><img src="/baroyeon.png" alt="바로연 홈페이지 리뉴얼 전후" loading="lazy">
+            <figcaption>홈페이지 리뉴얼 — 상담 전환 동선 재설계</figcaption></figure>
+        </div>
+      </div>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">브랜드 조회수 · 체류시간 증가, 카카오 싱크 도입으로 DB 질 개선</span></div>
+    </article>
+
+    <article class="proj o">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 04 · BRANDING</p>
+          <h3>콘텐츠 · 브랜딩 · 채널 확장</h3>
+          <p class="obj">한 채널의 성과보다 브랜드가 노출되는 접점을 넓히는 데 집중했습니다.</p>
+        </div>
+        <div class="contrib"><b>70%</b><span>채널 기획과<br>운영 총괄</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li><strong>SNS</strong> — 인스타그램 · 페이스북 채널별 콘텐츠 및 이벤트 기획·운영</li>
+            <li><strong>PR</strong> — 보도자료 작성 및 배포, 미디어 릴레이션즈 관리</li>
+            <li><strong>B2B 제휴</strong> — 아파트 · 교회 커뮤니티 제휴, 상세페이지 · MD 미팅 · 프로모션</li>
+            <li>정기 미팅파티 · VIP 프라이빗 파티 등 오프라인 행사 콘텐츠 기획</li>
+          </ul>
+        </div>
+        <div class="shots s3">
+          <figure><img src="/portfolio_assets/journey/7-1.jpg" alt="미팅파티 이벤트" loading="lazy">
+            <figcaption>미팅파티</figcaption></figure>
+          <figure><img src="/baroyeon_site.jpg" alt="SNS 및 브랜드 채널" loading="lazy">
+            <figcaption>SNS 채널</figcaption></figure>
+          <figure><img src="/news.png" alt="언론 보도 및 제휴" loading="lazy">
+            <figcaption>PR · 제휴</figcaption></figure>
+        </div>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><p class="l">SNS</p><p class="n">120%</p><p class="s">채널 KPI 초과 달성</p></div>
+        <div class="kpi"><p class="l">인플루언서</p><p class="n">15명</p><p class="s">협업 진행</p></div>
+        <div class="kpi"><p class="l">PR</p><p class="n">보도기사</p><p class="s">브랜드 언론 홍보</p></div>
+        <div class="kpi"><p class="l">제휴</p><p class="n">8,000만원</p><p class="s">연 매출 발생</p></div>
+      </div>
+    </article>
+
+    <div class="jn" style="margin-top:1.25rem">
+      <div class="jn-c o"><p class="no">JOURNEY 01</p><h4>브랜드 &amp; 상품 마케팅</h4>
+        <p>프리미엄 브랜드 포지셔닝 · PM 파트너 서비스 브랜딩 · VIP 상품 및 차별화 서비스 마케팅</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/5-1.jpg" alt="프리미엄 브랜드 포지셔닝" loading="lazy">
+          <img src="/portfolio_assets/journey/5-2.jpg" alt="PM 파트너 서비스 브랜딩" loading="lazy">
+          <img src="/portfolio_assets/journey/5-3.jpg" alt="VIP 상품 마케팅" loading="lazy"></div></div>
+      <div class="jn-c o"><p class="no">JOURNEY 02</p><h4>타깃 회원 모집 마케팅</h4>
+        <p>전문직 · 엘리트 · VIP 타깃 마케팅 · 연령/직업/지역별 콘텐츠 · 상담 및 가입 전환 마케팅</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/6-1.jpg" alt="자녀 결혼 컨설팅 서비스" loading="lazy">
+          <img src="/portfolio_assets/journey/6-2.jpg" alt="지점 상담 공간" loading="lazy">
+          <img src="/portfolio_assets/journey/6-3.jpg" alt="타깃별 콘텐츠" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="incruit">
+  <div class="wrap">
+    <div class="co">
+      <span class="co-yr">2017.02 ~ 2025.06</span>
+      <h2>인크루트</h2>
+      <span class="pos">온라인 마케팅 · 8년</span>
+      <p class="sum">취업 플랫폼의 브랜드·디지털 마케팅을 담당하며 신규 브랜드 론칭,
+      채용 서비스 디지털 전환, B2B HR Tech, 콘텐츠·퍼포먼스 마케팅을 수행했습니다.</p>
+    </div>
+
+    <article class="proj">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 01 · TECHNICAL SEO</p>
+          <h3>기술 기반 SEO 최적화 및 유입 자동화</h3>
+          <p class="obj"><strong>Objective</strong> 광고비를 늘리지 않고 검색 노출 영역 자체를 넓히기<br>
+          <strong>Partners</strong> 개발팀 협업(배포) · 메타 · 사이트맵 · 구조화 데이터는 직접 작성</p>
+        </div>
+        <div class="contrib"><b>95%</b><span>구조 설계·적용<br>직접 수행</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li><strong>Technical SEO</strong> — 메타 태그 · 사이트맵 · 구조화 데이터 점검 및 개선</li>
+            <li><strong>Content SEO</strong> — GitHub 기반 웹문서로 노출 영역 확대 및 콘텐츠 구조 개선</li>
+            <li><strong>Tracking</strong> — GA4로 Organic 트래픽 변화를 추적하고 월간 대시보드 구성</li>
+          </ul>
+        </div>
+        <div class="shots s2">
+          <figure><img src="/incruit_news.jpg" alt="네이버 검색 결과 상위 노출" loading="lazy">
+            <figcaption>네이버 검색 결과 노출</figcaption></figure>
+          <figure><img src="/ga4.png" alt="GA4 Organic 트래픽 추적" loading="lazy">
+            <figcaption>GA4 Organic 추적</figcaption></figure>
+        </div>
+      </div>
+      <p class="did"><b>직접 한 일 ·</b> 개발자가 아니어도 할 수 있는 범위를 넓게 잡았습니다.
+      메타 태그와 사이트맵, 구조화 데이터를 직접 작성해 배포만 개발팀에 넘겼고,
+      단순 노출보다 <b>“측정 가능한 구조”</b>를 만드는 데 집중했습니다.</p>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">광고 비용 증액 없이 Organic 유입이 지속적으로 우상향하도록 운영 기반 구축</span></div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 02 · CRM</p>
+          <h3>CRM 기반 고객 여정 개선</h3>
+          <p class="obj"><strong>Objective</strong> 이탈 구간을 파악하고 재방문·전환을 높이는 운영 구조 만들기<br>
+          <strong>Partners</strong> CS · 개발 협업(발송 시스템) · 세그먼트 정의와 메시지 설계는 직접 수행</p>
+        </div>
+        <div class="contrib"><b>90%</b><span>세그먼트 정의와<br>캠페인 기획 주도</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li><strong>Segmentation</strong> — 유입 채널과 행동 데이터로 고객군을 나누고 세그먼트별 이탈 구간 확인</li>
+            <li><strong>Message &amp; Content</strong> — 고객군별 관심사와 행동 맥락에 맞춰 메시지를 다르게 설계</li>
+            <li><strong>Measurement</strong> — 재방문 · 전환 변화를 추적하고 운영 결과를 다음 액션으로 연결</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure><img src="/ga4_dashboard.jpg" alt="GA4 기반 고객 여정 분석 대시보드" loading="lazy">
+            <figcaption>GA4 · 에어브릿지 기반 고객 여정 데이터</figcaption></figure>
+        </div>
+      </div>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">저효율 매체 예산을 조정하고 고효율 영역에 집중하는 운영 기준을 확보</span></div>
+    </article>
+
+    <div class="jn" style="margin-top:1.25rem">
+      <div class="jn-c"><p class="no">JOURNEY 01 · 2018 – 2025</p><h4>신규 브랜드 &amp; 플랫폼 론칭</h4>
+        <p>알바콜 · 뉴워커 · 셜록N · 잘쓸랩 · 오퍼박스 · 고사장</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/1-1.jpg" alt="알바콜 브랜드" loading="lazy">
+          <img src="/portfolio_assets/journey/1-2.jpg" alt="셜록N 플랫폼" loading="lazy">
+          <img src="/portfolio_assets/journey/1-3.jpg" alt="신규 브랜드 앱" loading="lazy"></div></div>
+      <div class="jn-c"><p class="no">JOURNEY 02 · 2020 – 2025</p><h4>채용 서비스 &amp; HR Tech 마케팅</h4>
+        <p>인크루트 VIEW · 화상/온라인 면접 · 온라인 채용박람회 · 메타버스 · ATS/CRM · AI면접 · 평가/검사 솔루션</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/2-1.jpg" alt="디지털 채용 솔루션" loading="lazy">
+          <img src="/portfolio_assets/journey/2-2.jpg" alt="화상면접 솔루션" loading="lazy">
+          <img src="/portfolio_assets/journey/2-3.jpg" alt="메타버스 채용박람회" loading="lazy"></div></div>
+      <div class="jn-c"><p class="no">JOURNEY 03 · 2018 – 2025</p><h4>채용설명회 &amp; 콘텐츠 마케팅</h4>
+        <p>제16~23회 온·오프라인 채용설명회 홍보 · 취업/채용 트렌드 기반 시즌 콘텐츠 기획 · SEO/SNS 콘텐츠</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/3-1.jpg" alt="채용설명회 현장" loading="lazy">
+          <img src="/portfolio_assets/journey/3-2.jpg" alt="채용설명회 안내" loading="lazy">
+          <img src="/portfolio_assets/journey/3-3.jpg" alt="채용설명회 홍보물" loading="lazy"></div></div>
+      <div class="jn-c"><p class="no">JOURNEY 04 · 2018 – 2025</p><h4>Brand Campaign &amp; 회원 활성화</h4>
+        <p>창립기념 프로모션 · 회원 활성화 이벤트 · 서비스 연계 참여형 캠페인 · 광고 및 온라인 채널 운영</p>
+        <div class="jn-img">
+          <img src="/portfolio_assets/journey/4-1.jpg" alt="앱 알림 이벤트" loading="lazy">
+          <img src="/portfolio_assets/journey/4-2.jpg" alt="회원 활성화 프로모션" loading="lazy">
+          <img src="/portfolio_assets/journey/4-3.jpg" alt="제휴 캠페인" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="baroyeon">
+  <div class="wrap">
+    <div class="co o">
+      <span class="co-yr">2015.11 ~ 2017.02</span>
+      <h2>주식회사 바로연</h2>
+      <span class="pos">바이럴 마케팅</span>
+      <p class="sum">커리어의 출발점입니다. 브랜드 인지도가 낮은 상태에서 검색 결과를 선점해 문의를 만들었고,
+      10년 뒤 같은 브랜드에 다시 합류했습니다.</p>
+    </div>
+
+    <article class="proj o">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">PROJECT 01 · VIRAL</p>
+          <h3>네이버 · 다음 키워드 상위노출</h3>
+          <p class="obj"><strong>Objective</strong> 브랜드 인지도가 낮은 상태에서 검색 결과 선점으로 문의 만들기<br>
+          <strong>Partners</strong> 단독 운영 · 키워드 리서치 · 콘텐츠 작성 · 순위 관리 전부 직접</p>
+        </div>
+        <div class="contrib"><b>95%</b><span>키워드 선정부터<br>콘텐츠까지 단독</span></div>
+      </div>
+      <div class="proj-body" style="grid-template-columns:1fr">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li>네이버 · 다음 양대 포털 키워드 리서치 및 경쟁 강도 분석</li>
+            <li>핵심 키워드와 롱테일 키워드를 나눠 채널별로 배분</li>
+            <li>검색 의도에 맞춘 콘텐츠 작성 및 발행 주기 관리</li>
+            <li>주간 순위 모니터링 후 이탈 키워드 재작업</li>
+          </ul>
+        </div>
+      </div>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">검색 결과 선점을 통한 브랜드 인지도 구축과 문의 유입 확보</span></div>
+    </article>
+
+    <div class="co g" style="margin-top:2.25rem;margin-bottom:0">
+      <span class="co-yr">2013.09 ~ 2015.01</span>
+      <h2>수현(주)</h2>
+      <span class="pos">온라인 마케터</span>
+      <p class="sum">바이럴 · 퍼포먼스 마케팅을 병행 운영하며 온라인 마케팅의 기본기를 쌓았습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="side">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="sec-n">SIDE PROJECT · 2025 ~ 현재</p>
+      <h2>aroundtool.com — 직접 만들고 운영하는 서비스</h2>
+      <p>실무 마케팅 지식을 바탕으로 주제를 기획하고, AI와 함께 콘텐츠 설계·코드 작성·배포·데이터 분석까지
+      직접 진행한 사이드 프로젝트입니다.</p>
+    </div>
+    <article class="proj">
+      <div class="proj-top">
+        <div style="flex:1;min-width:15rem">
+          <p class="proj-no">AROUNDTOOL · SEO &amp; BUILD</p>
+          <h3>기획부터 배포까지 혼자 만든 SEO 실험장</h3>
+          <p class="obj"><strong>Objective</strong> SEO와 콘텐츠 가설을 내 사이트에서 직접 검증하기</p>
+        </div>
+        <div class="contrib"><b>100%</b><span>기획 · 코드 ·<br>배포 · 분석 전부</span></div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="role-t">MAIN ROLE</p>
+          <ul class="roles">
+            <li><strong>기획</strong> — 실사용 수요가 있는 계산기 주제를 선정하고 카테고리 구조 설계</li>
+            <li><strong>제작</strong> — AI와 함께 계산 로직 · 콘텐츠 · 디자인을 페이지 단위로 생성</li>
+            <li><strong>SEO</strong> — 구조화 데이터 · sitemap.xml · llms.txt 직접 작성</li>
+            <li><strong>배포</strong> — GitHub 저장소 연동, 도메인 구매 후 실제 서비스로 배포</li>
+            <li><strong>운영</strong> — GA4 대시보드로 트래픽을 보며 콘텐츠 개선</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <div class="kpis" style="padding:0;grid-template-columns:1fr 1fr">
+            <div class="kpi"><p class="l">CONTENTS</p><p class="n">44종</p><p class="s">무료 생활 계산기</p></div>
+            <div class="kpi"><p class="l">STACK</p><p class="n">GitHub · GA4</p><p class="s">배포 · 분석 직접</p></div>
+          </div>
+          <p style="font-size:.875rem;color:var(--grey);margin:.6rem 0 0;line-height:1.7">
+          말로 설명하는 SEO가 아니라 <strong>소스를 열어 확인할 수 있는 SEO</strong>입니다.
+          스키마와 사이트맵, 메타 구조를 전부 공개 상태로 두고 있습니다.</p>
+          <a class="btn" style="margin-top:.7rem;justify-self:start" href="/">aroundtool.com 바로가기 ↗</a>
+        </div>
+      </div>
+      <div class="result"><span class="lab">RESULT</span>
+        <span class="v">44종 무료 생활 계산기를 기획 · 개발 · 배포까지 직접 만들어 운영 중</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="sec-n">SUMMARY</p>
+      <h2>숫자로 정리하면</h2>
+      <p>광고로 산 숫자와 검색으로 만든 숫자를 둘 다 다뤄봤다는 점이 이 경력의 핵심입니다.</p>
+    </div>
+    <div class="sum-grid">
+      <div class="sum-c"><b>−61%</b><p class="t">SA 전환단가</p><p class="s">18만원 → 7만원 · 고유알앤디</p></div>
+      <div class="sum-c"><b>−67%</b><p class="t">DA 전환단가</p><p class="s">6만원 → 2만원 · 고유알앤디</p></div>
+      <div class="sum-c"><b>+1,000건</b><p class="t">월 신규 DB 문의</p><p class="s">광고 · 콘텐츠 합산</p></div>
+      <div class="sum-c"><b>120%</b><p class="t">SNS 채널 KPI</p><p class="s">목표 대비 달성률</p></div>
+      <div class="sum-c"><b>8,000만원</b><p class="t">제휴 연 매출</p><p class="s">신규 수익 채널 구축</p></div>
+      <div class="sum-c"><b class="blue">44종</b><p class="t">직접 만든 서비스</p><p class="s">기획 · 개발 · 배포 단독</p></div>
+    </div>
+    <p class="note">“매체를 운영하는 사람”보다, 문제를 발견하고 해결 순서를 만드는 마케터를 지향합니다.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="sec-n">CONTACT</p>
+    <h2>함께 이야기해요</h2>
+    <p>어떤 문제를 풀고 계신지 편하게 들려주세요.</p>
+    <div class="btns">
+      <a class="btn btn--solid" href="mailto:dlwoduf87@kakao.com">dlwoduf87@kakao.com</a>
+      <a class="btn" href="tel:01046783296">010-4678-3296</a>
+      <a class="btn" href="/portfolio_assets/lee_jaeyeol_portfolio.pdf">포트폴리오 PDF ↓</a>
+      <a class="btn" href="/portfolio_assets/lee_jaeyeol_resume.pdf">이력서 ↓</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap in">
+    <span>© 2026 LEE JAE YEOL · MARKETING PORTFOLIO</span>
+    <span><a href="/">AROUNDTOOL</a> · <a href="#top">TOP ↑</a></span>
+  </div>
+</footer>
+
 </body>
 </html>
