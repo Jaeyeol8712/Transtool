@@ -35,6 +35,14 @@
     });
   });
 
+  /* 주소의 #id 로 해당 탭 열기 (예: /connect.html#travel) */
+  var openHash = function () {
+    var t = location.hash && document.querySelector('[role="tab"][aria-controls="' + location.hash.slice(1) + '"]');
+    if (t) { t.click(); var l = t.closest('[role="tablist"]'); if (l) setTimeout(function () { l.scrollIntoView({ block: 'start' }); }, 0); }
+  };
+  openHash();
+  window.addEventListener('hashchange', openHash);
+
   /* ---------- 목록 필터 ---------- */
   var norm = function (s) { return (s || '').toLowerCase().replace(/\s+/g, ''); };
   document.querySelectorAll('[data-at-filter]').forEach(function (input) {

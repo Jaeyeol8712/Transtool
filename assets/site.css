@@ -394,3 +394,7 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
   50%{box-shadow:0 0 0 10px rgba(224,45,45,0);background:#F04343}
   100%{box-shadow:0 0 0 0 rgba(224,45,45,0);background:#E02D2D}}
 @media (prefers-reduced-motion:reduce){.at-cta{animation:none}}
+.at-tabs-lg{padding:1rem 1.1rem 0}
+.at-tabs-lg button{font-size:1rem;padding:.6rem 1rem}
+.at-tabs-lg .c{font-size:.8125rem;color:var(--at-faint);margin-left:.15rem}
+.at-tabs-lg button[aria-selected="true"]{color:var(--at-shop);border-bottom-color:var(--at-shop)}

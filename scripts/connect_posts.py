@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-쇼핑 추천(브랜드 커넥트 · 쇼핑 커넥트) 글 원고.
+추천 모음(제품 추천 · 여행 추천, 브랜드 커넥트 · 쇼핑 커넥트) 글 원고.
 
 글 하나 = POSTS 에 dict 하나. 저장 후 `python3 scripts/build.py` 를 실행하면
 shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자동으로 들어갑니다.
@@ -35,6 +35,7 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   body        문단 HTML 목록. "{img1}" "{img2}" "{img3}" 만 있는 항목은 그 자리에 이미지
   images      [(경로, 대체텍스트)] 3개. 파일은 assets/shop/<slug>/ 에 둡니다
   closing     링크 안내 2~3문장
+  kind        "product"(제품 추천, 기본) | "travel"(여행 추천)
   cta         버튼 문구 (기본 "제품 자세히 알아보기 >>", 여행 글은 "여행코스 추천 받기 >>")
   og          {"title": 상품 페이지 og:title, "image": og:image 주소, "site": 도메인}
               링크 카드로 대가성 문구 바로 아래와 글 맨 끝에 표시됩니다
@@ -209,6 +210,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/xIF7RrEV",
+        "kind": "travel",
         "cta": "여행코스 추천 받기 >>",
         "og": {"title": None, "image": None, "site": "brandconnect.naver.com"},
         "keyword": "후쿠오카 3일 여행",
