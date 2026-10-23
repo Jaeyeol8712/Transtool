@@ -968,6 +968,19 @@ def buy_button(post, label=None):
             f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
 
 
+def link_card(post):
+    """제휴 링크를 OG 미리보기 카드(이미지·제목·도메인)로 보여줍니다."""
+    og = post.get("og") or {}
+    title = og.get("title") or post["product"]
+    img = og.get("image")
+    site = og.get("site") or "naver.com"
+    thumb = (f'<span class="at-og-img"><img src="{esc(img)}" alt="" loading="lazy" decoding="async"></span>' if img
+             else '<span class="at-og-img at-og-noimg" aria-hidden="true">N</span>')
+    return (f'<a class="at-og" href="{esc(post["link"])}" target="_blank" rel="sponsored nofollow noopener">{thumb}'
+            f'<span class="at-og-body"><span class="at-og-title">{esc(title)}</span>'
+            f'<span class="at-og-site">{esc(site)}</span></span></a>')
+
+
 def build_connect_blog(p):
     """블로그형 글: 소제목·표 없이 문단과 이미지 3장, 마무리 안내 + 구매 링크."""
     post = p["post"]
@@ -984,16 +997,17 @@ def build_connect_blog(p):
             parts.append(f"<p>{para}</p>")
     closing = "".join(f"<p>{x}</p>" for x in post.get("closing", []))
     content = f"""<article>
-{disclosure_box(post)}
 <header class="at-page-head">
   <h1>{esc(post['title'])}</h1>
   <p class="meta"><span>쇼핑 추천 · 광고</span>{f"<span>{esc(post['brand'])}</span>" if post.get('brand') else ''}<span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
 </header>
+{disclosure_box(post)}
+<div class="at-og-wrap">{link_card(post)}</div>
 <div class="at-page"><div class="at-prose at-blog">
 {"".join(parts)}
 {closing}
-{buy_button(post)}
 {disclosure_box(post, 'bottom')}
+{link_card(post)}
 </div></div>
 </article>"""
     art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",

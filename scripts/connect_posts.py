@@ -35,6 +35,8 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   body        문단 HTML 목록. "{img1}" "{img2}" "{img3}" 만 있는 항목은 그 자리에 이미지
   images      [(경로, 대체텍스트)] 3개. 파일은 assets/shop/<slug>/ 에 둡니다
   closing     링크 안내 2~3문장
+  og          {"title": 상품 페이지 og:title, "image": og:image 주소, "site": 도메인}
+              링크 카드로 대가성 문구 바로 아래와 글 맨 끝에 표시됩니다
 """
 
 DISCLOSURE = {
@@ -52,6 +54,8 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/FYrGZaQv",
+        # 링크 카드: 상품 페이지의 og:title·og:image. 받으면 채워 넣습니다.
+        "og": {"title": None, "image": None, "site": "brand.naver.com"},
         "keyword": "C타입 고속 충전기",
         "sub_keywords": ["65W 일체형 충전기", "C타입 초고속 충전기 추천", "65W 충전기 가격", "고속충전기 C타입"],
         "title": "C타입 고속 충전기 65W 일체형 가격 추천",
