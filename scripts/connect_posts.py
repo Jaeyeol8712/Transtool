@@ -35,6 +35,7 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   body        문단 HTML 목록. "{img1}" "{img2}" "{img3}" 만 있는 항목은 그 자리에 이미지
   images      [(경로, 대체텍스트)] 3개. 파일은 assets/shop/<slug>/ 에 둡니다
   closing     링크 안내 2~3문장
+  cta         버튼 문구 (기본 "제품 자세히 알아보기 >>", 여행 글은 "여행코스 추천 받기 >>")
   og          {"title": 상품 페이지 og:title, "image": og:image 주소, "site": 도메인}
               링크 카드로 대가성 문구 바로 아래와 글 맨 끝에 표시됩니다
 """
@@ -208,6 +209,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/xIF7RrEV",
+        "cta": "여행코스 추천 받기 >>",
         "og": {"title": None, "image": None, "site": "brandconnect.naver.com"},
         "keyword": "후쿠오카 3일 여행",
         "sub_keywords": ["후쿠오카 여행 추천 코스", "후쿠오카 2박 3일", "후쿠오카 3일 코스", "다자이후 유후인"],
