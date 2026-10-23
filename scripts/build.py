@@ -987,7 +987,7 @@ def build_connect_blog(p):
 {disclosure_box(post)}
 <header class="at-page-head">
   <h1>{esc(post['title'])}</h1>
-  <p class="meta"><span>쇼핑 추천 · 광고</span><span>{esc(post['brand'])}</span><span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
+  <p class="meta"><span>쇼핑 추천 · 광고</span>{f"<span>{esc(post['brand'])}</span>" if post.get('brand') else ''}<span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
 </header>
 <div class="at-page"><div class="at-prose at-blog">
 {"".join(parts)}
@@ -1001,11 +1001,14 @@ def build_connect_blog(p):
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
            "image": [SITE + src if src.startswith("/") else src for src, _ in imgs],
            "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
-    prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
-            "description": post["desc"]}
-    if imgs:
-        prod["image"] = art["image"][0]
-    write(p["file"], page_shell(p, content, [art, prod]))
+    extra = [art]
+    if post.get("brand"):
+        prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
+                "description": post["desc"]}
+        if imgs:
+            prod["image"] = art["image"][0]
+        extra.append(prod)
+    write(p["file"], page_shell(p, content, extra))
 
 
 def build_connect_post(p):
@@ -1065,7 +1068,7 @@ def build_connect_hub():
     for q in SHOP_LIVE:
         post = q["post"]
         rows.append(f'<tr><td class="k"><span class="tag shop">광고</span></td><td><a href="/{q["file"]}">{esc(q["title"])}</a>'
-                    f'<span class="x">{esc(post["brand"])} · {esc(post["keyword"])}</span></td><td class="d">{short_date(q["date"])}</td></tr>')
+                    f'<span class="x">{esc(post.get("brand") or "제휴 상품")} · {esc(post["keyword"])}</span></td><td class="d">{short_date(q["date"])}</td></tr>')
     table = (f'<table class="at-btable"><thead><tr><th>구분</th><th>글</th><th class="d">작성</th></tr></thead><tbody>{"".join(rows)}</tbody></table>'
              if rows else '<p class="at-empty">아직 공개한 글이 없습니다.</p>')
     content = f"""<aside class="at-disclose" role="note" aria-label="광고 표시"><p>이 게시판의 글은 네이버 커넥트 제휴 활동의 일환으로, 글 속 링크로 구매가 이뤄지면 일정액의 수수료를 제공받습니다.</p></aside>
