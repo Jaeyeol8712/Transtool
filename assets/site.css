@@ -367,3 +367,6 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-fit p{margin:0 0 .4rem;font-weight:700}
 .at-fit ul{margin:0;padding-left:1.1rem}
 @media (min-width:40rem){.at-fit{grid-template-columns:1fr 1fr}}
+.at-blog p{margin:0 0 1.15rem;line-height:1.95}
+.at-fig{margin:1.5rem 0;text-align:center}
+.at-fig img{max-width:100%;height:auto;border-radius:4px;border:1px solid var(--at-line)}

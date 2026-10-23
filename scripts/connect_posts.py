@@ -30,6 +30,11 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   fit_yes, fit_no  추천하는 경우 / 맞지 않는 경우
   faq         [(질문, 답변)]
   related     관련 계산기·글 파일명
+
+[블로그형 글 — body 가 있으면 이 형식으로 만듭니다 (소제목·표 없음)]
+  body        문단 HTML 목록. "{img1}" "{img2}" "{img3}" 만 있는 항목은 그 자리에 이미지
+  images      [(경로, 대체텍스트)] 3개. 파일은 assets/shop/<slug>/ 에 둡니다
+  closing     링크 안내 2~3문장
 """
 
 DISCLOSURE = {

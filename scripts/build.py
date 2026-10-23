@@ -968,8 +968,50 @@ def buy_button(post, label=None):
             f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
 
 
+def build_connect_blog(p):
+    """블로그형 글: 소제목·표 없이 문단과 이미지 3장, 마무리 안내 + 구매 링크."""
+    post = p["post"]
+    imgs = post.get("images", [])
+    parts = []
+    for para in post["body"]:
+        m = re.fullmatch(r"\{img(\d)\}", para.strip())
+        if m:
+            i = int(m.group(1)) - 1
+            if i < len(imgs):
+                src, alt = imgs[i]
+                parts.append(f'<figure class="at-fig"><img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" decoding="async"></figure>')
+        else:
+            parts.append(f"<p>{para}</p>")
+    closing = "".join(f"<p>{x}</p>" for x in post.get("closing", []))
+    content = f"""<article>
+{disclosure_box(post)}
+<header class="at-page-head">
+  <h1>{esc(post['title'])}</h1>
+  <p class="meta"><span>쇼핑 추천 · 광고</span><span>{esc(post['brand'])}</span><span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
+</header>
+<div class="at-page"><div class="at-prose at-blog">
+{"".join(parts)}
+{closing}
+{buy_button(post)}
+{disclosure_box(post, 'bottom')}
+</div></div>
+</article>"""
+    art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
+           "datePublished": p["date"], "dateModified": p["date"], "author": {"@id": SITE + "/#org"},
+           "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
+           "image": [SITE + src if src.startswith("/") else src for src, _ in imgs],
+           "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
+    prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
+            "description": post["desc"]}
+    if imgs:
+        prod["image"] = art["image"][0]
+    write(p["file"], page_shell(p, content, [art, prod]))
+
+
 def build_connect_post(p):
     post = p["post"]
+    if post.get("body"):
+        return build_connect_blog(p)
     price = ""
     if post.get("price"):
         pr = post["price"]
