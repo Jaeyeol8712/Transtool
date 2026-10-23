@@ -30,6 +30,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from calc_content import CALCS  # noqa: E402
+from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
@@ -272,11 +273,16 @@ def register_misc():
         PAGES[f] = dict(file=f, section="info", name=name, short=name, desc=desc, date=BASE_DATE, old_title=title)
     hubs = [("index.html", "home", "홈"), ("food.html", "hub-food", "전국 맛집"), ("tools.html", "hub-tools", "생활툴"),
             ("travel.html", "hub-trip", "여행"), ("etc.html", "hub-guide", "가이드·텍스트"),
-            ("sitemap.html", "info", "사이트맵"), ("search.html", "util", "검색"), ("404.html", "util", "페이지를 찾을 수 없음")]
+            ("connect.html", "hub-connect", "쇼핑 추천"), ("sitemap.html", "info", "사이트맵"), ("search.html", "util", "검색"), ("404.html", "util", "페이지를 찾을 수 없음")]
     for f, sec, name in hubs:
         title, desc = head_info(f) if os.path.exists(f) else ("", "")
         PAGES[f] = dict(file=f, section=sec, name=name, short=name, desc=desc, date=TODAY, old_title=title)
     PAGES["sitemap.html"]["date"] = TODAY
+    for post in POSTS:
+        f = f"shop-{post['slug']}.html"
+        PAGES[f] = dict(file=f, section="connect", name=post["product"], short=post.get("short") or post["product"],
+                        title=post["title"], desc=post["desc"], date=post.get("date", TODAY),
+                        draft=post.get("draft", False), post=post)
 
 
 register_food()
@@ -286,6 +292,8 @@ register_misc()
 FOOD = [p for p in PAGES.values() if p["section"] == "food"]
 FOOD_OK = [p for p in FOOD if not p["research"]]
 TOOLS = [p for p in PAGES.values() if p["section"] == "tools"]
+SHOP = sorted([p for p in PAGES.values() if p["section"] == "connect"], key=lambda p: p["date"], reverse=True)
+SHOP_LIVE = [p for p in SHOP if not p.get("draft")]
 N_TOOLS = len(TOOLS)
 N_PLACES = sum(p["count"] for p in FOOD_OK)
 N_GU = sum(len(g) for _, _, _, g in FOOD_AREAS)
@@ -349,7 +357,9 @@ PAGES["sitemap.html"].update(title="사이트맵 — 어라운드툴 전체 페�
 def indexable(p):
     if p["section"] in ("util",):
         return False
-    if p.get("research"):
+    if p.get("research") or p.get("draft"):
+        return False
+    if p["section"] == "hub-connect" and not [q for q in PAGES.values() if q["section"] == "connect" and not q.get("draft")]:
         return False
     return True
 
@@ -360,13 +370,14 @@ def indexable(p):
 
 GNB = [("index.html", "홈", "g-home", "home"), ("food.html", "맛집", "g-food", "food"),
        ("tools.html", "생활툴", "g-tool", "tools"), ("travel.html", "여행", "g-trip", "trip"),
-       ("etc.html", "가이드", "g-etc", "guide")]
+       ("etc.html", "가이드", "g-etc", "guide"), ("connect.html", "쇼핑 추천", "g-shop", "connect")]
 
 
 def gnb_key(p):
     s = p["section"]
     return {"home": "home", "food": "food", "hub-food": "food", "tools": "tools", "hub-tools": "tools",
-            "trip": "trip", "hub-trip": "trip", "guide": "guide", "hub-guide": "guide"}.get(s, "")
+            "trip": "trip", "hub-trip": "trip", "guide": "guide", "hub-guide": "guide",
+            "connect": "connect", "hub-connect": "connect"}.get(s, "")
 
 
 def header_html(p):
@@ -405,6 +416,8 @@ def crumbs_for(p):
         c += [("여행", "/travel.html"), (p["name"], None)]
     elif s == "guide":
         c += [("가이드", "/etc.html"), (p["name"], None)]
+    elif s == "connect":
+        c += [("쇼핑 추천", "/connect.html"), (p["name"], None)]
     elif s in ("info",):
         c += [(p["name"], None)]
     elif s.startswith("hub-") or s == "util":
@@ -476,6 +489,15 @@ def board_html(p):
         tabs.append('<li><a href="/exchange_rate_calculator.html">환율 계산</a></li>')
         return f"""<div class="at-board is-trip">
   <div class="at-board-head"><p class="at-board-name"><a href="/travel.html">여행 가이드</a></p><span class="at-board-meta">코스 · 일정 · 예산 · 교통 · 맛집</span></div>
+  <ul class="at-board-tabs">{"".join(tabs)}</ul>
+</div>"""
+    if s == "connect":
+        tabs = []
+        for q in [x for x in SHOP if not x.get("draft") or x["file"] == p["file"]][:12]:
+            cur = ' aria-current="page"' if q["file"] == p["file"] else ""
+            tabs.append(f'<li><a href="/{q["file"]}"{cur}>{esc(q["short"])}</a></li>')
+        return f"""<div class="at-board is-shop">
+  <div class="at-board-head"><p class="at-board-name"><a href="/connect.html">쇼핑 추천</a></p><span class="at-board-meta">제휴 링크가 포함된 광고 게시판</span></div>
   <ul class="at-board-tabs">{"".join(tabs)}</ul>
 </div>"""
     if s == "guide":
@@ -551,6 +573,17 @@ def related_html(p):
         for slug in ("salary_calculator", "holiday_pay_calculator", "severance_calculator", "unemployment_benefit_calculator", "freelancer_tax_calculator", "pto_calculator"):
             q = PAGES[slug + ".html"]
             rows.append(row("/" + q["file"], q["name"], "생활툴", "", None, "", q["date"], is_new(q["date"])))
+    elif s == "connect":
+        head = "다른 쇼핑 추천 글"
+        more = '<a class="more" href="/connect.html">전체 글</a>'
+        for q in [x for x in SHOP_LIVE if x["file"] != p["file"]][:6]:
+            rows.append(row("/" + q["file"], q["title"], "광고", "shop", None, "", q["date"], is_new(q["date"])))
+        for f in p["post"].get("related", []):
+            if f in PAGES:
+                q = PAGES[f]
+                rows.append(row("/" + f, q["name"] + (" 계산기" if q["section"] == "tools" else ""), "생활툴" if q["section"] == "tools" else "관련", "", None, "", q["date"]))
+        if not rows:
+            return ""
     else:
         return ""
     note = ""
@@ -597,7 +630,7 @@ def footer_html():
     <div><p>생활툴</p><ul>{groups}</ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>
     <div><p>여행</p><ul>{trips}</ul></div>
-    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/connect.html">쇼핑 추천</a></li><li><a href="/search.html">검색</a></li></ul></div>
   </div>
   <div class="at-footer-legal">
     <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
@@ -660,7 +693,7 @@ def head_block(p, robots=None):
     img = f"{SITE}/assets/og/{OG_IMG.get(p['section'], 'og-home.png')}"
     if robots is None:
         robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" if indexable(p) else "noindex, follow"
-    og_type = "article" if p["section"] in ("food", "trip", "guide") else "website"
+    og_type = "article" if p["section"] in ("food", "trip", "guide", "connect") else "website"
     return f"""<!-- at:head -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -919,6 +952,91 @@ def tag_for(p):
     return "안내", "etc"
 
 
+# ── 쇼핑 추천 (브랜드 커넥트 · 쇼핑 커넥트) ──────────────────────
+
+def disclosure_box(post, where="top"):
+    text = DISCLOSURE.get(post.get("program", "shopping"), DISCLOSURE["shopping"])
+    if where == "top":
+        return f'<aside class="at-disclose" role="note" aria-label="광고 표시"><p>{esc(text)}</p></aside>'
+    return f'<p class="at-disclose-sm"><b>광고</b> {esc(text)}</p>'
+
+
+def buy_button(post, label=None):
+    label = label or f"{post['product']} 판매 페이지 보기"
+    return (f'<p class="at-buy"><a class="at-buy-btn" href="{esc(post["link"])}" target="_blank" '
+            f'rel="sponsored nofollow noopener">{esc(label)}</a>'
+            f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
+
+
+def build_connect_post(p):
+    post = p["post"]
+    price = ""
+    if post.get("price"):
+        pr = post["price"]
+        price = f'<tr><th>판매가</th><td>{pr["value"]:,}원 <small>({pr["date"].replace("-", ".")} 확인, 할인·옵션에 따라 다름)</small></td></tr>'
+    specs = "".join(f"<tr><th>{esc(k)}</th><td>{v}</td></tr>" for k, v in post.get("specs", []))
+    sections = "".join(f"<h2>{esc(h)}</h2>{body}" for h, body in post.get("sections", []))
+    fit = ""
+    if post.get("fit_yes") or post.get("fit_no"):
+        y = "".join(f"<li>{x}</li>" for x in post.get("fit_yes", []))
+        n = "".join(f"<li>{x}</li>" for x in post.get("fit_no", []))
+        fit = f'<h2>이런 분께 맞고, 이런 분께는 아닙니다</h2><div class="at-fit"><div><p>잘 맞는 경우</p><ul>{y}</ul></div><div><p>다시 생각해 볼 경우</p><ul>{n}</ul></div></div>'
+    kind = "직접 사용해 본 기록" if post.get("hands_on") else "공식 상세페이지 정보를 정리한 글"
+    content = f"""<article>
+{disclosure_box(post)}
+<header class="at-page-head">
+  <h1>{esc(post['title'])}</h1>
+  <p class="lede">{esc(post['lede'])}</p>
+  <p class="meta"><span>쇼핑 추천 · 광고</span><span>{esc(post['brand'])}</span><span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span><span>{kind}</span></p>
+</header>
+<div class="at-page"><div class="at-prose">
+<div class="at-answer"><p>{post['answer']}</p></div>
+<h2>{esc(post['product'])} 기본 정보</h2>
+<div class="at-table"><table><tbody><tr><th>상품명</th><td>{esc(post['product'])}</td></tr><tr><th>브랜드</th><td>{esc(post['brand'])}</td></tr>{price}{specs}</tbody></table></div>
+{buy_button(post)}
+{sections}
+{fit}
+{faq_html(post.get('faq', [])) if post.get('faq') else ''}
+{buy_button(post, '최신 가격과 옵션 확인하기')}
+{disclosure_box(post, 'bottom')}
+<p class="at-note">가격·구성·배송 조건은 판매처 사정에 따라 바뀔 수 있습니다. 구매 전 판매 페이지에서 최종 정보를 확인하세요. 이 글의 상품 정보는 작성일 기준 판매처 상세페이지를 바탕으로 정리했습니다.</p>
+</div></div>
+</article>"""
+    art = {"@type": "Article", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
+           "datePublished": p["date"], "dateModified": p["date"], "author": {"@id": SITE + "/#org"},
+           "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
+           "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
+    prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
+            "description": post["desc"]}
+    if post.get("price"):
+        prod["offers"] = {"@type": "Offer", "price": str(post["price"]["value"]), "priceCurrency": "KRW",
+                          "url": post["link"], "availability": "https://schema.org/InStock"}
+    extra = [art, prod] + ([faq_ld(post["faq"])] if post.get("faq") else [])
+    write(p["file"], page_shell(p, content, extra))
+
+
+def build_connect_hub():
+    p = PAGES["connect.html"]
+    p["title"] = "쇼핑 추천 — 제휴 링크 상품 정리"
+    p["desc"] = "네이버 커넥트 제휴 링크로 소개하는 상품의 핵심 정보, 가격 확인일, 맞는 경우와 맞지 않는 경우를 정리한 광고 게시판입니다."
+    rows = []
+    for q in SHOP_LIVE:
+        post = q["post"]
+        rows.append(f'<tr><td class="k"><span class="tag shop">광고</span></td><td><a href="/{q["file"]}">{esc(q["title"])}</a>'
+                    f'<span class="x">{esc(post["brand"])} · {esc(post["keyword"])}</span></td><td class="d">{short_date(q["date"])}</td></tr>')
+    table = (f'<table class="at-btable"><thead><tr><th>구분</th><th>글</th><th class="d">작성</th></tr></thead><tbody>{"".join(rows)}</tbody></table>'
+             if rows else '<p class="at-empty">아직 공개한 글이 없습니다.</p>')
+    content = f"""<aside class="at-disclose" role="note" aria-label="광고 표시"><p>이 게시판의 글은 네이버 커넥트 제휴 활동의 일환으로, 글 속 링크로 구매가 이뤄지면 일정액의 수수료를 제공받습니다.</p></aside>
+<header class="at-page-head">
+  <h1>쇼핑 추천</h1>
+  <p class="lede">제휴 링크가 들어간 상품 소개 글을 모았습니다. 모든 글 첫머리에 광고임을 밝히고, 상품 정보는 판매처 상세페이지 기준으로 확인 날짜와 함께 적습니다. 써 보지 않은 제품은 후기처럼 쓰지 않습니다.</p>
+</header>
+{table}"""
+    lst = {"@type": "ItemList", "name": "쇼핑 추천 글", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": q["title"], "url": url_of(q["file"])} for i, q in enumerate(SHOP_LIVE)]}
+    write("connect.html", page_shell(p, content, [lst], board=False, robots=None if SHOP_LIVE else "noindex, follow"))
+
+
 def build_home():
     p = PAGES["index.html"]
     notice = UPDATES[0]
@@ -1171,11 +1289,11 @@ def build_sitemap_xml():
 
 def build_feed():
     items = []
-    ps = sorted([q for q in all_index_pages() if q["section"] in ("food", "trip", "guide", "tools")],
+    ps = sorted([q for q in all_index_pages() if q["section"] in ("food", "trip", "guide", "tools", "connect")],
                 key=lambda q: (q["date"], q["file"]), reverse=True)
     for q in ps:
         d = datetime.strptime(q["date"], "%Y-%m-%d").replace(hour=9, tzinfo=KST)
-        cat = {"food": "맛집", "trip": "여행", "guide": "가이드", "tools": "생활툴"}[q["section"]]
+        cat = {"food": "맛집", "trip": "여행", "guide": "가이드", "tools": "생활툴", "connect": "쇼핑 추천(광고)"}[q["section"]]
         items.append(f"""    <item>
       <title>{esc(q['title'])}</title>
       <link>{url_of(q['file'])}</link>
@@ -1227,6 +1345,9 @@ def build_llms():
         lines.append("")
     lines += ["## 여행", ""] + [f"- [{n}]({SITE}/{s}.html): {PAGES[s + '.html']['desc']}" for s, n, _ in TRIP_PAGES] + [""]
     lines += ["## 가이드", ""] + [f"- [{n}]({SITE}/{s}.html)" for s, n in GUIDE_PAGES] + [""]
+    if SHOP_LIVE:
+        lines += ["## 쇼핑 추천 (제휴 광고)", "", "아래 글에는 네이버 커넥트 제휴 링크가 있으며, 구매 시 사이트가 수수료를 받습니다.", ""]
+        lines += [f"- [{q['title']}]({url_of(q['file'])})" for q in SHOP_LIVE] + [""]
     write("llms.txt", "\n".join(lines))
 
 
@@ -1236,7 +1357,7 @@ def build_search_index():
         if q["file"] in ("sitemap.html",):
             continue
         k = " ".join(filter(None, [q.get("region_name"), q.get("gu"), q.get("cat"), q.get("group_name"), q.get("kind")]))
-        sec = {"food": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내"}.get(q["section"], "안내")
+        sec = {"food": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내", "connect": "쇼핑 추천 · 광고"}.get(q["section"], "안내")
         title = q["name"] + (" 계산기" if q["section"] == "tools" and "계산" not in q["name"] and "생성" not in q["name"] and "검사" not in q["name"] and "세기" not in q["name"] and "운세" not in q["name"] else "")
         if q["section"] in ("home",) or q["section"].startswith("hub"):
             title = q["title"]
@@ -1252,7 +1373,10 @@ def build_search_index():
 def main():
     for slug in CALCS:
         build_calc(slug)
-    generated = {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html"} | {s + ".html" for s in CALCS}
+    for q in SHOP:
+        build_connect_post(q)
+    build_connect_hub()
+    generated = {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html", "connect.html"} | {s + ".html" for s in CALCS} | {q["file"] for q in SHOP}
     for f, p in PAGES.items():
         if f in generated or f in UNTOUCHED:
             continue
@@ -1269,6 +1393,7 @@ def main():
     build_feed()
     build_llms()
     m = build_search_index()
+    print(f"shop_posts={len(SHOP)} live={len(SHOP_LIVE)}")
     print(f"pages={len(PAGES)} tools={N_TOOLS} food_boards={len(FOOD)} places={N_PLACES} gu={N_GU} sitemap={n} search={m}")
 
 

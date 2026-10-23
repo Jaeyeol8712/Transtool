@@ -347,3 +347,23 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-tool{--primary:var(--at-brand-ink);--text:var(--at-ink);--muted:var(--at-sub);--border:var(--at-line);--card:var(--at-surface)}
 .at-home,.at-two > *,.at-side > *{min-width:0}
 @media (max-width:39.99rem){.at-btable td.k{display:none}}
+
+/* ---------- 쇼핑 추천 (제휴 광고) ---------- */
+:root{--at-shop:#8A5A00;--at-shop-tint:#FBF1DC}
+.at-gnb a.g-shop.is-on{color:var(--at-shop);border-bottom-color:var(--at-shop)}
+.at-board.is-shop .at-board-tabs a[aria-current="page"]{background:var(--at-shop);border-color:var(--at-shop)}
+.at-list .tag.shop,.at-btable .tag.shop{background:var(--at-shop-tint);color:var(--at-shop)}
+.at-disclose{margin:1.1rem 1.1rem 0;padding:1.4rem 1.2rem;border:1px solid var(--at-line-2);border-radius:4px;background:var(--at-surface);text-align:center}
+.at-disclose p{margin:0;font-size:1rem;font-weight:700;line-height:1.75;color:var(--at-ink);word-break:keep-all}
+.at-disclose-sm{font-size:.8438rem;color:var(--at-sub);margin:1.5rem 0 1rem;line-height:1.7}
+.at-disclose-sm b{display:inline-block;background:var(--at-shop-tint);color:var(--at-shop);font-size:.6875rem;padding:.1rem .4rem;border-radius:3px;margin-right:.35rem}
+.at-buy{margin:1.25rem 0 1.75rem}
+.at-prose .at-buy a.at-buy-btn{display:block;text-align:center;background:#03C75A;color:#fff;text-decoration:none;font-weight:800;
+  padding:.95rem 1rem;border-radius:4px;font-size:1rem;letter-spacing:-0.01em}
+.at-prose .at-buy a.at-buy-btn:hover{background:#02A94C}
+.at-buy span{display:block;margin-top:.45rem;font-size:.75rem;color:var(--at-faint);text-align:center}
+.at-fit{display:grid;gap:.75rem;margin:0 0 1.25rem}
+.at-fit > div{border:1px solid var(--at-line);border-radius:4px;padding:.85rem 1rem}
+.at-fit p{margin:0 0 .4rem;font-weight:700}
+.at-fit ul{margin:0;padding-left:1.1rem}
+@media (min-width:40rem){.at-fit{grid-template-columns:1fr 1fr}}
