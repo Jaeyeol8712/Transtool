@@ -1,0 +1,42 @@
+<style>
+.at-tool .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
+.at-tool .stat-box{background:var(--at-sunk);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.at-tool .stat-value{font-size:1.4rem;font-weight:800;color:var(--primary);}
+.at-tool .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px;}
+.at-tool .toolbar{display:flex;justify-content:space-between;align-items:center;margin-top:10px;margin-bottom:4px;}
+.at-tool .toolbar button{width:auto;display:inline-block;padding:8px 14px;font-size:0.85rem;font-weight:600;color:var(--primary);background:var(--at-brand-tint);border:1px solid var(--at-line-2);border-radius:8px;cursor:pointer;}
+</style>
+<div class="toolbar">
+<span style="font-size:0.85rem;color:var(--muted);">아래에 텍스트를 입력하세요</span>
+<button onclick="clearText()">전체 지우기</button>
+</div>
+<textarea id="textInput" oninput="updateStats()" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+<div class="stats">
+<div class="stat-box"><div class="stat-value" id="charWithSpace">0</div><div class="stat-label">공백 포함</div></div>
+<div class="stat-box"><div class="stat-value" id="charNoSpace">0</div><div class="stat-label">공백 제외</div></div>
+<div class="stat-box"><div class="stat-value" id="wordCount">0</div><div class="stat-label">단어수</div></div>
+<div class="stat-box"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">문장수</div></div>
+<div class="stat-box"><div class="stat-value" id="lineCount">0</div><div class="stat-label">줄수</div></div>
+<div class="stat-box"><div class="stat-value" id="byteCount">0</div><div class="stat-label">바이트</div></div>
+</div>
+<script>
+function updateStats(){
+  const text = document.getElementById('textInput').value;
+  const charWithSpace = text.length;
+  const charNoSpace = text.replace(/\s/g, '').length;
+  const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+  const sentences = text.split(/[.!?。！？]+/).filter(s => s.trim().length > 0);
+  const lines = text === '' ? 0 : text.split('\n').length;
+  const byteCount = new TextEncoder().encode(text).length;
+  document.getElementById('charWithSpace').textContent = charWithSpace.toLocaleString();
+  document.getElementById('charNoSpace').textContent = charNoSpace.toLocaleString();
+  document.getElementById('wordCount').textContent = words.length.toLocaleString();
+  document.getElementById('sentenceCount').textContent = sentences.length.toLocaleString();
+  document.getElementById('lineCount').textContent = lines.toLocaleString();
+  document.getElementById('byteCount').textContent = byteCount.toLocaleString();
+}
+function clearText(){
+  document.getElementById('textInput').value = '';
+  updateStats();
+}
+</script>

@@ -1,0 +1,26 @@
+<p style="font-weight:600; margin-bottom:10px; font-size:0.95rem; color:var(--text);">유형 1: 전체의 N% 구하기</p>
+<div style="display:flex; gap:8px; align-items:center; margin-bottom:16px;">
+<input id="p1_total" placeholder="전체값" style="margin-bottom:0;" type="number"/> 의 
+ <input id="p1_pct" placeholder="%" style="margin-bottom:0;" type="number"/> %는?
+ <button onclick="calcP1()" style="width:80px; padding:12px;">계산</button>
+</div>
+<div id="res1" style="color:var(--primary); font-weight:700; margin-bottom:24px;"></div>
+<p style="font-weight:600; margin-bottom:10px; font-size:0.95rem; color:var(--text);">유형 2: 전체 중 일부의 비중(%) 구하기</p>
+<div style="display:flex; gap:8px; align-items:center;">
+<input id="p2_total" placeholder="전체값" style="margin-bottom:0;" type="number"/> 중 
+ <input id="p2_part" placeholder="일부값" style="margin-bottom:0;" type="number"/> 은(는)?
+ <button onclick="calcP2()" style="width:80px; padding:12px;">계산</button>
+</div>
+<div id="res2" style="color:var(--primary); font-weight:700; margin-top:12px;"></div>
+<script>
+ function calcP1(){
+ const t = parseFloat(document.getElementById('p1_total').value);
+ const p = parseFloat(document.getElementById('p1_pct').value);
+ if(t && p) document.getElementById('res1').textContent = '= ' + (t * (p/100)).toLocaleString();
+ }
+ function calcP2(){
+ const t = parseFloat(document.getElementById('p2_total').value);
+ const p = parseFloat(document.getElementById('p2_part').value);
+ if(t && p) document.getElementById('res2').textContent = '= ' + ((p/t)*100).toFixed(2) + ' %';
+ }
+ </script>

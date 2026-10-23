@@ -1,0 +1,67 @@
+<style>
+.at-tool .sp-out{font-size:.9688rem;line-height:1.9;white-space:pre-wrap;word-break:keep-all;padding:.75rem 0}
+.at-tool .sp-out ins{text-decoration:none;background:var(--at-brand-tint);color:var(--at-brand-ink);border-bottom:2px solid var(--at-brand);padding:0 .1em}
+.at-tool .sp-sum{font-weight:700;margin:.5rem 0 0}
+</style>
+<label for="spText">검사할 문장</label>
+<textarea id="spText" placeholder="예: 내일 갈수있다면 연락할께요. 그때 하는것을 보고 판단할수 있을 것 같아요."></textarea>
+<button onclick="calcSp()">띄어쓰기 검사</button>
+<div class="result" id="result" aria-live="polite">
+<p class="sp-sum" id="spSum"></p>
+<div class="sp-out" id="spRes"></div>
+<button class="ghost" id="spCopy" onclick="copySp()">고친 문장 복사</button>
+</div>
+<script>
+/* 관형형 어미(-ㄹ/-을, -는, -ㄴ/-은/-던) 뒤에 붙은 의존명사를 띄웁니다. */
+var JONG = function(ch){ var c = ch.charCodeAt(0) - 0xAC00; return (c < 0 || c > 11171) ? -1 : c % 28; };
+var BOUND_RIEUL = ['수','때','줄','적','뻔','거','것'];        /* -ㄹ 뒤 */
+var BOUND_ADN   = ['것','거','줄','적','지'];                    /* -는/-ㄴ/-은/-던 뒤 */
+var KEEP = ['수록','거리','줄기','지만','지도','지요','지는','지를','지가'];
+var STOP_PREV = ['실','일','술','발','별','결','설','절','철','필','골','돌','말','글','물','불','칼','쌀','털','얼'];
+var lastFixed = '';
+function esc(s){ return s.replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+function needSpace(t, i){
+ /* t[i] 가 의존명사 후보, t[i-1] 이 앞 음절 */
+ var prev = t[i-1], cur = t[i], rest = t.substr(i, 2);
+ if(!prev || /\s/.test(prev)) return false;
+ for(var k = 0; k < KEEP.length; k++) if(t.substr(i, KEEP[k].length) === KEEP[k] && cur !== '것') return false;
+ var j = JONG(prev);
+ if(j === 8 && BOUND_RIEUL.indexOf(cur) > -1){            /* 받침 ㄹ */
+  var word = t.substring(Math.max(0, i-3), i);
+  if(/(^|\s)[가-힣]$/.test(word) && STOP_PREV.indexOf(prev) > -1) return false; /* 실수, 일수 등 한 단어 */
+  if(cur === '때' && !/^때(문|에|는|도|까|부|가|마|면|$|\s|[.,!?])/.test(t.substr(i, 2))) return false;
+  if(cur === '줄' && !/^줄(알|몰|았|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '적' && !/^적(이|도|은|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '뻔' && !/^뻔(했|하|$|\s)/.test(t.substr(i, 2))) return false;
+  return true;
+ }
+ if((prev === '는' || prev === '던' || j === 4) && BOUND_ADN.indexOf(cur) > -1){ /* -는, -던, 받침 ㄴ */
+  if(cur === '지') return /^지\s?(오래|얼마|벌써|[0-9]|한|두|세|몇)/.test(t.substr(i, 4));
+  if(cur === '거' && !/^거(야|예|에|든|지|라|니|$|\s|[.,!?])/.test(t.substr(i, 2))) return false;
+  if(cur === '줄' && !/^줄(알|몰|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '적' && !/^적(이|도|은|$|\s)/.test(t.substr(i, 2))) return false;
+  if(j === 4 && STOP_PREV.indexOf(prev) > -1) return false;
+  return true;
+ }
+ /* 수 + 있다/없다 */
+ if(cur === '있' || cur === '없'){ return t[i-1] === '수' && i >= 2 && !/\s/.test(t[i-1]); }
+ return false;
+}
+function calcSp(){
+ var t = document.getElementById('spText').value;
+ if(!t.trim()) return alert('검사할 문장을 입력해주세요.');
+ var out = '', fixed = '', n = 0;
+ for(var i = 0; i < t.length; i++){
+  if(i > 0 && needSpace(t, i)){ out += '<ins> </ins>'; fixed += ' '; n++; }
+  out += esc(t[i]); fixed += t[i];
+ }
+ lastFixed = fixed;
+ document.getElementById('spRes').innerHTML = out;
+ document.getElementById('spSum').textContent = n ? '띄어 써야 할 곳 ' + n + '군데를 고쳤습니다. 초록색 칸이 추가된 띄어쓰기입니다.' : '의존명사 띄어쓰기 오류는 찾지 못했습니다.';
+ document.getElementById('spCopy').style.display = n ? 'block' : 'none';
+ document.getElementById('result').classList.add('show');
+}
+function copySp(){
+ if(navigator.clipboard) navigator.clipboard.writeText(lastFixed).then(function(){ document.getElementById('spCopy').textContent = '복사했습니다'; });
+}
+</script>

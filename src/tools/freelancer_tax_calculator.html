@@ -1,0 +1,45 @@
+<label for="totalIncome">연간 총수입 (원, 3.3% 떼기 전 금액)</label>
+<input id="totalIncome" placeholder="예: 30000000" type="number" inputmode="numeric"/>
+<label for="preTax">이미 낸 세금 (원천징수 3.3% 합계)</label>
+<input id="preTax" type="number" value="0" inputmode="numeric"/>
+<button class="ghost" onclick="autoFillPreTax()" style="margin:-.5rem 0 1rem">총수입의 3.3%로 자동 채우기</button>
+<label for="expRate">단순경비율</label>
+<select id="expRate">
+<option value="0.6" selected>60% (인적용역 대략치)</option>
+<option value="0.5">50%</option>
+<option value="0.7">70%</option>
+</select>
+<p class="hint">업종코드별 정확한 경비율은 홈택스 ‘기준·단순경비율 조회’에서 확인하세요.</p>
+<button onclick="calcIncomeTax()">예상 종합소득세 계산</button>
+<div class="result" id="result" aria-live="polite">
+<div class="result-row"><span class="result-label">과세표준</span><span class="result-value small" id="taxBase">-</span></div>
+<div class="result-row"><span class="result-label">결정세액 (지방소득세 포함)</span><span class="result-value small" id="decidedTax">-</span></div>
+<div class="result-row"><span class="result-label" id="refundLabel">환급/납부액</span><span class="result-value" id="finalStatus">-</span></div>
+</div>
+<p class="tool-note">단순경비율 추계, 본인 기본공제 150만 원만 반영한 간이 계산입니다. 다른 소득·공제가 있으면 결과가 달라집니다.</p>
+<script>
+function autoFillPreTax(){
+ const inc = parseFloat(document.getElementById('totalIncome').value) || 0;
+ document.getElementById('preTax').value = Math.round(inc * 0.033);
+}
+function incomeTax(base){
+ const b = [[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+ const r = b.find(x => base <= x[0]);
+ return Math.max(0, base * r[1] - r[2]);
+}
+function calcIncomeTax(){
+ const inc = parseFloat(document.getElementById('totalIncome').value);
+ const preTax = parseFloat(document.getElementById('preTax').value) || 0;
+ const rate = parseFloat(document.getElementById('expRate').value);
+ if(!inc) return alert('총수입을 입력해주세요.');
+ const base = Math.max(0, inc * (1 - rate) - 1500000);
+ const decided = incomeTax(base) * 1.1;
+ const diff = decided - preTax;
+ document.getElementById('taxBase').textContent = Math.round(base).toLocaleString() + '원';
+ document.getElementById('decidedTax').textContent = Math.round(decided).toLocaleString() + '원';
+ const el = document.getElementById('finalStatus'), lb = document.getElementById('refundLabel');
+ if(diff < 0){ lb.textContent = '예상 환급액 (돌려받는 돈)'; el.textContent = Math.round(-diff).toLocaleString() + '원'; el.style.color = '#0B6E5F'; }
+ else { lb.textContent = '예상 추가 납부액'; el.textContent = Math.round(diff).toLocaleString() + '원'; el.style.color = '#B3402B'; }
+ document.getElementById('result').classList.add('show');
+}
+</script>

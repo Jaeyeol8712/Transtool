@@ -1,0 +1,30 @@
+<label for="oldVal">이전 값 (기준점)</label>
+<input id="oldVal" placeholder="예: 1000" type="number"/>
+<label for="newVal">현재 값 (변화점)</label>
+<input id="newVal" placeholder="예: 1250" type="number"/>
+<button onclick="calcIncDec()">증감율 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">변화율 (%)</span><span class="result-value" id="changeRate">-</span></div>
+<div class="result-row"><span class="result-label">증감 상태</span><span class="result-value" id="changeStatus" style="font-size:1.1rem;">-</span></div>
+</div>
+<script>
+ function calcIncDec(){
+ const oldV = parseFloat(document.getElementById('oldVal').value);
+ const newV = parseFloat(document.getElementById('newVal').value);
+ if(!oldV || !newV) return alert('값을 모두 입력해주세요.');
+ const rate = ((newV - oldV) / oldV) * 100;
+ document.getElementById('changeRate').textContent = Math.abs(rate).toFixed(2) + '%';
+ const statusEl = document.getElementById('changeStatus');
+ if(rate > 0) {
+ statusEl.textContent = '▲ 증가 (상승)';
+ statusEl.style.color = '#ef4444'; 
+ } else if (rate < 0) {
+ statusEl.textContent = '▼ 감소 (하락)';
+ statusEl.style.color = '#3b82f6';
+ } else {
+ statusEl.textContent = '변동 없음';
+ statusEl.style.color = 'var(--text)';
+ }
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

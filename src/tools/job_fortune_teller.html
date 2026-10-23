@@ -1,0 +1,24 @@
+<label for="fortName">이름</label>
+<input id="fortName" placeholder="예: 홍길동" type="text"/>
+<button onclick="calcFort()">오늘의 응원 메시지 보기</button>
+<div class="result" id="result" aria-live="polite">
+<p style="font-weight:800;font-size:1.125rem;margin:.75rem 0 .4rem;color:var(--at-brand-ink)" id="fortTitle">-</p>
+<p style="margin:0;color:var(--at-sub);line-height:1.75" id="fortDesc">-</p>
+</div>
+<p class="tool-note">재미용 콘텐츠입니다. 이름은 저장되거나 전송되지 않습니다.</p>
+<script>
+function calcFort(){
+ const n = document.getElementById('fortName').value.trim();
+ if(!n) return alert('이름을 입력해주세요.');
+ const fortunes = [
+  {t:'솔직함이 무기가 되는 날', d:'준비한 답변이 아니더라도 당황하지 말고, 경험을 구체적인 숫자와 장면으로 이야기해 보세요.'},
+  {t:'새로운 공고를 살펴보기 좋은 날', d:'오늘 올라온 채용 공고를 꼼꼼히 읽어 보세요. 직무 설명에 쓰인 단어를 자기소개서에 반영하면 좋습니다.'},
+  {t:'쌓아 온 준비가 드러나는 날', d:'긴장을 내려놓고 천천히 말하세요. 질문을 한 번 더 확인하고 답하는 여유가 좋은 인상을 남깁니다.'},
+  {t:'작은 정리가 큰 차이를 만드는 날', d:'제출 전 맞춤법과 글자수를 한 번 더 확인하세요. 마지막 5분 점검이 서류의 완성도를 바꿉니다.'}
+ ];
+ const pick = fortunes[Math.floor(Math.random() * fortunes.length)];
+ document.getElementById('fortTitle').textContent = pick.t;
+ document.getElementById('fortDesc').textContent = n + '님, ' + pick.d;
+ document.getElementById('result').classList.add('show');
+}
+</script>

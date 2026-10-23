@@ -1,0 +1,20 @@
+<label for="dotNum">타이어 DOT 번호 끝 4자리 (예: 2526)</label>
+<input id="dotNum" placeholder="예: 3125" type="number"/>
+<button onclick="calcTire()">제조일자 확인</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">생산 시기</span><span class="result-value" id="tireDate">-</span></div>
+<div class="result-row"><span class="result-label">추정 생산월</span><span class="result-value" id="tireMonth" style="font-size:1.1rem; color:var(--text);">-</span></div>
+</div>
+<script>
+ function calcTire(){
+ const val = document.getElementById('dotNum').value;
+ if(val.length !== 4) return alert('4자리 숫자를 입력해주세요.');
+ const week = parseInt(val.substring(0,2));
+ const year = parseInt(val.substring(2,4));
+ if(week < 1 || week > 53) return alert('올바른 주차(01~53)를 입력하세요.');
+ const month = Math.ceil(week / 4.345);
+ document.getElementById('tireDate').textContent = `20${year}년 ${week}번째 주`;
+ document.getElementById('tireMonth').textContent = `대략 ${month}월경 생산됨`;
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

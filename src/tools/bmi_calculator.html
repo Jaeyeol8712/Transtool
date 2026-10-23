@@ -1,0 +1,25 @@
+<label for="bmiH">키 (cm)</label>
+<input id="bmiH" placeholder="예: 172" type="number" inputmode="decimal"/>
+<label for="bmiW">몸무게 (kg)</label>
+<input id="bmiW" placeholder="예: 68" type="number" inputmode="decimal"/>
+<button onclick="calcBmi2()">BMI 계산</button>
+<div class="result" id="result" aria-live="polite">
+<div class="result-row"><span class="result-label">BMI 지수</span><span class="result-value" id="bmiRes">-</span></div>
+<div class="result-row"><span class="result-label">판정 (대한비만학회)</span><span class="result-value small" id="bmiStat">-</span></div>
+<div class="result-row"><span class="result-label">내 키의 정상 체중 범위</span><span class="result-value small" id="bmiRange">-</span></div>
+</div>
+<script>
+function calcBmi2(){
+ const hcm = parseFloat(document.getElementById('bmiH').value);
+ const w = parseFloat(document.getElementById('bmiW').value);
+ if(!hcm || !w) return alert('키와 몸무게를 입력해주세요.');
+ const h = hcm/100, bmi = w/(h*h);
+ const stages = [[18.5,'저체중','#2563A8'],[23,'정상','#0B6E5F'],[25,'비만 전단계','#B7791F'],[30,'1단계 비만','#C2410C'],[35,'2단계 비만','#B3402B'],[Infinity,'3단계 비만','#991B1B']];
+ const s = stages.find(x => bmi < x[0]);
+ document.getElementById('bmiRes').textContent = bmi.toFixed(1);
+ const st = document.getElementById('bmiStat');
+ st.textContent = s[1]; st.style.color = s[2];
+ document.getElementById('bmiRange').textContent = (18.5*h*h).toFixed(1) + ' ~ ' + (22.9*h*h).toFixed(1) + ' kg';
+ document.getElementById('result').classList.add('show');
+}
+</script>

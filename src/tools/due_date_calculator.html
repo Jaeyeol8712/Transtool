@@ -1,0 +1,34 @@
+<label for="lmp">최종월경일 (마지막 생리 시작일)</label>
+<input id="lmp" type="date"/>
+<button onclick="calcDueDate()">출산예정일 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">출산예정일</span><span class="result-value" id="dueDate">-</span></div>
+<div class="result-row"><span class="result-label">오늘 기준 임신 주수</span><span class="result-value" id="weekValue">-</span></div>
+<div class="result-row"><span class="result-label">현재 삼분기</span><span class="result-value" id="trimester" style="font-size:1.1rem;">-</span></div>
+</div>
+<script>
+ function calcDueDate(){
+ const lmpStr = document.getElementById('lmp').value;
+ if(!lmpStr) return alert('최종월경일을 입력해주세요.');
+ const lmp = new Date(lmpStr);
+ const due = new Date(lmp.getTime() + 280*24*60*60*1000);
+ const today = new Date();
+ const diffDays = Math.floor((today - lmp) / (1000*60*60*24));
+ const week = Math.floor(diffDays / 7);
+ const day = diffDays % 7;
+ let tri;
+ if(week <= 13) tri = '1삼분기 (초기)';
+ else if(week <= 27) tri = '2삼분기 (중기)';
+ else tri = '3삼분기 (후기)';
+ const dueStr = due.getFullYear() + '년 ' + (due.getMonth()+1) + '월 ' + due.getDate() + '일';
+ document.getElementById('dueDate').textContent = dueStr;
+ if(diffDays < 0){
+ document.getElementById('weekValue').textContent = '최종월경일이 아직 오지 않았습니다';
+ document.getElementById('trimester').textContent = '-';
+ } else {
+ document.getElementById('weekValue').textContent = week + '주 ' + day + '일';
+ document.getElementById('trimester').textContent = tri;
+ }
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

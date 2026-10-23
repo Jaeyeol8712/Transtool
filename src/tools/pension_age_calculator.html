@@ -1,0 +1,24 @@
+<label for="birthYear">출생연도</label>
+<input id="birthYear" placeholder="예: 1990" type="number"/>
+<button onclick="calcPensionAge()">수급개시나이 확인하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">노령연금 수급개시 나이</span><span class="result-value" id="ageValue">-</span></div>
+<div class="result-row"><span class="result-label">예상 수급개시 연도</span><span class="result-value" id="yearValue">-</span></div>
+<div class="result-row"><span class="result-label">최소 가입기간</span><span class="result-value" id="minPeriod" style="font-size:1.05rem;">10년 (120개월)</span></div>
+</div>
+<script>
+ function calcPensionAge(){
+ const y = parseInt(document.getElementById('birthYear').value);
+ if(!y || y < 1900 || y > 2015) return alert('올바른 출생연도를 입력해주세요.');
+ let age;
+ if(y <= 1952) age = 60;
+ else if(y <= 1956) age = 61;
+ else if(y <= 1960) age = 62;
+ else if(y <= 1964) age = 63;
+ else if(y <= 1968) age = 64;
+ else age = 65;
+ document.getElementById('ageValue').textContent = '만 ' + age + '세';
+ document.getElementById('yearValue').textContent = (y + age) + '년';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
