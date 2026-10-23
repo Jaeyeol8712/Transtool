@@ -969,16 +969,10 @@ def buy_button(post, label=None):
 
 
 def link_card(post):
-    """제휴 링크를 OG 미리보기 카드(이미지·제목·도메인)로 보여줍니다."""
-    og = post.get("og") or {}
-    title = og.get("title") or post["product"]
-    img = og.get("image")
-    site = og.get("site") or "naver.com"
-    thumb = (f'<span class="at-og-img"><img src="{esc(img)}" alt="" loading="lazy" decoding="async"></span>' if img
-             else '<span class="at-og-img at-og-noimg" aria-hidden="true">N</span>')
-    return (f'<a class="at-og" href="{esc(post["link"])}" target="_blank" rel="sponsored nofollow noopener">{thumb}'
-            f'<span class="at-og-body"><span class="at-og-title">{esc(title)}</span>'
-            f'<span class="at-og-site">{esc(site)}</span></span></a>')
+    """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조."""
+    label = post.get("cta") or "제품 자세히 알아보기 >>"
+    return (f'<a class="at-cta" href="{esc(post["link"])}" target="_blank" rel="sponsored nofollow noopener">'
+            f'{esc(label)}</a>')
 
 
 def build_connect_blog(p):
