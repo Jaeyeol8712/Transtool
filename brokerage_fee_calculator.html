@@ -1,67 +1,96 @@
-<!-- 5. brokerage_fee_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>부동산 중개보수 계산기 - 복비 상한액 무료 계산</title>
-<meta name="description" content="아파트 매매, 전세, 월세 계약 시 공인중개사에게 지불해야 하는 법정 중개수수료(복비) 한도를 계산합니다.">
-<link rel="canonical" href="https://www.aroundtool.com/brokerage_fee_calculator">
-<style>
- :root{--primary:#be123c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
-</style>
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부동산 중개보수(복비) 계산기 — 매매·전월세 법정 상한 요율 | 어라운드툴</title>
+<meta name="description" content="매매·교환과 전세·월세 거래금액을 넣으면 주택 중개보수 법정 상한 요율과 최대 중개보수를 계산합니다. 2021년 개편된 구간별 요율표, 월세 환산보증금 계산법, 부가세 기준을 함께 정리했습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/brokerage_fee_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/brokerage_fee_calculator.html">
+<meta property="og:title" content="부동산 중개보수(복비) 계산기 — 매매·전월세 법정 상한 요율">
+<meta property="og:description" content="매매·교환과 전세·월세 거래금액을 넣으면 주택 중개보수 법정 상한 요율과 최대 중개보수를 계산합니다. 2021년 개편된 구간별 요율표, 월세 환산보증금 계산법, 부가세 기준을 함께 정리했습니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="부동산 중개보수(복비) 계산기 — 매매·전월세 법정 상한 요율">
+<meta name="twitter:description" content="매매·교환과 전세·월세 거래금액을 넣으면 주택 중개보수 법정 상한 요율과 최대 중개보수를 계산합니다. 2021년 개편된 구간별 요율표, 월세 환산보증금 계산법, 부가세 기준을 함께 정리했습니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
+
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/brokerage_fee_calculator.html#webpage","url":"https://www.aroundtool.com/brokerage_fee_calculator.html","name":"부동산 중개보수(복비) 계산기 — 매매·전월세 법정 상한 요율","description":"매매·교환과 전세·월세 거래금액을 넣으면 주택 중개보수 법정 상한 요율과 최대 중개보수를 계산합니다. 2021년 개편된 구간별 요율표, 월세 환산보증금 계산법, 부가세 기준을 함께 정리했습니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/brokerage_fee_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"재테크·부동산","item":"https://www.aroundtool.com/tools.html#g-money"},{"@type":"ListItem","position":4,"name":"중개보수","item":"https://www.aroundtool.com/brokerage_fee_calculator.html"}],"@id":"https://www.aroundtool.com/brokerage_fee_calculator.html#breadcrumb"},{"@type":"WebApplication","name":"부동산 중개보수 계산기","url":"https://www.aroundtool.com/brokerage_fee_calculator.html","description":"매매·교환과 전세·월세 거래금액을 넣으면 주택 중개보수 법정 상한 요율과 최대 중개보수를 계산합니다. 2021년 개편된 구간별 요율표, 월세 환산보증금 계산법, 부가세 기준을 함께 정리했습니다.","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"부동산 중개보수 계산기 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"거래 종류(매매·교환 또는 전월세)를 고릅니다."},{"@type":"HowToStep","position":2,"text":"거래 금액을 입력합니다. 월세는 ‘보증금 + 월세 × 100’으로 환산합니다. (5천만 원 미만이면 × 70)"},{"@type":"HowToStep","position":3,"text":"계산하면 상한 요율과 최대 중개보수(부가세 별도)가 나옵니다."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"중개보수에 부가세가 붙나요?","acceptedAnswer":{"@type":"Answer","text":"일반과세자인 중개사무소는 중개보수의 10%를 부가세로 별도 받을 수 있습니다. 간이과세자는 업종 부가가치율을 적용한 금액만 받습니다. 사업자등록증 유형을 확인하세요."}},{"@type":"Question","name":"상한 요율을 꼭 다 내야 하나요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 표의 요율은 받을 수 있는 최대치이고, 실제 보수는 계약 전에 중개사와 협의해 정합니다. 협의 내용은 중개보수 확인서에 남겨 두는 것이 좋습니다."}},{"@type":"Question","name":"월세 거래금액은 어떻게 넣나요?","acceptedAnswer":{"@type":"Answer","text":"보증금 + (월세 × 100)을 넣습니다. 이렇게 계산한 금액이 5천만 원 미만이면 보증금 + (월세 × 70)으로 다시 계산합니다. 보증금 1천만 원, 월세 50만 원이면 6천만 원이 거래금액입니다."}},{"@type":"Question","name":"중개보수는 누가 내나요?","acceptedAnswer":{"@type":"Answer","text":"매도인과 매수인, 임대인과 임차인이 각자 자기 쪽 중개사에게 상한 범위 내에서 냅니다. 한 중개사가 양쪽을 중개하면 양쪽에서 각각 받습니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>부동산 계산기</span><span>/</span><span>중개보수 계산기</span></nav>
-<header>
- <h1>🤝 중개보수 계산기</h1>
- <p>법정 부동산 중개수수료 상한 요율 계산</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card">
- <label>거래 종류</label>
- <select id="tradeType">
- <option value="sell">매매/교환</option>
- <option value="rent">전월세/임대차</option>
- </select>
- <label>거래 금액 (원, 월세인 경우 환산보증금)</label>
- <input type="number" id="tradePrice" placeholder="예: 500000000">
- <button onclick="calcBroker()">중개보수 계산하기</button>
- <div class="result" id="result">
- <div class="result-row"><span class="result-label">상한 요율</span><span class="result-value" id="brokerRate" style="font-size:1.1rem;">-</span></div>
- <div class="result-row"><span class="result-label">최대 중개보수 (부가세 별도)</span><span class="result-value" id="brokerFee">-</span></div>
- </div>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><span aria-current="page">중개보수</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-money">생활툴 · 재테크·부동산</a></p><span class="at-board-meta">13종</span></div>
+  <ul class="at-board-tabs"><li><a href="/salary_calculator.html">연봉 실수령액</a></li><li><a href="/loan_calculator.html">대출 이자</a></li><li><a href="/savings_calculator.html">예적금 이자</a></li><li><a href="/compound_calculator.html">복리</a></li><li><a href="/freelancer_tax_calculator.html">종합소득세</a></li><li><a href="/dsr_calculator.html">DSR</a></li><li><a href="/ltv_calculator.html">LTV</a></li><li><a href="/acquisition_tax_calculator.html">부동산 취득세</a></li><li><a href="/brokerage_fee_calculator.html" aria-current="page">중개보수</a></li><li><a href="/increase_decrease_calculator.html">증감률</a></li><li><a href="/pension_age_calculator.html">국민연금 수급나이</a></li><li><a href="/prepayment_penalty_calculator.html">중도상환수수료</a></li><li><a href="/interior_calculator.html">인테리어 가견적</a></li></ul>
 </div>
-<article class="seo-text">
- <h2>2026년 하반기 이사철 대비 중개보수 셈법</h2>
- <p>가을 이사철을 앞두고 한여름부터 발품을 팔아 전월세나 매매 임장을 다니는 분들이 부쩍 늘고 있습니다. 계약서에 도장을 찍기 전 전체 예산 기획에서 절대 간과하면 안 되는 항목이 바로 공인중개사에게 지급하는 복비(중개수수료)입니다. 2026년 현재 적용되고 있는 법정 상한 요율은 거래 대상의 금액대와 계약 형태(매매 혹은 임대차)에 따라 아주 세밀하게 구간이 쪼개져 있습니다. 예를 들어 9억 원 이하 매매 시 0.4%, 6억 원 이하 전세 시 0.3% 등의 요율 상한선이 정해져 있으며, 특정 소액 구간에서는 청구 한도액이 별도로 묶여 있어 그 이상을 요구할 수 없습니다. 오피스텔, 상가의 경우 주택과 다른 요율이 적용되는 점도 꼭 챙겨야 할 포인트입니다. 본 툴을 통해 부가세를 제외한 법정 최대 한도를 미리 꿰뚫어 보시고, 중개인과 얼굴 붉히는 일 없이 스무스하게 수수료를 조율해 보시기 바랍니다.</p>
-</article>
-<footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
-</footer>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">부동산 중개보수 계산기</h1>
+  <p class="lede" itemprop="description">주택 매매·임대차 계약 전에 공인중개사에게 낼 복비 상한을 확인합니다.</p>
+  <p class="meta"><span>생활툴 · 재테크·부동산</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="부동산 중개보수 계산기">
+<label for="tradeType">거래 종류</label>
+<select id="tradeType">
+<option value="sell">매매/교환</option>
+<option value="rent">전월세/임대차</option>
+</select>
+<label for="tradePrice">거래 금액 (원, 월세인 경우 환산보증금)</label>
+<input id="tradePrice" placeholder="예: 500000000" type="number"/>
+<button onclick="calcBroker()">중개보수 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">상한 요율</span><span class="result-value" id="brokerRate" style="font-size:1.1rem;">-</span></div>
+<div class="result-row"><span class="result-label">최대 중개보수 (부가세 별도)</span><span class="result-value" id="brokerFee">-</span></div>
+</div>
 <script>
 function calcBroker(){
  const type = document.getElementById('tradeType').value;
@@ -90,5 +119,71 @@ function calcBroker(){
  document.getElementById('result').classList.add('show');
 }
 </script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>주택 중개보수는 <b>거래금액 × 구간별 상한 요율</b>로 계산하며, 일부 소액 구간에는 한도액이 있습니다. 예를 들어 매매 2억~9억 원은 0.4%, 전세 1억~6억 원은 0.3%가 상한이고, 이 범위 안에서 중개사와 협의해 정합니다.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>거래 종류(매매·교환 또는 전월세)를 고릅니다.</li><li>거래 금액을 입력합니다. 월세는 ‘보증금 + 월세 × 100’으로 환산합니다. (5천만 원 미만이면 × 70)</li><li>계산하면 상한 요율과 최대 중개보수(부가세 별도)가 나옵니다.</li></ol>
+<h2>계산 방법</h2><div class="at-formula">중개보수 = 거래금액 × 상한 요율 (한도액이 있으면 한도액까지)<br>월세 환산보증금 = 보증금 + 월세 × 100 → 결과가 5천만 원 미만이면 보증금 + 월세 × 70</div>
+<h2>주택 중개보수 상한 요율표</h2>
+<div class="at-table"><table><thead><tr><th>거래금액</th><th>매매·교환</th><th>임대차</th></tr></thead><tbody>
+<tr><th>5천만 원 미만</th><td>0.6% (한도 25만 원)</td><td>0.5% (한도 20만 원)</td></tr>
+<tr><th>5천만~1억 원</th><td>0.5% (한도 80만 원)</td><td>0.4% (한도 30만 원)</td></tr>
+<tr><th>1억~2억 원</th><td>0.5% (한도 80만 원)</td><td>0.3%</td></tr>
+<tr><th>2억~6억 원</th><td>0.4%</td><td>0.3%</td></tr>
+<tr><th>6억~9억 원</th><td>0.4%</td><td>0.4%</td></tr>
+<tr><th>9억~12억 원</th><td>0.5%</td><td>0.4%</td></tr>
+<tr><th>12억~15억 원</th><td>0.6%</td><td>0.5%</td></tr>
+<tr><th>15억 원 이상</th><td>0.7%</td><td>0.6%</td></tr>
+</tbody></table></div>
+<p>오피스텔(전용 85㎡ 이하, 주거용 설비 갖춤)은 매매 0.5%, 임대차 0.4%가 상한이고, 상가·토지 등은 0.9% 이내에서 협의합니다. 시·도 조례로 세부 기준이 정해지므로 지역별로 확인하세요.</p>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>중개보수에 부가세가 붙나요?</summary><div class="a"><p>일반과세자인 중개사무소는 중개보수의 10%를 부가세로 별도 받을 수 있습니다. 간이과세자는 업종 부가가치율을 적용한 금액만 받습니다. 사업자등록증 유형을 확인하세요.</p></div></details><details><summary>상한 요율을 꼭 다 내야 하나요?</summary><div class="a"><p>아닙니다. 표의 요율은 받을 수 있는 최대치이고, 실제 보수는 계약 전에 중개사와 협의해 정합니다. 협의 내용은 중개보수 확인서에 남겨 두는 것이 좋습니다.</p></div></details><details><summary>월세 거래금액은 어떻게 넣나요?</summary><div class="a"><p>보증금 + (월세 × 100)을 넣습니다. 이렇게 계산한 금액이 5천만 원 미만이면 보증금 + (월세 × 70)으로 다시 계산합니다. 보증금 1천만 원, 월세 50만 원이면 6천만 원이 거래금액입니다.</p></div></details><details><summary>중개보수는 누가 내나요?</summary><div class="a"><p>매도인과 매수인, 임대인과 임차인이 각자 자기 쪽 중개사에게 상한 범위 내에서 냅니다. 한 중개사가 양쪽을 중개하면 양쪽에서 각각 받습니다.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/acquisition_tax_calculator.html">부동산 취득세 계산기</a> — 2026년 기준 주택 취득세 계산기. 생애최초 주택 구입 감면(최대 200만원, 인구감소지역 300만원)과…</li><li><a href="/ltv_calculator.html">LTV 계산기</a> — 주택 가격, 선순위 채권·임대보증금, 신규 대출 금액으로 LTV(주택담보인정비율)를 계산합니다. LTV…</li><li><a href="/pyeong_calculator.html">평수 계산기</a> — 평수와 제곱미터(㎡)를 입력하는 즉시 서로 변환합니다. 1평 = 3.3058㎡ 환산식, 59㎡·84㎡…</li><li><a href="/interior_calculator.html">인테리어 가견적 계산기</a> — 2026년 시세 기준 아파트 인테리어 가견적 계산기. 평수와 마감 등급, 공사 항목을 고르면 항목별 금액과…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/acquisition_tax_calculator.html"><span class="tag ">재테크</span><span class="t">부동산 취득세</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/ltv_calculator.html"><span class="tag ">재테크</span><span class="t">LTV<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/pyeong_calculator.html"><span class="tag ">생활</span><span class="t">평수<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/interior_calculator.html"><span class="tag ">재테크</span><span class="t">인테리어 가견적</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/salary_calculator.html"><span class="tag ">재테크</span><span class="t">연봉 실수령액</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/loan_calculator.html"><span class="tag ">재테크</span><span class="t">대출 이자<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/savings_calculator.html"><span class="tag ">재테크</span><span class="t">예적금 이자<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/compound_calculator.html"><span class="tag ">재테크</span><span class="t">복리<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

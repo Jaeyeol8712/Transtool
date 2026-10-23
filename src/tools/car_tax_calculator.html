@@ -1,0 +1,33 @@
+<label for="carType">차량 종류</label>
+<select id="carType"><option value="pass">승용차(비영업용)</option></select>
+<label for="carCc">배기량 (cc)</label>
+<input id="carCc" placeholder="예: 1998" type="number"/>
+<label for="carAge">차량 등록 년도 (년차)</label>
+<input id="carAge" placeholder="예: 3" type="number" value="1"/>
+<button onclick="calcCarTax()">자동차세 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">자동차세</span><span class="result-value" id="pureTax" style="font-size:1.1rem; color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 납부액 (교육세 30% 포함)</span><span class="result-value" id="totalCarTax">-</span></div>
+</div>
+<script>
+function calcCarTax(){
+ const cc = parseInt(document.getElementById('carCc').value);
+ const age = parseInt(document.getElementById('carAge').value);
+ if(!cc) return alert('배기량을 입력해주세요.');
+ let ccTax = 0;
+ if(cc <= 1000) ccTax = 80;
+ else if(cc <= 1600) ccTax = 140;
+ else ccTax = 200;
+ let baseTax = cc * ccTax;
+ if(age >= 3){
+ let discountRate = (age - 2) * 0.05;
+ if(discountRate > 0.5) discountRate = 0.5;
+ baseTax = baseTax * (1 - discountRate);
+ }
+ const eduTax = baseTax * 0.3;
+ const total = baseTax + eduTax;
+ document.getElementById('pureTax').textContent = Math.round(baseTax).toLocaleString() + '원';
+ document.getElementById('totalCarTax').textContent = Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+}
+</script>

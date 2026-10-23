@@ -1,0 +1,38 @@
+<label for="monthly">월 적립액 (원)</label>
+<input id="monthly" placeholder="예: 500000" type="number"/>
+<label for="months">적립 기간 (개월)</label>
+<input id="months" placeholder="예: 12" type="number"/>
+<label for="rate">연 이자율 (%)</label>
+<input id="rate" placeholder="예: 4.5" type="number"/>
+<label for="type">이자 계산 방식</label>
+<select id="type"><option value="simple">단리</option><option value="compound">월복리</option></select>
+<button onclick="calcSavings()">계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원금 합계</span><span class="result-value" id="principal">-</span></div>
+<div class="result-row"><span class="result-label">세전 이자</span><span class="result-value" id="interest">-</span></div>
+<div class="result-row"><span class="result-label">세후 수령액 (일반 15.4%)</span><span class="result-value" id="total" style="color:#10b981;">-</span></div>
+</div>
+<script>
+ function calcSavings(){
+ const p = parseFloat(document.getElementById('monthly').value);
+ const m = parseInt(document.getElementById('months').value);
+ const r = parseFloat(document.getElementById('rate').value) / 100;
+ const type = document.getElementById('type').value;
+ if(!p || !m || !r) return alert('모두 입력해주세요.');
+ let principal = p * m;
+ let interest = 0;
+ if(type === 'simple'){
+ interest = p * (m*(m+1)/2) * (r/12);
+ } else {
+ let total = 0;
+ for(let i=1; i<=m; i++) total += p * Math.pow(1+r/12, i);
+ interest = total - principal;
+ }
+ const tax = interest * 0.154;
+ const net = principal + interest - tax;
+ document.getElementById('principal').textContent = principal.toLocaleString() + '원';
+ document.getElementById('interest').textContent = Math.round(interest).toLocaleString() + '원';
+ document.getElementById('total').textContent = Math.round(net).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

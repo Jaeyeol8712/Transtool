@@ -1,0 +1,32 @@
+<label for="startDate">대출 실행일</label>
+<input id="startDate" type="date"/>
+<label for="repayDate">중도상환 예정일</label>
+<input id="repayDate" type="date"/>
+<label for="amount">중도상환 금액 (원)</label>
+<input id="amount" placeholder="예: 50000000" type="number"/>
+<label for="rate">중도상환수수료율 (%, 은행 약정서 확인)</label>
+<input id="rate" placeholder="예: 1.2" step="0.1" type="number" value="1.2"/>
+<button onclick="calcPenalty()">수수료 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">경과일수</span><span class="result-value" id="elapsedDays" style="font-size:1.1rem;">-</span></div>
+<div class="result-row"><span class="result-label">예상 중도상환수수료</span><span class="result-value" id="penaltyValue">-</span></div>
+</div>
+<script>
+ function calcPenalty(){
+ const startStr = document.getElementById('startDate').value;
+ const repayStr = document.getElementById('repayDate').value;
+ const amount = parseFloat(document.getElementById('amount').value);
+ const rate = parseFloat(document.getElementById('rate').value);
+ if(!startStr || !repayStr || !amount || !rate) return alert('모든 항목을 입력해주세요.');
+ const start = new Date(startStr);
+ const repay = new Date(repayStr);
+ const elapsedDays = Math.floor((repay - start) / (1000*60*60*24));
+ if(elapsedDays < 0) return alert('중도상환일은 대출 실행일 이후여야 합니다.');
+ const term = 1095;
+ const remainDays = Math.max(term - elapsedDays, 0);
+ const penalty = remainDays === 0 ? 0 : amount * (rate/100) * (remainDays/term);
+ document.getElementById('elapsedDays').textContent = elapsedDays + '일 (잔존 ' + remainDays + '일)';
+ document.getElementById('penaltyValue').textContent = Math.round(penalty).toLocaleString() + '원' + (remainDays===0 ? ' (면제)' : '');
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

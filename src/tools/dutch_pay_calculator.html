@@ -1,0 +1,21 @@
+<label for="dutchTotal">총 결제 금액 (원)</label>
+<input id="dutchTotal" placeholder="예: 153000" type="number"/>
+<label for="dutchPeople">나눌 인원 수 (명)</label>
+<input id="dutchPeople" placeholder="예: 4" type="number"/>
+<button onclick="calcDutch()">더치페이 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">1인당 부담액</span><span class="result-value" id="dutchPer">-</span></div>
+<div class="result-row"><span class="result-label">단수 차액 (총무 부담 등)</span><span class="result-value" id="dutchRem" style="font-size:1rem; color:var(--text);">-</span></div>
+</div>
+<script>
+ function calcDutch(){
+ const t = parseFloat(document.getElementById('dutchTotal').value);
+ const p = parseInt(document.getElementById('dutchPeople').value);
+ if(!t || !p || p < 1) return alert('정확한 금액과 인원을 입력해주세요.');
+ const rawPer = Math.ceil((t / p) / 100) * 100;
+ const rem = (rawPer * p) - t;
+ document.getElementById('dutchPer').textContent = rawPer.toLocaleString() + '원';
+ document.getElementById('dutchRem').textContent = rem > 0 ? `+${rem.toLocaleString()}원 남음` : '딱 떨어짐';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

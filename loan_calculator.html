@@ -1,92 +1,112 @@
-<!-- 24. loan_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <title>대출 이자 계산기 - 원리금균등상환 무료 계산</title>
- <meta name="description" content="원리금균등, 원금균등, 만기일시상환 방식별 월 상환금과 총 이자를 계산해주는 무료 대출 이자 계산기입니다.">
- <link rel="canonical" href="https://www.aroundtool.com/loan_calculator">
- <style>
- :root{--primary:#1d4ed8;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.5rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{background:#1e40af;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.2rem;font-weight:700;color:var(--primary);}
- .result-value.small{font-size:1.02rem;color:var(--text);}
- .info-box{margin-top:24px;width:100%;max-width:480px;background:var(--card);border-radius:12px;padding:18px 20px;font-size:0.85rem;color:var(--muted);line-height:1.6;}
- .info-box h2{font-size:0.95rem;color:var(--text);margin-bottom:8px;}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- </style>
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대출 이자 계산기 — 원리금균등·원금균등·만기일시 비교 | 어라운드툴</title>
+<meta name="description" content="대출 원금, 연 이자율, 기간을 넣으면 원리금균등·원금균등·만기일시상환 방식별 월 상환금, 총 이자, 총 상환액을 바로 계산합니다. 상환 방식별 차이와 계산식을 함께 설명합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/loan_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/loan_calculator.html">
+<meta property="og:title" content="대출 이자 계산기 — 원리금균등·원금균등·만기일시 비교">
+<meta property="og:description" content="대출 원금, 연 이자율, 기간을 넣으면 원리금균등·원금균등·만기일시상환 방식별 월 상환금, 총 이자, 총 상환액을 바로 계산합니다. 상환 방식별 차이와 계산식을 함께 설명합니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="대출 이자 계산기 — 원리금균등·원금균등·만기일시 비교">
+<meta name="twitter:description" content="대출 원금, 연 이자율, 기간을 넣으면 원리금균등·원금균등·만기일시상환 방식별 월 상환금, 총 이자, 총 상환액을 바로 계산합니다. 상환 방식별 차이와 계산식을 함께 설명합니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
+
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/loan_calculator.html#webpage","url":"https://www.aroundtool.com/loan_calculator.html","name":"대출 이자 계산기 — 원리금균등·원금균등·만기일시 비교","description":"대출 원금, 연 이자율, 기간을 넣으면 원리금균등·원금균등·만기일시상환 방식별 월 상환금, 총 이자, 총 상환액을 바로 계산합니다. 상환 방식별 차이와 계산식을 함께 설명합니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/loan_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"재테크·부동산","item":"https://www.aroundtool.com/tools.html#g-money"},{"@type":"ListItem","position":4,"name":"대출 이자","item":"https://www.aroundtool.com/loan_calculator.html"}],"@id":"https://www.aroundtool.com/loan_calculator.html#breadcrumb"},{"@type":"WebApplication","name":"대출 이자 계산기","url":"https://www.aroundtool.com/loan_calculator.html","description":"대출 원금, 연 이자율, 기간을 넣으면 원리금균등·원금균등·만기일시상환 방식별 월 상환금, 총 이자, 총 상환액을 바로 계산합니다. 상환 방식별 차이와 계산식을 함께 설명합니다.","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"대출 이자 계산기 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"대출 원금을 원 단위로 입력합니다. (예: 1억 원 → 100000000)"},{"@type":"HowToStep","position":2,"text":"은행이 안내한 연 이자율(%)과 대출 기간(년)을 입력합니다."},{"@type":"HowToStep","position":3,"text":"상환 방식을 고르고 계산하면 월 상환금, 총 이자, 총 상환액이 표시됩니다. 방식을 바꿔 가며 비교해 보세요."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"원리금균등과 원금균등 중 어느 쪽이 유리한가요?","acceptedAnswer":{"@type":"Answer","text":"총 이자만 보면 원금균등이 유리합니다. 다만 초기 상환액이 커서 소득 대비 부담이 크면 원리금균등이 현실적입니다. 중간에 여유 자금으로 일부 상환할 계획이 있다면 어느 방식이든 이자를 줄일 수 있습니다."}},{"@type":"Question","name":"변동금리 대출도 계산할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"이 계산기는 기간 내내 금리가 같다고 가정합니다. 변동금리라면 현재 금리로 한 번, 1%p 오른 금리로 한 번 계산해 상환액 범위를 확인하는 방법을 권합니다."}},{"@type":"Question","name":"거치기간이 있으면 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"거치기간 동안에는 이자만 냅니다. 거치기간의 이자는 만기일시 방식으로, 이후 기간은 남은 개월 수로 원리금균등 또는 원금균등을 따로 계산해 더하면 됩니다."}},{"@type":"Question","name":"계산 결과와 은행 안내 금액이 다른 이유는?","acceptedAnswer":{"@type":"Answer","text":"은행은 일 단위 이자 계산, 실제 납입일, 원 단위 절사 방식에 따라 몇 원~몇백 원 차이가 납니다. 보증료·인지세 같은 부대비용도 포함하지 않았습니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>재테크 계산기</span><span>/</span><span>대출 이자 계산기</span></nav>
- <header>
- <h1>🏦 대출 이자 계산기</h1>
- <p>상환 방식별 월 상환금과 총 이자를 계산합니다</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card">
- <label for="principal">대출 원금 (원)</label>
- <input type="number" id="principal" placeholder="예: 100000000">
- <label for="rate">연 이자율 (%)</label>
- <input type="number" id="rate" step="0.01" placeholder="예: 4.5">
- <label for="years">대출 기간 (년)</label>
- <input type="number" id="years" placeholder="예: 30">
- <label for="method">상환 방식</label>
- <select id="method">
- <option value="equal_payment">원리금균등상환</option>
- <option value="equal_principal">원금균등상환</option>
- <option value="lump_sum">만기일시상환</option>
- </select>
- <button onclick="calculateLoan()">계산하기</button>
- <div class="result" id="result">
- <div class="result-row">
- <span class="result-label" id="paymentLabel">월 상환금</span>
- <span class="result-value" id="monthlyPayment">-</span>
- </div>
- <div class="result-row">
- <span class="result-label">총 이자</span>
- <span class="result-value small" id="totalInterest">-</span>
- </div>
- <div class="result-row">
- <span class="result-label">총 상환액</span>
- <span class="result-value small" id="totalPayment">-</span>
- </div>
- </div>
- </div>
- <div class="info-box">
- <h2>ℹ️ 상환 방식 안내</h2>
- <p><b>원리금균등상환</b>: 매달 같은 금액(원금+이자)을 상환. 초기엔 이자 비중이 큽니다.</p>
- <p style="margin-top:6px;"><b>원금균등상환</b>: 매달 같은 원금을 상환, 이자는 잔액에 따라 감소. 첫 달 상환금이 가장 큽니다.</p>
- <p style="margin-top:6px;"><b>만기일시상환</b>: 매달 이자만 내다가 만기에 원금을 한번에 상환합니다.</p>
- </div>
- <article class="seo-text">
- <h2>가을 이사철 대비, 2026년 대출 상환 스케줄 진단법</h2>
- <p>2026년 하반기, 여전히 부담스러운 전세가와 요동치는 시중 은행 대출 금리 탓에 가을 이사철을 앞둔 서민들의 이자 셈법이 그 어느 때보다 복잡해졌습니다. 번호표를 뽑고 은행 창구에서 정식 상담을 받기 전에, 가장 먼저 스스로 진단해 보아야 할 것은 '과연 내 월급으로 매달 빠져나가는 원리금을 연체 없이 감당할 수 있는가'입니다. 본 도구의 빈칸에 필요한 융자 금액과 예상 금리만 기입해 보세요. 초기 부담은 크지만 갈수록 이자가 확연히 줄어드는 '원금균등상환'부터, 매월 통장에서 나가는 돈이 일정해 직장인 지출 계획을 세우기 가장 유리한 '원리금균등상환'까지 은행권에서 쓰는 세 가지 방식을 그대로 차용해 스케줄을 비교해 드립니다. 에어컨이 빵빵한 집안에서 모바일로 여유롭게 내 총 이자 규모를 미리 가늠해 보고, 가장 단단한 가계 자금 운용 계획을 수립해 보시기 바랍니다.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 본 결과는 참고용이며 실제 대출 실행 시 조건이 다를 수 있습니다.</p>
- </footer>
- <script>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><span aria-current="page">대출 이자</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-money">생활툴 · 재테크·부동산</a></p><span class="at-board-meta">13종</span></div>
+  <ul class="at-board-tabs"><li><a href="/salary_calculator.html">연봉 실수령액</a></li><li><a href="/loan_calculator.html" aria-current="page">대출 이자</a></li><li><a href="/savings_calculator.html">예적금 이자</a></li><li><a href="/compound_calculator.html">복리</a></li><li><a href="/freelancer_tax_calculator.html">종합소득세</a></li><li><a href="/dsr_calculator.html">DSR</a></li><li><a href="/ltv_calculator.html">LTV</a></li><li><a href="/acquisition_tax_calculator.html">부동산 취득세</a></li><li><a href="/brokerage_fee_calculator.html">중개보수</a></li><li><a href="/increase_decrease_calculator.html">증감률</a></li><li><a href="/pension_age_calculator.html">국민연금 수급나이</a></li><li><a href="/prepayment_penalty_calculator.html">중도상환수수료</a></li><li><a href="/interior_calculator.html">인테리어 가견적</a></li></ul>
+</div>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">대출 이자 계산기</h1>
+  <p class="lede" itemprop="description">원금·금리·기간만 넣으면 상환 방식별 월 납입액과 총 이자를 비교합니다.</p>
+  <p class="meta"><span>생활툴 · 재테크·부동산</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="대출 이자 계산기">
+<label for="principal">대출 원금 (원)</label>
+<input id="principal" placeholder="예: 100000000" type="number"/>
+<label for="rate">연 이자율 (%)</label>
+<input id="rate" placeholder="예: 4.5" step="0.01" type="number"/>
+<label for="years">대출 기간 (년)</label>
+<input id="years" placeholder="예: 30" type="number"/>
+<label for="method">상환 방식</label>
+<select id="method">
+<option value="equal_payment">원리금균등상환</option>
+<option value="equal_principal">원금균등상환</option>
+<option value="lump_sum">만기일시상환</option>
+</select>
+<button onclick="calculateLoan()">계산하기</button>
+<div class="result" id="result">
+<div class="result-row">
+<span class="result-label" id="paymentLabel">월 상환금</span>
+<span class="result-value" id="monthlyPayment">-</span>
+</div>
+<div class="result-row">
+<span class="result-label">총 이자</span>
+<span class="result-value small" id="totalInterest">-</span>
+</div>
+<div class="result-row">
+<span class="result-label">총 상환액</span>
+<span class="result-value small" id="totalPayment">-</span>
+</div>
+</div>
+<script>
  function calculateLoan(){
  const principal = parseFloat(document.getElementById('principal').value);
  const annualRate = parseFloat(document.getElementById('rate').value);
@@ -128,5 +148,66 @@
  document.getElementById('result').classList.add('show');
  }
  </script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>같은 금액·금리·기간이라면 총 이자는 <b>원금균등상환 &lt; 원리금균등상환 &lt; 만기일시상환</b> 순으로 많아집니다. 원금균등은 첫 달 부담이 가장 크지만 원금이 빨리 줄어 이자가 적고, 원리금균등은 매달 같은 금액이라 생활비 계획을 세우기 쉽습니다.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>대출 원금을 원 단위로 입력합니다. (예: 1억 원 → 100000000)</li><li>은행이 안내한 연 이자율(%)과 대출 기간(년)을 입력합니다.</li><li>상환 방식을 고르고 계산하면 월 상환금, 총 이자, 총 상환액이 표시됩니다. 방식을 바꿔 가며 비교해 보세요.</li></ol>
+<h2>계산 방법</h2><div class="at-formula"><b>원리금균등</b> 월 상환금 = 원금 × r × (1+r)<sup>n</sup> ÷ ((1+r)<sup>n</sup> − 1)<br><b>원금균등</b> 총 이자 = 원금 × r × (n+1) ÷ 2<br><b>만기일시</b> 월 이자 = 원금 × r<br><small>r = 연 이자율 ÷ 12, n = 개월 수</small></div>
+<h2>상환 방식별 예시 (1억 원 · 연 4.5% · 30년)</h2>
+<div class="at-table"><table><thead><tr><th>방식</th><th>첫 달 납입액</th><th>총 이자</th></tr></thead><tbody>
+<tr><th>원리금균등</th><td class="r">약 506,700원</td><td class="r">약 8,240만 원</td></tr>
+<tr><th>원금균등</th><td class="r">약 652,800원</td><td class="r">약 6,770만 원</td></tr>
+<tr><th>만기일시</th><td class="r">375,000원(이자만)</td><td class="r">1억 3,500만 원</td></tr>
+</tbody></table></div>
+<p>원금균등은 첫 달 부담이 원리금균등보다 약 15만 원 크지만, 30년 동안 내는 이자는 1,400만 원 이상 적습니다. 만기일시는 매달 부담이 가장 작은 대신 원금이 줄지 않아 총 이자가 가장 큽니다.</p>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>원리금균등과 원금균등 중 어느 쪽이 유리한가요?</summary><div class="a"><p>총 이자만 보면 원금균등이 유리합니다. 다만 초기 상환액이 커서 소득 대비 부담이 크면 원리금균등이 현실적입니다. 중간에 여유 자금으로 일부 상환할 계획이 있다면 어느 방식이든 이자를 줄일 수 있습니다.</p></div></details><details><summary>변동금리 대출도 계산할 수 있나요?</summary><div class="a"><p>이 계산기는 기간 내내 금리가 같다고 가정합니다. 변동금리라면 현재 금리로 한 번, 1%p 오른 금리로 한 번 계산해 상환액 범위를 확인하는 방법을 권합니다.</p></div></details><details><summary>거치기간이 있으면 어떻게 계산하나요?</summary><div class="a"><p>거치기간 동안에는 이자만 냅니다. 거치기간의 이자는 만기일시 방식으로, 이후 기간은 남은 개월 수로 원리금균등 또는 원금균등을 따로 계산해 더하면 됩니다.</p></div></details><details><summary>계산 결과와 은행 안내 금액이 다른 이유는?</summary><div class="a"><p>은행은 일 단위 이자 계산, 실제 납입일, 원 단위 절사 방식에 따라 몇 원~몇백 원 차이가 납니다. 보증료·인지세 같은 부대비용도 포함하지 않았습니다.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/prepayment_penalty_calculator.html">중도상환수수료 계산기</a> — 대출 실행일, 상환 예정일, 상환 금액, 수수료율로 중도상환수수료를 계산합니다. 3년(1,095일)…</li><li><a href="/dsr_calculator.html">DSR 계산기</a> — 연소득과 기존·신규 대출의 연간 원리금 상환액으로 DSR(총부채원리금상환비율)을 계산하고 은행권 40%…</li><li><a href="/ltv_calculator.html">LTV 계산기</a> — 주택 가격, 선순위 채권·임대보증금, 신규 대출 금액으로 LTV(주택담보인정비율)를 계산합니다. LTV…</li><li><a href="/salary_calculator.html">연봉 실수령액 계산기</a> — 2026년 인상된 4대보험 요율(국민연금 4.75%, 건강보험 3.595%, 장기요양 13.14%)을…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/prepayment_penalty_calculator.html"><span class="tag ">재테크</span><span class="t">중도상환수수료<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/dsr_calculator.html"><span class="tag ">재테크</span><span class="t">DSR<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/ltv_calculator.html"><span class="tag ">재테크</span><span class="t">LTV<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/salary_calculator.html"><span class="tag ">재테크</span><span class="t">연봉 실수령액</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/savings_calculator.html"><span class="tag ">재테크</span><span class="t">예적금 이자<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/compound_calculator.html"><span class="tag ">재테크</span><span class="t">복리<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="tag ">재테크</span><span class="t">종합소득세<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/acquisition_tax_calculator.html"><span class="tag ">재테크</span><span class="t">부동산 취득세</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

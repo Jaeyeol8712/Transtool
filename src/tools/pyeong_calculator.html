@@ -1,0 +1,17 @@
+<label for="pyeong">평수 (평)</label>
+<input id="pyeong" oninput="conv('p')" placeholder="예: 32" type="number"/>
+<label for="m2">면적 (㎡)</label>
+<input id="m2" oninput="conv('m')" placeholder="예: 105.78" type="number"/>
+<script>
+ function conv(type){
+ const p = document.getElementById('pyeong');
+ const m = document.getElementById('m2');
+ if(type === 'p' && p.value){
+ m.value = (parseFloat(p.value) * 3.305785).toFixed(2);
+ } else if(type === 'm' && m.value){
+ p.value = (parseFloat(m.value) / 3.305785).toFixed(2);
+ } else {
+ p.value = ''; m.value = '';
+ }
+ }
+ </script>

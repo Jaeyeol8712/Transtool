@@ -1,0 +1,25 @@
+<label for="ageB">생년월일</label>
+<input id="ageB" type="date"/>
+<label for="ageT">기준일 (기본: 오늘)</label>
+<input id="ageT" type="date"/>
+<button onclick="calcAge2()">만 나이 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">만 나이</span><span class="result-value" id="manAgeRes">-</span></div>
+<div class="result-row"><span class="result-label">태어난 띠</span><span class="result-value" id="zodiacRes" style="font-size:1.1rem; color:var(--text);">-</span></div>
+</div>
+<script>
+document.getElementById('ageT').valueAsDate = new Date();
+function calcAge2(){
+ const b = new Date(document.getElementById('ageB').value);
+ const t = new Date(document.getElementById('ageT').value);
+ if(isNaN(b)) return alert('생년월일을 입력해주세요.');
+ let manAge = t.getFullYear() - b.getFullYear();
+ const m = t.getMonth() - b.getMonth();
+ if(m < 0 || (m === 0 && t.getDate() < b.getDate())) manAge--;
+ const zodiacs = ['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
+ const z = zodiacs[b.getFullYear() % 12] + '띠';
+ document.getElementById('manAgeRes').textContent = manAge + '세';
+ document.getElementById('zodiacRes').textContent = z;
+ document.getElementById('result').classList.add('show');
+}
+</script>

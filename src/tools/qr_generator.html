@@ -1,0 +1,51 @@
+<style>
+.at-tool button.secondary{background:#fff;color:var(--primary);border:1px solid var(--border);}
+.at-tool #qrcode{display:flex;justify-content:center;margin:20px 0;min-height:220px;align-items:center;}
+.at-tool #qrcode img, .at-tool #qrcode canvas{border-radius:8px;}
+</style>
+<label for="qrText">URL 또는 텍스트</label>
+<input id="qrText" placeholder="https://example.com" type="text"/>
+<label for="qrSize">크기</label>
+<select id="qrSize">
+<option value="200">작게 (200px)</option>
+<option selected="" value="300">보통 (300px)</option>
+<option value="400">크게 (400px)</option>
+</select>
+<button onclick="generateQR()">QR코드 생성</button>
+<div id="qrcode"></div>
+<button class="secondary" id="downloadBtn" onclick="downloadQR()" style="display:none;">이미지로 다운로드</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+ let qrInstance = null;
+ function generateQR(){
+ const text = document.getElementById('qrText').value.trim();
+ const size = parseInt(document.getElementById('qrSize').value);
+ const container = document.getElementById('qrcode');
+ if(!text){ alert('URL 또는 텍스트를 입력해주세요.'); return; }
+ container.innerHTML = '';
+ qrInstance = new QRCode(container, {
+ text: text,
+ width: size,
+ height: size,
+ colorDark: '#111827',
+ colorLight: '#ffffff',
+ correctLevel: QRCode.CorrectLevel.H
+ });
+ document.getElementById('downloadBtn').style.display = 'block';
+ }
+ function downloadQR(){
+ const container = document.getElementById('qrcode');
+ const img = container.querySelector('img');
+ const canvas = container.querySelector('canvas');
+ const link = document.createElement('a');
+ link.download = 'qrcode.png';
+ if(img && img.src){
+ link.href = img.src;
+ } else if(canvas){
+ link.href = canvas.toDataURL('image/png');
+ } else {
+ return;
+ }
+ link.click();
+ }
+ </script>

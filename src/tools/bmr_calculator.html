@@ -1,0 +1,27 @@
+<label for="gender">성별</label>
+<select id="gender"><option value="m">남성</option><option value="f">여성</option></select>
+<label for="bmrAge">나이 (만)</label>
+<input id="bmrAge" placeholder="예: 35" type="number"/>
+<label for="bmrHeight">키 (cm)</label>
+<input id="bmrHeight" placeholder="예: 175" type="number"/>
+<label for="bmrWeight">몸무게 (kg)</label>
+<input id="bmrWeight" placeholder="예: 70" type="number"/>
+<button onclick="calcBMR()">기초대사량 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">기초대사량 (Mifflin-St Jeor)</span><span class="result-value" id="bmrValue">-</span></div>
+<div class="result-row"><span class="result-label">활동 대사량 (보통 활동 기준)</span><span class="result-value" id="tdeeValue" style="color:#10b981;font-size:1.1rem;">-</span></div>
+</div>
+<script>
+function calcBMR(){
+ const g = document.getElementById('gender').value;
+ const a = parseFloat(document.getElementById('bmrAge').value);
+ const h = parseFloat(document.getElementById('bmrHeight').value);
+ const w = parseFloat(document.getElementById('bmrWeight').value);
+ if(!a || !h || !w) return alert('모두 입력해주세요.');
+ let bmr = 10 * w + 6.25 * h - 5 * a;
+ bmr = g === 'm' ? bmr + 5 : bmr - 161;
+ document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString() + ' kcal';
+ document.getElementById('tdeeValue').textContent = Math.round(bmr * 1.55).toLocaleString() + ' kcal';
+ document.getElementById('result').classList.add('show');
+}
+</script>

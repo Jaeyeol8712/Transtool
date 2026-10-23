@@ -1,65 +1,104 @@
-<!-- 8. character_counter.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>글자수 세기 - 무료 온라인 글자수 계산기</title>
-<meta name="description" content="자기소개서, 블로그, SNS 게시글의 글자수, 공백 제외 글자수, 단어수, 문장수를 실시간으로 계산해주는 무료 도구입니다.">
-<link rel="canonical" href="https://www.aroundtool.com/character_counter">
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>글자수 세기 — 공백 포함·제외 글자수, 바이트, 단어·문장 수 | 어라운드툴</title>
+<meta name="description" content="자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/character_counter.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/character_counter.html">
+<meta property="og:title" content="글자수 세기 — 공백 포함·제외 글자수, 바이트, 단어·문장 수">
+<meta property="og:description" content="자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="글자수 세기 — 공백 포함·제외 글자수, 바이트, 단어·문장 수">
+<meta name="twitter:description" content="자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 <style>
-  :root{--primary:#ea580c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
-  header{text-align:center;margin-bottom:24px;}
-  header h1{font-size:1.6rem;margin-bottom:6px;}
-  header p{color:var(--muted);font-size:0.95rem;}
-  .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
-  .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:24px;width:100%;max-width:680px;}
-  textarea{width:100%;min-height:220px;padding:14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;background:#fafbfc;resize:vertical;font-family:inherit;line-height:1.6;}
-  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
-  .stat-box{background:#fafbfc;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
-  .stat-value{font-size:1.4rem;font-weight:800;color:var(--primary);}
-  .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px;}
-  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-top:10px;margin-bottom:4px;}
-  .toolbar button{padding:8px 14px;font-size:0.85rem;font-weight:600;color:var(--primary);background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;cursor:pointer;}
-  .seo-text{margin-top:40px;width:100%;max-width:680px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-  .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
-  .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
-  .site-breadcrumb a{color:var(--muted);text-decoration:none;}
-  .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
-  .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
+.at-tool .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
+.at-tool .stat-box{background:var(--at-sunk);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.at-tool .stat-value{font-size:1.4rem;font-weight:800;color:var(--primary);}
+.at-tool .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px;}
+.at-tool .toolbar{display:flex;justify-content:space-between;align-items:center;margin-top:10px;margin-bottom:4px;}
+.at-tool .toolbar button{width:auto;display:inline-block;padding:8px 14px;font-size:0.85rem;font-weight:600;color:var(--primary);background:var(--at-brand-tint);border:1px solid var(--at-line-2);border-radius:8px;cursor:pointer;}
 </style>
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/character_counter.html#webpage","url":"https://www.aroundtool.com/character_counter.html","name":"글자수 세기 — 공백 포함·제외 글자수, 바이트, 단어·문장 수","description":"자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/character_counter.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"텍스트","item":"https://www.aroundtool.com/tools.html#g-text"},{"@type":"ListItem","position":4,"name":"글자수 세기","item":"https://www.aroundtool.com/character_counter.html"}],"@id":"https://www.aroundtool.com/character_counter.html#breadcrumb"},{"@type":"WebApplication","name":"글자수 세기","url":"https://www.aroundtool.com/character_counter.html","description":"자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"글자수 세기 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"입력창에 글을 쓰거나 붙여 넣습니다."},{"@type":"HowToStep","position":2,"text":"아래 숫자가 실시간으로 바뀝니다."},{"@type":"HowToStep","position":3,"text":"다시 쓰려면 전체 지우기를 누릅니다."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"입력한 글이 저장되거나 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 모든 계산은 브라우저 안에서 이뤄지며 서버로 보내지 않습니다. 창을 닫으면 사라집니다."}},{"@type":"Question","name":"단어 수는 어떻게 세나요?","acceptedAnswer":{"@type":"Answer","text":"띄어쓰기로 나뉜 덩어리를 한 단어로 셉니다. 한국어 어절 수와 같습니다."}},{"@type":"Question","name":"문장 수 기준은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"마침표, 물음표, 느낌표로 끝나는 단위를 한 문장으로 셉니다. 마침표 없는 마지막 줄도 한 문장으로 계산됩니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>글자수 세기</span></nav>
-<header>
-  <h1>🔢 글자수 세기</h1>
-  <p>자기소개서, 블로그, SNS 글자수를 실시간으로 계산합니다</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card">
-  <div class="toolbar">
-    <span style="font-size:0.85rem;color:var(--muted);">아래에 텍스트를 입력하세요</span>
-    <button onclick="clearText()">전체 지우기</button>
-  </div>
-  <textarea id="textInput" oninput="updateStats()" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
-  <div class="stats">
-    <div class="stat-box"><div class="stat-value" id="charWithSpace">0</div><div class="stat-label">공백 포함</div></div>
-    <div class="stat-box"><div class="stat-value" id="charNoSpace">0</div><div class="stat-label">공백 제외</div></div>
-    <div class="stat-box"><div class="stat-value" id="wordCount">0</div><div class="stat-label">단어수</div></div>
-    <div class="stat-box"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">문장수</div></div>
-    <div class="stat-box"><div class="stat-value" id="lineCount">0</div><div class="stat-label">줄수</div></div>
-    <div class="stat-box"><div class="stat-value" id="byteCount">0</div><div class="stat-label">바이트</div></div>
-  </div>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-text">텍스트</a></li><li><span aria-current="page">글자수 세기</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-text">생활툴 · 텍스트</a></p><span class="at-board-meta">3종</span></div>
+  <ul class="at-board-tabs"><li><a href="/character_counter.html" aria-current="page">글자수 세기</a></li><li><a href="/spell_checker.html">맞춤법 검사</a></li><li><a href="/spacing_checker.html">띄어쓰기 검사</a></li></ul>
 </div>
-<article class="seo-text">
-  <h2>2026년 공채 및 검색 노출 최적화를 위한 글자수 가이드</h2>
-  <p>하반기 채용 시즌을 준비하며 자기소개서를 다듬거나, 기업 브랜드 검색 상위 노출을 노리며 정보성 원고를 기획할 때 가장 민감하게 체크해야 할 영역이 바로 텍스트 분량입니다. 특히 자소서의 경우 각 기업이 요구하는 '공백 포함' 혹은 '공백 제외' 글자수 제한을 엄격하게 지키지 않으면 시스템 필터링 단계에서 바로 불이익을 받을 수 있습니다. 또한, 포털 사이트의 검색 봇(Bot)이 해당 문서를 양질의 정보로 인식하게 만들려면 통상 1,500자 이상의 밀도 있는 텍스트 구성이 필수적입니다. 본 툴킷은 무거운 프로그램 설치 과정 없이 웹 브라우저 내에서 텍스트를 입력하는 즉시 바이트(Byte) 단위, 단어 덩어리, 문장 개수까지 정교하게 쪼개어 실시간으로 보여줍니다. 한글 1자를 2바이트로 읽든 3바이트(UTF-8) 체계로 읽든 시스템에서 놓치지 않고 스캔하므로, 2026년 트렌드에 걸맞은 스마트한 원고를 편안하게 완성해 보시기 바랍니다.</p>
-</article>
-<footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 서버에 텍스트가 저장되지 않습니다.</p>
-</footer>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">글자수 세기</h1>
+  <p class="lede" itemprop="description">입력하는 즉시 공백 포함·제외 글자수와 바이트를 함께 보여줍니다.</p>
+  <p class="meta"><span>생활툴 · 텍스트</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="글자수 세기">
+<div class="toolbar">
+<span style="font-size:0.85rem;color:var(--muted);">아래에 텍스트를 입력하세요</span>
+<button onclick="clearText()">전체 지우기</button>
+</div>
+<textarea id="textInput" oninput="updateStats()" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+<div class="stats">
+<div class="stat-box"><div class="stat-value" id="charWithSpace">0</div><div class="stat-label">공백 포함</div></div>
+<div class="stat-box"><div class="stat-value" id="charNoSpace">0</div><div class="stat-label">공백 제외</div></div>
+<div class="stat-box"><div class="stat-value" id="wordCount">0</div><div class="stat-label">단어수</div></div>
+<div class="stat-box"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">문장수</div></div>
+<div class="stat-box"><div class="stat-value" id="lineCount">0</div><div class="stat-label">줄수</div></div>
+<div class="stat-box"><div class="stat-value" id="byteCount">0</div><div class="stat-label">바이트</div></div>
+</div>
 <script>
 function updateStats(){
   const text = document.getElementById('textInput').value;
@@ -81,5 +120,67 @@ function clearText(){
   updateStats();
 }
 </script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>공백 포함 글자수는 띄어쓰기와 줄바꿈까지 모두 센 값, 공백 제외 글자수는 이를 뺀 값입니다. 바이트는 <b>UTF-8 기준 한글 1자 3바이트, 영문·숫자 1바이트</b>로 계산합니다. 채용 사이트마다 기준이 달라 공고의 글자수 기준이 ‘공백 포함’인지 꼭 확인하세요.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>입력창에 글을 쓰거나 붙여 넣습니다.</li><li>아래 숫자가 실시간으로 바뀝니다.</li><li>다시 쓰려면 전체 지우기를 누릅니다.</li></ol>
+<h2>계산 방법</h2><div class="at-formula">바이트(UTF-8) = 한글·한자 3 + 영문·숫자·기호 1 + 줄바꿈 1<br><small>EUC-KR(완성형) 기준이면 한글 1자 = 2바이트</small></div>
+<h2>자주 쓰는 분량 기준</h2>
+<div class="at-table"><table><thead><tr><th>용도</th><th>흔한 기준</th></tr></thead><tbody>
+<tr><th>자기소개서 문항</th><td>500자·700자·1,000자 (공백 포함이 일반적)</td></tr>
+<tr><th>문자 메시지</th><td>단문 90바이트, 장문 2,000바이트 (EUC-KR 기준)</td></tr>
+<tr><th>검색 결과 제목</th><td>약 30자 안팎에서 잘림</td></tr>
+<tr><th>검색 결과 설명</th><td>약 80~120자 안팎</td></tr>
+</tbody></table></div>
+<p>채용 시스템마다 줄바꿈을 1자 또는 2자로 세거나, 바이트로 제한하는 경우가 있습니다. 제한에 딱 맞추기보다 10~20자 여유를 두는 것이 안전합니다.</p>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>입력한 글이 저장되거나 전송되나요?</summary><div class="a"><p>아니요. 모든 계산은 브라우저 안에서 이뤄지며 서버로 보내지 않습니다. 창을 닫으면 사라집니다.</p></div></details><details><summary>단어 수는 어떻게 세나요?</summary><div class="a"><p>띄어쓰기로 나뉜 덩어리를 한 단어로 셉니다. 한국어 어절 수와 같습니다.</p></div></details><details><summary>문장 수 기준은 무엇인가요?</summary><div class="a"><p>마침표, 물음표, 느낌표로 끝나는 단위를 한 문장으로 셉니다. 마침표 없는 마지막 줄도 한 문장으로 계산됩니다.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/spell_checker.html">맞춤법 검사 계산기</a> — 자기소개서·이메일에서 자주 틀리는 맞춤법 표현 약 70개(안되요, 됬다, 몇일, 금새, 오랫만에 등)를…</li><li><a href="/spacing_checker.html">띄어쓰기 검사 계산기</a> — ‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력…</li><li><a href="/qr_generator.html">QR코드 생성 계산기</a> — 웹사이트 주소나 텍스트를 넣으면 브라우저에서 바로 QR코드를 만들고 PNG 이미지로 내려받을 수 있습니다.…</li><li><a href="/job_fortune_teller.html">취업운세 계산기</a> — 이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/spell_checker.html"><span class="tag ">텍스트</span><span class="t">맞춤법 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spacing_checker.html"><span class="tag ">텍스트</span><span class="t">띄어쓰기 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/qr_generator.html"><span class="tag ">생활</span><span class="t">QR코드 생성<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/job_fortune_teller.html"><span class="tag ">생활</span><span class="t">취업운세<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

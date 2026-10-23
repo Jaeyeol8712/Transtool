@@ -1,0 +1,69 @@
+<label for="principal">대출 원금 (원)</label>
+<input id="principal" placeholder="예: 100000000" type="number"/>
+<label for="rate">연 이자율 (%)</label>
+<input id="rate" placeholder="예: 4.5" step="0.01" type="number"/>
+<label for="years">대출 기간 (년)</label>
+<input id="years" placeholder="예: 30" type="number"/>
+<label for="method">상환 방식</label>
+<select id="method">
+<option value="equal_payment">원리금균등상환</option>
+<option value="equal_principal">원금균등상환</option>
+<option value="lump_sum">만기일시상환</option>
+</select>
+<button onclick="calculateLoan()">계산하기</button>
+<div class="result" id="result">
+<div class="result-row">
+<span class="result-label" id="paymentLabel">월 상환금</span>
+<span class="result-value" id="monthlyPayment">-</span>
+</div>
+<div class="result-row">
+<span class="result-label">총 이자</span>
+<span class="result-value small" id="totalInterest">-</span>
+</div>
+<div class="result-row">
+<span class="result-label">총 상환액</span>
+<span class="result-value small" id="totalPayment">-</span>
+</div>
+</div>
+<script>
+ function calculateLoan(){
+ const principal = parseFloat(document.getElementById('principal').value);
+ const annualRate = parseFloat(document.getElementById('rate').value);
+ const years = parseFloat(document.getElementById('years').value);
+ const method = document.getElementById('method').value;
+ if(!principal || annualRate===undefined || isNaN(annualRate) || !years){
+ alert('모든 값을 정확히 입력해주세요.');
+ return;
+ }
+ const monthlyRate = annualRate / 100 / 12;
+ const n = years * 12;
+ let firstPayment, totalPayment, totalInterest, label;
+ if(method === 'equal_payment'){
+ label = '월 상환금 (매월 동일)';
+ if(monthlyRate === 0){
+ firstPayment = principal / n;
+ } else {
+ firstPayment = principal * monthlyRate * Math.pow(1+monthlyRate, n) / (Math.pow(1+monthlyRate, n) - 1);
+ }
+ totalPayment = firstPayment * n;
+ totalInterest = totalPayment - principal;
+ } else if(method === 'equal_principal'){
+ label = '첫 달 상환금 (이후 점차 감소)';
+ const monthlyPrincipal = principal / n;
+ const firstInterest = principal * monthlyRate;
+ firstPayment = monthlyPrincipal + firstInterest;
+ totalInterest = principal * monthlyRate * (n+1) / 2;
+ totalPayment = principal + totalInterest;
+ } else { 
+ label = '월 이자 상환금 (만기에 원금 별도)';
+ firstPayment = principal * monthlyRate;
+ totalInterest = firstPayment * n;
+ totalPayment = principal + totalInterest;
+ }
+ document.getElementById('paymentLabel').textContent = label;
+ document.getElementById('monthlyPayment').textContent = Math.round(firstPayment).toLocaleString()+'원';
+ document.getElementById('totalInterest').textContent = Math.round(totalInterest).toLocaleString()+'원';
+ document.getElementById('totalPayment').textContent = Math.round(totalPayment).toLocaleString()+'원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>

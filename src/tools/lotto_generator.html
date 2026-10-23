@@ -1,0 +1,63 @@
+<style>
+.at-tool .controls{display:flex;gap:10px;align-items:flex-end;margin-bottom:18px;}
+.at-tool .controls div{flex:1;}
+.at-tool .controls button{width:auto;padding:.7rem 1.2rem;margin-bottom:1rem}
+.at-tool .controls select{margin-bottom:1rem}
+.at-tool .sets{margin-top:8px;}
+.at-tool .set-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px;background:var(--at-sunk);border-radius:12px;border:1px solid var(--border);}
+.at-tool .set-label{font-size:0.78rem;color:var(--muted);width:36px;flex-shrink:0;}
+.at-tool .balls{display:flex;gap:6px;flex-wrap:wrap;}
+.at-tool .ball{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.85rem;color:#fff;flex-shrink:0;}
+</style>
+<div class="controls">
+<div>
+<label for="setCount">생성할 게임 수</label>
+<select id="setCount">
+<option value="1">1게임</option>
+<option selected="" value="5">5게임</option>
+<option value="10">10게임</option>
+</select>
+</div>
+<button onclick="generateLotto()">번호 생성</button>
+</div>
+<div class="sets" id="sets"></div>
+<script>
+ function ballColor(n){
+ if(n <= 10) return '#fbbf24';
+ if(n <= 20) return '#3b82f6';
+ if(n <= 30) return '#ef4444';
+ if(n <= 40) return '#6b7280';
+ return '#10b981';
+ }
+ function generateOneSet(){
+ const nums = new Set();
+ while(nums.size < 6){ nums.add(Math.floor(Math.random()*45)+1); }
+ return Array.from(nums).sort((a,b)=>a-b);
+ }
+ function generateLotto(){
+ const count = parseInt(document.getElementById('setCount').value);
+ const container = document.getElementById('sets');
+ container.innerHTML = '';
+ for(let i=1; i<=count; i++){
+ const nums = generateOneSet();
+ const row = document.createElement('div');
+ row.className = 'set-row';
+ const label = document.createElement('div');
+ label.className = 'set-label';
+ label.textContent = 'GAME '+i;
+ const balls = document.createElement('div');
+ balls.className = 'balls';
+ nums.forEach(n=>{
+ const ball = document.createElement('div');
+ ball.className = 'ball';
+ ball.style.background = ballColor(n);
+ ball.textContent = n;
+ balls.appendChild(ball);
+ });
+ row.appendChild(label);
+ row.appendChild(balls);
+ container.appendChild(row);
+ }
+ }
+ generateLotto();
+ </script>
