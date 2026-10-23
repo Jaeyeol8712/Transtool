@@ -579,6 +579,7 @@ def related_html(p):
         for q in [x for x in SHOP_LIVE if x["file"] != p["file"]][:6]:
             rows.append(row("/" + q["file"], q["title"], "광고", "shop", None, "", q["date"], is_new(q["date"])))
         for f in p["post"].get("related", []):
+            f = f if f.endswith(".html") else f + ".html"
             if f in PAGES:
                 q = PAGES[f]
                 rows.append(row("/" + f, q["name"] + (" 계산기" if q["section"] == "tools" else ""), "생활툴" if q["section"] == "tools" else "관련", "", None, "", q["date"]))
