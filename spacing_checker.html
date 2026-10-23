@@ -1,72 +1,211 @@
-<!-- 34. spacing_checker.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>띄어쓰기 검사기 - 맞춤법 자동 교정 | 생활 계산기 모음</title>
- <meta name="description" content="한글 띄어쓰기가 파괴된 문장을 자동으로 분석하여 가독성 높고 올바른 문장으로 정돈해 줍니다.">
- <link rel="canonical" href="https://www.aroundtool.com/spacing_checker">
- <style>
- :root{--primary:#4338ca;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- </style>
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>띄어쓰기 검사기 — 의존명사 ‘수·것·때·줄’ 띄어쓰기 자동 교정 | 어라운드툴</title>
+<meta name="description" content="‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.">
+<link rel="canonical" href="https://www.aroundtool.com/spacing_checker.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/spacing_checker.html">
+<meta property="og:title" content="띄어쓰기 검사기 — 의존명사 ‘수·것·때·줄’ 띄어쓰기 자동 교정">
+<meta property="og:description" content="‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="띄어쓰기 검사기 — 의존명사 ‘수·것·때·줄’ 띄어쓰기 자동 교정">
+<meta name="twitter:description" content="‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
+<style>
+.at-tool .sp-out{font-size:.9688rem;line-height:1.9;white-space:pre-wrap;word-break:keep-all;padding:.75rem 0}
+.at-tool .sp-out ins{text-decoration:none;background:var(--at-brand-tint);color:var(--at-brand-ink);border-bottom:2px solid var(--at-brand);padding:0 .1em}
+.at-tool .sp-sum{font-weight:700;margin:.5rem 0 0}
+</style>
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/spacing_checker.html#webpage","url":"https://www.aroundtool.com/spacing_checker.html","name":"띄어쓰기 검사기 — 의존명사 ‘수·것·때·줄’ 띄어쓰기 자동 교정","description":"‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/spacing_checker.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"텍스트","item":"https://www.aroundtool.com/tools.html#g-text"},{"@type":"ListItem","position":4,"name":"띄어쓰기 검사","item":"https://www.aroundtool.com/spacing_checker.html"}],"@id":"https://www.aroundtool.com/spacing_checker.html#breadcrumb"},{"@type":"WebApplication","name":"띄어쓰기 검사기","url":"https://www.aroundtool.com/spacing_checker.html","description":"‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"띄어쓰기 검사기 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"검사할 문장을 붙여 넣습니다."},{"@type":"HowToStep","position":2,"text":"띄어쓰기 검사를 누르면 고친 부분이 초록색으로 표시됩니다."},{"@type":"HowToStep","position":3,"text":"‘고친 문장 복사’로 결과를 복사합니다."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"입력한 글이 외부로 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 브라우저 안에서 규칙으로만 처리합니다."}},{"@type":"Question","name":"‘한번’은 붙여 쓰나요, 띄어 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"횟수를 셀 때는 ‘한 번’(두 번으로 바꿀 수 있음), ‘시험 삼아·일단’의 뜻이면 ‘한번’으로 붙입니다. 문맥이 필요해 이 검사기는 고치지 않습니다."}},{"@type":"Question","name":"모든 띄어쓰기를 고쳐 주나요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 의존명사 위주로 자주 틀리는 유형만 고칩니다. 맞춤법은 맞춤법 검사기에서 함께 확인하세요."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>텍스트 도구</span><span>/</span><span>띄어쓰기 검사기</span></nav>
- <header>
- <h1>✍️ 띄어쓰기 검사기</h1>
- <p>자소서 및 보고서 작성 시 띄어쓰기 교정</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card" style="max-width:680px;">
- <label>띄어쓰기 교정이 필요한 텍스트</label>
- <textarea id="spText" style="height:150px;" placeholder="아버지가방에들어가신다 (데모 버전)"></textarea>
- <button onclick="calcSp()">띄어쓰기 교정</button>
- <div class="result" id="result" style="background:#fafbfc;padding:16px;border-radius:10px;">
- <div id="spRes" style="font-size:0.95rem;line-height:1.6;">-</div>
- </div>
- </div>
- <article class="seo-text">
- <h2>하반기 서류 전형 패스, 자소서의 첫인상은 깔끔한 띄어쓰기</h2>
- <p>2026년 8~9월 하반기 대기업 공채 시즌을 대비하여 지금 이 여름 꼼꼼하게 자기소개서 문항을 다듬고 계시나요? 인사담당자가 수천 장의 이력서를 검토할 때 가장 먼저 눈살을 찌푸리게 되는 대목이 바로 엉망으로 파괴된 띄어쓰기입니다. 아무리 훌륭한 직무 경험과 포트폴리오를 서술했어도 가독성이 떨어지면 기본적인 문서 작성 능력을 의심받게 됩니다. 복잡한 한글 워드 프로세서나 별도의 맞춤법 검사 사이트를 무겁게 로딩할 필요 없이, 브라우저 환경에서 즉각적으로 텍스트를 붙여 넣고 교정받으세요. 문맥을 고려하여 조사와 명사를 매끄럽게 분리해 주어 보고서나 블로그 원고 작성 시 작업 속도를 한층 끌어올려 주는 필수 웹 툴입니다.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 입력된 텍스트는 서버에 수집되지 않으며 브라우저 내에서만 처리됩니다.</p>
- </footer>
- <script>
- function calcSp(){
- let t = document.getElementById('spText').value;
- if(!t) return;
- t = t.replace('아버지가방에들어가신다', '아버지가 방에 들어가신다');
- t = t.replace('할수있다', '할 수 있다');
- document.getElementById('spRes').innerHTML = t;
- document.getElementById('result').classList.add('show');
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-text">텍스트</a></li><li><span aria-current="page">띄어쓰기 검사</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-text">생활툴 · 텍스트</a></p><span class="at-board-meta">3종</span></div>
+  <ul class="at-board-tabs"><li><a href="/character_counter.html">글자수 세기</a></li><li><a href="/spell_checker.html">맞춤법 검사</a></li><li><a href="/spacing_checker.html" aria-current="page">띄어쓰기 검사</a></li></ul>
+</div>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">띄어쓰기 검사기</h1>
+  <p class="lede" itemprop="description">가장 자주 틀리는 의존명사 띄어쓰기를 찾아 고쳐 줍니다.</p>
+  <p class="meta"><span>생활툴 · 텍스트</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="띄어쓰기 검사기">
+<label for="spText">검사할 문장</label>
+<textarea id="spText" placeholder="예: 내일 갈수있다면 연락할께요. 그때 하는것을 보고 판단할수 있을 것 같아요."></textarea>
+<button onclick="calcSp()">띄어쓰기 검사</button>
+<div class="result" id="result" aria-live="polite">
+<p class="sp-sum" id="spSum"></p>
+<div class="sp-out" id="spRes"></div>
+<button class="ghost" id="spCopy" onclick="copySp()">고친 문장 복사</button>
+</div>
+<script>
+/* 관형형 어미(-ㄹ/-을, -는, -ㄴ/-은/-던) 뒤에 붙은 의존명사를 띄웁니다. */
+var JONG = function(ch){ var c = ch.charCodeAt(0) - 0xAC00; return (c < 0 || c > 11171) ? -1 : c % 28; };
+var BOUND_RIEUL = ['수','때','줄','적','뻔','거','것'];        /* -ㄹ 뒤 */
+var BOUND_ADN   = ['것','거','줄','적','지'];                    /* -는/-ㄴ/-은/-던 뒤 */
+var KEEP = ['수록','거리','줄기','지만','지도','지요','지는','지를','지가'];
+var STOP_PREV = ['실','일','술','발','별','결','설','절','철','필','골','돌','말','글','물','불','칼','쌀','털','얼'];
+var lastFixed = '';
+function esc(s){ return s.replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+function needSpace(t, i){
+ /* t[i] 가 의존명사 후보, t[i-1] 이 앞 음절 */
+ var prev = t[i-1], cur = t[i], rest = t.substr(i, 2);
+ if(!prev || /\s/.test(prev)) return false;
+ for(var k = 0; k < KEEP.length; k++) if(t.substr(i, KEEP[k].length) === KEEP[k] && cur !== '것') return false;
+ var j = JONG(prev);
+ if(j === 8 && BOUND_RIEUL.indexOf(cur) > -1){            /* 받침 ㄹ */
+  var word = t.substring(Math.max(0, i-3), i);
+  if(/(^|\s)[가-힣]$/.test(word) && STOP_PREV.indexOf(prev) > -1) return false; /* 실수, 일수 등 한 단어 */
+  if(cur === '때' && !/^때(문|에|는|도|까|부|가|마|면|$|\s|[.,!?])/.test(t.substr(i, 2))) return false;
+  if(cur === '줄' && !/^줄(알|몰|았|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '적' && !/^적(이|도|은|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '뻔' && !/^뻔(했|하|$|\s)/.test(t.substr(i, 2))) return false;
+  return true;
  }
- </script>
+ if((prev === '는' || prev === '던' || j === 4) && BOUND_ADN.indexOf(cur) > -1){ /* -는, -던, 받침 ㄴ */
+  if(cur === '지') return /^지\s?(오래|얼마|벌써|[0-9]|한|두|세|몇)/.test(t.substr(i, 4));
+  if(cur === '거' && !/^거(야|예|에|든|지|라|니|$|\s|[.,!?])/.test(t.substr(i, 2))) return false;
+  if(cur === '줄' && !/^줄(알|몰|$|\s)/.test(t.substr(i, 2))) return false;
+  if(cur === '적' && !/^적(이|도|은|$|\s)/.test(t.substr(i, 2))) return false;
+  if(j === 4 && STOP_PREV.indexOf(prev) > -1) return false;
+  return true;
+ }
+ /* 수 + 있다/없다 */
+ if(cur === '있' || cur === '없'){ return t[i-1] === '수' && i >= 2 && !/\s/.test(t[i-1]); }
+ return false;
+}
+function calcSp(){
+ var t = document.getElementById('spText').value;
+ if(!t.trim()) return alert('검사할 문장을 입력해주세요.');
+ var out = '', fixed = '', n = 0;
+ for(var i = 0; i < t.length; i++){
+  if(i > 0 && needSpace(t, i)){ out += '<ins> </ins>'; fixed += ' '; n++; }
+  out += esc(t[i]); fixed += t[i];
+ }
+ lastFixed = fixed;
+ document.getElementById('spRes').innerHTML = out;
+ document.getElementById('spSum').textContent = n ? '띄어 써야 할 곳 ' + n + '군데를 고쳤습니다. 초록색 칸이 추가된 띄어쓰기입니다.' : '의존명사 띄어쓰기 오류는 찾지 못했습니다.';
+ document.getElementById('spCopy').style.display = n ? 'block' : 'none';
+ document.getElementById('result').classList.add('show');
+}
+function copySp(){
+ if(navigator.clipboard) navigator.clipboard.writeText(lastFixed).then(function(){ document.getElementById('spCopy').textContent = '복사했습니다'; });
+}
+</script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>의존명사는 앞말과 띄어 씁니다. ‘할 수 있다’, ‘하는 것’, ‘갈 때’, ‘할 줄 안다’가 바른 표기입니다. 이 검사기는 <b>관형형 어미(-ㄹ, -는, -ㄴ) 뒤에 붙은 수·것·거·때·줄·적·뻔</b>을 찾아 띄어 줍니다. ‘갈수록’, ‘할수록’처럼 한 단어인 말은 그대로 둡니다.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>검사할 문장을 붙여 넣습니다.</li><li>띄어쓰기 검사를 누르면 고친 부분이 초록색으로 표시됩니다.</li><li>‘고친 문장 복사’로 결과를 복사합니다.</li></ol>
+
+<h2>헷갈리는 띄어쓰기 규칙</h2>
+<div class="at-table"><table><thead><tr><th>규칙</th><th>바른 예</th><th>틀린 예</th></tr></thead><tbody>
+<tr><th>의존명사는 띄어 씀</th><td>먹을 수 있다, 아는 것, 갈 때</td><td>먹을수있다, 아는것, 갈때</td></tr>
+<tr><th>조사는 붙여 씀</th><td>너밖에, 집에서부터</td><td>너 밖에, 집에서 부터</td></tr>
+<tr><th>단위명사는 띄어 씀</th><td>한 개, 세 명, 두 번</td><td>한개, 세명</td></tr>
+<tr><th>아라비아 숫자 뒤 단위는 붙여도 됨</th><td>3개, 10명</td><td>—</td></tr>
+<tr><th>‘만큼·대로·뿐’ 앞이 체언이면 붙임</th><td>너만큼, 법대로, 너뿐</td><td>너 만큼</td></tr>
+</tbody></table></div>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>입력한 글이 외부로 전송되나요?</summary><div class="a"><p>아니요. 브라우저 안에서 규칙으로만 처리합니다.</p></div></details><details><summary>‘한번’은 붙여 쓰나요, 띄어 쓰나요?</summary><div class="a"><p>횟수를 셀 때는 ‘한 번’(두 번으로 바꿀 수 있음), ‘시험 삼아·일단’의 뜻이면 ‘한번’으로 붙입니다. 문맥이 필요해 이 검사기는 고치지 않습니다.</p></div></details><details><summary>모든 띄어쓰기를 고쳐 주나요?</summary><div class="a"><p>아닙니다. 의존명사 위주로 자주 틀리는 유형만 고칩니다. 맞춤법은 맞춤법 검사기에서 함께 확인하세요.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/spell_checker.html">맞춤법 검사 계산기</a> — 자기소개서·이메일에서 자주 틀리는 맞춤법 표현 약 70개(안되요, 됬다, 몇일, 금새, 오랫만에 등)를…</li><li><a href="/character_counter.html">글자수 세기 계산기</a> — 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수,…</li><li><a href="/job_fortune_teller.html">취업운세 계산기</a> — 이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가…</li><li><a href="/qr_generator.html">QR코드 생성 계산기</a> — 웹사이트 주소나 텍스트를 넣으면 브라우저에서 바로 QR코드를 만들고 PNG 이미지로 내려받을 수 있습니다.…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/spell_checker.html"><span class="tag ">텍스트</span><span class="t">맞춤법 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/character_counter.html"><span class="tag ">텍스트</span><span class="t">글자수 세기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/job_fortune_teller.html"><span class="tag ">생활</span><span class="t">취업운세<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/qr_generator.html"><span class="tag ">생활</span><span class="t">QR코드 생성<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

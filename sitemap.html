@@ -1,404 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- at:head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>사이트맵 — 어라운드툴 전체 페이지 목록</title>
-<meta name="description" content="어라운드툴의 모든 페이지를 한눈에. 계산기 44종, 가이드 2편, 전국 맛집 89페이지를 카테고리별로 정리했습니다.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사이트맵 — 어라운드툴 전체 페이지 목록 | 어라운드툴</title>
+<meta name="description" content="어라운드툴의 생활 계산기 43종, 지역별 맛집, 여행·가이드, 사이트 안내 페이지 전체 목록입니다.">
 <link rel="canonical" href="https://www.aroundtool.com/sitemap.html">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0D7A6F">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/sitemap.html">
 <meta property="og:title" content="사이트맵 — 어라운드툴 전체 페이지 목록">
-<meta property="og:description" content="계산기 44종, 전국 맛집 89페이지를 카테고리별로 정리한 전체 목록입니다.">
+<meta property="og:description" content="어라운드툴의 생활 계산기 43종, 지역별 맛집, 여행·가이드, 사이트 안내 페이지 전체 목록입니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="사이트맵 — 어라운드툴 전체 페이지 목록">
+<meta name="twitter:description" content="어라운드툴의 생활 계산기 43종, 지역별 맛집, 여행·가이드, 사이트 안내 페이지 전체 목록입니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-home.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
-  --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#0D7A6F;--brand-tint:#E2F1EF;
-  --c-finance:#1B6FB8;--t-finance:#E9F1FA;--c-job:#B5690E;--t-job:#FBF1E1;
-  --c-life:#1B855C;--t-life:#E5F4EC;--c-text:#7A5CA8;--t-text:#F1ECF9;
-  --c-guide:#4A5A66;--t-guide:#EBEFF2;--c-food:#BC3C3C;--t-food:#FBECEC;
-  --c-site:#5C6873;--t-site:#EEF0F1;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
-  font-size:16px;line-height:1.7;letter-spacing:-0.01em}
-.wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
-a{color:inherit}
-h1,h2,h3,h4{margin:0}
-:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 
-.top{border-bottom:1px solid var(--rule);background:var(--panel)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;padding-top:.85rem;padding-bottom:.85rem}
-.logo{font-size:1.125rem;font-weight:700;text-decoration:none;letter-spacing:-0.02em}
-.logo span{color:var(--brand)}
-.crumb{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;letter-spacing:.1em;
-  color:var(--soft);text-transform:uppercase}
-.crumb a{text-decoration:none}
-.crumb a:hover{color:var(--ink)}
-.crumb .sep{margin:0 .45em;opacity:.45}
-
-.hero{padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--rule)}
-.hero h1{font-size:clamp(1.625rem,5.5vw,2.125rem);line-height:1.25;
-  margin:0 0 .55rem;letter-spacing:-0.03em;font-weight:700}
-.hero p{color:var(--soft);margin:0;font-size:.9375rem;max-width:34rem}
-.stat{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.25rem 0 0;padding:0;list-style:none}
-.stat li{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--soft);
-  background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:.25rem .65rem}
-.stat b{color:var(--ink);font-weight:600}
-
-main{padding:1.75rem 0 0}
-.smap{margin-bottom:2rem;background:var(--panel);
-  border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
-.smap h2{display:flex;align-items:center;gap:.6rem;
-  font-size:.9375rem;font-weight:700;letter-spacing:-0.01em;
-  padding:.65rem 1.1rem;border-top:2px solid var(--rule-strong)}
-.smap h2 .cnt{margin-left:auto;font-family:"IBM Plex Mono",monospace;
-  font-size:.6875rem;font-weight:600;background:var(--panel);
-  border-radius:99px;padding:.05rem .55rem}
-.smap--finance h2{background:var(--t-finance);border-top-color:var(--c-finance);color:var(--c-finance)}
-.smap--job h2{background:var(--t-job);border-top-color:var(--c-job);color:var(--c-job)}
-.smap--life h2{background:var(--t-life);border-top-color:var(--c-life);color:var(--c-life)}
-.smap--text h2{background:var(--t-text);border-top-color:var(--c-text);color:var(--c-text)}
-.smap--guide h2{background:var(--t-guide);border-top-color:var(--c-guide);color:var(--c-guide)}
-.smap--food h2{background:var(--t-food);border-top-color:var(--c-food);color:var(--c-food)}
-.smap--site h2{background:var(--t-site);border-top-color:var(--c-site);color:var(--c-site)}
-
-/* 맛집: 시도 > 시군구 2단 */
-.smap-sido{font-size:.8125rem;font-weight:700;letter-spacing:.02em;color:var(--c-food);
-  background:var(--t-food);padding:.45rem 1.1rem;border-top:1px solid var(--rule)}
-.smap--food .smap-sido:first-of-type{border-top:none}
-.smap-sub{display:flex;align-items:baseline;gap:.5rem;font-size:.875rem;font-weight:700;
-  padding:.8rem 1.1rem .45rem}
-.smap-sub .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-  font-weight:500;color:var(--soft)}
-
-.smap-list{list-style:none;margin:0;padding:0 1.1rem 1rem;
-  display:grid;grid-template-columns:1fr;gap:0}
-.smap-list li{border-bottom:1px dotted var(--rule);
-  display:flex;align-items:baseline;gap:.4rem;justify-content:space-between}
-.smap-list a{display:flex;align-items:baseline;gap:.5rem;flex:1;
-  text-decoration:none;font-size:.875rem;padding:.55rem .15rem;color:var(--ink)}
-.smap-list a::before{content:"·";color:var(--soft);flex-shrink:0}
-.smap-list a:hover{color:var(--brand)}
-.smap-list .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-  color:var(--soft);flex-shrink:0;padding-right:.15rem}
-
-.note{margin:0 0 2rem;padding:1.05rem 1.2rem;background:var(--panel);
-  border:1px solid var(--rule);border-radius:4px;font-size:.8125rem;
-  color:var(--soft);line-height:1.75}
-.note b{color:var(--ink);font-weight:600}
-.note a{color:var(--brand);text-decoration:none;font-weight:500}
-
-
-.smap-list a{display:flex;flex-direction:column;align-items:flex-start;gap:.1rem}
-.smap-list a::before{display:none}
-.smap-list .u{font-family:"IBM Plex Mono",monospace;font-size:.625rem;color:var(--soft);
-opacity:.75;word-break:break-all;line-height:1.4}
-.smap-list a:hover .u{color:var(--brand);opacity:1}
-.smap-list li{align-items:center}
-.smap-list a{padding:.5rem .15rem}
-.dom{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--soft);
-background:var(--panel-alt);border:1px solid var(--rule);border-radius:4px;
-padding:.5rem .8rem;margin:0 0 1.25rem;display:inline-block}
-.dom b{color:var(--ink);font-weight:600}
-footer{margin-top:1.5rem;border-top:1px solid var(--rule);background:var(--panel);
-  padding:1.5rem 0 2.5rem;font-size:.8125rem;color:var(--soft)}
-footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.9rem}
-footer nav a{color:var(--soft);text-decoration:none}
-footer nav a:hover{color:var(--brand)}
-footer p{margin:0}
-
-@media (min-width:34rem){ .smap-list{grid-template-columns:1fr 1fr;column-gap:1.5rem} }
-@media (min-width:52rem){
-  .wrap{padding:0 1.25rem}
-  .smap-list{grid-template-columns:1fr 1fr 1fr;column-gap:1.75rem}
-}
-</style>
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/sitemap.html#webpage","url":"https://www.aroundtool.com/sitemap.html","name":"사이트맵 — 어라운드툴 전체 페이지 목록","description":"어라운드툴의 생활 계산기 43종, 지역별 맛집, 여행·가이드, 사이트 안내 페이지 전체 목록입니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-home.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/sitemap.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"사이트맵","item":"https://www.aroundtool.com/sitemap.html"}],"@id":"https://www.aroundtool.com/sitemap.html#breadcrumb"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<!-- /at:assets -->
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <a class="logo" href="index.html">어라운드<span>툴</span></a>
-  <p class="crumb"><a href="index.html">홈</a><span class="sep">/</span>사이트맵</p>
-</div></header>
-<div class="hero"><div class="wrap">
-  <h1>사이트맵</h1>
-  <p>어라운드툴의 모든 페이지입니다. 카테고리별로 나눠 정리했습니다.</p>
-  <ul class="stat">
-    <li>계산기·도구 <b>44</b></li><li>가이드 <b>2</b></li>
-    <li>맛집 <b>89페이지</b></li><li>전체 <b>148페이지</b></li>
-    <li>최종 갱신 <b>2026-08-29</b></li>
-  </ul>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
 </div></div>
-<main class="wrap">
-  <p class="dom">기준 도메인 <b>https://www.aroundtool.com</b> — 아래 경로를 붙여 쓰세요</p>
-  <section class="smap"><h2>재테크 및 부동산<span class="cnt">13</span></h2>
-    <ul class="smap-list">
-      <li><a href="salary_calculator.html">연봉 실수령액<span class="u">/salary_calculator.html</span></a></li>
-      <li><a href="loan_calculator.html">대출 이자<span class="u">/loan_calculator.html</span></a></li>
-      <li><a href="savings_calculator.html">예적금 이자<span class="u">/savings_calculator.html</span></a></li>
-      <li><a href="compound_calculator.html">복리<span class="u">/compound_calculator.html</span></a></li>
-      <li><a href="freelancer_tax_calculator.html">종합소득세<span class="u">/freelancer_tax_calculator.html</span></a></li>
-      <li><a href="dsr_calculator.html">DSR<span class="u">/dsr_calculator.html</span></a></li>
-      <li><a href="ltv_calculator.html">LTV<span class="u">/ltv_calculator.html</span></a></li>
-      <li><a href="acquisition_tax_calculator.html">부동산 취득세<span class="u">/acquisition_tax_calculator.html</span></a></li>
-      <li><a href="brokerage_fee_calculator.html">중개보수<span class="u">/brokerage_fee_calculator.html</span></a></li>
-      <li><a href="increase_decrease_calculator.html">증감률<span class="u">/increase_decrease_calculator.html</span></a></li>
-      <li><a href="pension_age_calculator.html">국민연금 수급나이<span class="u">/pension_age_calculator.html</span></a></li>
-      <li><a href="prepayment_penalty_calculator.html">중도상환수수료<span class="u">/prepayment_penalty_calculator.html</span></a></li>
-      <li><a href="interior_calculator.html">인테리어 가견적<span class="u">/interior_calculator.html</span></a></li>
-    </ul>
-  </section>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><span aria-current="page">사이트맵</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
 
-  <section class="smap"><h2>노동 및 구직<span class="cnt">5</span></h2>
-    <ul class="smap-list">
-      <li><a href="severance_calculator.html">퇴직금<span class="u">/severance_calculator.html</span></a></li>
-      <li><a href="unemployment_benefit_calculator.html">실업급여<span class="u">/unemployment_benefit_calculator.html</span></a></li>
-      <li><a href="pto_calculator.html">연차<span class="u">/pto_calculator.html</span></a></li>
-      <li><a href="holiday_pay_calculator.html">주휴수당<span class="u">/holiday_pay_calculator.html</span></a></li>
-      <li><a href="parental_leave_calculator.html">육아휴직급여<span class="u">/parental_leave_calculator.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap"><h2>생활 및 건강<span class="cnt">16</span></h2>
-    <ul class="smap-list">
-      <li><a href="discount_calculator.html">할인율<span class="u">/discount_calculator.html</span></a></li>
-      <li><a href="discount_rate_calculator.html">할인율 역산<span class="u">/discount_rate_calculator.html</span></a></li>
-      <li><a href="percent_calculator.html">퍼센트<span class="u">/percent_calculator.html</span></a></li>
-      <li><a href="dutch_pay_calculator.html">더치페이<span class="u">/dutch_pay_calculator.html</span></a></li>
-      <li><a href="electricity_bill_calculator.html">전기요금<span class="u">/electricity_bill_calculator.html</span></a></li>
-      <li><a href="gas_bill_calculator.html">도시가스 요금<span class="u">/gas_bill_calculator.html</span></a></li>
-      <li><a href="car_tax_calculator.html">자동차세<span class="u">/car_tax_calculator.html</span></a></li>
-      <li><a href="pyeong_calculator.html">평수<span class="u">/pyeong_calculator.html</span></a></li>
-      <li><a href="age_calculator.html">만나이<span class="u">/age_calculator.html</span></a></li>
-      <li><a href="due_date_calculator.html">출산예정일<span class="u">/due_date_calculator.html</span></a></li>
-      <li><a href="bmi_calculator.html">BMI<span class="u">/bmi_calculator.html</span></a></li>
-      <li><a href="bmr_calculator.html">기초대사량<span class="u">/bmr_calculator.html</span></a></li>
-      <li><a href="calorie_calculator.html">권장 칼로리<span class="u">/calorie_calculator.html</span></a></li>
-      <li><a href="daily_calorie_calculator.html">필요 열량<span class="u">/daily_calorie_calculator.html</span></a></li>
-      <li><a href="tire_date_calculator.html">타이어 제조일자<span class="u">/tire_date_calculator.html</span></a></li>
-      <li><a href="grave_weeding_calculator.html">벌초 견적<span class="u">/grave_weeding_calculator.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap"><h2>여행<span class="cnt">4</span></h2>
-    <ul class="smap-list">
-      <li><a href="japan_travel_calculator.html">일본 여행 경비<span class="u">/japan_travel_calculator.html</span></a></li>
-      <li><a href="camping_gear_calculator.html">캠핑 장비 견적<span class="u">/camping_gear_calculator.html</span></a></li>
-      <li><a href="exchange_rate_calculator.html">환율<span class="u">/exchange_rate_calculator.html</span></a></li>
-      <li><a href="fuel_economy_calculator.html">주유 경제성<span class="u">/fuel_economy_calculator.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap"><h2>생성기·텍스트 도구<span class="cnt">6</span></h2>
-    <ul class="smap-list">
-      <li><a href="lotto_generator.html">로또 번호<span class="u">/lotto_generator.html</span></a></li>
-      <li><a href="qr_generator.html">QR코드 생성<span class="u">/qr_generator.html</span></a></li>
-      <li><a href="job_fortune_teller.html">취업운세<span class="u">/job_fortune_teller.html</span></a></li>
-      <li><a href="character_counter.html">글자수 세기<span class="u">/character_counter.html</span></a></li>
-      <li><a href="spell_checker.html">맞춤법 검사<span class="u">/spell_checker.html</span></a></li>
-      <li><a href="spacing_checker.html">띄어쓰기 검사<span class="u">/spacing_checker.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap"><h2>정보 및 가이드<span class="cnt">3</span></h2>
-    <ul class="smap-list">
-      <li><a href="guide_2026_changes.html">2026년 달라지는 것 총정리<span class="u">/guide_2026_changes.html</span></a></li>
-      <li><a href="guide_2026_wage.html">2026 최저임금·노동법 가이드<span class="u">/guide_2026_wage.html</span></a></li>
-      <li><a href="guide_2026_tax.html">2026 세금·연말정산 가이드<span class="u">/guide_2026_tax.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap smap--food"><h2>전국 맛집<span class="cnt">89페이지</span></h2>
-    <h3 class="smap-sub">인천 연수구<span class="n">7p</span></h3>
-    <ul class="smap-list">
-      <li><a href="yeonsu-bapjip.html">밥집<span class="u">/yeonsu-bapjip.html</span></a></li>
-      <li><a href="yeonsu-cafe.html">카페·디저트<span class="u">/yeonsu-cafe.html</span></a></li>
-      <li><a href="yeonsu-gogi.html">고기<span class="u">/yeonsu-gogi.html</span></a></li>
-      <li><a href="yeonsu-gukmul-myeon.html">국물과 면<span class="u">/yeonsu-gukmul-myeon.html</span></a></li>
-      <li><a href="yeonsu-hambak.html">함박마을<span class="u">/yeonsu-hambak.html</span></a></li>
-      <li><a href="yeonsu-iguk.html">이국<span class="u">/yeonsu-iguk.html</span></a></li>
-      <li><a href="yeonsu-sul-anju.html">술과 안주<span class="u">/yeonsu-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">서울 강남구<span class="n">7p</span></h3>
-    <ul class="smap-list">
-      <li><a href="gangnam-bapjip.html">밥집<span class="u">/gangnam-bapjip.html</span></a></li>
-      <li><a href="gangnam-cafe.html">카페·디저트<span class="u">/gangnam-cafe.html</span></a></li>
-      <li><a href="gangnam-gogi.html">고기<span class="u">/gangnam-gogi.html</span></a></li>
-      <li><a href="gangnam-gukmul-myeon.html">국물과 면<span class="u">/gangnam-gukmul-myeon.html</span></a></li>
-      <li><a href="gangnam-iguk.html">이국<span class="u">/gangnam-iguk.html</span></a></li>
-      <li><a href="gangnam-nopo.html">강남 노포<span class="u">/gangnam-nopo.html</span></a></li>
-      <li><a href="gangnam-sul-anju.html">술과 안주<span class="u">/gangnam-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">서울 용산구<span class="n">7p</span></h3>
-    <ul class="smap-list">
-      <li><a href="yongsan-bapjip.html">밥집<span class="u">/yongsan-bapjip.html</span></a></li>
-      <li><a href="yongsan-cafe.html">카페·디저트<span class="u">/yongsan-cafe.html</span></a></li>
-      <li><a href="yongsan-gogi.html">고기<span class="u">/yongsan-gogi.html</span></a></li>
-      <li><a href="yongsan-gukmul-myeon.html">국물과 면<span class="u">/yongsan-gukmul-myeon.html</span></a></li>
-      <li><a href="yongsan-iguk.html">이국<span class="u">/yongsan-iguk.html</span></a></li>
-      <li><a href="yongsan-sul-anju.html">술과 안주<span class="u">/yongsan-sul-anju.html</span></a></li>
-      <li><a href="yongsan-usadan.html">우사단로<span class="u">/yongsan-usadan.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">부산 해운대구<span class="n">7p</span></h3>
-    <ul class="smap-list">
-      <li><a href="haeundae-bapjip.html">밥집<span class="u">/haeundae-bapjip.html</span></a></li>
-      <li><a href="haeundae-cafe.html">카페·디저트<span class="u">/haeundae-cafe.html</span></a></li>
-      <li><a href="haeundae-gogi.html">고기<span class="u">/haeundae-gogi.html</span></a></li>
-      <li><a href="haeundae-gukmul-myeon.html">국물과 면<span class="u">/haeundae-gukmul-myeon.html</span></a></li>
-      <li><a href="haeundae-iguk.html">이국<span class="u">/haeundae-iguk.html</span></a></li>
-      <li><a href="haeundae-michelin.html">미쉐린 해운대<span class="u">/haeundae-michelin.html</span></a></li>
-      <li><a href="haeundae-sul-anju.html">술과 안주<span class="u">/haeundae-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">강원 속초시<span class="n">6p</span></h3>
-    <ul class="smap-list">
-      <li><a href="sokcho-abai.html">아바이마을<span class="u">/sokcho-abai.html</span></a></li>
-      <li><a href="sokcho-bapjip.html">밥집<span class="u">/sokcho-bapjip.html</span></a></li>
-      <li><a href="sokcho-cafe.html">카페·디저트<span class="u">/sokcho-cafe.html</span></a></li>
-      <li><a href="sokcho-gogi.html">고기<span class="u">/sokcho-gogi.html</span></a></li>
-      <li><a href="sokcho-gukmul-myeon.html">국물과 면<span class="u">/sokcho-gukmul-myeon.html</span></a></li>
-      <li><a href="sokcho-sul-anju.html">술과 안주<span class="u">/sokcho-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">대전 동구<span class="n">3p</span></h3>
-    <ul class="smap-list">
-      <li><a href="daejeon-donggu-bapjip.html">밥집<span class="u">/daejeon-donggu-bapjip.html</span></a></li>
-      <li><a href="daejeon-donggu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-donggu-gukmul-myeon.html</span></a></li>
-      <li><a href="daejeon-donggu-station.html">대전역 노포<span class="u">/daejeon-donggu-station.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">대전 중구<span class="n">4p</span></h3>
-    <ul class="smap-list">
-      <li><a href="daejeon-junggu-cafe.html">카페·디저트<span class="u">/daejeon-junggu-cafe.html</span></a></li>
-      <li><a href="daejeon-junggu-durus.html">두부두루치기<span class="u">/daejeon-junggu-durus.html</span></a></li>
-      <li><a href="daejeon-junggu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-junggu-gukmul-myeon.html</span></a></li>
-      <li><a href="daejeon-junggu-iguk.html">이국<span class="u">/daejeon-junggu-iguk.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">대전 서구<span class="n">2p</span></h3>
-    <ul class="smap-list">
-      <li><a href="daejeon-seogu-dunsan.html">둔산 신도심<span class="u">/daejeon-seogu-dunsan.html</span></a></li>
-      <li><a href="daejeon-seogu-gukmul-myeon.html">국물과 면<span class="u">/daejeon-seogu-gukmul-myeon.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">대전 유성구<span class="n">4p</span></h3>
-    <ul class="smap-list">
-      <li><a href="daejeon-yuseong-bapjip.html">밥집<span class="u">/daejeon-yuseong-bapjip.html</span></a></li>
-      <li><a href="daejeon-yuseong-bongmyeong.html">봉명동<span class="u">/daejeon-yuseong-bongmyeong.html</span></a></li>
-      <li><a href="daejeon-yuseong-cafe.html">카페·디저트<span class="u">/daejeon-yuseong-cafe.html</span></a></li>
-      <li><a href="daejeon-yuseong-iguk.html">이국<span class="u">/daejeon-yuseong-iguk.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">대전 대덕구<span class="n">3p</span></h3>
-    <ul class="smap-list">
-      <li><a href="daejeon-daedeok-bapjip.html">밥집<span class="u">/daejeon-daedeok-bapjip.html</span></a></li>
-      <li><a href="daejeon-daedeok-gogi.html">고기<span class="u">/daejeon-daedeok-gogi.html</span></a></li>
-      <li><a href="daejeon-daedeok-sintanjin.html">신탄진<span class="u">/daejeon-daedeok-sintanjin.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">광주 동구<span class="n">1p</span></h3>
-    <ul class="smap-list">
-      <li><a href="gwangju-donggu-bapjip.html">밥집<span class="u">/gwangju-donggu-bapjip.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">광주 서구<span class="n">1p</span></h3>
-    <ul class="smap-list">
-      <li><a href="gwangju-seogu-sangmu.html">상무지구<span class="u">/gwangju-seogu-sangmu.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">광주 북구<span class="n">2p</span></h3>
-    <ul class="smap-list">
-      <li><a href="gwangju-bukgu-bapjip.html">밥집<span class="u">/gwangju-bukgu-bapjip.html</span></a></li>
-      <li><a href="gwangju-bukgu-oritang.html">유동오리탕거리<span class="u">/gwangju-bukgu-oritang.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">광주 광산구<span class="n">3p</span></h3>
-    <ul class="smap-list">
-      <li><a href="gwangju-gwangsan-cafe.html">카페·디저트<span class="u">/gwangju-gwangsan-cafe.html</span></a></li>
-      <li><a href="gwangju-gwangsan-iguk.html">이국<span class="u">/gwangju-gwangsan-iguk.html</span></a></li>
-      <li><a href="gwangju-gwangsan-songjeong.html">송정리 떡갈비거리<span class="u">/gwangju-gwangsan-songjeong.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">제주시<span class="n">5p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeju-jejusi-bapjip.html">밥집<span class="u">/jeju-jejusi-bapjip.html</span></a></li>
-      <li><a href="jeju-jejusi-cafe.html">카페·디저트<span class="u">/jeju-jejusi-cafe.html</span></a></li>
-      <li><a href="jeju-jejusi-gukmul-myeon.html">국물과 면<span class="u">/jeju-jejusi-gukmul-myeon.html</span></a></li>
-      <li><a href="jeju-jejusi-hyangto.html">제주 향토국<span class="u">/jeju-jejusi-hyangto.html</span></a></li>
-      <li><a href="jeju-jejusi-sul-anju.html">술과 안주<span class="u">/jeju-jejusi-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">서귀포시<span class="n">7p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeju-seogwipo-bapjip.html">밥집<span class="u">/jeju-seogwipo-bapjip.html</span></a></li>
-      <li><a href="jeju-seogwipo-cafe.html">카페·디저트<span class="u">/jeju-seogwipo-cafe.html</span></a></li>
-      <li><a href="jeju-seogwipo-galchi.html">갈치<span class="u">/jeju-seogwipo-galchi.html</span></a></li>
-      <li><a href="jeju-seogwipo-gogi.html">고기<span class="u">/jeju-seogwipo-gogi.html</span></a></li>
-      <li><a href="jeju-seogwipo-gukmul-myeon.html">국물과 면<span class="u">/jeju-seogwipo-gukmul-myeon.html</span></a></li>
-      <li><a href="jeju-seogwipo-iguk.html">이국<span class="u">/jeju-seogwipo-iguk.html</span></a></li>
-      <li><a href="jeju-seogwipo-sul-anju.html">술과 안주<span class="u">/jeju-seogwipo-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">전남 동부권<span class="n">5p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeonnam-dongbu-bapjip.html">밥집<span class="u">/jeonnam-dongbu-bapjip.html</span></a></li>
-      <li><a href="jeonnam-dongbu-gogi.html">고기<span class="u">/jeonnam-dongbu-gogi.html</span></a></li>
-      <li><a href="jeonnam-dongbu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-dongbu-gukmul-myeon.html</span></a></li>
-      <li><a href="jeonnam-dongbu-namdo.html">남도음식거리<span class="u">/jeonnam-dongbu-namdo.html</span></a></li>
-      <li><a href="jeonnam-dongbu-sul-anju.html">술과 안주<span class="u">/jeonnam-dongbu-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">전남 중부권<span class="n">5p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeonnam-jungbu-bapjip.html">밥집<span class="u">/jeonnam-jungbu-bapjip.html</span></a></li>
-      <li><a href="jeonnam-jungbu-gogi.html">고기<span class="u">/jeonnam-jungbu-gogi.html</span></a></li>
-      <li><a href="jeonnam-jungbu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-jungbu-gukmul-myeon.html</span></a></li>
-      <li><a href="jeonnam-jungbu-namdo.html">남도음식거리<span class="u">/jeonnam-jungbu-namdo.html</span></a></li>
-      <li><a href="jeonnam-jungbu-sul-anju.html">술과 안주<span class="u">/jeonnam-jungbu-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">전남 서부권<span class="n">5p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeonnam-seobu-bapjip.html">밥집<span class="u">/jeonnam-seobu-bapjip.html</span></a></li>
-      <li><a href="jeonnam-seobu-gogi.html">고기<span class="u">/jeonnam-seobu-gogi.html</span></a></li>
-      <li><a href="jeonnam-seobu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-seobu-gukmul-myeon.html</span></a></li>
-      <li><a href="jeonnam-seobu-namdo.html">남도음식거리<span class="u">/jeonnam-seobu-namdo.html</span></a></li>
-      <li><a href="jeonnam-seobu-sul-anju.html">술과 안주<span class="u">/jeonnam-seobu-sul-anju.html</span></a></li>
-    </ul>
-    <h3 class="smap-sub">전남 남부권<span class="n">5p</span></h3>
-    <ul class="smap-list">
-      <li><a href="jeonnam-nambu-bapjip.html">밥집<span class="u">/jeonnam-nambu-bapjip.html</span></a></li>
-      <li><a href="jeonnam-nambu-gogi.html">고기<span class="u">/jeonnam-nambu-gogi.html</span></a></li>
-      <li><a href="jeonnam-nambu-gukmul-myeon.html">국물과 면<span class="u">/jeonnam-nambu-gukmul-myeon.html</span></a></li>
-      <li><a href="jeonnam-nambu-namdo.html">남도음식거리<span class="u">/jeonnam-nambu-namdo.html</span></a></li>
-      <li><a href="jeonnam-nambu-sul-anju.html">술과 안주<span class="u">/jeonnam-nambu-sul-anju.html</span></a></li>
-    </ul>
-  </section>
-
-  <section class="smap"><h2>사이트<span class="cnt">15</span></h2>
-    <ul class="smap-list">
-      <li><a href="index.html">홈<span class="u">/index.html</span></a></li>
-      <li><a href="food.html">전국 맛집<span class="u">/food.html</span></a></li>
-      <li><a href="tools.html">생활툴<span class="u">/tools.html</span></a></li>
-      <li><a href="travel.html">여행<span class="u">/travel.html</span></a></li>
-      <li><a href="etc.html">기타<span class="u">/etc.html</span></a></li>
-      <li><a href="travel-jeju.html">제주도 여행<span class="u">/travel-jeju.html</span></a></li>
-      <li><a href="travel-sokcho.html">속초 여행<span class="u">/travel-sokcho.html</span></a></li>
-      <li><a href="travel-busan.html">부산 해운대 여행<span class="u">/travel-busan.html</span></a></li>
-      <li><a href="travel-osaka.html">오사카 여행<span class="u">/travel-osaka.html</span></a></li>
-      <li><a href="about.html">사이트 소개<span class="u">/about.html</span></a></li>
-      <li><a href="editorial.html">편집 방침<span class="u">/editorial.html</span></a></li>
-      <li><a href="privacy.html">개인정보처리방침<span class="u">/privacy.html</span></a></li>
-      <li><a href="terms.html">이용약관<span class="u">/terms.html</span></a></li>
-      <li><a href="contact.html">문의하기<span class="u">/contact.html</span></a></li>
-      <li><a href="sitemap.html">사이트맵<span class="u">/sitemap.html</span></a></li>
-    </ul>
-  </section>
-
-  <div class="note">
-    <b>검색엔진용 XML 사이트맵</b>은 <a href="sitemap.xml">/sitemap.xml</a>,
-    AI 검색용 요약은 <a href="llms.txt">/llms.txt</a>에 있습니다.
-    콘텐츠 제작 기준은 <a href="editorial.html">편집 방침</a>에 정리했습니다.
-  </div>
+<!-- /at:top -->
+<main>
+<header class="at-page-head"><h1>사이트맵</h1>
+  <p class="lede">어라운드툴의 모든 페이지를 분류별로 모았습니다. 검색엔진용 목록은 <a href="/sitemap.xml">sitemap.xml</a>, AI 검색용 요약은 <a href="/llms.txt">llms.txt</a>에 있습니다.</p>
+  <p class="meta"><span>계산기 43</span><span>맛집 게시판 74</span><span>공개 페이지 127</span><span>갱신 2026.10.23</span></p></header>
+<div class="at-page"><div class="at-prose at-sitemap" style="max-width:none"><h3>생활툴 · 재테크·부동산 (13)</h3><ul class="at-cols"><li><a href="/salary_calculator.html">연봉 실수령액</a></li><li><a href="/loan_calculator.html">대출 이자</a></li><li><a href="/savings_calculator.html">예적금 이자</a></li><li><a href="/compound_calculator.html">복리</a></li><li><a href="/freelancer_tax_calculator.html">종합소득세</a></li><li><a href="/dsr_calculator.html">DSR</a></li><li><a href="/ltv_calculator.html">LTV</a></li><li><a href="/acquisition_tax_calculator.html">부동산 취득세</a></li><li><a href="/brokerage_fee_calculator.html">중개보수</a></li><li><a href="/increase_decrease_calculator.html">증감률</a></li><li><a href="/pension_age_calculator.html">국민연금 수급나이</a></li><li><a href="/prepayment_penalty_calculator.html">중도상환수수료</a></li><li><a href="/interior_calculator.html">인테리어 가견적</a></li></ul><h3>생활툴 · 노동·구직 (5)</h3><ul class="at-cols"><li><a href="/severance_calculator.html">퇴직금</a></li><li><a href="/unemployment_benefit_calculator.html">실업급여</a></li><li><a href="/pto_calculator.html">연차</a></li><li><a href="/holiday_pay_calculator.html">주휴수당</a></li><li><a href="/parental_leave_calculator.html">육아휴직급여</a></li></ul><h3>생활툴 · 생활·건강 (18)</h3><ul class="at-cols"><li><a href="/discount_calculator.html">할인율</a></li><li><a href="/discount_rate_calculator.html">할인율 역산</a></li><li><a href="/percent_calculator.html">퍼센트</a></li><li><a href="/dutch_pay_calculator.html">더치페이</a></li><li><a href="/electricity_bill_calculator.html">전기요금</a></li><li><a href="/gas_bill_calculator.html">도시가스 요금</a></li><li><a href="/car_tax_calculator.html">자동차세</a></li><li><a href="/pyeong_calculator.html">평수</a></li><li><a href="/age_calculator.html">만나이</a></li><li><a href="/due_date_calculator.html">출산예정일</a></li><li><a href="/bmi_calculator.html">BMI</a></li><li><a href="/bmr_calculator.html">기초대사량</a></li><li><a href="/calorie_calculator.html">권장 칼로리</a></li><li><a href="/tire_date_calculator.html">타이어 제조일자</a></li><li><a href="/grave_weeding_calculator.html">벌초 견적</a></li><li><a href="/qr_generator.html">QR코드 생성</a></li><li><a href="/lotto_generator.html">로또 번호</a></li><li><a href="/job_fortune_teller.html">취업운세</a></li></ul><h3>생활툴 · 여행 (4)</h3><ul class="at-cols"><li><a href="/fuel_economy_calculator.html">주유 경제성</a></li><li><a href="/exchange_rate_calculator.html">환율</a></li><li><a href="/japan_travel_calculator.html">일본 여행 경비</a></li><li><a href="/camping_gear_calculator.html">캠핑 장비 견적</a></li></ul><h3>생활툴 · 텍스트 (3)</h3><ul class="at-cols"><li><a href="/character_counter.html">글자수 세기</a></li><li><a href="/spell_checker.html">맞춤법 검사</a></li><li><a href="/spacing_checker.html">띄어쓰기 검사</a></li></ul><h3>맛집 · 인천광역시</h3><ul class="at-cols"><li><a href="/yeonsu-bapjip.html">인천 연수구 밥집</a></li><li><a href="/yeonsu-gogi.html">인천 연수구 고기</a></li><li><a href="/yeonsu-gukmul-myeon.html">인천 연수구 국물과 면</a></li><li><a href="/yeonsu-iguk.html">인천 연수구 이국</a></li><li><a href="/yeonsu-sul-anju.html">인천 연수구 술과 안주</a></li><li><a href="/yeonsu-cafe.html">인천 연수구 카페·디저트</a></li><li><a href="/yeonsu-hambak.html">인천 연수구 함박마을</a></li></ul><h3>맛집 · 서울특별시</h3><ul class="at-cols"><li><a href="/gangnam-bapjip.html">서울 강남구 밥집</a></li><li><a href="/gangnam-gogi.html">서울 강남구 고기</a></li><li><a href="/gangnam-gukmul-myeon.html">서울 강남구 국물과 면</a></li><li><a href="/gangnam-iguk.html">서울 강남구 이국</a></li><li><a href="/gangnam-sul-anju.html">서울 강남구 술과 안주</a></li><li><a href="/gangnam-cafe.html">서울 강남구 카페·디저트</a></li><li><a href="/gangnam-nopo.html">서울 강남구 노포</a></li><li><a href="/yongsan-bapjip.html">서울 용산구 밥집</a></li><li><a href="/yongsan-gogi.html">서울 용산구 고기</a></li><li><a href="/yongsan-gukmul-myeon.html">서울 용산구 국물과 면</a></li><li><a href="/yongsan-iguk.html">서울 용산구 이국</a></li><li><a href="/yongsan-sul-anju.html">서울 용산구 술과 안주</a></li><li><a href="/yongsan-cafe.html">서울 용산구 카페·디저트</a></li><li><a href="/yongsan-usadan.html">서울 용산구 우사단로 이슬람 거리</a></li></ul><h3>맛집 · 부산광역시</h3><ul class="at-cols"><li><a href="/haeundae-bapjip.html">부산 해운대구 밥집</a></li><li><a href="/haeundae-gogi.html">부산 해운대구 고기</a></li><li><a href="/haeundae-gukmul-myeon.html">부산 해운대구 국물과 면</a></li><li><a href="/haeundae-iguk.html">부산 해운대구 이국</a></li><li><a href="/haeundae-sul-anju.html">부산 해운대구 술과 안주</a> <small>(조사 중)</small></li><li><a href="/haeundae-cafe.html">부산 해운대구 카페·디저트</a></li><li><a href="/haeundae-michelin.html">부산 해운대구 미쉐린 해운대</a></li></ul><h3>맛집 · 강원특별자치도</h3><ul class="at-cols"><li><a href="/sokcho-bapjip.html">강원 속초시 밥집</a></li><li><a href="/sokcho-gogi.html">강원 속초시 고기</a></li><li><a href="/sokcho-gukmul-myeon.html">강원 속초시 국물과 면</a></li><li><a href="/sokcho-iguk.html">강원 속초시 이국</a> <small>(조사 중)</small></li><li><a href="/sokcho-sul-anju.html">강원 속초시 술과 안주</a></li><li><a href="/sokcho-cafe.html">강원 속초시 카페·디저트</a></li><li><a href="/sokcho-abai.html">강원 속초시 아바이마을</a></li></ul><h3>맛집 · 대전광역시</h3><ul class="at-cols"><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 동구 국물과 면</a></li><li><a href="/daejeon-donggu-station.html">대전 동구 대전역 노포</a></li><li><a href="/daejeon-junggu-cafe.html">대전 중구 카페·디저트</a></li><li><a href="/daejeon-junggu-durus.html">대전 중구 두부두루치기</a></li><li><a href="/daejeon-seogu-cafe.html">대전 서구 카페·디저트</a> <small>(조사 중)</small></li><li><a href="/daejeon-seogu-dunsan.html">대전 서구 둔산 신도심</a></li><li><a href="/daejeon-yuseong-bongmyeong.html">대전 유성구 봉명동</a></li><li><a href="/daejeon-daedeok-sintanjin.html">대전 대덕구 신탄진</a></li></ul><h3>맛집 · 광주광역시</h3><ul class="at-cols"><li><a href="/gwangju-donggu-bapjip.html">광주 동구 밥집</a></li><li><a href="/gwangju-seogu-sangmu.html">광주 서구 상무지구</a></li><li><a href="/gwangju-namgu-bapjip.html">광주 남구 밥집</a> <small>(조사 중)</small></li><li><a href="/gwangju-namgu-yangnim.html">광주 남구 양림동</a> <small>(조사 중)</small></li><li><a href="/gwangju-bukgu-bapjip.html">광주 북구 밥집</a></li><li><a href="/gwangju-bukgu-oritang.html">광주 북구 유동오리탕거리</a></li><li><a href="/gwangju-gwangsan-iguk.html">광주 광산구 이국</a></li><li><a href="/gwangju-gwangsan-cafe.html">광주 광산구 카페·디저트</a></li><li><a href="/gwangju-gwangsan-songjeong.html">광주 광산구 송정리 떡갈비거리</a></li></ul><h3>맛집 · 제주특별자치도</h3><ul class="at-cols"><li><a href="/jeju-jejusi-bapjip.html">제주 제주시 밥집</a></li><li><a href="/jeju-jejusi-gogi.html">제주 제주시 고기</a> <small>(조사 중)</small></li><li><a href="/jeju-jejusi-gukmul-myeon.html">제주 제주시 국물과 면</a></li><li><a href="/jeju-jejusi-iguk.html">제주 제주시 이국</a> <small>(조사 중)</small></li><li><a href="/jeju-jejusi-sul-anju.html">제주 제주시 술과 안주</a></li><li><a href="/jeju-jejusi-cafe.html">제주 제주시 카페·디저트</a></li><li><a href="/jeju-jejusi-hyangto.html">제주 제주시 제주 향토국</a></li><li><a href="/jeju-seogwipo-bapjip.html">제주 서귀포시 밥집</a></li><li><a href="/jeju-seogwipo-gogi.html">제주 서귀포시 고기</a></li><li><a href="/jeju-seogwipo-gukmul-myeon.html">제주 서귀포시 국물과 면</a></li><li><a href="/jeju-seogwipo-iguk.html">제주 서귀포시 이국</a></li><li><a href="/jeju-seogwipo-sul-anju.html">제주 서귀포시 술과 안주</a></li><li><a href="/jeju-seogwipo-cafe.html">제주 서귀포시 카페·디저트</a></li><li><a href="/jeju-seogwipo-galchi.html">제주 서귀포시 갈치</a></li></ul><h3>맛집 · 전라남도</h3><ul class="at-cols"><li><a href="/jeonnam-dongbu-gukmul-myeon.html">전남 동부권 국물과 면</a></li><li><a href="/jeonnam-dongbu-namdo.html">전남 동부권 남도음식거리</a></li><li><a href="/jeonnam-jungbu-bapjip.html">전남 중부권 밥집</a></li><li><a href="/jeonnam-jungbu-namdo.html">전남 중부권 남도음식거리</a></li><li><a href="/jeonnam-seobu-sul-anju.html">전남 서부권 술과 안주</a></li><li><a href="/jeonnam-seobu-namdo.html">전남 서부권 남도음식거리</a></li><li><a href="/jeonnam-nambu-bapjip.html">전남 남부권 밥집</a></li><li><a href="/jeonnam-nambu-namdo.html">전남 남부권 남도음식거리</a></li></ul><h3>여행</h3><ul class="at-cols"><li><a href="/travel.html">여행 전체</a></li><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul><h3>가이드</h3><ul class="at-cols"><li><a href="/etc.html">가이드·텍스트 도구</a></li><li><a href="/guide_2026_wage.html">2026 최저임금·노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 연말정산·종소세 가이드</a></li></ul><h3>사이트 안내</h3><ul class="at-cols"><li><a href="/">홈</a></li><li><a href="/food.html">전국 맛집</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/about.html">사이트 소개</a></li><li><a href="/editorial.html">편집 방침</a></li><li><a href="/contact.html">문의하기</a></li><li><a href="/privacy.html">개인정보처리방침</a></li><li><a href="/terms.html">이용약관</a></li></ul></div></div>
+<style>.at-sitemap .at-cols{columns:2 12rem;column-gap:1.5rem;padding-left:1.1rem}.at-sitemap h3{margin-top:1.75rem}</style>
 </main>
-<footer><div class="wrap">
-  <nav><a href="index.html">홈</a><a href="about.html">사이트 소개</a><a href="editorial.html">편집 방침</a>
-  <a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="contact.html">문의하기</a></nav>
-  <p>© 2026 어라운드툴. 계산 결과는 참고용입니다.</p>
+<!-- at:bottom -->
+
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
 </div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

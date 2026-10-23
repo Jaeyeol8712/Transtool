@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- at:head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴</title>
 <meta name="description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
 <link rel="canonical" href="https://www.aroundtool.com/pto_calculator.html">
-<meta name="robots" content="index, follow, max-snippet:-1">
-<meta name="theme-color" content="#B5690E">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/pto_calculator.html">
-<meta property="og:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴">
+<meta property="og:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당">
 <meta property="og:description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당 | 어라운드툴">
+<meta name="twitter:title" content="연차 계산기 — 근속연수별 발생일수와 연차수당">
 <meta name="twitter:description" content="입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-08-29">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 <style>
 :root{--bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
 --rule:#E1E6E3;--rule-strong:#C7CFCB;--brand:#B5690E;--brand-dark:#8A5009;--brand-tint:#FBF1E1;
 --warn:#C99A2E;--t-warn:#FBF1E1;--hot:#BC3C3C;--t-hot:#FBECEC;--ok:#1B855C;--t-ok:#E5F4EC}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
-font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+font-family:"Pretendard Variable",Pretendard,system-ui,-apple-system,sans-serif;
 font-size:16px;line-height:1.7;letter-spacing:-0.01em}
 .wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
 a{color:inherit}h1,h2,h3,h4{margin:0}
@@ -160,252 +174,166 @@ footer p{margin:0}
 .col-r{position:sticky;top:1rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "어라운드툴",
-     "item": "https://www.aroundtool.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "연차 계산기",
-     "item": "https://www.aroundtool.com/pto_calculator.html"
-    }
-   ]
-  },
-  {
-   "@type": "WebApplication",
-   "name": "연차 계산기",
-   "url": "https://www.aroundtool.com/pto_calculator.html",
-   "applicationCategory": "FinanceApplication",
-   "operatingSystem": "All",
-   "inLanguage": "ko-KR",
-   "isAccessibleForFree": true,
-   "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-   },
-   "description": "입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다."
-  },
-  {
-   "@type": "FAQPage",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "연차는 몇 일부터 생기나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "입사 1년 미만이면 1개월 개근할 때마다 1일씩 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 80% 이상 출근하면 15일이 별도로 발생합니다. 3년째부터는 2년마다 1일씩 가산되어 최대 25일까지 늘어납니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "연차가 최대 몇 일까지 늘어나나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "25일이 상한입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 15일에 근속연수에서 1을 뺀 값을 2로 나눈 몫을 더하는 방식입니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "연차수당은 어떻게 계산하나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "미사용 연차일수에 1일 통상임금을 곱합니다. 1일 통상임금은 월 통상임금을 209시간으로 나눈 뒤 8시간을 곱한 금액입니다. 통상임금에는 기본급과 고정수당만 들어가고 상여금이나 연장수당은 제외됩니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "연차사용촉진을 하면 수당을 못 받나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "회사가 법에 정해진 절차와 기한을 지켜 서면으로 사용을 촉진했는데도 근로자가 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 절차를 하나라도 어기면 촉진의 효력이 없어 수당을 청구할 수 있습니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "5인 미만 사업장도 연차가 있나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "없습니다. 근로기준법상 연차유급휴가 규정은 상시 5인 이상 사업장에만 적용됩니다. 4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "입사일 기준과 회계연도 기준은 뭐가 다른가요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "법 원칙은 입사일 기준입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 회계연도 기준을 쓰더라도 퇴사 시점에 입사일 기준으로 계산한 것보다 적으면 그 차액을 정산해 줘야 합니다."
-     }
-    }
-   ]
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"연차 계산기","url":"https://www.aroundtool.com/pto_calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"연차는 몇 일부터 생기나요?","acceptedAnswer":{"@type":"Answer","text":"입사 1년 미만이면 1개월 개근할 때마다 1일씩 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 80% 이상 출근하면 15일이 별도로 발생합니다. 3년째부터는 2년마다 1일씩 가산되어 최대 25일까지 늘어납니다."}},{"@type":"Question","name":"연차가 최대 몇 일까지 늘어나나요?","acceptedAnswer":{"@type":"Answer","text":"25일이 상한입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 15일에 근속연수에서 1을 뺀 값을 2로 나눈 몫을 더하는 방식입니다."}},{"@type":"Question","name":"연차수당은 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"미사용 연차일수에 1일 통상임금을 곱합니다. 1일 통상임금은 월 통상임금을 209시간으로 나눈 뒤 8시간을 곱한 금액입니다. 통상임금에는 기본급과 고정수당만 들어가고 상여금이나 연장수당은 제외됩니다."}},{"@type":"Question","name":"연차사용촉진을 하면 수당을 못 받나요?","acceptedAnswer":{"@type":"Answer","text":"회사가 법에 정해진 절차와 기한을 지켜 서면으로 사용을 촉진했는데도 근로자가 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 절차를 하나라도 어기면 촉진의 효력이 없어 수당을 청구할 수 있습니다."}},{"@type":"Question","name":"5인 미만 사업장도 연차가 있나요?","acceptedAnswer":{"@type":"Answer","text":"없습니다. 근로기준법상 연차유급휴가 규정은 상시 5인 이상 사업장에만 적용됩니다. 4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다."}},{"@type":"Question","name":"입사일 기준과 회계연도 기준은 뭐가 다른가요?","acceptedAnswer":{"@type":"Answer","text":"법 원칙은 입사일 기준입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 회계연도 기준을 쓰더라도 퇴사 시점에 입사일 기준으로 계산한 것보다 적으면 그 차액을 정산해 줘야 합니다."}}]}]}</script>
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/pto_calculator.html#webpage","url":"https://www.aroundtool.com/pto_calculator.html","name":"연차 계산기 — 근속연수별 발생일수와 연차수당","description":"입사일을 넣으면 근로기준법 제60조에 따른 연차 발생일수를 계산합니다. 1년 미만 월차, 3년차부터의 가산 연차, 미사용 연차수당까지 함께 산출합니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-08-29","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/pto_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"노동·구직","item":"https://www.aroundtool.com/tools.html#g-labor"},{"@type":"ListItem","position":4,"name":"연차","item":"https://www.aroundtool.com/pto_calculator.html"}],"@id":"https://www.aroundtool.com/pto_calculator.html#breadcrumb"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<!-- /at:assets -->
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="/">어라운드<span>툴</span></a>
-    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>연차</p>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">근로기준법 제60조 기준 · 로그인 없이 무료</p>
-    <h1>연차 계산기</h1>
-    <p>입사일을 넣으면 <strong>지금까지 발생한 연차</strong>가 나옵니다. 1년 미만 월차와 가산 연차를 나눠 보여주고 미사용 연차수당도 계산합니다.</p>
-    <div class="alert-up"><span>연차는 <b>1년 이상 15일</b>에서 시작해 <b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>입니다. <b>5인 미만 사업장</b>과 주 15시간 미만 근로자는 대상이 아닙니다.</span></div>
-  </div>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><span aria-current="page">연차</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-labor">생활툴 · 노동·구직</a></p><span class="at-board-meta">5종</span></div>
+  <ul class="at-board-tabs"><li><a href="/severance_calculator.html">퇴직금</a></li><li><a href="/unemployment_benefit_calculator.html">실업급여</a></li><li><a href="/pto_calculator.html" aria-current="page">연차</a></li><li><a href="/holiday_pay_calculator.html">주휴수당</a></li><li><a href="/parental_leave_calculator.html">육아휴직급여</a></li></ul>
 </div>
-
+<!-- /at:top -->
+<div class="hero">
+<div class="wrap">
+<p class="eyebrow">근로기준법 제60조 기준 · 로그인 없이 무료</p>
+<h1>연차 계산기</h1>
+<p>입사일을 넣으면 <strong>지금까지 발생한 연차</strong>가 나옵니다. 1년 미만 월차와 가산 연차를 나눠 보여주고 미사용 연차수당도 계산합니다.</p>
+<div class="alert-up"><span>연차는 <b>1년 이상 15일</b>에서 시작해 <b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>입니다. <b>5인 미만 사업장</b>과 주 15시간 미만 근로자는 대상이 아닙니다.</span></div>
+</div>
+</div>
 <main class="wrap">
-  <div class="app">
-    <div class="col-l">
-      <div class="card">
-        <h2>1 · 입사일과 기준일</h2>
-        <div class="card-body">
-          <div class="grid2">
-            <div><label class="lb" for="in">입사일</label>
-              <div class="ip"><input type="date" id="in" value="2022-04-01"></div></div>
-            <div><label class="lb" for="base">기준일</label>
-              <div class="ip"><input type="date" id="base" value="2026-09-01"></div></div>
-          </div>
-          <p class="readout" id="yr-r"></p>
-          <p class="hint">기준일은 <b>연차를 확인하려는 날짜</b>입니다. 오늘 날짜를 넣으면 현재 발생한 연차를 볼 수 있습니다.</p>
-        </div>
-      </div>
-      <div class="card" style="margin-top:1.25rem">
-        <h2>2 · 연차수당 계산 (선택)</h2>
-        <div class="card-body">
-          <div class="fld">
-            <label class="lb" for="pay">월 통상임금</label>
-            <div class="ip"><input type="number" id="pay" value="300" min="0" step="10" inputmode="numeric">
-              <span class="unit">만원</span></div>
-            <p class="hint">기본급과 고정수당 합계. <b>상여금·연장수당은 제외</b>합니다.</p>
-          </div>
-          <div class="fld">
-            <label class="lb">미사용 연차</label>
-            <div class="stepper">
-              <button type="button" data-d="-1">−</button>
-              <span class="v" id="un-v">5일</span>
-              <button type="button" data-d="1">+</button>
-            </div>
-          </div>
-          <p class="hint">1일 통상임금 = <b>월 통상임금 ÷ 209시간 × 8시간</b>으로 계산합니다.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-r">
-      <div class="card">
-        <h2>발생 연차<span class="n" id="cap"></span></h2>
-        <div class="card-body">
-          <div class="total">
-            <p class="total-lab">현재 발생 연차</p>
-            <p class="total-num" id="days">0일</p>
-            <p class="total-sub" id="days-sub"></p>
-          </div>
-          <ul class="bd" id="bd"></ul>
-        </div>
-      </div>
-      <div class="card" style="margin-top:1.25rem">
-        <h2>연차수당</h2>
-        <div class="card-body"><ul class="bd" id="pay-bd"></ul></div>
-      </div>
-      <div class="notice">
-        <b>알아두실 점</b>
-        <ul>
-          <li>5인 미만 사업장은 <b>연차 규정이 적용되지 않습니다</b></li>
-          <li>4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다</li>
-          <li>회사가 <b>연차사용촉진</b>을 적법하게 했다면 미사용 연차수당이 소멸할 수 있습니다</li>
-          <li>회계연도 기준으로 운영하는 회사는 입사일 기준과 일수가 달라집니다</li>
-        </ul>
+<div class="app">
+<div class="col-l">
+<div class="card">
+<h2>1 · 입사일과 기준일</h2>
+<div class="card-body">
+<div class="grid2">
+<div><label class="lb" for="in">입사일</label>
+<div class="ip"><input id="in" type="date" value="2022-04-01"/></div></div>
+<div><label class="lb" for="base">기준일</label>
+<div class="ip"><input id="base" type="date" value="2026-09-01"/></div></div>
+</div>
+<p class="readout" id="yr-r"></p>
+<p class="hint">기준일은 <b>연차를 확인하려는 날짜</b>입니다. 오늘 날짜를 넣으면 현재 발생한 연차를 볼 수 있습니다.</p>
+</div>
+</div>
+<div class="card" style="margin-top:1.25rem">
+<h2>2 · 연차수당 계산 (선택)</h2>
+<div class="card-body">
+<div class="fld">
+<label class="lb" for="pay">월 통상임금</label>
+<div class="ip"><input id="pay" inputmode="numeric" min="0" step="10" type="number" value="300"/>
+<span class="unit">만원</span></div>
+<p class="hint">기본급과 고정수당 합계. <b>상여금·연장수당은 제외</b>합니다.</p>
+</div>
+<div class="fld">
+<label class="lb">미사용 연차</label>
+<div class="stepper">
+<button data-d="-1" type="button">−</button>
+<span class="v" id="un-v">5일</span>
+<button data-d="1" type="button">+</button>
+</div>
+</div>
+<p class="hint">1일 통상임금 = <b>월 통상임금 ÷ 209시간 × 8시간</b>으로 계산합니다.</p>
+</div>
+</div>
+</div>
+<div class="col-r">
+<div class="card">
+<h2>발생 연차<span class="n" id="cap"></span></h2>
+<div class="card-body">
+<div class="total">
+<p class="total-lab">현재 발생 연차</p>
+<p class="total-num" id="days">0일</p>
+<p class="total-sub" id="days-sub"></p>
+</div>
+<ul class="bd" id="bd"></ul>
+</div>
+</div>
+<div class="card" style="margin-top:1.25rem">
+<h2>연차수당</h2>
+<div class="card-body"><ul class="bd" id="pay-bd"></ul></div>
+</div>
+<div class="notice">
+<b>알아두실 점</b>
+<ul>
+<li>5인 미만 사업장은 <b>연차 규정이 적용되지 않습니다</b></li>
+<li>4주 평균 주 15시간 미만 근로자도 대상에서 제외됩니다</li>
+<li>회사가 <b>연차사용촉진</b>을 적법하게 했다면 미사용 연차수당이 소멸할 수 있습니다</li>
+<li>회계연도 기준으로 운영하는 회사는 입사일 기준과 일수가 달라집니다</li>
+</ul>
         연차수당 청구권 소멸시효는 <b>3년</b>입니다.
       </div>
-    </div>
-  </div>
-
-  <section class="doc">
-    <h2>근속연수별 연차일수 (근로기준법 제60조)</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>근속</th><th>연차일수</th><th>근거</th></tr></thead>
-        <tbody id="tbl"></tbody>
-      </table>
-    </div>
-    <p class="hint" style="margin-top:.7rem"><b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>에서 멈춥니다.
+</div>
+</div>
+<section class="doc">
+<h2>근속연수별 연차일수 (근로기준법 제60조)</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>근속</th><th>연차일수</th><th>근거</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table>
+</div>
+<p class="hint" style="margin-top:.7rem"><b>3년째부터 2년마다 1일씩</b> 가산되며 <b>최대 25일</b>에서 멈춥니다.
     21년 이상 근속하면 더 늘지 않습니다.</p>
-  </section>
-
-  <section class="doc">
-    <h2>1년 미만 근로자의 연차</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>구분</th><th>내용</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">발생 방식</th><td>1개월 개근할 때마다 1일씩 발생. 최대 11일</td></tr>
-          <tr><th scope="row">1년 되는 날</th><td>1년 이상 근속 요건을 채우면 <b>15일이 별도로</b> 발생. 앞의 11일과 합쳐 최대 26일</td></tr>
-          <tr><th scope="row">사용 기한</th><td>2020년 3월 개정으로 <b>입사일부터 1년 이내</b>에 써야 함</td></tr>
-          <tr><th scope="row">퇴사 시</th><td>미사용분은 연차수당으로 정산</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="faq">
-    <h2>자주 묻는 질문</h2>
-    <details open>
-      <summary>연차는 몇 일부터 생기나요?</summary>
-      <div class="ans">입사 1년 미만이면 <b>1개월 개근할 때마다 1일씩</b> 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 <b>80% 이상 출근</b>하면 15일이 별도로 발생합니다. 3년째부터는 <b>2년마다 1일씩 가산</b>되어 최대 25일까지 늘어납니다.</div>
-    </details>
-    <details>
-      <summary>연차가 최대 몇 일까지 늘어나나요?</summary>
-      <div class="ans"><b>25일이 상한</b>입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 <b>15 + (근속연수 − 1) ÷ 2의 몫</b>입니다.</div>
-    </details>
-    <details>
-      <summary>연차수당은 어떻게 계산하나요?</summary>
-      <div class="ans">미사용 연차일수 × 1일 통상임금입니다. <b>1일 통상임금 = 월 통상임금 ÷ 209시간 × 8시간</b>입니다. 통상임금에는 기본급과 고정수당만 들어가고 <b>상여금이나 연장수당은 제외</b>됩니다.</div>
-    </details>
-    <details>
-      <summary>연차사용촉진을 하면 수당을 못 받나요?</summary>
-      <div class="ans">회사가 법에 정해진 <b>절차와 기한을 지켜 서면으로</b> 촉진했는데도 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 <b>절차를 하나라도 어기면 촉진의 효력이 없어</b> 수당을 청구할 수 있습니다. 구두 통보만으로는 인정되지 않습니다.</div>
-    </details>
-    <details>
-      <summary>5인 미만 사업장도 연차가 있나요?</summary>
-      <div class="ans">없습니다. 근로기준법상 연차유급휴가 규정은 <b>상시 5인 이상 사업장</b>에만 적용됩니다. <b>4주 평균 주 15시간 미만</b> 근로자도 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다.</div>
-    </details>
-    <details>
-      <summary>입사일 기준과 회계연도 기준은 뭐가 다른가요?</summary>
-      <div class="ans">법 원칙은 <b>입사일 기준</b>입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 다만 회계연도 기준을 쓰더라도 <b>퇴사 시점에 입사일 기준보다 적으면 차액을 정산</b>해 줘야 합니다. 이 계산기는 입사일 기준입니다.</div>
-    </details>
-  </section>
+</section>
+<section class="doc">
+<h2>1년 미만 근로자의 연차</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>구분</th><th>내용</th></tr></thead>
+<tbody>
+<tr><th scope="row">발생 방식</th><td>1개월 개근할 때마다 1일씩 발생. 최대 11일</td></tr>
+<tr><th scope="row">1년 되는 날</th><td>1년 이상 근속 요건을 채우면 <b>15일이 별도로</b> 발생. 앞의 11일과 합쳐 최대 26일</td></tr>
+<tr><th scope="row">사용 기한</th><td>2020년 3월 개정으로 <b>입사일부터 1년 이내</b>에 써야 함</td></tr>
+<tr><th scope="row">퇴사 시</th><td>미사용분은 연차수당으로 정산</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="faq">
+<h2>자주 묻는 질문</h2>
+<details open="">
+<summary>연차는 몇 일부터 생기나요?</summary>
+<div class="ans">입사 1년 미만이면 <b>1개월 개근할 때마다 1일씩</b> 발생해 최대 11일까지 쌓입니다. 1년 이상 근속하고 그해 <b>80% 이상 출근</b>하면 15일이 별도로 발생합니다. 3년째부터는 <b>2년마다 1일씩 가산</b>되어 최대 25일까지 늘어납니다.</div>
+</details>
+<details>
+<summary>연차가 최대 몇 일까지 늘어나나요?</summary>
+<div class="ans"><b>25일이 상한</b>입니다. 근속 21년이 되면 25일에 도달하고 그 이후로는 더 늘지 않습니다. 계산식은 <b>15 + (근속연수 − 1) ÷ 2의 몫</b>입니다.</div>
+</details>
+<details>
+<summary>연차수당은 어떻게 계산하나요?</summary>
+<div class="ans">미사용 연차일수 × 1일 통상임금입니다. <b>1일 통상임금 = 월 통상임금 ÷ 209시간 × 8시간</b>입니다. 통상임금에는 기본급과 고정수당만 들어가고 <b>상여금이나 연장수당은 제외</b>됩니다.</div>
+</details>
+<details>
+<summary>연차사용촉진을 하면 수당을 못 받나요?</summary>
+<div class="ans">회사가 법에 정해진 <b>절차와 기한을 지켜 서면으로</b> 촉진했는데도 쓰지 않았다면 미사용 연차수당 지급 의무가 사라집니다. 다만 <b>절차를 하나라도 어기면 촉진의 효력이 없어</b> 수당을 청구할 수 있습니다. 구두 통보만으로는 인정되지 않습니다.</div>
+</details>
+<details>
+<summary>5인 미만 사업장도 연차가 있나요?</summary>
+<div class="ans">없습니다. 근로기준법상 연차유급휴가 규정은 <b>상시 5인 이상 사업장</b>에만 적용됩니다. <b>4주 평균 주 15시간 미만</b> 근로자도 제외됩니다. 다만 회사 취업규칙이나 근로계약에 별도로 정한 것이 있으면 그에 따릅니다.</div>
+</details>
+<details>
+<summary>입사일 기준과 회계연도 기준은 뭐가 다른가요?</summary>
+<div class="ans">법 원칙은 <b>입사일 기준</b>입니다. 다만 관리 편의를 위해 회계연도 기준으로 일괄 운영하는 회사가 많고 이것도 허용됩니다. 다만 회계연도 기준을 쓰더라도 <b>퇴사 시점에 입사일 기준보다 적으면 차액을 정산</b>해 줘야 합니다. 이 계산기는 입사일 기준입니다.</div>
+</details>
+</section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <nav>
-      <a href="/">홈</a>
-      <a href="/sitemap.html">사이트맵</a>
-      <a href="/severance_calculator.html">퇴직금</a>
-      <a href="/unemployment_benefit_calculator.html">실업급여</a>
-      <a href="/holiday_pay_calculator.html">주휴수당</a>
-      <a href="/parental_leave_calculator.html">육아휴직급여</a>
-    </nav>
-    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -469,6 +397,45 @@ footer p{margin:0}
 
 })();
 </script>
-
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/severance_calculator.html"><span class="tag ">노동</span><span class="t">퇴직금</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="tag ">노동</span><span class="t">실업급여</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/holiday_pay_calculator.html"><span class="tag ">노동</span><span class="t">주휴수당</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/parental_leave_calculator.html"><span class="tag ">노동</span><span class="t">육아휴직급여</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

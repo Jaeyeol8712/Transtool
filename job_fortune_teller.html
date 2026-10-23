@@ -1,73 +1,167 @@
-<!-- 23. job_fortune_teller.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <script src="common_head.js"></script>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>취업운세 - 오늘의 면접/합격운 무료 보기 | 생활 계산기 모음</title>
- <meta name="description" content="취업 준비생들을 위해 긴장감을 덜어주고 긍정적인 기운을 불어넣어 주는 가벼운 취업운세 서비스입니다.">
- <link rel="canonical" href="https://www.aroundtool.com/job_fortune_teller">
- <style>
- :root{--primary:#8b5cf6;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
- </style>
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오늘의 취업운세 — 면접·서류 합격 응원 메시지 (재미용) | 어라운드툴</title>
+<meta name="description" content="이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/job_fortune_teller.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/job_fortune_teller.html">
+<meta property="og:title" content="오늘의 취업운세 — 면접·서류 합격 응원 메시지 (재미용)">
+<meta property="og:description" content="이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="오늘의 취업운세 — 면접·서류 합격 응원 메시지 (재미용)">
+<meta name="twitter:description" content="이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
+
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/job_fortune_teller.html#webpage","url":"https://www.aroundtool.com/job_fortune_teller.html","name":"오늘의 취업운세 — 면접·서류 합격 응원 메시지 (재미용)","description":"이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/job_fortune_teller.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"생활·건강","item":"https://www.aroundtool.com/tools.html#g-life"},{"@type":"ListItem","position":4,"name":"취업운세","item":"https://www.aroundtool.com/job_fortune_teller.html"}],"@id":"https://www.aroundtool.com/job_fortune_teller.html#breadcrumb"},{"@type":"WebApplication","name":"오늘의 취업운세","url":"https://www.aroundtool.com/job_fortune_teller.html","description":"이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.","applicationCategory":"EntertainmentApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"오늘의 취업운세 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"이름을 입력합니다."},{"@type":"HowToStep","position":2,"text":"운세 보기를 누르면 오늘의 응원 메시지가 나옵니다."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"운세 결과는 근거가 있나요?","acceptedAnswer":{"@type":"Answer","text":"없습니다. 네 가지 응원 문구 중 하나가 무작위로 나오는 재미용 도구입니다."}},{"@type":"Question","name":"입력한 이름이 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 이름은 화면에 메시지를 표시하는 데만 쓰이고 어디에도 전송·저장되지 않습니다."}},{"@type":"Question","name":"자기소개서 분량은 어떻게 확인하나요?","acceptedAnswer":{"@type":"Answer","text":"글자수 세기 도구에 붙여 넣으면 공백 포함·제외 글자수와 바이트를 바로 볼 수 있습니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
- <nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>취업운세</span></nav>
- <header>
- <h1>🍀 취업운세</h1>
- <p>오늘의 운세 및 면접 운 타로(재미용)</p>
- </header>
- <div class="ad-slot">광고 영역 (728x90)</div>
- <div class="card" style="text-align:center;">
- <p style="margin-bottom:20px; color:var(--muted); font-size:0.9rem;">이름을 입력하고 오늘의 기분 좋은 운세를 확인하세요!</p>
- <input type="text" id="fortName" placeholder="이름 (예: 홍길동)" style="text-align:center;">
- <button onclick="calcFort()">🍀 취업 운세 뽑기 🍀</button>
- <div class="result" id="result" style="margin-top:20px; padding:20px; background:#fff7ed; border:1px solid #fed7aa; border-radius:12px;">
- <h3 style="color:#ea580c; margin-bottom:10px;" id="fortTitle">-</h3>
- <p id="fortDesc" style="font-size:0.9rem; line-height:1.6; color:#431407;">-</p>
- </div>
- </div>
- <article class="seo-text">
- <h2>하반기 공채 준비생을 위한 멘탈 케어 타로</h2>
- <p>찌는 듯한 2026년 7월의 폭염 속에서도 다가올 가을 하반기 대기업 공채 시즌을 대비해, 스터디 카페에서 자기소개서와 면접 스크립트를 다듬으며 고군분투하는 모든 취업 준비생 여러분을 진심으로 응원합니다. 계속되는 서류 필터링의 탈락이나 숨 막히는 압박 면접의 긴장감으로 멘탈이 바닥까지 흔들릴 때, 억지로 참기보다는 잠깐의 가벼운 숨 고르기가 필요하지 않으신가요? 이 서비스는 고도의 과학적인 평가 도구는 결코 아니지만, 여러분의 굳은 의지와 간절함에 작게나마 긍정적인 기운을 불어넣어 주기 위해 기획된 힐링형 운세 테스트입니다. 인적성 고사장으로 향하는 에어컨 빵빵한 지하철 안이나 이력서 최종 제출 버튼을 누르기 직전, 아주 가벼운 마음으로 이름을 입력해 보세요. 오늘의 기분 좋은 운세 결과가 면접관 앞에서의 당당한 태도로 이어져, 최종 합격이라는 달콤한 과실을 맺을 수 있도록 어라운드툴이 늘 행운을 빌어드립니다.</p>
- </article>
- <footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 본 서비스는 재미 목적이며 실제 합격 여부와 무관합니다. 개인정보를 수집하지 않습니다.</p>
- </footer>
- <script>
- function calcFort(){
- const n = document.getElementById('fortName').value;
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><span aria-current="page">취업운세</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-life">생활툴 · 생활·건강</a></p><span class="at-board-meta">18종</span></div>
+  <ul class="at-board-tabs"><li><a href="/discount_calculator.html">할인율</a></li><li><a href="/discount_rate_calculator.html">할인율 역산</a></li><li><a href="/percent_calculator.html">퍼센트</a></li><li><a href="/dutch_pay_calculator.html">더치페이</a></li><li><a href="/electricity_bill_calculator.html">전기요금</a></li><li><a href="/gas_bill_calculator.html">도시가스 요금</a></li><li><a href="/car_tax_calculator.html">자동차세</a></li><li><a href="/pyeong_calculator.html">평수</a></li><li><a href="/age_calculator.html">만나이</a></li><li><a href="/due_date_calculator.html">출산예정일</a></li><li><a href="/bmi_calculator.html">BMI</a></li><li><a href="/bmr_calculator.html">기초대사량</a></li><li><a href="/calorie_calculator.html">권장 칼로리</a></li><li><a href="/tire_date_calculator.html">타이어 제조일자</a></li><li><a href="/grave_weeding_calculator.html">벌초 견적</a></li><li><a href="/qr_generator.html">QR코드 생성</a></li><li><a href="/lotto_generator.html">로또 번호</a></li><li><a href="/job_fortune_teller.html" aria-current="page">취업운세</a></li></ul>
+</div>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">오늘의 취업운세</h1>
+  <p class="lede" itemprop="description">면접 전 긴장을 풀기 위한 재미용 응원 메시지입니다.</p>
+  <p class="meta"><span>생활툴 · 생활·건강</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="오늘의 취업운세">
+<label for="fortName">이름</label>
+<input id="fortName" placeholder="예: 홍길동" type="text"/>
+<button onclick="calcFort()">오늘의 응원 메시지 보기</button>
+<div class="result" id="result" aria-live="polite">
+<p style="font-weight:800;font-size:1.125rem;margin:.75rem 0 .4rem;color:var(--at-brand-ink)" id="fortTitle">-</p>
+<p style="margin:0;color:var(--at-sub);line-height:1.75" id="fortDesc">-</p>
+</div>
+<p class="tool-note">재미용 콘텐츠입니다. 이름은 저장되거나 전송되지 않습니다.</p>
+<script>
+function calcFort(){
+ const n = document.getElementById('fortName').value.trim();
  if(!n) return alert('이름을 입력해주세요.');
  const fortunes = [
- {t: "대길! 면접관의 시선을 사로잡는 날", d: "오늘은 당신의 솔직함이 강력한 무기가 됩니다. 준비했던 답변이 아니더라도 당황하지 말고 자신감 있게 말하세요. 합격의 문이 활짝 열려 있습니다."},
- {t: "조력자의 등장, 서류 합격의 기운", d: "예상치 못한 곳에서 취업 관련 좋은 소식이나 꿀팁을 얻을 수 있습니다. 오늘 올라온 채용 공고를 유심히 살펴보면 당신에게 딱 맞는 포지션이 있을 것입니다."},
- {t: "꾸준함이 빛을 발하는 타이밍", d: "그동안 쌓아온 스펙과 노력이 면접에서 자연스럽게 묻어나는 날입니다. 긴장감을 내려놓고 편안한 미소를 유지한다면 무조건 좋은 결과가 따라옵니다."}
+  {t:'솔직함이 무기가 되는 날', d:'준비한 답변이 아니더라도 당황하지 말고, 경험을 구체적인 숫자와 장면으로 이야기해 보세요.'},
+  {t:'새로운 공고를 살펴보기 좋은 날', d:'오늘 올라온 채용 공고를 꼼꼼히 읽어 보세요. 직무 설명에 쓰인 단어를 자기소개서에 반영하면 좋습니다.'},
+  {t:'쌓아 온 준비가 드러나는 날', d:'긴장을 내려놓고 천천히 말하세요. 질문을 한 번 더 확인하고 답하는 여유가 좋은 인상을 남깁니다.'},
+  {t:'작은 정리가 큰 차이를 만드는 날', d:'제출 전 맞춤법과 글자수를 한 번 더 확인하세요. 마지막 5분 점검이 서류의 완성도를 바꿉니다.'}
  ];
  const pick = fortunes[Math.floor(Math.random() * fortunes.length)];
  document.getElementById('fortTitle').textContent = pick.t;
  document.getElementById('fortDesc').textContent = n + '님, ' + pick.d;
  document.getElementById('result').classList.add('show');
- }
- </script>
+}
+</script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>이 페이지는 <b>재미로 보는 응원 메시지</b>입니다. 이름과 무관하게 준비된 메시지 중 하나를 무작위로 보여주며, 실제 합격 가능성과는 관계가 없습니다. 아래 면접 전 체크리스트가 결과보다 더 도움이 됩니다.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>이름을 입력합니다.</li><li>운세 보기를 누르면 오늘의 응원 메시지가 나옵니다.</li></ol>
+
+<h2>면접 전날·당일 체크리스트</h2>
+<ol><li>지원 회사의 최근 3개월 뉴스와 채용 공고의 직무 설명을 다시 읽습니다.</li>
+<li>‘1분 자기소개’와 ‘지원 동기’를 소리 내어 두 번 말해 봅니다.</li>
+<li>자기소개서에 쓴 경험마다 ‘구체적으로 무엇을 했는지’ 질문을 예상해 둡니다.</li>
+<li>면접 장소까지 이동 시간을 확인하고 20분 일찍 도착하도록 출발합니다.</li>
+<li>마지막 질문(“궁금한 점 있나요?”)에 할 질문을 하나 준비합니다.</li></ol>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>운세 결과는 근거가 있나요?</summary><div class="a"><p>없습니다. 네 가지 응원 문구 중 하나가 무작위로 나오는 재미용 도구입니다.</p></div></details><details><summary>입력한 이름이 저장되나요?</summary><div class="a"><p>아니요. 이름은 화면에 메시지를 표시하는 데만 쓰이고 어디에도 전송·저장되지 않습니다.</p></div></details><details><summary>자기소개서 분량은 어떻게 확인하나요?</summary><div class="a"><p>글자수 세기 도구에 붙여 넣으면 공백 포함·제외 글자수와 바이트를 바로 볼 수 있습니다.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/character_counter.html">글자수 세기 계산기</a> — 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수,…</li><li><a href="/spell_checker.html">맞춤법 검사 계산기</a> — 자기소개서·이메일에서 자주 틀리는 맞춤법 표현 약 70개(안되요, 됬다, 몇일, 금새, 오랫만에 등)를…</li><li><a href="/spacing_checker.html">띄어쓰기 검사 계산기</a> — ‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력…</li><li><a href="/salary_calculator.html">연봉 실수령액 계산기</a> — 2026년 인상된 4대보험 요율(국민연금 4.75%, 건강보험 3.595%, 장기요양 13.14%)을…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/character_counter.html"><span class="tag ">텍스트</span><span class="t">글자수 세기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="tag ">텍스트</span><span class="t">맞춤법 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spacing_checker.html"><span class="tag ">텍스트</span><span class="t">띄어쓰기 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/salary_calculator.html"><span class="tag ">재테크</span><span class="t">연봉 실수령액</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/discount_calculator.html"><span class="tag ">생활</span><span class="t">할인율<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/discount_rate_calculator.html"><span class="tag ">생활</span><span class="t">할인율 역산<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/percent_calculator.html"><span class="tag ">생활</span><span class="t">퍼센트<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/dutch_pay_calculator.html"><span class="tag ">생활</span><span class="t">더치페이<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

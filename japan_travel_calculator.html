@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- at:head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>일본 여행 경비 계산기 — 항공비·코스·맛집 예산 | 어라운드툴</title>
 <meta name="description" content="2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.">
 <link rel="canonical" href="https://www.aroundtool.com/japan_travel_calculator.html">
-<meta name="robots" content="index, follow, max-snippet:-1">
-<meta name="theme-color" content="#0D7A6F">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/japan_travel_calculator.html">
 <meta property="og:title" content="일본 여행 경비 계산기 — 항공비·코스·맛집 예산">
-<meta property="og:description" content="도시와 기간을 고르면 경비 내역과 일자별 코스, 맛집 예산이 함께 나옵니다. 2026년 시세 기준.">
+<meta property="og:description" content="2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="일본 여행 경비 계산기 — 항공비·코스·맛집 예산">
-<meta name="twitter:description" content="도시와 기간을 고르면 경비 내역과 일자별 코스, 맛집 예산이 함께 나옵니다.">
+<meta name="twitter:description" content="2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-08-29">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 <style>
 :root{
   --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
@@ -31,7 +45,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-family:"Pretendard Variable",Pretendard,system-ui,-apple-system,sans-serif;
   font-size:16px;line-height:1.7;letter-spacing:-0.01em}
 .wrap{max-width:64rem;margin:0 auto;padding:0 1rem}
 a{color:inherit}h1,h2,h3,h4{margin:0}
@@ -199,276 +213,241 @@ footer p{margin:0}
 }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
 </style>
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@graph":[
-  {"@type":"BreadcrumbList","itemListElement":[
-   {"@type":"ListItem","position":1,"name":"어라운드툴","item":"https://www.aroundtool.com/"},
-   {"@type":"ListItem","position":2,"name":"일본 여행 경비 계산기","item":"https://www.aroundtool.com/japan_travel_calculator.html"}]},
-  {"@type":"WebApplication","name":"일본 여행 경비 계산기",
-   "url":"https://www.aroundtool.com/japan_travel_calculator.html",
-   "applicationCategory":"TravelApplication","operatingSystem":"All",
-   "inLanguage":"ko-KR","isAccessibleForFree":true,
-   "offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},
-   "description":"도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나오는 일본 여행 경비 계산기입니다."},
-  {"@type":"FAQPage","mainEntity":[
-   {"@type":"Question","name":"일본 여행 3박 4일 경비는 얼마인가요?",
-    "acceptedAnswer":{"@type":"Answer","text":"2026년 시세 기준으로 후쿠오카나 오사카 3박 4일은 1인당 약 70만~110만 원, 도쿄는 90만~145만 원 수준입니다. 항공권 20만~38만 원, 숙박 21만~36만 원, 식비 18만~30만 원, 교통 8만~12만 원이 기본 구성이며 쇼핑은 별도입니다."}},
-   {"@type":"Question","name":"2026년 엔화 환율은 얼마인가요?",
-    "acceptedAnswer":{"@type":"Answer","text":"2026년 기준 100엔은 약 930~960원 수준입니다. 2022년 초 1,050~1,100원과 비교하면 15% 이상 낮아 한국인 여행자에게 유리한 환경입니다. 이 계산기는 100엔 940원을 기준으로 계산합니다."}},
-   {"@type":"Question","name":"일본 출국세가 올랐다던데요?",
-    "acceptedAnswer":{"@type":"Answer","text":"2026년 7월 1일부터 일본 국제관광여객세(출국세)가 1인당 1,000엔에서 3,000엔으로 인상됐습니다. 약 28,000원이며 대부분 항공권 요금에 포함되어 자동으로 부과됩니다. 후지산 입산료 4,000엔도 신설됐습니다."}},
-   {"@type":"Question","name":"JR패스는 사는 게 이득인가요?",
-    "acceptedAnswer":{"@type":"Answer","text":"7일권이 약 5만 엔(47만 원)이라 신칸센으로 도시를 두 곳 이상 이동할 때만 유리합니다. 한 도시에만 머문다면 지하철 1일권이나 IC카드가 훨씬 저렴합니다. 오사카·후쿠오카 단일 도시 여행이라면 사지 않는 편이 낫습니다."}},
-   {"@type":"Question","name":"일본 여행 현금은 얼마나 가져가야 하나요?",
-    "acceptedAnswer":{"@type":"Answer","text":"도시 여행이라면 하루 5,000~8,000엔 정도의 현금을 예상하면 됩니다. 도쿄·오사카 같은 대도시는 카드와 함께 5만~8만 엔이면 충분하고, 료칸이나 온천 마을이 포함되면 카드를 안 받는 곳이 많아 현금을 더 준비해야 합니다."}},
-   {"@type":"Question","name":"한 끼 식사비는 얼마나 잡아야 하나요?",
-    "acceptedAnswer":{"@type":"Answer","text":"한 끼 1,500~2,000엔(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다. 라멘이나 규동 같은 단품은 800~1,200엔, 이자카야에서 맥주를 곁들이면 3,000엔 이상을 예상해야 합니다."}},
-   {"@type":"Question","name":"성수기와 비수기 항공권 차이가 큰가요?",
-    "acceptedAnswer":{"@type":"Answer","text":"큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 비수기 대비 1.5~2배까지 오릅니다. 화요일에서 목요일 사이 출발, 방학 기간 회피, 두 달 이상 앞선 예약이 기본 절약 전략입니다."}}
-  ]}
- ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"일본 여행 경비 계산기","url":"https://www.aroundtool.com/japan_travel_calculator.html","applicationCategory":"TravelApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나오는 일본 여행 경비 계산기입니다."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"일본 여행 3박 4일 경비는 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"2026년 시세 기준으로 후쿠오카나 오사카 3박 4일은 1인당 약 70만~110만 원, 도쿄는 90만~145만 원 수준입니다. 항공권 20만~38만 원, 숙박 21만~36만 원, 식비 18만~30만 원, 교통 8만~12만 원이 기본 구성이며 쇼핑은 별도입니다."}},{"@type":"Question","name":"2026년 엔화 환율은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"2026년 기준 100엔은 약 930~960원 수준입니다. 2022년 초 1,050~1,100원과 비교하면 15% 이상 낮아 한국인 여행자에게 유리한 환경입니다. 이 계산기는 100엔 940원을 기준으로 계산합니다."}},{"@type":"Question","name":"일본 출국세가 올랐다던데요?","acceptedAnswer":{"@type":"Answer","text":"2026년 7월 1일부터 일본 국제관광여객세(출국세)가 1인당 1,000엔에서 3,000엔으로 인상됐습니다. 약 28,000원이며 대부분 항공권 요금에 포함되어 자동으로 부과됩니다. 후지산 입산료 4,000엔도 신설됐습니다."}},{"@type":"Question","name":"JR패스는 사는 게 이득인가요?","acceptedAnswer":{"@type":"Answer","text":"7일권이 약 5만 엔(47만 원)이라 신칸센으로 도시를 두 곳 이상 이동할 때만 유리합니다. 한 도시에만 머문다면 지하철 1일권이나 IC카드가 훨씬 저렴합니다. 오사카·후쿠오카 단일 도시 여행이라면 사지 않는 편이 낫습니다."}},{"@type":"Question","name":"일본 여행 현금은 얼마나 가져가야 하나요?","acceptedAnswer":{"@type":"Answer","text":"도시 여행이라면 하루 5,000~8,000엔 정도의 현금을 예상하면 됩니다. 도쿄·오사카 같은 대도시는 카드와 함께 5만~8만 엔이면 충분하고, 료칸이나 온천 마을이 포함되면 카드를 안 받는 곳이 많아 현금을 더 준비해야 합니다."}},{"@type":"Question","name":"한 끼 식사비는 얼마나 잡아야 하나요?","acceptedAnswer":{"@type":"Answer","text":"한 끼 1,500~2,000엔(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다. 라멘이나 규동 같은 단품은 800~1,200엔, 이자카야에서 맥주를 곁들이면 3,000엔 이상을 예상해야 합니다."}},{"@type":"Question","name":"성수기와 비수기 항공권 차이가 큰가요?","acceptedAnswer":{"@type":"Answer","text":"큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 비수기 대비 1.5~2배까지 오릅니다. 화요일에서 목요일 사이 출발, 방학 기간 회피, 두 달 이상 앞선 예약이 기본 절약 전략입니다."}}]}]}</script>
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/japan_travel_calculator.html#webpage","url":"https://www.aroundtool.com/japan_travel_calculator.html","name":"일본 여행 경비 계산기 — 항공비·코스·맛집 예산","description":"2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-08-29","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/japan_travel_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"여행","item":"https://www.aroundtool.com/tools.html#g-trip"},{"@type":"ListItem","position":4,"name":"일본 여행 경비","item":"https://www.aroundtool.com/japan_travel_calculator.html"}],"@id":"https://www.aroundtool.com/japan_travel_calculator.html#breadcrumb"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<!-- /at:assets -->
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="/">어라운드<span>툴</span></a>
-    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>일본 여행 경비</p>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">2026년 시세 · 100엔 = 940원 기준</p>
-    <h1>일본 여행 경비 계산기</h1>
-    <p>도시와 기간을 고르면 <strong>항공권부터 식비까지 항목별 내역</strong>이 나오고,
-    <strong>일자별 추천 코스</strong>와 <strong>그 도시의 맛집 예산</strong>이 함께 붙습니다.</p>
-  </div>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><span aria-current="page">일본 여행 경비</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-trip">생활툴 · 여행</a></p><span class="at-board-meta">4종</span></div>
+  <ul class="at-board-tabs"><li><a href="/fuel_economy_calculator.html">주유 경제성</a></li><li><a href="/exchange_rate_calculator.html">환율</a></li><li><a href="/japan_travel_calculator.html" aria-current="page">일본 여행 경비</a></li><li><a href="/camping_gear_calculator.html">캠핑 장비 견적</a></li></ul>
 </div>
-
+<!-- /at:top -->
+<div class="hero">
+<div class="wrap">
+<p class="eyebrow">2026년 시세 · 100엔 = 940원 기준</p>
+<h1>일본 여행 경비 계산기</h1>
+<p>도시와 기간을 고르면 <strong>항공권부터 식비까지 항목별 내역</strong>이 나오고,
+    <strong>일자별 추천 코스</strong>와 <strong>그 도시의 맛집 예산</strong>이 함께 붙습니다.</p>
+</div>
+</div>
 <main class="wrap">
-  <div class="app">
-
-    <!-- ══ 왼쪽 ══ -->
-    <div class="col-l">
-      <div class="card jp">
-        <h2>1 · 어디로, 언제</h2>
-        <div class="card-body">
-          <label class="lb">도시</label>
-          <div class="cities" id="city"></div>
-
-          <div class="grid2">
-            <div>
-              <label class="lb">기간</label>
-              <div class="stepper">
-                <button type="button" data-n="-1" aria-label="줄이기">−</button>
-                <span class="v" id="nights-v">3박 4일</span>
-                <button type="button" data-n="1" aria-label="늘리기">+</button>
-              </div>
-            </div>
-            <div>
-              <label class="lb">인원</label>
-              <div class="stepper">
-                <button type="button" data-p="-1" aria-label="줄이기">−</button>
-                <span class="v" id="pax-v">2명</span>
-                <button type="button" data-p="1" aria-label="늘리기">+</button>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-bottom:1rem">
-            <label class="lb">시기</label>
-            <div class="seg" id="season">
-              <button data-s="0.8" type="button">비수기<small>1~2월·6월</small></button>
-              <button data-s="1" class="on" type="button">준성수기<small>평상시</small></button>
-              <button data-s="1.6" type="button">성수기<small>벚꽃·연휴·여름</small></button>
-            </div>
-          </div>
-
-          <div>
-            <label class="lb">여행 스타일</label>
-            <div class="seg" id="style">
-              <button data-t="0" type="button">알뜰<small>게하·편의점</small></button>
-              <button data-t="1" class="on" type="button">표준<small>비즈니스호텔</small></button>
-              <button data-t="2" type="button">여유<small>시티호텔·맛집</small></button>
-            </div>
-            <p class="hint" id="style-hint"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:1.25rem">
-        <h2>2 · 추가 항목<span class="n" id="opt-n">0개</span></h2>
-        <div class="card-body">
-          <ul class="opts" id="opts"></ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:1.25rem">
-        <h2>3 · 이 도시의 맛집 예산<span class="n" id="eat-cap"></span></h2>
-        <div class="card-body">
-          <ul class="eats" id="eats"></ul>
-          <p class="hint">현지 대표 메뉴의 <b>1인 기준 가격대</b>입니다.
+<div class="app">
+<!-- ══ 왼쪽 ══ -->
+<div class="col-l">
+<div class="card jp">
+<h2>1 · 어디로, 언제</h2>
+<div class="card-body">
+<label class="lb">도시</label>
+<div class="cities" id="city"></div>
+<div class="grid2">
+<div>
+<label class="lb">기간</label>
+<div class="stepper">
+<button aria-label="줄이기" data-n="-1" type="button">−</button>
+<span class="v" id="nights-v">3박 4일</span>
+<button aria-label="늘리기" data-n="1" type="button">+</button>
+</div>
+</div>
+<div>
+<label class="lb">인원</label>
+<div class="stepper">
+<button aria-label="줄이기" data-p="-1" type="button">−</button>
+<span class="v" id="pax-v">2명</span>
+<button aria-label="늘리기" data-p="1" type="button">+</button>
+</div>
+</div>
+</div>
+<div style="margin-bottom:1rem">
+<label class="lb">시기</label>
+<div class="seg" id="season">
+<button data-s="0.8" type="button">비수기<small>1~2월·6월</small></button>
+<button class="on" data-s="1" type="button">준성수기<small>평상시</small></button>
+<button data-s="1.6" type="button">성수기<small>벚꽃·연휴·여름</small></button>
+</div>
+</div>
+<div>
+<label class="lb">여행 스타일</label>
+<div class="seg" id="style">
+<button data-t="0" type="button">알뜰<small>게하·편의점</small></button>
+<button class="on" data-t="1" type="button">표준<small>비즈니스호텔</small></button>
+<button data-t="2" type="button">여유<small>시티호텔·맛집</small></button>
+</div>
+<p class="hint" id="style-hint"></p>
+</div>
+</div>
+</div>
+<div class="card" style="margin-top:1.25rem">
+<h2>2 · 추가 항목<span class="n" id="opt-n">0개</span></h2>
+<div class="card-body">
+<ul class="opts" id="opts"></ul>
+</div>
+</div>
+<div class="card" style="margin-top:1.25rem">
+<h2>3 · 이 도시의 맛집 예산<span class="n" id="eat-cap"></span></h2>
+<div class="card-body">
+<ul class="eats" id="eats"></ul>
+<p class="hint">현지 대표 메뉴의 <b>1인 기준 가격대</b>입니다.
           위 계산의 식비는 스타일에 따라 이 중 어느 급을 주로 먹는지로 잡았습니다.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ 오른쪽 ══ -->
-    <div class="col-r">
-      <div class="card">
-        <h2>예상 경비<span class="n" id="trip-cap"></span></h2>
-        <div class="card-body">
-          <div class="total">
-            <p class="total-lab">1인당</p>
-            <p class="total-num" id="per">0원</p>
-            <p class="total-sub" id="total-sub"></p>
-          </div>
-          <ul class="bd" id="bd"></ul>
-          <div class="bars" id="bars"></div>
-        </div>
-      </div>
-
-      <div class="card jp" style="margin-top:1.25rem">
-        <h2>일자별 코스<span class="n" id="course-cap"></span></h2>
-        <div class="card-body">
-          <ul class="days" id="days"></ul>
-          <p class="hint">각 도시에서 <b>가장 많이 도는 동선</b>을 기간에 맞춰 잘랐습니다.
+</div>
+</div>
+</div>
+<!-- ══ 오른쪽 ══ -->
+<div class="col-r">
+<div class="card">
+<h2>예상 경비<span class="n" id="trip-cap"></span></h2>
+<div class="card-body">
+<div class="total">
+<p class="total-lab">1인당</p>
+<p class="total-num" id="per">0원</p>
+<p class="total-sub" id="total-sub"></p>
+</div>
+<ul class="bd" id="bd"></ul>
+<div class="bars" id="bars"></div>
+</div>
+</div>
+<div class="card jp" style="margin-top:1.25rem">
+<h2>일자별 코스<span class="n" id="course-cap"></span></h2>
+<div class="card-body">
+<ul class="days" id="days"></ul>
+<p class="hint">각 도시에서 <b>가장 많이 도는 동선</b>을 기간에 맞춰 잘랐습니다.
           이동 시간을 줄이려고 같은 권역끼리 묶었습니다.</p>
-        </div>
-      </div>
-
-      <div class="notice">
-        <b>이 금액은 참고용 추정치입니다.</b> 아래는 계산에 들어 있지 않습니다.
+</div>
+</div>
+<div class="notice">
+<b>이 금액은 참고용 추정치입니다.</b> 아래는 계산에 들어 있지 않습니다.
         <ul>
-          <li>쇼핑비 — 사람마다 편차가 가장 큰 항목이라 뺐습니다. 별도 항목으로 켜서 잡으세요</li>
-          <li>여권 발급비, 공항 주차비, 국내 공항까지 가는 교통비</li>
-          <li>환전 수수료 — 방식에 따라 3,000~8,000엔까지 차이가 납니다</li>
-          <li>기내 수하물 추가, 좌석 지정, 사전 좌석 구매 등 LCC 부가 요금</li>
-        </ul>
+<li>쇼핑비 — 사람마다 편차가 가장 큰 항목이라 뺐습니다. 별도 항목으로 켜서 잡으세요</li>
+<li>여권 발급비, 공항 주차비, 국내 공항까지 가는 교통비</li>
+<li>환전 수수료 — 방식에 따라 3,000~8,000엔까지 차이가 납니다</li>
+<li>기내 수하물 추가, 좌석 지정, 사전 좌석 구매 등 LCC 부가 요금</li>
+</ul>
         항공권과 숙박은 <b>예약 시점에 따라 두 배까지</b> 벌어집니다. 실제 예약 전에 비교 사이트에서 확인하세요.
       </div>
-    </div>
-  </div>
-
-  <section class="doc">
-    <h2>2026년 항목별 시세</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>항목</th><th>알뜰</th><th>표준</th><th>여유</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">숙박 (1박 · 1인)</th><td class="num">3만~5만</td><td class="num">7만~12만</td><td class="num">15만~25만</td></tr>
-          <tr><th scope="row">식비 (1일 · 1인)</th><td class="num">4만~6만</td><td class="num">6만~9만</td><td class="num">12만~20만</td></tr>
-          <tr><th scope="row">시내 교통 (1일)</th><td class="num">8천~1만2천</td><td class="num">1만~1만5천</td><td class="num">2만~4만</td></tr>
-          <tr><th scope="row">관광·입장료 (1일)</th><td class="num">5천~1만</td><td class="num">1만~2만</td><td class="num">3만~6만</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="hint" style="margin-top:.7rem">숙박은 <b>2인 1실 기준 1인 부담액</b>입니다.
+</div>
+</div>
+<section class="doc">
+<h2>2026년 항목별 시세</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>항목</th><th>알뜰</th><th>표준</th><th>여유</th></tr></thead>
+<tbody>
+<tr><th scope="row">숙박 (1박 · 1인)</th><td class="num">3만~5만</td><td class="num">7만~12만</td><td class="num">15만~25만</td></tr>
+<tr><th scope="row">식비 (1일 · 1인)</th><td class="num">4만~6만</td><td class="num">6만~9만</td><td class="num">12만~20만</td></tr>
+<tr><th scope="row">시내 교통 (1일)</th><td class="num">8천~1만2천</td><td class="num">1만~1만5천</td><td class="num">2만~4만</td></tr>
+<tr><th scope="row">관광·입장료 (1일)</th><td class="num">5천~1만</td><td class="num">1만~2만</td><td class="num">3만~6만</td></tr>
+</tbody>
+</table>
+</div>
+<p class="hint" style="margin-top:.7rem">숙박은 <b>2인 1실 기준 1인 부담액</b>입니다.
     혼자 가면 1인실 요금이 2인실과 크게 다르지 않아 1인당 부담이 올라갑니다.</p>
-  </section>
-
-  <section class="doc">
-    <h2>도시별 왕복 항공권 (인천 출발)</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>도시</th><th>LCC 특가</th><th>일반</th><th>성수기</th><th>비행</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">후쿠오카</th><td class="num">16만~20만</td><td class="num">20만~28만</td><td class="num">32만~45만</td><td class="num">1시간 20분</td></tr>
-          <tr><th scope="row">오사카</th><td class="num">18만~24만</td><td class="num">24만~33만</td><td class="num">38만~53만</td><td class="num">1시간 50분</td></tr>
-          <tr><th scope="row">나고야</th><td class="num">20만~26만</td><td class="num">26만~35만</td><td class="num">42만~56만</td><td class="num">2시간</td></tr>
-          <tr><th scope="row">도쿄</th><td class="num">22만~30만</td><td class="num">30만~42만</td><td class="num">48만~67만</td><td class="num">2시간 20분</td></tr>
-          <tr><th scope="row">삿포로</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 50분</td></tr>
-          <tr><th scope="row">오키나와</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 20분</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="hint" style="margin-top:.7rem">
-    <b>2026년 7월 1일부터 일본 출국세가 1,000엔에서 3,000엔으로 인상</b>됐습니다(약 2만 8천 원).
+</section>
+<section class="doc">
+<h2>도시별 왕복 항공권 (인천 출발)</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>도시</th><th>LCC 특가</th><th>일반</th><th>성수기</th><th>비행</th></tr></thead>
+<tbody>
+<tr><th scope="row">후쿠오카</th><td class="num">16만~20만</td><td class="num">20만~28만</td><td class="num">32만~45만</td><td class="num">1시간 20분</td></tr>
+<tr><th scope="row">오사카</th><td class="num">18만~24만</td><td class="num">24만~33만</td><td class="num">38만~53만</td><td class="num">1시간 50분</td></tr>
+<tr><th scope="row">나고야</th><td class="num">20만~26만</td><td class="num">26만~35만</td><td class="num">42만~56만</td><td class="num">2시간</td></tr>
+<tr><th scope="row">도쿄</th><td class="num">22만~30만</td><td class="num">30만~42만</td><td class="num">48만~67만</td><td class="num">2시간 20분</td></tr>
+<tr><th scope="row">삿포로</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 50분</td></tr>
+<tr><th scope="row">오키나와</th><td class="num">26만~34만</td><td class="num">34만~46만</td><td class="num">54만~74만</td><td class="num">2시간 20분</td></tr>
+</tbody>
+</table>
+</div>
+<p class="hint" style="margin-top:.7rem">
+<b>2026년 7월 1일부터 일본 출국세가 1,000엔에서 3,000엔으로 인상</b>됐습니다(약 2만 8천 원).
     대부분 항공권 요금에 포함되어 자동 부과됩니다. 후지산 입산료 4,000엔도 신설됐습니다.</p>
-  </section>
-
-  <section class="doc">
-    <h2>실제 여행 예산 사례</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>일정</th><th>구성</th><th>1인 총액</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">일본 1박 2일</th><td>LCC + 비즈니스호텔 + 3식</td><td class="num">42만~63만</td></tr>
-          <tr><th scope="row">4박 5일</th><td>직항 + 3~4성 호텔 + 하루 6~7만 식비</td><td class="num">105만~150만</td></tr>
-          <tr><th scope="row">도쿄 7일 · 알뜰</th><td>LCC + 게하 + 편의점·라멘 위주</td><td class="num">약 118만</td></tr>
-          <tr><th scope="row">오사카 5일 · 맛집 중심</th><td>LCC + 도톤보리 호텔 + 쇼핑 30만</td><td class="num">약 152만</td></tr>
-          <tr><th scope="row">도쿄+오사카 7일 · 표준</th><td>JR패스 7일권 포함 + 쇼핑 40만</td><td class="num">약 256만</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="faq">
-    <h2>자주 묻는 질문</h2>
-    <details open>
-      <summary>일본 여행 3박 4일 경비는 얼마인가요?</summary>
-      <div class="ans">2026년 시세 기준으로 <b>후쿠오카·오사카 3박 4일은 1인당 약 70만~110만 원</b>,
+</section>
+<section class="doc">
+<h2>실제 여행 예산 사례</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>일정</th><th>구성</th><th>1인 총액</th></tr></thead>
+<tbody>
+<tr><th scope="row">일본 1박 2일</th><td>LCC + 비즈니스호텔 + 3식</td><td class="num">42만~63만</td></tr>
+<tr><th scope="row">4박 5일</th><td>직항 + 3~4성 호텔 + 하루 6~7만 식비</td><td class="num">105만~150만</td></tr>
+<tr><th scope="row">도쿄 7일 · 알뜰</th><td>LCC + 게하 + 편의점·라멘 위주</td><td class="num">약 118만</td></tr>
+<tr><th scope="row">오사카 5일 · 맛집 중심</th><td>LCC + 도톤보리 호텔 + 쇼핑 30만</td><td class="num">약 152만</td></tr>
+<tr><th scope="row">도쿄+오사카 7일 · 표준</th><td>JR패스 7일권 포함 + 쇼핑 40만</td><td class="num">약 256만</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="faq">
+<h2>자주 묻는 질문</h2>
+<details open="">
+<summary>일본 여행 3박 4일 경비는 얼마인가요?</summary>
+<div class="ans">2026년 시세 기준으로 <b>후쿠오카·오사카 3박 4일은 1인당 약 70만~110만 원</b>,
       도쿄는 90만~145만 원 수준입니다.
       항공권 20만~38만, 숙박 21만~36만, 식비 18만~30만, 교통 8만~12만이 기본 구성이고 쇼핑은 별도입니다.</div>
-    </details>
-    <details>
-      <summary>2026년 엔화 환율은 얼마인가요?</summary>
-      <div class="ans">2026년 기준 <b>100엔은 약 930~960원</b> 수준입니다.
+</details>
+<details>
+<summary>2026년 엔화 환율은 얼마인가요?</summary>
+<div class="ans">2026년 기준 <b>100엔은 약 930~960원</b> 수준입니다.
       2022년 초 1,050~1,100원과 비교하면 15% 이상 낮아 한국인 여행자에게 유리합니다.
       이 계산기는 <b>100엔 940원</b>을 기준으로 계산합니다.
       환율은 매일 바뀌므로 실제 환전 시점에 확인하세요.</div>
-    </details>
-    <details>
-      <summary>일본 출국세가 올랐다던데요?</summary>
-      <div class="ans"><b>2026년 7월 1일부터 국제관광여객세(출국세)가 1,000엔에서 3,000엔으로 인상</b>됐습니다.
+</details>
+<details>
+<summary>일본 출국세가 올랐다던데요?</summary>
+<div class="ans"><b>2026년 7월 1일부터 국제관광여객세(출국세)가 1,000엔에서 3,000엔으로 인상</b>됐습니다.
       약 2만 8천 원이며 대부분 항공권 요금에 포함되어 자동으로 부과됩니다.
       같은 시기 <b>후지산 입산료 4,000엔</b>도 신설됐으니 하코네·후지산 일정이 있다면 감안하세요.</div>
-    </details>
-    <details>
-      <summary>JR패스는 사는 게 이득인가요?</summary>
-      <div class="ans">7일권이 약 5만 엔(47만 원)이라 <b>신칸센으로 도시를 두 곳 이상 이동할 때만</b> 유리합니다.
+</details>
+<details>
+<summary>JR패스는 사는 게 이득인가요?</summary>
+<div class="ans">7일권이 약 5만 엔(47만 원)이라 <b>신칸센으로 도시를 두 곳 이상 이동할 때만</b> 유리합니다.
       한 도시에만 머문다면 지하철 1일권이나 IC카드가 훨씬 저렴합니다.
       오사카나 후쿠오카 단일 도시 여행이라면 사지 않는 편이 낫습니다.</div>
-    </details>
-    <details>
-      <summary>일본 여행 현금은 얼마나 가져가야 하나요?</summary>
-      <div class="ans">도시 여행이라면 <b>하루 5,000~8,000엔</b> 정도의 현금을 예상하면 됩니다.
+</details>
+<details>
+<summary>일본 여행 현금은 얼마나 가져가야 하나요?</summary>
+<div class="ans">도시 여행이라면 <b>하루 5,000~8,000엔</b> 정도의 현금을 예상하면 됩니다.
       도쿄·오사카 같은 대도시는 카드와 함께 5만~8만 엔이면 충분합니다.
       다만 <b>료칸이나 온천 마을</b>이 포함되면 카드를 안 받는 곳이 많아 현금을 더 준비해야 합니다.
       공항 환전은 수수료가 비싸니 교통비 정도만 바꾸고 현지 ATM을 쓰는 편이 낫습니다.</div>
-    </details>
-    <details>
-      <summary>한 끼 식사비는 얼마나 잡아야 하나요?</summary>
-      <div class="ans"><b>한 끼 1,500~2,000엔</b>(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다.
+</details>
+<details>
+<summary>한 끼 식사비는 얼마나 잡아야 하나요?</summary>
+<div class="ans"><b>한 끼 1,500~2,000엔</b>(약 1만4천~1만9천 원)을 잡으면 괜찮은 식사를 할 수 있습니다.
       라멘이나 규동 같은 단품은 800~1,200엔, 이자카야에서 맥주를 곁들이면 <b>3,000엔 이상</b>을 예상해야 합니다.
       편의점과 슈퍼 도시락을 섞으면 하루 식비를 크게 줄일 수 있습니다.</div>
-    </details>
-    <details>
-      <summary>성수기와 비수기 항공권 차이가 큰가요?</summary>
-      <div class="ans">큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 <b>비수기 대비 1.5~2배</b>까지 오릅니다.
+</details>
+<details>
+<summary>성수기와 비수기 항공권 차이가 큰가요?</summary>
+<div class="ans">큽니다. 벚꽃 시즌, 골든위크, 연휴, 여름 성수기에는 <b>비수기 대비 1.5~2배</b>까지 오릅니다.
       화요일에서 목요일 사이 출발, 방학 기간 회피, 두 달 이상 앞선 예약이 기본 절약 전략입니다.
       도쿄 입국·오사카 출국 같은 오픈조 루트도 성수기에는 더 쌀 수 있습니다.</div>
-    </details>
-  </section>
+</details>
+</section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <nav>
-      <a href="/">홈</a>
-      <a href="/sitemap.html">사이트맵</a>
-      <a href="/exchange_rate_calculator.html">환율 계산기</a>
-      <a href="/dutch_pay_calculator.html">더치페이 계산기</a>
-      <a href="/contact.html">문의하기</a>
-    </nav>
-    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치입니다. 항공권·숙박 요금은 예약 시점에 따라 크게 달라집니다.</p>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -700,6 +679,45 @@ footer p{margin:0}
   calc();
 })();
 </script>
-
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/fuel_economy_calculator.html"><span class="tag ">여행</span><span class="t">주유 경제성<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="tag ">여행</span><span class="t">환율<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/camping_gear_calculator.html"><span class="tag ">여행</span><span class="t">캠핑 장비 견적</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>
