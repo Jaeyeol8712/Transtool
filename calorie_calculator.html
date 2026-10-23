@@ -1,74 +1,103 @@
-<!-- 6. calorie_calculator.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="common_head.js"></script>
-<title>하루 권장 칼로리 계산기 - 다이어트/벌크업 맞춤 계산</title>
-<meta name="description" content="자신의 활동 수준과 체중 조절 목표에 맞춰 하루에 섭취해야 할 최적의 목표 권장 칼로리를 알려드립니다.">
-<link rel="canonical" href="https://www.aroundtool.com/calorie_calculator">
-<style>
- :root{--primary:#ea580c;--bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb;}
- *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;min-height:100vh;align-items:center;padding:24px 16px;}
- header{text-align:center;margin-bottom:24px;}
- header h1{font-size:1.6rem;margin-bottom:6px;}
- header p{color:var(--muted);font-size:0.95rem;}
- .ad-slot{width:100%;max-width:728px;min-height:90px;background:#eef1f6;border:1px dashed #c9cfda;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa3b2;font-size:0.85rem;margin-bottom:20px;}
- .card{background:var(--card);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:28px 24px;width:100%;max-width:480px;}
- label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;}
- input,select,textarea{width:100%;padding:12px 14px;font-size:1rem;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;background:#fafbfc;font-family:inherit;}
- button{width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:10px;cursor:pointer;}
- button:hover{opacity:0.9;}
- .result{margin-top:24px;display:none;}
- .result.show{display:block;}
- .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);}
- .result-row:last-child{border-bottom:none;}
- .result-label{font-size:0.9rem;color:var(--muted);}
- .result-value{font-size:1.3rem;font-weight:700;color:var(--primary);}
- .seo-text{margin-top:40px;width:100%;max-width:728px;background:#fff;padding:24px;border-radius:12px;color:#374151;font-size:0.95rem;line-height:1.7;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
- .seo-text h2{font-size:1.2rem;margin-bottom:12px;color:#111827;}
- .site-breadcrumb{width:100%;max-width:728px;display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--muted);margin-bottom:10px;font-family:ui-monospace,'JetBrains Mono',monospace;}
- .site-breadcrumb a{color:var(--muted);text-decoration:none;}
- .site-footer{margin-top:40px;padding:20px;width:100%;text-align:center;color:#6b7280;font-size:0.85rem;border-top:1px solid #e5e7eb;}
- .site-footer a{color:#374151;font-weight:700;text-decoration:none;margin:0 8px;}
-</style>
+<!-- at:head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하루 권장 칼로리 계산기 — 기초대사량·활동량·감량 목표 반영 | 어라운드툴</title>
+<meta name="description" content="기초대사량과 활동 수준, 체중 유지·감량·증량 목표로 하루 권장 섭취 칼로리를 계산합니다. 주 0.5kg 감량에 하루 500kcal가 필요한 이유, 탄단지 비율 정하는 법, 최소 섭취 열량 기준을 함께 설명합니다.">
+<link rel="canonical" href="https://www.aroundtool.com/calorie_calculator.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="어라운드툴">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.aroundtool.com/calorie_calculator.html">
+<meta property="og:title" content="하루 권장 칼로리 계산기 — 기초대사량·활동량·감량 목표 반영">
+<meta property="og:description" content="기초대사량과 활동 수준, 체중 유지·감량·증량 목표로 하루 권장 섭취 칼로리를 계산합니다. 주 0.5kg 감량에 하루 500kcal가 필요한 이유, 탄단지 비율 정하는 법, 최소 섭취 열량 기준을 함께 설명합니다.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="하루 권장 칼로리 계산기 — 기초대사량·활동량·감량 목표 반영">
+<meta name="twitter:description" content="기초대사량과 활동 수준, 체중 유지·감량·증량 목표로 하루 권장 섭취 칼로리를 계산합니다. 주 0.5kg 감량에 하루 500kcal가 필요한 이유, 탄단지 비율 정하는 법, 최소 섭취 열량 기준을 함께 설명합니다.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
+
+
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/calorie_calculator.html#webpage","url":"https://www.aroundtool.com/calorie_calculator.html","name":"하루 권장 칼로리 계산기 — 기초대사량·활동량·감량 목표 반영","description":"기초대사량과 활동 수준, 체중 유지·감량·증량 목표로 하루 권장 섭취 칼로리를 계산합니다. 주 0.5kg 감량에 하루 500kcal가 필요한 이유, 탄단지 비율 정하는 법, 최소 섭취 열량 기준을 함께 설명합니다.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/calorie_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"생활·건강","item":"https://www.aroundtool.com/tools.html#g-life"},{"@type":"ListItem","position":4,"name":"권장 칼로리","item":"https://www.aroundtool.com/calorie_calculator.html"}],"@id":"https://www.aroundtool.com/calorie_calculator.html#breadcrumb"},{"@type":"WebApplication","name":"하루 권장 칼로리 계산기","url":"https://www.aroundtool.com/calorie_calculator.html","description":"기초대사량과 활동 수준, 체중 유지·감량·증량 목표로 하루 권장 섭취 칼로리를 계산합니다. 주 0.5kg 감량에 하루 500kcal가 필요한 이유, 탄단지 비율 정하는 법, 최소 섭취 열량 기준을 함께 설명합니다.","applicationCategory":"HealthApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@id":"https://www.aroundtool.com/#org"}},{"@type":"HowTo","name":"하루 권장 칼로리 계산기 사용 방법","step":[{"@type":"HowToStep","position":1,"text":"기초대사량(kcal)을 입력합니다."},{"@type":"HowToStep","position":2,"text":"평소 활동 수준을 고릅니다."},{"@type":"HowToStep","position":3,"text":"체중 유지·감량·증량 중 목표를 고르면 하루 권장 섭취량이 나옵니다."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"하루 1,000kcal만 먹으면 더 빨리 빠지나요?","acceptedAnswer":{"@type":"Answer","text":"초기 체중은 빨리 줄지만 근육과 수분 손실이 크고, 대사가 떨어져 요요가 오기 쉽습니다. 일반적으로 여성 1,200kcal, 남성 1,500kcal 아래로는 전문가 지도 없이 내려가지 않는 것을 권합니다."}},{"@type":"Question","name":"활동 수준은 어떻게 고르나요?","acceptedAnswer":{"@type":"Answer","text":"운동 횟수만이 아니라 하루 걸음 수와 직업도 고려하세요. 사무직이고 주 3회 운동한다면 ‘가벼운 운동’과 ‘보통’ 사이가 현실적입니다. 2~3주 체중 변화를 보고 조정하세요."}},{"@type":"Question","name":"근육을 늘리려면 얼마나 더 먹어야 하나요?","acceptedAnswer":{"@type":"Answer","text":"유지 칼로리보다 250~500kcal 더 먹고 근력 운동을 병행합니다. 체지방 증가를 줄이려면 증량 폭을 작게 잡는 편이 좋습니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7089972708901760" crossorigin="anonymous"></script>
+<!-- /at:assets -->
 </head>
 <body>
-<nav class="site-breadcrumb"><a href="index.html">🏠 생활 계산기 모음</a><span>/</span><span>건강 도구</span><span>/</span><span>권장 칼로리 계산기</span></nav>
-<header>
- <h1>🍽️ 권장 칼로리 계산기</h1>
- <p>목표(감량/유지/증량)에 따른 섭취 칼로리 계산</p>
-</header>
-<div class="ad-slot">광고 영역 (728x90)</div>
-<div class="card">
- <label>현재 기초대사량 (kcal)</label>
- <input type="number" id="calBmr" placeholder="예: 1600">
- <label>활동 수준</label>
- <select id="activity">
- <option value="1.2">거의 운동하지 않음</option>
- <option value="1.375">가벼운 운동 (주 1~3일)</option>
- <option value="1.55" selected>보통 수준의 활동 (주 3~5일)</option>
- <option value="1.725">적극적인 운동 (주 6~7일)</option>
- </select>
- <label>목표</label>
- <select id="goal">
- <option value="0">체중 유지</option>
- <option value="-500">다이어트 (주당 0.5kg 감량)</option>
- <option value="500">벌크업 (주당 0.5kg 증량)</option>
- </select>
- <button onclick="calcCalorie()">하루 권장 칼로리 계산</button>
- <div class="result" id="result">
- <div class="result-row"><span class="result-label">목표 권장 칼로리</span><span class="result-value" id="targetCal">-</span></div>
- </div>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><span aria-current="page">권장 칼로리</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-life">생활툴 · 생활·건강</a></p><span class="at-board-meta">18종</span></div>
+  <ul class="at-board-tabs"><li><a href="/discount_calculator.html">할인율</a></li><li><a href="/discount_rate_calculator.html">할인율 역산</a></li><li><a href="/percent_calculator.html">퍼센트</a></li><li><a href="/dutch_pay_calculator.html">더치페이</a></li><li><a href="/electricity_bill_calculator.html">전기요금</a></li><li><a href="/gas_bill_calculator.html">도시가스 요금</a></li><li><a href="/car_tax_calculator.html">자동차세</a></li><li><a href="/pyeong_calculator.html">평수</a></li><li><a href="/age_calculator.html">만나이</a></li><li><a href="/due_date_calculator.html">출산예정일</a></li><li><a href="/bmi_calculator.html">BMI</a></li><li><a href="/bmr_calculator.html">기초대사량</a></li><li><a href="/calorie_calculator.html" aria-current="page">권장 칼로리</a></li><li><a href="/tire_date_calculator.html">타이어 제조일자</a></li><li><a href="/grave_weeding_calculator.html">벌초 견적</a></li><li><a href="/qr_generator.html">QR코드 생성</a></li><li><a href="/lotto_generator.html">로또 번호</a></li><li><a href="/job_fortune_teller.html">취업운세</a></li></ul>
 </div>
-<article class="seo-text">
- <h2>목표를 관통하는 하루 권장 칼로리 설정법</h2>
- <p>여름휴가를 코앞에 두고 체지방을 걷어내려 하거나, 반대로 멋진 어깨 핏을 위해 체격을 불리고 계시다면 매일 입으로 들어가는 '칼로리 총량' 계산이 필수입니다. 무작정 남들 식단을 따라 굶는 행위는 근손실과 면역력 붕괴로 직결됩니다. 2026년 최신 영양학계 트렌드는 본인의 숨만 쉬어도 나가는 기초대사량(BMR)에 실제 활동 수준 지표를 곱한 '유지 칼로리(TDEE)'를 정확히 인지하는 것에서 출발합니다. 체중을 지금 그대로 방어하고 싶다면 산출된 수치만큼만 드시고, 한 주에 0.5kg을 안전선 내에서 감량하려면 매일 딱 500kcal씩만 덜어내면 됩니다. 반대로 단단한 근육 증량을 노린다면 300~500kcal를 얹어서 섭취하되 단백질 비중을 끌어올리는 것이 정석입니다. 하루 종일 앉아있는 사무직인지 땀방울을 쏟는 직군인지, 본인의 라이프스타일을 솔직하게 반영해 최적의 타깃 수치를 점검해 보세요.</p>
-</article>
-<footer class="site-footer">
- <div><a href="privacy.html">개인정보처리방침</a> | <a href="terms.html">이용약관</a> | <a href="contact.html">문의하기</a></div>
- <p style="margin-top:10px;">© 2026 어라운드툴. 모든 결과는 참고용이며 법적 효력을 갖지 않습니다. 개인정보를 수집하지 않습니다.</p>
-</footer>
+<!-- /at:top -->
+<main>
+<article itemscope itemtype="https://schema.org/WebApplication">
+<header class="at-page-head">
+  <h1 itemprop="name">하루 권장 칼로리 계산기</h1>
+  <p class="lede" itemprop="description">기초대사량에 활동량과 목표를 더해 하루에 먹어야 할 열량을 정합니다.</p>
+  <p class="meta"><span>생활툴 · 생활·건강</span><span>최종 수정 <time datetime="2026-10-23">2026.10.23</time></span><span>로그인 없이 무료</span></p>
+</header>
+<div class="at-page">
+<section class="at-tool" aria-label="하루 권장 칼로리 계산기">
+<label for="calBmr">현재 기초대사량 (kcal)</label>
+<input id="calBmr" placeholder="예: 1600" type="number"/>
+<label for="activity">활동 수준</label>
+<select id="activity">
+<option value="1.2">거의 운동하지 않음</option>
+<option value="1.375">가벼운 운동 (주 1~3일)</option>
+<option selected="" value="1.55">보통 수준의 활동 (주 3~5일)</option>
+<option value="1.725">적극적인 운동 (주 6~7일)</option>
+</select>
+<label for="goal">목표</label>
+<select id="goal">
+<option value="0">체중 유지</option>
+<option value="-500">다이어트 (주당 0.5kg 감량)</option>
+<option value="500">벌크업 (주당 0.5kg 증량)</option>
+</select>
+<button onclick="calcCalorie()">하루 권장 칼로리 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">목표 권장 칼로리</span><span class="result-value" id="targetCal">-</span></div>
+</div>
 <script>
 function calcCalorie(){
  const bmr = parseFloat(document.getElementById('calBmr').value);
@@ -81,5 +110,66 @@ function calcCalorie(){
  document.getElementById('result').classList.add('show');
 }
 </script>
+</section>
+<div class="at-prose">
+<div class="at-answer"><p>하루 권장 칼로리는 <b>기초대사량 × 활동 계수 ± 목표 조정</b>입니다. 체지방 1kg은 약 7,700kcal라서, 하루 500kcal씩 덜 먹으면 일주일에 약 0.5kg이 줄어듭니다. 기초대사량을 모르면 기초대사량 계산기에서 먼저 구하세요.</p></div>
+<h2>사용 방법</h2>
+<ol class="at-steps"><li>기초대사량(kcal)을 입력합니다.</li><li>평소 활동 수준을 고릅니다.</li><li>체중 유지·감량·증량 중 목표를 고르면 하루 권장 섭취량이 나옵니다.</li></ol>
+<h2>계산 방법</h2><div class="at-formula">유지 칼로리(TDEE) = 기초대사량 × 활동 계수<br>권장 섭취량 = TDEE − 500(감량) / + 0(유지) / + 500(증량)</div>
+<h2>섭취 열량 나누기 (예: 하루 2,000kcal)</h2>
+<div class="at-table"><table><thead><tr><th>영양소</th><th>비율</th><th>열량</th><th>그램</th></tr></thead><tbody>
+<tr><th>탄수화물</th><td class="r">50%</td><td class="r">1,000kcal</td><td class="r">250g</td></tr>
+<tr><th>단백질</th><td class="r">25%</td><td class="r">500kcal</td><td class="r">125g</td></tr>
+<tr><th>지방</th><td class="r">25%</td><td class="r">500kcal</td><td class="r">약 56g</td></tr>
+</tbody></table></div>
+<p>탄수화물과 단백질은 1g에 4kcal, 지방은 9kcal입니다. 감량 중에는 단백질 비율을 높이면 포만감이 오래가고 근육 손실을 줄일 수 있습니다.</p>
+<h2 id="faq">자주 묻는 질문</h2><div class="at-faq"><details><summary>하루 1,000kcal만 먹으면 더 빨리 빠지나요?</summary><div class="a"><p>초기 체중은 빨리 줄지만 근육과 수분 손실이 크고, 대사가 떨어져 요요가 오기 쉽습니다. 일반적으로 여성 1,200kcal, 남성 1,500kcal 아래로는 전문가 지도 없이 내려가지 않는 것을 권합니다.</p></div></details><details><summary>활동 수준은 어떻게 고르나요?</summary><div class="a"><p>운동 횟수만이 아니라 하루 걸음 수와 직업도 고려하세요. 사무직이고 주 3회 운동한다면 ‘가벼운 운동’과 ‘보통’ 사이가 현실적입니다. 2~3주 체중 변화를 보고 조정하세요.</p></div></details><details><summary>근육을 늘리려면 얼마나 더 먹어야 하나요?</summary><div class="a"><p>유지 칼로리보다 250~500kcal 더 먹고 근력 운동을 병행합니다. 체지방 증가를 줄이려면 증량 폭을 작게 잡는 편이 좋습니다.</p></div></details></div>
+<h2>함께 보면 좋은 계산기</h2>
+<ul><li><a href="/bmr_calculator.html">기초대사량 계산기</a> — 성별, 나이, 키, 몸무게로 Mifflin-St Jeor 공식 기초대사량(BMR)과 보통 활동 기준 하루…</li><li><a href="/bmi_calculator.html">BMI 계산기</a> — 키와 몸무게로 체질량지수(BMI)를 계산하고 대한비만학회 기준 저체중·정상·비만 전단계·1~3단계 비만을…</li><li><a href="/age_calculator.html">만나이 계산기</a> — 생년월일과 기준일을 넣으면 만 나이와 태어난 해의 띠를 바로 계산합니다. 2023년 6월부터 시행된 만…</li><li><a href="/due_date_calculator.html">출산예정일 계산기</a> — 최종월경일(마지막 생리 시작일)을 넣으면 네겔레 법칙으로 출산예정일과 오늘 기준 임신 주수, 현재 삼분기를…</li></ul>
+<p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
+</div>
+</div>
+</article>
+</main>
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/bmr_calculator.html"><span class="tag ">생활</span><span class="t">기초대사량<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/bmi_calculator.html"><span class="tag ">생활</span><span class="t">BMI<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/age_calculator.html"><span class="tag ">생활</span><span class="t">만나이<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/due_date_calculator.html"><span class="tag ">생활</span><span class="t">출산예정일<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/discount_calculator.html"><span class="tag ">생활</span><span class="t">할인율<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/discount_rate_calculator.html"><span class="tag ">생활</span><span class="t">할인율 역산<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/percent_calculator.html"><span class="tag ">생활</span><span class="t">퍼센트<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/dutch_pay_calculator.html"><span class="tag ">생활</span><span class="t">더치페이<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

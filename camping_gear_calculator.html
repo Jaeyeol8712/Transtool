@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- at:head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분 | 어라운드툴</title>
 <meta name="description" content="2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.">
 <link rel="canonical" href="https://www.aroundtool.com/camping_gear_calculator.html">
-<meta name="robots" content="index, follow, max-snippet:-1">
-<meta name="theme-color" content="#0D7A6F">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/camping_gear_calculator.html">
 <meta property="og:title" content="캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분">
-<meta property="og:description" content="텐트 캠핑과 차박은 필요 장비가 다릅니다. 모드를 고르면 그에 맞는 품목만 나옵니다.">
+<meta property="og:description" content="2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분">
-<meta name="twitter:description" content="텐트 캠핑과 차박은 필요 장비가 다릅니다. 모드를 고르면 그에 맞는 품목만 나옵니다.">
+<meta name="twitter:description" content="2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-tools.png">
+<meta property="article:modified_time" content="2026-08-29">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 <style>
 :root{
   --bg:#F6F8F7;--panel:#FFFFFF;--panel-alt:#EEF2F0;--ink:#15181B;--soft:#5C6873;
@@ -32,7 +46,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
+  font-family:"Pretendard Variable",Pretendard,system-ui,-apple-system,sans-serif;
   font-size:16px;line-height:1.7;letter-spacing:-0.01em}
 .wrap{max-width:64rem;margin:0 auto;padding:0 1rem}
 a{color:inherit}h1,h2,h3,h4{margin:0}
@@ -68,7 +82,7 @@ label.lb{display:block;font-size:.75rem;color:var(--soft);font-weight:600;margin
 .modes button{font:inherit;font-size:.8125rem;font-weight:700;padding:.75rem .3rem;
   background:var(--panel-alt);border:1px solid var(--rule);border-radius:4px;
   color:var(--soft);cursor:pointer;line-height:1.35}
-.modes button small{display:block;font-family:"IBM Plex Sans KR",sans-serif;font-size:.6875rem;
+.modes button small{display:block;font-family:"Pretendard Variable",Pretendard,sans-serif;font-size:.6875rem;
   font-weight:400;opacity:.85;margin-top:.15rem}
 .modes button[data-m="tent"].on{background:var(--tent);color:#fff;border-color:var(--tent)}
 .modes button[data-m="car"].on{background:var(--car);color:#fff;border-color:var(--car)}
@@ -196,336 +210,235 @@ footer p{margin:0}
 }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto} }
 </style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "어라운드툴",
-     "item": "https://www.aroundtool.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "캠핑 장비 견적 계산기",
-     "item": "https://www.aroundtool.com/camping_gear_calculator.html"
-    }
-   ]
-  },
-  {
-   "@type": "WebApplication",
-   "name": "캠핑 장비 견적 계산기",
-   "url": "https://www.aroundtool.com/camping_gear_calculator.html",
-   "applicationCategory": "UtilitiesApplication",
-   "operatingSystem": "All",
-   "inLanguage": "ko-KR",
-   "isAccessibleForFree": true,
-   "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-   },
-   "description": "텐트 캠핑과 차박을 구분해 필요한 장비만 보여주고 등급별 예상 금액과 대여 대비 손익분기점을 계산하는 캠핑 장비 견적 계산기입니다."
-  },
-  {
-   "@type": "FAQPage",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "캠핑 장비 처음 갖추는 데 얼마나 드나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "텐트 캠핑 2인 기준으로 필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "차박과 텐트 캠핑 중 뭐가 더 저렴한가요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "통념과 다릅니다. 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 차박이 오히려 조금 더 듭니다. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 파워뱅크 없이 시작할 때입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "차박에 꼭 필요한 장비는 무엇인가요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼 이렇게 세 가지가 최소 구성입니다. 여기에 전기를 쓸 계획이면 파워뱅크, 여름이면 써큘레이터, 겨울이면 전기장판이 추가됩니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "장비를 사는 게 나을까요, 빌리는 게 나을까요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "장비 세트 대여는 1박에 약 3만 원입니다. 연 1~5회라면 대여가 유리하고, 연 6회 전후가 손익분기점입니다. 연 8회 이상 정기적으로 다닌다면 구매가 유리합니다. 대여로는 계절별 장비 교체가 어렵다는 점도 고려하세요."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "텐트는 얼마짜리를 사야 하나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "같은 스펙이라도 가격 차이가 최대 5배까지 납니다. 데카트론 원터치가 3만~5만 원, 데카트론 퀘차 2인용이 11만 원, 네이처하이크가 15만~17만 원, 스노우피크 어메니티돔M이 57만 원 수준입니다. 10만 원 이하 초저가는 내구성이 떨어지므로 입문자는 15만~25만 원대를 권합니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "파워뱅크는 몇 Wh짜리를 사야 하나요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "휴대폰 충전과 조명 정도면 300Wh급(24만~37만 원)으로 충분합니다. 전기장판이나 소형 냉장고를 쓰려면 700Wh 이상, 무시동 히터나 전기포트까지 쓰려면 1000Wh 이상이 필요하며 100만 원을 넘어갑니다."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "첫 캠핑 1박 2일 총비용은 얼마인가요?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "장비를 빌리는 경우 4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원입니다. 사이트 이용료 4만4천 원, 장비 세트 대여 3만 원, 전기·샤워 1만3천 원, 먹거리 8만 원, 교통비 5만 원 구성입니다."
-     }
-    }
-   ]
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"캠핑 장비 견적 계산기","url":"https://www.aroundtool.com/camping_gear_calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"All","inLanguage":"ko-KR","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"텐트 캠핑과 차박을 구분해 필요한 장비만 보여주고 등급별 예상 금액과 대여 대비 손익분기점을 계산하는 캠핑 장비 견적 계산기입니다."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"캠핑 장비 처음 갖추는 데 얼마나 드나요?","acceptedAnswer":{"@type":"Answer","text":"텐트 캠핑 2인 기준으로 필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다."}},{"@type":"Question","name":"차박과 텐트 캠핑 중 뭐가 더 저렴한가요?","acceptedAnswer":{"@type":"Answer","text":"통념과 다릅니다. 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 차박이 오히려 조금 더 듭니다. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 파워뱅크 없이 시작할 때입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다."}},{"@type":"Question","name":"차박에 꼭 필요한 장비는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼 이렇게 세 가지가 최소 구성입니다. 여기에 전기를 쓸 계획이면 파워뱅크, 여름이면 써큘레이터, 겨울이면 전기장판이 추가됩니다."}},{"@type":"Question","name":"장비를 사는 게 나을까요, 빌리는 게 나을까요?","acceptedAnswer":{"@type":"Answer","text":"장비 세트 대여는 1박에 약 3만 원입니다. 연 1~5회라면 대여가 유리하고, 연 6회 전후가 손익분기점입니다. 연 8회 이상 정기적으로 다닌다면 구매가 유리합니다. 대여로는 계절별 장비 교체가 어렵다는 점도 고려하세요."}},{"@type":"Question","name":"텐트는 얼마짜리를 사야 하나요?","acceptedAnswer":{"@type":"Answer","text":"같은 스펙이라도 가격 차이가 최대 5배까지 납니다. 데카트론 원터치가 3만~5만 원, 데카트론 퀘차 2인용이 11만 원, 네이처하이크가 15만~17만 원, 스노우피크 어메니티돔M이 57만 원 수준입니다. 10만 원 이하 초저가는 내구성이 떨어지므로 입문자는 15만~25만 원대를 권합니다."}},{"@type":"Question","name":"파워뱅크는 몇 Wh짜리를 사야 하나요?","acceptedAnswer":{"@type":"Answer","text":"휴대폰 충전과 조명 정도면 300Wh급(24만~37만 원)으로 충분합니다. 전기장판이나 소형 냉장고를 쓰려면 700Wh 이상, 무시동 히터나 전기포트까지 쓰려면 1000Wh 이상이 필요하며 100만 원을 넘어갑니다."}},{"@type":"Question","name":"첫 캠핑 1박 2일 총비용은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"장비를 빌리는 경우 4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원입니다. 사이트 이용료 4만4천 원, 장비 세트 대여 3만 원, 전기·샤워 1만3천 원, 먹거리 8만 원, 교통비 5만 원 구성입니다."}}]}]}</script>
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/camping_gear_calculator.html#webpage","url":"https://www.aroundtool.com/camping_gear_calculator.html","name":"캠핑 장비 견적 계산기 — 텐트캠핑·차박 구분","description":"2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-08-29","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-tools.png"},"breadcrumb":{"@id":"https://www.aroundtool.com/camping_gear_calculator.html#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.aroundtool.com/"},{"@type":"ListItem","position":2,"name":"생활툴","item":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"여행","item":"https://www.aroundtool.com/tools.html#g-trip"},{"@type":"ListItem","position":4,"name":"캠핑 장비 견적","item":"https://www.aroundtool.com/camping_gear_calculator.html"}],"@id":"https://www.aroundtool.com/camping_gear_calculator.html#breadcrumb"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<!-- /at:assets -->
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="/">어라운드<span>툴</span></a>
-    <p class="crumb"><a href="/">홈</a><span class="sep">/</span>캠핑 장비 견적</p>
-  </div>
-</header>
-
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home" href="/">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool is-on" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
+<nav class="at-crumb" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/tools.html">생활툴</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><span aria-current="page">캠핑 장비 견적</span></li></ol></nav>
+<div class="at-layout">
+<div class="at-content" id="at-main" tabindex="-1">
+<div class="at-board is-tool">
+  <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-trip">생활툴 · 여행</a></p><span class="at-board-meta">4종</span></div>
+  <ul class="at-board-tabs"><li><a href="/fuel_economy_calculator.html">주유 경제성</a></li><li><a href="/exchange_rate_calculator.html">환율</a></li><li><a href="/japan_travel_calculator.html">일본 여행 경비</a></li><li><a href="/camping_gear_calculator.html" aria-current="page">캠핑 장비 견적</a></li></ul>
+</div>
+<!-- /at:top -->
 <div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">2026년 시세 · 32개 품목</p>
-    <h1>캠핑 장비 견적 계산기</h1>
-    <p><strong>텐트 캠핑과 차박은 필요한 장비가 다릅니다.</strong>
+<div class="wrap">
+<p class="eyebrow">2026년 시세 · 32개 품목</p>
+<h1>캠핑 장비 견적 계산기</h1>
+<p><strong>텐트 캠핑과 차박은 필요한 장비가 다릅니다.</strong>
     모드를 고르면 그에 맞는 품목만 나오고, 등급을 바꾸면 금액대가 바뀝니다.
     대여와 비교한 손익분기점도 같이 계산합니다.</p>
-  </div>
 </div>
-
+</div>
 <main class="wrap">
-  <div class="app">
-
-    <!-- ══ 왼쪽 ══ -->
-    <div class="col-l">
-      <div class="card">
-        <h2>1 · 어떤 캠핑인가요</h2>
-        <div class="card-body">
-          <div class="modes" id="mode">
-            <button data-m="tent" class="on" type="button">텐트 캠핑<small>사이트에 텐트 설치</small></button>
-            <button data-m="car" type="button">차박<small>차에서 자기</small></button>
-            <button data-m="both" type="button">둘 다<small>상황 따라</small></button>
-          </div>
-          <p class="hint" id="mode-hint"></p>
-
-          <div class="grid2" style="margin-top:1rem">
-            <div>
-              <label class="lb">인원</label>
-              <div class="stepper">
-                <button type="button" data-p="-1" aria-label="줄이기">−</button>
-                <span class="v" id="pax-v">2명</span>
-                <button type="button" data-p="1" aria-label="늘리기">+</button>
-              </div>
-            </div>
-            <div>
-              <label class="lb">연간 캠핑 횟수</label>
-              <div class="stepper">
-                <button type="button" data-f="-1" aria-label="줄이기">−</button>
-                <span class="v" id="freq-v">6회</span>
-                <button type="button" data-f="1" aria-label="늘리기">+</button>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-bottom:1rem">
-            <label class="lb">계절</label>
-            <div class="seg" id="season">
-              <button data-s="3" class="on" type="button">3계절<small>봄·여름·가을</small></button>
-              <button data-s="4" type="button">동계 포함<small>영하 대비</small></button>
-            </div>
-          </div>
-
-          <div>
-            <label class="lb">장비 등급</label>
-            <div class="seg" id="grade">
-              <button data-g="0" type="button">입문<small>데카트론급</small></button>
-              <button data-g="1" class="on" type="button">중급<small>네이처하이크급</small></button>
-              <button data-g="2" type="button">프리미엄<small>헬리녹스·스노우피크</small></button>
-            </div>
-            <p class="hint" id="grade-hint"></p>
-          <p class="hint" style="margin-top:.4rem">처음에는 <b>필수 품목만 선택된 상태</b>로 시작합니다. 선택 품목을 켜면 금액이 올라갑니다.</p>
-          </div>
-        </div>
+<div class="app">
+<!-- ══ 왼쪽 ══ -->
+<div class="col-l">
+<div class="card">
+<h2>1 · 어떤 캠핑인가요</h2>
+<div class="card-body">
+<div class="modes" id="mode">
+<button class="on" data-m="tent" type="button">텐트 캠핑<small>사이트에 텐트 설치</small></button>
+<button data-m="car" type="button">차박<small>차에서 자기</small></button>
+<button data-m="both" type="button">둘 다<small>상황 따라</small></button>
+</div>
+<p class="hint" id="mode-hint"></p>
+<div class="grid2" style="margin-top:1rem">
+<div>
+<label class="lb">인원</label>
+<div class="stepper">
+<button aria-label="줄이기" data-p="-1" type="button">−</button>
+<span class="v" id="pax-v">2명</span>
+<button aria-label="늘리기" data-p="1" type="button">+</button>
+</div>
+</div>
+<div>
+<label class="lb">연간 캠핑 횟수</label>
+<div class="stepper">
+<button aria-label="줄이기" data-f="-1" type="button">−</button>
+<span class="v" id="freq-v">6회</span>
+<button aria-label="늘리기" data-f="1" type="button">+</button>
+</div>
+</div>
+</div>
+<div style="margin-bottom:1rem">
+<label class="lb">계절</label>
+<div class="seg" id="season">
+<button class="on" data-s="3" type="button">3계절<small>봄·여름·가을</small></button>
+<button data-s="4" type="button">동계 포함<small>영하 대비</small></button>
+</div>
+</div>
+<div>
+<label class="lb">장비 등급</label>
+<div class="seg" id="grade">
+<button data-g="0" type="button">입문<small>데카트론급</small></button>
+<button class="on" data-g="1" type="button">중급<small>네이처하이크급</small></button>
+<button data-g="2" type="button">프리미엄<small>헬리녹스·스노우피크</small></button>
+</div>
+<p class="hint" id="grade-hint"></p>
+<p class="hint" style="margin-top:.4rem">처음에는 <b>필수 품목만 선택된 상태</b>로 시작합니다. 선택 품목을 켜면 금액이 올라갑니다.</p>
+</div>
+</div>
+</div>
+<div class="card" style="margin-top:1.25rem">
+<h2>2 · 품목 선택<span class="n" id="pick-n">0개</span></h2>
+<div class="card-body" id="gear"></div>
+</div>
+</div>
+<!-- ══ 오른쪽 ══ -->
+<div class="col-r">
+<div class="card">
+<h2>견적<span class="n" id="cap"></span></h2>
+<div class="card-body">
+<div class="total">
+<p class="total-lab">예상 구매 금액</p>
+<p class="total-num" id="total">0원</p>
+<p class="total-sub" id="total-sub">품목을 선택하세요</p>
+</div>
+<ul class="bd" id="bd"></ul>
+<div class="bars" id="bars"></div>
+<div class="bep" hidden="" id="bep">
+<h3>대여와 비교하면</h3>
+<p id="bep-1"></p>
+<p id="bep-2"></p>
+</div>
+</div>
+</div>
+<div class="notice">
+<b>이 견적에 들어 있지 않은 것</b>
+<ul>
+<li>캠핑장 이용료 — 오토캠핑 사이트 1박 4만 원 안팎, 강원권은 10% 정도 더 비쌉니다</li>
+<li>전기·샤워 이용료, 먹거리, 왕복 교통비</li>
+<li>차량 개조비 — 차박 평탄화 작업, 시트 회전 등은 별도입니다</li>
+<li>소모품 — 가스, 화로대 숯, 건전지, 방충제</li>
+</ul>
+<b>같은 품목이라도 브랜드에 따라 5배까지 벌어집니다.</b> 이 계산기는 등급별 평균 시세를 씁니다.
       </div>
-
-      <div class="card" style="margin-top:1.25rem">
-        <h2>2 · 품목 선택<span class="n" id="pick-n">0개</span></h2>
-        <div class="card-body" id="gear"></div>
-      </div>
-    </div>
-
-    <!-- ══ 오른쪽 ══ -->
-    <div class="col-r">
-      <div class="card">
-        <h2>견적<span class="n" id="cap"></span></h2>
-        <div class="card-body">
-          <div class="total">
-            <p class="total-lab">예상 구매 금액</p>
-            <p class="total-num" id="total">0원</p>
-            <p class="total-sub" id="total-sub">품목을 선택하세요</p>
-          </div>
-          <ul class="bd" id="bd"></ul>
-          <div class="bars" id="bars"></div>
-          <div class="bep" id="bep" hidden>
-            <h3>대여와 비교하면</h3>
-            <p id="bep-1"></p>
-            <p id="bep-2"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="notice">
-        <b>이 견적에 들어 있지 않은 것</b>
-        <ul>
-          <li>캠핑장 이용료 — 오토캠핑 사이트 1박 4만 원 안팎, 강원권은 10% 정도 더 비쌉니다</li>
-          <li>전기·샤워 이용료, 먹거리, 왕복 교통비</li>
-          <li>차량 개조비 — 차박 평탄화 작업, 시트 회전 등은 별도입니다</li>
-          <li>소모품 — 가스, 화로대 숯, 건전지, 방충제</li>
-        </ul>
-        <b>같은 품목이라도 브랜드에 따라 5배까지 벌어집니다.</b> 이 계산기는 등급별 평균 시세를 씁니다.
-      </div>
-    </div>
-  </div>
-
-  <section class="doc">
-    <h2>텐트 캠핑 vs 차박 — 무엇이 다른가</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>구분</th><th>텐트 캠핑</th><th>차박</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">초기 비용</th><td>높음 — 텐트·타프가 큰 비중</td><td>낮음 — 매트만 있으면 시작 가능</td></tr>
-          <tr><th scope="row">잠자리</th><td class="num">텐트 + 매트 + 침낭</td><td class="num">평탄화 매트 + 침낭</td></tr>
-          <tr><th scope="row">설치 시간</th><td class="num">30분~1시간</td><td class="num">5~10분</td></tr>
-          <tr><th scope="row">전기</th><td>캠핑장 전기 사이트 이용 가능</td><td>파워뱅크 필수 — 비용이 여기서 커집니다</td></tr>
-          <tr><th scope="row">여름 취약점</th><td>더위. 타프 그늘 필수</td><td><b>차 안 온도 급상승.</b> 방충망 + 써큘레이터 필수</td></tr>
-          <tr><th scope="row">겨울 취약점</th><td>바닥 냉기. 동계 텐트·난로 필요</td><td><b>결로와 일산화탄소.</b> 환기 필수</td></tr>
-          <tr><th scope="row">짐 부피</th><td>큼 — 별도 적재 공간 필요</td><td>작음 — 다만 잘 공간을 침범합니다</td></tr>
-          <tr><th scope="row">장소 제약</th><td>캠핑장 위주</td><td>노지 가능하나 취사·주차 규정 확인 필요</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="doc">
-    <h2>2026년 품목별 시세</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>품목</th><th>입문</th><th>중급</th><th>프리미엄</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">텐트 (2~4인)</th><td class="num">3만~11만</td><td class="num">15만~25만</td><td class="num">57만~73만</td></tr>
-          <tr><th scope="row">침낭 (1인)</th><td class="num">1만8천~5만</td><td class="num">5만~12만</td><td class="num">43만~47만</td></tr>
-          <tr><th scope="row">자충매트 (2인)</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">15만~25만</td></tr>
-          <tr><th scope="row">캠핑의자 (1인)</th><td class="num">1만5천~3만</td><td class="num">3만~5만</td><td class="num">11만5천~16만5천</td></tr>
-          <tr><th scope="row">테이블</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">13만7천~14만7천</td></tr>
-          <tr><th scope="row">차박 에어매트</th><td class="num">4만3천~6만4천</td><td class="num">7만~10만</td><td class="num">15만9천~</td></tr>
-          <tr><th scope="row">파워뱅크</th><td class="num">7만 (소형)</td><td class="num">24만~37만 (300Wh)</td><td class="num">100만~250만 (1000Wh+)</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="hint" style="margin-top:.7rem">텐트는 <b>같은 스펙에 가격차가 최대 5배</b>입니다.
+</div>
+</div>
+<section class="doc">
+<h2>텐트 캠핑 vs 차박 — 무엇이 다른가</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>구분</th><th>텐트 캠핑</th><th>차박</th></tr></thead>
+<tbody>
+<tr><th scope="row">초기 비용</th><td>높음 — 텐트·타프가 큰 비중</td><td>낮음 — 매트만 있으면 시작 가능</td></tr>
+<tr><th scope="row">잠자리</th><td class="num">텐트 + 매트 + 침낭</td><td class="num">평탄화 매트 + 침낭</td></tr>
+<tr><th scope="row">설치 시간</th><td class="num">30분~1시간</td><td class="num">5~10분</td></tr>
+<tr><th scope="row">전기</th><td>캠핑장 전기 사이트 이용 가능</td><td>파워뱅크 필수 — 비용이 여기서 커집니다</td></tr>
+<tr><th scope="row">여름 취약점</th><td>더위. 타프 그늘 필수</td><td><b>차 안 온도 급상승.</b> 방충망 + 써큘레이터 필수</td></tr>
+<tr><th scope="row">겨울 취약점</th><td>바닥 냉기. 동계 텐트·난로 필요</td><td><b>결로와 일산화탄소.</b> 환기 필수</td></tr>
+<tr><th scope="row">짐 부피</th><td>큼 — 별도 적재 공간 필요</td><td>작음 — 다만 잘 공간을 침범합니다</td></tr>
+<tr><th scope="row">장소 제약</th><td>캠핑장 위주</td><td>노지 가능하나 취사·주차 규정 확인 필요</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="doc">
+<h2>2026년 품목별 시세</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>품목</th><th>입문</th><th>중급</th><th>프리미엄</th></tr></thead>
+<tbody>
+<tr><th scope="row">텐트 (2~4인)</th><td class="num">3만~11만</td><td class="num">15만~25만</td><td class="num">57만~73만</td></tr>
+<tr><th scope="row">침낭 (1인)</th><td class="num">1만8천~5만</td><td class="num">5만~12만</td><td class="num">43만~47만</td></tr>
+<tr><th scope="row">자충매트 (2인)</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">15만~25만</td></tr>
+<tr><th scope="row">캠핑의자 (1인)</th><td class="num">1만5천~3만</td><td class="num">3만~5만</td><td class="num">11만5천~16만5천</td></tr>
+<tr><th scope="row">테이블</th><td class="num">3만~5만</td><td class="num">5만~8만</td><td class="num">13만7천~14만7천</td></tr>
+<tr><th scope="row">차박 에어매트</th><td class="num">4만3천~6만4천</td><td class="num">7만~10만</td><td class="num">15만9천~</td></tr>
+<tr><th scope="row">파워뱅크</th><td class="num">7만 (소형)</td><td class="num">24만~37만 (300Wh)</td><td class="num">100만~250만 (1000Wh+)</td></tr>
+</tbody>
+</table>
+</div>
+<p class="hint" style="margin-top:.7rem">텐트는 <b>같은 스펙에 가격차가 최대 5배</b>입니다.
     데카트론 원터치 3만 원부터 스노우피크 어메니티돔M 57만 원까지 있습니다.
     10만 원 이하 초저가는 내구성이 떨어져 입문자도 15만~25만 원대를 권하는 것이 일반적입니다.</p>
-  </section>
-
-  <section class="doc">
-    <h2>대여 vs 구매 — 손익분기</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>연간 횟수</th><th>판단</th><th>근거</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">1~5회</th><td><b>대여 유리</b></td><td>세트 대여 3만 원 × 3회 = 9만 원. 신규 구매 60만~100만 원 대비 훨씬 저렴</td></tr>
-          <tr><th scope="row">6회 전후</th><td>손익분기점</td><td>연 6회 대여 18만 원 → 3년이면 54만 원. 기본 세트 구매 비용과 비슷해짐</td></tr>
-          <tr><th scope="row">8회 이상</th><td><b>구매 유리</b></td><td>대여로는 계절별 장비 교체가 어렵고 스타일 구성이 제한됨</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="hint" style="margin-top:.7rem">초보 단계에서는 <b>여러 캠핑장을 다녀보며 본인 스타일을 파악한 뒤</b>
+</section>
+<section class="doc">
+<h2>대여 vs 구매 — 손익분기</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>연간 횟수</th><th>판단</th><th>근거</th></tr></thead>
+<tbody>
+<tr><th scope="row">1~5회</th><td><b>대여 유리</b></td><td>세트 대여 3만 원 × 3회 = 9만 원. 신규 구매 60만~100만 원 대비 훨씬 저렴</td></tr>
+<tr><th scope="row">6회 전후</th><td>손익분기점</td><td>연 6회 대여 18만 원 → 3년이면 54만 원. 기본 세트 구매 비용과 비슷해짐</td></tr>
+<tr><th scope="row">8회 이상</th><td><b>구매 유리</b></td><td>대여로는 계절별 장비 교체가 어렵고 스타일 구성이 제한됨</td></tr>
+</tbody>
+</table>
+</div>
+<p class="hint" style="margin-top:.7rem">초보 단계에서는 <b>여러 캠핑장을 다녀보며 본인 스타일을 파악한 뒤</b>
     구매를 결정하는 것이 안전하다는 것이 일반적인 조언입니다.
     한 번에 10개 넘는 품목을 사는 것이 초보자가 가장 자주 하는 실수로 꼽힙니다.</p>
-  </section>
-
-  <section class="faq">
-    <h2>자주 묻는 질문</h2>
-    <details open>
-      <summary>캠핑 장비 처음 갖추는 데 얼마나 드나요?</summary>
-      <div class="ans">텐트 캠핑 2인 기준으로 <b>필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원</b>입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 <b>선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원</b>이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다.</div>
-    </details>
-    <details>
-      <summary>차박과 텐트 캠핑 중 뭐가 더 저렴한가요?</summary>
-      <div class="ans"><b>통념과 다릅니다.</b> 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 <b>차박이 오히려 조금 더 듭니다</b>. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 <b>파워뱅크 없이 시작할 때</b>입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다.</div>
-    </details>
-    <details>
-      <summary>차박에 꼭 필요한 장비는 무엇인가요?</summary>
-      <div class="ans"><b>평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼</b>
+</section>
+<section class="faq">
+<h2>자주 묻는 질문</h2>
+<details open="">
+<summary>캠핑 장비 처음 갖추는 데 얼마나 드나요?</summary>
+<div class="ans">텐트 캠핑 2인 기준으로 <b>필수 품목만 갖추면 입문 24만~53만 원, 중급 59만~109만 원</b>입니다. 여기에 팩·그라운드시트·아이스박스·화로대 같은 <b>선택 품목까지 더하면 입문 35만~75만 원, 중급 83만~158만 원</b>이 됩니다. 업계에서 말하는 '기본 세트 100만~150만 원'은 이 중급 구성에 해당합니다. 프리미엄은 300만 원을 넘어갑니다.</div>
+</details>
+<details>
+<summary>차박과 텐트 캠핑 중 뭐가 더 저렴한가요?</summary>
+<div class="ans"><b>통념과 다릅니다.</b> 텐트와 타프를 사지 않아도 되지만, 그 자리를 파워뱅크가 차지합니다. 2인 중급 필수 기준으로 텐트 캠핑이 59만~109만 원, 차박이 66만~116만 원으로 <b>차박이 오히려 조금 더 듭니다</b>. 입문 등급에서는 24만~53만 원 대 28만~51만 원으로 거의 같습니다. 차박이 확실히 저렴해지는 경우는 <b>파워뱅크 없이 시작할 때</b>입니다. 매트·방충망·햇빛가리개만 사면 6만~10만 원으로 시작할 수 있습니다.</div>
+</details>
+<details>
+<summary>차박에 꼭 필요한 장비는 무엇인가요?</summary>
+<div class="ans"><b>평탄화 매트 또는 차박 에어매트, 도어 방충망, 햇빛가리개나 암막 커튼</b>
       이렇게 세 가지가 최소 구성입니다.
       여기에 전기를 쓸 계획이면 파워뱅크, 여름이면 써큘레이터, 겨울이면 전기장판이 추가됩니다.
       방충망은 여름에 창문을 열고 자야 하기 때문에 사실상 필수입니다.</div>
-    </details>
-    <details>
-      <summary>장비를 사는 게 나을까요, 빌리는 게 나을까요?</summary>
-      <div class="ans">장비 세트 대여는 <b>1박에 약 3만 원</b>입니다.
+</details>
+<details>
+<summary>장비를 사는 게 나을까요, 빌리는 게 나을까요?</summary>
+<div class="ans">장비 세트 대여는 <b>1박에 약 3만 원</b>입니다.
       연 1~5회라면 대여가 유리하고, <b>연 6회 전후가 손익분기점</b>입니다.
       연 8회 이상 정기적으로 다닌다면 구매가 유리합니다.
       대여로는 동계 텐트나 화목난로 같은 계절별 장비 교체가 어렵다는 점도 고려하세요.</div>
-    </details>
-    <details>
-      <summary>텐트는 얼마짜리를 사야 하나요?</summary>
-      <div class="ans">같은 스펙이라도 <b>가격 차이가 최대 5배</b>까지 납니다.
+</details>
+<details>
+<summary>텐트는 얼마짜리를 사야 하나요?</summary>
+<div class="ans">같은 스펙이라도 <b>가격 차이가 최대 5배</b>까지 납니다.
       데카트론 원터치가 3만~5만 원, 데카트론 퀘차 2인용이 11만 원,
       네이처하이크가 15만~17만 원, 스노우피크 어메니티돔M이 57만 원 수준입니다.
       <b>10만 원 이하 초저가는 내구성이 떨어지므로</b> 입문자도 15만~25만 원대를 권합니다.</div>
-    </details>
-    <details>
-      <summary>파워뱅크는 몇 Wh짜리를 사야 하나요?</summary>
-      <div class="ans">휴대폰 충전과 조명 정도면 <b>300Wh급(24만~37만 원)</b>으로 충분합니다.
+</details>
+<details>
+<summary>파워뱅크는 몇 Wh짜리를 사야 하나요?</summary>
+<div class="ans">휴대폰 충전과 조명 정도면 <b>300Wh급(24만~37만 원)</b>으로 충분합니다.
       전기장판이나 소형 냉장고를 쓰려면 <b>700Wh 이상</b>,
       무시동 히터나 전기포트까지 쓰려면 <b>1000Wh 이상</b>이 필요하며 100만 원을 넘어갑니다.
       차박에서 예산이 가장 크게 갈리는 품목입니다.</div>
-    </details>
-    <details>
-      <summary>첫 캠핑 1박 2일 총비용은 얼마인가요?</summary>
-      <div class="ans">장비를 빌리는 경우 <b>4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원</b>입니다.
+</details>
+<details>
+<summary>첫 캠핑 1박 2일 총비용은 얼마인가요?</summary>
+<div class="ans">장비를 빌리는 경우 <b>4인 가족 1박 2일 오토캠핑 기준 약 21만~22만 원</b>입니다.
       사이트 이용료 4만4천 원, 장비 세트 대여 3만 원, 전기·샤워 1만3천 원,
       먹거리 8만 원, 교통비 5만 원 구성입니다. 장비 구매비는 별도입니다.</div>
-    </details>
-  </section>
+</details>
+</section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <nav>
-      <a href="/">홈</a>
-      <a href="/sitemap.html">사이트맵</a>
-      <a href="/japan_travel_calculator.html">일본 여행 경비</a>
-      <a href="/dutch_pay_calculator.html">더치페이 계산기</a>
-      <a href="/contact.html">문의하기</a>
-    </nav>
-    <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치입니다. 브랜드와 시기에 따라 실제 가격은 크게 달라집니다.</p>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -735,6 +648,45 @@ footer p{margin:0}
   render();
 })();
 </script>
-
+<!-- at:bottom -->
+<section class="at-related" aria-label="함께 쓰는 계산기">
+  <div class="at-box-head"><h2>함께 쓰는 계산기</h2><a class="more" href="/tools.html">전체 계산기</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/fuel_economy_calculator.html"><span class="tag ">여행</span><span class="t">주유 경제성<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="tag ">여행</span><span class="t">환율<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/japan_travel_calculator.html"><span class="tag ">여행</span><span class="t">일본 여행 경비</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div>
+</section>
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>

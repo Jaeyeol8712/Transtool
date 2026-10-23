@@ -1,239 +1,132 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- at:head -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어라운드툴 — 무료 생활 계산기와 전국 맛집 기록</title>
-<meta name="description" content="연봉 실수령액·퇴직금·실업급여부터 인테리어 가견적, 일본 여행 경비까지 무료 계산기 44종. 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 162곳 기록.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드</title>
+<meta name="description" content="연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.">
 <link rel="canonical" href="https://www.aroundtool.com/">
-<meta name="robots" content="index, follow, max-snippet:-1">
-<meta name="theme-color" content="#0D7A6F">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0B6E5F">
+<meta name="naver-site-verification" content="819ae10e3fae28782afbbbbc248f8423b816872b">
+<meta name="google-adsense-account" content="ca-pub-7089972708901760">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="어라운드툴">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.aroundtool.com/">
-<meta property="og:title" content="어라운드툴 — 무료 생활 계산기와 전국 맛집 기록">
-<meta property="og:description" content="연봉 실수령액·퇴직금·실업급여부터 인테리어 가견적, 일본 여행 경비까지 무료 계산기 44종. 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 162곳 기록.">
+<meta property="og:title" content="어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드">
+<meta property="og:description" content="연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.">
+<meta property="og:image" content="https://www.aroundtool.com/assets/og/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="어라운드툴 — 무료 생활 계산기와 전국 맛집 기록">
-<meta name="twitter:description" content="연봉 실수령액·퇴직금·실업급여부터 인테리어 가견적, 일본 여행 경비까지 무료 계산기 44종. 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 162곳 기록.">
+<meta name="twitter:title" content="어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드">
+<meta name="twitter:description" content="연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.">
+<meta name="twitter:image" content="https://www.aroundtool.com/assets/og/og-home.png">
+<meta property="article:modified_time" content="2026-10-23">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="어라운드툴" href="https://www.aroundtool.com/feed.xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#FFFFFF;--ink:#15181B;--soft:#5C6873;--rule:#E6E9E8;--rule-2:#D2D7D5;
---soft-bg:#F7F8F8;--brand:#0D7A6F;--brand-2:#095B53;
---food:#BC3C3C;--food-2:#9E3030;--tool:#0D7A6F;--tool-2:#08514A;
---trip:#1B6FB8;--trip-2:#14568F;--etc:#6B5A8E;--etc-2:#544471}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);
-font-family:"IBM Plex Sans KR",system-ui,-apple-system,sans-serif;
-font-size:16px;line-height:1.7;letter-spacing:-0.01em}
-a{color:inherit;text-decoration:none}h1,h2,h3,h4{margin:0}ul{margin:0;padding:0;list-style:none}
-:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 2.5rem;font-size:.8125rem;color:var(--soft)}
-footer nav{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-bottom:.8rem}
-footer nav a:hover{color:var(--brand)}
-footer p{margin:0}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!-- /at:head -->
 
-.stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.25rem 1rem}
-.box{width:100%;max-width:76rem;border:1px solid var(--rule-2);border-radius:12px;
-overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);display:grid;grid-template-columns:1fr}
-.panel{background:var(--brand);color:#fff;padding:1.75rem 1.5rem;display:flex;flex-direction:column}
-.brand{font-size:1.375rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:.35rem}
-.tagline{font-size:.8125rem;opacity:.8;margin:0 0 1.6rem;line-height:1.55}
-.brand span{opacity:.72}
-.big{font-family:"IBM Plex Mono",monospace;font-size:clamp(3rem,11vw,4.25rem);
-font-weight:600;line-height:.95;letter-spacing:-0.05em}
-.big small{display:block;font-family:"IBM Plex Sans KR",sans-serif;font-size:.8125rem;
-font-weight:500;opacity:.78;letter-spacing:0;margin-top:.55rem;line-height:1.5}
-.pills{display:flex;gap:.35rem;flex-wrap:wrap;margin:1.1rem 0 1.5rem}
-.pills span{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
-background:rgba(255,255,255,.15);border-radius:99px;padding:.2rem .6rem}
-.panel h2{font-size:.6875rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;
-text-transform:uppercase;opacity:.68;margin-bottom:.5rem;font-weight:600}
-.ups li{border-top:1px solid rgba(255,255,255,.15)}
-.ups li:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
-.ups a{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem 0;font-size:.8125rem;line-height:1.5}
-.ups a:hover{opacity:.72}
-.ups .d{font-family:"IBM Plex Mono",monospace;font-size:.625rem;opacity:.6;flex-shrink:0;
-padding-top:.15rem;width:3rem}
-.panel-foot{margin-top:auto;padding-top:1.3rem}
-.panel-foot a{display:inline-flex;align-items:center;gap:.35rem;font-size:.8125rem;font-weight:600;
-background:rgba(255,255,255,.16);padding:.45rem .9rem;border-radius:99px}
-.panel-foot a:hover{background:rgba(255,255,255,.26)}
-.panel-foot a::after{content:"\2192"}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--rule)}
-.t{display:flex;flex-direction:column;padding:1.5rem 1.4rem;color:#fff;
-position:relative;overflow:hidden;min-height:9.5rem;transition:filter .15s ease;
-grid-column:span 12}
-.a-food{grid-column:span 12}
-.a-tool{grid-column:span 12}
-.a-trip{grid-column:span 12}
-.a-etc{grid-column:span 12}
-.t:hover{filter:brightness(1.08)}
-.t::after{content:"";position:absolute;right:-3rem;bottom:-3.5rem;width:12rem;height:12rem;
-border-radius:50%;background:rgba(255,255,255,.08)}
-.t-food{background:linear-gradient(145deg,var(--food),var(--food-2))}
-.t-tool{background:linear-gradient(145deg,var(--tool),var(--tool-2))}
-.t-trip{background:linear-gradient(145deg,var(--trip),var(--trip-2))}
-.t-etc{background:linear-gradient(145deg,var(--etc),var(--etc-2))}
-.t h2{font-size:1.5rem;font-weight:700;letter-spacing:-0.025em;position:relative;z-index:1}
-.t .n{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;font-weight:600;
-background:rgba(255,255,255,.2);border-radius:99px;padding:.15rem .6rem;
-align-self:flex-start;margin-top:.5rem;position:relative;z-index:1}
-.t p{font-size:.8125rem;opacity:.86;margin:.7rem 0 0;position:relative;z-index:1;line-height:1.6}
-.t .go{margin-top:auto;padding-top:1rem;font-size:.8125rem;font-weight:600;
-position:relative;z-index:1;display:flex;align-items:center;gap:.35rem}
-.t .go::after{content:"\2192";transition:transform .15s ease}
-.t:hover .go::after{transform:translateX(3px)}
-@media (min-width:40rem){
-  .a-food{grid-column:span 12}
-  .a-tool{grid-column:span 7}
-  .a-trip{grid-column:span 5}
-  .a-etc{grid-column:span 12}
-}
-@media (min-width:64rem){
-  .box{grid-template-columns:19.5rem 1fr}
-  .a-food{grid-column:span 7;min-height:14rem}
-  .a-tool{grid-column:span 5;min-height:14rem}
-  .a-trip{grid-column:span 5;min-height:11rem}
-  .a-etc{grid-column:span 7;min-height:11rem}
-  .a-food h2{font-size:1.75rem}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "WebSite",
-   "@id": "https://www.aroundtool.com/#website",
-   "name": "어라운드툴",
-   "alternateName": "AroundTool",
-   "url": "https://www.aroundtool.com/",
-   "inLanguage": "ko-KR",
-   "description": "연봉·대출·세금·부동산·노동·건강 계산기 44개를 로그인 없이 무료로 제공하는 생활 도구 사이트. 광고와 협찬을 배제한 전국 3개 지역 맛집 151곳 기록도 함께 제공합니다.",
-   "publisher": {
-    "@id": "https://www.aroundtool.com/#org"
-   },
-   "isAccessibleForFree": true,
-   "hasPart": {
-    "@type": "WebPage",
-    "name": "사이트맵",
-    "url": "https://www.aroundtool.com/sitemap.html"
-   }
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://www.aroundtool.com/#org",
-   "name": "어라운드툴",
-   "url": "https://www.aroundtool.com/",
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "url": "https://www.aroundtool.com/contact.html",
-    "availableLanguage": [
-     "Korean"
-    ]
-   }
-  },
-  {
-   "@type": "ItemList",
-   "@id": "https://www.aroundtool.com/#sections",
-   "name": "어라운드툴 주요 섹션",
-   "numberOfItems": 4,
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "맛집",
-     "url": "https://www.aroundtool.com/food.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "생활툴",
-     "url": "https://www.aroundtool.com/tools.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "여행",
-     "url": "https://www.aroundtool.com/travel.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 4,
-     "name": "기타",
-     "url": "https://www.aroundtool.com/etc.html"
-    }
-   ]
-  }
- ]
-}
-</script>
+<!-- at:assets -->
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.aroundtool.com/#webpage","url":"https://www.aroundtool.com/","name":"어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드","description":"연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.","inLanguage":"ko-KR","isPartOf":{"@id":"https://www.aroundtool.com/#website"},"publisher":{"@id":"https://www.aroundtool.com/#org"},"dateModified":"2026-10-23","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.aroundtool.com/assets/og/og-home.png"}},{"@type":"WebSite","@id":"https://www.aroundtool.com/#website","url":"https://www.aroundtool.com/","name":"어라운드툴","alternateName":"AroundTool","inLanguage":"ko-KR","description":"연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.","publisher":{"@id":"https://www.aroundtool.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.aroundtool.com/search.html?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://www.aroundtool.com/#org","name":"어라운드툴","url":"https://www.aroundtool.com/","logo":{"@type":"ImageObject","url":"https://www.aroundtool.com/apple-touch-icon.png","width":180,"height":180},"contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"https://www.aroundtool.com/contact.html","availableLanguage":["Korean"]}},{"@type":"ItemList","name":"어라운드툴 주요 섹션","itemListElement":[{"@type":"ListItem","position":1,"name":"전국 맛집","url":"https://www.aroundtool.com/food.html"},{"@type":"ListItem","position":2,"name":"생활툴","url":"https://www.aroundtool.com/tools.html"},{"@type":"ListItem","position":3,"name":"여행","url":"https://www.aroundtool.com/travel.html"},{"@type":"ListItem","position":4,"name":"가이드","url":"https://www.aroundtool.com/etc.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"어라운드툴은 어떤 사이트인가요?","acceptedAnswer":{"@type":"Answer","text":"연봉 실수령액·퇴직금·실업급여 같은 생활 계산기와, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 지역 맛집 기록, 국내외 여행 코스·예산 가이드를 무료로 제공하는 사이트입니다. 회원가입 없이 모든 페이지를 이용할 수 있습니다."}},{"@type":"Question","name":"계산 결과를 그대로 믿어도 되나요?","acceptedAnswer":{"@type":"Answer","text":"계산기는 최신 법령과 요율을 반영하지만 결과는 참고용 추정치이며 법적 효력이 없습니다. 각 계산기 페이지에 계산 기준과 공식을 적어 두었으니, 급여명세서·고지서·금융기관 안내와 함께 확인하세요."}},{"@type":"Question","name":"맛집은 어떤 기준으로 고르나요?","acceptedAnswer":{"@type":"Answer","text":"리뷰 개수가 아니라 재방문 언급을 보고, 미쉐린 가이드·백년가게·지자체 지정처럼 광고비로 살 수 없는 근거와 교차 확인합니다. 협찬·체험단 표기가 있는 글은 근거에서 제외하고, 단점과 확인하지 못한 항목도 함께 적습니다."}},{"@type":"Question","name":"입력한 값이 저장되거나 전송되나요?","acceptedAnswer":{"@type":"Answer","text":"계산은 모두 사용하는 브라우저 안에서 이뤄지며 입력값을 서버로 보내거나 저장하지 않습니다."}},{"@type":"Question","name":"잘못된 정보는 어디에 알리나요?","acceptedAnswer":{"@type":"Answer","text":"문의하기 페이지의 이메일로 알려 주시면 확인 후 수정하고, 수정 사항은 최근 업데이트에 기록합니다."}}]}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
+<!-- /at:assets -->
 </head>
 <body>
+<!-- at:top -->
+<a class="at-skip" href="#at-main">본문 바로가기</a>
+<div class="at-util"><div class="at-in">
+  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+</div></div>
+<header class="at-header"><div class="at-in">
+  <a class="at-logo" href="/" aria-label="어라운드툴 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <form class="at-search" action="/search.html" method="get" role="search">
+    <label class="at-sr" for="at-q">사이트 검색</label>
+    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <button type="submit">검색</button>
+  </form>
+  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
+</div></header>
+<nav class="at-gnb" aria-label="주 메뉴"><ul><li><a class="g-home is-on" href="/" aria-current="page">홈</a></li><li><a class="g-food" href="/food.html">맛집</a></li><li><a class="g-tool" href="/tools.html">생활툴</a></li><li><a class="g-trip" href="/travel.html">여행</a></li><li><a class="g-etc" href="/etc.html">가이드</a></li></ul></nav>
+<div class="at-wrap">
 
-<div class="stage">
-  <main class="box">
-    <aside class="panel">
-      <h1 class="brand">어라운드<span>툴</span></h1>
-      <p class="tagline">무료 생활 계산기와 근거를 밝힌 전국 맛집 기록</p>
-      <p class="big">162<small>전국 맛집 수록<br>21개 시군구</small></p>
-      <div class="pills"><span>계산기 44</span><span>맛집 147p</span><span>가이드 2</span></div>
-      <h2>최근 업데이트</h2>
-      <ul class="ups">
-          <li><a href="/parental_leave_calculator.html"><span class="d">08.29</span><span>노동 계산기 5종 전면 개편 — 연차·주휴수당·육아휴직급여 2026년 기준 반영</span></a></li>
-          <li><a href="/unemployment_benefit_calculator.html"><span class="d">08.29</span><span>실업급여·퇴직금 계산기 개편 — 2026년 상한 68,100원 반영</span></a></li>
-          <li><a href="/salary_calculator.html"><span class="d">08.29</span><span>연봉 실수령액 계산기 전면 개편 — 2026년 4대보험 인상 요율 반영</span></a></li>
-          <li><a href="/camping_gear_calculator.html"><span class="d">08.29</span><span>캠핑 장비 견적 계산기 공개 — 텐트캠핑·차박 구분 32개 품목</span></a></li>
-          <li><a href="/japan_travel_calculator.html"><span class="d">08.29</span><span>일본 여행 경비 계산기 공개 — 항공비·일자별 코스·맛집 예산</span></a></li>
-          <li><a href="/acquisition_tax_calculator.html"><span class="d">08.29</span><span>취득세 계산기 업데이트 — 생애최초·신생아 출산 감면 반영</span></a></li>
-      </ul>
-      <div class="panel-foot"><a href="/sitemap.html">전체 페이지</a></div>
-    </aside>
+<div class="at-layout">
+<div class="at-home" id="at-main" tabindex="-1">
 
-    <div class="grid">
-      <a class="t t-food a-food" href="/food.html">
-        <h2>맛집</h2><span class="n">21개 시군구 · 162곳</span>
-        <p>광고와 협찬을 뺀 지역 맛집 기록. 리뷰 수보다 재방문 언급을 보고, 선정 근거와 함께 단점도 적습니다.</p>
-        <span class="go">바로가기</span>
-      </a>
-      <a class="t t-tool a-tool" href="/tools.html">
-        <h2>생활툴</h2><span class="n">44종</span>
-        <p>연봉·퇴직금·세금·요금부터 여행 경비까지. 2026년 바뀐 요율과 법령을 반영했습니다.</p>
-        <span class="go">바로가기</span>
-      </a>
-      <a class="t t-trip a-trip" href="/travel.html">
-        <h2>여행</h2><span class="n">국내 1 · 해외 1 · 도구 4</span>
-        <p>코스와 일정별 추천, 예산, 교통 방법. 맛집 기록과 연결됩니다.</p>
-        <span class="go">바로가기</span>
-      </a>
-      <a class="t t-etc a-etc" href="/etc.html">
-        <h2>기타</h2><span class="n">텍스트 3 · 가이드 2</span>
-        <p>글자수·맞춤법 검사와 연도별 제도 가이드.</p>
-        <span class="go">바로가기</span>
-      </a>
-    </div>
-  </main>
+<!-- /at:top -->
+<main>
+<div class="at-hello">
+  <h1>생활 계산기와 지역 맛집 기록, 어라운드툴</h1>
+  <p>계산기 43종은 계산 기준과 공식을 함께 보여주고, 맛집 147곳은 광고·협찬을 빼고 근거와 단점을 적었습니다. 회원가입 없이 모두 무료입니다.</p>
+  <ul class="at-chips" aria-label="자주 찾는 페이지"><li><a href="/salary_calculator.html">연봉 실수령액</a></li><li><a href="/severance_calculator.html">퇴직금</a></li><li><a href="/unemployment_benefit_calculator.html">실업급여</a></li><li><a href="/holiday_pay_calculator.html">주휴수당</a></li><li><a href="/acquisition_tax_calculator.html">취득세</a></li><li><a href="/haeundae-bapjip.html">해운대 맛집</a></li><li><a href="/jeju-jejusi-hyangto.html">제주 맛집</a></li><li><a href="/travel-jeju.html">제주 여행 예산</a></li></ul>
 </div>
+<div class="at-notice"><b>공지</b><a href="/about.html">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강</a><time datetime="2026-10-23">10.23</time></div>
+<section class="at-box"><div class="at-box-head"><h2>최근 업데이트</h2><a class="more" href="/sitemap.html">전체 페이지</a></div>
+  <div class="at-box-body"><ul class="at-list"><li><a href="/about.html"><span class="tag notice">공지</span><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="tag ">생활툴</span><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="tag ">생활툴</span><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="tag ">생활툴</span><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="tag ">생활툴</span><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="tag ">생활툴</span><span class="t">실업급여·퇴직금 계산기 개편 — 2026년 상한액 반영</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/salary_calculator.html"><span class="tag ">생활툴</span><span class="t">연봉 실수령액 계산기 개편 — 2026년 4대보험 요율 반영</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+<div class="at-two">
+  <section class="at-box is-tool"><div class="at-box-head"><h2>주요 계산기</h2><a class="more" href="/tools.html">43종 전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="tag ">재테크</span><span class="t">연봉 실수령액 계산기</span></a></li><li><a href="/severance_calculator.html"><span class="tag ">노동</span><span class="t">퇴직금 계산기</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="tag ">노동</span><span class="t">실업급여 계산기</span></a></li><li><a href="/pto_calculator.html"><span class="tag ">노동</span><span class="t">연차 계산기</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="tag ">노동</span><span class="t">주휴수당 계산기</span></a></li><li><a href="/loan_calculator.html"><span class="tag ">재테크</span><span class="t">대출 이자 계산기</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="tag ">재테크</span><span class="t">부동산 취득세 계산기</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="tag ">재테크</span><span class="t">중개보수 계산기</span></a></li><li><a href="/electricity_bill_calculator.html"><span class="tag ">생활</span><span class="t">전기요금 계산기</span></a></li><li><a href="/car_tax_calculator.html"><span class="tag ">생활</span><span class="t">자동차세 계산기</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><h2>지역별 맛집</h2><a class="more" href="/food.html">21개 지역 전체</a></div>
+    <ul class="at-tabs" role="tablist" data-at-tabs aria-label="지역 선택"><li><button type="button" role="tab" id="t-incheon" aria-controls="p-incheon" aria-selected="true" tabindex="0">인천</button></li><li><button type="button" role="tab" id="t-seoul" aria-controls="p-seoul" aria-selected="false" tabindex="-1">서울</button></li><li><button type="button" role="tab" id="t-busan" aria-controls="p-busan" aria-selected="false" tabindex="-1">부산</button></li><li><button type="button" role="tab" id="t-gangwon" aria-controls="p-gangwon" aria-selected="false" tabindex="-1">강원</button></li><li><button type="button" role="tab" id="t-daejeon" aria-controls="p-daejeon" aria-selected="false" tabindex="-1">대전</button></li><li><button type="button" role="tab" id="t-gwangju" aria-controls="p-gwangju" aria-selected="false" tabindex="-1">광주</button></li><li><button type="button" role="tab" id="t-jeju" aria-controls="p-jeju" aria-selected="false" tabindex="-1">제주</button></li><li><button type="button" role="tab" id="t-jeonnam" aria-controls="p-jeonnam" aria-selected="false" tabindex="-1">전남</button></li></ul><div class="at-pane" role="tabpanel" id="p-incheon" aria-labelledby="t-incheon"><div class="at-box-body"><ul class="at-list"><li><a href="/yeonsu-bapjip.html"><span class="tag food">연수구</span><span class="t">인천 연수구 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/yeonsu-gogi.html"><span class="tag food">연수구</span><span class="t">인천 연수구 고기<span class="cnt ">[3]</span></span></a></li><li><a href="/yeonsu-gukmul-myeon.html"><span class="tag food">연수구</span><span class="t">인천 연수구 국물과 면<span class="cnt ">[3]</span></span></a></li><li><a href="/yeonsu-iguk.html"><span class="tag food">연수구</span><span class="t">인천 연수구 이국<span class="cnt ">[5]</span></span></a></li><li><a href="/yeonsu-sul-anju.html"><span class="tag food">연수구</span><span class="t">인천 연수구 술과 안주<span class="cnt ">[3]</span></span></a></li><li><a href="/yeonsu-cafe.html"><span class="tag food">연수구</span><span class="t">인천 연수구 카페·디저트<span class="cnt ">[3]</span></span></a></li><li><a href="/yeonsu-hambak.html"><span class="tag food">연수구</span><span class="t">인천 연수구 함박마을<span class="cnt ">[3]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-seoul" aria-labelledby="t-seoul" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/gangnam-bapjip.html"><span class="tag food">강남구</span><span class="t">서울 강남구 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/gangnam-gogi.html"><span class="tag food">강남구</span><span class="t">서울 강남구 고기<span class="cnt ">[2]</span></span></a></li><li><a href="/gangnam-gukmul-myeon.html"><span class="tag food">강남구</span><span class="t">서울 강남구 국물과 면<span class="cnt ">[3]</span></span></a></li><li><a href="/gangnam-iguk.html"><span class="tag food">강남구</span><span class="t">서울 강남구 이국<span class="cnt ">[2]</span></span></a></li><li><a href="/gangnam-sul-anju.html"><span class="tag food">강남구</span><span class="t">서울 강남구 술과 안주<span class="cnt ">[2]</span></span></a></li><li><a href="/gangnam-cafe.html"><span class="tag food">강남구</span><span class="t">서울 강남구 카페·디저트<span class="cnt ">[1]</span></span></a></li><li><a href="/gangnam-nopo.html"><span class="tag food">강남구</span><span class="t">서울 강남구 노포<span class="cnt ">[5]</span></span></a></li><li><a href="/yongsan-bapjip.html"><span class="tag food">용산구</span><span class="t">서울 용산구 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/yongsan-gogi.html"><span class="tag food">용산구</span><span class="t">서울 용산구 고기<span class="cnt ">[2]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-busan" aria-labelledby="t-busan" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/haeundae-bapjip.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/haeundae-gogi.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 고기<span class="cnt ">[2]</span></span></a></li><li><a href="/haeundae-gukmul-myeon.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 국물과 면<span class="cnt ">[3]</span></span></a></li><li><a href="/haeundae-iguk.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 이국<span class="cnt ">[2]</span></span></a></li><li><a href="/haeundae-cafe.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 카페·디저트<span class="cnt ">[2]</span></span></a></li><li><a href="/haeundae-michelin.html"><span class="tag food">해운대구</span><span class="t">부산 해운대구 미쉐린 해운대<span class="cnt ">[3]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-gangwon" aria-labelledby="t-gangwon" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/sokcho-bapjip.html"><span class="tag food">속초시</span><span class="t">강원 속초시 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/sokcho-gogi.html"><span class="tag food">속초시</span><span class="t">강원 속초시 고기<span class="cnt ">[1]</span></span></a></li><li><a href="/sokcho-gukmul-myeon.html"><span class="tag food">속초시</span><span class="t">강원 속초시 국물과 면<span class="cnt ">[3]</span></span></a></li><li><a href="/sokcho-sul-anju.html"><span class="tag food">속초시</span><span class="t">강원 속초시 술과 안주<span class="cnt ">[2]</span></span></a></li><li><a href="/sokcho-cafe.html"><span class="tag food">속초시</span><span class="t">강원 속초시 카페·디저트<span class="cnt ">[2]</span></span></a></li><li><a href="/sokcho-abai.html"><span class="tag food">속초시</span><span class="t">강원 속초시 아바이마을<span class="cnt ">[2]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-daejeon" aria-labelledby="t-daejeon" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/daejeon-donggu-gukmul-myeon.html"><span class="tag food">동구</span><span class="t">대전 동구 국물과 면<span class="cnt ">[2]</span></span></a></li><li><a href="/daejeon-donggu-station.html"><span class="tag food">동구</span><span class="t">대전 동구 대전역 노포<span class="cnt ">[2]</span></span></a></li><li><a href="/daejeon-junggu-cafe.html"><span class="tag food">중구</span><span class="t">대전 중구 카페·디저트<span class="cnt ">[1]</span></span></a></li><li><a href="/daejeon-junggu-durus.html"><span class="tag food">중구</span><span class="t">대전 중구 두부두루치기<span class="cnt ">[3]</span></span></a></li><li><a href="/daejeon-seogu-dunsan.html"><span class="tag food">서구</span><span class="t">대전 서구 둔산 신도심<span class="cnt ">[2]</span></span></a></li><li><a href="/daejeon-yuseong-bongmyeong.html"><span class="tag food">유성구</span><span class="t">대전 유성구 봉명동<span class="cnt ">[3]</span></span></a></li><li><a href="/daejeon-daedeok-sintanjin.html"><span class="tag food">대덕구</span><span class="t">대전 대덕구 신탄진<span class="cnt ">[2]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-gwangju" aria-labelledby="t-gwangju" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/gwangju-donggu-bapjip.html"><span class="tag food">동구</span><span class="t">광주 동구 밥집<span class="cnt ">[1]</span></span></a></li><li><a href="/gwangju-seogu-sangmu.html"><span class="tag food">서구</span><span class="t">광주 서구 상무지구<span class="cnt ">[1]</span></span></a></li><li><a href="/gwangju-bukgu-bapjip.html"><span class="tag food">북구</span><span class="t">광주 북구 밥집<span class="cnt ">[1]</span></span></a></li><li><a href="/gwangju-bukgu-oritang.html"><span class="tag food">북구</span><span class="t">광주 북구 유동오리탕거리<span class="cnt ">[1]</span></span></a></li><li><a href="/gwangju-gwangsan-iguk.html"><span class="tag food">광산구</span><span class="t">광주 광산구 이국<span class="cnt ">[2]</span></span></a></li><li><a href="/gwangju-gwangsan-cafe.html"><span class="tag food">광산구</span><span class="t">광주 광산구 카페·디저트<span class="cnt ">[1]</span></span></a></li><li><a href="/gwangju-gwangsan-songjeong.html"><span class="tag food">광산구</span><span class="t">광주 광산구 송정리 떡갈비거리<span class="cnt ">[3]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-jeju" aria-labelledby="t-jeju" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/jeju-jejusi-bapjip.html"><span class="tag food">제주시</span><span class="t">제주 제주시 밥집<span class="cnt ">[1]</span></span></a></li><li><a href="/jeju-jejusi-gukmul-myeon.html"><span class="tag food">제주시</span><span class="t">제주 제주시 국물과 면<span class="cnt ">[3]</span></span></a></li><li><a href="/jeju-jejusi-sul-anju.html"><span class="tag food">제주시</span><span class="t">제주 제주시 술과 안주<span class="cnt ">[1]</span></span></a></li><li><a href="/jeju-jejusi-cafe.html"><span class="tag food">제주시</span><span class="t">제주 제주시 카페·디저트<span class="cnt ">[2]</span></span></a></li><li><a href="/jeju-jejusi-hyangto.html"><span class="tag food">제주시</span><span class="t">제주 제주시 제주 향토국<span class="cnt ">[3]</span></span></a></li><li><a href="/jeju-seogwipo-bapjip.html"><span class="tag food">서귀포시</span><span class="t">제주 서귀포시 밥집<span class="cnt ">[2]</span></span></a></li><li><a href="/jeju-seogwipo-gogi.html"><span class="tag food">서귀포시</span><span class="t">제주 서귀포시 고기<span class="cnt ">[3]</span></span></a></li><li><a href="/jeju-seogwipo-gukmul-myeon.html"><span class="tag food">서귀포시</span><span class="t">제주 서귀포시 국물과 면<span class="cnt ">[1]</span></span></a></li><li><a href="/jeju-seogwipo-iguk.html"><span class="tag food">서귀포시</span><span class="t">제주 서귀포시 이국<span class="cnt ">[1]</span></span></a></li></ul></div></div><div class="at-pane" role="tabpanel" id="p-jeonnam" aria-labelledby="t-jeonnam" hidden><div class="at-box-body"><ul class="at-list"><li><a href="/jeonnam-dongbu-gukmul-myeon.html"><span class="tag food">동부권</span><span class="t">전남 동부권 국물과 면</span></a></li><li><a href="/jeonnam-dongbu-namdo.html"><span class="tag food">동부권</span><span class="t">전남 동부권 남도음식거리<span class="cnt ">[5]</span></span></a></li><li><a href="/jeonnam-jungbu-bapjip.html"><span class="tag food">중부권</span><span class="t">전남 중부권 밥집</span></a></li><li><a href="/jeonnam-jungbu-namdo.html"><span class="tag food">중부권</span><span class="t">전남 중부권 남도음식거리<span class="cnt ">[5]</span></span></a></li><li><a href="/jeonnam-seobu-sul-anju.html"><span class="tag food">서부권</span><span class="t">전남 서부권 술과 안주</span></a></li><li><a href="/jeonnam-seobu-namdo.html"><span class="tag food">서부권</span><span class="t">전남 서부권 남도음식거리<span class="cnt ">[5]</span></span></a></li><li><a href="/jeonnam-nambu-bapjip.html"><span class="tag food">남부권</span><span class="t">전남 남부권 밥집<span class="cnt ">[1]</span></span></a></li><li><a href="/jeonnam-nambu-namdo.html"><span class="tag food">남부권</span><span class="t">전남 남부권 남도음식거리<span class="cnt ">[6]</span></span></a></li></ul></div></div></section>
+</div>
+<section class="at-box is-trip"><div class="at-box-head"><h2>여행 가이드</h2><a class="more" href="/travel.html">여행 전체</a></div>
+  <div class="at-grid-links"><a href="/travel-jeju.html"><b>제주도 여행</b><span>제주도 2박3일부터 4박5일까지 일정별 코스와 항목별 예산, 공항에서 시내·서귀…</span></a><a href="/travel-busan.html"><b>부산 해운대 여행</b><span>해운대 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통…</span></a><a href="/travel-sokcho.html"><b>속초 여행</b><span>속초 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통 …</span></a><a href="/travel-osaka.html"><b>오사카 여행</b><span>오사카 2박3일부터 4박5일까지 일정별 코스와 항목별 예산, 간사이공항에서 시내…</span></a><a href="/japan_travel_calculator.html"><b>일본 여행 경비</b><span>항공·숙박·식비 일자별 예산 계산</span></a><a href="/exchange_rate_calculator.html"><b>환율 계산</b><span>8개 통화 최신 기준 환율</span></a></div></section>
+<div class="at-two">
+  <section class="at-box is-tool"><div class="at-box-head"><h2>노동·구직 계산기</h2><a class="more" href="/tools.html#g-labor">더보기</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/severance_calculator.html"><span class="tag ">노동</span><span class="t">퇴직금</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="tag ">노동</span><span class="t">실업급여</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/pto_calculator.html"><span class="tag ">노동</span><span class="t">연차</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/holiday_pay_calculator.html"><span class="tag ">노동</span><span class="t">주휴수당</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/parental_leave_calculator.html"><span class="tag ">노동</span><span class="t">육아휴직급여</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box is-etc"><div class="at-box-head"><h2>가이드·텍스트 도구</h2><a class="more" href="/etc.html">더보기</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/guide_2026_wage.html"><span class="tag etc">가이드</span><span class="t">2026 최저임금·노동법 변경</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/guide_2026_tax.html"><span class="tag etc">가이드</span><span class="t">2026 연말정산·종소세 가이드</span><time class="d" datetime="2026-08-29">08.29</time></a></li><li><a href="/character_counter.html"><span class="tag ">텍스트</span><span class="t">글자수 세기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="tag ">텍스트</span><span class="t">맞춤법 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spacing_checker.html"><span class="tag ">텍스트</span><span class="t">띄어쓰기 검사<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li></ul></div></section>
+</div>
+<section class="at-box"><div class="at-box-head"><h2>자주 묻는 질문</h2><a class="more" href="/about.html">사이트 소개</a></div>
+  <div class="at-box-body pad"><div class="at-faq"><details><summary>어라운드툴은 어떤 사이트인가요?</summary><div class="a"><p>연봉 실수령액·퇴직금·실업급여 같은 생활 계산기와, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 지역 맛집 기록, 국내외 여행 코스·예산 가이드를 무료로 제공하는 사이트입니다. 회원가입 없이 모든 페이지를 이용할 수 있습니다.</p></div></details><details><summary>계산 결과를 그대로 믿어도 되나요?</summary><div class="a"><p>계산기는 최신 법령과 요율을 반영하지만 결과는 참고용 추정치이며 법적 효력이 없습니다. 각 계산기 페이지에 계산 기준과 공식을 적어 두었으니, 급여명세서·고지서·금융기관 안내와 함께 확인하세요.</p></div></details><details><summary>맛집은 어떤 기준으로 고르나요?</summary><div class="a"><p>리뷰 개수가 아니라 재방문 언급을 보고, 미쉐린 가이드·백년가게·지자체 지정처럼 광고비로 살 수 없는 근거와 교차 확인합니다. 협찬·체험단 표기가 있는 글은 근거에서 제외하고, 단점과 확인하지 못한 항목도 함께 적습니다.</p></div></details><details><summary>입력한 값이 저장되거나 전송되나요?</summary><div class="a"><p>계산은 모두 사용하는 브라우저 안에서 이뤄지며 입력값을 서버로 보내거나 저장하지 않습니다.</p></div></details><details><summary>잘못된 정보는 어디에 알리나요?</summary><div class="a"><p>문의하기 페이지의 이메일로 알려 주시면 확인 후 수정하고, 수정 사항은 최근 업데이트에 기록합니다.</p></div></details></div></div></section>
+</main>
+<!-- at:bottom -->
 
-<footer>
-  <nav>
-    <a href="/">홈</a>
-    <a href="/sitemap.html">사이트맵</a>
-    <a href="/about.html">사이트 소개</a>
-      <a href="/editorial.html">편집 방침</a>
-    <a href="/privacy.html">개인정보처리방침</a>
-    <a href="/terms.html">이용약관</a>
-    <a href="/contact.html">문의하기</a>
-  </nav>
-  <p>© 2026 어라운드툴. 계산 결과는 참고용 추정치이며 법적 효력이 없습니다.</p>
-</footer>
-
+</div>
+<aside class="at-side" aria-label="사이드바">
+  <section class="at-box"><div class="at-stat">
+    <div><b>43</b><span>생활 계산기</span></div>
+    <div><b>147</b><span>맛집 기록</span></div>
+    <div><b>21</b><span>수록 지역</span></div>
+  </div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list"><li><a href="/salary_calculator.html"><span class="t">연봉 실수령액</span></a></li><li><a href="/severance_calculator.html"><span class="t">퇴직금</span></a></li><li><a href="/unemployment_benefit_calculator.html"><span class="t">실업급여</span></a></li><li><a href="/pto_calculator.html"><span class="t">연차</span></a></li><li><a href="/holiday_pay_calculator.html"><span class="t">주휴수당</span></a></li><li><a href="/loan_calculator.html"><span class="t">대출 이자</span></a></li><li><a href="/acquisition_tax_calculator.html"><span class="t">부동산 취득세</span></a></li><li><a href="/brokerage_fee_calculator.html"><span class="t">중개보수</span></a></li></ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions"><a href="/food.html#r-incheon">인천 <span style="color:var(--at-faint)">22</span></a><a href="/food.html#r-seoul">서울 <span style="color:var(--at-faint)">29</span></a><a href="/food.html#r-busan">부산 <span style="color:var(--at-faint)">14</span></a><a href="/food.html#r-gangwon">강원 <span style="color:var(--at-faint)">12</span></a><a href="/food.html#r-daejeon">대전 <span style="color:var(--at-faint)">15</span></a><a href="/food.html#r-gwangju">광주 <span style="color:var(--at-faint)">10</span></a><a href="/food.html#r-jeju">제주 <span style="color:var(--at-faint)">23</span></a><a href="/food.html#r-jeonnam">전남 <span style="color:var(--at-faint)">22</span></a></div></section>
+  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
+    <div class="at-box-body"><ul class="at-list is-wrap"><li><a href="/about.html"><span class="t">사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/exchange_rate_calculator.html"><span class="t">환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/spell_checker.html"><span class="t">맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/freelancer_tax_calculator.html"><span class="t">종합소득세 계산기 — 과세표준 8단계 전 구간 반영<span class="n" aria-label="새 글">N</span></span><time class="d" datetime="2026-10-23">10.23</time></a></li><li><a href="/parental_leave_calculator.html"><span class="t">노동 계산기 5종 개편 — 연차·주휴수당·육아휴직급여 2026년 기준</span><time class="d" datetime="2026-08-29">08.29</time></a></li></ul></div></section>
+  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
+    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
+    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+</aside>
+</div>
+</div>
+<footer class="at-footer"><div class="at-in">
+  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+  <div class="at-footer-cols">
+    <div><p>생활툴</p><ul><li><a href="/tools.html#g-money">재테크·부동산</a></li><li><a href="/tools.html#g-labor">노동·구직</a></li><li><a href="/tools.html#g-life">생활·건강</a></li><li><a href="/tools.html#g-trip">여행</a></li><li><a href="/tools.html#g-text">텍스트</a></li></ul></div>
+    <div><p>맛집</p><ul><li><a href="/yeonsu-bapjip.html">인천 맛집</a></li><li><a href="/gangnam-bapjip.html">서울 맛집</a></li><li><a href="/haeundae-bapjip.html">부산 맛집</a></li><li><a href="/sokcho-bapjip.html">강원 맛집</a></li><li><a href="/daejeon-donggu-gukmul-myeon.html">대전 맛집</a></li><li><a href="/gwangju-donggu-bapjip.html">광주 맛집</a></li><li><a href="/food.html">전체 지역</a></li></ul></div>
+    <div><p>여행</p><ul><li><a href="/travel-jeju.html">제주도 여행</a></li><li><a href="/travel-busan.html">부산 해운대 여행</a></li><li><a href="/travel-sokcho.html">속초 여행</a></li><li><a href="/travel-osaka.html">오사카 여행</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+  </div>
+  <div class="at-footer-legal">
+    <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
+    <small>© 2026 어라운드툴. 계산 결과와 지역 정보는 참고용이며 법적 효력이 없습니다.</small>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<!-- /at:bottom -->
 </body>
 </html>
