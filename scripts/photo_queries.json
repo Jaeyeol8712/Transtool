@@ -1,0 +1,21 @@
+{
+  "charger": ["usb-c charger", "smartphone charging cable"],
+  "neck": ["office worker laptop posture", "person using smartphone neck"],
+  "keyboard": ["mechanical keyboard", "gaming keyboard rgb"],
+  "kitchen": ["kitchen sink", "food scraps compost kitchen"],
+  "fukuoka": ["Fukuoka city", "Dazaifu Tenmangu", "Nakasu yatai Fukuoka", "Ohori park Fukuoka", "Canal City Hakata"],
+  "legs": ["legs resting sofa", "feet massage"],
+  "cleanser": ["face wash foam", "mung beans"],
+  "laptop": ["student studying laptop", "laptop desk notebook"],
+  "strasbourg": ["Petite France Strasbourg", "Strasbourg cathedral"],
+  "lucerne": ["Kapellbrucke Lucerne", "Lake Lucerne"],
+  "jungfrau": ["Jungfraujoch", "Jungfrau railway", "Aletsch glacier"],
+  "paris": ["Eiffel tower Paris"],
+  "tablet": ["tablet stylus drawing", "android tablet"],
+  "robotvac": ["robot vacuum cleaner", "robotic vacuum floor"],
+  "speaker": ["bookshelf speaker living room", "wireless speaker"],
+  "jeju": ["Seongsan Ilchulbong", "Jeju island coast"],
+  "busan": ["Haeundae beach Busan", "Gamcheon culture village"],
+  "sokcho": ["Seoraksan", "Sokcho beach"],
+  "osaka": ["Dotonbori Osaka", "Osaka castle"]
+}

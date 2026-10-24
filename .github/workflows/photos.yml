@@ -1,0 +1,60 @@
+name: 무료 사진 가져오기
+
+# scripts/photo_queries.json 이 바뀌면 → 후보 모음 이미지를 photo-candidates 브랜치에 올림
+# scripts/photos.json 이 바뀌면      → 고른 사진을 assets/photos/ 에 저장해 main 에 커밋
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/photo_queries.json", "scripts/photos.json"]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "candidates 또는 fetch"
+        default: "fetch"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photos
+  cancel-in-progress: false
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - run: pip install --quiet pillow
+      - name: 할 일 고르기
+        id: mode
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then echo "mode=${{ inputs.mode }}" >> $GITHUB_OUTPUT; exit 0; fi
+          CH=$(git diff --name-only HEAD~1 HEAD)
+          if echo "$CH" | grep -q 'scripts/photo_queries.json'; then echo "cand=1" >> $GITHUB_OUTPUT; fi
+          if echo "$CH" | grep -q 'scripts/photos.json'; then echo "fetch=1" >> $GITHUB_OUTPUT; fi
+      - name: 후보 받기
+        if: steps.mode.outputs.cand == '1' || steps.mode.outputs.mode == 'candidates'
+        run: |
+          python3 scripts/photos.py candidates
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B photo-candidates
+          git add -f _candidates
+          git commit -qm "사진 후보 [skip ci]"
+          git push -f origin photo-candidates
+          git checkout -q main
+      - name: 고른 사진 저장
+        if: steps.mode.outputs.fetch == '1' || steps.mode.outputs.mode == 'fetch'
+        run: |
+          git checkout -q main
+          python3 scripts/photos.py fetch
+          if [[ -n "$(git status --porcelain assets/photos)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/photos
+            git commit -m "사진 추가 (Openverse, 상업 이용 가능 라이선스)"
+            git pull --rebase -q origin main
+            git push
+          fi
