@@ -63,6 +63,13 @@
       .then(show).catch(function () {});
   }
 
+  /* ---------- 휴대폰: 제휴 버튼은 같은 탭에서 열기 ----------
+     새 탭으로 열면 일부 안드로이드 브라우저가 '어떤 앱으로 열기' 선택창을 띄우는 경우가 있어
+     터치 기기에서는 현재 탭에서 바로 이동합니다. (뒤로 가기로 글에 돌아올 수 있음) */
+  if (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    document.querySelectorAll('a[rel~="sponsored"][target="_blank"]').forEach(function (a) { a.removeAttribute('target'); });
+  }
+
   /* ---------- 추천 글: 10초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
   var pop = document.querySelector('[data-at-popup]');
   if (pop) {
@@ -79,7 +86,7 @@
     pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', closePop); });
     var goBtn = pop.querySelector('[data-pop-go]');
     if (goBtn) goBtn.addEventListener('click', function () {
-      if (window.gtag) gtag('event', 'popup_click', { post: pop.getAttribute('data-at-popup') });
+      if (window.gtag) gtag('event', 'popup_click', { post: pop.getAttribute('data-at-popup'), transport_type: 'beacon' });
       closePop();
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) closePop(); });

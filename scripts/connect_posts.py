@@ -23,6 +23,7 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   sub_keywords 보조 키워드 3~6개 (소제목·FAQ에 자연스럽게 분산)
   product     정확한 상품명,  brand  브랜드명
   link        커넥트에서 발급받은 링크 (naver.me 단축 링크 그대로)
+  direct      naver.me 가 넘겨주는 brandconnect 주소. 있으면 버튼은 이 주소로 바로 연결 (단계 하나 줄임, 같은 제휴 추적 링크)
   price       {"value": 29900, "date": "2026-10-23"} 또는 None (가격은 변동되므로 확인 날짜 필수)
   title, desc, lede, answer   제목 / 메타 설명 / 한 줄 요약 / 핵심 답변 문단
   specs       [(항목, 값)]   공식 상세페이지에서 확인한 것만
@@ -59,6 +60,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/FYrGZaQv",
+        "direct": "https://brandconnect.naver.com/affiliates/1000580724939232?channelProductNo=12944846510",
         "cta_hook": "⚡ 이 충전기, PD·PPS 둘 다 될까? 케이블 길이는?",
         "keyword": "C타입 고속 충전기",
         "sub_keywords": ["65W 일체형 충전기", "C타입 초고속 충전기 추천", "65W 충전기 가격", "고속충전기 C타입"],
@@ -110,6 +112,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/5VxjWToM",
+        "direct": "https://brandconnect.naver.com/affiliates/988528533014592?channelProductNo=12048090804",
         "cta_hook": "🧐 이 제품은 의료기기일까? 압력 조절은 몇 단계?",
         "keyword": "거북목 교정기",
         "sub_keywords": ["목견인기 추천", "목디스크 치료기", "거북목 교정기 가격", "목견인기 가격"],
@@ -160,6 +163,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/GM3ZqLrQ",
+        "direct": "https://brandconnect.naver.com/affiliates/995493710065472?channelProductNo=13107728993",
         "cta_hook": "🎮 이 키보드는 트리모드일까? 스위치와 배열은?",
         "keyword": "무선 게이밍 키보드",
         "sub_keywords": ["무선게이밍키보드", "무선 게이밍 키보드 추천", "무선 게이밍 키보드 가격", "기계식 무선 키보드"],
@@ -215,6 +219,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/5t7zSPe5",
+        "direct": "https://brandconnect.naver.com/affiliates/993385236141760?channelProductNo=13636853112",
         "cta_hook": "🍽️ 이 음식물처리기는 어떤 방식일까? 용량과 소음은?",
         "keyword": "음식물처리기",
         "sub_keywords": ["음식물처리기 추천", "음식물처리기 가격", "가정용 음식물처리기", "음식물 쓰레기 처리기"],
@@ -271,6 +276,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/xIF7RrEV",
+        "direct": "https://brandconnect.naver.com/connect/1009472625643744",
         "kind": "travel",
         "cta": "여행코스 추천 받기 >>",
         "cta_hook": "✈️ 이 일정에 맞는 후쿠오카 코스, 더 받아 볼까요?",
@@ -322,6 +328,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/GEdcmA8K",
+        "direct": "https://brandconnect.naver.com/affiliates/993384530917728?channelProductNo=3442126222",
         "cta_hook": "👀 이 마사지기는 몇 단계 압력일까? 사이즈는 맞을까?",
         "keyword": "종아리 마사지기",
         "sub_keywords": ["공기압 마사지기 추천", "종아리 마사지기 가격", "발 마사지기", "혈액순환 마사지기"],
@@ -372,6 +379,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/x4l1JOOE",
+        "direct": "https://brandconnect.naver.com/affiliates/996222881267424?channelProductNo=11046612369",
         "cta_hook": "🫧 이 클렌징폼의 pH와 전성분, 직접 확인해 볼까요?",
         "keyword": "약산성 클렌징폼",
         "sub_keywords": ["녹두 클렌징폼", "약산성 클렌징폼 추천", "약산성 클렌징폼 가격", "pH 약산성 세안"],
@@ -423,6 +431,7 @@ POSTS = [
         "brand": None,
         "hands_on": False,
         "link": "https://naver.me/FTdAOwV2",
+        "direct": "https://brandconnect.naver.com/affiliates/995492565467936?channelProductNo=13724960274",
         "cta_hook": "💻 이 노트북 사양, 위 기준을 통과할까?",
         "keyword": "대학생 노트북",
         "sub_keywords": ["인강용 노트북 추천", "사무용 노트북 추천", "대학생 노트북 가격", "가성비 노트북"],

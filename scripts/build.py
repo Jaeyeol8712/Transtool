@@ -34,6 +34,8 @@ from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
+import hashlib as _hl
+JS_V = _hl.md5(open(__import__("os").path.join(__import__("os").path.dirname(__file__), "..", "assets", "site.js"), "rb").read()).hexdigest()[:8]
 TODAY = "2026-10-24"
 CALC_DATE = "2026-10-23"
 BASE_DATE = "2026-08-29"
@@ -760,7 +762,7 @@ def top_block(p, board=True):
 
 def bottom_block(p):
     return (f"<!-- at:bottom -->\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
-            f'<script src="/assets/site.js" defer></script>\n<!-- /at:bottom -->')
+            f'<script src="/assets/site.js?v={JS_V}" defer></script>\n<!-- /at:bottom -->')
 
 
 # ════════════════════════════════════════════════════════════════
@@ -1127,7 +1129,7 @@ def disclosure_box(post, where="top"):
 
 def buy_button(post, label=None):
     label = label or f"{post['product']} 판매 페이지 보기"
-    return (f'<p class="at-buy"><a class="at-buy-btn" href="{esc(post["link"])}" target="_blank" '
+    return (f'<p class="at-buy"><a class="at-buy-btn" href="{esc(post.get("direct") or post["link"])}" target="_blank" '
             f'rel="sponsored nofollow noopener">{esc(label)}</a>'
             f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
 
@@ -1135,7 +1137,7 @@ def buy_button(post, label=None):
 def link_card(post):
     """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조."""
     label = post.get("cta") or "제품 자세히 알아보기 >>"
-    return (f'<a class="at-cta" href="{esc(post["link"])}" target="_blank" rel="sponsored nofollow noopener">'
+    return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}" target="_blank" rel="sponsored nofollow noopener">'
             f'{esc(label)}</a>')
 
 
@@ -1153,7 +1155,7 @@ def popup_html(post):
     <p class="at-pop-emoji" aria-hidden="true">{"✈️" if is_trip else "🎁"}</p>
     <p class="at-pop-h" id="at-pop-h">{esc(head)}</p>
     <p class="at-pop-s">{esc(sub)}</p>
-    <a class="at-cta" href="{esc(post['link'])}" target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
+    <a class="at-cta" href="{esc(post.get('direct') or post['link'])}" target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
     <button type="button" class="at-pop-later" data-pop-close>계속 읽을게요</button>
     <p class="at-pop-ad">광고 · {esc(d)}</p>
   </div>
