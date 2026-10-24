@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 160 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 161 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -487,6 +487,10 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-galaxy-tab-s12-ultra.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-jbl-authentics-200.html</loc>
     <lastmod>2026-10-24</lastmod>
   </url>
   <url>
