@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 161 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 163 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -591,6 +591,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-danang-5days.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-food-waste-disposer.html</loc>
     <lastmod>2026-10-24</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/food-waste-disposer/1.png</image:loc></image:image>
@@ -638,6 +646,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/s-desk-7.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/neck-traction/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/neck-traction/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-prael-thermashot-ultimate.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/prael-thermashot-ultimate/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/prael-thermashot-ultimate/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/prael-thermashot-ultimate/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/prael-thermashot-ultimate/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-student-office-laptop.html</loc>

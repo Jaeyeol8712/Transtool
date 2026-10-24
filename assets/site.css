@@ -505,3 +505,8 @@ html.at-pop-open{overflow:hidden}
 @keyframes at-pop-in{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 @media (min-width:40rem){.at-pop{align-items:center}.at-pop-box{border-radius:18px}}
 @media (prefers-reduced-motion:reduce){.at-pop-box{animation:none}}
+/* 버튼 바로 위 상품·여행 사진 */
+.vx-cta-photo{margin:0 0 .9rem}
+.vx-cta-photo img{display:block;width:100%;max-height:340px;object-fit:cover;border-radius:12px;border:1px solid #F3C4C4}
+.vx-cta-photo figcaption{margin-top:.35rem;font-size:.75rem;color:var(--at-sub)}
+.at-pop-img{display:block;width:100%;max-height:200px;object-fit:cover;border-radius:12px;margin:0 0 .8rem}

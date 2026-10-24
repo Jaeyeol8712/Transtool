@@ -1268,11 +1268,14 @@ def popup_html(post):
     sub = post.get("cta_hook") or ("일정·가격·포함 내역을 한 번에 볼 수 있어요." if is_trip else "현재 가격과 옵션, 상세 정보를 바로 볼 수 있어요.")
     label = post.get("cta") or "제품 자세히 알아보기 >>"
     d = DISCLOSURE.get(post.get("program", "shopping"), DISCLOSURE["shopping"])
+    cp = post.get("cta_photo")
+    pop_visual = (f'<img class="at-pop-img" src="{esc(cp["src"])}" alt="{esc(cp["alt"])}" loading="lazy" decoding="async">' if cp
+                  else f'<p class="at-pop-emoji" aria-hidden="true">{"✈️" if is_trip else "🎁"}</p>')
     return f"""<div class="at-pop" data-at-popup="{esc(post['slug'])}" hidden>
   <div class="at-pop-back" data-pop-close></div>
   <div class="at-pop-box" role="dialog" aria-modal="true" aria-labelledby="at-pop-h">
     <button type="button" class="at-pop-x" data-pop-close aria-label="닫기">×</button>
-    <p class="at-pop-emoji" aria-hidden="true">{"✈️" if is_trip else "🎁"}</p>
+    {pop_visual}
     <p class="at-pop-h" id="at-pop-h">{esc(head)}</p>
     <p class="at-pop-s">{esc(sub)}</p>
     <a class="at-cta" href="{esc(post.get('direct') or post['link'])}" target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
@@ -1302,7 +1305,17 @@ def build_connect_blog(p):
                 parts.append(figure_html(src, alt))
                 ld_imgs.append(image_ld(src, alt))
         elif para.strip() == "{cta}":
-            parts.append(f'<div class="vx-cta-mid"><p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
+            cp = post.get("cta_photo")
+            ph = ""
+            if cp:
+                wh = img_size(cp["src"])
+                size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
+                ph = (f'<figure class="vx-cta-photo"><img src="{esc(cp["src"])}" alt="{esc(cp["alt"])}"{size} loading="lazy" decoding="async">'
+                      f'<figcaption>{esc(cp.get("caption", ""))}</figcaption></figure>')
+                o = image_ld(cp["src"], cp["alt"]); o.pop("creator", None)
+                o["creditText"] = cp.get("credit", "판매 페이지 이미지")
+                ld_imgs.append(o)
+            parts.append(f'<div class="vx-cta-mid">{ph}<p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
         elif para.lstrip().startswith("<"):
             parts.append(para)
         else:
