@@ -1317,16 +1317,12 @@ def build_connect_blog(p):
                 parts.append(figure_html(src, alt))
                 ld_imgs.append(image_ld(src, alt))
         elif para.strip() == "{cta}":
-            cp = post.get("cta_photo")
+            # 중간 버튼: 판매 페이지 사진은 넣지 않고, 무료 사진(mid_photo = photos.json 이름)이 있을 때만 넣음
             ph = ""
-            if cp:
-                wh = img_size(cp["src"])
-                size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
-                ph = (f'<figure class="vx-cta-photo"><img src="{esc(cp["src"])}" alt="{esc(cp["alt"])}"{size} loading="lazy" decoding="async">'
-                      f'<figcaption>{esc(cp.get("caption", ""))}</figcaption></figure>')
-                o = image_ld(cp["src"], cp["alt"]); o.pop("creator", None)
-                o["creditText"] = cp.get("credit", "판매 페이지 이미지")
-                ld_imgs.append(o)
+            mp = post.get("mid_photo")
+            if mp and photo_ok(mp):
+                ph = photo_html(mp).replace('class="at-fig"', 'class="at-fig vx-cta-photo"', 1)
+                ld_imgs.append(image_ld(f"/assets/photos/{mp}.jpg", PHOTOS[mp]["alt"], PHOTOS[mp]))
             parts.append(f'<div class="vx-cta-mid">{ph}<p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
         elif para.lstrip().startswith("<"):
             parts.append(para)
