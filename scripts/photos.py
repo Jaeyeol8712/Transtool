@@ -104,11 +104,26 @@ def meta_of(r):
 
 
 def load_img(url, w):
-    raw = get(small_url(url, max(w, 640)))
-    im = Image.open(io.BytesIO(raw)).convert("RGB")
-    if im.width > w:
-        im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
-    return im
+    tries = [small_url(url, max(w, 640))]
+    if "upload.wikimedia.org" in url:
+        tries = [small_url(url, 960), small_url(url, 1280), url] if w > 640 else tries + [url]
+    last = None
+    for u in dict.fromkeys(tries):
+        for attempt in range(3):
+            try:
+                raw = get(u)
+                im = Image.open(io.BytesIO(raw)).convert("RGB")
+                if im.width > w:
+                    im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+                return im
+            except urllib.error.HTTPError as e:
+                last = e
+                if e.code == 429:
+                    time.sleep(10 * (attempt + 1)); continue
+                break
+            except Exception as e:
+                last = e; break
+    raise last
 
 
 def candidates():
@@ -170,7 +185,7 @@ def fetch():
             print("저장", name, im.size)
         except Exception as e:
             print("실패", name, e)
-        time.sleep(1)
+        time.sleep(1.5)
 
 
 if __name__ == "__main__":
