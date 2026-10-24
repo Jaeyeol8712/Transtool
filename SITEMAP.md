@@ -30,3 +30,25 @@ python3 scripts/build.py
 - **최근 업데이트·공지**: `build.py` 의 `UPDATES` 목록 맨 위에 추가.
 
 빌드가 sitemap.xml, feed.xml, llms.txt, sitemap.html, 홈·허브의 숫자를 모두 자동으로 맞춥니다.
+
+## 2026-10-24 추가
+
+- **구·시 단위 맛집 모아보기** (`haeundae.html`, `jeju-jejusi.html` …): 빌드가 카테고리 글에서 가게 이름을 모아 자동 생성합니다.
+- **섹션 간 연결**: 모든 페이지 아래 "함께 보면 좋은 글"이 맛집 ↔ 여행 ↔ 계산기 ↔ 가이드 ↔ 추천 글을 서로 잇습니다.
+  규칙은 `build.py` 의 `cross_links()`, `GUIDE_LINKS`, `TRIP_TOOLS`, 추천 글의 `related` 에서 정합니다.
+- **계산기 퍼가기** (`embed/<계산기>.html`): 검색 노출 제외(noindex), 출처 링크 포함. 계산기 페이지 아래에 복사 코드가 있습니다.
+
+## 자동 색인
+
+| 대상 | 방식 | 상태 |
+|---|---|---|
+| 네이버·Bing | IndexNow (`scripts/indexnow.mjs`) — main 에 올라간 바뀐 페이지만 전송 | 동작 중 (`INDEXNOW_KEY` 등록됨) |
+| 구글 | 서치콘솔 API 로 sitemap.xml·feed.xml 제출 (`scripts/gsc-sitemap.mjs`) — 푸시마다 + 매주 월요일 | `GSC_SERVICE_ACCOUNT` 등록 시 동작 |
+
+구글 설정 방법
+1. Google Cloud Console → 새 프로젝트 → "Google Search Console API" 사용 설정
+2. IAM → 서비스 계정 만들기 → 키 → JSON 키 다운로드
+3. 서치콘솔 → 설정 → 사용자 및 권한 → 서비스 계정 이메일을 **소유자**로 추가
+4. GitHub 저장소 → Settings → Secrets and variables → Actions
+   - Secrets: `GSC_SERVICE_ACCOUNT` = JSON 파일 내용 전체
+   - Variables: `GSC_SITE` = 서치콘솔 속성 주소 (URL 접두어면 `https://www.aroundtool.com/`, 도메인 속성이면 `sc-domain:aroundtool.com`)

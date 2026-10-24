@@ -398,3 +398,26 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-tabs-lg button{font-size:1rem;padding:.6rem 1rem}
 .at-tabs-lg .c{font-size:.8125rem;color:var(--at-faint);margin-left:.15rem}
 .at-tabs-lg button[aria-selected="true"]{color:var(--at-shop);border-bottom-color:var(--at-shop)}
+/* 구 단위 맛집 모아보기 */
+.at-gu-cat{border-top:1px solid var(--at-line);padding:1.25rem 0 .5rem}
+.at-gu-cat:first-of-type{border-top:0}
+.at-prose .at-gu-cat h2{margin:0 0 .25rem;font-size:1.0625rem;display:flex;align-items:baseline;gap:.5rem}
+.at-prose .at-gu-cat h2 a{color:var(--at-ink);text-decoration:none}
+.at-prose .at-gu-cat h2 a:hover{color:var(--at-food);text-decoration:underline}
+.at-gu-cat .c{font-size:.8125rem;color:var(--at-food);font-weight:700}
+.at-gu-cat .d{font-size:.875rem;color:var(--at-sub);margin:0 0 .6rem}
+.at-prose .at-gu-list{list-style:none;padding:0;margin:0;display:grid;gap:.35rem .9rem;grid-template-columns:1fr}
+.at-gu-list li{margin:0;padding:.55rem .75rem;border:1px solid var(--at-line);border-radius:4px;background:var(--at-sunk)}
+.at-prose .at-gu-list a{font-weight:700;color:var(--at-ink);text-decoration:none}
+.at-prose .at-gu-list a:hover{text-decoration:underline}
+.at-gu-list .x{display:block;font-size:.8125rem;color:var(--at-sub);margin-top:.1rem;line-height:1.5}
+@media (min-width:40rem){.at-prose .at-gu-list{grid-template-columns:1fr 1fr}}
+.at-pane-more{margin:.5rem 0 .4rem;font-size:.8125rem;color:var(--at-sub)}
+.at-pane-more a{color:var(--at-food);font-weight:600;text-decoration:none}
+.at-pane-more a:hover{text-decoration:underline}
+.at-cross{border-top:1px solid var(--at-line)}
+/* 계산기 퍼가기 */
+.at-embed{border:1px solid var(--at-line-2);border-radius:6px;padding:.75rem;background:var(--at-sunk);margin:0 0 1rem}
+.at-embed textarea{width:100%;box-sizing:border-box;font:.8125rem/1.6 ui-monospace,Menlo,Consolas,monospace;border:1px solid var(--at-line);border-radius:4px;padding:.6rem;background:#fff;resize:vertical;color:var(--at-ink)}
+.at-prose .at-copy{margin-top:.5rem;border:0;border-radius:4px;background:var(--at-ink);color:#fff;font:inherit;font-weight:700;font-size:.875rem;padding:.55rem 1rem;cursor:pointer}
+.at-prose .at-copy:hover{background:#000}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>벌초 대행 견적 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/grave_weeding_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="벌초 대행 견적 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">벌초 대행 견적 계산기</p>
+<label for="graveCount">산소 기수 (묘의 개수)</label>
+<input id="graveCount" placeholder="예: 2" type="number" value="1"/>
+<label for="graveArea">묘지 대략적 면적 (평)</label>
+<input id="graveArea" placeholder="예: 15" type="number" value="15"/>
+<label for="graveAccess">현장 접근성</label>
+<select id="graveAccess">
+<option value="1">차량 진입 양호</option>
+<option value="1.2">도보 10분 이상 산길</option>
+</select>
+<button onclick="calcGrave()">예상 견적 확인</button>
+<div style="margin-top:16px; font-size:0.85rem; color:#6b7280; line-height:1.6; background:#f9fafb; padding:12px; border-radius:8px;">* 농협 및 지역 산림조합 대행 단가(추정치)를 베이스로 산출된 참고용 견적입니다.</div>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 대행 비용</span><span class="result-value" id="graveCost">-</span></div>
+</div>
+<script>
+ function calcGrave(){
+ const c = parseInt(document.getElementById('graveCount').value);
+ const a = parseFloat(document.getElementById('graveArea').value);
+ const acc = parseFloat(document.getElementById('graveAccess').value);
+ if(!c || !a) return alert('묘지 기수와 면적을 입력해주세요.');
+ let baseCost = 80000;
+ if(c > 1) baseCost += (c - 1) * 40000; 
+ if(a > 20) baseCost += ((a - 20) / 10) * 20000; 
+ const total = baseCost * acc;
+ document.getElementById('graveCost').textContent = '약 ' + Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/grave_weeding_calculator.html" target="_blank" rel="noopener">어라운드툴 벌초 대행 견적 계산기</a></p>
+</body>
+</html>

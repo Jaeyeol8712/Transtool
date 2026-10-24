@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하루 권장 칼로리 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/calorie_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="하루 권장 칼로리 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">하루 권장 칼로리 계산기</p>
+<label for="calBmr">현재 기초대사량 (kcal)</label>
+<input id="calBmr" placeholder="예: 1600" type="number"/>
+<label for="activity">활동 수준</label>
+<select id="activity">
+<option value="1.2">거의 운동하지 않음</option>
+<option value="1.375">가벼운 운동 (주 1~3일)</option>
+<option selected="" value="1.55">보통 수준의 활동 (주 3~5일)</option>
+<option value="1.725">적극적인 운동 (주 6~7일)</option>
+</select>
+<label for="goal">목표</label>
+<select id="goal">
+<option value="0">체중 유지</option>
+<option value="-500">다이어트 (주당 0.5kg 감량)</option>
+<option value="500">벌크업 (주당 0.5kg 증량)</option>
+</select>
+<button onclick="calcCalorie()">하루 권장 칼로리 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">목표 권장 칼로리</span><span class="result-value" id="targetCal">-</span></div>
+</div>
+<script>
+function calcCalorie(){
+ const bmr = parseFloat(document.getElementById('calBmr').value);
+ const act = parseFloat(document.getElementById('activity').value);
+ const goal = parseFloat(document.getElementById('goal').value);
+ if(!bmr) return alert('기초대사량을 입력해주세요.');
+ let tdee = bmr * act;
+ let target = tdee + goal;
+ document.getElementById('targetCal').textContent = Math.round(target).toLocaleString() + ' kcal';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/calorie_calculator.html" target="_blank" rel="noopener">어라운드툴 하루 권장 칼로리 계산기</a></p>
+</body>
+</html>

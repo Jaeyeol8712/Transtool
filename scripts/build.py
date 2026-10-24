@@ -34,7 +34,8 @@ from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
-TODAY = "2026-10-23"
+TODAY = "2026-10-24"
+CALC_DATE = "2026-10-23"
 BASE_DATE = "2026-08-29"
 KST = timezone(timedelta(hours=9))
 GA_ID = "G-2LK65NYW74"
@@ -112,6 +113,8 @@ LEGACY_REDIRECTS = {
 UNTOUCHED = {"portfolio.html", "Portfolio.dc.html", "stats.html", "categories-section.html"}
 
 UPDATES = [  # (날짜, 말머리, 제목, 링크)
+    ("2026-10-24", "맛집", "지역별 맛집 모아보기 21곳 공개 — 구·시 단위로 전체 가게 한눈에", "/haeundae.html"),
+    ("2026-10-24", "생활툴", "계산기 퍼가기 기능 — 블로그·홈페이지에 계산기를 그대로 넣기", "/salary_calculator.html"),
     ("2026-10-23", "공지", "사이트 개편 — 게시판형 화면, 통합 검색, 계산기 33종 설명·FAQ 보강", "/about.html"),
     ("2026-10-23", "생활툴", "환율 계산기 개편 — 8개 통화, 최신 기준 환율 자동 반영", "/exchange_rate_calculator.html"),
     ("2026-10-23", "생활툴", "맞춤법·띄어쓰기 검사기 개편 — 자주 틀리는 표현 약 70개, 의존명사 띄어쓰기", "/spell_checker.html"),
@@ -177,6 +180,7 @@ def clean_title(t):
     t = html.unescape(t).strip()
     t = re.split(r"\s+\|\s+", t)[0].strip()
     t = re.sub(r"\s+-\s+", " — ", t)
+    t = re.sub(r"\s+—\s+(어라운드툴|생활 계산기 모음)$", "", t)
     return t
 
 
@@ -249,7 +253,7 @@ def register_tools():
             if slug in CALCS:
                 c = CALCS[slug]
                 PAGES[f] = dict(file=f, section="tools", group=gid, group_name=gname, name=c["name"],
-                                short=c["name"], desc=c["desc"], date=TODAY, calc=True,
+                                short=c["name"], desc=c["desc"], date=CALC_DATE, calc=True,
                                 title=c["title"])
             else:
                 title, desc = head_info(f)
@@ -289,6 +293,17 @@ def register_misc():
 register_food()
 register_tools()
 register_misc()
+
+
+def register_gu_hubs():
+    for rid, rname, rshort, gus in FOOD_AREAS:
+        for prefix, gu in gus:
+            f = prefix + ".html"
+            PAGES[f] = dict(file=f, section="gu", region=rid, region_name=rname, region_short=rshort, gu=gu,
+                            prefix=prefix, name=f"{rshort} {gu} 맛집", short=f"{gu} 전체", date=TODAY, research=False)
+
+
+register_gu_hubs()
 
 FOOD = [p for p in PAGES.values() if p["section"] == "food"]
 FOOD_OK = [p for p in FOOD if not p["research"]]
@@ -382,7 +397,7 @@ GNB = [("index.html", "홈", "g-home", "home"), ("food.html", "맛집", "g-food"
 
 def gnb_key(p):
     s = p["section"]
-    return {"home": "home", "food": "food", "hub-food": "food", "tools": "tools", "hub-tools": "tools",
+    return {"home": "home", "food": "food", "hub-food": "food", "gu": "food", "tools": "tools", "hub-tools": "tools",
             "trip": "trip", "hub-trip": "trip", "guide": "guide", "hub-guide": "guide",
             "connect": "connect", "hub-connect": "connect"}.get(s, "")
 
@@ -416,7 +431,9 @@ def crumbs_for(p):
     c = [("홈", "/")]
     if s == "food":
         c += [("맛집", "/food.html"), (p["region_short"], f"/food.html#r-{p['region']}"),
-              (p["gu"], "/" + gu_first(p["prefix"])), (p["cat"], None)]
+              (p["gu"], f"/{p['prefix']}.html"), (p["cat"], None)]
+    elif s == "gu":
+        c += [("맛집", "/food.html"), (p["region_short"], f"/food.html#r-{p['region']}"), (p["gu"], None)]
     elif s == "tools":
         c += [("생활툴", "/tools.html"), (p["group_name"], f"/tools.html#g-{p['group']}"), (p["name"], None)]
     elif s == "trip":
@@ -459,9 +476,10 @@ def crumb_ld(p):
 
 def board_html(p):
     s = p["section"]
-    if s == "food":
+    if s in ("food", "gu"):
         area = next(a for a in FOOD_AREAS if a[0] == p["region"])
-        tabs = []
+        cur0 = ' aria-current="page"' if s == "gu" else ""
+        tabs = [f'<li><a href="/{p["prefix"]}.html"{cur0}>전체<span class="c">{gu_count(p["prefix"])}</span></a></li>']
         for q in food_pages(p["prefix"]):
             cur = ' aria-current="page"' if q["file"] == p["file"] else ""
             cnt = f'<span class="c">{q["count"]}</span>' if q["count"] else ('<span class="c">조사 중</span>' if q["research"] else "")
@@ -471,10 +489,10 @@ def board_html(p):
             links = []
             for pre, gu in area[3]:
                 cur = ' aria-current="page"' if pre == p["prefix"] else ""
-                links.append(f'<a href="/{gu_first(pre)}"{cur}>{esc(gu)}</a>')
+                links.append(f'<a href="/{pre}.html"{cur}>{esc(gu)}</a>')
             sub = f'<div class="at-board-sub"><span>{esc(area[2])} 다른 지역</span>{"".join(links)}</div>'
         return f"""<div class="at-board is-food">
-  <div class="at-board-head"><p class="at-board-name"><a href="/{gu_first(p['prefix'])}">{esc(p['region_short'])} {esc(p['gu'])} 맛집</a></p><span class="at-board-meta">{gu_count(p['prefix'])}곳 수록 · 광고·협찬 제외</span></div>
+  <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{esc(p['region_short'])} {esc(p['gu'])} 맛집</a></p><span class="at-board-meta">{gu_count(p['prefix'])}곳 수록 · 광고·협찬 제외</span></div>
   <ul class="at-board-tabs">{"".join(tabs)}</ul>{sub}
 </div>"""
     if s == "tools":
@@ -534,6 +552,88 @@ def row(href, title, tag=None, tagcls="", cnt=None, cntcls="", date=None, new=Fa
 
 def is_new(date):
     return date >= "2026-10-01"
+
+
+GUIDE_LINKS = {  # 가이드 ↔ 계산기
+    "guide_2026_wage.html": ["salary_calculator", "holiday_pay_calculator", "pto_calculator", "severance_calculator",
+                             "unemployment_benefit_calculator", "parental_leave_calculator"],
+    "guide_2026_tax.html": ["freelancer_tax_calculator", "salary_calculator", "acquisition_tax_calculator", "car_tax_calculator"],
+}
+TRIP_TOOLS = {"travel-osaka.html": ["japan_travel_calculator", "exchange_rate_calculator"],
+              "travel-jeju.html": ["fuel_economy_calculator", "camping_gear_calculator"],
+              "travel-busan.html": ["fuel_economy_calculator"], "travel-sokcho.html": ["fuel_economy_calculator", "camping_gear_calculator"]}
+
+
+def cross_links(p):
+    """다른 섹션으로 이어지는 관련 페이지 (중복 없이 최대 6개)."""
+    f, s = p["file"], p["section"]
+    out = []
+    add = lambda x: out.append(x) if x in PAGES and x != f and x not in out and indexable(PAGES[x]) else None
+    travel_of = {v: k for k, v in REGION_TRAVEL.items()}
+    if s in ("food", "gu"):
+        if s == "food":
+            add(p["prefix"] + ".html")
+        if p["region"] in REGION_TRAVEL:
+            add(REGION_TRAVEL[p["region"]])
+            for t in TRIP_TOOLS.get(REGION_TRAVEL[p["region"]], []):
+                add(t + ".html")
+        for q in SHOP_LIVE:
+            if f in [r if r.endswith(".html") else r + ".html" for r in q["post"].get("related", [])]:
+                add(q["file"])
+    elif s == "trip":
+        rid = travel_of.get(f)
+        if rid:
+            for _, _, _, gus in [a for a in FOOD_AREAS if a[0] == rid]:
+                for pre, _ in gus:
+                    add(pre + ".html")
+        for t in TRIP_TOOLS.get(f, []):
+            add(t + ".html")
+        for q in SHOP_LIVE:
+            if kind_of(q) == "travel":
+                add(q["file"])
+    elif s == "tools":
+        for g, calcs in GUIDE_LINKS.items():
+            if f[:-5] in calcs:
+                add(g)
+        for t, calcs in TRIP_TOOLS.items():
+            if f[:-5] in calcs:
+                add(t)
+        for q in SHOP_LIVE:
+            if f in [r if r.endswith(".html") else r + ".html" for r in q["post"].get("related", [])]:
+                add(q["file"])
+    elif s == "guide":
+        for c in GUIDE_LINKS.get(f, []):
+            add(c + ".html")
+        for g in GUIDE_LINKS:
+            add(g)
+    elif s == "connect":
+        for r in p["post"].get("related", []):
+            add(r if r.endswith(".html") else r + ".html")
+        if kind_of(p) == "travel":
+            for t in TRIP_PAGES:
+                add(t[0] + ".html")
+    return out[:6]
+
+
+def cross_tag(q):
+    return {"food": ("맛집", "food"), "gu": ("맛집", "food"), "tools": ("생활툴", ""), "trip": ("여행", "trip"),
+            "guide": ("가이드", "etc"), "connect": ("추천", "shop")}.get(q["section"], ("안내", "etc"))
+
+
+def cross_html(p):
+    items = cross_links(p)
+    if not items:
+        return ""
+    rows = []
+    for f in items:
+        q = PAGES[f]
+        tag, cls = cross_tag(q)
+        title = q.get("title") if q["section"] in ("connect", "trip", "guide") else q["name"] + (" 계산기" if q["section"] == "tools" and "계산" not in q["name"] else "")
+        rows.append(row("/" + f, title, tag, cls, None, "", None))
+    return f"""<section class="at-related at-cross" aria-label="다른 섹션에서 함께 보기">
+  <div class="at-box-head"><h2>함께 보면 좋은 글</h2></div>
+  <div class="at-box-body"><ul class="at-list">{"".join(rows)}</ul></div>
+</section>"""
 
 
 def related_html(p):
@@ -633,7 +733,7 @@ def side_html():
 
 
 def footer_html():
-    regions = "".join(f'<li><a href="/{gu_first(gus[0][0])}">{esc(rshort)} 맛집</a></li>' for rid, _, rshort, gus in FOOD_AREAS[:6])
+    regions = "".join(f'<li><a href="/{gus[0][0]}.html">{esc(rshort)} {esc(gus[0][1])} 맛집</a></li>' for rid, _, rshort, gus in FOOD_AREAS[:6])
     groups = "".join(f'<li><a href="/tools.html#g-{gid}">{esc(gname)}</a></li>' for gid, gname, _ in TOOL_GROUPS)
     trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES)
     return f"""<footer class="at-footer"><div class="at-in">
@@ -659,7 +759,7 @@ def top_block(p, board=True):
 
 
 def bottom_block(p):
-    return (f"<!-- at:bottom -->\n{related_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
+    return (f"<!-- at:bottom -->\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
             f'<script src="/assets/site.js" defer></script>\n<!-- /at:bottom -->')
 
 
@@ -676,7 +776,7 @@ def page_ld(p, extra=None):
     u = url_of(f)
     graph = []
     typ = {"hub-food": "CollectionPage", "hub-tools": "CollectionPage", "hub-trip": "CollectionPage",
-           "hub-guide": "CollectionPage"}.get(p["section"], "WebPage")
+           "hub-guide": "CollectionPage", "gu": "CollectionPage"}.get(p["section"], "WebPage")
     if f == "about.html":
         typ = "AboutPage"
     if f == "contact.html":
@@ -904,6 +1004,53 @@ def faq_html(pairs, title="자주 묻는 질문"):
     return f'<h2 id="faq">{title}</h2><div class="at-faq">{items}</div>'
 
 
+EMBED_H = {"character_counter": 620, "spell_checker": 720, "spacing_checker": 640, "percent_calculator": 420,
+           "pyeong_calculator": 330, "exchange_rate_calculator": 640, "freelancer_tax_calculator": 760,
+           "lotto_generator": 560, "qr_generator": 640, "loan_calculator": 720, "electricity_bill_calculator": 720}
+
+
+def build_embed(slug, tool, head_css, ext_scripts):
+    c = CALCS[slug]
+    u = url_of(slug + ".html")
+    write(f"embed/{slug}.html", f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(c['h1'])} | {NAME}</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{u}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{{background:#fff!important}}.at-tool{{margin:0;max-width:none;border-radius:8px}}
+.at-embed-credit{{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}}
+.at-embed-credit a{{color:var(--at-ink);font-weight:700;text-decoration:none}}.at-embed-credit a:hover{{text-decoration:underline}}</style>
+{head_css}
+{chr(10).join(ext_scripts)}
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="{esc(c['h1'])}">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">{esc(c['h1'])}</p>
+{tool}
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="{u}" target="_blank" rel="noopener">{NAME} {esc(c['h1'])}</a></p>
+</body>
+</html>
+""")
+
+
+def embed_box(slug):
+    c = CALCS[slug]
+    h = EMBED_H.get(slug, 560)
+    code = (f'<iframe src="{SITE}/embed/{slug}.html" title="{c["h1"]}" width="100%" height="{h}" '
+            f'style="border:0;max-width:640px" loading="lazy"></iframe>\n'
+            f'<p style="font-size:13px">출처: <a href="{url_of(slug + ".html")}">{NAME} {c["h1"]}</a></p>')
+    return f"""<h2 id="embed">이 계산기를 내 블로그·홈페이지에 넣기</h2>
+<p>아래 코드를 복사해 HTML 편집 화면에 붙여 넣으면 계산기가 그대로 들어갑니다. 무료이며, 출처 링크만 지워지지 않게 두면 됩니다. 티스토리·워드프레스·개인 홈페이지에서 쓸 수 있고, 네이버 블로그는 외부 코드를 막아 두어 링크로 공유하는 편이 좋습니다.</p>
+<div class="at-embed"><textarea id="embed-code" readonly rows="4" aria-label="퍼가기 코드">{esc(code)}</textarea>
+<button type="button" class="at-copy" data-copy="embed-code">코드 복사</button></div>"""
+
+
 def build_calc(slug):
     c = CALCS[slug]
     p = PAGES[slug + ".html"]
@@ -940,6 +1087,7 @@ def build_calc(slug):
 {faq_html(c['faq'])}
 <h2>함께 보면 좋은 계산기</h2>
 <ul>{related}</ul>
+{embed_box(slug)}
 <p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
 </div>
 </div>
@@ -951,6 +1099,7 @@ def build_calc(slug):
     howto = {"@type": "HowTo", "name": f"{c['h1']} 사용 방법",
              "step": [{"@type": "HowToStep", "position": i + 1, "text": strip_tags(s)} for i, s in enumerate(c["steps"])]}
     extra_head = head_css + "\n" + "\n".join(ext_scripts)
+    build_embed(slug, tool.strip(), head_css, ext_scripts)
     write(p["file"], page_shell(p, content, [app, howto, faq_ld(c["faq"])], adsense=True, extra_head=extra_head))
 
 
@@ -1129,8 +1278,10 @@ def build_home():
                 if q["research"]:
                     continue
                 rows.append(row("/" + q["file"], q["name"], gu, "food", q["count"] or None, "", None))
+        hubs = " · ".join(f'<a href="/{pre}.html">{esc(gu)} 전체</a>' for pre, gu in gus)
         panes.append(f'<div class="at-pane" role="tabpanel" id="p-{rid}" aria-labelledby="t-{rid}"{" hidden" if i else ""}>'
-                     f'<div class="at-box-body"><ul class="at-list">{"".join(rows[:9])}</ul></div></div>')
+                     f'<div class="at-box-body"><ul class="at-list">{"".join(rows[:8])}</ul>'
+                     f'<p class="at-pane-more">{hubs}</p></div></div>')
     trips = "".join(f'<a href="/{slug}.html"><b>{esc(name)}</b><span>{esc(PAGES[slug + ".html"]["desc"][:44])}…</span></a>'
                     for slug, name, _ in TRIP_PAGES)
     trips += '<a href="/japan_travel_calculator.html"><b>일본 여행 경비</b><span>항공·숙박·식비 일자별 예산 계산</span></a>'
@@ -1187,6 +1338,70 @@ def build_home():
     write("index.html", html_)
 
 
+def restaurants_in(f):
+    """카테고리 글에서 가게 이름과 첫 줄 정보(주소·대표 메뉴 등)를 뽑습니다."""
+    soup = BeautifulSoup(read(f), "html.parser")
+    out = []
+    for a in soup.select("article.entry"):
+        h = a.find("h2")
+        if not h:
+            continue
+        for r in h.select(".rom"):
+            r.decompose()
+        name = h.get_text(" ", strip=True)
+        meta = a.select_one(".meta span")
+        out.append((name, meta.get_text(" ", strip=True) if meta else ""))
+    return out
+
+
+def build_gu_hub(p):
+    pages = [q for q in food_pages(p["prefix"]) if not q["research"]]
+    total = gu_count(p["prefix"])
+    area = f"{p['region_short']} {p['gu']}"
+    p["title"] = f"{area} 맛집 {total}곳 — 카테고리별 전체 정리"
+    blocks, names, ld_items = [], [], []
+    for q in pages:
+        rs = restaurants_in(q["file"])
+        if rs:
+            li = "".join(f'<li><a href="/{q["file"]}"><span class="t">{esc(n)}</span></a>' + (f'<span class="x">{esc(m)}</span>' if m else "") + "</li>" for n, m in rs)
+            names.append(f"{q['cat']} {', '.join(n for n, _ in rs[:3])}")
+            for n, _ in rs:
+                ld_items.append({"@type": "ListItem", "position": len(ld_items) + 1,
+                                 "item": {"@type": "Restaurant", "name": n, "url": url_of(q["file"]),
+                                          "address": {"@type": "PostalAddress", "addressRegion": p["region_name"], "addressLocality": p["gu"], "addressCountry": "KR"}}})
+        else:
+            li = f'<li><a href="/{q["file"]}"><span class="t">{esc(q["title"])}</span></a></li>'
+        desc = q["desc"][:90] + ("…" if len(q["desc"]) > 90 else "")
+        cnt = f'<span class="c">{q["count"]}곳</span>' if q["count"] else ""
+        blocks.append(f'<section class="at-gu-cat"><h2><a href="/{q["file"]}">{esc(q["cat"])}</a>{cnt}</h2>'
+                      f'<p class="d">{esc(desc)}</p><ul class="at-gu-list">{li}</ul></section>')
+    p["desc"] = (f"{p['region_name']} {p['gu']} 맛집 {total}곳을 카테고리별로 모았습니다. "
+                 f"광고·협찬을 빼고 재방문 언급과 공식 지정 근거로 골랐고, 가게별 단점과 확인하지 못한 정보도 함께 적었습니다.")
+    answer = f"{area}에서 이 사이트가 기록한 맛집은 <b>{total}곳</b>입니다. " + " · ".join(esc(x) for x in names[:6]) + (" 등입니다." if names else "")
+    others = [g for r, _, _, gus in FOOD_AREAS if r == p["region"] for g in gus if g[0] != p["prefix"]]
+    other_html = ""
+    if others:
+        other_html = "<p>" + esc(p["region_short"]) + "의 다른 지역: " + " · ".join(f'<a href="/{pre}.html">{esc(gu)} 맛집</a>' for pre, gu in others) + "</p>"
+    travel = ""
+    if p["region"] in REGION_TRAVEL:
+        t = PAGES[REGION_TRAVEL[p["region"]]]
+        travel = f'<p>여행 일정을 짜고 있다면 <a href="/{t["file"]}">{esc(t["name"])} 코스·예산·교통 정리</a>와 함께 보면 동선을 잡기 쉽습니다.</p>'
+    content = f"""<header class="at-page-head">
+  <h1>{esc(area)} 맛집 {total}곳</h1>
+  <p class="lede">{esc(p['gu'])}에서 광고·협찬을 빼고 고른 가게를 카테고리별로 모았습니다. 가게 이름을 누르면 선정 근거와 단점, 가격과 영업시간 확인 여부를 볼 수 있습니다.</p>
+  <p class="meta"><span>{len(pages)}개 카테고리</span><span>2026년 8월 조사</span><span><a href="/editorial.html">선정 기준</a></span></p>
+</header>
+<div class="at-page"><div class="at-prose" style="max-width:none">
+<div class="at-answer"><p>{answer}</p></div>
+{"".join(blocks)}
+<h2>함께 보기</h2>
+{travel}{other_html}
+<p>전국 다른 지역은 <a href="/food.html">전국 맛집 기록</a>에서 볼 수 있습니다.</p>
+</div></div>"""
+    lst = {"@type": "ItemList", "name": f"{area} 맛집", "numberOfItems": len(ld_items), "itemListElement": ld_items}
+    write(p["file"], page_shell(p, content, [lst]))
+
+
 def build_food_hub():
     p = PAGES["food.html"]
     rows = []
@@ -1195,6 +1410,9 @@ def build_food_hub():
         jump.append(f'<a href="#r-{rid}">{esc(rshort)} <span class="c">{region_count(rid)}</span></a>')
         rows.append(f'<tr class="at-gr" id="r-{rid}"><td colspan="4">{esc(rname)}<span>{region_count(rid)}곳</span></td></tr>')
         for pre, gu in gus:
+            rows.append(f'<tr data-k="{esc(rname)} {esc(gu)}"><td class="k"><span class="tag food">{esc(gu)}</span></td>'
+                        f'<td><a href="/{pre}.html"><b>{esc(rshort)} {esc(gu)} 맛집 전체 보기</b></a><span class="x">카테고리별 가게 목록을 한 페이지에</span></td>'
+                        f'<td class="c">{gu_count(pre)}</td><td class="d">{short_date(TODAY)}</td></tr>')
             for q in food_pages(pre):
                 dim = ' class="is-dim"' if q["research"] else ""
                 cnt = q["count"] if q["count"] else "—"
@@ -1348,10 +1566,20 @@ def all_index_pages():
     return [q for q in ps if indexable(q)]
 
 
+def git_date(f):
+    import subprocess
+    try:
+        d = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f], capture_output=True, text=True).stdout.strip()
+        return d or None
+    except Exception:
+        return None
+
+
 def build_sitemap_xml():
     urls = []
     for q in all_index_pages():
-        urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{q['date']}</lastmod>\n  </url>")
+        lm = max(filter(None, [git_date(q["file"]), q["date"]]))
+        urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n  </url>")
     write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
 <!-- aroundtool.com · scripts/build.py 가 생성 · {TODAY} · {len(urls)} URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1409,6 +1637,7 @@ def build_llms():
             q = PAGES[s + ".html"]
             lines.append(f"- [{q['name']}]({url_of(q['file'])}): {q['desc']}")
         lines.append("")
+    lines += ["## 지역별 맛집 모아보기", ""] + [f"- [{PAGES[pre + '.html']['title']}]({SITE}/{pre}.html)" for _, _, _, gus in FOOD_AREAS for pre, _ in gus] + [""]
     lines += ["## 지역별 맛집", ""]
     for rid, rname, rshort, gus in FOOD_AREAS:
         lines.append(f"### {rname}")
@@ -1431,7 +1660,7 @@ def build_search_index():
         if q["file"] in ("sitemap.html",):
             continue
         k = " ".join(filter(None, [q.get("region_name"), q.get("gu"), q.get("cat"), q.get("group_name"), q.get("kind")]))
-        sec = {"food": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내", "connect": "추천 모음 · 광고"}.get(q["section"], "안내")
+        sec = {"food": "맛집", "gu": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내", "connect": "추천 모음 · 광고"}.get(q["section"], "안내")
         title = q["name"] + (" 계산기" if q["section"] == "tools" and "계산" not in q["name"] and "생성" not in q["name"] and "검사" not in q["name"] and "세기" not in q["name"] and "운세" not in q["name"] else "")
         if q["section"] in ("home",) or q["section"].startswith("hub"):
             title = q["title"]
@@ -1450,7 +1679,10 @@ def main():
     for q in SHOP:
         build_connect_post(q)
     build_connect_hub()
-    generated = {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html", "connect.html"} | {s + ".html" for s in CALCS} | {q["file"] for q in SHOP}
+    for _, _, _, gus in FOOD_AREAS:
+        for pre, _ in gus:
+            build_gu_hub(PAGES[pre + ".html"])
+    generated = {pre + ".html" for _, _, _, gus in FOOD_AREAS for pre, _ in gus} | {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html", "connect.html"} | {s + ".html" for s in CALCS} | {q["file"] for q in SHOP}
     for f, p in PAGES.items():
         if f in generated or f in UNTOUCHED:
             continue

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유류비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/fuel_economy_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="유류비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">유류비 계산기</p>
+<label for="fuelDist">이동 거리 (km)</label>
+<input id="fuelDist" placeholder="예: 350" type="number"/>
+<label for="fuelEff">차량 공인 연비 (km/L)</label>
+<input id="fuelEff" placeholder="예: 13.5" type="number"/>
+<label for="fuelPrice">리터당 연료 가격 (원/L)</label>
+<input id="fuelPrice" placeholder="예: 1650" type="number"/>
+<button onclick="calcFuel()">유류비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">소모 예상 연료량</span><span class="result-value" id="fuelLiter" style="font-size:1.1rem; color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">예상 주유 비용</span><span class="result-value" id="fuelCost">-</span></div>
+</div>
+<script>
+ function calcFuel(){
+ const d = parseFloat(document.getElementById('fuelDist').value);
+ const e = parseFloat(document.getElementById('fuelEff').value);
+ const p = parseFloat(document.getElementById('fuelPrice').value);
+ if(!d || !e || !p) return alert('모두 입력해주세요.');
+ const liter = d / e;
+ const cost = liter * p;
+ document.getElementById('fuelLiter').textContent = liter.toFixed(2) + ' 리터';
+ document.getElementById('fuelCost').textContent = Math.round(cost).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/fuel_economy_calculator.html" target="_blank" rel="noopener">어라운드툴 유류비 계산기</a></p>
+</body>
+</html>

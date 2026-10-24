@@ -43,6 +43,17 @@
   openHash();
   window.addEventListener('hashchange', openHash);
 
+  /* ---------- 코드 복사 ---------- */
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = document.getElementById(b.getAttribute('data-copy'));
+      if (!t) return;
+      var done = function () { b.textContent = '복사했습니다'; setTimeout(function () { b.textContent = '코드 복사'; }, 2000); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(done, function () { t.select(); document.execCommand('copy'); done(); });
+      else { t.select(); document.execCommand('copy'); done(); }
+    });
+  });
+
   /* ---------- 목록 필터 ---------- */
   var norm = function (s) { return (s || '').toLowerCase().replace(/\s+/g, ''); };
   document.querySelectorAll('[data-at-filter]').forEach(function (input) {

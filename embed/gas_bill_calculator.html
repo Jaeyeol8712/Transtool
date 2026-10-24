@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도시가스 요금 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/gas_bill_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="도시가스 요금 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">도시가스 요금 계산기</p>
+<label for="gasOld">전월 계량기 지침 (m³)</label>
+<input id="gasOld" placeholder="예: 1100" type="number"/>
+<label for="gasNew">당월 계량기 지침 (m³)</label>
+<input id="gasNew" placeholder="예: 1180" type="number"/>
+<label for="gasType">용도</label>
+<select id="gasType">
+<option value="res">주택용 (취사/난방)</option>
+</select>
+<button onclick="calcGas()">예상 요금 계산</button>
+<div style="margin-top:16px; font-size:0.85rem; color:#6b7280; line-height:1.6; background:#f9fafb; padding:12px; border-radius:8px;">* 서울시 기준 기본요금(1250원) 및 평균 발열량을 가정한 대략적 요금입니다. 지역/공급사별 차이가 존재합니다.</div>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">사용량</span><span class="result-value" id="gasUsage" style="font-size:1.1rem; color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">예상 청구 금액</span><span class="result-value" id="gasTotal">-</span></div>
+</div>
+<script>
+ function calcGas(){
+ const oldV = parseFloat(document.getElementById('gasOld').value);
+ const newV = parseFloat(document.getElementById('gasNew').value);
+ if(isNaN(oldV) || isNaN(newV)) return alert('지침을 입력해주세요.');
+ if(oldV > newV) return alert('당월 지침이 전월보다 커야 합니다.');
+ const usage = newV - oldV;
+ const mj = usage * 1.0 * 42.8; 
+ const cost = mj * 20; 
+ const total = 1250 + cost + (cost * 0.1); 
+ document.getElementById('gasUsage').textContent = usage.toFixed(1) + ' m³';
+ document.getElementById('gasTotal').textContent = '약 ' + Math.round(total).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/gas_bill_calculator.html" target="_blank" rel="noopener">어라운드툴 도시가스 요금 계산기</a></p>
+</body>
+</html>

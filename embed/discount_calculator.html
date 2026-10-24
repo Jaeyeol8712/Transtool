@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>할인율 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/discount_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="할인율 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">할인율 계산기</p>
+<label for="orgPrice">원래 가격 (원)</label>
+<input id="orgPrice" placeholder="예: 50000" type="number"/>
+<label for="discPercent">할인율 (%)</label>
+<input id="discPercent" placeholder="예: 20" type="number"/>
+<button onclick="calcDiscount()">할인 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">할인 금액</span><span class="result-value" id="discAmount" style="color:var(--text); font-size:1.1rem;">-</span></div>
+<div class="result-row"><span class="result-label">최종 결제 금액</span><span class="result-value" id="finalPrice" style="color:#ef4444;">-</span></div>
+</div>
+<script>
+ function calcDiscount(){
+ const price = parseFloat(document.getElementById('orgPrice').value);
+ const percent = parseFloat(document.getElementById('discPercent').value);
+ if(!price || !percent) return alert('가격을 모두 입력해주세요.');
+ const discount = price * (percent / 100);
+ const final = price - discount;
+ document.getElementById('discAmount').textContent = Math.round(discount).toLocaleString() + '원 절약';
+ document.getElementById('finalPrice').textContent = Math.round(final).toLocaleString() + '원';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/discount_calculator.html" target="_blank" rel="noopener">어라운드툴 할인율 계산기</a></p>
+</body>
+</html>

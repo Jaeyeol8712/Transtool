@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>환율 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/exchange_rate_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+<style>
+.at-tool .fx-dir{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:0 0 1rem}
+.at-tool .fx-dir button{margin:0;background:var(--at-sunk);color:var(--at-sub);border:1px solid var(--at-line-2);font-weight:600;padding:.6rem}
+.at-tool .fx-dir button[aria-pressed="true"]{background:var(--at-ink);color:#fff;border-color:var(--at-ink)}
+.at-tool .fx-src{font-size:.8125rem;color:var(--at-sub);margin:-.6rem 0 1rem}
+.at-tool .fx-out{font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--at-brand-ink);font-variant-numeric:tabular-nums;margin:.25rem 0 0}
+.at-tool .fx-sub{font-size:.8125rem;color:var(--at-sub);margin:.25rem 0 0}
+</style>
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="환율 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">환율 계산기</p>
+<label for="fxCur">통화</label>
+<select id="fxCur">
+<option value="USD">미국 달러 (USD)</option>
+<option value="JPY">일본 엔 (JPY, 100엔)</option>
+<option value="EUR">유로 (EUR)</option>
+<option value="CNY">중국 위안 (CNY)</option>
+<option value="GBP">영국 파운드 (GBP)</option>
+<option value="TWD">대만 달러 (TWD)</option>
+<option value="THB">태국 바트 (THB)</option>
+<option value="VND">베트남 동 (VND, 100동)</option>
+</select>
+<div class="fx-dir" role="group" aria-label="환산 방향">
+<button type="button" id="dirF" aria-pressed="true">외화 → 원화</button>
+<button type="button" id="dirK" aria-pressed="false">원화 → 외화</button>
+</div>
+<label for="fxAmt" id="fxAmtLabel">금액 (USD)</label>
+<input id="fxAmt" type="number" inputmode="decimal" placeholder="예: 100" value="100"/>
+<label for="fxRate" id="fxRateLabel">환율 (1 USD당 원)</label>
+<input id="fxRate" type="number" inputmode="decimal" step="0.01"/>
+<p class="fx-src" id="fxSrc">기준 환율을 불러오는 중…</p>
+<div class="result show" aria-live="polite">
+<p class="result-label" id="fxOutLabel">원화 환산 금액</p>
+<p class="fx-out" id="fxOut">-</p>
+<p class="fx-sub" id="fxSub"></p>
+</div>
+<script>
+(function(){
+ /* 참고 환율: API 응답이 없을 때만 사용합니다. 정확한 값은 환율 칸에 직접 입력하세요. */
+ var FALLBACK = {USD:1400, JPY:9.4, EUR:1600, CNY:195, GBP:1850, TWD:45, THB:41, VND:0.055};
+ var UNIT = {JPY:100, VND:100};
+ var rates = Object.assign({}, FALLBACK), toKRW = true, live = false;
+ var $ = function(id){ return document.getElementById(id); };
+ function unit(c){ return UNIT[c] || 1; }
+ function fmt(n, d){ return n.toLocaleString('ko-KR', {maximumFractionDigits: d}); }
+ function setRateField(){
+  var c = $('fxCur').value;
+  $('fxRate').value = (rates[c] * unit(c)).toFixed(c === 'VND' ? 2 : 2);
+  $('fxRateLabel').textContent = '환율 (' + unit(c) + ' ' + c + '당 원)';
+ }
+ function calc(){
+  var c = $('fxCur').value, amt = parseFloat($('fxAmt').value), r = parseFloat($('fxRate').value) / unit(c);
+  $('fxAmtLabel').textContent = toKRW ? '금액 (' + c + ')' : '금액 (원)';
+  $('fxOutLabel').textContent = toKRW ? '원화 환산 금액' : c + ' 환산 금액';
+  if(!amt || !r){ $('fxOut').textContent = '-'; $('fxSub').textContent = ''; return; }
+  if(toKRW){ $('fxOut').textContent = fmt(Math.round(amt * r), 0) + '원'; $('fxSub').textContent = fmt(amt, 2) + ' ' + c + ' × ' + fmt(r, 4) + '원'; }
+  else { $('fxOut').textContent = fmt(amt / r, 2) + ' ' + c; $('fxSub').textContent = fmt(amt, 0) + '원 ÷ ' + fmt(r, 4) + '원'; }
+ }
+ function setDir(k){ toKRW = !k; $('dirF').setAttribute('aria-pressed', String(!k)); $('dirK').setAttribute('aria-pressed', String(k)); calc(); }
+ $('dirF').addEventListener('click', function(){ setDir(false); });
+ $('dirK').addEventListener('click', function(){ setDir(true); });
+ $('fxCur').addEventListener('change', function(){ setRateField(); calc(); });
+ $('fxAmt').addEventListener('input', calc);
+ $('fxRate').addEventListener('input', calc);
+ setRateField(); calc();
+ $('fxSrc').textContent = '참고 환율을 표시하고 있습니다. 최신 기준 환율을 불러오는 중…';
+ fetch('https://open.er-api.com/v6/latest/KRW').then(function(r){ return r.json(); }).then(function(d){
+  if(d.result !== 'success') throw 0;
+  Object.keys(FALLBACK).forEach(function(c){ if(d.rates[c]) rates[c] = 1 / d.rates[c]; });
+  live = true;
+  var t = new Date(d.time_last_update_unix * 1000);
+  $('fxSrc').textContent = '기준 환율 ' + t.getFullYear() + '.' + (t.getMonth()+1) + '.' + t.getDate() + ' 갱신 (ExchangeRate-API). 은행 고시 환율과 다를 수 있습니다.';
+  setRateField(); calc();
+ }).catch(function(){
+  $('fxSrc').textContent = '최신 환율을 불러오지 못해 참고 환율을 표시합니다. 은행 앱의 환율을 환율 칸에 입력하세요.';
+ });
+})();
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/exchange_rate_calculator.html" target="_blank" rel="noopener">어라운드툴 환율 계산기</a></p>
+</body>
+</html>

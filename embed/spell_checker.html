@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맞춤법 검사기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/spell_checker.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+<style>
+.at-tool .sp-out{font-size:.9688rem;line-height:1.9;white-space:pre-wrap;word-break:keep-all;padding:.75rem 0}
+.at-tool .sp-out mark{background:#FBE3DE;color:#9E2F1F;text-decoration:underline wavy #B3402B;text-underline-offset:3px;padding:0 .1em;border-radius:2px}
+.at-tool .sp-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--at-line)}
+.at-tool .sp-list li{padding:.6rem 0;border-bottom:1px solid var(--at-line);font-size:.875rem;line-height:1.6}
+.at-tool .sp-list b{color:#9E2F1F;text-decoration:line-through}
+.at-tool .sp-list strong{color:var(--at-brand-ink)}
+.at-tool .sp-list span{display:block;color:var(--at-sub);font-size:.8125rem}
+.at-tool .sp-sum{font-weight:700;margin:.5rem 0 0}
+</style>
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="맞춤법 검사기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">맞춤법 검사기</p>
+<label for="text">검사할 문장</label>
+<textarea id="text" placeholder="예: 오랫만에 연락드려요. 몇일 전에 말씀드린 건은 금새 처리될 것 같아요. 안되요?"></textarea>
+<button onclick="checkSpell()">맞춤법 검사</button>
+<div class="result" id="result" aria-live="polite">
+<p class="sp-sum" id="spSum"></p>
+<div class="sp-out" id="spellResult"></div>
+<ul class="sp-list" id="spList"></ul>
+<button class="ghost" id="spCopy" onclick="copySpell()">고친 문장 복사</button>
+</div>
+<script>
+var SPELL = [
+ ['안되요','안 돼요','‘되어요’의 준말은 ‘돼요’, 부정은 띄어 씁니다.'],['안돼요','안 돼요','부정 부사 ‘안’은 띄어 씁니다.'],
+ ['되요','돼요','‘되어요’가 줄면 ‘돼요’입니다.'],['됬','됐','‘되었’이 줄면 ‘됐’입니다.'],['되서','돼서','‘되어서’가 줄면 ‘돼서’입니다.'],
+ ['할께','할게','‘-ㄹ게’는 된소리로 적지 않습니다.'],['할께요','할게요','‘-ㄹ게요’로 씁니다.'],
+ ['갈께','갈게','‘-ㄹ게’로 씁니다.'],['볼께','볼게','‘-ㄹ게’로 씁니다.'],['줄께','줄게','‘-ㄹ게’로 씁니다.'],
+ ['몇일','며칠','‘몇 일’이 아니라 ‘며칠’이 표준어입니다.'],['몇 일','며칠','‘며칠’로 붙여 씁니다.'],
+ ['금새','금세','‘금시에’가 줄어든 말입니다.'],['오랫만','오랜만','‘오래간만’의 준말입니다.'],
+ ['왠만','웬만','‘왠지’ 외에는 ‘웬’을 씁니다.'],['왠일','웬일','‘웬’ + ‘일’입니다.'],['웬지','왠지','‘왜인지’가 줄어든 말이라 ‘왠지’입니다.'],
+ ['어떻해','어떡해','‘어떻게 해’의 준말은 ‘어떡해’입니다.'],['어의없','어이없','‘어이없다’가 표준어입니다.'],
+ ['설레임','설렘','‘설레다’의 명사형은 ‘설렘’입니다.'],['희안하','희한하','‘희한(稀罕)하다’입니다.'],['역활','역할','‘역할(役割)’입니다.'],
+ ['일일히','일일이','‘-이’로 적습니다.'],['깨끗히','깨끗이','‘ㅅ’ 받침 뒤에는 ‘-이’로 적습니다.'],['곰곰히','곰곰이','‘-이’로 적습니다.'],
+ ['틈틈히','틈틈이','첩어 뒤에는 ‘-이’로 적습니다.'],['번번히','번번이','첩어 뒤에는 ‘-이’로 적습니다.'],['따뜻히','따뜻이','‘ㅅ’ 받침 뒤에는 ‘-이’로 적습니다.'],
+ ['내노라하','내로라하','‘내로라하다’가 표준어입니다.'],['단언컨데','단언컨대','‘-건대’로 적습니다.'],['요컨데','요컨대','‘-건대’로 적습니다.'],
+ ['건데기','건더기','‘건더기’가 표준어입니다.'],['귀뜸','귀띔','‘귀띔’이 표준어입니다.'],['닥달','닦달','‘닦달하다’가 표준어입니다.'],
+ ['뒤치닥거리','뒤치다꺼리','‘뒤치다꺼리’가 표준어입니다.'],['어따 대고','얻다 대고','‘어디에다’가 줄어 ‘얻다’입니다.'],
+ ['무릎쓰고','무릅쓰고','‘무릅쓰다’입니다.'],['개거품','게거품','‘게’가 뿜는 거품에서 온 말입니다.'],['구렛나루','구레나룻','‘구레나룻’이 표준어입니다.'],
+ ['눈꼽','눈곱','‘눈곱’으로 적습니다.'],['뇌졸증','뇌졸중','‘졸중(卒中)’입니다.'],['도데체','도대체','‘도대체(都大體)’입니다.'],
+ ['설겆이','설거지','‘설거지’가 표준어입니다.'],['어짜피','어차피','‘어차피(於此彼)’입니다.'],['얼만큼','얼마큼','‘얼마만큼’의 준말은 ‘얼마큼’입니다.'],
+ ['오도방정','오두방정','‘오두방정’이 표준어입니다.'],['유도심문','유도신문','법률 용어는 ‘신문(訊問)’입니다.'],['일부로','일부러','‘일부러(고의로)’로 적습니다.'],
+ ['절대절명','절체절명','‘절체절명(絶體絶命)’입니다.'],['째째하','쩨쩨하','‘쩨쩨하다’가 표준어입니다.'],['체신머리','채신머리','‘채신머리’가 표준어입니다.'],
+ ['통채로','통째로','‘-째’로 적습니다.'],['하마트면','하마터면','‘하마터면’이 표준어입니다.'],['할려고','하려고','‘-려고’ 앞에 ‘ㄹ’을 넣지 않습니다.'],
+ ['할려면','하려면','‘-려면’ 앞에 ‘ㄹ’을 넣지 않습니다.'],['갈려고','가려고','‘-려고’ 앞에 ‘ㄹ’을 넣지 않습니다.'],['헬쓱','핼쑥','‘핼쑥하다’가 표준어입니다.'],
+ ['희노애락','희로애락','‘노’가 ‘로’로 소리 나는 대로 적습니다.'],['곱배기','곱빼기','‘곱빼기’가 표준어입니다.'],['깍뚜기','깍두기','‘깍두기’가 표준어입니다.'],
+ ['육계장','육개장','‘육개장’이 표준어입니다.'],['찌게','찌개','‘찌개’가 표준어입니다.'],['떡볶기','떡볶이','‘떡볶이’가 표준어입니다.'],
+ ['순대국','순댓국','사이시옷을 넣어 ‘순댓국’으로 적습니다.'],['마춤법','맞춤법','‘맞춤법’입니다.'],['우뢰','우레','‘우레’가 표준어입니다.'],
+ ['몇년','몇 년','‘몇’은 띄어 씁니다.'],['금일날','금일','‘금일’에 이미 ‘날’의 뜻이 있습니다.'],['바램','바람','‘바라다’의 명사형은 ‘바람’입니다. (빛이 바래는 뜻이면 ‘바램’이 맞습니다)']
+];
+SPELL.sort(function(a,b){ return b[0].length - a[0].length; });
+var lastFixed = '';
+var RULE_GE = ['-ㄹ께','-ㄹ게','‘-ㄹ게(요)’는 된소리로 적지 않습니다. (먹을게요, 갈게요)'];
+function esc(s){ return s.replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+function checkSpell(){
+ var t = document.getElementById('text').value;
+ if(!t.trim()) return alert('검사할 문장을 입력해주세요.');
+ var found = [], i = 0, out = '', fixed = '';
+ while(i < t.length){
+  var hit = null;
+  for(var k = 0; k < SPELL.length; k++){ if(t.substr(i, SPELL[k][0].length) === SPELL[k][0]){ hit = SPELL[k]; break; } }
+  if(!hit && t[i] === '께' && i > 0 && (t.charCodeAt(i-1) - 0xAC00) % 28 === 8 && t.charCodeAt(i-1) >= 0xAC00 && /^(요|$|\s|[.,!?~])/.test(t.substr(i+1, 1) || '')){
+   hit = RULE_GE; out += '<mark title="게">께</mark>'; fixed += '게'; if(found.indexOf(hit) < 0) found.push(hit); i++; continue;
+  }
+  if(hit){ out += '<mark title="' + esc(hit[1]) + '">' + esc(hit[0]) + '</mark>'; fixed += hit[1]; if(found.indexOf(hit) < 0) found.push(hit); i += hit[0].length; }
+  else { out += esc(t[i]); fixed += t[i]; i++; }
+ }
+ lastFixed = fixed;
+ document.getElementById('spellResult').innerHTML = out;
+ document.getElementById('spSum').textContent = found.length ? '고칠 표현 ' + found.length + '가지를 찾았습니다.' : '자주 틀리는 표현은 찾지 못했습니다.';
+ document.getElementById('spList').innerHTML = found.map(function(f){ return '<li><b>' + esc(f[0]) + '</b> → <strong>' + esc(f[1]) + '</strong><span>' + esc(f[2]) + '</span></li>'; }).join('');
+ document.getElementById('spCopy').style.display = found.length ? 'block' : 'none';
+ document.getElementById('result').classList.add('show');
+}
+function copySpell(){
+ if(navigator.clipboard) navigator.clipboard.writeText(lastFixed).then(function(){ document.getElementById('spCopy').textContent = '복사했습니다'; });
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/spell_checker.html" target="_blank" rel="noopener">어라운드툴 맞춤법 검사기</a></p>
+</body>
+</html>

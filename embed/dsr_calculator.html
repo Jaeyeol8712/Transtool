@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSR 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/dsr_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="DSR 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">DSR 계산기</p>
+<label for="income">연소득 (원)</label>
+<input id="income" placeholder="예: 50000000" type="number"/>
+<label for="oldLoan">기존 대출 연간 원리금 상환액 (원)</label>
+<input id="oldLoan" placeholder="예: 10000000" type="number" value="0"/>
+<label for="newLoan">신규 대출 연간 원리금 상환액 (원)</label>
+<input id="newLoan" placeholder="예: 15000000" type="number"/>
+<button onclick="calcDSR()">DSR 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">나의 DSR</span><span class="result-value" id="dsrValue">-</span></div>
+<div class="result-row"><span class="result-label">규제(40%) 충족 여부</span><span class="result-value" id="dsrStatus" style="font-size:1.1rem;">-</span></div>
+</div>
+<script>
+ function calcDSR(){
+ const income = parseFloat(document.getElementById('income').value);
+ const oldL = parseFloat(document.getElementById('oldLoan').value) || 0;
+ const newL = parseFloat(document.getElementById('newLoan').value);
+ if(!income || !newL) return alert('연소득과 신규대출 상환액을 입력해주세요.');
+ const dsr = ((oldL + newL) / income) * 100;
+ document.getElementById('dsrValue').textContent = dsr.toFixed(2) + '%';
+ const statusEl = document.getElementById('dsrStatus');
+ if(dsr <= 40){
+ statusEl.textContent = '충족 (안정권)';
+ statusEl.style.color = '#10b981';
+ } else {
+ statusEl.textContent = '초과 (대출 제한 가능성)';
+ statusEl.style.color = '#ef4444';
+ }
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/dsr_calculator.html" target="_blank" rel="noopener">어라운드툴 DSR 계산기</a></p>
+</body>
+</html>

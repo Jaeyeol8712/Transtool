@@ -51,10 +51,15 @@ function urlsFromSitemap() {
 /** 직전 커밋 대비 변경·추가된 HTML 파일 → URL */
 function urlsFromGitDiff() {
   let out = "";
+  // 푸시 한 번에 커밋이 여러 개여도 빠지지 않도록, 푸시 직전 커밋(BEFORE_SHA)부터 비교합니다.
+  const before = (process.env.BEFORE_SHA || "").trim();
+  let base = "HEAD^";
+  if (before && !/^0+$/.test(before)) {
+    try { execSync(`git cat-file -e ${before}^{commit}`, { stdio: "ignore" }); base = before; } catch {}
+  }
   try {
-    // 첫 커밋이면 HEAD^ 가 없으므로 전체 목록으로 대체
-    execSync("git rev-parse HEAD^", { stdio: "ignore" });
-    out = execSync("git diff --name-only --diff-filter=AM HEAD^ HEAD", {
+    execSync(`git rev-parse ${base}`, { stdio: "ignore" });
+    out = execSync(`git diff --name-only --diff-filter=AM ${base} HEAD`, {
       encoding: "utf8",
     });
   } catch {
@@ -67,9 +72,11 @@ function urlsFromGitDiff() {
     .map((s) => s.trim())
     .filter((f) => f.endsWith(".html") && !f.includes("/"));
 
-  return files.map((f) =>
-    f === "index.html" ? `${ORIGIN}/` : `${ORIGIN}/${f}`
-  );
+  // sitemap 에 있는 페이지(=검색 노출 대상)만 보냅니다. 퍼가기용·이동 안내·조사 중 페이지는 제외.
+  const listed = new Set(urlsFromSitemap());
+  return files
+    .map((f) => (f === "index.html" ? `${ORIGIN}/` : `${ORIGIN}/${f}`))
+    .filter((u) => listed.has(u));
 }
 
 async function submit(endpoint, urlList) {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>국민연금 수급개시나이 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/pension_age_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="국민연금 수급개시나이 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">국민연금 수급개시나이 계산기</p>
+<label for="birthYear">출생연도</label>
+<input id="birthYear" placeholder="예: 1990" type="number"/>
+<button onclick="calcPensionAge()">수급개시나이 확인하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">노령연금 수급개시 나이</span><span class="result-value" id="ageValue">-</span></div>
+<div class="result-row"><span class="result-label">예상 수급개시 연도</span><span class="result-value" id="yearValue">-</span></div>
+<div class="result-row"><span class="result-label">최소 가입기간</span><span class="result-value" id="minPeriod" style="font-size:1.05rem;">10년 (120개월)</span></div>
+</div>
+<script>
+ function calcPensionAge(){
+ const y = parseInt(document.getElementById('birthYear').value);
+ if(!y || y < 1900 || y > 2015) return alert('올바른 출생연도를 입력해주세요.');
+ let age;
+ if(y <= 1952) age = 60;
+ else if(y <= 1956) age = 61;
+ else if(y <= 1960) age = 62;
+ else if(y <= 1964) age = 63;
+ else if(y <= 1968) age = 64;
+ else age = 65;
+ document.getElementById('ageValue').textContent = '만 ' + age + '세';
+ document.getElementById('yearValue').textContent = (y + age) + '년';
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/pension_age_calculator.html" target="_blank" rel="noopener">어라운드툴 국민연금 수급개시나이 계산기</a></p>
+</body>
+</html>

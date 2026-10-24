@@ -1,17 +1,19 @@
 name: SEO 자동화
 
-# HTML 이 바뀌어 main 에 올라갈 때마다 실행됩니다.
+# main 에 HTML 이 올라갈 때마다, 그리고 매주 월요일 아침에 실행됩니다.
 on:
   push:
     branches: [main]
     paths:
       - "**.html"
       - "sitemap.xml"
-  # 필요할 때 손으로도 돌릴 수 있습니다.
+      - "feed.xml"
+  schedule:
+    - cron: "17 23 * * 0"   # 매주 월요일 08:17 (한국 시간) — 구글 사이트맵 재제출
   workflow_dispatch:
     inputs:
       submit_all:
-        description: "sitemap 전체 URL 을 다시 보낼까요?"
+        description: "sitemap 전체 URL 을 네이버·빙에 다시 보낼까요?"
         type: boolean
         default: false
 
@@ -25,7 +27,6 @@ jobs:
       - name: 소스 받기
         uses: actions/checkout@v4
         with:
-          # lastmod 계산과 git diff 에 커밋 이력이 필요합니다.
           fetch-depth: 0
 
       - name: Node 설치
@@ -35,11 +36,13 @@ jobs:
 
       # ── 1. sitemap lastmod 를 실제 커밋 날짜로 맞춤 ──
       - name: sitemap lastmod 갱신
+        if: github.event_name != 'schedule'
         run: node scripts/update-sitemap.mjs
         env:
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
 
       - name: sitemap 변경분 커밋
+        if: github.event_name != 'schedule'
         run: |
           if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
             git config user.name  "github-actions[bot]"
@@ -51,8 +54,9 @@ jobs:
             echo "· sitemap 변경 없음"
           fi
 
-      # ── 2. 네이버·Bing 등에 색인 요청 ──
-      - name: IndexNow 전송
+      # ── 2. 네이버·Bing 등에 바뀐 페이지 색인 요청 (IndexNow) ──
+      - name: IndexNow 전송 (네이버·Bing)
+        if: github.event_name != 'schedule'
         run: |
           if [[ "${{ inputs.submit_all }}" == "true" ]]; then
             node scripts/indexnow.mjs --all
@@ -62,11 +66,13 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
+          BEFORE_SHA: ${{ github.event.before }}
 
-      # ── 3. 구글에는 사이트맵 재제출만 가능 (선택) ──
-      # 구글은 IndexNow 를 지원하지 않습니다. 아래는 sitemap ping 대체로,
-      # Search Console API 를 쓰려면 SEO-AUTOMATION.md 의 안내를 따르세요.
-      - name: 요약
-        run: |
-          echo "네이버·Bing·Yandex·Seznam → IndexNow 전송 완료"
-          echo "구글 → sitemap lastmod 갱신으로 대응 (Indexing API 는 정책상 사용 불가)"
+      # ── 3. 구글 서치콘솔에 사이트맵 제출 (설정한 경우에만) ──
+      - name: 구글 서치콘솔 사이트맵 제출
+        continue-on-error: true
+        run: node scripts/gsc-sitemap.mjs
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          GSC_SITE: ${{ vars.GSC_SITE }}
+          SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}

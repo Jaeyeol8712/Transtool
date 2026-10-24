@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LTV 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/ltv_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="LTV 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">LTV 계산기</p>
+<label for="housePrice">주택 평가 가격 (원)</label>
+<input id="housePrice" placeholder="예: 500000000" type="number"/>
+<label for="priorDebt">선순위 채권 및 임대보증금 (원)</label>
+<input id="priorDebt" placeholder="예: 50000000" type="number" value="0"/>
+<label for="newLoanAmt">신규 대출 신청 금액 (원)</label>
+<input id="newLoanAmt" placeholder="예: 250000000" type="number"/>
+<button onclick="calcLTV()">LTV 계산하기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">나의 LTV</span><span class="result-value" id="ltvValue">-</span></div>
+<div class="result-row"><span class="result-label">일반적 규제(70%) 충족</span><span class="result-value" id="ltvStatus" style="font-size:1.1rem;">-</span></div>
+</div>
+<script>
+ function calcLTV(){
+ const hp = parseFloat(document.getElementById('housePrice').value);
+ const pd = parseFloat(document.getElementById('priorDebt').value) || 0;
+ const nl = parseFloat(document.getElementById('newLoanAmt').value);
+ if(!hp || !nl) return alert('주택가격과 신규대출금을 입력해주세요.');
+ const ltv = ((pd + nl) / hp) * 100;
+ document.getElementById('ltvValue').textContent = ltv.toFixed(2) + '%';
+ const statusEl = document.getElementById('ltvStatus');
+ if(ltv <= 70){
+ statusEl.textContent = '충족 (지역별 규제 확인 필요)';
+ statusEl.style.color = '#10b981';
+ } else {
+ statusEl.textContent = '초과 (70% 기준)';
+ statusEl.style.color = '#ef4444';
+ }
+ document.getElementById('result').classList.add('show');
+ }
+ </script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/ltv_calculator.html" target="_blank" rel="noopener">어라운드툴 LTV 계산기</a></p>
+</body>
+</html>
