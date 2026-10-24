@@ -1,0 +1,33 @@
+== 2026-10-24T14:04:18Z workflow_dispatch e928cc811e506ec92cb9964f52693c2cb540081b
+· 대상 165개
+  https://www.aroundtool.com/
+  https://www.aroundtool.com/food.html
+  https://www.aroundtool.com/tools.html
+  https://www.aroundtool.com/travel.html
+  https://www.aroundtool.com/etc.html
+  https://www.aroundtool.com/about.html
+  https://www.aroundtool.com/acquisition_tax_calculator.html
+  https://www.aroundtool.com/age_calculator.html
+  https://www.aroundtool.com/bmi_calculator.html
+  https://www.aroundtool.com/bmr_calculator.html
+  https://www.aroundtool.com/brokerage_fee_calculator.html
+  https://www.aroundtool.com/calorie_calculator.html
+  https://www.aroundtool.com/camping_gear_calculator.html
+  https://www.aroundtool.com/car_tax_calculator.html
+  https://www.aroundtool.com/character_counter.html
+  https://www.aroundtool.com/compound_calculator.html
+  https://www.aroundtool.com/connect.html
+  https://www.aroundtool.com/contact.html
+  https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+  https://www.aroundtool.com/daejeon-daedeok.html
+  … 외 145개
+
+  ✓ api.indexnow.org — 200 접수됨
+  ✓ searchadvisor.naver.com — 200 접수됨
+
+· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+· 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
+  · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
+
