@@ -998,6 +998,29 @@ def html_faq_pairs(body):
     return pairs
 
 
+# 기존 페이지(여행 가이드 등)에 넣을 사진: 파일 → [(몇 번째 <h2 class="sec"> 앞, 사진 이름)]
+PAGE_PHOTOS = {
+    "travel-jeju.html": [(0, "jeju-seongsan"), (2, "jeju-seongsan-coast")],
+    "travel-busan.html": [(0, "busan-haeundae"), (2, "busan-haeundae-night")],
+    "travel-sokcho.html": [(0, "seoraksan-ulsanbawi"), (2, "seoraksan-valley")],
+    "travel-osaka.html": [(0, "osaka-dotonbori"), (2, "osaka-castle")],
+}
+
+
+def inject_page_photos(f, body):
+    """<!-- at:photo --> 블록을 지우고 다시 넣습니다(여러 번 빌드해도 같은 결과)."""
+    body = re.sub(r"<!-- at:photo -->.*?<!-- /at:photo -->\n?", "", body, flags=re.S)
+    lds = []
+    spots = [m.start() for m in re.finditer(r'<h2 class="sec"', body)]
+    for idx, name in sorted(PAGE_PHOTOS.get(f, []), reverse=True):
+        if idx < len(spots) and photo_ok(name):
+            body = body[:spots[idx]] + f"<!-- at:photo -->{photo_html(name)}<!-- /at:photo -->\n" + body[spots[idx]:]
+    for _, name in PAGE_PHOTOS.get(f, []):
+        if photo_ok(name):
+            lds.append(image_ld(f"/assets/photos/{name}.jpg", PHOTOS[name]["alt"], PHOTOS[name]))
+    return body, lds
+
+
 def transform_existing(p):
     f = p["file"]
     s = read(f)
@@ -1036,9 +1059,10 @@ def transform_existing(p):
         body = str(soup).strip()
         for a, b in FONT_FIX:
             body = body.replace(a, b)
+    body, photo_lds = inject_page_photos(f, body)
     # 구조화 데이터: 페이지 고유 JSON-LD 에 FAQ가 없으면 본문 <details>로 생성
     has_faq = "FAQPage" in preserved
-    extra = []
+    extra = list(photo_lds)
     if not has_faq:
         pairs = html_faq_pairs(body)
         if pairs:
