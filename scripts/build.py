@@ -232,6 +232,7 @@ def register_food():
                 n = 0 if research else count_places(f, main)
                 if re.fullmatch(r"(\d+곳|자료 조사 중|조사 중)", detail):
                     detail = ""
+                detail = re.sub(r"\s*\d+곳$", "", detail).strip()
                 area = f"{rshort} {gu}"
                 PAGES[f] = dict(
                     file=f, section="food", region=rid, region_name=rname, region_short=rshort, gu=gu,
@@ -685,7 +686,7 @@ def page_ld(p, extra=None):
     wp = {"@type": typ, "@id": u + "#webpage", "url": u, "name": p["title"], "description": p["desc"],
           "inLanguage": "ko-KR", "isPartOf": {"@id": SITE + "/#website"},
           "publisher": {"@id": SITE + "/#org"}, "dateModified": p["date"],
-          "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/assets/og/{OG_IMG.get(p['section'], 'og-home.png')}"}}
+          "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/assets/og/og-default.png"}}
     bc = crumb_ld(p)
     if bc:
         wp["breadcrumb"] = {"@id": u + "#breadcrumb"}
@@ -702,7 +703,7 @@ def head_block(p, robots=None):
     u = url_of(f)
     title = p["title"] if f == "index.html" else f"{p['title']} | {NAME}"
     desc = p["desc"]
-    img = f"{SITE}/assets/og/{OG_IMG.get(p['section'], 'og-home.png')}"
+    img = f"{SITE}/assets/og/og-default.png"
     if robots is None:
         robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" if indexable(p) else "noindex, follow"
     og_type = "article" if p["section"] in ("food", "trip", "guide", "connect") else "website"
