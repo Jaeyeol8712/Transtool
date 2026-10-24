@@ -1015,7 +1015,12 @@ def inject_page_photos(f, body):
     """<!-- at:photo --> 블록을 지우고 다시 넣습니다(여러 번 빌드해도 같은 결과)."""
     body = re.sub(r"<!-- at:photo -->.*?<!-- /at:photo -->\n?", "", body, flags=re.S)
     names = [n for n in PHOTO_MAP.get(f, []) if photo_ok(n)]
-    spots = [m.start() for m in re.finditer(r"<h2[\s>]", body)]
+    start = body.find("</h1>") + 1
+    if PAGES.get(f, {}).get("section") == "tools":
+        # 직접 만든 계산기 화면 안에도 <h2>가 있어서, '자주 묻는 질문' 앞에 넣습니다.
+        spots = [m.start() for m in re.finditer(r"<h2[^>]*>\s*자주 묻는 질문", body)]
+    else:
+        spots = [m.start() for m in re.finditer(r"<h2[\s>]", body) if m.start() > start]
     placed = []
     for k, name in reversed(list(enumerate(names))):
         idx = k * 2
