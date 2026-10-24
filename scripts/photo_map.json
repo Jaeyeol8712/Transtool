@@ -14,5 +14,392 @@
  "travel-osaka.html": [
   "osaka-dotonbori",
   "osaka-castle"
+ ],
+ "daejeon-daedeok-sintanjin.html": [
+  "f-bapjip-2"
+ ],
+ "daejeon-donggu-gukmul-myeon.html": [
+  "f-kalguksu-1"
+ ],
+ "daejeon-donggu-station.html": [
+  "f-gukbap-8"
+ ],
+ "daejeon-junggu-cafe.html": [
+  "f-cafe-4"
+ ],
+ "daejeon-junggu-durus.html": [
+  "f-duruchigi-5"
+ ],
+ "daejeon-seogu-dunsan.html": [
+  "f-gogi-1"
+ ],
+ "daejeon-yuseong-bongmyeong.html": [
+  "f-pocha-2"
+ ],
+ "gangnam-bapjip.html": [
+  "f-bapjip-2"
+ ],
+ "gangnam-cafe.html": [
+  "f-cafe-3"
+ ],
+ "gangnam-gogi.html": [
+  "f-gogi-3"
+ ],
+ "gangnam-gukmul-myeon.html": [
+  "f-naengmyeon-4"
+ ],
+ "gangnam-iguk.html": [
+  "f-iguk-6"
+ ],
+ "gangnam-nopo.html": [
+  "f-nopo-1"
+ ],
+ "gangnam-sul-anju.html": [
+  "f-pocha-2"
+ ],
+ "gwangju-bukgu-bapjip.html": [
+  "f-bapjip-3"
+ ],
+ "gwangju-donggu-bapjip.html": [
+  "f-bapjip-3"
+ ],
+ "gwangju-gwangsan-cafe.html": [
+  "f-cafe-4"
+ ],
+ "gwangju-gwangsan-iguk.html": [
+  "f-centralasia-8"
+ ],
+ "gwangju-gwangsan-songjeong.html": [
+  "f-tteokgalbi-3"
+ ],
+ "gwangju-seogu-sangmu.html": [
+  "f-gogi-3"
+ ],
+ "haeundae-bapjip.html": [
+  "f-gukbap-4"
+ ],
+ "haeundae-cafe.html": [
+  "f-cafe-4"
+ ],
+ "haeundae-gogi.html": [
+  "f-gogi-3"
+ ],
+ "haeundae-gukmul-myeon.html": [
+  "f-naengmyeon-2"
+ ],
+ "haeundae-iguk.html": [
+  "f-sushi-8"
+ ],
+ "haeundae-michelin.html": [
+  "f-finedining-3"
+ ],
+ "jeju-jejusi-bapjip.html": [
+  "f-bapjip-2"
+ ],
+ "jeju-jejusi-cafe.html": [
+  "f-cafe-3"
+ ],
+ "jeju-jejusi-gukmul-myeon.html": [
+  "f-kalguksu-1"
+ ],
+ "jeju-jejusi-hyangto.html": [
+  "f-jejuguk-1"
+ ],
+ "jeju-jejusi-sul-anju.html": [
+  "f-pocha-2"
+ ],
+ "jeju-seogwipo-bapjip.html": [
+  "f-bapjip-3"
+ ],
+ "jeju-seogwipo-cafe.html": [
+  "f-cafe-4"
+ ],
+ "jeju-seogwipo-galchi.html": [
+  "f-galchi-1"
+ ],
+ "jeju-seogwipo-gogi.html": [
+  "f-gogi-3"
+ ],
+ "jeju-seogwipo-gukmul-myeon.html": [
+  "f-naengmyeon-4"
+ ],
+ "jeju-seogwipo-iguk.html": [
+  "f-iguk-6"
+ ],
+ "jeju-seogwipo-sul-anju.html": [
+  "f-pocha-6"
+ ],
+ "jeonnam-dongbu-gukmul-myeon.html": [
+  "f-kalguksu-7"
+ ],
+ "jeonnam-dongbu-namdo.html": [
+  "f-hanjeongsik-1"
+ ],
+ "jeonnam-jungbu-bapjip.html": [
+  "f-bapjip-2"
+ ],
+ "jeonnam-jungbu-namdo.html": [
+  "f-hanjeongsik-4"
+ ],
+ "jeonnam-nambu-bapjip.html": [
+  "f-bapjip-2"
+ ],
+ "jeonnam-nambu-namdo.html": [
+  "f-hanjeongsik-3"
+ ],
+ "jeonnam-seobu-namdo.html": [
+  "f-hanjeongsik-1"
+ ],
+ "jeonnam-seobu-sul-anju.html": [
+  "f-pocha-6"
+ ],
+ "sokcho-abai.html": [
+  "f-abai-2"
+ ],
+ "sokcho-bapjip.html": [
+  "f-galchi-8"
+ ],
+ "sokcho-cafe.html": [
+  "f-cafe-4"
+ ],
+ "sokcho-gogi.html": [
+  "f-gogi-1"
+ ],
+ "sokcho-gukmul-myeon.html": [
+  "f-mulhoe-2"
+ ],
+ "sokcho-sul-anju.html": [
+  "f-crab-1"
+ ],
+ "yeonsu-bapjip.html": [
+  "f-bapjip-2"
+ ],
+ "yeonsu-cafe.html": [
+  "f-cafe-3"
+ ],
+ "yeonsu-gogi.html": [
+  "f-gogi-3"
+ ],
+ "yeonsu-gukmul-myeon.html": [
+  "f-kalguksu-7"
+ ],
+ "yeonsu-hambak.html": [
+  "f-centralasia-8"
+ ],
+ "yeonsu-iguk.html": [
+  "f-iguk-6"
+ ],
+ "yeonsu-sul-anju.html": [
+  "f-pocha-2"
+ ],
+ "yongsan-bapjip.html": [
+  "f-fishgrill-1"
+ ],
+ "yongsan-cafe.html": [
+  "f-cafe-4"
+ ],
+ "yongsan-gogi.html": [
+  "f-makchang-2"
+ ],
+ "yongsan-gukmul-myeon.html": [
+  "f-gamjatang-1"
+ ],
+ "yongsan-iguk.html": [
+  "f-iguk-4"
+ ],
+ "yongsan-sul-anju.html": [
+  "f-pocha-2"
+ ],
+ "yongsan-usadan.html": [
+  "f-mosque-1"
+ ],
+ "acquisition_tax_calculator.html": [
+  "t-apartment-3"
+ ],
+ "age_calculator.html": [
+  "t-cake-1"
+ ],
+ "bmi_calculator.html": [
+  "t-salad-4"
+ ],
+ "bmr_calculator.html": [
+  "t-salad-1"
+ ],
+ "brokerage_fee_calculator.html": [
+  "t-apartment-6"
+ ],
+ "calorie_calculator.html": [
+  "t-salad-1"
+ ],
+ "camping_gear_calculator.html": [
+  "t-tent-1"
+ ],
+ "car_tax_calculator.html": [
+  "t-car-8"
+ ],
+ "character_counter.html": [
+  "t-writing-2"
+ ],
+ "compound_calculator.html": [
+  "t-coins-1"
+ ],
+ "discount_calculator.html": [
+  "t-sale-1"
+ ],
+ "discount_rate_calculator.html": [
+  "t-sale-1"
+ ],
+ "dsr_calculator.html": [
+  "t-apartment-6"
+ ],
+ "due_date_calculator.html": [
+  "t-babyshoes-5"
+ ],
+ "dutch_pay_calculator.html": [
+  "f-bapjip-2"
+ ],
+ "electricity_bill_calculator.html": [
+  "t-meter-5"
+ ],
+ "exchange_rate_calculator.html": [
+  "t-won-1"
+ ],
+ "freelancer_tax_calculator.html": [
+  "t-calculator-3"
+ ],
+ "fuel_economy_calculator.html": [
+  "t-fuel-2"
+ ],
+ "gas_bill_calculator.html": [
+  "t-gas-3"
+ ],
+ "holiday_pay_calculator.html": [
+  "t-won-1"
+ ],
+ "increase_decrease_calculator.html": [
+  "t-calculator-3"
+ ],
+ "interior_calculator.html": [
+  "t-interior-3"
+ ],
+ "japan_travel_calculator.html": [
+  "osaka-dotonbori"
+ ],
+ "job_fortune_teller.html": [
+  "t-clover-1"
+ ],
+ "loan_calculator.html": [
+  "t-apartment-3"
+ ],
+ "lotto_generator.html": [
+  "t-lotto-1"
+ ],
+ "ltv_calculator.html": [
+  "t-apartment-3"
+ ],
+ "parental_leave_calculator.html": [
+  "t-stroller-5"
+ ],
+ "pension_age_calculator.html": [
+  "t-retire-2"
+ ],
+ "percent_calculator.html": [
+  "t-sale-1"
+ ],
+ "prepayment_penalty_calculator.html": [
+  "t-calculator-3"
+ ],
+ "pto_calculator.html": [
+  "t-calendar-7"
+ ],
+ "pyeong_calculator.html": [
+  "t-interior-3"
+ ],
+ "salary_calculator.html": [
+  "t-coins-1"
+ ],
+ "savings_calculator.html": [
+  "t-coins-1"
+ ],
+ "severance_calculator.html": [
+  "t-calendar-7"
+ ],
+ "spacing_checker.html": [
+  "t-writing-6"
+ ],
+ "spell_checker.html": [
+  "t-book-5"
+ ],
+ "tire_date_calculator.html": [
+  "t-tire-2"
+ ],
+ "unemployment_benefit_calculator.html": [
+  "t-calendar-7"
+ ],
+ "daejeon-daedeok.html": [
+  "g-dj-daedeok-1"
+ ],
+ "daejeon-donggu.html": [
+  "g-dj-donggu-1"
+ ],
+ "daejeon-junggu.html": [
+  "g-dj-junggu-1"
+ ],
+ "daejeon-seogu.html": [
+  "g-dj-seogu-8"
+ ],
+ "daejeon-yuseong.html": [
+  "g-dj-yuseong-5"
+ ],
+ "gangnam.html": [
+  "g-gangnam-1"
+ ],
+ "gwangju-bukgu.html": [
+  "g-gj-bukgu-2"
+ ],
+ "gwangju-donggu.html": [
+  "g-gj-donggu-2"
+ ],
+ "gwangju-gwangsan.html": [
+  "g-gj-gwangsan-5"
+ ],
+ "gwangju-seogu.html": [
+  "g-gj-seogu-3"
+ ],
+ "haeundae.html": [
+  "g-haeundae-1"
+ ],
+ "jeju-jejusi.html": [
+  "g-jejusi-3"
+ ],
+ "jeju-seogwipo.html": [
+  "g-seogwipo-4"
+ ],
+ "jeonnam-dongbu.html": [
+  "g-jn-dongbu-7"
+ ],
+ "jeonnam-jungbu.html": [
+  "g-jn-jungbu-3"
+ ],
+ "jeonnam-nambu.html": [
+  "g-jn-nambu-1"
+ ],
+ "jeonnam-seobu.html": [
+  "g-jn-seobu-3"
+ ],
+ "sokcho.html": [
+  "g-sokcho-1"
+ ],
+ "yeonsu.html": [
+  "g-yeonsu-2"
+ ],
+ "yongsan.html": [
+  "g-yongsan-3"
+ ],
+ "guide_2026_tax.html": [
+  "t-calculator-3"
+ ],
+ "guide_2026_wage.html": [
+  "t-won-1"
  ]
 }
