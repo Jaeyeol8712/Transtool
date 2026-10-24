@@ -63,6 +63,36 @@
       .then(show).catch(function () {});
   }
 
+  /* ---------- 추천 글: 10초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
+  var pop = document.querySelector('[data-at-popup]');
+  if (pop) {
+    var key = 'at-pop-' + pop.getAttribute('data-at-popup'), seen = false;
+    try { seen = sessionStorage.getItem(key) === '1'; } catch (e) {}
+    var openPop = function () {
+      if (seen) return; seen = true;
+      try { sessionStorage.setItem(key, '1'); } catch (e) {}
+      pop.hidden = false; document.documentElement.classList.add('at-pop-open');
+      var go = pop.querySelector('[data-pop-go]'); if (go) go.focus();
+      if (window.gtag) gtag('event', 'popup_view', { post: pop.getAttribute('data-at-popup') });
+    };
+    var closePop = function () { pop.hidden = true; document.documentElement.classList.remove('at-pop-open'); };
+    pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', closePop); });
+    var goBtn = pop.querySelector('[data-pop-go]');
+    if (goBtn) goBtn.addEventListener('click', function () {
+      if (window.gtag) gtag('event', 'popup_click', { post: pop.getAttribute('data-at-popup') });
+      closePop();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) closePop(); });
+    /* 탭이 보이는 동안만 10초를 셉니다 (다른 탭에 가 있던 시간은 제외) */
+    var shown = 0, last = Date.now();
+    var tick = setInterval(function () {
+      var now = Date.now();
+      if (document.visibilityState === 'visible') shown += now - last;
+      last = now;
+      if (shown >= 10000) { clearInterval(tick); openPop(); }
+    }, 500);
+  }
+
   /* ---------- 코드 복사 ---------- */
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {

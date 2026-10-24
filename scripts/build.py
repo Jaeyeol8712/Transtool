@@ -1139,6 +1139,27 @@ def link_card(post):
             f'{esc(label)}</a>')
 
 
+def popup_html(post):
+    """10초 이상 읽으면 뜨는 '제품 자세히 알아보기' 팝업 (assets/site.js 가 띄움)."""
+    is_trip = post.get("kind") == "travel"
+    head = "여행 코스가 궁금하다면?" if is_trip else "이 제품, 직접 확인해 볼까요?"
+    sub = post.get("cta_hook") or ("일정·가격·포함 내역을 한 번에 볼 수 있어요." if is_trip else "현재 가격과 옵션, 상세 정보를 바로 볼 수 있어요.")
+    label = post.get("cta") or "제품 자세히 알아보기 >>"
+    d = DISCLOSURE.get(post.get("program", "shopping"), DISCLOSURE["shopping"])
+    return f"""<div class="at-pop" data-at-popup="{esc(post['slug'])}" hidden>
+  <div class="at-pop-back" data-pop-close></div>
+  <div class="at-pop-box" role="dialog" aria-modal="true" aria-labelledby="at-pop-h">
+    <button type="button" class="at-pop-x" data-pop-close aria-label="닫기">×</button>
+    <p class="at-pop-emoji" aria-hidden="true">{"✈️" if is_trip else "🎁"}</p>
+    <p class="at-pop-h" id="at-pop-h">{esc(head)}</p>
+    <p class="at-pop-s">{esc(sub)}</p>
+    <a class="at-cta" href="{esc(post['link'])}" target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
+    <button type="button" class="at-pop-later" data-pop-close>계속 읽을게요</button>
+    <p class="at-pop-ad">광고 · {esc(d)}</p>
+  </div>
+</div>"""
+
+
 def build_connect_blog(p):
     """블로그형 글: 소제목·표 없이 문단과 이미지 3장, 마무리 안내 + 구매 링크."""
     post = p["post"]
@@ -1171,7 +1192,8 @@ def build_connect_blog(p):
 {disclosure_box(post, 'bottom')}
 {link_card(post)}
 </div></div>
-</article>"""
+</article>
+{popup_html(post)}"""
     art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
            "datePublished": p["date"], "dateModified": p["date"], "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
