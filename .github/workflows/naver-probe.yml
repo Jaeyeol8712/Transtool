@@ -1,0 +1,35 @@
+name: 네이버 상품 페이지 확인
+
+# 추천 글의 제휴 링크(naver.me)를 GitHub 서버에서 열어 최종 주소·og 태그·HTML 을 probe 브랜치에 저장합니다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 링크 열기
+        run: |
+          mkdir -p _probe
+          MOB="Mozilla/5.0 (Linux; Android 14; SM-S918N) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/25.0 Chrome/121.0.0.0 Mobile Safari/537.36"
+          PC="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+          for code in $(grep -o 'naver.me/[A-Za-z0-9]*' scripts/connect_posts.py | cut -d/ -f2 | sort -u); do
+            for kind in mob pc; do
+              UA="$MOB"; [ "$kind" = pc ] && UA="$PC"
+              curl -sSL -A "$UA" -m 30 -D "_probe/$code.$kind.headers" -o "_probe/$code.$kind.html" -w '%{url_effective} %{http_code}\n' "https://naver.me/$code" > "_probe/$code.$kind.final" 2>&1 || true
+              sleep 2
+            done
+          done
+          ls -la _probe | head -50
+      - name: 저장
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B probe
+          git add -f _probe
+          git commit -qm "네이버 링크 확인 [skip ci]"
+          git push -f origin probe
