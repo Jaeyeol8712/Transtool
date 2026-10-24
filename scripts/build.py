@@ -35,6 +35,89 @@ from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
 import hashlib as _hl
+
+# ---------- 이미지 (크기·캡션·저작자 표기·구조화 데이터) ----------
+_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+try:
+    PHOTOS = json.load(open(os.path.join(_ROOT, "scripts", "photos.json"), encoding="utf-8"))
+except FileNotFoundError:
+    PHOTOS = {}
+LIC_NAME = {"cc0": "CC0", "pdm": "퍼블릭 도메인", "by": "CC BY", "by-sa": "CC BY-SA"}
+_SIZE = {}
+
+
+def img_size(src):
+    """로컬 이미지의 (가로, 세로). width/height 를 넣어 화면 밀림(CLS)을 막습니다."""
+    if src in _SIZE:
+        return _SIZE[src]
+    wh = None
+    path = os.path.join(_ROOT, src.lstrip("/"))
+    if src.startswith("/") and os.path.exists(path):
+        try:
+            from PIL import Image as _Im
+            with _Im.open(path) as im:
+                wh = im.size
+        except Exception:
+            wh = None
+    _SIZE[src] = wh
+    return wh
+
+
+def photo_ok(name):
+    return name in PHOTOS and os.path.exists(os.path.join(_ROOT, "assets", "photos", f"{name}.jpg"))
+
+
+def photo_credit(m):
+    lic = LIC_NAME.get(m.get("license"), (m.get("license") or "").upper())
+    ver = f" {m['license_version']}" if m.get("license_version") and m.get("license") not in ("pdm",) else ""
+    who = esc(m.get("creator") or "작가 미상")
+    if m.get("creator_url"):
+        who = f'<a href="{esc(m["creator_url"])}" rel="nofollow noopener" target="_blank">{who}</a>'
+    lic_html = esc(lic + ver)
+    if m.get("license_url"):
+        lic_html = f'<a href="{esc(m["license_url"])}" rel="license nofollow noopener" target="_blank">{lic_html}</a>'
+    src = f' · <a href="{esc(m["foreign_landing_url"])}" rel="nofollow noopener" target="_blank">원본</a>' if m.get("foreign_landing_url") else ""
+    return f"사진: {who} · {lic_html}{src}"
+
+
+def figure_html(src, alt, caption=None, credit=None, eager=False):
+    wh = img_size(src)
+    size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    cap = ""
+    if caption or credit:
+        cap = "<figcaption>" + (f"<span>{esc(caption)}</span>" if caption else "") + \
+              (f'<small class="at-credit">{credit}</small>' if credit else "") + "</figcaption>"
+    return f'<figure class="at-fig"><img src="{esc(src)}" alt="{esc(alt)}"{size} {load} decoding="async">{cap}</figure>'
+
+
+def photo_html(name, eager=False):
+    if not photo_ok(name):
+        return ""
+    m = PHOTOS[name]
+    return figure_html(f"/assets/photos/{name}.jpg", m["alt"], m.get("caption"), photo_credit(m), eager)
+
+
+def image_ld(src, alt, photo=None):
+    """ImageObject — 구글 이미지 검색의 캡션·라이선스 정보에 쓰입니다."""
+    url = SITE + src if src.startswith("/") else src
+    o = {"@type": "ImageObject", "contentUrl": url, "url": url, "caption": alt}
+    wh = img_size(src)
+    if wh:
+        o["width"], o["height"] = wh
+    if photo:
+        o["creditText"] = photo.get("creator") or "작가 미상"
+        o["creator"] = {"@type": "Person", "name": photo.get("creator") or "작가 미상"}
+        o["copyrightNotice"] = photo.get("creator") or ""
+        if photo.get("license_url"):
+            o["license"] = photo["license_url"]
+        if photo.get("foreign_landing_url"):
+            o["acquireLicensePage"] = photo["foreign_landing_url"]
+    else:
+        o["creditText"] = "어라운드툴"
+        o["creator"] = {"@id": SITE + "/#org"}
+    return o
+
 JS_V = _hl.md5(open(__import__("os").path.join(__import__("os").path.dirname(__file__), "..", "assets", "site.js"), "rb").read()).hexdigest()[:8]
 TODAY = "2026-10-24"
 CALC_DATE = "2026-10-23"
@@ -1166,14 +1249,21 @@ def build_connect_blog(p):
     """블로그형 글: 소제목·표 없이 문단과 이미지 3장, 마무리 안내 + 구매 링크."""
     post = p["post"]
     imgs = post.get("images", [])
-    parts = []
+    parts, ld_imgs = [], []
     for para in post["body"]:
         m = re.fullmatch(r"\{img(\d)\}", para.strip())
-        if m:
+        ph = re.fullmatch(r"\{photo:([\w-]+)\}", para.strip())
+        if ph:
+            name = ph.group(1)
+            if photo_ok(name):
+                parts.append(photo_html(name))
+                ld_imgs.append(image_ld(f"/assets/photos/{name}.jpg", PHOTOS[name]["alt"], PHOTOS[name]))
+        elif m:
             i = int(m.group(1)) - 1
             if i < len(imgs):
                 src, alt = imgs[i]
-                parts.append(f'<figure class="at-fig"><img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" decoding="async"></figure>')
+                parts.append(figure_html(src, alt))
+                ld_imgs.append(image_ld(src, alt))
         elif para.strip() == "{cta}":
             parts.append(f'<div class="vx-cta-mid"><p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
         elif para.lstrip().startswith("<"):
@@ -1199,14 +1289,14 @@ def build_connect_blog(p):
     art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
            "datePublished": p["date"], "dateModified": post.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
-           "image": [SITE + src if src.startswith("/") else src for src, _ in imgs],
+           "image": ld_imgs or [SITE + src if src.startswith("/") else src for src, _ in imgs],
            "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
     extra = [art]
     if post.get("brand"):
         prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
                 "description": post["desc"]}
         if imgs:
-            prod["image"] = art["image"][0]
+            prod["image"] = SITE + imgs[0][0] if imgs[0][0].startswith("/") else imgs[0][0]
         extra.append(prod)
     write(p["file"], page_shell(p, content, extra))
 
@@ -1603,14 +1693,30 @@ def git_date(f):
         return None
 
 
+def sitemap_images(file):
+    """본문(article)에 들어간 사진·설명 이미지를 이미지 사이트맵으로 알립니다."""
+    path = os.path.join(_ROOT, file)
+    if not os.path.exists(path):
+        return ""
+    soup = BeautifulSoup(open(path, encoding="utf-8").read(), "html.parser")
+    seen, out = set(), []
+    for img in soup.select("article img, main figure img"):
+        src = img.get("src") or ""
+        if not src.startswith("/assets/") or src in seen or src.endswith(".svg"):
+            continue
+        seen.add(src)
+        out.append(f"    <image:image><image:loc>{SITE}{html.escape(src)}</image:loc></image:image>\n")
+    return "".join(out[:20])
+
+
 def build_sitemap_xml():
     urls = []
     for q in all_index_pages():
         lm = max(filter(None, [git_date(q["file"]), q["date"]]))
-        urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n  </url>")
+        urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n{sitemap_images(q['file'])}  </url>")
     write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
 <!-- aroundtool.com · scripts/build.py 가 생성 · {TODAY} · {len(urls)} URL -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 {chr(10).join(urls)}
 </urlset>
 """)

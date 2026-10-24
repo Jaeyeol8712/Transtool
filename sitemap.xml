@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 161 URL -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
     <lastmod>2026-10-24</lastmod>
@@ -468,50 +468,86 @@
   <url>
     <loc>https://www.aroundtool.com/shop-bespoke-ai-steam-ultra.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-steam-ultra/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-steam-ultra/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-steam-ultra/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-c-type-65w-charger.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/c-type-65w-charger/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/c-type-65w-charger/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/c-type-65w-charger/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-calf-foot-air-massager.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-food-waste-disposer.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/food-waste-disposer/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/food-waste-disposer/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/food-waste-disposer/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-fukuoka-3days.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/fukuoka-3days/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/fukuoka-3days/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/fukuoka-3days/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-galaxy-tab-s12-ultra.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-tab-s12-ultra/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-tab-s12-ultra/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-tab-s12-ultra/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-jbl-authentics-200.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jbl-authentics-200/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jbl-authentics-200/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jbl-authentics-200/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-mung-bean-cleanser.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-neck-traction.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/neck-traction/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/neck-traction/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/neck-traction/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-student-office-laptop.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/student-office-laptop/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/student-office-laptop/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/student-office-laptop/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-west-europe-3-10days.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/west-europe-3-10days/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/west-europe-3-10days/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/west-europe-3-10days/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-wireless-gaming-keyboard.html</loc>
     <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/wireless-gaming-keyboard/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/wireless-gaming-keyboard/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/wireless-gaming-keyboard/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
