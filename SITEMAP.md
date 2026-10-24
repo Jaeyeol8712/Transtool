@@ -45,7 +45,13 @@ python3 scripts/build.py
 | 네이버·Bing | IndexNow (`scripts/indexnow.mjs`) — main 에 올라간 바뀐 페이지만 전송 | 동작 중 (`INDEXNOW_KEY` 등록됨) |
 | 구글 | 서치콘솔 API 로 sitemap.xml·feed.xml 제출 (`scripts/gsc-sitemap.mjs`) — 푸시마다 + 매주 월요일 | `GSC_SERVICE_ACCOUNT` 등록 시 동작 |
 
-구글 설정 방법
+구글 설정 방법 — 권장: 키 없는 인증 (조직 정책으로 JSON 키를 못 만들 때도 동작)
+1. Google Cloud Console 오른쪽 위 `>_`(Cloud Shell) 를 열고 `scripts/setup-google-wif.sh` 내용을 붙여 넣어 실행
+2. 출력된 값을 GitHub → Settings → Secrets and variables → Actions → **Variables** 에 등록:
+   `GCP_WIF_PROVIDER`, `GCP_SERVICE_ACCOUNT`, `GSC_SITE`
+3. 출력된 서비스 계정 이메일을 서치콘솔(전체 권한)·GA4(뷰어)에 추가
+
+구글 설정 방법 — JSON 키 방식 (키 생성이 허용된 계정만)
 1. Google Cloud Console → 새 프로젝트 → "Google Search Console API" 사용 설정
 2. IAM → 서비스 계정 만들기 → 키 → JSON 키 다운로드
 3. 서치콘솔 → 설정 → 사용자 및 권한 → 서비스 계정 이메일을 **전체** 권한 사용자로 추가

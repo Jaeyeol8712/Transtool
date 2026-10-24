@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   seo:
@@ -69,10 +70,23 @@ jobs:
           BEFORE_SHA: ${{ github.event.before }}
 
       # ── 3. 구글 서치콘솔에 사이트맵 제출 (설정한 경우에만) ──
+      # 구글 키 없는 인증 (Workload Identity) — Variables 에 GCP_WIF_PROVIDER 가 있을 때만
+      - name: 구글 인증
+        id: gauth
+        if: vars.GCP_WIF_PROVIDER != ''
+        continue-on-error: true
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters
       - name: 구글 서치콘솔 사이트맵 제출
         continue-on-error: true
         run: node scripts/gsc-sitemap.mjs
         env:
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
+          GCP_SERVICE_ACCOUNT: ${{ vars.GCP_SERVICE_ACCOUNT }}
           GSC_SITE: ${{ vars.GSC_SITE }}
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}

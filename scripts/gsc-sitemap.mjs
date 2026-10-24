@@ -17,15 +17,19 @@
 import crypto from "node:crypto";
 
 const raw = process.env.GSC_SERVICE_ACCOUNT;
-if (!raw) {
-  console.log("· GSC_SERVICE_ACCOUNT 가 없어 구글 사이트맵 제출을 건너뜁니다.");
+const PRESET = process.env.GOOGLE_ACCESS_TOKEN;   // GitHub ↔ 구글 키 없는 인증(Workload Identity)으로 받은 토큰
+if (!raw && !PRESET) {
+  console.log("· 구글 인증 설정이 없어 사이트맵 제출을 건너뜁니다.");
   process.exit(0);
 }
-const sa = JSON.parse(raw);
+process.on("unhandledRejection", (e) => { console.log(`✗ 요청 실패: ${e.message}`); process.exit(0); });
+const sa = raw ? JSON.parse(raw) : { client_email: process.env.GCP_SERVICE_ACCOUNT || "서비스 계정" };
 const SITE = process.env.GSC_SITE || "https://www.aroundtool.com/";
 const ORIGIN = "https://" + (process.env.SITE_HOST || "www.aroundtool.com");
 const FEEDS = [`${ORIGIN}/sitemap.xml`, `${ORIGIN}/feed.xml`];
 
+async function getToken() {
+if (PRESET) return PRESET;
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
 const now = Math.floor(Date.now() / 1000);
 const unsigned = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({
@@ -37,8 +41,6 @@ const unsigned = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({
 });
 const jwt = unsigned + "." + crypto.sign("RSA-SHA256", Buffer.from(unsigned), sa.private_key).toString("base64url");
 
-process.on("unhandledRejection", (e) => { console.log(`✗ 요청 실패: ${e.message}`); process.exit(0); });
-
 const tokRes = await fetch("https://oauth2.googleapis.com/token", {
   method: "POST",
   headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -48,12 +50,16 @@ if (!tokRes.ok) {
   console.log(`✗ 구글 인증 실패 (${tokRes.status}) — 서비스 계정 키를 확인하세요.`);
   process.exit(0);
 }
-const { access_token } = await tokRes.json();
+return (await tokRes.json()).access_token;
+}
+const access_token = await getToken();
 
 for (const feed of FEEDS) {
+  try {
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feed)}`;
   const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${access_token}` } });
   if (res.ok) console.log(`  ✓ 구글 서치콘솔 — ${feed} 제출됨`);
   else if (res.status === 403) console.log(`  ✗ 403 — 서치콘솔에서 ${sa.client_email} 를 "전체" 권한 사용자로 추가했는지, GSC_SITE(${SITE})가 맞는지 확인하세요.`);
   else console.log(`  ? ${res.status} ${await res.text()}`);
+  } catch (e) { console.log(`  ✗ ${feed} — 요청 실패: ${e.message}`); }
 }

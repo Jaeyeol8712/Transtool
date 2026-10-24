@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: visitors
@@ -21,11 +22,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # 구글 키 없는 인증 (Workload Identity) — Variables 에 GCP_WIF_PROVIDER 가 있을 때만
+      - name: 구글 인증
+        id: gauth
+        if: vars.GCP_WIF_PROVIDER != ''
+        continue-on-error: true
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/analytics.readonly
       - name: GA4 방문자 수 조회
         run: node scripts/ga4-visitors.mjs
         env:
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
           GA_SERVICE_ACCOUNT: ${{ secrets.GA_SERVICE_ACCOUNT }}
+          GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
       - name: 변경분 커밋
         run: |

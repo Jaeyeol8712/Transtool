@@ -14,13 +14,17 @@ import crypto from "node:crypto";
 import { writeFileSync, readFileSync, existsSync } from "node:fs";
 
 const raw = process.env.GA_SERVICE_ACCOUNT || process.env.GSC_SERVICE_ACCOUNT;
-if (!raw) { console.log("· 서비스 계정이 없어 방문자 수 갱신을 건너뜁니다."); process.exit(0); }
+const PRESET = process.env.GOOGLE_ACCESS_TOKEN;   // GitHub ↔ 구글 키 없는 인증(Workload Identity)으로 받은 토큰
+if (!raw && !PRESET) { console.log("· 구글 인증 설정이 없어 방문자 수 갱신을 건너뜁니다."); process.exit(0); }
 process.on("unhandledRejection", (e) => { console.log(`✗ 요청 실패: ${e.message}`); process.exit(0); });
 
-const sa = JSON.parse(raw);
 const PROPERTY = process.env.GA4_PROPERTY_ID || "546783366";
 const SINCE = process.env.VISITORS_SINCE || "2024-01-01";
 const OUT = "assets/visitors.json";
+
+async function getToken() {
+if (PRESET) return PRESET;
+const sa = JSON.parse(raw);
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
 const now = Math.floor(Date.now() / 1000);
@@ -34,7 +38,10 @@ const tok = await fetch("https://oauth2.googleapis.com/token", {
   body: new URLSearchParams({ grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer", assertion: jwt }),
 });
 if (!tok.ok) { console.log(`✗ 구글 인증 실패 (${tok.status})`); process.exit(0); }
-const { access_token } = await tok.json();
+return (await tok.json()).access_token;
+}
+let access_token;
+try { access_token = await getToken(); } catch (e) { console.log(`✗ 구글 인증 실패: ${e.message}`); process.exit(0); }
 
 async function users(startDate, endDate) {
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROPERTY}:runReport`, {
