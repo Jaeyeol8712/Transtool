@@ -1,0 +1,25 @@
+HTTP/2 307 
+date: Sat, 24 Oct 2026 13:59:48 GMT
+content-type: text/html;charset=UTF-8
+content-length: 0
+pragma: No-cache
+cache-control: no-cache, no-store, must-revalidate, max-age=0
+location: https://brandconnect.naver.com/affiliates/1009806971805920?channelProductNo=13030284241
+x-robots-tag: noindex
+referrer-policy: unsafe-url
+server: nfront
+
+HTTP/2 200 
+date: Sat, 24 Oct 2026 13:59:48 GMT
+content-type: text/html
+content-length: 969
+last-modified: Thu, 20 Aug 2026 06:21:45 GMT
+vary: Accept-Encoding
+accept-ranges: bytes
+referrer-policy: unsafe-url
+server: nfront
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+
