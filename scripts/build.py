@@ -1142,7 +1142,7 @@ def link_card(post):
 
 
 def popup_html(post):
-    """10초 이상 읽으면 뜨는 '제품 자세히 알아보기' 팝업 (assets/site.js 가 띄움)."""
+    """6초 이상 읽으면 뜨는 '제품 자세히 알아보기' 팝업 (assets/site.js 가 띄움)."""
     is_trip = post.get("kind") == "travel"
     head = "여행 코스가 궁금하다면?" if is_trip else "이 제품, 직접 확인해 볼까요?"
     sub = post.get("cta_hook") or ("일정·가격·포함 내역을 한 번에 볼 수 있어요." if is_trip else "현재 가격과 옵션, 상세 정보를 바로 볼 수 있어요.")
