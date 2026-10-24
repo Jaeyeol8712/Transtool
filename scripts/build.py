@@ -998,27 +998,31 @@ def html_faq_pairs(body):
     return pairs
 
 
-# 기존 페이지(여행 가이드 등)에 넣을 사진: 파일 → [(몇 번째 <h2 class="sec"> 앞, 사진 이름)]
-PAGE_PHOTOS = {
-    "travel-jeju.html": [(0, "jeju-seongsan"), (2, "jeju-seongsan-coast")],
-    "travel-busan.html": [(0, "busan-haeundae"), (2, "busan-haeundae-night")],
-    "travel-sokcho.html": [(0, "seoraksan-ulsanbawi"), (2, "seoraksan-valley")],
-    "travel-osaka.html": [(0, "osaka-dotonbori"), (2, "osaka-castle")],
-}
+# 페이지별 사진: scripts/photo_map.json  {"파일.html": ["사진 이름", ...]}
+#   기존 페이지(맛집·여행·가이드)는 1번째·3번째 <h2> 앞에, 계산기·지역 허브는 핵심 답변 아래에 들어갑니다.
+try:
+    PHOTO_MAP = json.load(open(os.path.join(_ROOT, "scripts", "photo_map.json"), encoding="utf-8"))
+except FileNotFoundError:
+    PHOTO_MAP = {}
+
+
+def page_photo_block(f):
+    names = [n for n in PHOTO_MAP.get(f, []) if photo_ok(n)]
+    return "".join(photo_html(n) for n in names[:1]), [image_ld(f"/assets/photos/{n}.jpg", PHOTOS[n]["alt"], PHOTOS[n]) for n in names[:1]]
 
 
 def inject_page_photos(f, body):
     """<!-- at:photo --> 블록을 지우고 다시 넣습니다(여러 번 빌드해도 같은 결과)."""
     body = re.sub(r"<!-- at:photo -->.*?<!-- /at:photo -->\n?", "", body, flags=re.S)
-    lds = []
-    spots = [m.start() for m in re.finditer(r'<h2 class="sec"', body)]
-    for idx, name in sorted(PAGE_PHOTOS.get(f, []), reverse=True):
-        if idx < len(spots) and photo_ok(name):
+    names = [n for n in PHOTO_MAP.get(f, []) if photo_ok(n)]
+    spots = [m.start() for m in re.finditer(r"<h2[\s>]", body)]
+    placed = []
+    for k, name in reversed(list(enumerate(names))):
+        idx = k * 2
+        if idx < len(spots):
             body = body[:spots[idx]] + f"<!-- at:photo -->{photo_html(name)}<!-- /at:photo -->\n" + body[spots[idx]:]
-    for _, name in PAGE_PHOTOS.get(f, []):
-        if photo_ok(name):
-            lds.append(image_ld(f"/assets/photos/{name}.jpg", PHOTOS[name]["alt"], PHOTOS[name]))
-    return body, lds
+            placed.append(name)
+    return body, [image_ld(f"/assets/photos/{n}.jpg", PHOTOS[n]["alt"], PHOTOS[n]) for n in reversed(placed)]
 
 
 def transform_existing(p):
@@ -1177,6 +1181,7 @@ def build_calc(slug):
     related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])} 계산기</a> — {esc(PAGES[r + ".html"]["desc"][:60].rsplit(" ", 1)[0])}…</li>'
                       for r in c["related"] if r + ".html" in PAGES)
     g = p["group_name"]
+    photo_blk, photo_ld = page_photo_block(p["file"])
     content = f"""<article itemscope itemtype="https://schema.org/WebApplication">
 <header class="at-page-head">
   <h1 itemprop="name">{esc(c['h1'])}</h1>
@@ -1189,6 +1194,7 @@ def build_calc(slug):
 </section>
 <div class="at-prose">
 <div class="at-answer"><p>{c['answer']}</p></div>
+{photo_blk}
 <h2>사용 방법</h2>
 <ol class="at-steps">{steps}</ol>
 {formula}
@@ -1205,6 +1211,8 @@ def build_calc(slug):
            "applicationCategory": c["cat"], "operatingSystem": "All", "inLanguage": "ko-KR",
            "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"},
            "publisher": {"@id": SITE + "/#org"}}
+    if photo_ld:
+        app["image"] = photo_ld[0]
     howto = {"@type": "HowTo", "name": f"{c['h1']} 사용 방법",
              "step": [{"@type": "HowToStep", "position": i + 1, "text": strip_tags(s)} for i, s in enumerate(c["steps"])]}
     extra_head = head_css + "\n" + "\n".join(ext_scripts)
@@ -1528,6 +1536,7 @@ def build_gu_hub(p):
     if p["region"] in REGION_TRAVEL:
         t = PAGES[REGION_TRAVEL[p["region"]]]
         travel = f'<p>여행 일정을 짜고 있다면 <a href="/{t["file"]}">{esc(t["name"])} 코스·예산·교통 정리</a>와 함께 보면 동선을 잡기 쉽습니다.</p>'
+    photo_blk, photo_ld = page_photo_block(p["file"])
     content = f"""<header class="at-page-head">
   <h1>{esc(area)} 맛집 {total}곳</h1>
   <p class="lede">{esc(p['gu'])}에서 광고·협찬을 빼고 고른 가게를 카테고리별로 모았습니다. 가게 이름을 누르면 선정 근거와 단점, 가격과 영업시간 확인 여부를 볼 수 있습니다.</p>
@@ -1535,12 +1544,15 @@ def build_gu_hub(p):
 </header>
 <div class="at-page"><div class="at-prose" style="max-width:none">
 <div class="at-answer"><p>{answer}</p></div>
+{photo_blk}
 {"".join(blocks)}
 <h2>함께 보기</h2>
 {travel}{other_html}
 <p>전국 다른 지역은 <a href="/food.html">전국 맛집 기록</a>에서 볼 수 있습니다.</p>
 </div></div>"""
     lst = {"@type": "ItemList", "name": f"{area} 맛집", "numberOfItems": len(ld_items), "itemListElement": ld_items}
+    if photo_ld:
+        lst["image"] = photo_ld[0]
     write(p["file"], page_shell(p, content, [lst]))
 
 

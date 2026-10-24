@@ -1,0 +1,18 @@
+{
+ "travel-jeju.html": [
+  "jeju-seongsan",
+  "jeju-seongsan-coast"
+ ],
+ "travel-busan.html": [
+  "busan-haeundae",
+  "busan-haeundae-night"
+ ],
+ "travel-sokcho.html": [
+  "seoraksan-ulsanbawi",
+  "seoraksan-valley"
+ ],
+ "travel-osaka.html": [
+  "osaka-dotonbori",
+  "osaka-castle"
+ ]
+}

@@ -59,8 +59,47 @@ def _search(q, n=12):
     return [r for r in data.get("results", []) if r.get("license") in OK_LIC and (r.get("width") or 0) >= 900]
 
 
+COMMONS = "https://commons.wikimedia.org/w/api.php"
+
+
+def _lic(short):
+    s = (short or "").lower().replace("-", " ").strip()
+    if s.startswith("cc0"):
+        return "cc0", "1.0", "https://creativecommons.org/publicdomain/zero/1.0/"
+    if s.startswith("public domain") or s == "pd":
+        return "pdm", "", "https://creativecommons.org/publicdomain/mark/1.0/"
+    m = re.match(r"cc by( sa)? ([\d.]+)", s)
+    if m:
+        kind = "by-sa" if m.group(1) else "by"
+        return kind, m.group(2), f"https://creativecommons.org/licenses/{kind}/{m.group(2)}/"
+    return None
+
+
+def search_commons(q, n=14):
+    """위키미디어 공용: 키 없이 검색, 라이선스·작가 정보 포함. 상업 이용 가능한 것만 남깁니다."""
+    qs = urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+                                 "gsrsearch": f"{q} filetype:bitmap", "gsrlimit": n, "prop": "imageinfo",
+                                 "iiprop": "url|size|extmetadata|mime", "iiurlwidth": 320})
+    data = json.loads(get(COMMONS + "?" + qs))
+    out = []
+    pages = sorted(data.get("query", {}).get("pages", {}).values(), key=lambda x: x.get("index", 0))
+    for pg in pages:
+        ii = (pg.get("imageinfo") or [{}])[0]
+        md = ii.get("extmetadata", {})
+        lic = _lic(md.get("LicenseShortName", {}).get("value"))
+        if not lic or ii.get("mime") != "image/jpeg" or (ii.get("width") or 0) < 900:
+            continue
+        artist = re.sub(r"<[^>]+>", "", md.get("Artist", {}).get("value", "")).strip() or "작가 미상"
+        out.append({"id": f"commons:{pg['pageid']}", "title": pg["title"].replace("File:", ""), "url": ii["url"],
+                    "thumb": ii.get("thumburl"), "creator": artist[:80], "creator_url": None,
+                    "license": lic[0], "license_version": lic[1], "license_url": lic[2],
+                    "foreign_landing_url": ii.get("descriptionurl"), "source": "wikimedia",
+                    "width": ii.get("width"), "height": ii.get("height")})
+    return out
+
+
 def meta_of(r):
-    return {k: r.get(k) for k in ("id", "title", "url", "creator", "creator_url", "license", "license_version",
+    return {k: r.get(k) for k in ("id", "title", "url", "thumb", "creator", "creator_url", "license", "license_version",
                                   "license_url", "foreign_landing_url", "source", "width", "height")}
 
 
@@ -85,17 +124,17 @@ def candidates():
         seen, picks = set(), []
         for q in qlist:
             try:
-                for r in search(q):
+                for r in (search_commons(q) or []):
                     if r["id"] not in seen:
                         seen.add(r["id"]); picks.append(r)
             except Exception as e:
                 print("검색 실패", key, q, e)
-            time.sleep(2)
+            time.sleep(0.5)
         picks = picks[:8]
 
         def dl(r):
             try:
-                return load_img(r["url"], 320), meta_of(r)
+                return load_img(r.get("thumb") or r["url"], 320), meta_of(r)
             except Exception as e:
                 print("다운로드 실패", r.get("url"), e)
                 return None
