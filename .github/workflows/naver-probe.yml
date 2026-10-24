@@ -25,7 +25,17 @@ jobs:
             done
           done
           for u in $(grep -ho 'https://brandconnect.pstatic.net/[^"]*\.js' _probe/*.html | sort -u); do curl -sS -m 30 -o "_probe/$(basename $u)" "$u"; done
-          ls -la _probe | head -60
+          # 브리지가 부르는 API 로 실제 목적지(상품 페이지) 주소 확인
+          for f in _probe/*.mob.final; do
+            u=$(cut -d' ' -f1 "$f"); code=$(basename "$f" .mob.final)
+            if [[ "$u" =~ /affiliates/([0-9]+)\?channelProductNo=([0-9]+) ]]; then api="https://gw-brandconnect.naver.com/affiliate/query/affiliate-urls/${BASH_REMATCH[1]}/redirect-url?channelProductNo=${BASH_REMATCH[2]}";
+            elif [[ "$u" =~ /connect/([0-9]+) ]]; then api="https://gw-brandconnect.naver.com/affiliate/query/connect-urls/${BASH_REMATCH[1]}/redirect-url"; else continue; fi
+            curl -sS -m 20 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0 Safari/537.36" -H "Origin: https://brandconnect.naver.com" -H "Referer: $u" -b "NNB=ABCDEFGHIJKLM" "$api" -o "_probe/$code.api.json" -w "$code %{http_code}\n" || true
+            dest=$(grep -o 'https:[^"]*' "_probe/$code.api.json" | head -1 | sed 's/\\u0026/\&/g')
+            if [ -n "$dest" ]; then curl -sSL -m 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" -o "_probe/$code.dest.html" -w "$code dest %{http_code} %{url_effective}\n" "$dest" || true; fi
+            sleep 2
+          done
+          ls -la _probe | head -80
       - name: 저장
         run: |
           git config user.name  "github-actions[bot]"
