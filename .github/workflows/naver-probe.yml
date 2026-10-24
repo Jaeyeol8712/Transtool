@@ -24,7 +24,8 @@ jobs:
               sleep 2
             done
           done
-          ls -la _probe | head -50
+          for u in $(grep -ho 'https://brandconnect.pstatic.net/[^"]*\.js' _probe/*.html | sort -u); do curl -sS -m 30 -o "_probe/$(basename $u)" "$u"; done
+          ls -la _probe | head -60
       - name: 저장
         run: |
           git config user.name  "github-actions[bot]"
