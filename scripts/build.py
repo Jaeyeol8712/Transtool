@@ -35,6 +35,7 @@ from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
 import hashlib as _hl
+CSS_V = _hl.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "site.css"), "rb").read()).hexdigest()[:8]
 
 # ---------- 이미지 (크기·캡션·저작자 표기·구조화 데이터) ----------
 _ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -933,7 +934,7 @@ def assets_block(p, ld_obj, adsense=False):
     ads = (f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE}" crossorigin="anonymous"></script>'
            if adsense else "")
     return f"""<!-- at:assets -->
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v={CSS_V}">
 {ld(ld_obj)}
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>{ads}
@@ -1139,7 +1140,7 @@ def build_embed(slug, tool, head_css, ext_scripts):
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="{u}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v={CSS_V}">
 <style>body{{background:#fff!important}}.at-tool{{margin:0;max-width:none;border-radius:8px}}
 .at-embed-credit{{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}}
 .at-embed-credit a{{color:var(--at-ink);font-weight:700;text-decoration:none}}.at-embed-credit a:hover{{text-decoration:underline}}</style>
@@ -1269,7 +1270,7 @@ def popup_html(post):
     label = post.get("cta") or "제품 자세히 알아보기 >>"
     d = DISCLOSURE.get(post.get("program", "shopping"), DISCLOSURE["shopping"])
     cp = post.get("cta_photo")
-    pop_visual = (f'<img class="at-pop-img" src="{esc(cp["src"])}" alt="{esc(cp["alt"])}" loading="lazy" decoding="async">' if cp
+    pop_visual = (f'<div class="at-pop-imgbox"><img class="at-pop-img" src="{esc(cp["src"])}" alt="{esc(cp["alt"])}" width="320" height="180" loading="lazy" decoding="async"></div>' if cp
                   else f'<p class="at-pop-emoji" aria-hidden="true">{"✈️" if is_trip else "🎁"}</p>')
     return f"""<div class="at-pop" data-at-popup="{esc(post['slug'])}" hidden>
   <div class="at-pop-back" data-pop-close></div>
@@ -1283,6 +1284,17 @@ def popup_html(post):
     <p class="at-pop-ad">광고 · {esc(d)}</p>
   </div>
 </div>"""
+
+
+def top_photo(post):
+    """대가성 문구 아래 첫 번째 버튼 바로 위 상품·여행 사진 (첫 화면이라 바로 불러옴)."""
+    cp = post.get("cta_photo")
+    if not cp:
+        return ""
+    wh = img_size(cp["src"])
+    size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
+    return (f'<figure class="vx-cta-photo vx-cta-top"><img src="{esc(cp["src"])}" alt="{esc(cp["alt"])}"{size} fetchpriority="high" decoding="async">'
+            f'<figcaption>{esc(cp.get("caption", ""))}</figcaption></figure>')
 
 
 def build_connect_blog(p):
@@ -1327,7 +1339,7 @@ def build_connect_blog(p):
   <p class="meta"><span>{esc(KINDS[kind_of(p)])} · 광고</span>{f"<span>{esc(post['brand'])}</span>" if post.get('brand') else ''}<span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
 </header>
 {disclosure_box(post)}
-<div class="at-og-wrap">{link_card(post)}</div>
+<div class="at-og-wrap">{top_photo(post)}{link_card(post)}</div>
 <div class="at-page"><div class="at-prose at-blog">
 {"".join(parts)}
 {closing}
