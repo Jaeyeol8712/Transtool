@@ -10,9 +10,10 @@
   python3 scripts/photos.py candidates   scripts/photo_queries.json 의 검색어로 후보를 받아
                                           _candidates/<key>.jpg (번호 붙은 모음 이미지)와 meta.json 생성
   고른 사진은 scripts/photos.json 에 메타데이터와 함께 적고
-  python3 scripts/photos.py fetch        photos.json 의 사진을 assets/photos/<name>.jpg (가로 1200px)로 저장
+  python3 scripts/photos.py fetch        photos.json 의 사진을 assets/photos/<name>.jpg (가로 960px, 압축)로 저장
 """
-import io, json, os, re, sys, time, urllib.parse, urllib.request
+import io, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -29,7 +30,10 @@ def get(url, timeout=60):
 
 
 def small_url(url, w=1280):
-    """Wikimedia 원본은 수십 MB 라서 썸네일 주소로 바꿔 받습니다."""
+    """Wikimedia 원본은 수십 MB 라서 썸네일 주소로 바꿔 받습니다. 플리커는 작은 크기 접미사를 씁니다."""
+    f = re.match(r"(https://(?:live|farm\d+)\.static\.?flickr\.com/.+/\d+_[0-9a-f]+)(?:_[a-z])?\.jpg$", url)
+    if f and w <= 640:
+        return f.group(1) + ("_n.jpg" if w <= 320 else "_z.jpg")
     m = re.match(r"https://upload\.wikimedia\.org/wikipedia/commons/([0-9a-f])/([0-9a-f]{2})/(.+)$", url)
     if m and not url.lower().endswith(".svg"):
         a, b, name = m.groups()
@@ -38,6 +42,17 @@ def small_url(url, w=1280):
 
 
 def search(q, n=12):
+    for attempt in range(3):
+        try:
+            return _search(q, n)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print("요청 한도 — 70초 대기"); time.sleep(70); continue
+            raise
+    return []
+
+
+def _search(q, n=12):
     qs = urllib.parse.urlencode({"q": q, "license": ",".join(sorted(OK_LIC)), "license_type": "commercial",
                                  "page_size": n, "mature": "false", "extension": "jpg"})
     data = json.loads(get(API + "?" + qs))
@@ -75,17 +90,20 @@ def candidates():
                         seen.add(r["id"]); picks.append(r)
             except Exception as e:
                 print("검색 실패", key, q, e)
-            time.sleep(1.5)
-        picks = picks[:12]
-        thumbs, metas = [], []
-        for r in picks:
+            time.sleep(2)
+        picks = picks[:8]
+
+        def dl(r):
             try:
-                thumbs.append(load_img(r["url"], 400)); metas.append(meta_of(r))
+                return load_img(r["url"], 320), meta_of(r)
             except Exception as e:
                 print("다운로드 실패", r.get("url"), e)
+                return None
+        res = [x for x in ThreadPoolExecutor(8).map(dl, picks) if x]
+        thumbs = [a for a, _ in res]; metas = [b for _, b in res]
         if not thumbs:
             continue
-        cols, cw, ch = 4, 400, 300
+        cols, cw, ch = 4, 320, 240
         rows = (len(thumbs) + cols - 1) // cols
         sheet = Image.new("RGB", (cols * cw, rows * ch), "white")
         d = ImageDraw.Draw(sheet)
@@ -108,8 +126,8 @@ def fetch():
         if os.path.exists(path):
             continue
         try:
-            im = load_img(m["url"], 1200)
-            im.save(path, quality=82, optimize=True, progressive=True)
+            im = load_img(m["url"], 960)
+            im.save(path, quality=74, optimize=True, progressive=True)
             print("저장", name, im.size)
         except Exception as e:
             print("실패", name, e)
