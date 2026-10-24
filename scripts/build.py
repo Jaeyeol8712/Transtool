@@ -1195,7 +1195,7 @@ def build_connect_blog(p):
 </article>
 {popup_html(post)}"""
     art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
-           "datePublished": p["date"], "dateModified": p["date"], "author": {"@id": SITE + "/#org"},
+           "datePublished": p["date"], "dateModified": post.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
            "image": [SITE + src if src.startswith("/") else src for src, _ in imgs],
            "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
