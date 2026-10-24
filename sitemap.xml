@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 163 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 165 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -568,6 +568,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calendar-7.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-bespoke-ai-fridge-4door.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-fridge-4door/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-fridge-4door/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-fridge-4door/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-fridge-4door/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-bespoke-ai-steam-ultra.html</loc>
     <lastmod>2026-10-24</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/robot-vacuum-floor.jpg</image:loc></image:image>
@@ -614,6 +622,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/fukuoka-3days/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/fukuoka-dazaifu.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/fukuoka-3days/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-galaxy-s26-ultra.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-s26-ultra/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-s26-ultra/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-s26-ultra/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-s26-ultra/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-galaxy-tab-s12-ultra.html</loc>
