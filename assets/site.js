@@ -70,6 +70,30 @@
     document.querySelectorAll('a[rel~="sponsored"][target="_blank"]').forEach(function (a) { a.removeAttribute('target'); });
   }
 
+  /* ---------- 안드로이드: 네이버 제휴 링크는 네이버 앱으로 바로 ----------
+     브랜드 커넥트 연결 페이지는 안드로이드에서 네이버 앱을 열려고 시도하고, 삼성 인터넷 등은 이때
+     '열기 — 삼성 브라우저 / NAVER' 선택창과 '웹으로 보기' 화면을 띄웁니다.
+     네이버가 쓰는 것과 같은 방식(앱 지정 인텐트)으로 처음부터 네이버 앱에서 열어 선택창을 없앱니다.
+     앱이 없으면 S.browser_fallback_url 로 웹에서 열리고, 인앱 브라우저처럼 인텐트를 막는 곳은
+     2초 뒤 원래 주소로 이동합니다. 제휴 추적은 같은 브랜드 커넥트 주소를 거치므로 그대로입니다. */
+  var ua = navigator.userAgent || '';
+  if (/android/i.test(ua) && !/NAVER\(inapp/i.test(ua)) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[rel~="sponsored"]');
+      if (!a || !/^https:\/\/(brandconnect\.naver\.com|naver\.me)\//.test(a.href)) return;
+      e.preventDefault();
+      var href = a.href, enc = encodeURIComponent(href);
+      if (window.gtag) gtag('event', 'affiliate_click', { link_url: href, method: 'naver_app', transport_type: 'beacon' });
+      var started = Date.now();
+      window.location.href = 'intent://inappbrowser?url=' + enc + '&version=6#Intent;scheme=naversearchapp;' +
+        'action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;' +
+        'S.browser_fallback_url=' + enc + ';end';
+      setTimeout(function () {
+        if (document.visibilityState === 'visible' && Date.now() - started < 3500) window.location.href = href;
+      }, 2000);
+    });
+  }
+
   /* ---------- 추천 글: 6초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
   var pop = document.querySelector('[data-at-popup]');
   if (pop) {
