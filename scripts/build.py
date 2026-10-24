@@ -1250,7 +1250,7 @@ def disclosure_box(post, where="top"):
 
 def buy_button(post, label=None):
     label = label or f"{post['product']} 판매 페이지 보기"
-    return (f'<p class="at-buy"><a class="at-buy-btn" href="{esc(post.get("direct") or post["link"])}" target="_blank" '
+    return (f'<p class="at-buy"><a class="at-buy-btn" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" '
             f'rel="sponsored nofollow noopener">{esc(label)}</a>'
             f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
 
@@ -1258,7 +1258,7 @@ def buy_button(post, label=None):
 def link_card(post):
     """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조."""
     label = post.get("cta") or "제품 자세히 알아보기 >>"
-    return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}" target="_blank" rel="sponsored nofollow noopener">'
+    return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" rel="sponsored nofollow noopener">'
             f'{esc(label)}</a>')
 
 
@@ -1279,11 +1279,30 @@ def popup_html(post):
     {pop_visual}
     <p class="at-pop-h" id="at-pop-h">{esc(head)}</p>
     <p class="at-pop-s">{esc(sub)}</p>
-    <a class="at-cta" href="{esc(post.get('direct') or post['link'])}" target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
+    <a class="at-cta" href="{esc(post.get('direct') or post['link'])}"{web_attr(post)} target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
     <button type="button" class="at-pop-later" data-pop-close>계속 읽을게요</button>
     <p class="at-pop-ad">광고 · {esc(d)}</p>
   </div>
 </div>"""
+
+
+def web_url(post):
+    """브랜드 커넥트 연결 페이지의 '웹으로 보기'와 같은 주소(서버 리디렉트, 제휴 추적 포함).
+    휴대폰에서 이 주소로 바로 이동하면 앱 선택창 없이 상품 페이지가 열립니다."""
+    d = post.get("direct") or ""
+    m = re.match(r"https://brandconnect\.naver\.com/affiliates/(\d+)\?channelProductNo=(\d+)", d)
+    if m:
+        return (f"https://gw-brandconnect.naver.com/affiliate/query/redirect/{m.group(1)}"
+                f"?channelProductNo={m.group(2)}&originAccessLogChannel=UNKNOWN&ctid=&cid=")
+    m = re.match(r"https://brandconnect\.naver\.com/connect/(\d+)", d)
+    if m:
+        return f"https://gw-brandconnect.naver.com/affiliate/query/connect-urls/{m.group(1)}/redirect"
+    return ""
+
+
+def web_attr(post):
+    w = web_url(post)
+    return f' data-web="{esc(w)}"' if w else ""
 
 
 def top_photo(post):

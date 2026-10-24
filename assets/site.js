@@ -70,28 +70,21 @@
     document.querySelectorAll('a[rel~="sponsored"][target="_blank"]').forEach(function (a) { a.removeAttribute('target'); });
   }
 
-  /* ---------- 안드로이드: 네이버 제휴 링크는 네이버 앱으로 바로 ----------
-     브랜드 커넥트 연결 페이지는 안드로이드에서 네이버 앱을 열려고 시도하고, 삼성 인터넷 등은 이때
-     '열기 — 삼성 브라우저 / NAVER' 선택창과 '웹으로 보기' 화면을 띄웁니다.
-     네이버가 쓰는 것과 같은 방식(앱 지정 인텐트)으로 처음부터 네이버 앱에서 열어 선택창을 없앱니다.
-     앱이 없으면 S.browser_fallback_url 로 웹에서 열리고, 인앱 브라우저처럼 인텐트를 막는 곳은
-     2초 뒤 원래 주소로 이동합니다. 제휴 추적은 같은 브랜드 커넥트 주소를 거치므로 그대로입니다. */
-  var ua = navigator.userAgent || '';
-  if (/android/i.test(ua) && !/NAVER\(inapp/i.test(ua)) {
+  /* ---------- 휴대폰: 네이버 제휴 링크는 웹 주소로 바로 ----------
+     브랜드 커넥트 연결 페이지는 휴대폰에서 네이버 앱을 열려고 해서 '열기 — 삼성 브라우저 / NAVER'
+     선택창이 뜹니다. 연결 페이지의 '웹으로 보기'와 같은 주소(data-web, 제휴 추적 포함)로 같은 탭에서
+     바로 이동해 선택창 없이 상품 페이지를 엽니다. PC는 기존 주소 그대로(선택창 없음). */
+  var mobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || '') ||
+    (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
+  if (mobile) {
     document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[rel~="sponsored"]');
-      if (!a || !/^https:\/\/(brandconnect\.naver\.com|naver\.me)\//.test(a.href)) return;
+      var a = e.target.closest && e.target.closest('a[data-web]');
+      if (!a) return;
       e.preventDefault();
-      var href = a.href, enc = encodeURIComponent(href);
-      if (window.gtag) gtag('event', 'affiliate_click', { link_url: href, method: 'naver_app', transport_type: 'beacon' });
-      var started = Date.now();
-      window.location.href = 'intent://inappbrowser?url=' + enc + '&version=6#Intent;scheme=naversearchapp;' +
-        'action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;' +
-        'S.browser_fallback_url=' + enc + ';end';
-      setTimeout(function () {
-        if (document.visibilityState === 'visible' && Date.now() - started < 3500) window.location.href = href;
-      }, 2000);
-    });
+      var w = a.getAttribute('data-web');
+      if (window.gtag) gtag('event', 'affiliate_click', { link_url: w, method: 'mobile_web', transport_type: 'beacon' });
+      window.location.href = w;
+    }, true);
   }
 
   /* ---------- 추천 글: 6초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
