@@ -10,7 +10,7 @@
  *   GitHub Secrets  GSC_SERVICE_ACCOUNT  서비스 계정 JSON 키 전체 내용
  *   GitHub Variables GSC_SITE            서치콘솔 속성 (기본값 https://www.aroundtool.com/)
  *                                        도메인 속성이면 sc-domain:aroundtool.com
- *   서치콘솔 → 설정 → 사용자 및 권한 에 서비스 계정 이메일을 "소유자" 로 추가
+ *   서치콘솔 → 설정 → 사용자 및 권한 에 서비스 계정 이메일을 "전체" 권한으로 추가
  *
  * 설정이 없으면 아무것도 하지 않고 정상 종료합니다.
  */
@@ -54,6 +54,6 @@ for (const feed of FEEDS) {
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feed)}`;
   const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${access_token}` } });
   if (res.ok) console.log(`  ✓ 구글 서치콘솔 — ${feed} 제출됨`);
-  else if (res.status === 403) console.log(`  ✗ 403 — 서치콘솔에서 ${sa.client_email} 를 소유자로 추가했는지, GSC_SITE(${SITE})가 맞는지 확인하세요.`);
+  else if (res.status === 403) console.log(`  ✗ 403 — 서치콘솔에서 ${sa.client_email} 를 "전체" 권한 사용자로 추가했는지, GSC_SITE(${SITE})가 맞는지 확인하세요.`);
   else console.log(`  ? ${res.status} ${await res.text()}`);
 }

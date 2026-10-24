@@ -48,7 +48,7 @@ python3 scripts/build.py
 구글 설정 방법
 1. Google Cloud Console → 새 프로젝트 → "Google Search Console API" 사용 설정
 2. IAM → 서비스 계정 만들기 → 키 → JSON 키 다운로드
-3. 서치콘솔 → 설정 → 사용자 및 권한 → 서비스 계정 이메일을 **소유자**로 추가
+3. 서치콘솔 → 설정 → 사용자 및 권한 → 서비스 계정 이메일을 **전체** 권한 사용자로 추가
 4. GitHub 저장소 → Settings → Secrets and variables → Actions
    - Secrets: `GSC_SERVICE_ACCOUNT` = JSON 파일 내용 전체
    - Variables: `GSC_SITE` = 서치콘솔 속성 주소 (URL 접두어면 `https://www.aroundtool.com/`, 도메인 속성이면 `sc-domain:aroundtool.com`)
