@@ -60,9 +60,9 @@ jobs:
         if: github.event_name != 'schedule'
         run: |
           if [[ "${{ inputs.submit_all }}" == "true" ]]; then
-            node scripts/indexnow.mjs --all
+            node scripts/indexnow.mjs --all | tee -a _seo.log
           else
-            node scripts/indexnow.mjs
+            node scripts/indexnow.mjs | tee -a _seo.log
           fi
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
@@ -82,10 +82,29 @@ jobs:
           access_token_scopes: https://www.googleapis.com/auth/webmasters
       # 실패하면 실행 기록이 빨간색으로 표시되어 바로 알 수 있습니다 (네이버 전송은 이미 끝난 뒤).
       - name: 구글 서치콘솔 사이트맵 제출
-        run: node scripts/gsc-sitemap.mjs
+        run: |
+          set -o pipefail
+          node scripts/gsc-sitemap.mjs 2>&1 | tee -a _seo.log
         env:
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
           GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GCP_SERVICE_ACCOUNT: ${{ vars.GCP_SERVICE_ACCOUNT }}
           GSC_SITE: ${{ vars.GSC_SITE }}
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
+
+      # ── 4. 실행 결과를 seo-log 브랜치에 남김 (나중에 확인용) ──
+      - name: 결과 기록
+        if: always()
+        run: |
+          [ -f _seo.log ] || exit 0
+          cp _seo.log /tmp/seo.log
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q origin seo-log && git checkout -q -B seo-log FETCH_HEAD || git checkout -q --orphan seo-log
+          git rm -rq --cached . 2>/dev/null || true
+          { echo "== $(date -u +%FT%TZ) ${{ github.event_name }} ${{ github.sha }}"; cat /tmp/seo.log; echo; } > /tmp/new.log
+          [ -f seo.log ] && tail -n 400 seo.log >> /tmp/new.log
+          mv /tmp/new.log seo.log
+          git add -f seo.log
+          git commit -qm "SEO 실행 기록 [skip ci]"
+          git push -q -f origin seo-log
