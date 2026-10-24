@@ -54,13 +54,36 @@ return (await tokRes.json()).access_token;
 }
 const access_token = await getToken();
 
+// 서비스 계정이 접근할 수 있는 서치콘솔 속성 목록을 보고, 이 사이트에 맞는 주소를 자동으로 고릅니다.
+let site = SITE;
+try {
+  const lr = await fetch("https://www.googleapis.com/webmasters/v3/sites", { headers: { Authorization: `Bearer ${access_token}` } });
+  const lj = lr.ok ? await lr.json() : {};
+  const list = (lj.siteEntry || []).map((e) => `${e.siteUrl} (${e.permissionLevel})`);
+  console.log(`· 서비스 계정이 볼 수 있는 속성: ${list.length ? list.join(", ") : "없음"}`);
+  if (!list.length) {
+    console.log(`  ✗ ${sa.client_email} 가 서치콘솔 어떤 속성에도 추가되어 있지 않습니다.`);
+    console.log("    서치콘솔 → 설정 → 사용자 및 권한 → 사용자 추가 → 이 이메일 · 권한 '전체'");
+    process.exit(1);
+  }
+  const host = new URL(ORIGIN).hostname.replace(/^www\./, "");
+  const candidates = [SITE, `sc-domain:${host}`, `https://www.${host}/`, `https://${host}/`, `http://www.${host}/`, `http://${host}/`];
+  const ok = (lj.siteEntry || []).filter((e) => e.permissionLevel !== "siteUnverifiedUser");
+  const hit = candidates.map((c) => ok.find((e) => e.siteUrl === c)).find(Boolean);
+  if (hit) {
+    site = hit.siteUrl;
+    if (site !== SITE) console.log(`  · GSC_SITE(${SITE}) 대신 실제 속성 ${site} 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.`);
+    if (hit.permissionLevel === "siteRestrictedUser") console.log("  ! 권한이 '제한됨'입니다. 사이트맵 제출에는 '전체' 권한이 필요합니다.");
+  }
+} catch (e) { console.log(`  · 속성 목록 확인 실패: ${e.message}`); }
+
 for (const feed of FEEDS) {
   try {
-  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feed)}`;
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/sitemaps/${encodeURIComponent(feed)}`;
   const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${access_token}` } });
   if (!res.ok) process.exitCode = 1;
   if (res.ok) console.log(`  ✓ 구글 서치콘솔 — ${feed} 제출됨`);
-  else if (res.status === 403) console.log(`  ✗ 403 — 서치콘솔에서 ${sa.client_email} 를 "전체" 권한 사용자로 추가했는지, GSC_SITE(${SITE})가 맞는지 확인하세요.`);
+  else if (res.status === 403) console.log(`  ✗ 403 ${site} — ${((await res.json().catch(() => ({}))).error || {}).message || "권한 없음"}`);
   else console.log(`  ? ${res.status} ${await res.text()}`);
   } catch (e) { process.exitCode = 1; console.log(`  ✗ ${feed} — 요청 실패: ${e.message}`); }
 }
