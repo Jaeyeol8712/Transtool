@@ -43,6 +43,26 @@
   openHash();
   window.addEventListener('hashchange', openHash);
 
+  /* ---------- 방문자 수 (GA4 기준, 매시간 갱신) ---------- */
+  var vBoxes = document.querySelectorAll('[data-visitors]');
+  if (vBoxes.length && window.fetch) {
+    var bust = Math.floor(Date.now() / 600000);
+    var show = function (d) {
+      if (!d || typeof d.total !== 'number' || d.total <= 0) return;
+      vBoxes.forEach(function (box) {
+        box.querySelectorAll('[data-v]').forEach(function (el) {
+          var v = d[el.getAttribute('data-v')];
+          if (typeof v === 'number') el.textContent = v.toLocaleString('ko-KR');
+        });
+        box.hidden = false;
+      });
+    };
+    fetch('https://raw.githubusercontent.com/Jaeyeol8712/Transtool/main/assets/visitors.json?t=' + bust)
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .catch(function () { return fetch('/assets/visitors.json?t=' + bust).then(function (r) { return r.ok ? r.json() : null; }); })
+      .then(show).catch(function () {});
+  }
+
   /* ---------- 코드 복사 ---------- */
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {

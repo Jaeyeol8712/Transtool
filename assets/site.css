@@ -421,3 +421,7 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-embed textarea{width:100%;box-sizing:border-box;font:.8125rem/1.6 ui-monospace,Menlo,Consolas,monospace;border:1px solid var(--at-line);border-radius:4px;padding:.6rem;background:#fff;resize:vertical;color:var(--at-ink)}
 .at-prose .at-copy{margin-top:.5rem;border:0;border-radius:4px;background:var(--at-ink);color:#fff;font:inherit;font-weight:700;font-size:.875rem;padding:.55rem 1rem;cursor:pointer}
 .at-prose .at-copy:hover{background:#000}
+/* 방문자 수 */
+.at-visitors{display:flex;justify-content:center;gap:1rem;border-top:1px solid var(--at-line);padding:.6rem .5rem .7rem;font-size:.8125rem;color:var(--at-sub)}
+.at-visitors[hidden],.at-foot-visitors[hidden]{display:none}
+.at-visitors b,.at-foot-visitors b{color:var(--at-ink);font-weight:800;font-variant-numeric:tabular-nums}

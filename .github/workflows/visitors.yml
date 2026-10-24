@@ -1,0 +1,39 @@
+name: 방문자 수 갱신
+
+# 매시간 GA4 에서 오늘·어제·전체 방문자 수를 가져와 assets/visitors.json 을 갱신합니다.
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: visitors
+  cancel-in-progress: true
+
+jobs:
+  visitors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: GA4 방문자 수 조회
+        run: node scripts/ga4-visitors.mjs
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          GA_SERVICE_ACCOUNT: ${{ secrets.GA_SERVICE_ACCOUNT }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+      - name: 변경분 커밋
+        run: |
+          if [[ -n "$(git status --porcelain assets/visitors.json)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/visitors.json
+            git commit -m "chore: 방문자 수 갱신 [skip ci]"
+            git pull --rebase -q origin main
+            git push
+          fi

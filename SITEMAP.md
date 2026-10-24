@@ -52,3 +52,10 @@ python3 scripts/build.py
 4. GitHub 저장소 → Settings → Secrets and variables → Actions
    - Secrets: `GSC_SERVICE_ACCOUNT` = JSON 파일 내용 전체
    - Variables: `GSC_SITE` = 서치콘솔 속성 주소 (URL 접두어면 `https://www.aroundtool.com/`, 도메인 속성이면 `sc-domain:aroundtool.com`)
+
+## 방문자 수 표시 (오늘·어제·전체)
+
+- `.github/workflows/visitors.yml` 이 매시간 GA4 에서 숫자를 가져와 `assets/visitors.json` 에 저장하고, 사이드바·푸터가 이 파일을 읽어 표시합니다.
+- 기준: GA4 '사용자(활성 사용자)'. 전체는 2024-01-01부터 합계(`VISITORS_SINCE` 로 변경 가능).
+- 설정: 구글 자동 제출용 서비스 계정을 그대로 쓰고, GA4 관리 → 속성 액세스 관리에 서비스 계정 이메일을 **뷰어**로 추가하면 됩니다.
+- 숫자가 아직 없으면 방문자 줄은 자동으로 숨겨집니다.
