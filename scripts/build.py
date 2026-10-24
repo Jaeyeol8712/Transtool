@@ -607,8 +607,6 @@ def cross_links(p):
         for g in GUIDE_LINKS:
             add(g)
     elif s == "connect":
-        for r in p["post"].get("related", []):
-            add(r if r.endswith(".html") else r + ".html")
         if kind_of(p) == "travel":
             for t in TRIP_PAGES:
                 add(t[0] + ".html")
@@ -1153,6 +1151,10 @@ def build_connect_blog(p):
             if i < len(imgs):
                 src, alt = imgs[i]
                 parts.append(f'<figure class="at-fig"><img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" decoding="async"></figure>')
+        elif para.strip() == "{cta}":
+            parts.append(f'<div class="vx-cta-mid"><p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
+        elif para.lstrip().startswith("<"):
+            parts.append(para)
         else:
             parts.append(f"<p>{para}</p>")
     closing = "".join(f"<p>{x}</p>" for x in post.get("closing", []))
