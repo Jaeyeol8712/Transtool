@@ -48,7 +48,7 @@ const tokRes = await fetch("https://oauth2.googleapis.com/token", {
 });
 if (!tokRes.ok) {
   console.log(`✗ 구글 인증 실패 (${tokRes.status}) — 서비스 계정 키를 확인하세요.`);
-  process.exit(0);
+  process.exit(1);
 }
 return (await tokRes.json()).access_token;
 }
@@ -58,8 +58,9 @@ for (const feed of FEEDS) {
   try {
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feed)}`;
   const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${access_token}` } });
+  if (!res.ok) process.exitCode = 1;
   if (res.ok) console.log(`  ✓ 구글 서치콘솔 — ${feed} 제출됨`);
   else if (res.status === 403) console.log(`  ✗ 403 — 서치콘솔에서 ${sa.client_email} 를 "전체" 권한 사용자로 추가했는지, GSC_SITE(${SITE})가 맞는지 확인하세요.`);
   else console.log(`  ? ${res.status} ${await res.text()}`);
-  } catch (e) { console.log(`  ✗ ${feed} — 요청 실패: ${e.message}`); }
+  } catch (e) { process.exitCode = 1; console.log(`  ✗ ${feed} — 요청 실패: ${e.message}`); }
 }

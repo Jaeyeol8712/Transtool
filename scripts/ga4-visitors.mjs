@@ -41,7 +41,7 @@ if (!tok.ok) { console.log(`✗ 구글 인증 실패 (${tok.status})`); process.
 return (await tok.json()).access_token;
 }
 let access_token;
-try { access_token = await getToken(); } catch (e) { console.log(`✗ 구글 인증 실패: ${e.message}`); process.exit(0); }
+try { access_token = await getToken(); } catch (e) { console.log(`✗ 구글 인증 실패: ${e.message}`); process.exit(1); }
 
 async function users(startDate, endDate) {
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROPERTY}:runReport`, {
@@ -65,6 +65,7 @@ try {
   writeFileSync(OUT, JSON.stringify(data) + "\n");
   console.log(`✓ 오늘 ${data.today} · 어제 ${data.yesterday} · 전체 ${data.total}`);
 } catch (e) {
+  process.exitCode = 1;
   console.log(`✗ GA4 조회 실패: ${e.message}`);
   console.log("  GA4 속성 액세스 관리에 서비스 계정을 '뷰어'로 추가했는지, GA4_PROPERTY_ID 가 맞는지 확인하세요.");
 }

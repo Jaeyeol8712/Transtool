@@ -74,15 +74,14 @@ jobs:
       - name: 구글 인증
         id: gauth
         if: vars.GCP_WIF_PROVIDER != ''
-        continue-on-error: true
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
           service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/webmasters
+      # 실패하면 실행 기록이 빨간색으로 표시되어 바로 알 수 있습니다 (네이버 전송은 이미 끝난 뒤).
       - name: 구글 서치콘솔 사이트맵 제출
-        continue-on-error: true
         run: node scripts/gsc-sitemap.mjs
         env:
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
