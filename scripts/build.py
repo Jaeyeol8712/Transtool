@@ -730,7 +730,9 @@ def head_block(p, robots=None):
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{img}">
 <meta property="article:modified_time" content="{p['date']}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="{NAME}" href="{SITE}/feed.xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -1173,7 +1175,7 @@ def build_home():
                                    "target": {"@type": "EntryPoint", "urlTemplate": SITE + "/search.html?q={search_term_string}"},
                                    "query-input": "required name=search_term_string"}}
     org = {"@type": "Organization", "@id": SITE + "/#org", "name": NAME, "url": SITE + "/",
-           "logo": {"@type": "ImageObject", "url": SITE + "/apple-touch-icon.png", "width": 180, "height": 180},
+           "logo": {"@type": "ImageObject", "url": SITE + "/assets/logo-512.png", "width": 512, "height": 512},
            "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
     sections = {"@type": "ItemList", "name": "어라운드툴 주요 섹션", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/" + u} for i, (n, u) in

@@ -54,11 +54,11 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-header .at-in{display:flex;align-items:center;gap:1.25rem;padding-top:.9rem;padding-bottom:.9rem}
 .at-logo{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--at-ink);flex-shrink:0;
   font-size:1.25rem;font-weight:800;letter-spacing:-0.04em;line-height:1}
-.at-logo-mark{width:1.6rem;height:1.6rem;border-radius:5px;background:var(--at-brand);position:relative;flex-shrink:0}
+.at-logo-mark{width:1.6rem;height:1.6rem;border-radius:5px;background:#E02D2D;position:relative;flex-shrink:0}
 .at-logo-mark::before,.at-logo-mark::after{content:"";position:absolute;background:#fff;border-radius:1px}
 .at-logo-mark::before{left:.35rem;right:.35rem;top:.74rem;height:.13rem}
 .at-logo-mark::after{top:.35rem;bottom:.35rem;left:.74rem;width:.13rem;opacity:.55}
-.at-logo b{color:var(--at-brand);font-weight:800}
+.at-logo b{color:#E02D2D;font-weight:800}
 .at-search{flex:1;max-width:34rem;display:flex;align-items:stretch;border:2px solid var(--at-brand);border-radius:999px;
   background:var(--at-surface);overflow:hidden;margin:0}
 .at-search input{flex:1;min-width:0;border:0!important;background:transparent!important;font:inherit;font-family:var(--at-font);
