@@ -479,7 +479,7 @@ for p in PAGES.values():
         p["title"] = clean_title(p.get("old_title") or p["name"])
 
 PAGES["index.html"]["title"] = "어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드"
-PAGES["index.html"]["desc"] = (f"연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 {N_TOOLS}종, 광고 없이 근거를 밝힌 "
+PAGES["index.html"]["desc"] = (f"연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 {N_TOOLS}종, 대가 없이 근거를 밝힌 "
                                f"전국 {N_GU}개 시군구 맛집 {N_PLACES}곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.")
 PAGES["food.html"]["title"] = f"전국 맛집 기록 — {len(FOOD_AREAS)}개 시도 {N_GU}개 지역 {N_PLACES}곳"
 PAGES["food.html"]["desc"] = (f"인천 연수구, 서울 강남·용산, 부산 해운대, 속초, 대전, 광주, 제주, 전남까지 {N_GU}개 지역의 맛집 {N_PLACES}곳. "
@@ -549,7 +549,7 @@ def header_html(p):
         items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{"" if f == "index.html" else f}"{cur}>{label}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
 <div class="at-util"><div class="at-in">
-  <p class="at-util-msg">무료 생활 계산기 · 광고 없이 근거를 밝힌 맛집 기록</p>
+  <p class="at-util-msg">무료 생활 계산기 · 대가 없이 근거를 밝힌 맛집 기록</p>
   <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
 </div></div>
 <header class="at-header"><div class="at-in">
@@ -875,7 +875,7 @@ def footer_html():
     trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES)
     return f"""<footer class="at-footer"><div class="at-in">
   <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
-    <p>무료 생활 계산기와 광고 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+    <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다. 추천 모음 글에는 제휴(광고) 링크가 있으며 글마다 표시합니다.</p></div>
   <div class="at-footer-cols">
     <div><p>생활툴</p><ul>{groups}</ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>

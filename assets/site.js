@@ -87,9 +87,20 @@
     }, true);
   }
 
+  /* ---------- 유료 광고로 들어온 방문 ----------
+     구글 애즈·네이버·카카오 키워드 광고 랜딩은 광고 정책(Better Ads Standards의 팝업·깜빡이는 광고 금지,
+     이용자 의도와 무관한 화면 변화 금지)에 맞춰 팝업을 띄우지 않고 버튼 깜빡임도 멈춥니다.
+     광고 클릭 주소의 gclid·gad_source·n_media·utm_medium=cpc 등으로 판별하고, 같은 방문(세션) 동안 유지합니다. */
+  var adVisit = /[?&](gclid|gbraid|wbraid|gad_source|n_media|n_query|n_ad|napm|kakao_ad|ad)=|[?&]utm_medium=(cpc|ppc|paid|paidsearch|ad|ads|display|keyword)/i.test(location.search);
+  try {
+    if (adVisit) sessionStorage.setItem('at_ad_visit', '1');
+    else adVisit = sessionStorage.getItem('at_ad_visit') === '1';
+  } catch (e) {}
+  if (adVisit) document.documentElement.classList.add('at-ad-visit');
+
   /* ---------- 추천 글: 6초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
   var pop = document.querySelector('[data-at-popup]');
-  if (pop) {
+  if (pop && !adVisit) {
     /* 글을 열 때마다(페이지를 볼 때마다) 한 번 뜹니다. 닫으면 그 화면에서는 다시 뜨지 않습니다. */
     var seen = false;
     var openPop = function () {

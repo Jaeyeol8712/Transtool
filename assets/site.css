@@ -398,6 +398,7 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
   50%,90%{background:#111;box-shadow:0 0 0 10px rgba(200,30,30,0)}
   100%{background:#C81E1E;box-shadow:0 0 0 0 rgba(200,30,30,0)}}
 @media (prefers-reduced-motion:reduce){.at-cta{animation:none}}
+.at-ad-visit .at-cta{animation:none;background:#C81E1E}
 .at-tabs-lg{padding:1rem 1.1rem 0}
 .at-tabs-lg button{font-size:1rem;padding:.6rem 1rem}
 .at-tabs-lg .c{font-size:.8125rem;color:var(--at-faint);margin-left:.15rem}
