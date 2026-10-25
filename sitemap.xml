@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 175 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 178 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -142,6 +142,10 @@
     <loc>https://www.aroundtool.com/daejeon-yuseong.html</loc>
     <lastmod>2026-10-25</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-dj-yuseong-5.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/date_calculator.html</loc>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/discount_calculator.html</loc>
@@ -390,6 +394,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-won-1.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/hourly_monthly_wage_calculator.html</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/increase_decrease_calculator.html</loc>
     <lastmod>2026-10-25</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calculator-3.jpg</image:loc></image:image>
@@ -601,6 +609,10 @@
     <loc>https://www.aroundtool.com/savings_calculator.html</loc>
     <lastmod>2026-10-25</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-coins-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/service_years_calculator.html</loc>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/severance_calculator.html</loc>

@@ -4,7 +4,7 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 43종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 46종, 광고 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
     <item>
@@ -240,6 +240,14 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>근속연수 계산기 — 입사일·퇴사일로 근속기간 년·월·일과 재직일수</title>
+      <link>https://www.aroundtool.com/service_years_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/service_years_calculator.html</guid>
+      <category>생활툴</category>
+      <description>입사일과 퇴사일(또는 오늘)을 넣으면 근속기간을 년·개월·일로, 총 재직일수를 일 단위로 계산합니다. 퇴직금 대상(계속근로 1년 이상) 여부와 근속연수 세는 법, 퇴직금·연차 계산과의 관계를 설명합니다.</description>
+      <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>적금 이자 계산기 — 단리·월복리, 이자소득세 15.4% 세후 수령액</title>
       <link>https://www.aroundtool.com/savings_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/savings_calculator.html</guid>
@@ -328,6 +336,14 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>시급 월급 계산기 — 시급으로 월급·주급·연봉 환산 (주휴 포함)</title>
+      <link>https://www.aroundtool.com/hourly_monthly_wage_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/hourly_monthly_wage_calculator.html</guid>
+      <category>생활툴</category>
+      <description>시급과 1주 근무시간을 넣으면 주휴수당을 포함한 월급, 주급, 연봉 환산액을 계산합니다. 주 40시간 월 209시간 기준, 2026년 최저임금 10,320원과 2027년 10,700원 기준 월급을 함께 확인할 수 있습니다.</description>
+      <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>벌초 대행 비용 계산기 — 묘 개수·면적·접근성으로 예상 견적</title>
       <link>https://www.aroundtool.com/grave_weeding_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/grave_weeding_calculator.html</guid>
@@ -413,6 +429,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/discount_calculator.html</guid>
       <category>생활툴</category>
       <description>원래 가격과 할인율(%)을 넣으면 할인 금액과 최종 결제 금액을 계산합니다. 중복 할인(20% + 10%)이 30%가 아닌 이유, 할인 후 가격에서 정가를 거꾸로 구하는 방법도 함께 설명합니다.</description>
+      <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>날짜 계산기 — 두 날짜 사이 일수·D-day·100일 후 날짜</title>
+      <link>https://www.aroundtool.com/date_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/date_calculator.html</guid>
+      <category>생활툴</category>
+      <description>두 날짜 사이가 며칠인지, 오늘 기준 D-day가 며칠 남았는지, 시작일에서 100일·1000일 뒤가 언제인지 계산합니다. 기념일처럼 시작일을 1일로 세는 방식과 그렇지 않은 방식을 함께 보여 줍니다.</description>
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

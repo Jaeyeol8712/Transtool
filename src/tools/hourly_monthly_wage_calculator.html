@@ -1,0 +1,26 @@
+<label for="hwW">시급 (원)</label>
+<input id="hwW" type="number" inputmode="numeric" value="10320" step="10"/>
+<label for="hwH">1주 근무시간</label>
+<input id="hwH" type="number" inputmode="numeric" value="40" step="1"/>
+<button onclick="calcHw()">월급 계산</button>
+<p class="hint">2026년 최저임금 10,320원 · 2027년 10,700원 <button type="button" class="at-2027" onclick="document.getElementById('hwW').value=10700;calcHw()">2027년 기준</button></p>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">월 환산액 (주휴 포함)</span><span class="result-value" id="hwM">-</span></div>
+<div class="result-row"><span class="result-label">월 기준시간</span><span class="result-value" id="hwT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">주급 (주휴 포함)</span><span class="result-value" id="hwWk" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">연봉 환산</span><span class="result-value" id="hwY" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcHw(){
+ var w=+document.getElementById('hwW').value, h=+document.getElementById('hwH').value;
+ if(!(w>0)||!(h>0)) return alert('시급과 근무시간을 입력해주세요.');
+ var hh=Math.min(h,40), ju=h>=15?hh/40*8:0, wk=(h+ju), mt=Math.round(wk*365/7/12*10)/10;
+ if(h===40) mt=209;
+ var month=Math.round(w*mt/10)*10;
+ document.getElementById('hwM').textContent=month.toLocaleString('ko-KR')+'원';
+ document.getElementById('hwT').textContent=mt+'시간 (근무 '+h+'시간 + 주휴 '+(Math.round(ju*10)/10)+'시간) × 4.345주';
+ document.getElementById('hwWk').textContent=Math.round(w*wk).toLocaleString('ko-KR')+'원';
+ document.getElementById('hwY').textContent=(month*12).toLocaleString('ko-KR')+'원 (세전)';
+ document.getElementById('result').classList.add('show');
+}
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>날짜 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/date_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=6f8d1eb1">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="날짜 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">날짜 계산기</p>
+<label for="dcA">시작일</label>
+<input id="dcA" type="date"/>
+<label for="dcB">종료일 (D-day)</label>
+<input id="dcB" type="date"/>
+<label for="dcN">시작일에서 더할 일수 (선택, 예: 100)</label>
+<input id="dcN" type="number" inputmode="numeric" placeholder="100"/>
+<button onclick="calcDc()">날짜 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">두 날짜 사이</span><span class="result-value" id="dcDiff">-</span></div>
+<div class="result-row"><span class="result-label">오늘 기준 D-day</span><span class="result-value" id="dcD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">시작일 + 일수</span><span class="result-value" id="dcAdd" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+document.getElementById('dcA').valueAsDate = new Date();
+function dd(v){return new Date(v+'T00:00:00');}
+function fmt(t){var w='일월화수목금토'[t.getDay()];return t.getFullYear()+'. '+(t.getMonth()+1)+'. '+t.getDate()+'. ('+w+')';}
+function calcDc(){
+ var a=document.getElementById('dcA').value, b=document.getElementById('dcB').value, n=parseInt(document.getElementById('dcN').value,10);
+ if(!a) return alert('시작일을 입력해주세요.');
+ var A=dd(a), now=new Date(); now=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+ if(b){var B=dd(b), diff=Math.round((B-A)/864e5);
+  document.getElementById('dcDiff').textContent=Math.abs(diff).toLocaleString('ko-KR')+'일 차이 (시작일 포함하면 '+(Math.abs(diff)+1).toLocaleString('ko-KR')+'일째)';
+  var r=Math.round((B-now)/864e5); document.getElementById('dcD').textContent = r>0?'D-'+r : (r===0?'D-day':'D+'+(-r));
+ } else {document.getElementById('dcDiff').textContent='종료일을 넣으면 표시됩니다'; document.getElementById('dcD').textContent='-';}
+ if(!isNaN(n)){var C=new Date(A.getTime()+n*864e5), C1=new Date(A.getTime()+(n-1)*864e5);
+  document.getElementById('dcAdd').textContent=n+'일 후 '+fmt(C)+' · 시작일을 1일로 세면 '+fmt(C1);}
+ else document.getElementById('dcAdd').textContent='일수를 넣으면 표시됩니다';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/date_calculator.html" target="_blank" rel="noopener">어라운드툴 날짜 계산기</a></p>
+</body>
+</html>

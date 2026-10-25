@@ -36,7 +36,7 @@ GUIDES = [
             ("수습기간에는 최저임금보다 적게 줘도 되나요?", "1년 이상 근로계약을 맺은 수습 3개월 이내는 최저임금의 90%까지 줄 수 있지만, 단순노무직은 감액할 수 없습니다."),
             ("5인 미만 사업장도 최저임금을 지켜야 하나요?", "네. 최저임금은 사업장 규모와 관계없이 모든 근로자에게 적용됩니다."),
         ],
-        "tools": ["holiday_pay_calculator", "salary_calculator", "unemployment_benefit_calculator"],
+        "tools": ["hourly_monthly_wage_calculator", "holiday_pay_calculator", "unemployment_benefit_calculator"],
         "sources": [("2027년 최저임금 1만700원 확정 (토스플레이스, 2026.7.16)", "https://tossplace.com/story/2027_minimum_wage_2")],
     },
     {
@@ -60,7 +60,7 @@ GUIDES = [
             ("퇴직금은 언제까지 받아야 하나요?", "퇴직한 날부터 14일 이내입니다. 특별한 사정이 있으면 당사자 합의로 기일을 연장할 수 있습니다."),
             ("퇴직연금(DC형)도 같은 기준인가요?", "가입 조건은 같고, DC형은 회사가 매년 적립한 금액과 운용 수익을 받습니다. 금액 계산 방식이 퇴직금과 다릅니다."),
         ],
-        "tools": ["severance_calculator", "pto_calculator", "unemployment_benefit_calculator"],
+        "tools": ["severance_calculator", "service_years_calculator", "unemployment_benefit_calculator"],
         "sources": [("근로자퇴직급여 보장법 (국가법령정보센터)", "https://www.law.go.kr/법령/근로자퇴직급여보장법")],
     },
     {
@@ -130,7 +130,7 @@ GUIDES = [
             ("입사 1년 차에 쓴 연차가 다음 해 15일에서 빠지나요?", "아닙니다. 2020년 3월 법 개정 이후 1년 미만 기간의 연차는 다음 해 15일과 따로 계산합니다."),
             ("알바도 연차가 있나요?", "상시 5인 이상 사업장에서 4주 평균 주 15시간 이상 일하면 근무시간에 비례해 연차가 생깁니다."),
         ],
-        "tools": ["pto_calculator", "severance_calculator"],
+        "tools": ["pto_calculator", "service_years_calculator"],
         "sources": [("근로기준법 제60조 (국가법령정보센터)", "https://www.law.go.kr/법령/근로기준법")],
     },
     {
@@ -157,7 +157,7 @@ GUIDES = [
             ("5인 미만 편의점 알바도 주휴수당이 있나요?", "네. 주휴수당은 5인 미만 사업장에도 적용됩니다."),
             ("월급에 주휴수당이 포함돼 있나요?", "월급제는 보통 주휴시간을 포함한 월 209시간으로 계산합니다. 근로계약서의 '주휴수당 포함' 문구를 확인하세요."),
         ],
-        "tools": ["holiday_pay_calculator", "salary_calculator"],
+        "tools": ["holiday_pay_calculator", "hourly_monthly_wage_calculator"],
         "sources": [("근로기준법 제55조 (국가법령정보센터)", "https://www.law.go.kr/법령/근로기준법")],
     },
     {
@@ -226,7 +226,7 @@ GUIDES = [
             ("만 나이로 바뀌면 정년이 늦어지나요?", "정년은 원래 만 나이 기준이라 바뀌지 않았습니다."),
             ("‘한국 나이’는 이제 안 쓰나요?", "법적으로는 쓰지 않지만 일상 대화에서는 여전히 쓰이기도 합니다. 공문서·계약은 만 나이가 기준입니다."),
         ],
-        "tools": ["age_calculator", "pension_age_calculator"],
+        "tools": ["age_calculator", "date_calculator"],
         "sources": [("행정기본법 제7조의2 (국가법령정보센터)", "https://www.law.go.kr/법령/행정기본법")],
     },
     {

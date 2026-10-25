@@ -1,0 +1,28 @@
+<label for="svS">입사일</label>
+<input id="svS" type="date"/>
+<label for="svE">퇴사일 (재직 중이면 기준일, 기본: 오늘)</label>
+<input id="svE" type="date"/>
+<button onclick="calcSv()">근속연수 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">근속기간</span><span class="result-value" id="svYmd">-</span></div>
+<div class="result-row"><span class="result-label">총 재직일수</span><span class="result-value" id="svDays" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">퇴직금 대상</span><span class="result-value" id="svSev" style="font-size:1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+document.getElementById('svE').valueAsDate = new Date();
+function calcSv(){
+ var s=document.getElementById('svS').value, e=document.getElementById('svE').value;
+ if(!s||!e) return alert('입사일과 퇴사일(기준일)을 입력해주세요.');
+ var a=new Date(s+'T00:00:00'), b=new Date(e+'T00:00:00');
+ if(b<a) return alert('퇴사일이 입사일보다 빠릅니다.');
+ var days=Math.round((b-a)/864e5)+1;
+ var end=new Date(b.getTime()+864e5);
+ var y=end.getFullYear()-a.getFullYear(), m=end.getMonth()-a.getMonth(), d=end.getDate()-a.getDate();
+ if(d<0){m--; d+=new Date(end.getFullYear(), end.getMonth(), 0).getDate();}
+ if(m<0){y--; m+=12;}
+ document.getElementById('svYmd').textContent=y+'년 '+m+'개월 '+d+'일';
+ document.getElementById('svDays').textContent=days.toLocaleString('ko-KR')+'일 (입사일·퇴사일 포함)';
+ document.getElementById('svSev').textContent = y>=1 ? '계속근로 1년 이상 — 다른 요건 충족 시 대상' : '1년 미만 — 법정 퇴직금 대상 아님';
+ document.getElementById('result').classList.add('show');
+}
+</script>
