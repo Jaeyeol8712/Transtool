@@ -1540,10 +1540,18 @@ def build_connect_hub():
         items = [q for q in SHOP_LIVE if kind_of(q) == k]
         sel = "true" if i == 0 else "false"
         tabs.append(f'<li role="presentation"><button type="button" role="tab" id="t-{k}" aria-controls="{k}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(label)} <span class="c">{len(items)}</span></button></li>')
-        rows = "".join(
-            f'<tr><td class="k"><span class="tag shop">광고</span></td><td><a href="/{q["file"]}">{esc(q["title"])}</a>'
-            f'<span class="x">{esc(q["post"]["keyword"])}</span></td><td class="d">{short_date(q["date"])}</td></tr>' for q in items)
-        body = (f'<table class="at-btable"><thead><tr><th>구분</th><th>글</th><th class="d">작성</th></tr></thead><tbody>{rows}</tbody></table>'
+        def card(q):
+            post = q["post"]
+            cp = post.get("cta_photo") or {}
+            thumb = cp.get("src") or (post.get("images") or [("", "")])[0][0]
+            img = (f'<a class="at-shop-thumb" href="/{q["file"]}"><img src="{esc(thumb)}" alt="{esc(cp.get("alt") or post["title"])}" loading="lazy" decoding="async"></a>'
+                   if thumb else "")
+            btn = (f'<a class="at-cta at-cta-sm" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" '
+                   f'rel="sponsored nofollow noopener">{esc(cta_label(post))}</a>')
+            return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">광고</span>'
+                    f'<a class="t" href="/{q["file"]}">{esc(q["title"])}</a>'
+                    f'<span class="x">{esc(post["keyword"])} · {short_date(q["date"])}</span>{btn}</div></li>')
+        body = (f'<ul class="at-shop-list">{"".join(card(q) for q in items)}</ul>'
                 if items else '<p class="at-empty">아직 올라온 글이 없습니다.</p>')
         panes.append(f'<section class="at-pane" role="tabpanel" id="{k}" aria-labelledby="t-{k}"{" hidden" if i else ""}>'
                      f'<h2 class="at-sr">{esc(label)}</h2>{body}</section>')

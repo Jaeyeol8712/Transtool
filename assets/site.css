@@ -525,3 +525,16 @@ html.at-pop-open{overflow:hidden}
 .at-blog .at-table table{min-width:0}
 .at-blog .at-table th{width:46%}
 .at-2027{margin-left:.35rem;padding:.2rem .6rem;border:1px solid var(--at-brand);border-radius:999px;background:#fff;color:var(--at-brand);font:inherit;font-size:.8125rem;font-weight:700;cursor:pointer}
+/* 추천 모음 목록: 썸네일 + 제목 + 가격 버튼 */
+.at-shop-list{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.9rem}
+.at-shop-item{display:flex;gap:.85rem;padding:.85rem;border:1px solid var(--at-line);border-radius:12px;background:#fff}
+.at-shop-thumb{flex:0 0 7.5rem}
+.at-shop-thumb img{display:block;width:7.5rem;height:7.5rem;object-fit:cover;border-radius:10px;border:1px solid var(--at-line)}
+.at-shop-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:.3rem}
+.at-shop-txt .t{font-weight:800;color:var(--at-ink);text-decoration:none;line-height:1.4}
+.at-shop-txt .t:hover{text-decoration:underline}
+.at-shop-txt .x{font-size:.8125rem;color:var(--at-sub)}
+.at-shop-txt .tag{align-self:flex-start}
+.at-cta.at-cta-sm{margin:.35rem 0 0!important;padding:.6rem .8rem;font-size:.9375rem;border-radius:8px}
+@media (max-width:30rem){.at-shop-thumb{flex-basis:5.5rem}.at-shop-thumb img{width:5.5rem;height:5.5rem}}
+.at-shop-txt .tag{font-size:.6875rem;font-weight:800;padding:.1rem .45rem;border-radius:4px;background:#FFF1D6;color:#7A4B00}
