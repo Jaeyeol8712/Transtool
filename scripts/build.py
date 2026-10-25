@@ -31,6 +31,7 @@ os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from calc_content import CALCS  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
+from guides import GUIDES  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
@@ -197,6 +198,7 @@ KEY_TOOLS = ["salary_calculator", "severance_calculator", "unemployment_benefit_
 TRIP_PAGES = [("travel-jeju", "제주도 여행", "국내"), ("travel-busan", "부산 해운대 여행", "국내"),
               ("travel-sokcho", "속초 여행", "국내"), ("travel-osaka", "오사카 여행", "해외")]
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
+Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
               ("privacy", "개인정보처리방침"), ("terms", "이용약관")]
 
@@ -364,6 +366,10 @@ def register_misc():
         title, desc = head_info(f)
         PAGES[f] = dict(file=f, section="trip", name=name, short=name.replace(" 여행", ""), kind=kind,
                         desc=desc, date=BASE_DATE, old_title=title)
+    for g in GUIDES:
+        f = f"guide-{g['slug']}.html"
+        PAGES[f] = dict(file=f, section="guide", name=g["name"], short=g["name"], title=g["title"], desc=g["desc"],
+                        date=g["date"], guide=g)
     for slug, name in GUIDE_PAGES:
         f = slug + ".html"
         title, desc = head_info(f)
@@ -648,11 +654,11 @@ def board_html(p):
 </div>"""
     if s == "guide":
         tabs = []
-        for slug, name in GUIDE_PAGES:
+        for slug, name in Q_GUIDES + GUIDE_PAGES:
             cur = ' aria-current="page"' if slug + ".html" == p["file"] else ""
             tabs.append(f'<li><a href="/{slug}.html"{cur}>{esc(name)}</a></li>')
         return f"""<div class="at-board">
-  <div class="at-board-head"><p class="at-board-name"><a href="/etc.html">연도별 가이드</a></p><span class="at-board-meta">매년 1회 갱신</span></div>
+  <div class="at-board-head"><p class="at-board-name"><a href="/etc.html">생활 가이드</a></p><span class="at-board-meta">질문에 바로 답하는 가이드</span></div>
   <ul class="at-board-tabs">{"".join(tabs)}</ul>
 </div>"""
     return ""
@@ -1101,6 +1107,14 @@ def transform_existing(p):
         for a, b in FONT_FIX:
             body = body.replace(a, b)
     body, photo_lds = inject_page_photos(f, body)
+    # 직접 만든 계산기 페이지에도 '관련 가이드' 연결 (자주 묻는 질문 앞)
+    body = re.sub(r"<!-- at:guides -->.*?<!-- /at:guides -->\n?", "", body, flags=re.S)
+    if p.get("section") == "tools":
+        gl = guide_links_for(f[:-5])
+        if gl:
+            blk = f'<!-- at:guides --><section class="at-prose" style="margin:1.5rem auto">{gl}</section><!-- /at:guides -->\n'
+            m = re.search(r"<h2[^>]*>\s*자주 묻는 질문", body)
+            body = body[:m.start()] + blk + body[m.start():] if m else body + blk
     # 맛집 게시판의 짧은 H1('밥집', '갈치')에 지역명을 붙여 검색어와 맞춥니다 (한 번만 적용).
     if p.get("section") == "food" and p.get("gu"):
         def _h1(m):
@@ -1246,6 +1260,7 @@ def build_calc(slug):
 {formula}
 {c.get('body', '')}
 {faq_html(c['faq'])}
+{guide_links_for(slug)}
 <h2>함께 보면 좋은 계산기</h2>
 <ul>{related}</ul>
 {embed_box(slug)}
@@ -1420,6 +1435,47 @@ def build_connect_blog(p):
     write(p["file"], page_shell(p, content, extra))
 
 
+def guide_links_for(slug):
+    """계산기 페이지에 붙일 '관련 가이드' 목록."""
+    gs = [g for g in GUIDES if slug in g.get("tools", [])]
+    if not gs:
+        return ""
+    li = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(g["title"])}</a></li>' for g in gs)
+    return f"<h2>관련 가이드</h2><ul>{li}</ul>"
+
+
+def build_qguide(p):
+    g = p["guide"]
+    secs = "".join(f"<h2>{esc(h)}</h2>{html_}" for h, html_ in g["body"])
+    tool_btns = "".join(
+        f'<a class="at-guide-tool" href="/{s}.html"><b>{esc(PAGES[s + ".html"]["name"])}{"" if "계산" in PAGES[s + ".html"]["name"] or "검사" in PAGES[s + ".html"]["name"] else " 계산기"}</b>'
+        f'<span>{esc(PAGES[s + ".html"]["desc"][:48].rsplit(" ", 1)[0])}…</span></a>'
+        for s in g.get("tools", []) if s + ".html" in PAGES)
+    src = "".join(f'<li><a href="{esc(u)}" rel="nofollow noopener" target="_blank">{esc(n)}</a></li>' for n, u in g.get("sources", []))
+    others = "".join(f'<li><a href="/guide-{x["slug"]}.html">{esc(x["title"])}</a></li>' for x in GUIDES if x is not g)[:4000]
+    content = f"""<article>
+<header class="at-page-head">
+  <h1>{esc(g['title'])}</h1>
+  <p class="meta"><span>생활 가이드</span><span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span><span><a href="/editorial.html">편집 방침</a></span></p>
+</header>
+<div class="at-page"><div class="at-prose at-blog">
+<div class="at-answer"><p>{g['answer']}</p></div>
+{f'<div class="at-guide-tools">{tool_btns}</div>' if tool_btns else ''}
+{secs}
+{faq_html(g['faq']) if g.get('faq') else ''}
+{f'<h2>근거 자료</h2><ul class="at-sources">{src}</ul>' if src else ''}
+<h2>다른 생활 가이드</h2><ul>{others}</ul>
+<p class="at-note">이 글은 작성일 기준 법령·공식 자료를 바탕으로 정리한 일반 안내이며, 개별 상황에 따라 다를 수 있습니다. 중요한 결정 전에는 관할 기관이나 전문가에게 확인하세요.</p>
+</div></div>
+</article>"""
+    art = {"@type": "Article", "headline": g["title"], "description": g["desc"], "inLanguage": "ko-KR",
+           "datePublished": p["date"], "dateModified": g.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
+           "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
+           "image": image_ld("/assets/og/og-default.png", g["title"])}
+    extra = [art] + ([faq_ld(g["faq"])] if g.get("faq") else [])
+    write(p["file"], page_shell(p, content, extra))
+
+
 def build_connect_post(p):
     post = p["post"]
     if post.get("body"):
@@ -1524,7 +1580,7 @@ def build_home():
     trips += '<a href="/japan_travel_calculator.html"><b>일본 여행 경비</b><span>항공·숙박·식비 일자별 예산 계산</span></a>'
     trips += '<a href="/exchange_rate_calculator.html"><b>환율 계산</b><span>8개 통화 최신 기준 환율</span></a>'
     guides = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], "가이드", "etc", None, "", PAGES[s + ".html"]["date"])
-                     for s, _ in GUIDE_PAGES)
+                     for s, _ in Q_GUIDES[:6] + GUIDE_PAGES)
     guides += "".join(row("/" + x + ".html", PAGES[x + ".html"]["name"], "텍스트", "", None, "", PAGES[x + ".html"]["date"], is_new(PAGES[x + ".html"]["date"]))
                       for x in ("character_counter", "spell_checker", "spacing_checker"))
     labor = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], "노동", "", None, "", PAGES[s + ".html"]["date"])
@@ -1754,7 +1810,7 @@ def build_sitemap_html():
         secs.append(f'<h3>맛집 · {esc(rname)}</h3><ul class="at-cols">{items}</ul>')
     items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n, _ in TRIP_PAGES)
     secs.append(f'<h3>여행</h3><ul class="at-cols"><li><a href="/travel.html">여행 전체</a></li>{items}</ul>')
-    items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n in GUIDE_PAGES)
+    items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n in Q_GUIDES + GUIDE_PAGES)
     secs.append(f'<h3>가이드</h3><ul class="at-cols"><li><a href="/etc.html">가이드·텍스트 도구</a></li>{items}</ul>')
     items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n in INFO_PAGES)
     secs.append(f'<h3>사이트 안내</h3><ul class="at-cols"><li><a href="/">홈</a></li><li><a href="/food.html">전국 맛집</a></li><li><a href="/tools.html">생활툴</a></li>{items}</ul>')
@@ -1904,7 +1960,7 @@ def build_llms():
                     lines.append(f"- [{q['name']}]({url_of(q['file'])})" + (f" — {q['count']}곳" if q["count"] else ""))
         lines.append("")
     lines += ["## 여행", ""] + [f"- [{n}]({SITE}/{s}.html): {PAGES[s + '.html']['desc']}" for s, n, _ in TRIP_PAGES] + [""]
-    lines += ["## 가이드", ""] + [f"- [{n}]({SITE}/{s}.html)" for s, n in GUIDE_PAGES] + [""]
+    lines += ["## 가이드", ""] + [f"- [{PAGES[s + '.html'].get('title') or n}]({SITE}/{s}.html)" for s, n in Q_GUIDES + GUIDE_PAGES] + [""]
     if SHOP_LIVE:
         lines += ["## 추천 모음 — 제품·여행 (제휴 광고)", "", "아래 글에는 네이버 커넥트 제휴 링크가 있으며, 구매 시 사이트가 수수료를 받습니다.", ""]
         lines += [f"- [{q['title']}]({url_of(q['file'])})" for q in SHOP_LIVE] + [""]
@@ -1936,10 +1992,12 @@ def main():
     for q in SHOP:
         build_connect_post(q)
     build_connect_hub()
+    for g in GUIDES:
+        build_qguide(PAGES[f"guide-{g['slug']}.html"])
     for _, _, _, gus in FOOD_AREAS:
         for pre, _ in gus:
             build_gu_hub(PAGES[pre + ".html"])
-    generated = {pre + ".html" for _, _, _, gus in FOOD_AREAS for pre, _ in gus} | {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html", "connect.html"} | {s + ".html" for s in CALCS} | {q["file"] for q in SHOP}
+    generated = {pre + ".html" for _, _, _, gus in FOOD_AREAS for pre, _ in gus} | {"index.html", "food.html", "tools.html", "search.html", "404.html", "sitemap.html", "connect.html"} | {s + ".html" for s in CALCS} | {q["file"] for q in SHOP} | {f"guide-{g['slug']}.html" for g in GUIDES}
     for f, p in PAGES.items():
         if f in generated or f in UNTOUCHED:
             continue

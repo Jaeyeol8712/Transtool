@@ -514,3 +514,13 @@ html.at-pop-open{overflow:hidden}
 .at-pop-img{display:block;width:100%!important;height:100%!important;max-width:none;object-fit:cover;object-position:center}
 .vx-cta-top{margin:0 0 .7rem}
 .vx-cta-top img{max-height:260px}
+/* 질문형 가이드: 관련 계산기 바로가기 */
+.at-guide-tools{display:grid;gap:.6rem;margin:1.2rem 0 1.6rem}
+@media (min-width:40rem){.at-guide-tools{grid-template-columns:repeat(2,1fr)}}
+.at-guide-tool{display:block;padding:.85rem 1rem;border:2px solid var(--at-brand);border-radius:12px;text-decoration:none;background:#F2FAF8}
+.at-guide-tool b{display:block;color:var(--at-brand);font-size:1rem}
+.at-guide-tool span{display:block;color:var(--at-sub);font-size:.8125rem;margin-top:.2rem}
+.at-sources{font-size:.875rem}
+/* 가이드 표: 휴대폰에서 가로 스크롤 없이 */
+.at-blog .at-table table{min-width:0}
+.at-blog .at-table th{width:46%}
