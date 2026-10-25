@@ -63,7 +63,7 @@
 ### 여행
 - [주유 경제성](https://www.aroundtool.com/fuel_economy_calculator.html): 이동 거리(km), 차량 연비(km/L), 리터당 연료 가격을 넣으면 필요한 연료량과 예상 유류비를 계산합니다. 왕복·카풀 정산, 공인연비와 실연비 차이, 전기차 충전비와 비교하는 방법도 정리했습니다.
 - [환율](https://www.aroundtool.com/exchange_rate_calculator.html): 미국 달러, 일본 엔(100엔), 유로, 중국 위안, 영국 파운드, 대만 달러, 태국 바트, 베트남 동을 원화로, 원화를 외화로 환산합니다. 공개 환율 API의 최신 기준 환율을 불러오고 직접 수정할 수도 있습니다.
-- [일본 여행 경비](https://www.aroundtool.com/japan_travel_calculator.html): 2026년 시세 기준 일본 여행 경비 계산기. 도시와 기간, 여행 스타일을 고르면 항공권·숙박·식비·교통비 내역과 일자별 추천 코스, 도시별 맛집 예산이 함께 나옵니다. 후쿠오카·오사카·도쿄·삿포로·오키나와·나고야 6개 도시.
+- [일본 여행 경비](https://www.aroundtool.com/japan_travel_calculator.html): 일본 여행 비용이 얼마나 드는지 도쿄·오사카·후쿠오카·삿포로·오키나와·나고야 등 도시와 기간, 여행 스타일로 계산합니다. 항공권·숙박·식비·교통비 내역과 일자별 코스를 함께 보여 줍니다.
 - [캠핑 장비 견적](https://www.aroundtool.com/camping_gear_calculator.html): 2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.
 
 ### 텍스트
@@ -104,7 +104,7 @@
 - [인천 연수구 이국](https://www.aroundtool.com/yeonsu-iguk.html) — 5곳
 - [인천 연수구 술과 안주](https://www.aroundtool.com/yeonsu-sul-anju.html) — 3곳
 - [인천 연수구 카페·디저트](https://www.aroundtool.com/yeonsu-cafe.html) — 3곳
-- [인천 연수구 함박마을](https://www.aroundtool.com/yeonsu-hambak.html) — 3곳
+- [인천 연수구 함박마을 맛집](https://www.aroundtool.com/yeonsu-hambak.html) — 3곳
 
 ### 서울특별시
 - [서울 강남구 밥집](https://www.aroundtool.com/gangnam-bapjip.html) — 2곳
@@ -168,7 +168,7 @@
 - [제주 서귀포시 이국](https://www.aroundtool.com/jeju-seogwipo-iguk.html) — 1곳
 - [제주 서귀포시 술과 안주](https://www.aroundtool.com/jeju-seogwipo-sul-anju.html) — 2곳
 - [제주 서귀포시 카페·디저트](https://www.aroundtool.com/jeju-seogwipo-cafe.html) — 2곳
-- [제주 서귀포시 갈치](https://www.aroundtool.com/jeju-seogwipo-galchi.html) — 2곳
+- [제주 서귀포시 서귀포 갈치 맛집 2곳](https://www.aroundtool.com/jeju-seogwipo-galchi.html) — 2곳
 
 ### 전라남도
 - [전남 동부권 국물과 면](https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html)

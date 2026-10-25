@@ -466,6 +466,27 @@ PAGES["food.html"]["desc"] = (f"인천 연수구, 서울 강남·용산, 부산 
 PAGES["tools.html"]["title"] = f"생활툴 — 무료 생활 계산기 {N_TOOLS}종 모음"
 PAGES["tools.html"]["desc"] = (f"연봉 실수령액, 퇴직금, 실업급여, 주휴수당, 대출 이자, 취득세, 중개보수, 전기요금, BMI까지 생활 계산기 {N_TOOLS}종. "
                                "로그인 없이 무료이며 2026년 요율과 법령을 반영했습니다.")
+# ── 서치콘솔 기회 검색어(평균 8~20위)에 맞춘 제목·설명 보강 (2026-10-25 보고서 기준) ──
+SEO_FIX = {
+    "japan_travel_calculator.html": ("일본 여행 경비 계산기 — 일본여행 비용 얼마? 항공·숙박·식비 예산",
+        "일본 여행 비용이 얼마나 드는지 도쿄·오사카·후쿠오카·삿포로·오키나와·나고야 등 도시와 기간, 여행 스타일로 계산합니다. 항공권·숙박·식비·교통비 내역과 일자별 코스를 함께 보여 줍니다."),
+    "loan_calculator.html": ("대출 이자 계산기 — 원리금균등·원금균등 상환 계산기, 월 상환금표",
+        None),
+    "exchange_rate_calculator.html": ("환율 계산기 — 달러·엔화·위안·유로 원화 환산 (오늘 기준 환율)", None),
+    "character_counter.html": ("글자수 세기 — 공백 포함·제외 글자수 계산기 (자소서·블로그)", None),
+    "spell_checker.html": ("맞춤법 검사기 — 오탈자 검사, 자주 틀리는 표현 약 70개 자동 표시", None),
+    "spacing_checker.html": ("띄어쓰기 검사기 — 자소서·블로그 글 띄어쓰기 교정 (의존명사 ‘수·것·때·줄’)", None),
+    "severance_calculator.html": ("퇴직금 계산기 — 근속연수·평균임금으로 퇴직금 얼마인지 계산 (상여금 반영)", None),
+    "yeonsu-hambak.html": ("함박마을 맛집 — 인천 연수구 고려인 마을 중앙아시아 식당 기록",
+        "인천 연수구 함박마을(국내 최대 고려인 마을)의 중앙아시아 식당 기록. 플롭·샤슬릭·삼사 같은 메뉴와 가게별 선정 근거, 단점까지 함께 정리했습니다."),
+    "jeju-seogwipo-galchi.html": ("서귀포 갈치 맛집 2곳 — 갈치국·갈치조림 (호림식당·네거리식당)", None),
+    "yongsan-bapjip.html": ("용산 생선구이·순대국 맛집 2곳 — 후암동 순대국과 용산동 노포 대원식당", None),
+}
+for _f, (_t, _d) in SEO_FIX.items():
+    if _f in PAGES:
+        PAGES[_f]["title"] = _t
+        if _d:
+            PAGES[_f]["desc"] = _d
 PAGES["search.html"].update(title="사이트 검색", desc="어라운드툴의 계산기, 맛집, 여행, 가이드 페이지를 검색합니다.")
 PAGES["404.html"].update(title="페이지를 찾을 수 없습니다", desc="요청한 주소의 페이지가 없거나 이동했습니다.")
 PAGES["sitemap.html"].update(title="사이트맵 — 어라운드툴 전체 페이지 목록",
@@ -1080,6 +1101,15 @@ def transform_existing(p):
         for a, b in FONT_FIX:
             body = body.replace(a, b)
     body, photo_lds = inject_page_photos(f, body)
+    # 맛집 게시판의 짧은 H1('밥집', '갈치')에 지역명을 붙여 검색어와 맞춥니다 (한 번만 적용).
+    if p.get("section") == "food" and p.get("gu"):
+        def _h1(m):
+            x = m.group(1).strip()
+            if p["gu"] in x or len(x) > 10:
+                return m.group(0)
+            tail = "" if x.endswith("집") else " 맛집"
+            return f"<h1>{p['region_short']} {p['gu']} {x}{tail}</h1>"
+        body = re.sub(r"<h1>([^<]{1,12})</h1>", _h1, body, count=1)
     # 구조화 데이터: 페이지 고유 JSON-LD 에 FAQ가 없으면 본문 <details>로 생성
     has_faq = "FAQPage" in preserved
     extra = list(photo_lds)
