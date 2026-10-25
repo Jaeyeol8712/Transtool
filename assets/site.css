@@ -524,3 +524,4 @@ html.at-pop-open{overflow:hidden}
 /* 가이드 표: 휴대폰에서 가로 스크롤 없이 */
 .at-blog .at-table table{min-width:0}
 .at-blog .at-table th{width:46%}
+.at-2027{margin-left:.35rem;padding:.2rem .6rem;border:1px solid var(--at-brand);border-radius:999px;background:#fff;color:var(--at-brand);font:inherit;font-size:.8125rem;font-weight:700;cursor:pointer}
