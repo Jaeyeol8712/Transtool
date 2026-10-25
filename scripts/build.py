@@ -99,24 +99,34 @@ def photo_html(name, eager=False):
     return figure_html(f"/assets/photos/{name}.jpg", m["alt"], m.get("caption"), photo_credit(m), eager)
 
 
-def image_ld(src, alt, photo=None):
-    """ImageObject — 구글 이미지 검색의 캡션·라이선스 정보에 쓰입니다."""
+def image_ld(src, alt, photo=None, seller=None):
+    """ImageObject — 구글 이미지 검색의 캡션·라이선스(이미지 메타데이터) 정보.
+    photo: 무료 사진 메타(위키미디어·플리커), seller: 판매 페이지 이미지의 권리자 이름(브랜드)."""
     url = SITE + src if src.startswith("/") else src
-    o = {"@type": "ImageObject", "contentUrl": url, "url": url, "caption": alt}
-    wh = img_size(src)
+    o = {"@type": "ImageObject", "contentUrl": url, "url": url, "caption": alt, "name": alt}
+    wh = img_size(src) if src.startswith("/") else None
     if wh:
         o["width"], o["height"] = wh
     if photo:
-        o["creditText"] = photo.get("creator") or "작가 미상"
-        o["creator"] = {"@type": "Person", "name": photo.get("creator") or "작가 미상"}
-        o["copyrightNotice"] = photo.get("creator") or ""
+        who = photo.get("creator") or "작가 미상"
+        o["creditText"] = who
+        o["creator"] = {"@type": "Person", "name": who}
+        o["copyrightNotice"] = f"© {who} ({LIC_NAME.get(photo.get('license'), photo.get('license', ''))})"
         if photo.get("license_url"):
             o["license"] = photo["license_url"]
-        if photo.get("foreign_landing_url"):
-            o["acquireLicensePage"] = photo["foreign_landing_url"]
+        o["acquireLicensePage"] = photo.get("foreign_landing_url") or photo.get("license_url") or SITE + "/terms.html#copyright"
+    elif seller:
+        o["creditText"] = f"{seller} 판매 페이지 이미지"
+        o["creator"] = {"@type": "Organization", "name": seller}
+        o["copyrightNotice"] = f"© {seller}"
+        o["license"] = SITE + "/terms.html#copyright"
+        o["acquireLicensePage"] = SITE + "/contact.html"
     else:
         o["creditText"] = "어라운드툴"
-        o["creator"] = {"@id": SITE + "/#org"}
+        o["creator"] = {"@type": "Organization", "name": "어라운드툴", "url": SITE + "/"}
+        o["copyrightNotice"] = "© 어라운드툴 (aroundtool.com)"
+        o["license"] = SITE + "/terms.html#copyright"
+        o["acquireLicensePage"] = SITE + "/contact.html"
     return o
 
 JS_V = _hl.md5(open(__import__("os").path.join(__import__("os").path.dirname(__file__), "..", "assets", "site.js"), "rb").read()).hexdigest()[:8]
@@ -872,7 +882,7 @@ def page_ld(p, extra=None):
     wp = {"@type": typ, "@id": u + "#webpage", "url": u, "name": p["title"], "description": p["desc"],
           "inLanguage": "ko-KR", "isPartOf": {"@id": SITE + "/#website"},
           "publisher": {"@id": SITE + "/#org"}, "dateModified": p["date"],
-          "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/assets/og/og-default.png"}}
+          "primaryImageOfPage": image_ld("/assets/og/og-default.png", "어라운드툴 대표 이미지")}
     bc = crumb_ld(p)
     if bc:
         wp["breadcrumb"] = {"@id": u + "#breadcrumb"}
@@ -1347,6 +1357,8 @@ def build_connect_blog(p):
             parts.append(para)
         else:
             parts.append(f"<p>{para}</p>")
+    if post.get("cta_photo"):
+        ld_imgs.insert(0, image_ld(post["cta_photo"]["src"], post["cta_photo"]["alt"], seller=post.get("brand") or "판매처"))
     closing = "".join(f"<p>{x}</p>" for x in post.get("closing", []))
     content = f"""<article>
 <header class="at-page-head">
@@ -1435,7 +1447,7 @@ def build_connect_hub():
     for i, (k, label) in enumerate(KINDS.items()):
         items = [q for q in SHOP_LIVE if kind_of(q) == k]
         sel = "true" if i == 0 else "false"
-        tabs.append(f'<li><button type="button" role="tab" id="t-{k}" aria-controls="{k}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(label)} <span class="c">{len(items)}</span></button></li>')
+        tabs.append(f'<li role="presentation"><button type="button" role="tab" id="t-{k}" aria-controls="{k}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(label)} <span class="c">{len(items)}</span></button></li>')
         rows = "".join(
             f'<tr><td class="k"><span class="tag shop">광고</span></td><td><a href="/{q["file"]}">{esc(q["title"])}</a>'
             f'<span class="x">{esc(q["post"]["keyword"])}</span></td><td class="d">{short_date(q["date"])}</td></tr>' for q in items)
@@ -1466,7 +1478,7 @@ def build_home():
     tabs, panes = [], []
     for i, (rid, rname, rshort, gus) in enumerate(FOOD_AREAS):
         sel = "true" if i == 0 else "false"
-        tabs.append(f'<li><button type="button" role="tab" id="t-{rid}" aria-controls="p-{rid}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(rshort)}</button></li>')
+        tabs.append(f'<li role="presentation"><button type="button" role="tab" id="t-{rid}" aria-controls="p-{rid}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(rshort)}</button></li>')
         rows = []
         for pre, gu in gus:
             for q in food_pages(pre):
@@ -1522,7 +1534,7 @@ def build_home():
                                    "target": {"@type": "EntryPoint", "urlTemplate": SITE + "/search.html?q={search_term_string}"},
                                    "query-input": "required name=search_term_string"}}
     org = {"@type": "Organization", "@id": SITE + "/#org", "name": NAME, "url": SITE + "/",
-           "logo": {"@type": "ImageObject", "url": SITE + "/assets/logo-512.png", "width": 512, "height": 512},
+           "logo": image_ld("/assets/logo-512.png", "어라운드툴 로고"),
            "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
     sections = {"@type": "ItemList", "name": "어라운드툴 주요 섹션", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/" + u} for i, (n, u) in
