@@ -1,3 +1,35 @@
+== 2026-10-25T08:43:06Z push ba09a8dc2dec9ea6a5e234bbeaecac276c93704d
+· 대상 20개
+  https://www.aroundtool.com/connect.html
+  https://www.aroundtool.com/discount_rate_calculator.html
+  https://www.aroundtool.com/shop-bespoke-ai-fridge-4door.html
+  https://www.aroundtool.com/shop-bespoke-ai-steam-ultra.html
+  https://www.aroundtool.com/shop-c-type-65w-charger.html
+  https://www.aroundtool.com/shop-calf-foot-air-massager.html
+  https://www.aroundtool.com/shop-danang-5days.html
+  https://www.aroundtool.com/shop-food-waste-disposer.html
+  https://www.aroundtool.com/shop-fukuoka-3days.html
+  https://www.aroundtool.com/shop-galaxy-s26-ultra.html
+  https://www.aroundtool.com/shop-galaxy-tab-s12-ultra.html
+  https://www.aroundtool.com/shop-jbl-authentics-200.html
+  https://www.aroundtool.com/shop-mung-bean-cleanser.html
+  https://www.aroundtool.com/shop-neck-traction.html
+  https://www.aroundtool.com/shop-prael-thermashot-ultimate.html
+  https://www.aroundtool.com/shop-queens-collagen-rg3.html
+  https://www.aroundtool.com/shop-student-office-laptop.html
+  https://www.aroundtool.com/shop-west-europe-3-10days.html
+  https://www.aroundtool.com/shop-wireless-gaming-keyboard.html
+  https://www.aroundtool.com/sitemap.html
+
+  ✓ api.indexnow.org — 200 접수됨
+  ✓ searchadvisor.naver.com — 200 접수됨
+
+· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+· 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
+  · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
+
 == 2026-10-25T04:03:16Z push a1e73e4b3a2f421c796af0b4f42d09e546732767
 · 대상 178개
   https://www.aroundtool.com/about.html
