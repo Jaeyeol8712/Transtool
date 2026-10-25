@@ -37,7 +37,7 @@ shop-<slug>.html 이 만들어지고 메뉴·사이트맵·피드·검색에 자
   images      [(경로, 대체텍스트)] 3개. 파일은 assets/shop/<slug>/ 에 둡니다
   closing     링크 안내 2~3문장
   kind        "product"(제품 추천, 기본) | "travel"(여행 추천)
-  cta         버튼 문구 (기본 "제품 자세히 알아보기 >>", 여행 글은 "여행코스 추천 받기 >>")
+  cta         (사용 안 함) 버튼 문구는 제품 "제품 가격 알아보기 >>", 여행 "여행 비용 알아보기 >>" 로 자동
   og          {"title": 상품 페이지 og:title, "image": og:image 주소, "site": 도메인}
               링크 카드로 대가성 문구 바로 아래와 글 맨 끝에 표시됩니다
 """
@@ -282,7 +282,6 @@ POSTS = [
         "link": "https://naver.me/xIF7RrEV",
         "direct": "https://brandconnect.naver.com/connect/1009472625643744",
         "kind": "travel",
-        "cta": "여행코스 추천 받기 >>",
         "cta_hook": "✈️ 이 일정에 맞는 후쿠오카 코스, 더 받아 볼까요?",
         "keyword": "후쿠오카 3일 여행",
         "sub_keywords": ["후쿠오카 여행 추천 코스", "후쿠오카 2박 3일", "후쿠오카 3일 코스", "다자이후 유후인"],
@@ -490,7 +489,6 @@ POSTS = [
         "link": "https://naver.me/xNpf45Uu",
         "direct": "https://brandconnect.naver.com/connect/1009806047858848",
         "kind": "travel",
-        "cta": "여행코스 추천 받기 >>",
         "cta_hook": "🏔️ 스트라스부르·루체른·융프라우, 이 일정엔 어디까지 들어 있을까?",
         "keyword": "서유럽 3국 10일",
         "sub_keywords": ["서유럽 여행 코스 추천", "스트라스부르 여행", "루체른 융프라우", "스위스 여행 코스", "서유럽 패키지"],
@@ -737,7 +735,6 @@ POSTS = [
         "link": "https://naver.me/xQJGqT9D",
         "direct": "https://brandconnect.naver.com/connect/1009849724010816",
         "kind": "travel",
-        "cta": "여행코스 추천 받기 >>",
         "cta_hook": "🌴 바나힐·호이안까지, 이 일정에 어디까지 포함돼 있을까?",
         "cta_photo": {"src": "/assets/shop/danang-5days/product.jpg",
                       "alt": "호이안 투본강을 따라 늘어선 노란 건물과 알록달록한 배",

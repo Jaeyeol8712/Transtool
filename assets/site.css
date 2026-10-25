@@ -390,13 +390,13 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .at-og-wrap{padding:1rem 1.1rem 0}
 .at-cta{display:block;max-width:40rem;margin:0 auto;padding:1.05rem 1rem;border-radius:8px;background:#C81E1E;color:#fff!important;
   text-align:center;font-size:1.125rem;font-weight:800;letter-spacing:-0.01em;text-decoration:none!important;
-  box-shadow:0 0 0 0 rgba(224,45,45,.55);animation:at-cta-pulse 1.4s ease-in-out infinite}
+  box-shadow:0 0 0 0 rgba(224,45,45,.55);animation:at-cta-pulse 1.6s steps(1,end) infinite}
 .at-prose .at-cta{margin:1.25rem auto 0}
-.at-cta:hover,.at-cta:focus-visible{background:#C21F1F;animation-play-state:paused}
+.at-cta:hover,.at-cta:focus-visible{background:#111;animation-play-state:paused}
 @keyframes at-cta-pulse{
-  0%{box-shadow:0 0 0 0 rgba(200,30,30,.55);background:#C81E1E}
-  50%{box-shadow:0 0 0 10px rgba(200,30,30,0);background:#D42A2A}
-  100%{box-shadow:0 0 0 0 rgba(200,30,30,0);background:#C81E1E}}
+  0%,40%{background:#C81E1E;box-shadow:0 0 0 0 rgba(200,30,30,.55)}
+  50%,90%{background:#111;box-shadow:0 0 0 10px rgba(200,30,30,0)}
+  100%{background:#C81E1E;box-shadow:0 0 0 0 rgba(200,30,30,0)}}
 @media (prefers-reduced-motion:reduce){.at-cta{animation:none}}
 .at-tabs-lg{padding:1rem 1.1rem 0}
 .at-tabs-lg button{font-size:1rem;padding:.6rem 1rem}

@@ -1311,19 +1311,24 @@ def buy_button(post, label=None):
             f'<span>광고 링크 · 구매 시 사이트가 수수료를 받으며, 구매자가 내는 가격은 같습니다.</span></p>')
 
 
+def cta_label(post):
+    """버튼 문구: 제품은 '제품 가격 알아보기 >>', 여행은 '여행 비용 알아보기 >>'."""
+    return "여행 비용 알아보기 >>" if post.get("kind") == "travel" else "제품 가격 알아보기 >>"
+
+
 def link_card(post):
     """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조."""
-    label = post.get("cta") or "제품 자세히 알아보기 >>"
+    label = cta_label(post)
     return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" rel="sponsored nofollow noopener">'
             f'{esc(label)}</a>')
 
 
 def popup_html(post):
-    """6초 이상 읽으면 뜨는 '제품 자세히 알아보기' 팝업 (assets/site.js 가 띄움)."""
+    """6초 이상 읽으면 뜨는 '제품 가격 알아보기' 팝업 (assets/site.js 가 띄움)."""
     is_trip = post.get("kind") == "travel"
     head = "여행 코스가 궁금하다면?" if is_trip else "이 제품, 직접 확인해 볼까요?"
     sub = post.get("cta_hook") or ("일정·가격·포함 내역을 한 번에 볼 수 있어요." if is_trip else "현재 가격과 옵션, 상세 정보를 바로 볼 수 있어요.")
-    label = post.get("cta") or "제품 자세히 알아보기 >>"
+    label = cta_label(post)
     d = DISCLOSURE.get(post.get("program", "shopping"), DISCLOSURE["shopping"])
     cp = post.get("cta_photo")
     pop_visual = (f'<div class="at-pop-imgbox"><img class="at-pop-img" src="{esc(cp["src"])}" alt="{esc(cp["alt"])}" width="320" height="180" loading="lazy" decoding="async"></div>' if cp

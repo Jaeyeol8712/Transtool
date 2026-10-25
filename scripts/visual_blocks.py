@@ -3,7 +3,7 @@
 추천 모음 글에 쓰는 시각 블록(컬러 카드·체크리스트·비교·태그 등).
 
 connect_posts.py 의 "body" 목록에 이 함수들이 돌려주는 HTML 을 그대로 넣으면 됩니다.
-"{cta}" 문자열을 넣으면 그 자리에 빨간 '제품 자세히 알아보기' 버튼이 들어갑니다.
+"{cta}" 문자열을 넣으면 그 자리에 빨강·검정 '제품 가격 알아보기' 버튼이 들어갑니다.
 색상 이름: coral · amber · teal · blue · violet · pink
 """
 from html import escape as _e
