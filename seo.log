@@ -1,3 +1,36 @@
+== 2026-10-25T03:54:41Z push c385b10631ba35ac168bfd4f32ba801d5a4bf647
+· 대상 76개
+  https://www.aroundtool.com/character_counter.html
+  https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+  https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html
+  https://www.aroundtool.com/daejeon-donggu-station.html
+  https://www.aroundtool.com/daejeon-junggu-cafe.html
+  https://www.aroundtool.com/daejeon-junggu-durus.html
+  https://www.aroundtool.com/daejeon-seogu-dunsan.html
+  https://www.aroundtool.com/daejeon-yuseong-bongmyeong.html
+  https://www.aroundtool.com/dutch_pay_calculator.html
+  https://www.aroundtool.com/exchange_rate_calculator.html
+  https://www.aroundtool.com/food.html
+  https://www.aroundtool.com/gangnam-bapjip.html
+  https://www.aroundtool.com/gangnam-cafe.html
+  https://www.aroundtool.com/gangnam-gogi.html
+  https://www.aroundtool.com/gangnam-gukmul-myeon.html
+  https://www.aroundtool.com/gangnam-iguk.html
+  https://www.aroundtool.com/gangnam-sul-anju.html
+  https://www.aroundtool.com/guide_2026_tax.html
+  https://www.aroundtool.com/guide_2026_wage.html
+  https://www.aroundtool.com/gwangju-bukgu-bapjip.html
+  … 외 56개
+
+  ✓ api.indexnow.org — 200 접수됨
+  ✓ searchadvisor.naver.com — 200 접수됨
+
+· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+· 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
+  · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
+  ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
+
 == 2026-10-25T03:46:18Z push 7dd40a93f5e5d7e4ba52d54c23fe9bf6bf35d0b1
 · 대상 165개
   https://www.aroundtool.com/about.html
