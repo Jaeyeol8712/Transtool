@@ -1571,7 +1571,7 @@ def build_connect_hub():
                      f'<h2 class="at-sr">{esc(label)}</h2>{body}</section>')
     content = f"""<header class="at-page-head">
   <h1>추천 모음</h1>
-  <p class="lede">살 만한 제품을 고르는 기준과, 가 볼 만한 여행 코스를 정리했습니다. 상품 정보는 판매처 기준으로 적고, 써 보지 않은 제품은 후기처럼 쓰지 않습니다.</p>
+  <p class="lede">살 만한 제품을 고르는 기준과, 가 볼 만한 여행 코스를 정리했습니다. 직접 사용해 본 후기가 아니라, 제조사 공식 자료 등 공개된 정보를 정리한 글입니다.</p>
 </header>
 <aside class="at-disclose" role="note" aria-label="광고 표시"><p>이 게시판의 글은 네이버 커넥트 제휴 활동의 일환으로, 글 속 링크로 구매가 이뤄지면 일정액의 수수료를 제공받습니다.</p></aside>
 <ul class="at-tabs at-tabs-lg" role="tablist" data-at-tabs aria-label="분류 선택">{"".join(tabs)}</ul>
