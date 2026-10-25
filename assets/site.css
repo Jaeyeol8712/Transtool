@@ -542,3 +542,4 @@ html.at-pop-open{overflow:hidden}
 .at-pager button{min-width:2.4rem;height:2.4rem;padding:0 .6rem;border:1px solid var(--at-line);border-radius:8px;background:#fff;color:var(--at-ink);font:inherit;font-weight:700;cursor:pointer}
 .at-pager button[aria-current="page"]{background:var(--at-ink);border-color:var(--at-ink);color:#fff}
 .at-shop-item[hidden]{display:none}
+.at-sm-h{font-size:1rem;margin:1.4rem 0 .5rem}

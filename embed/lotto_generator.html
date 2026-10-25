@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.aroundtool.com/lotto_generator.html">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/site.css?v=7d92c834">
+<link rel="stylesheet" href="/assets/site.css?v=970e7e1c">
 <style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
 .at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
 .at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
@@ -42,10 +42,10 @@
 <script>
  function ballColor(n){
  if(n <= 10) return '#fbbf24';
- if(n <= 20) return '#3b82f6';
- if(n <= 30) return '#ef4444';
- if(n <= 40) return '#6b7280';
- return '#10b981';
+ if(n <= 20) return '#2563eb';
+ if(n <= 30) return '#dc2626';
+ if(n <= 40) return '#4b5563';
+ return '#047857';
  }
  function generateOneSet(){
  const nums = new Set();
@@ -68,7 +68,7 @@
  nums.forEach(n=>{
  const ball = document.createElement('div');
  ball.className = 'ball';
- ball.style.background = ballColor(n);
+ ball.style.background = ballColor(n); if(n <= 10) ball.style.color = '#1f1600';
  ball.textContent = n;
  balls.appendChild(ball);
  });

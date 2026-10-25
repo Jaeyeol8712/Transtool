@@ -24,10 +24,10 @@
 <script>
  function ballColor(n){
  if(n <= 10) return '#fbbf24';
- if(n <= 20) return '#3b82f6';
- if(n <= 30) return '#ef4444';
- if(n <= 40) return '#6b7280';
- return '#10b981';
+ if(n <= 20) return '#2563eb';
+ if(n <= 30) return '#dc2626';
+ if(n <= 40) return '#4b5563';
+ return '#047857';
  }
  function generateOneSet(){
  const nums = new Set();
@@ -50,7 +50,7 @@
  nums.forEach(n=>{
  const ball = document.createElement('div');
  ball.className = 'ball';
- ball.style.background = ballColor(n);
+ ball.style.background = ballColor(n); if(n <= 10) ball.style.color = '#1f1600';
  ball.textContent = n;
  balls.appendChild(ball);
  });

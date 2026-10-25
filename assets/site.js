@@ -90,11 +90,10 @@
   /* ---------- 추천 글: 6초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
   var pop = document.querySelector('[data-at-popup]');
   if (pop) {
-    var key = 'at-pop-' + pop.getAttribute('data-at-popup'), seen = false;
-    try { seen = sessionStorage.getItem(key) === '1'; } catch (e) {}
+    /* 글을 열 때마다(페이지를 볼 때마다) 한 번 뜹니다. 닫으면 그 화면에서는 다시 뜨지 않습니다. */
+    var seen = false;
     var openPop = function () {
       if (seen) return; seen = true;
-      try { sessionStorage.setItem(key, '1'); } catch (e) {}
       pop.hidden = false; document.documentElement.classList.add('at-pop-open');
       var go = pop.querySelector('[data-pop-go]'); if (go) go.focus();
       if (window.gtag) gtag('event', 'popup_view', { post: pop.getAttribute('data-at-popup') });
@@ -133,7 +132,6 @@
     };
     for (var i = 0; i < pages; i++) {
       var b = document.createElement('button'); b.type = 'button'; b.textContent = i + 1;
-      b.setAttribute('aria-label', (i + 1) + '페이지');
       (function (n) { b.addEventListener('click', function () { show(n, true); }); })(i);
       nav.appendChild(b);
     }

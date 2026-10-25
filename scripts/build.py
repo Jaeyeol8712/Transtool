@@ -255,8 +255,19 @@ def write(p, s):
     d = os.path.dirname(p)
     if d:
         os.makedirs(d, exist_ok=True)
+    if p.endswith(".html"):
+        s = focusable_tables(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
+
+
+_TBL_RE = re.compile(r'<div class="(at-table|tablewrap)"(?![^>]*tabindex)([^>]*)>')
+
+
+def focusable_tables(s):
+    """가로로 밀리는 표 상자를 키보드로도 스크롤할 수 있게 (접근성: scrollable-region-focusable)."""
+    return _TBL_RE.sub(lambda m: '<div class="%s"%s tabindex="0" role="region" aria-label="표 (좌우로 밀어서 보기)">'
+                       % (m.group(1), m.group(2)), s)
 
 
 def strip_tags(s):
@@ -1820,17 +1831,17 @@ def build_sitemap_html():
     secs = []
     for gid, gname, slugs in TOOL_GROUPS:
         items = "".join(f'<li><a href="/{s}.html">{esc(PAGES[s + ".html"]["name"])}</a></li>' for s in slugs)
-        secs.append(f'<h3>생활툴 · {esc(gname)} ({len(slugs)})</h3><ul class="at-cols">{items}</ul>')
+        secs.append(f'<h2 class="at-sm-h">생활툴 · {esc(gname)} ({len(slugs)})</h2><ul class="at-cols">{items}</ul>')
     for rid, rname, rshort, gus in FOOD_AREAS:
         items = "".join(f'<li><a href="/{q["file"]}">{esc(q["name"])}</a>{" <small>(조사 중)</small>" if q["research"] else ""}</li>'
                         for pre, _ in gus for q in food_pages(pre))
-        secs.append(f'<h3>맛집 · {esc(rname)}</h3><ul class="at-cols">{items}</ul>')
+        secs.append(f'<h2 class="at-sm-h">맛집 · {esc(rname)}</h2><ul class="at-cols">{items}</ul>')
     items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n, _ in TRIP_PAGES)
-    secs.append(f'<h3>여행</h3><ul class="at-cols"><li><a href="/travel.html">여행 전체</a></li>{items}</ul>')
+    secs.append(f'<h2 class="at-sm-h">여행</h2><ul class="at-cols"><li><a href="/travel.html">여행 전체</a></li>{items}</ul>')
     items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n in Q_GUIDES + GUIDE_PAGES)
-    secs.append(f'<h3>가이드</h3><ul class="at-cols"><li><a href="/etc.html">가이드·텍스트 도구</a></li>{items}</ul>')
+    secs.append(f'<h2 class="at-sm-h">가이드</h2><ul class="at-cols"><li><a href="/etc.html">가이드·텍스트 도구</a></li>{items}</ul>')
     items = "".join(f'<li><a href="/{s}.html">{esc(n)}</a></li>' for s, n in INFO_PAGES)
-    secs.append(f'<h3>사이트 안내</h3><ul class="at-cols"><li><a href="/">홈</a></li><li><a href="/food.html">전국 맛집</a></li><li><a href="/tools.html">생활툴</a></li>{items}</ul>')
+    secs.append(f'<h2 class="at-sm-h">사이트 안내</h2><ul class="at-cols"><li><a href="/">홈</a></li><li><a href="/food.html">전국 맛집</a></li><li><a href="/tools.html">생활툴</a></li>{items}</ul>')
     n_idx = len([q for q in PAGES.values() if indexable(q)])
     content = f"""<header class="at-page-head"><h1>사이트맵</h1>
   <p class="lede">어라운드툴의 모든 페이지를 분류별로 모았습니다. 검색엔진용 목록은 <a href="/sitemap.xml">sitemap.xml</a>, AI 검색용 요약은 <a href="/llms.txt">llms.txt</a>에 있습니다.</p>
