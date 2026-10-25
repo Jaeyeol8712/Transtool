@@ -411,7 +411,10 @@ register_gu_hubs()
 FOOD = [p for p in PAGES.values() if p["section"] == "food"]
 FOOD_OK = [p for p in FOOD if not p["research"]]
 TOOLS = [p for p in PAGES.values() if p["section"] == "tools"]
-SHOP = sorted([p for p in PAGES.values() if p["section"] == "connect"], key=lambda p: p["date"], reverse=True)
+_POST_ORDER = {post["slug"]: i for i, post in enumerate(POSTS)}
+# 최신 올린 순서: 작성일이 같으면 나중에 추가한 글이 먼저
+SHOP = sorted([p for p in PAGES.values() if p["section"] == "connect"],
+              key=lambda p: (p["date"], _POST_ORDER.get(p["post"]["slug"], 0)), reverse=True)
 SHOP_LIVE = [p for p in SHOP if not p.get("draft")]
 KINDS = {"product": "제품 추천", "travel": "여행 추천"}
 
@@ -1551,7 +1554,7 @@ def build_connect_hub():
             return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">광고</span>'
                     f'<a class="t" href="/{q["file"]}">{esc(q["title"])}</a>'
                     f'<span class="x">{esc(post["keyword"])} · {short_date(q["date"])}</span>{btn}</div></li>')
-        body = (f'<ul class="at-shop-list">{"".join(card(q) for q in items)}</ul>'
+        body = (f'<ul class="at-shop-list" data-paginate="5">{"".join(card(q) for q in items)}</ul>'
                 if items else '<p class="at-empty">아직 올라온 글이 없습니다.</p>')
         panes.append(f'<section class="at-pane" role="tabpanel" id="{k}" aria-labelledby="t-{k}"{" hidden" if i else ""}>'
                      f'<h2 class="at-sr">{esc(label)}</h2>{body}</section>')

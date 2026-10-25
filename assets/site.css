@@ -538,3 +538,6 @@ html.at-pop-open{overflow:hidden}
 .at-cta.at-cta-sm{margin:.35rem 0 0!important;padding:.6rem .8rem;font-size:.9375rem;border-radius:8px}
 @media (max-width:30rem){.at-shop-thumb{flex-basis:5.5rem}.at-shop-thumb img{width:5.5rem;height:5.5rem}}
 .at-shop-txt .tag{font-size:.6875rem;font-weight:800;padding:.1rem .45rem;border-radius:4px;background:#FFF1D6;color:#7A4B00}
+.at-pager{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 .4rem}
+.at-pager button{min-width:2.4rem;height:2.4rem;padding:0 .6rem;border:1px solid var(--at-line);border-radius:8px;background:#fff;color:var(--at-ink);font:inherit;font-weight:700;cursor:pointer}
+.at-pager button[aria-current="page"]{background:var(--at-ink);border-color:var(--at-ink);color:#fff}

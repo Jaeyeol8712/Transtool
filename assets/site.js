@@ -117,6 +117,30 @@
     }, 500);
   }
 
+
+  /* ---------- 목록 5개씩 페이지 나누기 (data-paginate) ---------- */
+  document.querySelectorAll('[data-paginate]').forEach(function (list) {
+    var per = +list.getAttribute('data-paginate') || 5, items = Array.prototype.slice.call(list.children);
+    if (items.length <= per) return;
+    var pages = Math.ceil(items.length / per), nav = document.createElement('nav');
+    nav.className = 'at-pager'; nav.setAttribute('aria-label', '페이지');
+    var show = function (n, scroll) {
+      items.forEach(function (li, i) { li.hidden = Math.floor(i / per) !== n; });
+      nav.querySelectorAll('button').forEach(function (b, i) {
+        if (i === n) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+      });
+      if (scroll) { var top = list.getBoundingClientRect().top + window.pageYOffset - 120; window.scrollTo({ top: top, behavior: 'smooth' }); }
+    };
+    for (var i = 0; i < pages; i++) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = i + 1;
+      b.setAttribute('aria-label', (i + 1) + '페이지');
+      (function (n) { b.addEventListener('click', function () { show(n, true); }); })(i);
+      nav.appendChild(b);
+    }
+    list.parentNode.insertBefore(nav, list.nextSibling);
+    show(0, false);
+  });
+
   /* ---------- 코드 복사 ---------- */
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
