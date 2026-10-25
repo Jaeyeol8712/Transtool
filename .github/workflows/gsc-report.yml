@@ -1,0 +1,44 @@
+name: 서치콘솔 주간 보고서
+
+# 매주 월요일 07:41(한국 시간)에 최근 28일 검색 성과를 seo-report 브랜치에 저장합니다.
+on:
+  schedule:
+    - cron: "41 22 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: 구글 인증
+        id: gauth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters.readonly
+      - name: 보고서 만들기
+        run: node scripts/gsc-report.mjs
+        env:
+          GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
+      - name: seo-report 브랜치에 저장
+        run: |
+          [ -d _report ] || exit 0
+          cp -r _report /tmp/_report
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan seo-report
+          git rm -rq --cached . 2>/dev/null || true
+          rm -rf ./* && cp -r /tmp/_report/* . && cp gsc-latest.md "gsc-$(date +%F).md"
+          git add -f *.md *.json
+          git commit -qm "서치콘솔 보고서 $(date +%F) [skip ci]"
+          git push -q -f origin seo-report
