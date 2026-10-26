@@ -530,9 +530,11 @@ def indexable(p):
 # 4. 공통 영역 HTML
 # ════════════════════════════════════════════════════════════════
 
-GNB = [("index.html", "홈", "g-home", "home"), ("food.html", "맛집", "g-food", "food"),
-       ("tools.html", "생활툴", "g-tool", "tools"), ("travel.html", "여행", "g-trip", "trip"),
-       ("etc.html", "가이드", "g-etc", "guide"), ("connect.html", "추천 모음", "g-shop", "connect")]
+GNB = [("tools.html", "계산기", "g-tool", "tools"), ("food.html", "맛집", "g-food", "food"),
+       ("travel.html", "여행", "g-trip", "trip"), ("connect.html", "추천", "g-shop", "connect"),
+       ("etc.html", "가이드", "g-etc", "guide")]
+LOGO_SVG = ('<span class="at-logo-mark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" '
+            'stroke-width="2.4" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 13h2M14 13h2M8 17h2M14 17h2"/></svg></span>')
 
 
 def gnb_key(p):
@@ -548,22 +550,18 @@ def header_html(p):
     for f, label, cls, k in GNB:
         on = k == key
         cur = ' aria-current="page"' if p["file"] == f else ""
-        items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{"" if f == "index.html" else f}"{cur}>{label}</a></li>')
+        items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{label}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
-<div class="at-util"><div class="at-in">
-  <p class="at-util-msg">무료 생활 계산기 · 대가 없이 근거를 밝힌 맛집 기록</p>
-  <nav aria-label="사이트 안내"><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
-</div></div>
 <header class="at-header"><div class="at-in">
-  <a class="at-logo" href="/" aria-label="{NAME} 홈"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
+  <nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
-    <input id="at-q" type="search" name="q" placeholder="계산기, 지역, 음식 이름으로 검색" autocomplete="off">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <input id="at-q" type="search" name="q" placeholder="퇴직금, 환율, 해운대 맛집…" autocomplete="off">
     <button type="submit">검색</button>
   </form>
-  <nav class="at-header-links" aria-label="바로가기"><a href="/salary_calculator.html">연봉 실수령액</a><a href="/severance_calculator.html">퇴직금</a><a href="/food.html">지역별 맛집</a></nav>
-</div></header>
-<nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>"""
+</div></header>"""
 
 
 def crumbs_for(p):
@@ -882,7 +880,7 @@ def footer_html():
     trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES)
     shop_links = "".join(f'<li><a href="/{q["file"]}">{esc(q["post"]["keyword"])}</a></li>' for q in SHOP_LIVE[:5])
     return f"""<footer class="at-footer"><div class="at-in">
-  <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
+  <div class="at-footer-brand"><a class="at-logo" href="/">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
     <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
   <div class="at-footer-cols">
     <div><p>생활툴</p><ul>{groups}</ul></div>
@@ -1824,71 +1822,102 @@ def build_connect_hub():
     write("connect.html", page_shell(p, content, [lst, faq_ld(CONNECT_FAQ)], board=False, robots=None if SHOP_LIVE else "noindex, follow"))
 
 
+HOME_TILES = [  # (계산기, 아이콘 글자, 한 줄) — 한 줄은 각 계산기 페이지에 실제로 있는 내용만
+    ("salary_calculator", "₩", "2026 4대보험 반영"), ("severance_calculator", "퇴", "평균임금·근속 기준"),
+    ("unemployment_benefit_calculator", "실", "하루 상한 68,100원"), ("loan_calculator", "%", "상환 방식 3가지 비교"),
+    ("exchange_rate_calculator", "$", "8개 통화"), ("holiday_pay_calculator", "주", "2027 최저임금 버튼"),
+    ("character_counter", "자", "공백 포함·제외"),
+]
+HOME_SITUATIONS = [  # (상황, [계산기])
+    ("월급날", ["salary_calculator", "holiday_pay_calculator", "hourly_monthly_wage_calculator"]),
+    ("퇴사할 때", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator"]),
+    ("대출 받기 전", ["loan_calculator", "dsr_calculator", "prepayment_penalty_calculator"]),
+    ("집 살 때", ["acquisition_tax_calculator", "brokerage_fee_calculator", "ltv_calculator"]),
+    ("해외여행 준비", ["exchange_rate_calculator", "japan_travel_calculator"]),
+]
+
+
+def shop_points(post):
+    """추천 카드 한 줄 요약: 글의 '한눈에 보는 기준' 표 첫 칸(볼 것)만 이어 붙입니다. 새 주장은 넣지 않습니다."""
+    ex = SHOP_EXTRA.get(post["slug"], {}).get("summary")
+    if ex and ex[2]:
+        return " · ".join(r[0] for r in ex[2][:3])
+    return post.get("keyword", "")
+
+
+def shop_card_a(q, heading="h3"):
+    post = q["post"]
+    src, wh = shop_thumb(post)
+    alt = (post.get("cta_photo") or {}).get("alt") or post["title"]
+    size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
+    img = f'<img src="{esc(src)}" alt="{esc(alt)}"{size} loading="lazy" decoding="async">' if src else ""
+    travel = kind_of(q) == "travel"
+    return (f'<li><a class="ah-pick" href="/{q["file"]}"{track_attr("promo-" + post["slug"], post, "promo", "internal")}>'
+            f'<span class="ah-pick-img">{img}</span><span class="ah-pick-b">'
+            f'<span class="ah-pick-k">{"여행" if travel else "제품"}</span><{heading} class="ah-pick-t">{esc(q["title"])}</{heading}>'
+            f'<span class="ah-pick-x">{esc(shop_points(post))}</span>'
+            f'<span class="ah-pick-go">{"코스" if travel else "제품"} 자세히 보기</span></span></a></li>')
+
+
 def build_home():
     p = PAGES["index.html"]
-    notice = UPDATES[0]
-    ups = "".join(row(u, t, tag, "notice" if tag == "공지" else ("trip" if tag == "여행" else ""), None, "", d, is_new(d))
-                  for d, tag, t, u in UPDATES[:7])
-    keytools = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"] + " 계산기", PAGES[s + ".html"]["group_name"].split("·")[0], "", None, "", None, False)
-                       for s in KEY_TOOLS)
-    # 지역 탭
-    tabs, panes = [], []
-    for i, (rid, rname, rshort, gus) in enumerate(FOOD_AREAS):
-        sel = "true" if i == 0 else "false"
-        tabs.append(f'<li role="presentation"><button type="button" role="tab" id="t-{rid}" aria-controls="p-{rid}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{esc(rshort)}</button></li>')
-        rows = []
-        for pre, gu in gus:
-            for q in food_pages(pre):
-                if q["research"]:
-                    continue
-                rows.append(row("/" + q["file"], q["name"], gu, "food", q["count"] or None, "", None))
-        hubs = " · ".join(f'<a href="/{pre}.html">{esc(gu)} 전체</a>' for pre, gu in gus)
-        panes.append(f'<div class="at-pane" role="tabpanel" id="p-{rid}" aria-labelledby="t-{rid}"{" hidden" if i else ""}>'
-                     f'<div class="at-box-body"><ul class="at-list">{"".join(rows[:8])}</ul>'
-                     f'<p class="at-pane-more">{hubs}</p></div></div>')
-    trips = "".join(f'<a href="/{slug}.html"><b>{esc(name)}</b><span>{esc(PAGES[slug + ".html"]["desc"][:44])}…</span></a>'
-                    for slug, name, _ in TRIP_PAGES)
-    trips += '<a href="/japan_travel_calculator.html"><b>일본 여행 경비</b><span>항공·숙박·식비 일자별 예산 계산</span></a>'
-    trips += '<a href="/exchange_rate_calculator.html"><b>환율 계산</b><span>8개 통화 최신 기준 환율</span></a>'
-    guides = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], "가이드", "etc", None, "", PAGES[s + ".html"]["date"])
-                     for s, _ in Q_GUIDES[:6] + GUIDE_PAGES)
-    guides += "".join(row("/" + x + ".html", PAGES[x + ".html"]["name"], "텍스트", "", None, "", PAGES[x + ".html"]["date"], is_new(PAGES[x + ".html"]["date"]))
-                      for x in ("character_counter", "spell_checker", "spacing_checker"))
-    labor = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], "노동", "", None, "", PAGES[s + ".html"]["date"])
-                    for s in next(g for g in TOOL_GROUPS if g[0] == "labor")[2])
+    tool_name = lambda slug: PAGES[slug + ".html"]["name"]
+    tiles = "".join(f'<li><a class="ah-tile" href="/{slug}.html"><span class="ah-ico" aria-hidden="true">{esc(mk)}</span>'
+                    f'<b>{esc(tool_name(slug))}</b><span class="ah-sub">{esc(sub)}</span></a></li>' for slug, mk, sub in HOME_TILES)
+    tiles += (f'<li><a class="ah-tile is-all" href="/tools.html"><span class="ah-ico" aria-hidden="true">{N_TOOLS}</span>'
+              f'<b>전체 계산기</b><span class="ah-sub">{len(TOOL_GROUPS)}개 분야</span></a></li>')
+    sits = "".join(f'<div class="ah-sit"><p>{esc(t)}</p><ul>' +
+                   "".join(f'<li><a href="/{x}.html">{esc(tool_name(x))}</a></li>' for x in xs if x + ".html" in PAGES) + "</ul></div>"
+                   for t, xs in HOME_SITUATIONS)
+    picks = "".join(shop_card_a(q) for q in SHOP_LIVE[:6])
+    regions = []
+    for rid, rname, rshort, gus in FOOD_AREAS:
+        pre, gu = gus[0]
+        label = gu if len(gus) == 1 else rshort
+        href = f"/{pre}.html" if len(gus) == 1 else f"/food.html#r-{rid}"
+        regions.append(f'<li><a class="ah-reg" href="{href}"><b>{esc(label)}</b><span>{esc(rshort)} · {region_count(rid)}곳</span></a></li>')
+    regions.append(f'<li><a class="ah-reg is-all" href="/food.html"><b>전체 {N_GU}개 지역</b><span>맛집 {N_PLACES}곳</span></a></li>')
+    trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}<span>{"해외" if kind == "해외" else "국내"}</span></a></li>' for slug, name, kind in TRIP_PAGES)
+    guides = "".join(f'<li><a href="/{slug}.html">{esc(PAGES[slug + ".html"]["name"])}</a></li>' for slug, _ in (Q_GUIDES[:4] + GUIDE_PAGES))
+    ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
-    home_shop = "".join(shop_card(q) for q in SHOP_LIVE[:6])
-    chips = "".join(f'<li><a href="{u}">{esc(t)}</a></li>' for t, u in [
-        ("연봉 실수령액", "/salary_calculator.html"), ("퇴직금", "/severance_calculator.html"), ("실업급여", "/unemployment_benefit_calculator.html"),
-        ("주휴수당", "/holiday_pay_calculator.html"), ("취득세", "/acquisition_tax_calculator.html"), ("해운대 맛집", "/haeundae-bapjip.html"),
-        ("제주 맛집", "/jeju-jejusi-hyangto.html"), ("제주 여행 예산", "/travel-jeju.html")])
-    content = f"""<div class="at-hello">
-  <h1>생활 계산기와 지역 맛집 기록, 어라운드툴</h1>
-  <p>계산기 {N_TOOLS}종은 계산 기준과 공식을 함께 보여주고, 맛집 {N_PLACES}곳은 광고·협찬을 빼고 근거와 단점을 적었습니다. 회원가입 없이 모두 무료입니다.</p>
-  <ul class="at-chips" aria-label="자주 찾는 페이지">{chips}</ul>
-</div>
-<div class="at-notice"><b>공지</b><a href="{notice[3]}">{esc(notice[2])}</a><time datetime="{notice[0]}">{short_date(notice[0])}</time></div>
-<section class="at-box"><div class="at-box-head"><h2>최근 업데이트</h2><a class="more" href="/sitemap.html">전체 페이지</a></div>
-  <div class="at-box-body"><ul class="at-list">{ups}</ul></div></section>
-<section class="at-box is-shop"><div class="at-box-head"><h2>추천 모음 — 제품 추천·여행 추천</h2><a class="more" href="/connect.html">추천 글 {len(SHOP_LIVE)}개 전체</a></div>
-  <ul class="at-sp-grid at-sp-home">{home_shop}</ul>
+    content = f"""<section class="ah-hero" aria-labelledby="ah-h1">
+  <div class="ah-main">
+    <h1 id="ah-h1">필요한 계산, 3초면 끝나요</h1>
+    <p class="ah-lead">가입 없이 무료 · 계산 기준과 공식을 함께 보여 드려요</p>
+    <ul class="ah-tiles">{tiles}</ul>
+  </div>
+  <div class="ah-side">
+    <h2>지금 상황으로 찾기</h2>
+    {sits}
+  </div>
 </section>
-<div class="at-two">
-  <section class="at-box is-tool"><div class="at-box-head"><h2>주요 계산기</h2><a class="more" href="/tools.html">{N_TOOLS}종 전체</a></div>
-    <div class="at-box-body"><ul class="at-list">{keytools}</ul></div></section>
-  <section class="at-box is-food"><div class="at-box-head"><h2>지역별 맛집</h2><a class="more" href="/food.html">{N_GU}개 지역 전체</a></div>
-    <ul class="at-tabs" role="tablist" data-at-tabs aria-label="지역 선택">{"".join(tabs)}</ul>{"".join(panes)}</section>
+<section class="ah-sec" aria-labelledby="ah-picks">
+  <div class="ah-head"><h2 id="ah-picks">고르기 전에 읽어 보세요</h2><a href="/connect.html">추천 모음 전체 {len(SHOP_LIVE)}개</a></div>
+  <ul class="ah-picks">{picks}</ul>
+</section>
+<div class="ah-row">
+  <section class="ah-card" aria-labelledby="ah-reg">
+    <div class="ah-head"><h2 id="ah-reg">지역 맛집 기록</h2><a href="/food.html">전체 보기</a></div>
+    <p class="ah-note">광고·협찬 글을 빼고 재방문 언급과 공식 지정 근거로 골랐어요.</p>
+    <ul class="ah-regs">{"".join(regions)}</ul>
+  </section>
+  <section class="ah-card" aria-labelledby="ah-trip">
+    <div class="ah-head"><h2 id="ah-trip">여행·가이드</h2><a href="/travel.html">여행 전체</a></div>
+    <ul class="ah-links is-trip">{trips}</ul>
+    <ul class="ah-links">{guides}</ul>
+  </section>
 </div>
-<section class="at-box is-trip"><div class="at-box-head"><h2>여행 가이드</h2><a class="more" href="/travel.html">여행 전체</a></div>
-  <div class="at-grid-links">{trips}</div></section>
-<div class="at-two">
-  <section class="at-box is-tool"><div class="at-box-head"><h2>노동·구직 계산기</h2><a class="more" href="/tools.html#g-labor">더보기</a></div>
-    <div class="at-box-body"><ul class="at-list">{labor}</ul></div></section>
-  <section class="at-box is-etc"><div class="at-box-head"><h2>가이드·텍스트 도구</h2><a class="more" href="/etc.html">더보기</a></div>
-    <div class="at-box-body"><ul class="at-list">{guides}</ul></div></section>
-</div>
-<section class="at-box"><div class="at-box-head"><h2>자주 묻는 질문</h2><a class="more" href="/about.html">사이트 소개</a></div>
-  <div class="at-box-body pad"><div class="at-faq">{faqs}</div></div></section>"""
+<div class="ah-row">
+  <section class="ah-card" aria-labelledby="ah-up">
+    <div class="ah-head"><h2 id="ah-up">최근 업데이트</h2><a href="/sitemap.html">전체 페이지</a></div>
+    <ul class="ah-ups">{ups}</ul>
+  </section>
+  <section class="ah-card" aria-labelledby="ah-faq">
+    <div class="ah-head"><h2 id="ah-faq">자주 묻는 질문</h2><a href="/about.html">사이트 소개</a></div>
+    <div class="at-faq">{faqs}</div>
+  </section>
+</div>"""
     website = {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": NAME, "alternateName": "AroundTool",
                "inLanguage": "ko-KR", "description": p["desc"], "publisher": {"@id": SITE + "/#org"},
                "potentialAction": {"@type": "SearchAction",
@@ -1903,6 +1932,8 @@ def build_home():
     # 홈은 at-content 상자 없이 박스들을 직접 배치
     html_ = page_shell(p, content, [website, org, sections, faq_ld(FAQ_HOME)], board=False)
     html_ = html_.replace('<div class="at-content" id="at-main" tabindex="-1">', '<div class="at-home" id="at-main" tabindex="-1">', 1)
+    html_ = html_.replace('<div class="at-layout">', '<div class="at-layout is-home">', 1).replace(side_html(), "", 1)
+    html_ = re.sub(r'\s*<small class="at-foot-visitors"[^>]*>.*?</small>', "", html_, count=1, flags=re.S)
     write("index.html", html_)
 
 
