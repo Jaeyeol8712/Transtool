@@ -93,7 +93,7 @@ h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(2.2re
 /* 픽셀 사무실 */
 .stage{background:#E8DCC6;padding:10px;display:flex;flex-direction:column;gap:8px}
 .stage-scroll{overflow-x:auto;border-radius:12px;-webkit-overflow-scrolling:touch}
-#office{display:block;width:100%;min-width:760px;height:auto;image-rendering:pixelated;image-rendering:crisp-edges;border-radius:12px}
+#office{display:block;width:100%;height:auto;image-rendering:pixelated;image-rendering:crisp-edges;border-radius:12px}
 .stage .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0}
 .stage .ctl button{font:inherit;font-size:.85rem;border:1px solid #CDBFA6;background:#FFF8EC;color:#17201E;border-radius:999px;padding:0 14px;min-height:40px;cursor:pointer}
 .hint{font-size:.85rem;color:#5B4A35}
@@ -230,19 +230,24 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
     '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
 
-  /* ───── 지도 (타일 16px, 54×31) ───── */
-  var T = 16, W = 54 * T, H = 31 * T, S = 2;
+  /* ───── 지도 (타일 16px) — 넓은 화면: 5칸×3줄(54×31), 휴대폰: 2칸×8줄(24×82) ───── */
+  var NARROW = (document.querySelector('.stage') || document.body).getBoundingClientRect().width < 700;
+  var T = 16, S = 2, FS = NARROW ? 1.45 : 1, W, H, RY, CY, ROOM;
   var cx = function (col) { return (2 + col * 10) * T; };
-  var RY = [2 * T, 12 * T, 22 * T];
-  var CY = [11 * T, 11 * T, 21 * T];                 // 방마다 쓰는 복도 중심선
-  var ROOM = {                                       // [줄, 칸, 폭(칸)]
-    chief: [0, 0], meet: [0, 1, 2], seo: [0, 3], plan: [0, 4],
-    writer: [1, 0], designer: [1, 1], dev: [1, 2], analyst: [1, 3], qa: [1, 4],
-    cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], lounge: [2, 4]
-  };
-  function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * 10 * T; return { x: cx(r[1]), y: RY[r[0]], w: w, h: 8 * T, row: r[0], door: cx(r[1]) + w / 2 }; }
+  if (!NARROW) {
+    W = 54 * T; H = 31 * T; RY = [2 * T, 12 * T, 22 * T]; CY = [11 * T, 11 * T, 21 * T];
+    ROOM = { chief: [0, 0], meet: [0, 1, 2], seo: [0, 3], plan: [0, 4],
+      writer: [1, 0], designer: [1, 1], dev: [1, 2], analyst: [1, 3], qa: [1, 4],
+      cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], lounge: [2, 4] };
+  } else {
+    W = 24 * T; H = 82 * T; RY = []; CY = [];
+    for (var rr = 0; rr < 8; rr++) { RY.push((2 + rr * 10) * T); CY.push((11 + rr * 10) * T); }
+    ROOM = { meet: [0, 0, 2], chief: [1, 0], seo: [1, 1], plan: [2, 0], writer: [2, 1], designer: [3, 0], dev: [3, 1],
+      analyst: [4, 0], qa: [4, 1], cafe: [5, 0], insta: [5, 1], community: [6, 0], ads: [6, 1], lounge: [7, 0] };
+  }
+  function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * 10 * T; return { x: cx(r[1]), y: RY[r[0]], w: w, h: 8 * T, row: r[0], door: cx(r[1]) + w / 2, bottom: NARROW || r[0] === 0 }; }
   function seat(id) { var r = room(id); return { x: r.x + 5 * T, y: r.y + 5.4 * T }; }
-  function doorIn(id) { var r = room(id); return { x: r.door, y: r.row === 0 ? r.y + 6.6 * T : r.y + 1.4 * T }; }
+  function doorIn(id) { var r = room(id); return { x: r.door, y: r.bottom ? r.y + 6.6 * T : r.y + 1.4 * T }; }
   var MEET = room('meet'), TABLE = { x: MEET.x + MEET.w / 2, y: MEET.y + 4 * T };
   var MEET_SEATS = [];
   (function () { for (var i = 0; i < 14; i++) { var a = -Math.PI / 2 + (i + 0.5) / 14 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T, y: TABLE.y + 8 + Math.sin(a) * 2.3 * T }); } })();
@@ -310,8 +315,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     else if (kind === 'mega') { R(g, x, y, 30, 20, '#FFE7D6'); R(g, x + 6, y + 6, 6, 8, col); g.fillStyle = col; g.beginPath(); g.moveTo(x + 12, y + 6); g.lineTo(x + 24, y + 2); g.lineTo(x + 24, y + 18); g.lineTo(x + 12, y + 14); g.fill(); }
   }
   function sign(g, x, y, text, col) {
-    g.font = '700 7px "IBM Plex Sans KR", sans-serif'; var w = g.measureText(text).width + 10;
-    R(g, x, y, w, 11, col); R(g, x, y + 11, w, 1, shade(col, -0.35)); g.fillStyle = '#FFFFFF'; g.textBaseline = 'middle'; g.fillText(text, x + 5, y + 6);
+    g.font = '700 ' + (7 * FS) + 'px "IBM Plex Sans KR", sans-serif'; var w = g.measureText(text).width + 10, hh = 11 * FS;
+    R(g, x, y, w, hh, col); R(g, x, y + hh, w, 1, shade(col, -0.35)); g.fillStyle = '#FFFFFF'; g.textBaseline = 'middle'; g.fillText(text, x + 5, y + hh / 2 + 0.5);
   }
 
   function paintBackground() {
@@ -319,11 +324,12 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     R(g, 0, 0, W, H, '#E8DCC6');
     // 위쪽 벽과 창문
     R(g, 0, 0, W, 2 * T, '#E9E4DA'); R(g, 0, 2 * T - 3, W, 3, '#C9BFB0');
-    for (var i = 0; i < 12; i++) { var wx = 18 + i * 72; R(g, wx, 4, 44, 20, '#8FB8C9'); R(g, wx + 2, 6, 40, 16, '#BFE0EA'); R(g, wx + 21, 4, 2, 20, '#8FB8C9');
+    for (var i = 0; i < Math.floor(W / 72); i++) { var wx = 18 + i * 72; R(g, wx, 4, 44, 20, '#8FB8C9'); R(g, wx + 2, 6, 40, 16, '#BFE0EA'); R(g, wx + 21, 4, 2, 20, '#8FB8C9');
       R(g, wx + 4, 14, 8, 8, '#E9C2CE'); R(g, wx + 26, 12, 10, 10, '#D7E6EF'); }
     // 복도
-    floor(g, 0, 10 * T, W, 2 * T, '#E6D5B8'); floor(g, 0, 20 * T, W, 2 * T, '#E6D5B8');
-    floor(g, 0, 10 * T, 2 * T, 12 * T, '#E6D5B8'); floor(g, W - 2 * T, 10 * T, 2 * T, 12 * T, '#E6D5B8');
+    var cys = CY.filter(function (v, i, a) { return a.indexOf(v) === i; }), top = cys[0] - T, bot = cys[cys.length - 1] + T;
+    cys.forEach(function (c) { floor(g, 0, c - T, W, 2 * T, '#E6D5B8'); });
+    floor(g, 0, top, 2 * T, bot - top, '#E6D5B8'); floor(g, W - 2 * T, top, 2 * T, bot - top, '#E6D5B8');
     // 방
     Object.keys(ROOM).forEach(function (id) {
       var r = room(id), col = id === 'meet' ? '#0B6E5F' : id === 'lounge' ? '#B07A4F' : hexOf(css(ROLES[id].c));
@@ -332,7 +338,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       // 벽(문 자리 비움)
       var wall = '#F1EEE8', top = '#C9C2B6', dw = 2.2 * T;
       R(g, r.x, r.y, r.w, 3, top); R(g, r.x, r.y + r.h - 3, r.w, 3, top); R(g, r.x, r.y, 3, r.h, top); R(g, r.x + r.w - 3, r.y, 3, r.h, top);
-      if (r.row === 0) R(g, r.door - dw / 2, r.y + r.h - 3, dw, 3, base); else R(g, r.door - dw / 2, r.y, dw, 3, base);
+      if (r.bottom) R(g, r.door - dw / 2, r.y + r.h - 3, dw, 3, base); else R(g, r.door - dw / 2, r.y, dw, 3, base);
       R(g, r.x + 3, r.y + 3, r.w - 6, 5, wall);
       if (id === 'meet') {
         rug(g, TABLE.x - 6 * T, TABLE.y - 2.4 * T, 12 * T, 5.6 * T, '#5E8C7E');
@@ -385,13 +391,13 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     if (p.paper) { R(g, x + 5, y - 13, 6, 8, '#FFFFFF'); R(g, x + 6, y - 11, 4, 1, '#9AA3A1'); R(g, x + 6, y - 9, 4, 1, '#9AA3A1'); }
     if (p.cup) { R(g, x + 5, y - 11, 4, 5, '#FFFFFF'); R(g, x + 9, y - 10, 1, 2, '#FFFFFF'); }
     // 이름표
-    g.font = '700 6.5px "IBM Plex Sans KR", sans-serif'; var w = g.measureText(p.short).width + 8;
-    R(g, x - w / 2, y - 38, w, 9, p.hl && Math.floor(t / 300) % 2 ? '#FFD84D' : '#FFFFFF'); R(g, x - w / 2, y - 38, 2, 9, col);
-    g.fillStyle = '#17201E'; g.textBaseline = 'middle'; g.textAlign = 'left'; g.fillText(p.short, x - w / 2 + 4, y - 33.5);
+    g.font = '700 ' + (6.5 * FS) + 'px "IBM Plex Sans KR", sans-serif'; var w = g.measureText(p.short).width + 8, lh = 9 * FS, ly = y - 29 - lh;
+    R(g, x - w / 2, ly, w, lh, p.hl && Math.floor(t / 300) % 2 ? '#FFD84D' : '#FFFFFF'); R(g, x - w / 2, ly, 2, lh, col);
+    g.fillStyle = '#17201E'; g.textBaseline = 'middle'; g.textAlign = 'left'; g.fillText(p.short, x - w / 2 + 4, ly + lh / 2 + 0.5);
     if (p.say && p.sayUntil > t) {
-      g.font = '500 7px "IBM Plex Sans KR", sans-serif'; var tw = Math.min(150, g.measureText(p.say).width) + 12, bx = Math.max(4, Math.min(W - tw - 4, x - tw / 2)), by = y - 56;
-      R(g, bx, by, tw, 14, '#FFFFFF'); R(g, bx, by + 14, tw, 1, '#C9D1CE'); R(g, x - 2, by + 14, 4, 3, '#FFFFFF');
-      g.fillStyle = '#17201E'; g.save(); g.beginPath(); g.rect(bx, by, tw - 4, 14); g.clip(); g.fillText(p.say, bx + 6, by + 7.5); g.restore();
+      g.font = '500 ' + (7 * FS) + 'px "IBM Plex Sans KR", sans-serif'; var bh = 14 * FS, tw = Math.min(W - 12, g.measureText(p.say).width + 12), bx = Math.max(4, Math.min(W - tw - 4, x - tw / 2)), by = ly - bh - 5;
+      R(g, bx, by, tw, bh, '#FFFFFF'); R(g, bx, by + bh, tw, 1, '#C9D1CE'); R(g, x - 2, by + bh, 4, 3, '#FFFFFF');
+      g.fillStyle = '#17201E'; g.save(); g.beginPath(); g.rect(bx, by, tw - 4, bh); g.clip(); g.fillText(p.say, bx + 6, by + bh / 2 + 0.5); g.restore();
     }
   }
 
@@ -534,6 +540,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { DATA = d; window.__DATA = d; start(); window.dispatchEvent(new Event('jackdata')); })
       .catch(function () { start(); });
   });
+  window.addEventListener('resize', function () { clearTimeout(window.__rz); window.__rz = setTimeout(function () {
+    var n = (document.querySelector('.stage') || document.body).getBoundingClientRect().width < 700; if (n !== NARROW) location.reload(); }, 300); });
   window.__jack = { ROLES: ROLES, KEY: KEY, el: el, css: css };
 })();
 
