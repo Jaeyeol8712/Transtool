@@ -15,7 +15,7 @@
   --wood:#8A5A3B; --wood-top:#A8714C; --ink:#17201E; --ink-2:#4A5754; --ink-3:#6E7B77;
   --paper:#FFFFFF; --page:#EEF3F0; --line:#CAD6D1;
   --chief:#0B6E5F; --writer:#D93B3B; --analyst:#2A6FD6; --designer:#D98A00; --dev:#6A4FD0; --insta:#C2367A; --boss:#17201E;
-  --seo:#3D7A1F; --plan:#9C4F96; --qa:#5B6770; --ads:#C2410C; --cafe:#0A7F8F; --community:#7A5C2E; --up:#0B6E5F; --down:#C93434;
+  --seo:#3D7A1F; --plan:#9C4F96; --qa:#5B6770; --ads:#C2410C; --cafe:#0A7F8F; --community:#7A5C2E; --legal:#1F3A6B; --up:#0B6E5F; --down:#C93434;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -248,11 +248,12 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     cafe:     { name: '카페 담당', desc: '카페로 유입',       short: '카페',   c: '--cafe',      hair: '#2E2420', skin: '#F4D0B0', item: 'cafe' },
     insta:    { name: '인스타 기획자', desc: '인스타로 유입',   short: '인스타', c: '--insta',     hair: '#3A1E2A', skin: '#F2C9A6', item: 'ring' },
     community:{ name: '커뮤니티 관리자', desc: '자유글 관리', short: '커뮤',   c: '--community', hair: '#2B2B2B', skin: '#E8BC94', item: 'board' },
-    ads:      { name: '광고', desc: '필요할 때 광고',           short: '광고',   c: '--ads',       hair: '#1E1E1E', skin: '#EBC09A', item: 'mega' }
+    ads:      { name: '광고', desc: '필요할 때 광고',           short: '광고',   c: '--ads',       hair: '#1E1E1E', skin: '#EBC09A', item: 'mega' },
+    legal:    { name: '법무팀', desc: '법적 문서·권리 지키기', short: '법무', c: '--legal', hair: '#2A2A2A', skin: '#F2C9A6', item: 'books' }
   };
   var BOSS = { name: '짹 (대표)', desc: '방향 정하고 컨펌', short: '짹', c: '--boss', hair: '#111111', skin: '#F2C9A6' };
   var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
-    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
+    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community', '법무팀': 'legal', '법무': 'legal' };
 
   /* ───── 지도 (타일 16px) — 넓은 화면: 5칸×3줄(54×31), 휴대폰: 2칸×8줄(24×82) ───── */
   var NARROW = window.innerWidth < 1000;           // 좁은 화면: 작은 방 2칸×7줄 지도 + 오른쪽 구성원
@@ -262,14 +263,14 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     W = 54 * T; H = 31 * T; RY = [2 * T, 12 * T, 22 * T]; CY = [11 * T, 11 * T, 21 * T];
     ROOM = { chief: [0, 0], meet: [0, 1, 2], seo: [0, 3], plan: [0, 4],
       writer: [1, 0], designer: [1, 1], dev: [1, 2], analyst: [1, 3], qa: [1, 4],
-      cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], lounge: [2, 4] };
+      cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], legal: [2, 4] };
   } else {
     CWp = 96; CHp = 84; cx = function (col) { return 14 + col * CWp; };
     W = 14 * 2 + 4 * CWp; RY = []; CY = [];
     var yy = 30; for (var rr = 0; rr < 4; rr++) { var hh = rr === 0 ? 112 : CHp; RY.push(yy); CY.push(yy + hh + 11); yy += hh + 22; }
     H = yy - 4;
     ROOM = { meet: [0, 0, 2], chief: [0, 2], seo: [0, 3], plan: [1, 0], writer: [1, 1], designer: [1, 2], dev: [1, 3],
-      analyst: [2, 0], qa: [2, 1], cafe: [2, 2], insta: [2, 3], community: [3, 0], ads: [3, 1], lounge: [3, 2] };
+      analyst: [2, 0], qa: [2, 1], cafe: [2, 2], insta: [2, 3], community: [3, 0], ads: [3, 1], legal: [3, 2], lounge: [3, 3] };
   }
   function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * CWp, h = NARROW && r[0] === 0 ? 112 : CHp;
     return { x: cx(r[1]), y: RY[r[0]], w: w, h: h, row: r[0], door: cx(r[1]) + w / 2, bottom: NARROW || r[0] === 0 }; }
@@ -280,7 +281,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   var MEET_SEATS = [];
   (function () { for (var i = 0; i < 14; i++) { var a = -Math.PI / 2 + (i + 0.5) / 14 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T * K, y: TABLE.y + 8 * K + Math.sin(a) * 2.3 * T * K }); } })();
   var BOSS_SEAT = { x: TABLE.x, y: TABLE.y - 2.6 * T * K - (NARROW ? 4 : 0) };
-  var LOUNGE = room('lounge');
+  var LOUNGE_ID = ROOM.lounge ? 'lounge' : 'meet', LOUNGE = room(LOUNGE_ID);
 
   function route(from, to) {   // from/to: {id 또는 'meet'/'lounge', pt}
     var a = from.id, b = to.id, ra = room(a), rb = room(b), pts = [];
@@ -402,6 +403,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
         MEET_SEATS.forEach(function (s) { chair(g, s.x, s.y - 2, '#3E4A5A'); });
         chair(g, BOSS_SEAT.x, BOSS_SEAT.y - 2, '#17201E');
         board(g, r.x + 12, r.y + 10, 40, 24, 'chart', '#0B6E5F'); board(g, r.x + r.w - 54, r.y + 10, 40, 24, 'notes', '#0B6E5F');
+        R(g, r.x + r.w - 44, r.y + r.h - 44, 20, 26, '#4A4F55'); R(g, r.x + r.w - 41, r.y + r.h - 40, 14, 7, '#2A2F35'); R(g, r.x + r.w - 38, r.y + r.h - 28, 8, 6, '#FFFFFF');
         plant(g, r.x + 14, r.y + r.h - 16, true); plant(g, r.x + r.w - 16, r.y + r.h - 16, true);
         sign(g, r.x + 8, r.y + 40, '회의실 · 대표석', '#17201E');
         return;
@@ -489,8 +491,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
         setTimeout(function () { p.paper = false; backHome(p, function () { p.busy = false; }); }, 1600); }, 1500);
     }, ROLES[toId].name + '에게 가는 중');
   }
-  function coffee(p) { p.busy = true; var spot = NARROW ? { x: LOUNGE.x + LOUNGE.w * 0.62 + (Math.random() * 8 - 4), y: LOUNGE.y + 44 } : { x: LOUNGE.x + 128 + (Math.random() * 10 - 5), y: LOUNGE.y + 50 };
-    go(p, route(homeOf(p.id), { id: 'lounge', pt: spot }), function () { p.at = { id: 'lounge', pt: spot }; p.state = 'stand'; p.dir = 'up'; p.cup = true; p.status = '라운지에서 커피';
+  function coffee(p) { p.busy = true; var spot = NARROW ? { x: LOUNGE.x + LOUNGE.w * 0.62 + (Math.random() * 8 - 4), y: LOUNGE.y + 44 } : { x: LOUNGE.x + LOUNGE.w - 34 + (Math.random() * 8 - 4), y: LOUNGE.y + LOUNGE.h - 22 };
+    go(p, route(homeOf(p.id), { id: LOUNGE_ID, pt: spot }), function () { p.at = { id: LOUNGE_ID, pt: spot }; p.state = 'stand'; p.dir = 'up'; p.cup = true; p.status = LOUNGE_ID === 'lounge' ? '라운지에서 커피' : '회의실 커피 머신';
       say(p, ['커피 한 잔만', '잠깐 쉬어요', '아이디어 정리 중'][Math.floor(Math.random() * 3)], 2000);
       setTimeout(function () { backHome(p, function () { p.busy = false; }); }, 2600); }, '라운지로 가는 중'); }
 
@@ -524,7 +526,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     ['plan', 'designer', '시안 요청', '새 계산기 화면 부탁해요'], ['analyst', 'chief', '어제 숫자', '오가닉 방문 늘었어요'],
     ['qa', 'dev', '요율 확인', '전력기금 2.7%로 맞춰요'], ['writer', 'cafe', '원고 전달', '카페 원고 넘겨요'],
     ['designer', 'insta', '카드 전달', '카드뉴스 시안 나왔어요'], ['dev', 'chief', '배포 완료', '빌드·배포 끝났어요'],
-    ['community', 'dev', '게시판', 'Supabase 오면 바로 시작'], ['ads', 'chief', '광고 대기', '약관 확인 전엔 대기'],
+    ['community', 'dev', '게시판', 'Supabase 오면 바로 시작'], ['ads', 'chief', '광고 대기', '약관 확인 전엔 대기'], ['legal', 'dev', '처리방침', 'GA4 사용 사실대로 고쳐요'], ['legal', 'writer', '이미지 권리', 'CC 사진 제목도 표기해요'],
     ['cafe', 'analyst', '유입 확인', '카페 UTM 붙였어요'], ['insta', 'writer', '캡션 요청', '첫 줄 검색어로 부탁']
   ];
   function tick() {
