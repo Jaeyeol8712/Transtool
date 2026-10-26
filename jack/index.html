@@ -200,16 +200,23 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   <ul class="brief" id="brief"><li>불러오는 중…</li></ul>
 </section>
 
-<section class="sec" aria-labelledby="t-work">
-  <h2 id="t-work">팀별 업무</h2>
-  <div class="work" id="work"></div>
-</section>
-
 <section class="sec" aria-labelledby="t-done">
   <div class="dt">
     <div><h2 id="t-done">한 일</h2><ul class="done" id="done"></ul></div>
     <div><h2 id="t-todo">해야 할 일</h2><ul class="done todo" id="todo"></ul></div>
   </div>
+</section>
+
+<section class="sec" aria-labelledby="t-work">
+  <h2 id="t-work">팀별 업무</h2>
+  <div class="work" id="work"></div>
+</section>
+
+
+<section class="sec" aria-labelledby="t-learn">
+  <h2 id="t-learn">직무별 전문성 강화</h2>
+  <p class="kpi-note">매일 회의 전에 팀마다 약 1분씩 새 소식을 확인해 지식 파일에 쌓습니다. 깊게 조사할 일은 컨펌판에서 승인 후 진행합니다.</p>
+  <div class="work" id="learn"></div>
 </section>
 
 <section class="sec" aria-labelledby="t-kpi">
@@ -610,6 +617,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     if (t.not) { box.appendChild(h('h4', { text: '하지 않는 일' })); box.appendChild(h('ul', {}, t.not.map(function (r) { return h('li', { text: r }); }))); }
     box.appendChild(h('h4', { text: 'KPI' }));
     box.appendChild(h('ul', {}, t.kpi.map(function (k) { return h('li', { text: k.name + ' — 목표 ' + k.target + ' · 현재 ' + (k.now || '집계 전') }); })));
+    if (t.learn && t.learn.length) { box.appendChild(h('h4', { text: '전문성 강화 기록' })); box.appendChild(h('ul', {}, t.learn.slice(0, 6).map(function (r) { return h('li', { text: r }); }))); }
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
   }
   window.__openRR = openRR;
@@ -624,6 +632,11 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
         [h('b', { text: t.name }), h('span', {}, [h('i', { class: 'l', text: '한 일' }), document.createTextNode(t.today || '—')]),
          h('span', {}, [h('i', { class: 'l', text: '할 일' }), document.createTextNode(t.todo || '—')])]);
       b.addEventListener('click', function () { openRR(t); }); wk.appendChild(b); });
+    var ln = document.getElementById('learn'); ln.textContent = '';
+    (d.teams || []).forEach(function (t) { var id = idOf(t);
+      var b = h('button', { type: 'button', class: 'wk', style: '--c:var(' + ROLES[id].c + ')', 'aria-haspopup': 'dialog' }, [h('b', { text: t.name })]
+        .concat((t.learn || []).slice(0, 2).map(function (x) { return h('span', { text: x }); })).concat((t.learn || []).length ? [] : [h('span', { text: '아직 기록이 없습니다.' })]));
+      b.addEventListener('click', function () { openRR(t); }); ln.appendChild(b); });
     var dn = document.getElementById('done'); dn.textContent = '';
     (d.today || []).forEach(function (t) { dn.appendChild(h('li', { text: t })); });
     if (!dn.children.length) dn.appendChild(h('li', { text: '아직 기록이 없습니다.' }));
