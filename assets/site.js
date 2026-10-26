@@ -98,7 +98,7 @@
   } catch (e) {}
   if (adVisit) document.documentElement.classList.add('at-ad-visit');
 
-  /* ---------- 추천 글: 6초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
+  /* ---------- 추천 글: 3초 이상 읽으면 '자세히 알아보기' 팝업 ---------- */
   var pop = document.querySelector('[data-at-popup]');
   if (pop && !adVisit) {
     /* 글을 열 때마다(페이지를 볼 때마다) 한 번 뜹니다. 닫으면 그 화면에서는 다시 뜨지 않습니다. */
@@ -117,13 +117,13 @@
       closePop();
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) closePop(); });
-    /* 탭이 보이는 동안만 6초를 셉니다 (다른 탭에 가 있던 시간은 제외) */
+    /* 탭이 보이는 동안만 3초를 셉니다 (다른 탭에 가 있던 시간은 제외) */
     var shown = 0, last = Date.now();
     var tick = setInterval(function () {
       var now = Date.now();
       if (document.visibilityState === 'visible') shown += now - last;
       last = now;
-      if (shown >= 6000) { clearInterval(tick); openPop(); }
+      if (shown >= 3000) { clearInterval(tick); openPop(); }
     }, 500);
   }
 
