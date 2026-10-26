@@ -45,6 +45,7 @@ jobs:
           GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
       - name: cta-report 브랜치에 쌓기
+        if: always()
         run: |
           cp -r _cta /tmp/_cta
           git config user.name  "github-actions[bot]"

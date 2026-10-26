@@ -40,6 +40,7 @@ const monthEnd = (y, m) => new Date(Date.UTC(y, m + 1, 0));
 
 // ───────── GA4 / 서치 콘솔 ─────────
 let TOKEN = null;
+const ERRORS = [];
 async function token() {
   if (TOKEN) return TOKEN;
   if (process.env.GOOGLE_ACCESS_TOKEN) return (TOKEN = process.env.GOOGLE_ACCESS_TOKEN);
@@ -78,7 +79,7 @@ const slugOf = (p) => p.replace(/^\/shop-|\.html$|\?.*$/g, "");
 async function collect(start, end, bucket) {
   if (MOCK) return mock(start, end, bucket);
   const bdim = { day: "date", week: "isoYearIsoWeek", month: "yearMonth" }[bucket];
-  const [tv, tc, sv, sc, pv, pc, src, ref] = await Promise.all([
+  const settled = await Promise.allSettled([
     ga(start, end, [], ["screenPageViews", "totalUsers"], F.shop),
     ga(start, end, [], ["eventCount", "totalUsers"], F.cta),
     ga(start, end, [bdim], ["screenPageViews", "totalUsers"], F.shop),
@@ -89,6 +90,8 @@ async function collect(start, end, bucket) {
     ga(start, end, ["pageReferrer", "landingPage"], ["sessions"], { andGroup: { expressions: [F.land,
       { filter: { fieldName: "pageReferrer", stringFilter: { matchType: "PARTIAL_REGEXP", value: "search\\.naver\\.com|search\\.daum\\.net|search\\.zum\\.com" } } }] } }, 1000),
   ]);
+  const NAMES = ["합계 조회", "합계 클릭", "기간별 조회", "기간별 클릭", "글별 조회", "버튼별 클릭", "유입 매체", "검색어"];
+  const [tv, tc, sv, sc, pv, pc, src, ref] = settled.map((x, i) => { if (x.status === "fulfilled") return x.value; ERRORS.push(`${NAMES[i]}: ${x.reason.message}`); return []; });
   const tot = { views: tv[0]?.m[0] || 0, viewers: tv[0]?.m[1] || 0, clicks: tc[0]?.m[0] || 0, clickers: tc[0]?.m[1] || 0 };
   const series = {};
   for (const r of sv) (series[r.d[0]] ||= blank()).views = r.m[0], series[r.d[0]].viewers = r.m[1];
@@ -344,6 +347,7 @@ th{color:var(--ink2);font-weight:600;background:var(--bg)}td.r{text-align:right;
 </style></head><body><div class="wrap">
 <header><h1>${esc(rep.title)}</h1><p>${esc(rep.sub)}</p></header>
 ${rep.body}
+${ERRORS.length ? `<p class="foot" style="color:var(--down)">일부 숫자를 불러오지 못했습니다: ${esc([...new Set(ERRORS)].join(" / "))}</p>` : ""}
 <p class="foot">· 사람 수 = 같은 기기·브라우저를 한 사람으로 센 값(GA4). 중복 = 횟수 − 사람 수. GA4는 개인정보 보호로 IP 주소를 제공하지 않아 같은 와이파이의 다른 기기는 다른 사람으로 셉니다.<br>
 · 제휴 버튼 = 브랜드 커넥트로 가는 '제품 가격 알아보기·여행 비용 알아보기' 버튼(첫 버튼·중간·글 끝·팝업). 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.<br>
 · 만든 시각 ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC · GA4 속성 ${PROPERTY}</p></div>
@@ -369,9 +373,9 @@ for (const t of plan) {
       topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
       sources: rep.data.sources.slice(0, 5), keywords: rep.data.keywords.slice(0, 8), google: rep.data.google.rows.slice(0, 8) });
     console.log(`✓ ${rep.title}`);
-  } catch (e) { console.log(`✗ ${t}: ${e.message}`); process.exitCode = 1; }
+  } catch (e) { console.log(`✗ ${t}: ${e.message}`); ERRORS.push(`${t}: ${e.stack || e.message}`); }
 }
-writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made }, null, 1));
+writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
 let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
 for (const r of made) md += `- ${r.title}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 제휴 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
 writeFileSync("_cta/cta-latest.md", md);
