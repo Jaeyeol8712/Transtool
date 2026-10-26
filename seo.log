@@ -1,13 +1,4 @@
-== 2026-10-25T21:55:01Z push 7b6c3df217f8eb4416f860df9d50c7ecf4273c56
-· 대상 3개
-  https://www.aroundtool.com/about.html
-  https://www.aroundtool.com/connect.html
-  https://www.aroundtool.com/editorial.html
-
-  ✓ api.indexnow.org — 200 접수됨
-  ✓ searchadvisor.naver.com — 200 접수됨
-
-· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+== 2026-10-26T01:12:20Z schedule ddb7160f12caf0691e3b3902622a4029a572761e
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
