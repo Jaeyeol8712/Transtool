@@ -61,10 +61,15 @@ async function ga(start, end, dims, mets, filter, limit = 5000) {
   const body = { dateRanges: [{ startDate: iso(start), endDate: iso(end) }], dimensions: dims.map((name) => ({ name })),
     metrics: mets.map((name) => ({ name })), limit };
   if (filter) body.dimensionFilter = filter;
-  const r = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROPERTY}:runReport`, {
-    method: "POST", headers: { Authorization: `Bearer ${await token()}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
-  if (!r.ok) throw new Error(`GA4 ${r.status} ${(await r.text()).slice(0, 200)}`);
-  return ((await r.json()).rows || []).map((x) => ({ d: x.dimensionValues.map((v) => v.value), m: x.metricValues.map((v) => +v.value) }));
+  let r;
+  for (let attempt = 0; attempt < 5; attempt++) {   // 동시 요청 한도(429)면 잠시 쉬었다 다시
+    r = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROPERTY}:runReport`, {
+      method: "POST", headers: { Authorization: `Bearer ${await token()}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    if (r.status !== 429) break;
+    await new Promise((ok) => setTimeout(ok, 1500 * (attempt + 1)));
+  }
+  if (!r.ok) throw new Error(`GA4 ${r.status} ${(await r.text()).slice(0, 160)}`);
+  return ((await r.json()).rows || []).map((x) => ({ d: (x.dimensionValues || []).map((v) => v.value), m: (x.metricValues || []).map((v) => +v.value) }));
 }
 const F = {
   shop: { filter: { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH", value: "/shop-" } } },
@@ -79,17 +84,19 @@ const slugOf = (p) => p.replace(/^\/shop-|\.html$|\?.*$/g, "");
 async function collect(start, end, bucket) {
   if (MOCK) return mock(start, end, bucket);
   const bdim = { day: "date", week: "isoYearIsoWeek", month: "yearMonth" }[bucket];
-  const settled = await Promise.allSettled([
-    ga(start, end, [], ["screenPageViews", "totalUsers"], F.shop),
-    ga(start, end, [], ["eventCount", "totalUsers"], F.cta),
-    ga(start, end, [bdim], ["screenPageViews", "totalUsers"], F.shop),
-    ga(start, end, [bdim], ["eventCount", "totalUsers"], F.cta),
-    ga(start, end, ["pagePath"], ["screenPageViews", "totalUsers"], F.shop),
-    ga(start, end, ["linkId"], ["eventCount", "totalUsers"], F.anyCta),
-    ga(start, end, ["sessionSourceMedium"], ["sessions", "totalUsers"], F.land, 50),
-    ga(start, end, ["pageReferrer", "landingPage"], ["sessions"], { andGroup: { expressions: [F.land,
+  const jobs = [
+    () => ga(start, end, [], ["screenPageViews", "totalUsers"], F.shop),
+    () => ga(start, end, [], ["eventCount", "totalUsers"], F.cta),
+    () => ga(start, end, [bdim], ["screenPageViews", "totalUsers"], F.shop),
+    () => ga(start, end, [bdim], ["eventCount", "totalUsers"], F.cta),
+    () => ga(start, end, ["pagePath"], ["screenPageViews", "totalUsers"], F.shop),
+    () => ga(start, end, ["linkId"], ["eventCount", "totalUsers"], F.anyCta),
+    () => ga(start, end, ["sessionSourceMedium"], ["sessions", "totalUsers"], F.land, 50),
+    () => ga(start, end, ["pageReferrer", "landingPage"], ["sessions"], { andGroup: { expressions: [F.land,
       { filter: { fieldName: "pageReferrer", stringFilter: { matchType: "PARTIAL_REGEXP", value: "search\\.naver\\.com|search\\.daum\\.net|search\\.zum\\.com" } } }] } }, 1000),
-  ]);
+  ];
+  const settled = [];
+  for (const job of jobs) { try { settled.push({ status: "fulfilled", value: await job() }); } catch (e) { settled.push({ status: "rejected", reason: e }); } }
   const NAMES = ["합계 조회", "합계 클릭", "기간별 조회", "기간별 클릭", "글별 조회", "버튼별 클릭", "유입 매체", "검색어"];
   const [tv, tc, sv, sc, pv, pc, src, ref] = settled.map((x, i) => { if (x.status === "fulfilled") return x.value; ERRORS.push(`${NAMES[i]}: ${x.reason.message}`); return []; });
   const tot = { views: tv[0]?.m[0] || 0, viewers: tv[0]?.m[1] || 0, clicks: tc[0]?.m[0] || 0, clickers: tc[0]?.m[1] || 0 };
@@ -115,6 +122,7 @@ async function collect(start, end, bucket) {
     .sort((a, b) => b.sessions - a.sessions);
   return { tot, series, posts, sources, keywords, google: await gsc(start, end) };
 }
+async function seq(fns) { const out = []; for (const f of fns) out.push(await f()); return out; }
 const blank = () => ({ views: 0, viewers: 0, clicks: 0, clickers: 0 });
 const postBlank = () => ({ views: 0, viewers: 0, clicks: 0, clickers: 0, pos: { top: 0, mid: 0, end: 0, pop: 0 }, inbound: { hub: 0, promo: 0 } });
 
@@ -263,7 +271,7 @@ function isoWeekKey(d) { const t = new Date(d); const day = (t.getUTCDay() + 6) 
 
 async function daily() {
   const y = add(TODAY, -1), s3 = add(y, -2), s7 = add(y, -6);
-  const [d1, d0, d3, w7] = await Promise.all([collect(y, y, "day"), collect(add(y, -1), add(y, -1), "day"), collect(s3, y, "day"), collect(s7, y, "day")]);
+  const [d1, d0, d3, w7] = await seq([() => collect(y, y, "day"), () => collect(add(y, -1), add(y, -1), "day"), () => collect(s3, y, "day"), () => collect(s7, y, "day")]);
   const b3 = days(s3, y).map(ymd), b7 = days(s7, y).map(ymd);
   return { name: `daily-${iso(y)}`, title: `일간 보고서 · ${iso(y)}(${DOW[y.getUTCDay()]})`,
     sub: `어제 하루 결과와 최근 3일 비교, 최근 7일 흐름입니다. (${iso(TODAY)} 08시 기준)`,
@@ -275,7 +283,7 @@ async function daily() {
 async function weekly() {
   const end = add(TODAY, -((TODAY.getUTCDay() + 6) % 7) - 1);   // 지난 일요일
   const start = add(end, -6), ps = add(start, -7), pe = add(start, -1), w4s = add(start, -21);
-  const [cur, prev, w4] = await Promise.all([collect(start, end, "day"), collect(ps, pe, "day"), collect(w4s, end, "week")]);
+  const [cur, prev, w4] = await seq([() => collect(start, end, "day"), () => collect(ps, pe, "day"), () => collect(w4s, end, "week")]);
   const wk = [...new Set(days(w4s, end).map(isoWeekKey))];
   return { name: `weekly-${iso(start)}`, title: `주간 보고서 · ${md_(start)}(월) ~ ${md_(end)}(일)`,
     sub: `지난주 월~일 결과를 그 전 주와 비교하고, 최근 4주 흐름을 함께 봅니다.`,
@@ -288,7 +296,7 @@ async function monthly() {
   const y = TODAY.getUTCFullYear(), m = TODAY.getUTCMonth() - 1;
   const start = monthStart(y, m), end = monthEnd(y, m), ps = monthStart(y, m - 1), pe = monthEnd(y, m - 1);
   const m3s = monthStart(y, m - 2), w4s = add(end, -27);
-  const [cur, prev, m3, w4] = await Promise.all([collect(start, end, "day"), collect(ps, pe, "day"), collect(m3s, end, "month"), collect(w4s, end, "week")]);
+  const [cur, prev, m3, w4] = await seq([() => collect(start, end, "day"), () => collect(ps, pe, "day"), () => collect(m3s, end, "month"), () => collect(w4s, end, "week")]);
   const wk = [...new Set(days(w4s, end).map(isoWeekKey))];
   return { name: `monthly-${iso(start).slice(0, 7)}`, title: `월간 보고서 · ${start.getUTCFullYear()}년 ${start.getUTCMonth() + 1}월`,
     sub: `${iso(start)} ~ ${iso(end)} 결과를 전월과 비교하고, 최근 4주·최근 3개월 누적을 함께 봅니다.`,
@@ -301,7 +309,7 @@ async function monthly() {
 async function quarterly() {
   const y0 = TODAY.getUTCFullYear(), qm = Math.floor(TODAY.getUTCMonth() / 3) * 3 - 3;
   const start = monthStart(y0, qm), end = monthEnd(y0, qm + 2), ps = monthStart(y0, qm - 3), pe = monthEnd(y0, qm - 1);
-  const [cur, prev, six] = await Promise.all([collect(start, end, "month"), collect(ps, pe, "month"), collect(ps, end, "month")]);
+  const [cur, prev, six] = await seq([() => collect(start, end, "month"), () => collect(ps, pe, "month"), () => collect(ps, end, "month")]);
   const q = Math.floor(start.getUTCMonth() / 3) + 1;
   return { name: `quarterly-${start.getUTCFullYear()}-Q${q}`, title: `분기 보고서 · ${start.getUTCFullYear()}년 ${q}분기`,
     sub: `${iso(start)} ~ ${iso(end)} 결과를 직전 분기와 비교합니다.`,
@@ -311,7 +319,7 @@ async function quarterly() {
 }
 async function yearly() {
   const yy = TODAY.getUTCFullYear() - 1, start = monthStart(yy, 0), end = monthEnd(yy, 11);
-  const [cur, prev] = await Promise.all([collect(start, end, "month"), collect(monthStart(yy - 1, 0), monthEnd(yy - 1, 11), "month")]);
+  const [cur, prev] = await seq([() => collect(start, end, "month"), () => collect(monthStart(yy - 1, 0), monthEnd(yy - 1, 11), "month")]);
   return { name: `yearly-${yy}`, title: `연간 보고서 · ${yy}년`, sub: `${yy}년 1~12월 결과를 전년과 비교합니다.`,
     body: `<section class="card"><h2>한 해 한눈에 (전년 대비)</h2>${kpis(cur, prev)}</section>
       ${trend([...Array(12).keys()].map((i) => ymd(monthStart(yy, i)).slice(0, 6)), cur, monLabel, "월별")}
