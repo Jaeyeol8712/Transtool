@@ -2,18 +2,18 @@
  "date": "2026-10-26",
  "reports": [
   {
-   "type": "daily",
-   "file": "reports/daily-2026-10-25.html",
-   "title": "일간 보고서 · 2026-10-25(일)",
+   "type": "weekly",
+   "file": "reports/weekly-2026-10-19.html",
+   "title": "주간 보고서 · 10.19(월) ~ 10.25(일)",
    "kpi": {
-    "views": 63,
-    "viewers": 2,
+    "views": 157,
+    "viewers": 7,
     "clicks": 0,
     "clickers": 0
    },
    "prev": {
-    "views": 64,
-    "viewers": 2,
+    "views": 0,
+    "viewers": 0,
     "clicks": 0,
     "clickers": 0
    },
