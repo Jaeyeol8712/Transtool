@@ -6,18 +6,34 @@
    "file": "reports/daily-2026-10-25.html",
    "title": "일간 보고서 · 2026-10-25(일)",
    "kpi": {
-    "views": 0,
-    "viewers": 0,
+    "views": 63,
+    "viewers": 2,
     "clicks": 0,
     "clickers": 0
    },
    "prev": {
-    "views": 0,
-    "viewers": 0,
+    "views": 64,
+    "viewers": 2,
     "clicks": 0,
     "clickers": 0
    },
-   "topPosts": [],
+   "topPosts": [
+    {
+     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "views": 23,
+     "clicks": 0
+    },
+    {
+     "post": "종아리 마사지기 공기압 추천 가격 총정리",
+     "views": 16,
+     "clicks": 0
+    },
+    {
+     "post": "후쿠오카 3일 여행 추천 코스 2박3일 일정",
+     "views": 16,
+     "clicks": 0
+    }
+   ],
    "sources": [
     {
      "name": "m.search.naver.com / referral",
@@ -29,10 +45,5 @@
    "google": []
   }
  ],
- "errors": [
-  "합계 조회: Cannot read properties of undefined (reading 'map')",
-  "합계 클릭: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor",
-  "기간별 조회: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor",
-  "글별 조회: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor"
- ]
+ "errors": []
 }
