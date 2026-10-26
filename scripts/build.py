@@ -1018,7 +1018,7 @@ def shop_card(q, heading="h3"):
     alt = (post.get("cta_photo") or {}).get("alt") or post["title"]
     size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
     img = f'<img src="{esc(src)}" alt="{esc(alt)}"{size} loading="lazy" decoding="async">' if src else ""
-    return (f'<li><a class="at-sp-card" href="/{q["file"]}"><span class="at-sp-img">{img}</span>'
+    return (f'<li><a class="at-sp-card" href="/{q["file"]}"{track_attr("promo-" + post["slug"], post, "promo", "internal")}><span class="at-sp-img">{img}</span>'
             f'<span class="at-sp-k">{esc(KINDS[kind_of(q)])}</span><{heading} class="at-sp-t">{esc(q["title"])}</{heading}>'
             f'<span class="at-sp-x">{esc(post["keyword"])}</span></a></li>')
 
@@ -1550,10 +1550,15 @@ def cta_label(post):
     return "여행 비용 알아보기 >>" if post.get("kind") == "travel" else "제품 가격 알아보기 >>"
 
 
-def link_card(post):
-    """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조."""
+def track_attr(name, post, pos, typ):
+    """버튼마다 고유 이름(id)과 클릭 추적용 정보. site.js 가 GA4 'cta_click' 이벤트로 보냅니다."""
+    return (f' id="{name}" data-track="{name}" data-track-post="{esc(post["slug"])}" data-track-pos="{pos}" data-track-type="{typ}"')
+
+
+def link_card(post, pos="end"):
+    """제휴 링크 버튼: 빨간 바탕·흰 글씨, 은은하게 깜빡이는 강조. 위치(pos): top·mid·end·pop"""
     label = cta_label(post)
-    return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" rel="sponsored nofollow noopener">'
+    return (f'<a class="at-cta" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)}{track_attr(f"cta-{post['slug']}-{pos}", post, pos, "affiliate")} target="_blank" rel="sponsored nofollow noopener">'
             f'{esc(label)}</a>')
 
 
@@ -1574,7 +1579,7 @@ def popup_html(post):
     {pop_visual}
     <p class="at-pop-h" id="at-pop-h">{esc(head)}</p>
     <p class="at-pop-s">{esc(sub)}</p>
-    <a class="at-cta" href="{esc(post.get('direct') or post['link'])}"{web_attr(post)} target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
+    <a class="at-cta" href="{esc(post.get('direct') or post['link'])}"{web_attr(post)}{track_attr(f"cta-{post['slug']}-pop", post, "pop", "affiliate")} target="_blank" rel="sponsored nofollow noopener" data-pop-go>{esc(label)}</a>
     <button type="button" class="at-pop-later" data-pop-close>계속 읽을게요</button>
     <p class="at-pop-ad">광고 · {esc(d)}</p>
   </div>
@@ -1637,7 +1642,7 @@ def build_connect_blog(p):
             if mp and photo_ok(mp):
                 ph = photo_html(mp).replace('class="at-fig"', 'class="at-fig vx-cta-photo"', 1)
                 ld_imgs.append(image_ld(f"/assets/photos/{mp}.jpg", PHOTOS[mp]["alt"], PHOTOS[mp]))
-            parts.append(f'<div class="vx-cta-mid">{ph}<p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post)}</div>')
+            parts.append(f'<div class="vx-cta-mid">{ph}<p>{esc(post.get("cta_hook") or "가격과 옵션이 궁금하다면?")}</p>{link_card(post, "mid")}</div>')
         elif para.lstrip().startswith("<"):
             parts.append(para)
         else:
@@ -1663,7 +1668,7 @@ def build_connect_blog(p):
   <p class="meta"><span>{esc(KINDS[kind_of(p)])} · 광고</span>{f"<span>{esc(post['brand'])}</span>" if post.get('brand') else ''}<span>작성 <time datetime="{p['date']}">{p['date'].replace('-', '.')}</time></span></p>
 </header>
 {disclosure_box(post)}
-<div class="at-og-wrap">{top_photo(post)}{link_card(post)}</div>
+<div class="at-og-wrap">{top_photo(post)}{link_card(post, "top")}</div>
 <div class="at-page"><div class="at-prose at-blog">
 {"".join(parts)}
 {closing}
@@ -1799,7 +1804,7 @@ def build_connect_hub():
             img = (f'<a class="at-shop-thumb" href="/{q["file"]}"><img src="{esc(thumb)}" alt="{esc(cp.get("alt") or post["title"])}"{tsz} loading="lazy" decoding="async"></a>'
                    if thumb else "")
             # 목록에는 제휴 링크를 두지 않고 글로 연결합니다 (대가성 표시는 글 안에서만).
-            btn = f'<a class="at-cta at-cta-sm" href="/{q["file"]}">{"코스 자세히 보기 >>" if kind_of(q) == "travel" else "제품 자세히 보기 >>"}</a>'
+            btn = f'<a class="at-cta at-cta-sm" href="/{q["file"]}"{track_attr("hub-" + post["slug"], post, "hub", "internal")}>{"코스 자세히 보기 >>" if kind_of(q) == "travel" else "제품 자세히 보기 >>"}</a>'
             return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">{esc(KINDS[kind_of(q)])}</span>'
                     f'<a class="t" href="/{q["file"]}">{esc(q["title"])}</a>'
                     f'<span class="x">{esc(post["keyword"])} · {short_date(q["date"])}</span>{btn}</div></li>')

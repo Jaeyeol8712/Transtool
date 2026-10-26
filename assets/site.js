@@ -76,16 +76,40 @@
      바로 이동해 선택창 없이 상품 페이지를 엽니다. PC는 기존 주소 그대로(선택창 없음). */
   var mobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || '') ||
     (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
+  /* ---------- 버튼 클릭 추적 (GA4 이벤트 'cta_click') ----------
+     버튼마다 고유 이름(id = data-track)이 있습니다. 예) cta-galaxy-s26-ultra-top
+       cta-<글>-top  첫 번째 버튼 · cta-<글>-mid 중간 버튼 · cta-<글>-end 글 끝 버튼 · cta-<글>-pop 팝업 버튼
+       hub-<글>  추천 모음 목록의 '자세히 보기' · promo-<글>  다른 페이지의 추천 카드
+     GA4 보고서: 이벤트 'cta_click' → 매개변수 link_id(버튼 이름)·post_slug·button_position·cta_type */
+  var track = function (a, extra) {
+    var p = {
+      link_id: a.getAttribute('data-track'),
+      link_text: (a.textContent || '').trim().slice(0, 100),
+      link_url: (mobile && a.getAttribute('data-web')) || a.href,
+      post_slug: a.getAttribute('data-track-post') || '',
+      button_position: a.getAttribute('data-track-pos') || '',
+      cta_type: a.getAttribute('data-track-type') || '',
+      transport_type: 'beacon'
+    };
+    for (var k in (extra || {})) p[k] = extra[k];
+    if (window.gtag) gtag('event', 'cta_click', p);
+  };
   if (mobile) {
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[data-web]');
       if (!a) return;
       e.preventDefault();
-      var w = a.getAttribute('data-web');
-      if (window.gtag) gtag('event', 'affiliate_click', { link_url: w, method: 'mobile_web', transport_type: 'beacon' });
-      window.location.href = w;
+      var w = a.getAttribute('data-web'), done = false;
+      var go = function () { if (done) return; done = true; window.location.href = w; };
+      if (a.hasAttribute('data-track')) track(a, { method: 'mobile_web', event_callback: go });
+      setTimeout(go, 400);   /* GA 응답이 늦어도 0.4초 안에 이동 */
     }, true);
   }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-track]');
+    if (!a || (mobile && a.hasAttribute('data-web'))) return;   /* 휴대폰 제휴 버튼은 위에서 처리 */
+    track(a, { method: mobile ? 'mobile' : 'desktop' });
+  }, true);
 
   /* ---------- 유료 광고로 들어온 방문 ----------
      구글 애즈·네이버·카카오 키워드 광고 랜딩은 광고 정책(Better Ads Standards의 팝업·깜빡이는 광고 금지,

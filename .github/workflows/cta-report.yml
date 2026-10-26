@@ -1,0 +1,48 @@
+name: 추천 모음 버튼 클릭 보고서
+
+# 매일 08:13(한국 시간) GA4 'cta_click' 이벤트를 모아 cta-report 브랜치(cta-latest.md)에 저장합니다.
+on:
+  schedule:
+    - cron: "13 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: 구글 인증
+        id: gauth
+        if: vars.GCP_WIF_PROVIDER != ''
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/analytics.readonly
+      - name: 보고서 만들기
+        run: node scripts/ga4-cta.mjs
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          GA_SERVICE_ACCOUNT: ${{ secrets.GA_SERVICE_ACCOUNT }}
+          GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+      - name: cta-report 브랜치에 저장
+        run: |
+          [ -d _cta ] || exit 0
+          cp -r _cta /tmp/_cta
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan cta-report
+          git rm -rq --cached . 2>/dev/null || true
+          rm -rf ./* && cp -r /tmp/_cta/* . && cp cta-latest.md "cta-$(date +%F).md"
+          git add -f *.md *.json
+          git commit -qm "버튼 클릭 보고서 $(date +%F) [skip ci]"
+          git push -q -f origin cta-report
