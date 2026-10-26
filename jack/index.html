@@ -107,6 +107,21 @@ h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(2.2re
 .crew small{display:block;font-size:.8rem;color:var(--ink-2);line-height:1.4}
 .crew em{display:block;font-style:normal;font-size:.75rem;color:var(--ink-3);margin-top:2px}
 @media(min-width:1000px){.stage-wrap{grid-template-columns:1fr 290px}}
+/* 아래 정리 */
+.brief{margin:0;padding:16px 16px 16px 34px;background:var(--paper);border-radius:16px;display:flex;flex-direction:column;gap:6px}
+.work{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.wk{display:flex;flex-direction:column;gap:4px;text-align:left;font:inherit;color:inherit;background:var(--paper);border:0;border-left:6px solid var(--c);border-radius:14px;padding:12px 14px;cursor:pointer;min-height:44px}
+.wk b{font-size:1rem}.wk span{font-size:.88rem;color:var(--ink-2)}
+.wk:hover,.wk:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.done{margin:0;padding:16px 16px 16px 34px;background:var(--paper);border-radius:16px;display:flex;flex-direction:column;gap:6px}
+.kpi-note{margin:0 0 12px;color:var(--ink-2)}
+.kpit{background:var(--paper);border-radius:16px;padding:6px 12px}
+.kpit table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.kpit th{text-align:left;font-weight:500;color:var(--ink-3);font-size:.8rem;padding:10px 8px}
+.kpit td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:top}
+.kpit td.tm{font-weight:700;white-space:nowrap}
+.kpit td.now{font-weight:700}.kpit td.none{color:var(--ink-3)}
+#office{cursor:pointer}
 /* KPI·팀 상세 */
 .kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
 .kpi{background:var(--paper);border-radius:16px;padding:14px 16px}
@@ -163,57 +178,30 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   </aside>
 </div>
 
-<section class="sec" aria-labelledby="t-kpi">
-  <h2 id="t-kpi">이번 주 유입</h2>
-  <p id="kpi-note">팀의 주 목표는 <b>사이트 유입 증대</b>입니다. 숫자는 매일 아침 회의 때 GA4·서치 콘솔에서 갱신합니다.</p>
-  <div class="kpis" id="kpis"></div>
-  <div class="spark" id="spark" hidden><span class="small" style="font-size:.82rem;color:var(--ink-3)">최근 28일 하루 사용자</span><svg id="spark-svg" viewBox="0 0 600 120" preserveAspectRatio="none" role="img" aria-label="최근 28일 하루 사용자 추이"></svg></div>
-</section>
-
-<section class="sec" aria-labelledby="t-team">
-  <h2 id="t-team">팀 12</h2>
-  <p>각 역할은 10년차 전문가 기준의 지식 파일을 갖고, 매일 아침 1분씩 새 소식을 확인합니다. 깊게 조사할 일은 컨펌판에서 대표 승인 후 진행합니다. 카드를 누르면 R&amp;R과 KPI가 보입니다.</p>
-  <div class="team" id="team"></div>
-</section>
 <dialog class="rr" id="rr" aria-labelledby="rr-name"><div class="rr-in" id="rr-in"></div></dialog>
 
 <section class="sec" aria-labelledby="t-meet">
   <h2 id="t-meet">오늘 회의</h2>
-  <p id="meet-sum">회의 내용을 불러오는 중입니다.</p>
-  <div class="meet wrap-x"><table><tbody id="meet-rows"></tbody></table></div>
+  <ul class="brief" id="brief"><li>불러오는 중…</li></ul>
 </section>
 
-<section class="sec" aria-labelledby="t-orders">
-  <h2 id="t-orders">대표 지시 업무</h2>
-  <p>짹이 맡긴 일과 진행 상태입니다. 사이트를 바꾸는 안건은 <a href="https://claude.ai/artifact/QqbDddVHp5wzyeieHuFoa8" target="_blank" rel="noopener">컨펌판</a>에서 승인합니다.</p>
-  <ol class="orders" id="orders"></ol>
+<section class="sec" aria-labelledby="t-work">
+  <h2 id="t-work">팀별 업무</h2>
+  <div class="work" id="work"></div>
 </section>
 
-<section class="sec" aria-labelledby="t-flow">
-  <h2 id="t-flow">일이 흘러가는 순서</h2>
-  <p>요청 하나가 들어오면 이렇게 움직입니다.</p>
-  <div class="flow">
-    <div><b>짹이 말한다</b>원하는 것을 총괄에게 한 번만</div>
-    <div><b>총괄이 나눈다</b>운영 기록을 읽고 역할을 정함</div>
-    <div><b>역할이 만든다</b>글, 분석, 그래픽, 기능</div>
-    <div><b>총괄이 검수한다</b>사실·표시 위치·화면 확인</div>
-    <div><b>보고하고 기록한다</b>결과를 보내고 일지에 남김</div>
-  </div>
+<section class="sec" aria-labelledby="t-done">
+  <h2 id="t-done">오늘 한 일</h2>
+  <ul class="done" id="done"></ul>
 </section>
 
-<section class="sec" aria-labelledby="t-days">
-  <h2 id="t-days">지금까지</h2>
-  <p>지금까지 한 일입니다.</p>
-  <ol class="days">
-    <li><time datetime="2026-10-23">10월 23일</time><p>추천 모음 시작. 충전기·거북목·키보드·음식물처리기·후쿠오카 글을 시각형으로 작성.</p></li>
-    <li><time datetime="2026-10-24">10월 24일</time><p>추천 글 11개 추가, 휴대폰에서 앱 선택창 없이 바로 이동, 무료 사진 105장 연결.</p></li>
-    <li><time datetime="2026-10-25">10월 25일</time><p>전체 오류 점검, 접근성 100점, 카페 글 일정 시작, 광고 심사 대비 정리.</p></li>
-    <li><time datetime="2026-10-26">10월 26일</time><p>모든 페이지 SEO 보강, 추천 글 대표 사진·공유 이미지, 버튼 클릭 추적과 시각형 보고서, 팀 구성.</p></li>
-  </ol>
-  <ol class="days" id="days-more" style="margin-top:0"></ol>
+<section class="sec" aria-labelledby="t-kpi">
+  <h2 id="t-kpi">팀별 KPI</h2>
+  <p class="kpi-note" id="kpi-note"></p>
+  <div class="wrap-x kpit"><table><thead><tr><th>팀</th><th>지표</th><th>현재</th><th>목표</th></tr></thead><tbody id="kpit"></tbody></table></div>
 </section>
 
-<footer>짹만 보는 페이지입니다. 검색엔진에 노출하지 않으며 사이트 메뉴·사이트맵에도 없습니다.</footer>
+<footer>짹만 보는 페이지 · 검색 제외</footer>
 
 <script>
 (function () {
@@ -521,6 +509,16 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   function nowLabel(t) { nowEl.textContent = t; }
   function log() {}
 
+  function hit(ev) {
+    var r = cvs.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width * W, y = (ev.clientY - r.top) / r.height * H;
+    var best = null; order.forEach(function (id) { var p = people[id]; if (Math.abs(p.x - x) < 10 && y > p.y - 40 && y < p.y + 3) best = id; });
+    if (best) return best;
+    for (var id in ROOM) { if (!ROLES[id]) continue; var rm = room(id); if (x >= rm.x && x <= rm.x + rm.w && y >= rm.y && y <= rm.y + rm.h) return id; }
+    return null;
+  }
+  cvs.addEventListener('click', function (ev) { var id = hit(ev); if (!id || !DATA || !window.__openRR) return;
+    var t = (DATA.teams || []).filter(function (x) { return KEY[x.name] === id; })[0]; if (t) window.__openRR(t); });
+  cvs.addEventListener('mousemove', function (ev) { cvs.style.cursor = hit(ev) ? 'pointer' : 'default'; });
   document.getElementById('pause').addEventListener('click', function () { paused = !paused; this.setAttribute('aria-pressed', paused); this.textContent = paused ? '이어서 보기' : '잠깐 멈춤'; });
   document.getElementById('meetNow').addEventListener('click', function () { if (!meeting) holdMeeting(); });
 
@@ -543,72 +541,41 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
 <script>
 (function () {
   'use strict';
-  /* ───── 데이터(jack/data.json): 아침 회의가 매일 갱신 ───── */
-  var DATA = null;
-  var J = window.__jack, ROLES = J.ROLES, el = J.el, css = J.css;
-  var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
-    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
+  var J = window.__jack, ROLES = J.ROLES, KEY = J.KEY;
   function h(tag, attrs, kids) { var e = document.createElement(tag); for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); } (kids || []).forEach(function (c) { if (c) e.appendChild(c); }); return e; }
-  var fmt = function (v) { return v == null ? '–' : Math.round(v).toLocaleString('ko-KR'); };
-  function chg(c, p) { if (c == null || p == null) return h('small', { text: '비교할 지난주 없음' });
-    if (c < 20 || p < 20) return h('small', { text: '지난주 ' + fmt(p) });
-    var d = (c - p) / p * 100; return h('small', {}, [h('span', { class: d >= 0 ? 'u' : 'd', text: (d >= 0 ? '▲ ' : '▼ ') + Math.abs(d).toFixed(0) + '%' }), document.createTextNode(' 지난주 ' + fmt(p))]); }
-  function renderKpi(k) {
-    var box = document.getElementById('kpis'); box.textContent = '';
-    if (!k || !k.cur) { box.appendChild(h('div', { class: 'kpi' }, [h('span', { text: '사이트 전체 유입' }), h('b', { text: '집계 전' }), h('small', { text: '첫 집계는 다음 아침 회의 때 들어옵니다.' })])); return; }
-    var g = k.google || {};
-    [['사용자 (7일)', k.cur.users, k.prev && k.prev.users], ['방문 (7일)', k.cur.sessions, k.prev && k.prev.sessions],
-     ['검색(오가닉) 방문', k.organic && k.organic.cur, k.organic && k.organic.prev], ['구글 검색 클릭', g.cur && g.cur.clicks, g.prev && g.prev.clicks],
-     ['구글 검색 노출', g.cur && g.cur.impressions, g.prev && g.prev.impressions]].forEach(function (r) {
-      box.appendChild(h('div', { class: 'kpi' }, [h('span', { text: r[0] }), h('b', { text: fmt(r[1]) }), chg(r[1], r[2])])); });
-    document.getElementById('kpi-note').lastChild && (document.getElementById('kpi-note').appendChild(document.createTextNode(' 기준: ' + k.range + (g.range ? ' · 구글 검색 ' + g.range : ''))));
-    var d = k.daily || []; if (d.length > 1) { var sv = document.getElementById('spark-svg'), mx = Math.max.apply(null, d.map(function (x) { return x.users; }).concat([1]));
-      var pts = d.map(function (x, i) { return (i / (d.length - 1) * 600).toFixed(1) + ',' + (112 - x.users / mx * 100).toFixed(1); });
-      el('polyline', { points: '0,120 ' + pts.join(' ') + ' 600,120', fill: css('--chief'), opacity: .14 }, sv);
-      el('polyline', { points: pts.join(' '), fill: 'none', stroke: css('--chief'), 'stroke-width': 2.5, 'vector-effect': 'non-scaling-stroke' }, sv);
-      document.getElementById('spark').hidden = false; }
-  }
+  function idOf(t) { return KEY[t.name] || 'chief'; }
   function openRR(t) {
-    var id = KEY[t.name] || 'chief', box = document.getElementById('rr-in'); box.textContent = ''; box.style.setProperty('--c', 'var(' + ROLES[id].c + ')');
-    var dlg = document.getElementById('rr');
+    var id = idOf(t), box = document.getElementById('rr-in'), dlg = document.getElementById('rr'); box.textContent = ''; box.style.setProperty('--c', 'var(' + ROLES[id].c + ')');
     var x = h('button', { class: 'x', type: 'button', text: '닫기' }); x.addEventListener('click', function () { dlg.close(); });
     box.appendChild(x); box.appendChild(h('h3', { id: 'rr-name', text: t.name })); box.appendChild(h('p', { class: 'sub', text: t.mission }));
     box.appendChild(h('h4', { text: 'R&R — 하는 일' })); box.appendChild(h('ul', {}, t.rr.map(function (r) { return h('li', { text: r }); })));
     if (t.not) { box.appendChild(h('h4', { text: '하지 않는 일' })); box.appendChild(h('ul', {}, t.not.map(function (r) { return h('li', { text: r }); }))); }
-    box.appendChild(h('h4', { text: 'KPI — 유입 증대 기준' }));
-    var tb = h('tbody', {}, t.kpi.map(function (k) { return h('tr', {}, [h('td', { text: k.name }), h('td', { text: k.target }), h('td', { text: k.now || '집계 전' }), h('td', { text: k.source })]); }));
-    box.appendChild(h('div', { class: 'wrap-x' }, [h('table', {}, [h('thead', {}, [h('tr', {}, ['지표', '목표(제안)', '현재', '어디서'].map(function (c) { return h('th', { text: c }); }))]), tb])]));
-    if (t.learn && t.learn.length) { box.appendChild(h('h4', { text: '최근 학습' })); box.appendChild(h('ul', {}, t.learn.slice(0, 4).map(function (r) { return h('li', { text: r }); }))); }
+    box.appendChild(h('h4', { text: 'KPI' }));
+    box.appendChild(h('ul', {}, t.kpi.map(function (k) { return h('li', { text: k.name + ' — 목표 ' + k.target + ' · 현재 ' + (k.now || '집계 전') }); })));
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
   }
   window.__openRR = openRR;
-  function renderTeam(teams) {
-    var box = document.getElementById('team'); box.textContent = '';
-    teams.forEach(function (t) { var id = KEY[t.name] || 'chief';
-      var b = h('button', { class: 'member', type: 'button', style: '--c:var(' + ROLES[id].c + ')', 'aria-haspopup': 'dialog' },
-        [h('h3', { text: t.name }), h('p', { class: 'role', text: t.mission }), h('ul', {}, t.rr.slice(0, 3).map(function (r) { return h('li', { text: r }); })),
-         h('div', { class: 'more', text: 'R&R · KPI ' + t.kpi.length + '개 보기 ›' })]);
-      b.addEventListener('click', function () { openRR(t); }); box.appendChild(b); });
+  function render(d) {
+    var m = (d.meetings || [])[0] || {};
+    document.getElementById('t-meet').textContent = '오늘 회의' + (m.date ? ' · ' + m.date : '');
+    var br = m.brief && m.brief.length ? m.brief : [m.summary || '회의 기록이 아직 없습니다.'];
+    var ul = document.getElementById('brief'); ul.textContent = ''; br.slice(0, 5).forEach(function (t) { ul.appendChild(h('li', { text: t })); });
+    var wk = document.getElementById('work'); wk.textContent = '';
+    (d.teams || []).forEach(function (t) { var id = idOf(t);
+      var b = h('button', { type: 'button', class: 'wk', style: '--c:var(' + ROLES[id].c + ')', 'aria-haspopup': 'dialog' },
+        [h('b', { text: t.name }), h('span', { text: t.today || t.rr.slice(0, 2).join(' · ') })]);
+      b.addEventListener('click', function () { openRR(t); }); wk.appendChild(b); });
+    var dn = document.getElementById('done'); dn.textContent = '';
+    (d.today || []).forEach(function (t) { dn.appendChild(h('li', { text: t })); });
+    if (!dn.children.length) dn.appendChild(h('li', { text: '아직 기록이 없습니다.' }));
+    var k = d.kpi; document.getElementById('kpi-note').textContent = '주 목표: ' + (d.theme || '사이트 유입 증대') + (k && k.range ? ' · 기준 ' + k.range : '') + ' · 매일 아침 회의 때 갱신';
+    var tb = document.getElementById('kpit'); tb.textContent = '';
+    (d.teams || []).forEach(function (t) { var id = idOf(t);
+      t.kpi.forEach(function (x, i) { tb.appendChild(h('tr', {}, [i === 0 ? h('td', { rowspan: String(t.kpi.length), class: 'tm', style: 'color:var(' + ROLES[id].c + ')', text: t.name }) : null,
+        h('td', { text: x.name }), h('td', { class: x.now ? 'now' : 'none', text: x.now || '집계 전' }), h('td', { text: x.target })])); }); });
   }
-  function renderMeet(ms) {
-    var m = ms && ms[0]; if (!m) return;
-    document.getElementById('t-meet').textContent = m.date + ' 회의';
-    document.getElementById('meet-sum').textContent = (m.theme ? '주제: ' + m.theme + ' — ' : '') + (m.summary || '');
-    var tb = document.getElementById('meet-rows'); tb.textContent = '';
-    m.roles.forEach(function (r) { var id = KEY[r.role]; tb.appendChild(h('tr', {}, [h('td', { text: r.role, style: id ? 'color:var(' + ROLES[id].c + ')' : '' }), h('td', { text: r.say })])); });
-  }
-  function renderOrders(os) {
-    var box = document.getElementById('orders'); box.textContent = '';
-    var L2 = { done: '완료', ing: '진행 중', wait: '대표 대기' };
-    os.forEach(function (o) { box.appendChild(h('li', {}, [h('time', { text: o.date }), h('b', { text: o.title }), h('span', { class: 'st ' + o.status, text: L2[o.status] || o.status }), o.note ? h('p', { text: o.note }) : null])); });
-  }
-  function renderDays(ds) { var box = document.getElementById('days-more'); box.textContent = '';
-    (ds || []).forEach(function (d) { box.appendChild(h('li', {}, [h('time', { datetime: d.date, text: d.label }), h('p', { text: d.text })])); }); }
-  fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
-    DATA = d; renderKpi(d.kpi); renderTeam(d.teams || []); renderMeet(d.meetings); renderOrders(d.orders || []); renderDays(d.days);
-  }).catch(function () { document.getElementById('meet-sum').textContent = '데이터를 불러오지 못했습니다.'; });
-
-  /* 벽시계 (한국 시간) */
+  function go() { if (window.__DATA) render(window.__DATA); }
+  if (window.__DATA) go(); else window.addEventListener('jackdata', go);
   var clock = document.getElementById('clock');
   (function tick() { clock.textContent = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit' }) + ' · 운영실 가동 중'; setTimeout(tick, 30000); })();
 })();
