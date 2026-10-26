@@ -1759,8 +1759,8 @@ def build_connect_hub():
             tsz = f' width="{twh[0]}" height="{twh[1]}"' if twh else ""
             img = (f'<a class="at-shop-thumb" href="/{q["file"]}"><img src="{esc(thumb)}" alt="{esc(cp.get("alt") or post["title"])}"{tsz} loading="lazy" decoding="async"></a>'
                    if thumb else "")
-            btn = (f'<a class="at-cta at-cta-sm" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" '
-                   f'rel="sponsored nofollow noopener">{esc(cta_label(post))}</a>')
+            # 목록에는 제휴 링크를 두지 않고 글로 연결합니다 (대가성 표시는 글 안에서만).
+            btn = f'<a class="at-cta at-cta-sm" href="/{q["file"]}">{"코스 자세히 보기 >>" if kind_of(q) == "travel" else "제품 자세히 보기 >>"}</a>'
             return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">{esc(KINDS[kind_of(q)])}</span>'
                     f'<a class="t" href="/{q["file"]}">{esc(q["title"])}</a>'
                     f'<span class="x">{esc(post["keyword"])} · {short_date(q["date"])}</span>{btn}</div></li>')
@@ -1772,7 +1772,6 @@ def build_connect_hub():
   <h1>추천 모음</h1>
   <p class="lede">살 만한 제품을 고르는 기준과, 가 볼 만한 여행 코스를 정리했습니다. 직접 사용해 본 후기가 아니라, 제조사 공식 자료 등 공개된 정보를 정리한 글입니다.</p>
 </header>
-<aside class="at-disclose" role="note" aria-label="광고 표시"><p>이 게시판의 글은 네이버 커넥트 제휴 활동의 일환으로, 글 속 링크로 구매가 이뤄지면 일정액의 수수료를 제공받습니다.</p></aside>
 <ul class="at-tabs at-tabs-lg" role="tablist" data-at-tabs aria-label="분류 선택">{"".join(tabs)}</ul>
 {"".join(panes)}
 <div class="at-prose" style="margin-top:1.5rem">{faq_html(CONNECT_FAQ)}</div>"""
