@@ -630,7 +630,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     (d.teams || []).forEach(function (t) { var id = idOf(t);
       var b = h('button', { type: 'button', class: 'wk', style: '--c:var(' + ROLES[id].c + ')', 'aria-haspopup': 'dialog' },
         [h('b', { text: t.name }), h('span', {}, [h('i', { class: 'l', text: '한 일' }), document.createTextNode(t.today || '—')]),
-         h('span', {}, [h('i', { class: 'l', text: '할 일' }), document.createTextNode(t.todo || '—')])]);
+         h('span', {}, [h('i', { class: 'l', text: '할 일' }), document.createTextNode(t.todo || '—')]),
+         t.basis ? h('span', {}, [h('i', { class: 'l', text: '근거' }), document.createTextNode(t.basis)]) : null]);
       b.addEventListener('click', function () { openRR(t); }); wk.appendChild(b); });
     var ln = document.getElementById('learn'); ln.textContent = '';
     (d.teams || []).forEach(function (t) { var id = idOf(t);
