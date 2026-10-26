@@ -113,7 +113,7 @@ def main():
         out = [f"[추천 모음 카페 게시용 {day}일차] — 하루 5개 이내, 게시판 성격에 맞는 곳에 올려 주세요\n"]
         for n, p in enumerate(items[i:i + 5], 1):
             t, b = post(p)
-            out += ["=" * 40, f"#{n}  제목: {t}", f"(본문 {len(b)}자)", "-" * 40, b, ""]
+            out += ["=" * 40, t, "", b, ""]
         open(f"_cafe/shop-day-{day:02d}.txt", "w", encoding="utf-8").write("\n".join(out))
     print(f"{len(items)}개 → {(len(items) + 4) // 5}일치")
 
