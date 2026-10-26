@@ -993,3 +993,14 @@ add("hourly_monthly_wage_calculator",
          ("주 40시간을 넘게 일하면요?", "주휴시간은 40시간까지만 반영됩니다. 40시간을 넘는 연장근로는 5인 이상 사업장이면 시급의 1.5배를 따로 받습니다.")],
     related=["holiday_pay_calculator", "salary_calculator", "unemployment_benefit_calculator", "pto_calculator"],
     cat="BusinessApplication")
+
+
+# ── 보강: 롱테일 FAQ와 기준표 (scripts/calc_extra.py) ──
+from calc_extra import EXTRA_FAQ, EXTRA_BODY  # noqa: E402
+for _k, _v in EXTRA_FAQ.items():
+    if _k in CALCS:
+        _have = {q for q, _ in CALCS[_k]["faq"]}
+        CALCS[_k]["faq"] = CALCS[_k]["faq"] + [x for x in _v if x[0] not in _have]
+for _k, _v in EXTRA_BODY.items():
+    if _k in CALCS:
+        CALCS[_k]["body"] = CALCS[_k]["body"] + "\n" + _v

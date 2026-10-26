@@ -30,6 +30,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from calc_content import CALCS  # noqa: E402
+from calc_extra import LEGACY_STEPS, LEGACY_NOTE  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 from guides import GUIDES  # noqa: E402
 
@@ -1124,6 +1125,18 @@ def transform_existing(p):
     body, photo_lds = inject_page_photos(f, body)
     # 직접 만든 계산기 페이지에도 '관련 가이드' 연결 (자주 묻는 질문 앞)
     body = re.sub(r"<!-- at:guides -->.*?<!-- /at:guides -->\n?", "", body, flags=re.S)
+    # 직접 만든 계산기: 사용 방법 3~4단계 + 참고용·개인정보 안내 (+ HowTo 구조화 데이터)
+    body = re.sub(r"<!-- at:howto -->.*?<!-- /at:howto -->\n?", "", body, flags=re.S)
+    howto_ld = None
+    if p.get("section") == "tools" and f[:-5] in LEGACY_STEPS:
+        steps = LEGACY_STEPS[f[:-5]]
+        lis = "".join(f"<li>{s}</li>" for s in steps)
+        blk = (f'<!-- at:howto --><section class="at-prose" style="margin:1.5rem auto"><h2>이렇게 쓰세요</h2>'
+               f'<ol class="at-steps">{lis}</ol><p class="at-note">{LEGACY_NOTE}</p></section><!-- /at:howto -->\n')
+        m = re.search(r"<h2[^>]*>\s*(관련 가이드|자주 묻는 질문)", body)
+        body = body[:m.start()] + blk + body[m.start():] if m else body + blk
+        howto_ld = {"@type": "HowTo", "name": f"{p.get('name') or strip_tags(p.get('title', ''))} 사용 방법",
+                    "step": [{"@type": "HowToStep", "position": i + 1, "text": strip_tags(s)} for i, s in enumerate(steps)]}
     if p.get("section") == "tools":
         gl = guide_links_for(f[:-5])
         if gl:
@@ -1142,6 +1155,8 @@ def transform_existing(p):
     # 구조화 데이터: 페이지 고유 JSON-LD 에 FAQ가 없으면 본문 <details>로 생성
     has_faq = "FAQPage" in preserved
     extra = list(photo_lds)
+    if howto_ld and '"HowTo"' not in preserved:
+        extra.append(howto_ld)
     if not has_faq:
         pairs = html_faq_pairs(body)
         if pairs:
