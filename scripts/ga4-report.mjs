@@ -402,6 +402,30 @@ document.addEventListener('click',function(e){var el=e.target.closest&&e.target.
 </body></html>`;
 }
 
+
+// ───────── 사이트 전체 유입 KPI (팀 회의·/jack/ 용) ─────────
+async function siteKpi() {
+  const y = add(TODAY, -1), s7 = add(y, -6), p7e = add(s7, -1), p7s = add(p7e, -6), s28 = add(y, -27);
+  const tot = async (a, b) => { const r = await ga(a, b, [], ["totalUsers", "sessions", "screenPageViews"]); const m = r[0] ? r[0].m : [0, 0, 0]; return { users: m[0], sessions: m[1], views: m[2] }; };
+  const org = async (a, b) => { const r = await ga(a, b, ["sessionDefaultChannelGroup"], ["sessions"]); const o = {}; for (const x of r) o[x.d[0]] = x.m[0]; return o; };
+  const [cur, prev, chCur, chPrev, series, land] = await seq([() => tot(s7, y), () => tot(p7s, p7e), () => org(s7, y), () => org(p7s, p7e),
+    () => ga(s28, y, ["date"], ["totalUsers", "sessions"]), () => ga(s7, y, ["landingPage"], ["sessions"], null, 10)]);
+  const g = {};
+  try {
+    const last = add(kstToday(), -3), t = await token();
+    const sites = await (await fetch("https://www.googleapis.com/webmasters/v3/sites", { headers: { Authorization: `Bearer ${t}` } })).json();
+    const site = (sites.siteEntry || []).map((x) => x.siteUrl).find((u) => /aroundtool\.com/.test(u));
+    const q = async (a, b) => { const r = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`, {
+      method: "POST", headers: { Authorization: `Bearer ${t}`, "Content-Type": "application/json" }, body: JSON.stringify({ startDate: iso(a), endDate: iso(b) }) });
+      const row = ((await r.json()).rows || [])[0] || {}; return { clicks: row.clicks || 0, impressions: row.impressions || 0, position: row.position || null }; };
+    if (site) { g.range = `${iso(add(last, -6))} ~ ${iso(last)}`; g.cur = await q(add(last, -6), last); g.prev = await q(add(last, -13), add(last, -7)); }
+  } catch (e) { g.error = e.message; }
+  return { made: new Date().toISOString(), range: `${iso(s7)} ~ ${iso(y)}`, prevRange: `${iso(p7s)} ~ ${iso(p7e)}`, cur, prev,
+    organic: { cur: chCur["Organic Search"] || 0, prev: chPrev["Organic Search"] || 0 }, channels: { cur: chCur, prev: chPrev },
+    daily: series.map((x) => ({ date: x.d[0], users: x.m[0], sessions: x.m[1] })).sort((a, b) => a.date.localeCompare(b.date)),
+    landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g };
+}
+
 // ───────── 실행 ─────────
 const want = opt("--type");
 const dow = TODAY.getUTCDay(), dom = TODAY.getUTCDate(), mon = TODAY.getUTCMonth();
@@ -420,6 +444,7 @@ for (const t of plan) {
     console.log(`✓ ${rep.title}`);
   } catch (e) { console.log(`✗ ${t}: ${e.message}`); ERRORS.push(`${t}: ${e.stack || e.message}`); }
 }
+if (!MOCK) { try { writeFileSync("_cta/kpi.json", JSON.stringify(await siteKpi(), null, 1)); console.log("✓ 사이트 KPI"); } catch (e) { console.log(`✗ 사이트 KPI: ${e.message}`); ERRORS.push(`kpi: ${e.message}`); } }
 writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
 let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
 for (const r of made) md += `- ${r.title}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;

@@ -54,6 +54,7 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name reports -exec rm -rf {} +
           mkdir -p reports && cp /tmp/_cta/reports/*.html reports/ 2>/dev/null || true
           cp /tmp/_cta/today.json /tmp/_cta/cta-latest.md .
-          git add -A -f reports today.json cta-latest.md
+          cp /tmp/_cta/kpi.json . 2>/dev/null || true
+          git add -A -f reports today.json cta-latest.md $(ls kpi.json 2>/dev/null)
           git commit -qm "성과 보고서 $(date +%F) [skip ci]" || exit 0
           git push -q origin cta-report

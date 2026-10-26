@@ -15,6 +15,7 @@
   --wood:#8A5A3B; --wood-top:#A8714C; --ink:#17201E; --ink-2:#4A5754; --ink-3:#6E7B77;
   --paper:#FFFFFF; --page:#EEF3F0; --line:#CAD6D1;
   --chief:#0B6E5F; --writer:#D93B3B; --analyst:#2A6FD6; --designer:#D98A00; --dev:#6A4FD0; --insta:#C2367A; --boss:#17201E;
+  --seo:#3D7A1F; --plan:#9C4F96; --qa:#5B6770; --ads:#C2410C; --cafe:#0A7F8F; --community:#7A5C2E; --up:#0B6E5F; --down:#C93434;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -89,6 +90,39 @@ h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(2.2re
 .days li::before{content:"";position:absolute;left:-8px;top:.45em;width:13px;height:13px;border-radius:50%;background:var(--page);border:3px solid var(--chief)}
 .days time{font-weight:700}
 .days p{margin:2px 0 0;color:var(--ink-2);font-size:.92rem}
+/* KPI·팀 상세 */
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.kpi{background:var(--paper);border-radius:16px;padding:14px 16px}
+.kpi span{display:block;font-size:.82rem;color:var(--ink-3)}
+.kpi b{display:block;font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:1.9rem;line-height:1.15;font-variant-numeric:tabular-nums}
+.kpi small{font-size:.8rem;color:var(--ink-3)}
+.kpi .u{color:var(--up);font-weight:700}.kpi .d{color:var(--down);font-weight:700}
+.spark{background:var(--paper);border-radius:16px;padding:14px 16px;margin-top:12px}
+.spark svg{display:block;width:100%;height:120px}
+.member{cursor:pointer;text-align:left;font:inherit;color:inherit;border:0;width:100%}
+.member:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.member .more{margin-top:10px;font-size:.82rem;font-weight:700;color:var(--c)}
+dialog.rr{border:0;border-radius:20px;padding:0;max-width:720px;width:calc(100% - 32px);background:var(--paper);color:var(--ink)}
+dialog.rr::backdrop{background:rgba(10,20,18,.55)}
+.rr-in{padding:22px 22px 18px;border-top:8px solid var(--c)}
+.rr h3{margin:0;font-size:1.4rem}.rr .sub{margin:2px 0 14px;color:var(--ink-3);font-size:.9rem}
+.rr h4{margin:16px 0 6px;font-size:1rem}
+.rr ul{margin:0;padding-left:1.1em;font-size:.93rem}
+.rr table{width:100%;border-collapse:collapse;font-size:.88rem}
+.rr th,.rr td{text-align:left;padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}
+.rr th{color:var(--ink-3);font-weight:500;font-size:.8rem}
+.rr .x{float:right;font:inherit;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;min-height:40px}
+.meet{background:var(--paper);border-radius:16px;padding:16px}
+.meet table{width:100%;border-collapse:collapse;font-size:.9rem}
+.meet td{padding:9px 6px;border-top:1px solid var(--line);vertical-align:top}
+.meet td:first-child{white-space:nowrap;font-weight:700;width:1%}
+.orders{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.orders li{background:var(--paper);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:baseline}
+.orders time{font-size:.82rem;color:var(--ink-3);white-space:nowrap}
+.orders .st{font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--page);white-space:nowrap}
+.orders .st.done{color:var(--chief)}.orders .st.wait{color:var(--designer)}.orders .st.ing{color:var(--analyst)}
+.orders p{grid-column:2/4;margin:0;font-size:.85rem;color:var(--ink-2)}
+.wrap-x{overflow-x:auto}
 footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--ink-3);font-size:.82rem}
 </style>
 </head>
@@ -121,28 +155,30 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   </aside>
 </div>
 
+<section class="sec" aria-labelledby="t-kpi">
+  <h2 id="t-kpi">이번 주 유입</h2>
+  <p id="kpi-note">팀의 주 목표는 <b>사이트 유입 증대</b>입니다. 숫자는 매일 아침 회의 때 GA4·서치 콘솔에서 갱신합니다.</p>
+  <div class="kpis" id="kpis"></div>
+  <div class="spark" id="spark" hidden><span class="small" style="font-size:.82rem;color:var(--ink-3)">최근 28일 하루 사용자</span><svg id="spark-svg" viewBox="0 0 600 120" preserveAspectRatio="none" role="img" aria-label="최근 28일 하루 사용자 추이"></svg></div>
+</section>
+
 <section class="sec" aria-labelledby="t-team">
-  <h2 id="t-team">팀</h2>
-  <p>역할마다 일하는 방법을 스킬로 정해 두었습니다. 기억은 대화가 아니라 운영 기록 파일에 남겨, 새 대화에서도 같은 기준으로 일합니다.</p>
-  <div class="team">
-    <article class="member" style="--c:var(--chief)"><h3>총괄</h3><p class="role">짹과 이야기하는 유일한 창구</p>
-      <ul><li>요청을 받아 맡을 역할을 정하고 일을 나눔</li><li>결과를 검수하고 한 번에 보고</li><li>결정·할 일·일지를 기록</li></ul>
-      <div class="num"><span><b>6</b>맡기는 역할</span><span><b>매일</b>기록 갱신</span></div></article>
-    <article class="member" style="--c:var(--writer)"><h3>콘텐츠 작성자</h3><p class="role">추천 모음 글 · 카페 글</p>
-      <ul><li>제조사 공식 자료로 사실만 정리</li><li>정리 표·자주 묻는 질문 5개</li><li>카페용 글 1·2차</li></ul>
-      <div class="num"><span><b>17</b>추천 글</span><span><b>79</b>카페 글</span></div></article>
-    <article class="member" style="--c:var(--analyst)"><h3>데이터 분석가</h3><p class="role">GA4 · 서치 콘솔</p>
-      <ul><li>브랜드커넥트 버튼 클릭과 유입 채널·검색어</li><li>일간·주간·월간·분기·연간 보고서</li><li>중복(같은 사람) 구분</li></ul>
-      <div class="num"><span><b>5</b>보고서 종류</span><span><b>08:25</b>매일 보고</span></div></article>
-    <article class="member" style="--c:var(--designer)"><h3>디자이너</h3><p class="role">설명 그래픽 · 공유 이미지</p>
-      <ul><li>글마다 설명 그래픽 3장</li><li>검색·공유용 대표 이미지</li><li>보고서 그래프</li></ul>
-      <div class="num"><span><b>51</b>설명 그래픽</span><span><b>17</b>공유 이미지</span></div></article>
-    <article class="member" style="--c:var(--dev)"><h3>사이트 개발</h3><p class="role">aroundtool.com</p>
-      <ul><li>계산기·검색·구조화 데이터</li><li>3초 팝업, 휴대폰 바로 이동</li><li>버튼 클릭 추적</li></ul>
-      <div class="num"><span><b>188</b>페이지</span><span><b>46</b>계산기</span></div></article>
-    <article class="member soon" style="--c:var(--insta)"><h3>인스타 기획자</h3><p class="role">곧 합류</p>
-      <ul><li>추천 글을 릴스·카드뉴스로</li><li>캡션·해시태그·올릴 날짜</li><li>디자이너와 시안 제작</li></ul></article>
-  </div>
+  <h2 id="t-team">팀 12</h2>
+  <p>각 역할은 10년차 전문가 기준의 지식 파일을 갖고, 매일 아침 1분씩 새 소식을 확인합니다. 깊게 조사할 일은 컨펌판에서 대표 승인 후 진행합니다. 카드를 누르면 R&amp;R과 KPI가 보입니다.</p>
+  <div class="team" id="team"></div>
+</section>
+<dialog class="rr" id="rr" aria-labelledby="rr-name"><div class="rr-in" id="rr-in"></div></dialog>
+
+<section class="sec" aria-labelledby="t-meet">
+  <h2 id="t-meet">오늘 회의</h2>
+  <p id="meet-sum">회의 내용을 불러오는 중입니다.</p>
+  <div class="meet wrap-x"><table><tbody id="meet-rows"></tbody></table></div>
+</section>
+
+<section class="sec" aria-labelledby="t-orders">
+  <h2 id="t-orders">대표 지시 업무</h2>
+  <p>짹이 맡긴 일과 진행 상태입니다. 사이트를 바꾸는 안건은 <a href="https://claude.ai/artifact/QqbDddVHp5wzyeieHuFoa8" target="_blank" rel="noopener">컨펌판</a>에서 승인합니다.</p>
+  <ol class="orders" id="orders"></ol>
 </section>
 
 <section class="sec" aria-labelledby="t-flow">
@@ -159,13 +195,14 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
 
 <section class="sec" aria-labelledby="t-days">
   <h2 id="t-days">지금까지</h2>
-  <p>최근 나흘 동안 한 일입니다.</p>
+  <p>지금까지 한 일입니다.</p>
   <ol class="days">
     <li><time datetime="2026-10-23">10월 23일</time><p>추천 모음 시작. 충전기·거북목·키보드·음식물처리기·후쿠오카 글을 시각형으로 작성.</p></li>
     <li><time datetime="2026-10-24">10월 24일</time><p>추천 글 11개 추가, 휴대폰에서 앱 선택창 없이 바로 이동, 무료 사진 105장 연결.</p></li>
     <li><time datetime="2026-10-25">10월 25일</time><p>전체 오류 점검, 접근성 100점, 카페 글 일정 시작, 광고 심사 대비 정리.</p></li>
     <li><time datetime="2026-10-26">10월 26일</time><p>모든 페이지 SEO 보강, 추천 글 대표 사진·공유 이미지, 버튼 클릭 추적과 시각형 보고서, 팀 구성.</p></li>
   </ol>
+  <ol class="days" id="days-more" style="margin-top:0"></ol>
 </section>
 
 <footer>짹만 보는 페이지입니다. 검색엔진에 노출하지 않으며 사이트 메뉴·사이트맵에도 없습니다.</footer>
@@ -182,17 +219,25 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
 
   /* 자리 배치 — 넓은 화면은 가로 두 줄, 좁은 화면은 두 칸씩 세로로 */
   var ROLES = {
+    chief:    { name: '총괄',         c: '--chief',    hair: '#222',    screen: 'chat', big: true },
+    seo:      { name: '검색 노출',     c: '--seo',      hair: '#2B2B2B', screen: 'bars' },
+    plan:     { name: '기획자',       c: '--plan',     hair: '#4A2E1E', screen: 'text' },
     writer:   { name: '콘텐츠 작성자', c: '--writer',   hair: '#3A2A22', screen: 'text' },
-    analyst:  { name: '데이터 분석가', c: '--analyst',  hair: '#1E1E24', screen: 'bars' },
     designer: { name: '디자이너',     c: '--designer', hair: '#7A3E1C', screen: 'swatch' },
     dev:      { name: '사이트 개발',   c: '--dev',      hair: '#2B2B2B', screen: 'code' },
-    insta:    { name: '인스타 기획자', c: '--insta',    empty: true },
-    chief:    { name: '총괄',         c: '--chief',    hair: '#222', screen: 'chat', big: true }
+    analyst:  { name: '데이터 분석가', c: '--analyst',  hair: '#1E1E24', screen: 'bars' },
+    qa:       { name: '검수·신뢰',     c: '--qa',       hair: '#3B3B3B', screen: 'text' },
+    cafe:     { name: '카페 담당',     c: '--cafe',     hair: '#2E2420', screen: 'text' },
+    insta:    { name: '인스타 기획자', c: '--insta',    hair: '#3A1E2A', screen: 'swatch' },
+    community:{ name: '커뮤니티 관리자', c: '--community', hair: '#2B2B2B', screen: 'chat' },
+    ads:      { name: '광고',         c: '--ads',      hair: '#1E1E1E', screen: 'bars' }
   };
+  var ORDER = ['chief', 'seo', 'plan', 'writer', 'designer', 'dev', 'analyst', 'qa', 'cafe', 'insta', 'community', 'ads'];
+  function grid(cols, x0, dx, y0, dy) { var o = {}; ORDER.forEach(function (k, i) { o[k] = [x0 + (i % cols) * dx, y0 + Math.floor(i / cols) * dy]; }); return o; }
   var LAYOUTS = {
-    wide: { W: 1200, H: 780, s: 1.2, big: 1.35, pos: { writer: [170, 410], analyst: [450, 410], designer: [750, 410], dev: [1030, 410], insta: [250, 670], chief: [640, 670] },
+    wide: { W: 1200, H: 1150, s: 1.05, big: 1.2, pos: grid(4, 160, 293, 450, 300),
             board: [760, 26, 400], title: [330, 66], window: true, door: [0, 330] },
-    narrow: { W: 640, H: 1250, s: 1.15, big: 1.25, pos: { writer: [165, 430], analyst: [475, 430], designer: [165, 740], dev: [475, 740], insta: [165, 1060], chief: [475, 1060] },
+    narrow: { W: 640, H: 2080, s: 1.05, big: 1.15, pos: grid(2, 165, 310, 450, 315),
             board: [24, 96, 592], title: [24, 50], window: false, door: [0, 520] }
   };
   var L = null;
@@ -281,7 +326,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       el('path', { d: 'M0 22C-30 0-24-34-6-40C0-18 4-6 0 22ZM0 22C26 2 30-30 12-38C6-14 2-4 0 22Z', fill: '#3E8F6A' }, pl);
     }
     el('text', { x: L.title[0], y: L.title[1], class: 'wall-t' }, wallG).textContent = '어라운드툴 운영실';
-    el('text', { x: L.title[0], y: L.title[1] + 24, style: "font:500 13px 'IBM Plex Sans KR';fill:#A9C4BE" }, wallG).textContent = '계산기 46 · 맛집 147 · 추천 글 17 · 매일 08:25 보고';
+    el('text', { x: L.title[0], y: L.title[1] + 24, style: "font:500 13px 'IBM Plex Sans KR';fill:#A9C4BE" }, wallG).textContent = '팀 12 · 주 목표: 사이트 유입 증대 · 매일 07시 회의';
     var b = L.board;
     el('rect', { x: b[0], y: b[1], width: b[2], height: L.window ? 150 : 100, rx: 10, fill: '#F2F5F3' }, wallG);
     if (L.window) el('text', { x: b[0] + 18, y: b[1] + 26, style: "font:700 14px 'IBM Plex Sans KR';fill:#17201E" }, wallG).textContent = '할 일 보드';
@@ -370,7 +415,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
 
   /* 대화 기록 */
   var logList = document.getElementById('logList');
-  var WHO = { boss: ['짹', '--boss'], chief: ['총괄', '--chief'], writer: ['작성자', '--writer'], analyst: ['분석가', '--analyst'], designer: ['디자이너', '--designer'], dev: ['개발', '--dev'], insta: ['인스타', '--insta'] };
+  var WHO = { boss: ['짹', '--boss'], chief: ['총괄', '--chief'], writer: ['작성자', '--writer'], analyst: ['분석가', '--analyst'], designer: ['디자이너', '--designer'], dev: ['개발', '--dev'], insta: ['인스타', '--insta'],
+    seo: ['검색 노출', '--seo'], plan: ['기획자', '--plan'], qa: ['검수·신뢰', '--qa'], cafe: ['카페', '--cafe'], community: ['커뮤니티', '--community'], ads: ['광고', '--ads'] };
   function log(id, text) {
     var li = document.createElement('li');
     var i = document.createElement('i'); i.style.background = 'var(' + WHO[id][1] + ')';
@@ -416,11 +462,18 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       await fly('designer', 'chief', '보고서', C('--chief'));
       await say('chief', '매일 아침 8시 25분에 보내드릴게요', 2400);
     } },
-    { notes: [{ t: '인스타 기획', }, { t: '카드뉴스 시안' }, { t: '올릴 날짜' }], run: async function () {
-      await say('boss', '다음엔 인스타도 해보자', 2200);
-      await say('chief', '인스타 기획자 자리 마련해 뒀어요', 2200);
-      await fly('chief', 'insta', '곧 합류', C('--insta'));
-      await say('chief', '합류하면 추천 글을 릴스·카드뉴스로 바꿀게요', 2600);
+    { notes: [{ t: '07시 아침 회의' }, { t: '유입 증대' }, { t: '컨펌판' }], run: async function () {
+      await say('chief', '아침 회의 시작합니다. 주제는 사이트 유입 증대', 2400);
+      var m = (DATA && DATA.meetings && DATA.meetings[0]) || null;
+      var lines = m ? m.roles.slice(1, 6) : [];
+      for (var i = 0; i < lines.length; i++) {
+        var id = KEY[lines[i].role]; if (!id || !parts[id]) continue;
+        var t = lines[i].say.split(/[.。]/)[0]; if (t.length > 34) t = t.slice(0, 33) + '…';
+        await fly('chief', id, '점검', C(ROLES[id].c));
+        await Promise.all([say(id, t, 2600), work(id, 2000)]);
+      }
+      await say('chief', '사이트 바꿀 안건은 컨펌판에 올렸어요', 2400);
+      await say('boss', '확인하고 컨펌할게', 2000);
     } }
   ];
 
@@ -437,6 +490,70 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   });
   document.getElementById('next').addEventListener('click', function () { skip = true; paused = false; document.getElementById('pause').textContent = '잠깐 멈춤'; });
   loop();
+
+
+  /* ───── 데이터(jack/data.json): 아침 회의가 매일 갱신 ───── */
+  var DATA = null;
+  var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
+    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
+  function h(tag, attrs, kids) { var e = document.createElement(tag); for (var k in attrs || {}) { if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); } (kids || []).forEach(function (c) { if (c) e.appendChild(c); }); return e; }
+  var fmt = function (v) { return v == null ? '–' : Math.round(v).toLocaleString('ko-KR'); };
+  function chg(c, p) { if (c == null || p == null) return h('small', { text: '비교할 지난주 없음' });
+    if (c < 20 || p < 20) return h('small', { text: '지난주 ' + fmt(p) });
+    var d = (c - p) / p * 100; return h('small', {}, [h('span', { class: d >= 0 ? 'u' : 'd', text: (d >= 0 ? '▲ ' : '▼ ') + Math.abs(d).toFixed(0) + '%' }), document.createTextNode(' 지난주 ' + fmt(p))]); }
+  function renderKpi(k) {
+    var box = document.getElementById('kpis'); box.textContent = '';
+    if (!k || !k.cur) { box.appendChild(h('div', { class: 'kpi' }, [h('span', { text: '사이트 전체 유입' }), h('b', { text: '집계 전' }), h('small', { text: '첫 집계는 다음 아침 회의 때 들어옵니다.' })])); return; }
+    var g = k.google || {};
+    [['사용자 (7일)', k.cur.users, k.prev && k.prev.users], ['방문 (7일)', k.cur.sessions, k.prev && k.prev.sessions],
+     ['검색(오가닉) 방문', k.organic && k.organic.cur, k.organic && k.organic.prev], ['구글 검색 클릭', g.cur && g.cur.clicks, g.prev && g.prev.clicks],
+     ['구글 검색 노출', g.cur && g.cur.impressions, g.prev && g.prev.impressions]].forEach(function (r) {
+      box.appendChild(h('div', { class: 'kpi' }, [h('span', { text: r[0] }), h('b', { text: fmt(r[1]) }), chg(r[1], r[2])])); });
+    document.getElementById('kpi-note').lastChild && (document.getElementById('kpi-note').appendChild(document.createTextNode(' 기준: ' + k.range + (g.range ? ' · 구글 검색 ' + g.range : ''))));
+    var d = k.daily || []; if (d.length > 1) { var sv = document.getElementById('spark-svg'), mx = Math.max.apply(null, d.map(function (x) { return x.users; }).concat([1]));
+      var pts = d.map(function (x, i) { return (i / (d.length - 1) * 600).toFixed(1) + ',' + (112 - x.users / mx * 100).toFixed(1); });
+      el('polyline', { points: '0,120 ' + pts.join(' ') + ' 600,120', fill: css('--chief'), opacity: .14 }, sv);
+      el('polyline', { points: pts.join(' '), fill: 'none', stroke: css('--chief'), 'stroke-width': 2.5, 'vector-effect': 'non-scaling-stroke' }, sv);
+      document.getElementById('spark').hidden = false; }
+  }
+  function openRR(t) {
+    var id = KEY[t.name] || 'chief', box = document.getElementById('rr-in'); box.textContent = ''; box.style.setProperty('--c', 'var(' + ROLES[id].c + ')');
+    var dlg = document.getElementById('rr');
+    var x = h('button', { class: 'x', type: 'button', text: '닫기' }); x.addEventListener('click', function () { dlg.close(); });
+    box.appendChild(x); box.appendChild(h('h3', { id: 'rr-name', text: t.name })); box.appendChild(h('p', { class: 'sub', text: t.mission }));
+    box.appendChild(h('h4', { text: 'R&R — 하는 일' })); box.appendChild(h('ul', {}, t.rr.map(function (r) { return h('li', { text: r }); })));
+    if (t.not) { box.appendChild(h('h4', { text: '하지 않는 일' })); box.appendChild(h('ul', {}, t.not.map(function (r) { return h('li', { text: r }); }))); }
+    box.appendChild(h('h4', { text: 'KPI — 유입 증대 기준' }));
+    var tb = h('tbody', {}, t.kpi.map(function (k) { return h('tr', {}, [h('td', { text: k.name }), h('td', { text: k.target }), h('td', { text: k.now || '집계 전' }), h('td', { text: k.source })]); }));
+    box.appendChild(h('div', { class: 'wrap-x' }, [h('table', {}, [h('thead', {}, [h('tr', {}, ['지표', '목표(제안)', '현재', '어디서'].map(function (c) { return h('th', { text: c }); }))]), tb])]));
+    if (t.learn && t.learn.length) { box.appendChild(h('h4', { text: '최근 학습' })); box.appendChild(h('ul', {}, t.learn.slice(0, 4).map(function (r) { return h('li', { text: r }); }))); }
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+  function renderTeam(teams) {
+    var box = document.getElementById('team'); box.textContent = '';
+    teams.forEach(function (t) { var id = KEY[t.name] || 'chief';
+      var b = h('button', { class: 'member', type: 'button', style: '--c:var(' + ROLES[id].c + ')', 'aria-haspopup': 'dialog' },
+        [h('h3', { text: t.name }), h('p', { class: 'role', text: t.mission }), h('ul', {}, t.rr.slice(0, 3).map(function (r) { return h('li', { text: r }); })),
+         h('div', { class: 'more', text: 'R&R · KPI ' + t.kpi.length + '개 보기 ›' })]);
+      b.addEventListener('click', function () { openRR(t); }); box.appendChild(b); });
+  }
+  function renderMeet(ms) {
+    var m = ms && ms[0]; if (!m) return;
+    document.getElementById('t-meet').textContent = m.date + ' 회의';
+    document.getElementById('meet-sum').textContent = (m.theme ? '주제: ' + m.theme + ' — ' : '') + (m.summary || '');
+    var tb = document.getElementById('meet-rows'); tb.textContent = '';
+    m.roles.forEach(function (r) { var id = KEY[r.role]; tb.appendChild(h('tr', {}, [h('td', { text: r.role, style: id ? 'color:var(' + ROLES[id].c + ')' : '' }), h('td', { text: r.say })])); });
+  }
+  function renderOrders(os) {
+    var box = document.getElementById('orders'); box.textContent = '';
+    var L2 = { done: '완료', ing: '진행 중', wait: '대표 대기' };
+    os.forEach(function (o) { box.appendChild(h('li', {}, [h('time', { text: o.date }), h('b', { text: o.title }), h('span', { class: 'st ' + o.status, text: L2[o.status] || o.status }), o.note ? h('p', { text: o.note }) : null])); });
+  }
+  function renderDays(ds) { var box = document.getElementById('days-more'); box.textContent = '';
+    (ds || []).forEach(function (d) { box.appendChild(h('li', {}, [h('time', { datetime: d.date, text: d.label }), h('p', { text: d.text })])); }); }
+  fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d; renderKpi(d.kpi); renderTeam(d.teams || []); renderMeet(d.meetings); renderOrders(d.orders || []); renderDays(d.days);
+  }).catch(function () { document.getElementById('meet-sum').textContent = '데이터를 불러오지 못했습니다.'; });
 
   /* 벽시계 (한국 시간) */
   var clock = document.getElementById('clock');
