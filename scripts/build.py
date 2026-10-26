@@ -754,6 +754,8 @@ def cross_links(p):
 
 
 def cross_tag(q):
+    if q["section"] == "connect":
+        return ("여행" if kind_of(q) == "travel" else "제품"), "shop"
     return {"food": ("맛집", "food"), "gu": ("맛집", "food"), "tools": ("생활툴", ""), "trip": ("여행", "trip"),
             "guide": ("가이드", "etc"), "connect": ("추천", "shop")}.get(q["section"], ("안내", "etc"))
 
@@ -827,7 +829,7 @@ def related_html(p):
         head = f"다른 {KINDS[k]} 글"
         more = f'<a class="more" href="/connect.html#{k}">전체 글</a>'
         for q in sorted([x for x in SHOP_LIVE if x["file"] != p["file"]], key=lambda x: kind_of(x) != k)[:6]:
-            rows.append(row("/" + q["file"], q["title"], "광고", "shop", None, "", q["date"], is_new(q["date"])))
+            rows.append(row("/" + q["file"], q["title"], "여행" if kind_of(q) == "travel" else "제품", "shop", None, "", q["date"], is_new(q["date"])))
         for f in p["post"].get("related", []):
             f = f if f.endswith(".html") else f + ".html"
             if f in PAGES:
