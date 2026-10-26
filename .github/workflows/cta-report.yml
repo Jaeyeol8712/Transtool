@@ -1,10 +1,16 @@
-name: 추천 모음 버튼 클릭 보고서
+name: 추천 모음 성과 보고서
 
-# 매일 08:13(한국 시간) GA4 'cta_click' 이벤트를 모아 cta-report 브랜치(cta-latest.md)에 저장합니다.
+# 매일 08:13(한국 시간) GA4·서치 콘솔 숫자로 시각형 보고서를 만들어 cta-report 브랜치에 쌓습니다.
+#  일간: 매일 · 주간: 수요일(지난주 월~일) · 월간: 매월 3일 · 분기: 1·4·7·10월 3일 · 연간: 1월 3일
 on:
   schedule:
     - cron: "13 23 * * *"
   workflow_dispatch:
+    inputs:
+      type:
+        description: "보고서 종류 (비우면 오늘 날짜로 자동: daily/weekly/monthly/quarterly/yearly)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -27,22 +33,26 @@ jobs:
           service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly
+      - name: 글 제목 목록
+        run: |
+          mkdir -p _cta
+          python3 -c "import sys,json;sys.path.insert(0,'scripts');from connect_posts import POSTS;json.dump({p['slug']:p['title'] for p in POSTS},open('_cta/titles.json','w'),ensure_ascii=False)"
       - name: 보고서 만들기
-        run: node scripts/ga4-cta.mjs
+        run: node scripts/ga4-report.mjs ${{ github.event.inputs.type && format('--type {0}', github.event.inputs.type) || '' }}
         env:
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
           GA_SERVICE_ACCOUNT: ${{ secrets.GA_SERVICE_ACCOUNT }}
           GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
-      - name: cta-report 브랜치에 저장
+      - name: cta-report 브랜치에 쌓기
         run: |
-          [ -d _cta ] || exit 0
           cp -r _cta /tmp/_cta
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -q --orphan cta-report
-          git rm -rq --cached . 2>/dev/null || true
-          rm -rf ./* && cp -r /tmp/_cta/* . && cp cta-latest.md "cta-$(date +%F).md"
-          git add -f *.md *.json
-          git commit -qm "버튼 클릭 보고서 $(date +%F) [skip ci]"
-          git push -q -f origin cta-report
+          if git fetch -q origin cta-report; then git checkout -q -B cta-report FETCH_HEAD; else git checkout -q --orphan cta-report; git rm -rq --cached . 2>/dev/null || true; fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name reports -exec rm -rf {} +
+          mkdir -p reports && cp /tmp/_cta/reports/*.html reports/ 2>/dev/null || true
+          cp /tmp/_cta/today.json /tmp/_cta/cta-latest.md .
+          git add -A -f reports today.json cta-latest.md
+          git commit -qm "성과 보고서 $(date +%F) [skip ci]" || exit 0
+          git push -q origin cta-report
