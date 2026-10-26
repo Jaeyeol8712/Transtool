@@ -325,7 +325,7 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
   .at-two{grid-template-columns:1fr 1fr}
   .at-related-grid{grid-template-columns:1fr 1fr}
   .at-grid-links{grid-template-columns:repeat(3,1fr)}
-  .at-footer-cols{grid-template-columns:repeat(4,1fr)}
+  .at-footer-cols{grid-template-columns:repeat(5,1fr)}
   .at-hello{padding:1.6rem 1.5rem}
 }
 @media (max-width:39.99rem){
@@ -544,3 +544,16 @@ html.at-pop-open{overflow:hidden}
 .at-pager button[aria-current="page"]{background:var(--at-ink);border-color:var(--at-ink);color:#fff}
 .at-shop-item[hidden]{display:none}
 .at-sm-h{font-size:1rem;margin:1.4rem 0 .5rem}
+/* 추천 모음 홍보 카드 */
+.at-sp-grid{list-style:none;margin:0;padding:.9rem 1.1rem .4rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.at-sp-card{display:flex;flex-direction:column;gap:.3rem;color:inherit;text-decoration:none;border:1px solid var(--at-line,#E1E6E3);border-radius:10px;overflow:hidden;background:var(--at-surface,#fff);height:100%}
+.at-sp-card:hover{border-color:var(--at-brand,#0B6E5F)}
+.at-sp-card:focus-visible{outline:2px solid var(--at-brand,#0B6E5F);outline-offset:2px}
+.at-sp-img{display:block;aspect-ratio:16/10;background:var(--at-sunk,#F1F3F2);overflow:hidden}
+.at-sp-img img{width:100%;height:100%;object-fit:cover;display:block}
+.at-sp-k{font-size:.72rem;font-weight:700;color:var(--at-shop,#9A3412);padding:0 .7rem}
+.at-sp-t{font-size:.88rem;line-height:1.4;font-weight:700;margin:0;padding:0 .7rem;color:var(--at-ink,#15181B)}
+.at-sp-x{font-size:.75rem;color:var(--at-faint,#646D68);padding:0 .7rem .7rem}
+.at-sp-note{font-size:.75rem;color:var(--at-faint,#646D68);margin:0;padding:.2rem 1.1rem 1rem}
+.at-shop-promo{margin-top:1.25rem}
+@media (min-width:720px){.at-sp-grid{grid-template-columns:repeat(4,1fr)}.at-sp-home{grid-template-columns:repeat(3,1fr)}}

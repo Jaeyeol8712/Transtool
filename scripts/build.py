@@ -850,6 +850,7 @@ def related_html(p):
 def side_html():
     key = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], None, "", None, "", None) for s in KEY_TOOLS[:8])
     ups = "".join(row(u, t, None, "", None, "", d, is_new(d)) for d, tag, t, u in UPDATES[:5])
+    shops = "".join(row("/" + q["file"], q["title"], KINDS[kind_of(q)][:2], "shop", None, "", q["date"], is_new(q["date"])) for q in SHOP_LIVE[:5])
     regions = "".join(f'<a href="/food.html#r-{rid}">{esc(rshort)} <span style="color:var(--at-faint)">{region_count(rid)}</span></a>'
                       for rid, _, rshort, _ in FOOD_AREAS)
     return f"""<aside class="at-side" aria-label="사이드바">
@@ -863,6 +864,8 @@ def side_html():
     <div class="at-box-body"><ul class="at-list">{key}</ul></div></section>
   <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
     <div class="at-regions">{regions}</div></section>
+  <section class="at-box is-shop"><div class="at-box-head"><p>추천 모음 새 글</p><a class="more" href="/connect.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list is-wrap">{shops}</ul></div></section>
   <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
     <div class="at-box-body"><ul class="at-list is-wrap">{ups}</ul></div></section>
   <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
@@ -875,6 +878,7 @@ def footer_html():
     regions = "".join(f'<li><a href="/{gus[0][0]}.html">{esc(rshort)} {esc(gus[0][1])} 맛집</a></li>' for rid, _, rshort, gus in FOOD_AREAS[:6])
     groups = "".join(f'<li><a href="/tools.html#g-{gid}">{esc(gname)}</a></li>' for gid, gname, _ in TOOL_GROUPS)
     trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES)
+    shop_links = "".join(f'<li><a href="/{q["file"]}">{esc(q["post"]["keyword"])}</a></li>' for q in SHOP_LIVE[:5])
     return f"""<footer class="at-footer"><div class="at-in">
   <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
     <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다. 추천 모음 글에는 제휴(광고) 링크가 있으며 글마다 표시합니다.</p></div>
@@ -882,7 +886,8 @@ def footer_html():
     <div><p>생활툴</p><ul>{groups}</ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>
     <div><p>여행</p><ul>{trips}</ul></div>
-    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/connect.html">추천 모음</a></li><li><a href="/search.html">검색</a></li></ul></div>
+    <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
+    <div><p>추천 모음</p><ul>{shop_links}<li><a href="/connect.html">추천 모음 전체</a></li></ul></div>
   </div>
   <div class="at-footer-legal">
     <nav aria-label="정책"><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/about.html">사이트 소개</a><a href="/editorial.html">편집 방침</a><a href="/contact.html">문의하기</a><a href="/sitemap.html">사이트맵</a></nav>
@@ -892,6 +897,115 @@ def footer_html():
 </div></footer>"""
 
 
+# ── 추천 모음 홍보: 페이지 주제와 맞는 추천 글을 사이트 곳곳에 연결 ──
+SHOP_TOPIC_BY_SLUG = {
+    "electricity_bill_calculator": ["bespoke-ai-fridge-4door", "bespoke-ai-steam-ultra", "food-waste-disposer", "jbl-authentics-200"],
+    "gas_bill_calculator": ["bespoke-ai-fridge-4door", "food-waste-disposer", "bespoke-ai-steam-ultra"],
+    "interior_calculator": ["bespoke-ai-fridge-4door", "bespoke-ai-steam-ultra", "food-waste-disposer", "jbl-authentics-200"],
+    "pyeong_calculator": ["bespoke-ai-fridge-4door", "bespoke-ai-steam-ultra", "food-waste-disposer"],
+    "acquisition_tax_calculator": ["bespoke-ai-fridge-4door", "bespoke-ai-steam-ultra", "food-waste-disposer"],
+    "brokerage_fee_calculator": ["bespoke-ai-fridge-4door", "bespoke-ai-steam-ultra", "food-waste-disposer"],
+    "bmi_calculator": ["calf-foot-air-massager", "neck-traction", "mung-bean-cleanser", "queens-collagen-rg3"],
+    "bmr_calculator": ["calf-foot-air-massager", "neck-traction", "queens-collagen-rg3"],
+    "calorie_calculator": ["calf-foot-air-massager", "food-waste-disposer", "neck-traction"],
+    "due_date_calculator": ["calf-foot-air-massager", "mung-bean-cleanser", "queens-collagen-rg3"],
+    "age_calculator": ["queens-collagen-rg3", "prael-thermashot-ultimate", "calf-foot-air-massager"],
+    "discount_calculator": ["galaxy-s26-ultra", "galaxy-tab-s12-ultra", "bespoke-ai-fridge-4door", "student-office-laptop"],
+    "discount_rate_calculator": ["galaxy-s26-ultra", "galaxy-tab-s12-ultra", "bespoke-ai-steam-ultra", "student-office-laptop"],
+    "percent_calculator": ["galaxy-s26-ultra", "student-office-laptop", "c-type-65w-charger"],
+    "dutch_pay_calculator": ["fukuoka-3days", "danang-5days", "west-europe-3-10days"],
+    "exchange_rate_calculator": ["fukuoka-3days", "danang-5days", "west-europe-3-10days"],
+    "japan_travel_calculator": ["fukuoka-3days", "danang-5days", "west-europe-3-10days", "c-type-65w-charger"],
+    "fuel_economy_calculator": ["fukuoka-3days", "danang-5days", "c-type-65w-charger"],
+    "camping_gear_calculator": ["jbl-authentics-200", "c-type-65w-charger", "danang-5days"],
+    "character_counter": ["student-office-laptop", "wireless-gaming-keyboard", "galaxy-tab-s12-ultra"],
+    "spell_checker": ["student-office-laptop", "wireless-gaming-keyboard", "galaxy-tab-s12-ultra"],
+    "spacing_checker": ["student-office-laptop", "wireless-gaming-keyboard", "galaxy-tab-s12-ultra"],
+    "hourly_monthly_wage_calculator": ["student-office-laptop", "c-type-65w-charger", "galaxy-s26-ultra"],
+    "job_fortune_teller": ["student-office-laptop", "wireless-gaming-keyboard", "c-type-65w-charger"],
+    "qr_generator": ["c-type-65w-charger", "galaxy-s26-ultra", "student-office-laptop"],
+    "travel-osaka.html": ["fukuoka-3days", "danang-5days", "west-europe-3-10days"],
+}
+SHOP_TOPIC_BY_GROUP = {
+    "money": ["galaxy-s26-ultra", "bespoke-ai-fridge-4door", "galaxy-tab-s12-ultra", "student-office-laptop"],
+    "labor": ["student-office-laptop", "neck-traction", "galaxy-s26-ultra", "c-type-65w-charger"],
+    "life": ["food-waste-disposer", "c-type-65w-charger", "calf-foot-air-massager", "mung-bean-cleanser"],
+    "trip": ["fukuoka-3days", "danang-5days", "west-europe-3-10days"],
+    "text": ["student-office-laptop", "wireless-gaming-keyboard"],
+}
+SHOP_TOPIC_BY_SECTION = {
+    "food": ["food-waste-disposer", "bespoke-ai-fridge-4door", "fukuoka-3days", "danang-5days"],
+    "gu": ["food-waste-disposer", "bespoke-ai-fridge-4door", "fukuoka-3days", "danang-5days"],
+    "hub-food": ["food-waste-disposer", "bespoke-ai-fridge-4door", "fukuoka-3days", "danang-5days"],
+    "trip": ["fukuoka-3days", "danang-5days", "west-europe-3-10days", "c-type-65w-charger"],
+    "hub-trip": ["fukuoka-3days", "danang-5days", "west-europe-3-10days", "c-type-65w-charger"],
+    "guide": ["student-office-laptop", "neck-traction", "galaxy-s26-ultra", "galaxy-tab-s12-ultra"],
+    "hub-guide": ["student-office-laptop", "neck-traction", "galaxy-s26-ultra", "galaxy-tab-s12-ultra"],
+}
+SHOP_PROMO_SKIP = {"connect", "hub-connect", "info", "util", "home"}
+
+
+def shop_thumb(post):
+    """추천 글 대표 사진의 작은 썸네일(가로 320px)을 만들어 주소를 돌려줍니다."""
+    cp = post.get("cta_photo") or {}
+    src = cp.get("src") or (post.get("images") or [("", "")])[0][0]
+    if not src or not src.startswith("/"):
+        return src, None
+    full = src.lstrip("/")
+    th = os.path.join(os.path.dirname(full), "thumb.jpg")
+    try:
+        if not os.path.exists(th) or os.path.getmtime(th) < os.path.getmtime(full):
+            from PIL import Image
+            im = Image.open(full).convert("RGB")
+            w = 320
+            im = im.resize((w, max(1, round(im.height * w / im.width))), Image.LANCZOS)
+            im.save(th, "JPEG", quality=72, optimize=True, progressive=True)
+        from PIL import Image as _I
+        with _I.open(th) as im2:
+            return "/" + th, im2.size
+    except Exception:
+        return src, None
+
+
+def shop_pick(p, n=4):
+    by_slug = {q["post"]["slug"]: q for q in SHOP_LIVE}
+    f = p["file"]
+    want = SHOP_TOPIC_BY_SLUG.get(f[:-5]) or SHOP_TOPIC_BY_SLUG.get(f)
+    if not want and p["section"] == "tools":
+        want = SHOP_TOPIC_BY_GROUP.get(p.get("group"))
+    if not want:
+        want = SHOP_TOPIC_BY_SECTION.get(p["section"], [])
+    out = [by_slug[s] for s in want if s in by_slug]
+    for q in SHOP_LIVE:  # 최신 글로 채움
+        if len(out) >= n:
+            break
+        if q not in out:
+            out.append(q)
+    return out[:n]
+
+
+def shop_card(q, heading="h3"):
+    post = q["post"]
+    src, wh = shop_thumb(post)
+    alt = (post.get("cta_photo") or {}).get("alt") or post["title"]
+    size = f' width="{wh[0]}" height="{wh[1]}"' if wh else ""
+    img = f'<img src="{esc(src)}" alt="{esc(alt)}"{size} loading="lazy" decoding="async">' if src else ""
+    return (f'<li><a class="at-sp-card" href="/{q["file"]}"><span class="at-sp-img">{img}</span>'
+            f'<span class="at-sp-k">{esc(KINDS[kind_of(q)])}</span><{heading} class="at-sp-t">{esc(q["title"])}</{heading}>'
+            f'<span class="at-sp-x">{esc(post["keyword"])}</span></a></li>')
+
+
+def shop_promo_html(p, n=4, title="추천 모음에서 함께 보면 좋은 글"):
+    if not SHOP_LIVE or p["section"] in SHOP_PROMO_SKIP or p["file"] in ("index.html", "search.html", "404.html", "connect.html",
+                                                                        "privacy.html", "terms.html", "contact.html", "about.html", "editorial.html", "sitemap.html"):
+        return ""
+    cards = "".join(shop_card(q) for q in shop_pick(p, n))
+    return (f'<section class="at-related at-shop-promo" aria-label="추천 모음">'
+            f'<div class="at-box-head"><h2>{esc(title)}</h2><a class="more" href="/connect.html">추천 모음 전체</a></div>'
+            f'<ul class="at-sp-grid">{cards}</ul>'
+            f'<p class="at-sp-note">제품 고르는 기준과 여행 코스를 정리한 글입니다. 글 속 구매·예약 링크는 제휴(광고) 링크입니다.</p></section>')
+
+
 def top_block(p, board=True):
     return (f"<!-- at:top -->\n{header_html(p)}\n<div class=\"at-wrap\">\n{crumb_html(p)}\n"
             f"<div class=\"at-layout\">\n<div class=\"at-content\" id=\"at-main\" tabindex=\"-1\">\n"
@@ -899,7 +1013,7 @@ def top_block(p, board=True):
 
 
 def bottom_block(p):
-    return (f"<!-- at:bottom -->\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
+    return (f"<!-- at:bottom -->\n{shop_promo_html(p)}\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
             f'<script src="/assets/site.js?v={JS_V}" defer></script>\n<!-- /at:bottom -->')
 
 
@@ -916,7 +1030,7 @@ def page_ld(p, extra=None):
     u = url_of(f)
     graph = []
     typ = {"hub-food": "CollectionPage", "hub-tools": "CollectionPage", "hub-trip": "CollectionPage",
-           "hub-guide": "CollectionPage", "gu": "CollectionPage"}.get(p["section"], "WebPage")
+           "hub-guide": "CollectionPage", "hub-connect": "CollectionPage", "gu": "CollectionPage"}.get(p["section"], "WebPage")
     if f == "about.html":
         typ = "AboutPage"
     if f == "contact.html":
@@ -1623,6 +1737,13 @@ def build_connect_post(p):
     write(p["file"], page_shell(p, content, extra))
 
 
+CONNECT_FAQ = [
+    ("추천 모음 글은 광고인가요?", "네. 글 속 구매·예약 링크는 네이버 커넥트 제휴 링크라, 그 링크로 구매가 이뤄지면 일정액의 수수료를 받습니다. 글마다 제목 아래와 끝에 표시합니다."),
+    ("직접 사용해 본 후기인가요?", "아닙니다. 제조사·판매처 공식 자료와 공개된 정보를 정리해 고르는 기준을 알려 드리는 글입니다."),
+    ("가격은 어디서 확인하나요?", "각 글의 ‘제품 가격 알아보기’·‘여행 비용 알아보기’ 버튼을 누르면 판매 페이지에서 현재 가격을 볼 수 있습니다. 가격은 판매처와 시점마다 달라집니다."),
+]
+
+
 def build_connect_hub():
     p = PAGES["connect.html"]
     p["title"] = "추천 모음 — 제품 추천·여행 추천"
@@ -1635,8 +1756,9 @@ def build_connect_hub():
         def card(q):
             post = q["post"]
             cp = post.get("cta_photo") or {}
-            thumb = cp.get("src") or (post.get("images") or [("", "")])[0][0]
-            img = (f'<a class="at-shop-thumb" href="/{q["file"]}"><img src="{esc(thumb)}" alt="{esc(cp.get("alt") or post["title"])}" loading="lazy" decoding="async"></a>'
+            thumb, twh = shop_thumb(post)
+            tsz = f' width="{twh[0]}" height="{twh[1]}"' if twh else ""
+            img = (f'<a class="at-shop-thumb" href="/{q["file"]}"><img src="{esc(thumb)}" alt="{esc(cp.get("alt") or post["title"])}"{tsz} loading="lazy" decoding="async"></a>'
                    if thumb else "")
             btn = (f'<a class="at-cta at-cta-sm" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" '
                    f'rel="sponsored nofollow noopener">{esc(cta_label(post))}</a>')
@@ -1653,10 +1775,11 @@ def build_connect_hub():
 </header>
 <aside class="at-disclose" role="note" aria-label="광고 표시"><p>이 게시판의 글은 네이버 커넥트 제휴 활동의 일환으로, 글 속 링크로 구매가 이뤄지면 일정액의 수수료를 제공받습니다.</p></aside>
 <ul class="at-tabs at-tabs-lg" role="tablist" data-at-tabs aria-label="분류 선택">{"".join(tabs)}</ul>
-{"".join(panes)}"""
-    lst = {"@type": "ItemList", "name": "추천 모음 글", "itemListElement": [
+{"".join(panes)}
+<div class="at-prose" style="margin-top:1.5rem">{faq_html(CONNECT_FAQ)}</div>"""
+    lst = {"@type": "ItemList", "name": "추천 모음 글", "numberOfItems": len(SHOP_LIVE), "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": q["title"], "url": url_of(q["file"])} for i, q in enumerate(SHOP_LIVE)]}
-    write("connect.html", page_shell(p, content, [lst], board=False, robots=None if SHOP_LIVE else "noindex, follow"))
+    write("connect.html", page_shell(p, content, [lst, faq_ld(CONNECT_FAQ)], board=False, robots=None if SHOP_LIVE else "noindex, follow"))
 
 
 def build_home():
@@ -1692,6 +1815,7 @@ def build_home():
     labor = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], "노동", "", None, "", PAGES[s + ".html"]["date"])
                     for s in next(g for g in TOOL_GROUPS if g[0] == "labor")[2])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
+    home_shop = "".join(shop_card(q) for q in SHOP_LIVE[:6])
     chips = "".join(f'<li><a href="{u}">{esc(t)}</a></li>' for t, u in [
         ("연봉 실수령액", "/salary_calculator.html"), ("퇴직금", "/severance_calculator.html"), ("실업급여", "/unemployment_benefit_calculator.html"),
         ("주휴수당", "/holiday_pay_calculator.html"), ("취득세", "/acquisition_tax_calculator.html"), ("해운대 맛집", "/haeundae-bapjip.html"),
@@ -1704,6 +1828,9 @@ def build_home():
 <div class="at-notice"><b>공지</b><a href="{notice[3]}">{esc(notice[2])}</a><time datetime="{notice[0]}">{short_date(notice[0])}</time></div>
 <section class="at-box"><div class="at-box-head"><h2>최근 업데이트</h2><a class="more" href="/sitemap.html">전체 페이지</a></div>
   <div class="at-box-body"><ul class="at-list">{ups}</ul></div></section>
+<section class="at-box is-shop"><div class="at-box-head"><h2>추천 모음 — 제품 추천·여행 추천</h2><a class="more" href="/connect.html">추천 글 {len(SHOP_LIVE)}개 전체</a></div>
+  <ul class="at-sp-grid at-sp-home">{home_shop}</ul>
+  <p class="at-sp-note">제품 고르는 기준과 여행 코스를 정리한 글입니다. 글 속 구매·예약 링크는 제휴(광고) 링크입니다.</p></section>
 <div class="at-two">
   <section class="at-box is-tool"><div class="at-box-head"><h2>주요 계산기</h2><a class="more" href="/tools.html">{N_TOOLS}종 전체</a></div>
     <div class="at-box-body"><ul class="at-list">{keytools}</ul></div></section>
@@ -1730,7 +1857,7 @@ def build_home():
            "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
     sections = {"@type": "ItemList", "name": "어라운드툴 주요 섹션", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/" + u} for i, (n, u) in
-        enumerate([("전국 맛집", "food.html"), ("생활툴", "tools.html"), ("여행", "travel.html"), ("가이드", "etc.html")])]}
+        enumerate([("전국 맛집", "food.html"), ("생활툴", "tools.html"), ("여행", "travel.html"), ("가이드", "etc.html"), ("추천 모음", "connect.html")])]}
     # 홈은 at-content 상자 없이 박스들을 직접 배치
     html_ = page_shell(p, content, [website, org, sections, faq_ld(FAQ_HOME)], board=False)
     html_ = html_.replace('<div class="at-content" id="at-main" tabindex="-1">', '<div class="at-home" id="at-main" tabindex="-1">', 1)
