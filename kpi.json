@@ -1,0 +1,222 @@
+{
+ "made": "2026-10-26T16:21:49.548Z",
+ "range": "2026-10-20 ~ 2026-10-26",
+ "prevRange": "2026-10-13 ~ 2026-10-19",
+ "cur": {
+  "users": 48,
+  "sessions": 77,
+  "views": 715
+ },
+ "prev": {
+  "users": 30,
+  "sessions": 33,
+  "views": 31
+ },
+ "organic": {
+  "cur": 48,
+  "prev": 33
+ },
+ "channels": {
+  "cur": {
+   "Organic Search": 48,
+   "Direct": 28,
+   "Unassigned": 5,
+   "Referral": 1
+  },
+  "prev": {
+   "Organic Search": 33
+  }
+ },
+ "daily": [
+  {
+   "date": "20260929",
+   "users": 5,
+   "sessions": 5
+  },
+  {
+   "date": "20260930",
+   "users": 7,
+   "sessions": 7
+  },
+  {
+   "date": "20261001",
+   "users": 4,
+   "sessions": 4
+  },
+  {
+   "date": "20261002",
+   "users": 6,
+   "sessions": 7
+  },
+  {
+   "date": "20261003",
+   "users": 2,
+   "sessions": 2
+  },
+  {
+   "date": "20261004",
+   "users": 1,
+   "sessions": 1
+  },
+  {
+   "date": "20261005",
+   "users": 5,
+   "sessions": 5
+  },
+  {
+   "date": "20261006",
+   "users": 7,
+   "sessions": 7
+  },
+  {
+   "date": "20261007",
+   "users": 10,
+   "sessions": 10
+  },
+  {
+   "date": "20261008",
+   "users": 8,
+   "sessions": 8
+  },
+  {
+   "date": "20261009",
+   "users": 2,
+   "sessions": 2
+  },
+  {
+   "date": "20261011",
+   "users": 4,
+   "sessions": 4
+  },
+  {
+   "date": "20261012",
+   "users": 5,
+   "sessions": 5
+  },
+  {
+   "date": "20261013",
+   "users": 8,
+   "sessions": 8
+  },
+  {
+   "date": "20261014",
+   "users": 1,
+   "sessions": 1
+  },
+  {
+   "date": "20261015",
+   "users": 6,
+   "sessions": 8
+  },
+  {
+   "date": "20261016",
+   "users": 2,
+   "sessions": 2
+  },
+  {
+   "date": "20261017",
+   "users": 3,
+   "sessions": 3
+  },
+  {
+   "date": "20261018",
+   "users": 1,
+   "sessions": 1
+  },
+  {
+   "date": "20261019",
+   "users": 9,
+   "sessions": 10
+  },
+  {
+   "date": "20261020",
+   "users": 4,
+   "sessions": 4
+  },
+  {
+   "date": "20261021",
+   "users": 4,
+   "sessions": 4
+  },
+  {
+   "date": "20261022",
+   "users": 4,
+   "sessions": 4
+  },
+  {
+   "date": "20261023",
+   "users": 11,
+   "sessions": 14
+  },
+  {
+   "date": "20261024",
+   "users": 6,
+   "sessions": 12
+  },
+  {
+   "date": "20261025",
+   "users": 7,
+   "sessions": 16
+  },
+  {
+   "date": "20261026",
+   "users": 17,
+   "sessions": 23
+  }
+ ],
+ "landing": [
+  {
+   "page": "/",
+   "sessions": 34
+  },
+  {
+   "page": "/job_fortune_teller",
+   "sessions": 9
+  },
+  {
+   "page": "/connect.html",
+   "sessions": 6
+  },
+  {
+   "page": "/tire_date_calculator",
+   "sessions": 5
+  },
+  {
+   "page": "/grave_weeding_calculator",
+   "sessions": 3
+  },
+  {
+   "page": "/gas_bill_calculator",
+   "sessions": 2
+  },
+  {
+   "page": "",
+   "sessions": 1
+  },
+  {
+   "page": "/bmi_calculator",
+   "sessions": 1
+  },
+  {
+   "page": "/daejeon-junggu-durus.html",
+   "sessions": 1
+  },
+  {
+   "page": "/editorial.html",
+   "sessions": 1
+  }
+ ],
+ "google": {
+  "range": "2026-10-18 ~ 2026-10-24",
+  "cur": {
+   "clicks": 1,
+   "impressions": 351,
+   "position": 11.452991452991453
+  },
+  "prev": {
+   "clicks": 0,
+   "impressions": 291,
+   "position": 12.969072164948454
+  }
+ }
+}

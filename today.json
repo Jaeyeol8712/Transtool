@@ -1,47 +1,88 @@
 {
- "date": "2026-10-26",
+ "date": "2026-10-27",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-10-25.html",
-   "title": "일간 보고서 · 2026-10-25(일)",
+   "file": "reports/daily-2026-10-26.html",
+   "title": "일간 보고서 · 2026-10-26(월)",
    "kpi": {
-    "views": 63,
-    "viewers": 2,
+    "views": 39,
+    "viewers": 9,
     "clicks": 0,
     "clickers": 0
    },
    "prev": {
-    "views": 64,
+    "views": 63,
     "viewers": 2,
     "clicks": 0,
     "clickers": 0
    },
    "topPosts": [
     {
-     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
      "views": 23,
      "clicks": 0
     },
     {
      "post": "종아리 마사지기 공기압 추천 가격 총정리",
-     "views": 16,
+     "views": 17,
      "clicks": 0
     },
     {
-     "post": "후쿠오카 3일 여행 추천 코스 2박3일 일정",
-     "views": 16,
+     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "views": 14,
      "clicks": 0
     }
    ],
    "sources": [
     {
+     "name": "daum / organic",
+     "sessions": 4,
+     "users": 4
+    },
+    {
      "name": "m.search.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "naver / organic",
      "sessions": 1,
      "users": 1
     }
    ],
-   "keywords": [],
+   "keywords": [
+    {
+     "engine": "다음",
+     "query": "거북목 교정기",
+     "post": "neck-traction",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "로봇청소기 추천",
+     "post": "bespoke-ai-steam-ultra",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "블루투스 스피커",
+     "post": "jbl-authentics-200",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "후쿠오카 여행",
+     "post": "fukuoka-3days",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "galaxy-s26-ultra",
+     "sessions": 1
+    }
+   ],
    "google": []
   }
  ],
