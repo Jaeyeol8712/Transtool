@@ -881,7 +881,7 @@ def footer_html():
     shop_links = "".join(f'<li><a href="/{q["file"]}">{esc(q["post"]["keyword"])}</a></li>' for q in SHOP_LIVE[:5])
     return f"""<footer class="at-footer"><div class="at-in">
   <div class="at-footer-brand"><a class="at-logo" href="/"><span class="at-logo-mark" aria-hidden="true"></span>어라운드<b>툴</b></a>
-    <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다. 추천 모음 글에는 제휴(광고) 링크가 있으며 글마다 표시합니다.</p></div>
+    <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
   <div class="at-footer-cols">
     <div><p>생활툴</p><ul>{groups}</ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>
@@ -1003,7 +1003,7 @@ def shop_promo_html(p, n=4, title="추천 모음에서 함께 보면 좋은 글"
     return (f'<section class="at-related at-shop-promo" aria-label="추천 모음">'
             f'<div class="at-box-head"><h2>{esc(title)}</h2><a class="more" href="/connect.html">추천 모음 전체</a></div>'
             f'<ul class="at-sp-grid">{cards}</ul>'
-            f'<p class="at-sp-note">제품 고르는 기준과 여행 코스를 정리한 글입니다. 글 속 구매·예약 링크는 제휴(광고) 링크입니다.</p></section>')
+            f'</section>')
 
 
 def top_block(p, board=True):
@@ -1738,7 +1738,6 @@ def build_connect_post(p):
 
 
 CONNECT_FAQ = [
-    ("추천 모음 글은 광고인가요?", "네. 글 속 구매·예약 링크는 네이버 커넥트 제휴 링크라, 그 링크로 구매가 이뤄지면 일정액의 수수료를 받습니다. 글마다 제목 아래와 끝에 표시합니다."),
     ("직접 사용해 본 후기인가요?", "아닙니다. 제조사·판매처 공식 자료와 공개된 정보를 정리해 고르는 기준을 알려 드리는 글입니다."),
     ("가격은 어디서 확인하나요?", "각 글의 ‘제품 가격 알아보기’·‘여행 비용 알아보기’ 버튼을 누르면 판매 페이지에서 현재 가격을 볼 수 있습니다. 가격은 판매처와 시점마다 달라집니다."),
 ]
@@ -1747,7 +1746,7 @@ CONNECT_FAQ = [
 def build_connect_hub():
     p = PAGES["connect.html"]
     p["title"] = "추천 모음 — 제품 추천·여행 추천"
-    p["desc"] = "제품을 고르는 기준과 여행 코스를 정리한 추천 글 모음입니다. 제휴 링크가 포함된 광고 게시판으로, 모든 글 첫머리에 대가성 여부를 밝힙니다."
+    p["desc"] = "제품을 고르는 기준과 여행 코스를 정리한 추천 글 모음입니다. 갤럭시·비스포크 가전·노트북·뷰티 디바이스부터 후쿠오카·다낭·서유럽 여행 코스까지, 공식 자료를 바탕으로 한눈에 정리했습니다."
     tabs, panes = [], []
     for i, (k, label) in enumerate(KINDS.items()):
         items = [q for q in SHOP_LIVE if kind_of(q) == k]
@@ -1762,7 +1761,7 @@ def build_connect_hub():
                    if thumb else "")
             btn = (f'<a class="at-cta at-cta-sm" href="{esc(post.get("direct") or post["link"])}"{web_attr(post)} target="_blank" '
                    f'rel="sponsored nofollow noopener">{esc(cta_label(post))}</a>')
-            return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">광고</span>'
+            return (f'<li class="at-shop-item">{img}<div class="at-shop-txt"><span class="tag shop">{esc(KINDS[kind_of(q)])}</span>'
                     f'<a class="t" href="/{q["file"]}">{esc(q["title"])}</a>'
                     f'<span class="x">{esc(post["keyword"])} · {short_date(q["date"])}</span>{btn}</div></li>')
         body = (f'<ul class="at-shop-list" data-paginate="5">{"".join(card(q) for q in items)}</ul>'
@@ -1830,7 +1829,7 @@ def build_home():
   <div class="at-box-body"><ul class="at-list">{ups}</ul></div></section>
 <section class="at-box is-shop"><div class="at-box-head"><h2>추천 모음 — 제품 추천·여행 추천</h2><a class="more" href="/connect.html">추천 글 {len(SHOP_LIVE)}개 전체</a></div>
   <ul class="at-sp-grid at-sp-home">{home_shop}</ul>
-  <p class="at-sp-note">제품 고르는 기준과 여행 코스를 정리한 글입니다. 글 속 구매·예약 링크는 제휴(광고) 링크입니다.</p></section>
+</section>
 <div class="at-two">
   <section class="at-box is-tool"><div class="at-box-head"><h2>주요 계산기</h2><a class="more" href="/tools.html">{N_TOOLS}종 전체</a></div>
     <div class="at-box-body"><ul class="at-list">{keytools}</ul></div></section>
@@ -2141,7 +2140,7 @@ def build_feed():
                 key=lambda q: (q["date"], q["file"]), reverse=True)
     for q in ps:
         d = datetime.strptime(q["date"], "%Y-%m-%d").replace(hour=9, tzinfo=KST)
-        cat = {"food": "맛집", "trip": "여행", "guide": "가이드", "tools": "생활툴", "connect": "추천 모음(광고)"}[q["section"]]
+        cat = {"food": "맛집", "trip": "여행", "guide": "가이드", "tools": "생활툴", "connect": "추천 모음"}[q["section"]]
         items.append(f"""    <item>
       <title>{esc(q['title'])}</title>
       <link>{url_of(q['file'])}</link>
@@ -2195,7 +2194,7 @@ def build_llms():
     lines += ["## 여행", ""] + [f"- [{n}]({SITE}/{s}.html): {PAGES[s + '.html']['desc']}" for s, n, _ in TRIP_PAGES] + [""]
     lines += ["## 가이드", ""] + [f"- [{PAGES[s + '.html'].get('title') or n}]({SITE}/{s}.html)" for s, n in Q_GUIDES + GUIDE_PAGES] + [""]
     if SHOP_LIVE:
-        lines += ["## 추천 모음 — 제품·여행 (제휴 광고)", "", "아래 글에는 네이버 커넥트 제휴 링크가 있으며, 구매 시 사이트가 수수료를 받습니다.", ""]
+        lines += ["## 추천 모음 — 제품 추천·여행 추천", ""]
         lines += [f"- [{q['title']}]({url_of(q['file'])})" for q in SHOP_LIVE] + [""]
     write("llms.txt", "\n".join(lines))
 
@@ -2206,7 +2205,7 @@ def build_search_index():
         if q["file"] in ("sitemap.html",):
             continue
         k = " ".join(filter(None, [q.get("region_name"), q.get("gu"), q.get("cat"), q.get("group_name"), q.get("kind")]))
-        sec = {"food": "맛집", "gu": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내", "connect": "추천 모음 · 광고"}.get(q["section"], "안내")
+        sec = {"food": "맛집", "gu": "맛집", "tools": "생활툴", "trip": "여행", "guide": "가이드", "info": "사이트 안내", "connect": "추천 모음"}.get(q["section"], "안내")
         title = q["name"] + (" 계산기" if q["section"] == "tools" and "계산" not in q["name"] and "생성" not in q["name"] and "검사" not in q["name"] and "세기" not in q["name"] and "운세" not in q["name"] else "")
         if q["section"] in ("home",) or q["section"].startswith("hub"):
             title = q["title"]
