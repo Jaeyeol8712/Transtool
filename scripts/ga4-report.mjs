@@ -97,6 +97,11 @@ async function collect(start, end, bucket) {
   ];
   const settled = [];
   for (const job of jobs) { try { settled.push({ status: "fulfilled", value: await job() }); } catch (e) { settled.push({ status: "rejected", reason: e }); } }
+  try {
+    const rows = await ga(start, end, ["sessionDefaultChannelGroup", "sessionSourceMedium", "searchTerm", "landingPage", "linkId"], ["eventCount", "totalUsers"], F.cta, 2000);
+    var clickSrc = rows.map((r) => { const m = r.d[4].match(/^cta-(.+)-(top|mid|end|pop)$/) || [];
+      return { channel: r.d[0], source: r.d[1], keyword: r.d[2], landing: r.d[3], post: m[1] || r.d[4], pos: m[2] || "", clicks: r.m[0], users: r.m[1] }; });
+  } catch (e) { ERRORS.push(`버튼 누른 사람 유입: ${e.message}`); var clickSrc = []; }
   const NAMES = ["합계 조회", "합계 클릭", "기간별 조회", "기간별 클릭", "글별 조회", "버튼별 클릭", "유입 매체", "검색어"];
   const [tv, tc, sv, sc, pv, pc, src, ref] = settled.map((x, i) => { if (x.status === "fulfilled") return x.value; ERRORS.push(`${NAMES[i]}: ${x.reason.message}`); return []; });
   const tot = { views: tv[0]?.m[0] || 0, viewers: tv[0]?.m[1] || 0, clicks: tc[0]?.m[0] || 0, clickers: tc[0]?.m[1] || 0 };
@@ -120,7 +125,7 @@ async function collect(start, end, bucket) {
   }
   const keywords = Object.entries(kw).map(([k, n]) => { const [engine, query, post] = k.split("\t"); return { engine, query, post, sessions: n }; })
     .sort((a, b) => b.sessions - a.sessions);
-  return { tot, series, posts, sources, keywords, google: await gsc(start, end) };
+  return { tot, series, posts, sources, keywords, clickSrc, google: await gsc(start, end) };
 }
 async function seq(fns) { const out = []; for (const f of fns) out.push(await f()); return out; }
 const blank = () => ({ views: 0, viewers: 0, clicks: 0, clickers: 0 });
@@ -156,6 +161,10 @@ function mock(start, end, bucket) {
   const tot = Object.values(series).reduce((a, s) => ({ views: a.views + s.views, viewers: a.viewers + s.viewers, clicks: a.clicks + s.clicks, clickers: a.clickers + s.clickers }), blank());
   return { tot, series, posts, sources: [{ name: "naver / organic", sessions: 30, users: 22 }, { name: "daum / organic", sessions: 12, users: 10 }, { name: "(direct) / (none)", sessions: 9, users: 4 }, { name: "google / organic", sessions: 5, users: 5 }],
     keywords: [{ engine: "다음", query: "로봇청소기 추천", post: "bespoke-ai-steam-ultra", sessions: 3 }, { engine: "네이버", query: "(검색어 미전달)", post: "galaxy-s26-ultra", sessions: 6 }],
+    clickSrc: [{ channel: "Organic Search", source: "naver / organic", keyword: "갤럭시 s26 울트라 자급제", landing: "/shop-galaxy-s26-ultra.html", post: "galaxy-s26-ultra", pos: "top", clicks: 4, users: 3 },
+      { channel: "Organic Search", source: "daum / organic", keyword: "로봇청소기 추천", landing: "/shop-bespoke-ai-steam-ultra.html", post: "bespoke-ai-steam-ultra", pos: "pop", clicks: 2, users: 2 },
+      { channel: "Organic Search", source: "google / organic", keyword: "(검색어 미전달)", landing: "/shop-c-type-65w-charger.html", post: "c-type-65w-charger", pos: "mid", clicks: 1, users: 1 },
+      { channel: "Direct", source: "(direct) / (none)", keyword: "(직접·내부)", landing: "/index.html", post: "jbl-authentics-200", pos: "top", clicks: 2, users: 1 }],
     google: { rows: [{ query: "65w 충전기", post: "c-type-65w-charger", clicks: 2, impressions: 40, position: 8.2 }], note: "가짜 데이터" } };
 }
 
@@ -210,7 +219,7 @@ function kpis(cur, prev) {
   const card = (lab, v, pv, sub) => `<div class="kpi"><p>${lab}</p><b>${v}</b>${sub ? `<em>${sub}</em>` : ""}${pv}</div>`;
   return `<div class="kpis">
     ${card("글 조회수", n(c.views), delta(c.views, p?.views), `본 사람 ${n(c.viewers)} · 중복 ${n(Math.max(0, c.views - c.viewers))}`)}
-    ${card("제휴 버튼 클릭", n(c.clicks), delta(c.clicks, p?.clicks), `누른 사람 ${n(c.clickers)} · 중복 ${n(Math.max(0, c.clicks - c.clickers))}`)}
+    ${card("브랜드커넥트 버튼 클릭", n(c.clicks), delta(c.clicks, p?.clicks), `누른 사람 ${n(c.clickers)} · 중복 ${n(Math.max(0, c.clicks - c.clickers))}`)}
     ${card("클릭률", pct(c.clicks, c.views), p ? `<span class="dl">이전 ${pct(p.clicks, p.views)}</span>` : "", "클릭 ÷ 조회수")}
     ${card("사람 기준 클릭률", pct(c.clickers, c.viewers), p ? `<span class="dl">이전 ${pct(p.clickers, p.viewers)}</span>` : "", "누른 사람 ÷ 본 사람")}
   </div>`;
@@ -223,8 +232,8 @@ function trend(buckets, data, labelFn, titleTxt) {
   const c = buckets.map((k) => ({ label: labelFn(k), people: data.series[k]?.clickers || 0, dup: Math.max(0, (data.series[k]?.clicks || 0) - (data.series[k]?.clickers || 0)) }));
   return `<section class="card"><h2>${titleTxt}</h2>
     <div class="two"><div><h3>글 조회수</h3>${legend("s1")}${columns(v, "s1", "회")}</div>
-    <div><h3>제휴 버튼 클릭</h3>${legend("s2")}${columns(c, "s2", "회")}</div></div>
-    ${table(["기간", "조회수", "본 사람", "중복 조회", "제휴 클릭", "누른 사람", "중복 클릭", "클릭률"], buckets.map((k) => {
+    <div><h3>브랜드커넥트 버튼 클릭</h3>${legend("s2")}${columns(c, "s2", "회")}</div></div>
+    ${table(["기간", "조회수", "본 사람", "중복 조회", "BC 버튼 클릭", "누른 사람", "중복 클릭", "클릭률"], buckets.map((k) => {
       const s = data.series[k] || blank(); return [labelFn(k), n(s.views), n(s.viewers), n(Math.max(0, s.views - s.viewers)), n(s.clicks), n(s.clickers), n(Math.max(0, s.clicks - s.clickers)), pct(s.clicks, s.views)]; }), true)}
   </section>`;
 }
@@ -239,16 +248,39 @@ function postsSection(data, label) {
   const POS = { top: "첫 버튼(사진 아래)", mid: "중간 버튼", end: "글 끝 버튼", pop: "3초 팝업" };
   return `<section class="card"><h2>글별 성과 · ${label}</h2>
     <div class="two"><div><h3>조회수 상위 (본 사람 기준 중복 표시)</h3>${hbars(top.slice().sort((a, b) => b.views - a.views).map((p) => ({ label: title(p.k), value: p.views, note: `본 사람 ${n(p.viewers)}${p.views > p.viewers ? ` · 중복 ${n(p.views - p.viewers)}` : ""}` })), "s1", "회")}</div>
-    <div><h3>제휴 버튼 클릭 상위</h3>${top.some((p) => p.clicks) ? hbars(top.filter((p) => p.clicks).map((p) => ({ label: title(p.k), value: p.clicks, note: `누른 사람 ${n(p.clickers)} · 클릭률 ${pct(p.clicks, p.views)}` })), "s2", "회") : `<p class="empty">아직 클릭이 없습니다.</p>`}
+    <div><h3>브랜드커넥트 버튼 클릭 상위</h3>${top.some((p) => p.clicks) ? hbars(top.filter((p) => p.clicks).map((p) => ({ label: title(p.k), value: p.clicks, note: `누른 사람 ${n(p.clickers)} · 클릭률 ${pct(p.clicks, p.views)}` })), "s2", "회") : `<p class="empty">아직 클릭이 없습니다.</p>`}
     <h3 style="margin-top:1.2rem">어느 버튼이 눌렸나</h3>${hbars(Object.entries(POS).map(([k, l]) => ({ label: l, value: posTot[k] })), "s2", "회")}</div></div>
-    ${table(["글", "조회수", "본 사람", "중복", "제휴 클릭", "누른 사람", "클릭률", "첫 버튼", "중간", "글 끝", "팝업", "목록·카드로 들어옴"],
+    ${table(["글", "조회수", "본 사람", "중복", "BC 버튼 클릭", "누른 사람", "클릭률", "첫 버튼", "중간", "글 끝", "팝업", "목록·카드로 들어옴"],
       ps.filter((p) => p.views || p.clicks).map((p) => [esc(title(p.k)), n(p.views), n(p.viewers), n(Math.max(0, p.views - p.viewers)), n(p.clicks), n(p.clickers), pct(p.clicks, p.views), n(p.pos.top), n(p.pos.mid), n(p.pos.end), n(p.pos.pop), n(p.inbound.hub + p.inbound.promo)]), true)}
+  </section>`;
+}
+const CH = { "Organic Search": "검색(오가닉)", "Direct": "직접 방문", "Referral": "다른 사이트 링크", "Organic Social": "SNS", "Paid Search": "검색 광고",
+  "Paid Social": "SNS 광고", "Display": "배너 광고", "Unassigned": "분류 안 됨", "Email": "이메일", "Organic Shopping": "쇼핑 검색", "Organic Video": "동영상" };
+const POSK = { top: "첫 버튼", mid: "중간", end: "글 끝", pop: "팝업" };
+function clickersSection(data, label) {
+  const rows = (data.clickSrc || []).filter((r) => r.clicks).sort((a, b) => b.clicks - a.clicks);
+  if (!rows.length) return `<section class="card main"><h2>★ 브랜드커넥트 버튼을 누른 사람은 어디서 왔나 · ${label}</h2>
+    <p class="empty">이 기간에는 브랜드커넥트 버튼 클릭이 없습니다. 클릭이 생기면 채널·검색어·들어온 글이 여기에 나옵니다.</p></section>`;
+  const sum = (key) => { const o = {}; for (const r of rows) { const k = key(r); o[k] ||= { clicks: 0, users: 0 }; o[k].clicks += r.clicks; o[k].users += r.users; } return Object.entries(o).sort((a, b) => b[1].clicks - a[1].clicks); };
+  const total = rows.reduce((a, r) => a + r.clicks, 0);
+  const ch = sum((r) => CH[r.channel] || r.channel), src = sum((r) => r.source);
+  const kw = sum((r) => `${r.keyword}\t${r.source}`).filter(([k]) => !/^\(직접·내부\)|^\(not set\)/.test(k));
+  const gq = (post) => (data.google.rows || []).filter((g) => g.post === post).slice(0, 3).map((g) => g.query).join(", ");
+  return `<section class="card main"><h2>★ 브랜드커넥트 버튼을 누른 사람은 어디서 왔나 · ${label}</h2>
+    <p class="note" style="margin:0 0 .8rem">‘제품 가격 알아보기·여행 비용 알아보기’ 버튼(브랜드 커넥트로 이동)을 누른 방문이 처음에 어떤 채널·검색어로 사이트에 들어왔는지입니다. 총 ${n(total)}회.</p>
+    <div class="two"><div><h3>채널</h3>${hbars(ch.map(([k, v]) => ({ label: k, value: v.clicks, note: `${pct(v.clicks, total)} · 누른 사람 ${n(v.users)}` })), "s2", "회")}
+      <h3 style="margin-top:1rem">소스 / 매체</h3>${hbars(src.slice(0, 8).map(([k, v]) => ({ label: k, value: v.clicks, note: `누른 사람 ${n(v.users)}` })), "s2", "회")}</div>
+    <div><h3>검색 키워드</h3>${kw.length ? hbars(kw.slice(0, 10).map(([k, v]) => { const [q, s2] = k.split("\t"); return { label: q, value: v.clicks, note: `${s2} · 누른 사람 ${n(v.users)}` }; }), "s2", "회") : `<p class="empty">검색으로 들어와 누른 클릭이 없습니다.</p>`}
+      <p class="note">네이버는 검색어를 넘기지 않는 경우가 많아 ‘(검색어 미전달)’로, 구글은 검색어를 넘기지 않아 아래 표에 서치 콘솔의 그 글 검색어를 ‘구글 추정’으로 붙였습니다.</p></div></div>
+    ${table(["채널", "소스 / 매체", "검색어", "처음 들어온 페이지", "누른 글", "버튼", "클릭", "누른 사람"], rows.slice(0, 40).map((r) => [
+      esc(CH[r.channel] || r.channel), esc(r.source), esc(/google/.test(r.source) && /미전달/.test(r.keyword) && gq(r.post) ? `구글 추정: ${gq(r.post)}` : r.keyword),
+      esc(r.landing.startsWith("/shop-") ? title(slugOf(r.landing)) : r.landing), esc(title(r.post)), POSK[r.pos] || r.pos, n(r.clicks), n(r.users)]), false)}
   </section>`;
 }
 function sourcesSection(data, label) {
   const total = data.sources.reduce((a, s) => a + s.sessions, 0);
   const g = data.google;
-  return `<section class="card"><h2>유입 매체 · ${label}</h2>
+  return `<section class="card"><h2>글을 본 사람의 유입 매체 · ${label}</h2>
     ${data.sources.length ? hbars(data.sources.slice(0, 10).map((s) => ({ label: s.name, value: s.sessions, note: `${pct(s.sessions, total)} · 사람 ${n(s.users)}` })), "s1", "회") : `<p class="empty">추천 글로 들어온 방문이 없습니다.</p>`}
     <p class="note">방문 = 추천 글로 처음 들어온 방문(세션). organic = 검색, referral = 다른 사이트 링크, (direct) = 주소 직접 입력·앱 등.</p>
   </section>
@@ -276,6 +308,7 @@ async function daily() {
   return { name: `daily-${iso(y)}`, title: `일간 보고서 · ${iso(y)}(${DOW[y.getUTCDay()]})`,
     sub: `어제 하루 결과와 최근 3일 비교, 최근 7일 흐름입니다. (${iso(TODAY)} 08시 기준)`,
     body: `<section class="card"><h2>어제 한눈에 (그제와 비교)</h2>${kpis(d1, d0)}</section>
+      ${clickersSection(d3, "최근 3일")}
       ${trend(b3, d3, dayLabel, "최근 3일 비교")}
       ${trend(b7, w7, dayLabel, "최근 7일 흐름")}
       ${postsSection(d3, "최근 3일")}${sourcesSection(d3, "최근 3일")}`, kpi: d1.tot, prevKpi: d0.tot, data: d3 };
@@ -288,6 +321,7 @@ async function weekly() {
   return { name: `weekly-${iso(start)}`, title: `주간 보고서 · ${md_(start)}(월) ~ ${md_(end)}(일)`,
     sub: `지난주 월~일 결과를 그 전 주와 비교하고, 최근 4주 흐름을 함께 봅니다.`,
     body: `<section class="card"><h2>지난주 한눈에 (전주 대비)</h2>${kpis(cur, prev)}</section>
+      ${clickersSection(cur, "이 기간")}
       ${trend(days(start, end).map(ymd), cur, dayLabel, "요일별")}
       ${trend(wk, w4, (k) => { const m = days(w4s, end).find((d) => isoWeekKey(d) === k); return `${md_(m)}~`; }, "최근 4주 (주별 누적)")}
       ${postsSection(cur, "지난주")}${sourcesSection(cur, "지난주")}`, kpi: cur.tot, prevKpi: prev.tot, data: cur };
@@ -301,6 +335,7 @@ async function monthly() {
   return { name: `monthly-${iso(start).slice(0, 7)}`, title: `월간 보고서 · ${start.getUTCFullYear()}년 ${start.getUTCMonth() + 1}월`,
     sub: `${iso(start)} ~ ${iso(end)} 결과를 전월과 비교하고, 최근 4주·최근 3개월 누적을 함께 봅니다.`,
     body: `<section class="card"><h2>지난달 한눈에 (전월 대비)</h2>${kpis(cur, prev)}</section>
+      ${clickersSection(cur, "이 기간")}
       ${trend(days(start, end).map(ymd), cur, (k) => `${+k.slice(6)}일`, "일별")}
       ${trend(wk, w4, (k) => { const d = days(w4s, end).find((x) => isoWeekKey(x) === k); return `${md_(d)}~`; }, "최근 4주 (주별 누적)")}
       ${trend([0, 1, 2].map((i) => ymd(monthStart(y, m - 2 + i)).slice(0, 6)), m3, monLabel, "최근 3개월 (월별 누적)")}
@@ -314,6 +349,7 @@ async function quarterly() {
   return { name: `quarterly-${start.getUTCFullYear()}-Q${q}`, title: `분기 보고서 · ${start.getUTCFullYear()}년 ${q}분기`,
     sub: `${iso(start)} ~ ${iso(end)} 결과를 직전 분기와 비교합니다.`,
     body: `<section class="card"><h2>분기 한눈에 (직전 분기 대비)</h2>${kpis(cur, prev)}</section>
+      ${clickersSection(cur, "이 기간")}
       ${trend([0, 1, 2, 3, 4, 5].map((i) => ymd(monthStart(y0, qm - 3 + i)).slice(0, 6)), six, monLabel, "최근 6개월 (월별)")}
       ${postsSection(cur, `${q}분기`)}${sourcesSection(cur, `${q}분기`)}`, kpi: cur.tot, prevKpi: prev.tot, data: cur };
 }
@@ -322,6 +358,7 @@ async function yearly() {
   const [cur, prev] = await seq([() => collect(start, end, "month"), () => collect(monthStart(yy - 1, 0), monthEnd(yy - 1, 11), "month")]);
   return { name: `yearly-${yy}`, title: `연간 보고서 · ${yy}년`, sub: `${yy}년 1~12월 결과를 전년과 비교합니다.`,
     body: `<section class="card"><h2>한 해 한눈에 (전년 대비)</h2>${kpis(cur, prev)}</section>
+      ${clickersSection(cur, "이 기간")}
       ${trend([...Array(12).keys()].map((i) => ymd(monthStart(yy, i)).slice(0, 6)), cur, monLabel, "월별")}
       ${postsSection(cur, `${yy}년`)}${sourcesSection(cur, `${yy}년`)}`, kpi: cur.tot, prevKpi: prev.tot, data: cur };
 }
@@ -335,7 +372,7 @@ function page(rep) {
 :root[data-theme="dark"]{--bg:#121211;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--ink3:#9a998f;--line:#33332f;--s1:#3987e5;--s2:#d95926;--up:#4cc38a;--down:#f97066}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 .wrap{max-width:1040px;margin:0 auto;padding:20px 16px 48px}header h1{font-size:1.45rem;margin:0 0 .25rem}header p{margin:0;color:var(--ink2)}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:16px}
+.card.main{border:2px solid var(--s2)}.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:16px}
 h2{font-size:1.08rem;margin:0 0 .8rem}h3{font-size:.9rem;margin:.2rem 0 .4rem;color:var(--ink2);font-weight:600}
 .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
 .kpi{border:1px solid var(--line);border-radius:12px;padding:12px}.kpi p{margin:0;color:var(--ink2);font-size:.82rem}.kpi b{display:block;font-size:1.7rem;line-height:1.2;margin:.2rem 0}
@@ -357,7 +394,7 @@ th{color:var(--ink2);font-weight:600;background:var(--bg)}td.r{text-align:right;
 ${rep.body}
 ${ERRORS.length ? `<p class="foot" style="color:var(--down)">일부 숫자를 불러오지 못했습니다: ${esc([...new Set(ERRORS)].join(" / "))}</p>` : ""}
 <p class="foot">· 사람 수 = 같은 기기·브라우저를 한 사람으로 센 값(GA4). 중복 = 횟수 − 사람 수. GA4는 개인정보 보호로 IP 주소를 제공하지 않아 같은 와이파이의 다른 기기는 다른 사람으로 셉니다.<br>
-· 제휴 버튼 = 브랜드 커넥트로 가는 '제품 가격 알아보기·여행 비용 알아보기' 버튼(첫 버튼·중간·글 끝·팝업). 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.<br>
+· 브랜드커넥트(BC) 버튼 = 네이버 브랜드 커넥트(구매·예약 페이지)로 가는 '제품 가격 알아보기·여행 비용 알아보기' 버튼(첫 버튼·중간·글 끝·팝업). 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.<br>
 · 만든 시각 ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC · GA4 속성 ${PROPERTY}</p></div>
 <div id="tip" role="tooltip"></div>
 <script>(function(){var t=document.getElementById('tip');document.addEventListener('mousemove',function(e){var el=e.target.closest&&e.target.closest('[data-tip]');if(!el){t.style.display='none';return}t.textContent=el.getAttribute('data-tip');t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-290)+'px';t.style.top=(e.clientY+14)+'px'});
@@ -385,5 +422,5 @@ for (const t of plan) {
 }
 writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
 let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
-for (const r of made) md += `- ${r.title}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 제휴 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
+for (const r of made) md += `- ${r.title}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
 writeFileSync("_cta/cta-latest.md", md);

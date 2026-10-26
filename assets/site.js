@@ -81,8 +81,28 @@
        cta-<글>-top  첫 번째 버튼 · cta-<글>-mid 중간 버튼 · cta-<글>-end 글 끝 버튼 · cta-<글>-pop 팝업 버튼
        hub-<글>  추천 모음 목록의 '자세히 보기' · promo-<글>  다른 페이지의 추천 카드
      GA4 보고서: 이벤트 'cta_click' → 매개변수 link_id(버튼 이름)·post_slug·button_position·cta_type */
+  /* 이 방문이 처음 어디서 왔는지 (외부 사이트에서 들어온 첫 페이지 기준, 방문 동안 유지)
+     네이버·다음·줌은 검색 결과 주소에 검색어(query/q)가 남는 경우가 있어 함께 기록합니다. */
+  var entry = { ref: '', q: '', page: location.pathname };
+  try {
+    var saved = sessionStorage.getItem('at_entry');
+    if (saved) entry = JSON.parse(saved);
+    else {
+      var r = document.referrer || '';
+      if (r && r.indexOf(location.host) === -1) {
+        entry.ref = r.slice(0, 300);
+        try { var u = new URL(r); entry.q = (u.searchParams.get('query') || u.searchParams.get('q') || u.searchParams.get('wd') || '').slice(0, 100); } catch (e2) {}
+      }
+      sessionStorage.setItem('at_entry', JSON.stringify(entry));
+    }
+  } catch (e) {}
   var track = function (a, extra) {
+    var refHost = '';
+    try { refHost = entry.ref ? new URL(entry.ref).hostname : ''; } catch (e) {}
     var p = {
+      search_term: entry.q || (entry.ref ? '(검색어 미전달)' : '(직접·내부)'),
+      entry_source: refHost || '(direct)',
+      entry_page: entry.page,
       link_id: a.getAttribute('data-track'),
       link_text: (a.textContent || '').trim().slice(0, 100),
       link_url: (mobile && a.getAttribute('data-web')) || a.href,
