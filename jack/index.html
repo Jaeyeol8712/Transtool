@@ -105,7 +105,15 @@ h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(2.2re
 .crew button:hover,.crew button:focus-visible{background:var(--page);outline:none}
 .crew i{width:10px;height:10px;border-radius:3px;margin-top:.4em}
 .crew b{font-size:.88rem;margin-right:6px}
-@media(max-width:999px){.crew b,.crew small{display:block!important}.crew em{display:none!important}.crew button{padding:6px}}
+@media(max-width:999px){
+  .stage-wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8px;padding:0 10px}
+  .stage{padding:6px;border-radius:14px}
+  .stage .ctl button{font-size:.75rem;padding:0 10px;min-height:36px}.hint{display:none}
+  .crew{padding:8px 6px;border-radius:14px}.crew h2{font-size:1rem;margin:0 4px 4px}
+  .crew ul{grid-template-columns:1fr!important}
+  .crew b,.crew small{display:block!important}.crew b{font-size:.82rem}.crew small{font-size:.72rem}
+  .crew em{display:none!important}.crew button{padding:4px;min-height:40px;grid-template-columns:8px 1fr;gap:6px}.crew i{width:8px;height:8px}
+}
 .crew small{font-size:.8rem;color:var(--ink-2)}
 .crew em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-3)}
 @media(min-width:1000px){.stage-wrap{grid-template-columns:1fr 250px}}
@@ -233,34 +241,38 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
 
   /* ───── 지도 (타일 16px) — 넓은 화면: 5칸×3줄(54×31), 휴대폰: 2칸×8줄(24×82) ───── */
-  var NARROW = (document.querySelector('.stage') || document.body).getBoundingClientRect().width < 700;
-  var T = 16, S = 2, FS = NARROW ? 1.45 : 1, W, H, RY, CY, ROOM;
-  var cx = function (col) { return (2 + col * 10) * T; };
+  var NARROW = window.innerWidth < 1000;           // 좁은 화면: 작은 방 2칸×7줄 지도 + 오른쪽 구성원
+  var T = 16, S = 2, FS = NARROW ? 1.55 : 1, W, H, RY, CY, ROOM, CWp, CHp, cx;
   if (!NARROW) {
+    CWp = 10 * T; CHp = 8 * T; cx = function (col) { return (2 + col * 10) * T; };
     W = 54 * T; H = 31 * T; RY = [2 * T, 12 * T, 22 * T]; CY = [11 * T, 11 * T, 21 * T];
     ROOM = { chief: [0, 0], meet: [0, 1, 2], seo: [0, 3], plan: [0, 4],
       writer: [1, 0], designer: [1, 1], dev: [1, 2], analyst: [1, 3], qa: [1, 4],
       cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], lounge: [2, 4] };
   } else {
-    W = 24 * T; H = 82 * T; RY = []; CY = [];
-    for (var rr = 0; rr < 8; rr++) { RY.push((2 + rr * 10) * T); CY.push((11 + rr * 10) * T); }
+    CWp = 96; CHp = 84; cx = function (col) { return 14 + col * CWp; };
+    W = 14 * 2 + 2 * CWp; RY = []; CY = [];
+    var yy = 30; for (var rr = 0; rr < 8; rr++) { var hh = rr === 0 ? 112 : CHp; RY.push(yy); CY.push(yy + hh + 11); yy += hh + 22; }
+    H = yy - 4;
     ROOM = { meet: [0, 0, 2], chief: [1, 0], seo: [1, 1], plan: [2, 0], writer: [2, 1], designer: [3, 0], dev: [3, 1],
       analyst: [4, 0], qa: [4, 1], cafe: [5, 0], insta: [5, 1], community: [6, 0], ads: [6, 1], lounge: [7, 0] };
   }
-  function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * 10 * T; return { x: cx(r[1]), y: RY[r[0]], w: w, h: 8 * T, row: r[0], door: cx(r[1]) + w / 2, bottom: NARROW || r[0] === 0 }; }
-  function seat(id) { var r = room(id); return { x: r.x + 5 * T, y: r.y + 5.4 * T }; }
-  function doorIn(id) { var r = room(id); return { x: r.door, y: r.bottom ? r.y + 6.6 * T : r.y + 1.4 * T }; }
-  var MEET = room('meet'), TABLE = { x: MEET.x + MEET.w / 2, y: MEET.y + 4 * T };
+  function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * CWp, h = NARROW && r[0] === 0 ? 112 : CHp;
+    return { x: cx(r[1]), y: RY[r[0]], w: w, h: h, row: r[0], door: cx(r[1]) + w / 2, bottom: NARROW || r[0] === 0 }; }
+  function seat(id) { var r = room(id); return NARROW ? { x: r.x + r.w / 2, y: r.y + 64 } : { x: r.x + 5 * T, y: r.y + 5.4 * T }; }
+  function doorIn(id) { var r = room(id); return { x: r.door, y: r.bottom ? r.y + r.h - (NARROW ? 8 : 1.4 * T) : r.y + 1.4 * T }; }
+  var K = NARROW ? 0.62 : 1;
+  var MEET = room('meet'), TABLE = { x: MEET.x + MEET.w / 2, y: MEET.y + (NARROW ? 62 : 4 * T) };
   var MEET_SEATS = [];
-  (function () { for (var i = 0; i < 14; i++) { var a = -Math.PI / 2 + (i + 0.5) / 14 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T, y: TABLE.y + 8 + Math.sin(a) * 2.3 * T }); } })();
-  var BOSS_SEAT = { x: TABLE.x, y: TABLE.y - 2.6 * T };
+  (function () { for (var i = 0; i < 14; i++) { var a = -Math.PI / 2 + (i + 0.5) / 14 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T * K, y: TABLE.y + 8 * K + Math.sin(a) * 2.3 * T * K }); } })();
+  var BOSS_SEAT = { x: TABLE.x, y: TABLE.y - 2.6 * T * K - (NARROW ? 4 : 0) };
   var LOUNGE = room('lounge');
 
   function route(from, to) {   // from/to: {id 또는 'meet'/'lounge', pt}
     var a = from.id, b = to.id, ra = room(a), rb = room(b), pts = [];
     var da = doorIn(a), db = doorIn(b);
     pts.push(da, { x: da.x, y: CY[ra.row] });
-    if (CY[ra.row] !== CY[rb.row]) { pts.push({ x: 1 * T, y: CY[ra.row] }, { x: 1 * T, y: CY[rb.row] }); }
+    var vx = NARROW ? 7 : T; if (CY[ra.row] !== CY[rb.row]) { pts.push({ x: vx, y: CY[ra.row] }, { x: vx, y: CY[rb.row] }); }
     pts.push({ x: db.x, y: CY[rb.row] }, db, to.pt);
     return pts;
   }
@@ -321,6 +333,29 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     R(g, x, y, w, hh, col); R(g, x, y + hh, w, 1, shade(col, -0.35)); g.fillStyle = '#FFFFFF'; g.textBaseline = 'middle'; g.fillText(text, x + 5, y + hh / 2 + 0.5);
   }
 
+  function compactRoom(g, id, r, col) {
+    if (id === 'meet') {
+      rug(g, TABLE.x - 60, TABLE.y - 30, 120, 66, '#5E8C7E');
+      g.fillStyle = '#6E4A33'; g.beginPath(); g.ellipse(TABLE.x, TABLE.y + 2, 36, 17, 0, 0, 6.283); g.fill();
+      g.fillStyle = '#C89466'; g.beginPath(); g.ellipse(TABLE.x, TABLE.y, 36, 16, 0, 0, 6.283); g.fill();
+      [[-18, -4], [8, 2], [-4, 6]].forEach(function (p) { R(g, TABLE.x + p[0], TABLE.y + p[1], 8, 5, '#F7F7F2'); });
+      MEET_SEATS.forEach(function (s) { chair(g, s.x, s.y - 2, '#3E4A5A'); });
+      plant(g, r.x + 12, r.y + r.h - 14, false); plant(g, r.x + r.w - 12, r.y + r.h - 14, false);
+      sign(g, r.x + 6, r.y + 10, '회의실', '#17201E');
+      return;
+    }
+    if (id === 'lounge') {
+      rug(g, r.x + 10, r.y + 34, r.w - 20, 40, '#9DB7C9'); sofa(g, r.x + 14, r.y + 56, 48, '#6C7FB0');
+      R(g, r.x + r.w - 24, r.y + 10, 16, 20, '#4A4F55'); R(g, r.x + r.w - 21, r.y + 22, 8, 5, '#FFFFFF');
+      sign(g, r.x + 6, r.y + 10, '라운지', '#7A5C2E');
+      return;
+    }
+    rug(g, r.x + 12, r.y + 36, r.w - 24, 40, shade(col, 0.72));
+    desk(g, r.x + r.w / 2 - 20, r.y + 40, 40, shade(col, 0.45));
+    chair(g, seat(id).x, seat(id).y + 4, col);
+    plant(g, r.x + r.w - 10, r.y + r.h - 12, false);
+    sign(g, r.x + 6, r.y + 10, ROLES[id].short, col);
+  }
   function paintBackground() {
     var g = b; g.setTransform(S, 0, 0, S, 0, 0); g.imageSmoothingEnabled = false;
     R(g, 0, 0, W, H, '#E8DCC6');
@@ -329,19 +364,21 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     for (var i = 0; i < Math.floor(W / 72); i++) { var wx = 18 + i * 72; R(g, wx, 4, 44, 20, '#8FB8C9'); R(g, wx + 2, 6, 40, 16, '#BFE0EA'); R(g, wx + 21, 4, 2, 20, '#8FB8C9');
       R(g, wx + 4, 14, 8, 8, '#E9C2CE'); R(g, wx + 26, 12, 10, 10, '#D7E6EF'); }
     // 복도
-    var cys = CY.filter(function (v, i, a) { return a.indexOf(v) === i; }), top = cys[0] - T, bot = cys[cys.length - 1] + T;
-    cys.forEach(function (c) { floor(g, 0, c - T, W, 2 * T, '#E6D5B8'); });
-    floor(g, 0, top, 2 * T, bot - top, '#E6D5B8'); floor(g, W - 2 * T, top, 2 * T, bot - top, '#E6D5B8');
+    var cw = NARROW ? 11 : T, side = NARROW ? 14 : 2 * T;
+    var cys = CY.filter(function (v, i, a) { return a.indexOf(v) === i; }), top = cys[0] - cw, bot = cys[cys.length - 1] + cw;
+    cys.forEach(function (c) { floor(g, 0, c - cw, W, 2 * cw, '#E6D5B8'); });
+    floor(g, 0, top, side, bot - top, '#E6D5B8'); floor(g, W - side, top, side, bot - top, '#E6D5B8');
     // 방
     Object.keys(ROOM).forEach(function (id) {
       var r = room(id), col = id === 'meet' ? '#0B6E5F' : id === 'lounge' ? '#B07A4F' : hexOf(css(ROLES[id].c));
       var base = id === 'meet' ? '#D7A46F' : id === 'lounge' ? '#CFA27A' : '#D9A86C';
       floor(g, r.x + 2, r.y + 2, r.w - 4, r.h - 4, base);
       // 벽(문 자리 비움)
-      var wall = '#F1EEE8', top = '#C9C2B6', dw = 2.2 * T;
+      var wall = '#F1EEE8', top = '#C9C2B6', dw = NARROW ? 22 : 2.2 * T;
       R(g, r.x, r.y, r.w, 3, top); R(g, r.x, r.y + r.h - 3, r.w, 3, top); R(g, r.x, r.y, 3, r.h, top); R(g, r.x + r.w - 3, r.y, 3, r.h, top);
       if (r.bottom) R(g, r.door - dw / 2, r.y + r.h - 3, dw, 3, base); else R(g, r.door - dw / 2, r.y, dw, 3, base);
       R(g, r.x + 3, r.y + 3, r.w - 6, 5, wall);
+      if (NARROW) { compactRoom(g, id, r, col); return; }
       if (id === 'meet') {
         rug(g, TABLE.x - 6 * T, TABLE.y - 2.4 * T, 12 * T, 5.6 * T, '#5E8C7E');
         g.fillStyle = '#6E4A33'; g.beginPath(); g.ellipse(TABLE.x, TABLE.y + 3, 3.6 * T, 1.7 * T, 0, 0, 6.283); g.fill();
@@ -395,8 +432,9 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     if (p.cup) { R(g, x + 5, y - 11, 4, 5, '#FFFFFF'); R(g, x + 9, y - 10, 1, 2, '#FFFFFF'); }
     // 이름표
     g.font = '700 ' + (6.5 * FS) + 'px "IBM Plex Sans KR", sans-serif'; var w = g.measureText(p.short).width + 8, lh = 9 * FS, ly = y - 29 - lh;
-    R(g, x - w / 2, ly, w, lh, p.hl && Math.floor(t / 300) % 2 ? '#FFD84D' : '#FFFFFF'); R(g, x - w / 2, ly, 2, lh, col);
-    g.fillStyle = '#17201E'; g.textBaseline = 'middle'; g.textAlign = 'left'; g.fillText(p.short, x - w / 2 + 4, ly + lh / 2 + 0.5);
+    var lx = Math.max(2, Math.min(W - w - 2, x - w / 2));
+    R(g, lx, ly, w, lh, p.hl && Math.floor(t / 300) % 2 ? '#FFD84D' : '#FFFFFF'); R(g, lx, ly, 2, lh, col);
+    g.fillStyle = '#17201E'; g.textBaseline = 'middle'; g.textAlign = 'left'; g.fillText(p.short, lx + 4, ly + lh / 2 + 0.5);
     if (p.say && p.sayUntil > t) {
       g.font = '500 ' + (7 * FS) + 'px "IBM Plex Sans KR", sans-serif'; var bh = 14 * FS, tw = Math.min(W - 12, g.measureText(p.say).width + 12), bx = Math.max(4, Math.min(W - tw - 4, x - tw / 2)), by = ly - bh - 5;
       R(g, bx, by, tw, bh, '#FFFFFF'); R(g, bx, by + bh, tw, 1, '#C9D1CE'); R(g, x - 2, by + bh, 4, 3, '#FFFFFF');
@@ -438,7 +476,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
         setTimeout(function () { p.paper = false; backHome(p, function () { p.busy = false; }); }, 1600); }, 1500);
     }, ROLES[toId].name + '에게 가는 중');
   }
-  function coffee(p) { p.busy = true; var spot = { x: LOUNGE.x + 128 + (Math.random() * 10 - 5), y: LOUNGE.y + 50 };
+  function coffee(p) { p.busy = true; var spot = NARROW ? { x: LOUNGE.x + LOUNGE.w * 0.62 + (Math.random() * 8 - 4), y: LOUNGE.y + 44 } : { x: LOUNGE.x + 128 + (Math.random() * 10 - 5), y: LOUNGE.y + 50 };
     go(p, route(homeOf(p.id), { id: 'lounge', pt: spot }), function () { p.at = { id: 'lounge', pt: spot }; p.state = 'stand'; p.dir = 'up'; p.cup = true; p.status = '라운지에서 커피';
       say(p, ['커피 한 잔만', '잠깐 쉬어요', '아이디어 정리 중'][Math.floor(Math.random() * 3)], 2000);
       setTimeout(function () { backHome(p, function () { p.busy = false; }); }, 2600); }, '라운지로 가는 중'); }
@@ -544,7 +582,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       .catch(function () { start(); });
   });
   window.addEventListener('resize', function () { clearTimeout(window.__rz); window.__rz = setTimeout(function () {
-    var n = (document.querySelector('.stage') || document.body).getBoundingClientRect().width < 700; if (n !== NARROW) location.reload(); }, 300); });
+    var n = window.innerWidth < 1000; if (n !== NARROW) location.reload(); }, 300); });
   window.__jack = { ROLES: ROLES, KEY: KEY, el: el, css: css };
 })();
 
