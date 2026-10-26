@@ -64,6 +64,42 @@ for (const [label, start] of [["최근 7일", "7daysAgo"], ["최근 28일", "28d
   for (const b of btn.slice(0, 40)) md += `| \`${b.id}\` | ${b.type} | ${POS[b.pos] || b.pos} | ${b.clicks} | ${b.users} |\n`;
   md += "\n";
 }
+// ── 일별 (최근 7일) — 중복 = 같은 사람(같은 기기·브라우저)이 여러 번 본·누른 횟수 ──
+try {
+  const shopPage = { filter: { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH", value: "/shop-" } } };
+  const dr = [{ startDate: "6daysAgo", endDate: "today" }];
+  const pv = await report({ dateRanges: dr, dimensions: [{ name: "date" }], metrics: [{ name: "screenPageViews" }, { name: "totalUsers" }], dimensionFilter: shopPage, limit: 20 });
+  const ck = await report({ dateRanges: dr, dimensions: [{ name: "date" }, { name: "linkId" }], metrics: [{ name: "eventCount" }, { name: "totalUsers" }], dimensionFilter: onlyCta, limit: 2000 });
+  const ckDay = await report({ dateRanges: dr, dimensions: [{ name: "date" }], metrics: [{ name: "eventCount" }, { name: "totalUsers" }],
+    dimensionFilter: { andGroup: { expressions: [onlyCta, { filter: { fieldName: "linkId", stringFilter: { matchType: "BEGINS_WITH", value: "cta-" } } }] } }, limit: 20 });
+  const days = [];
+  for (let i = 6; i >= 0; i--) { const d = new Date(Date.now() + 9 * 3600e3 - i * 864e5); days.push(d.toISOString().slice(0, 10).replace(/-/g, "")); }
+  const g = (rows, d) => { const r = rows.find((x) => x.dimensionValues[0].value === d); return r ? r.metricValues.map((m) => +m.value) : [0, 0]; };
+  const fmt = (d) => `${d.slice(4, 6)}.${d.slice(6)}`;
+  out.daily = days.map((d) => { const [v, vu] = g(pv, d), [c, cu] = g(ckDay, d); return { date: d, views: v, viewers: vu, viewDup: Math.max(0, v - vu), clicks: c, clickers: cu, clickDup: Math.max(0, c - cu) }; });
+  md += `## 일별 (최근 7일, 추천 모음 글 전체)\n\n| 날짜 | 조회수 | 본 사람 | 중복 조회 | 제휴 클릭 | 누른 사람 | 중복 클릭 |\n|---|---:|---:|---:|---:|---:|---:|\n`;
+  for (const x of out.daily) md += `| ${fmt(x.date)} | ${x.views} | ${x.viewers} | ${x.viewDup} | ${x.clicks} | ${x.clickers} | ${x.clickDup} |\n`;
+  const sum = (k) => out.daily.reduce((a, x) => a + x[k], 0);
+  md += `| **합계** | **${sum("views")}** | ${sum("viewers")}* | ${sum("viewDup")} | **${sum("clicks")}** | ${sum("clickers")}* | ${sum("clickDup")} |\n\n`;
+  // 글별 일별 제휴 클릭 (중복 포함 클릭 / 누른 사람)
+  const per = {};
+  for (const r of ck) { const [d, id] = r.dimensionValues.map((x) => x.value); const m = id.match(/^cta-(.+)-(top|mid|end|pop)$/); if (!m) continue;
+    const o = ((per[m[1]] ||= {})[d] ||= [0, 0]); o[0] += +r.metricValues[0].value; o[1] += +r.metricValues[1].value; }
+  const pvPost = await report({ dateRanges: dr, dimensions: [{ name: "date" }, { name: "pagePath" }], metrics: [{ name: "screenPageViews" }, { name: "totalUsers" }], dimensionFilter: shopPage, limit: 2000 });
+  const vper = {};
+  for (const r of pvPost) { const [d, pth] = r.dimensionValues.map((x) => x.value); const k = pth.replace(/^\/shop-|\.html$/g, "");
+    const o = ((vper[k] ||= {})[d] ||= [0, 0]); o[0] += +r.metricValues[0].value; o[1] += +r.metricValues[1].value; }
+  const posts = [...new Set([...Object.keys(vper), ...Object.keys(per)])].sort((a, b) =>
+    Object.values(per[b] || {}).reduce((s, x) => s + x[0], 0) - Object.values(per[a] || {}).reduce((s, x) => s + x[0], 0) ||
+    Object.values(vper[b] || {}).reduce((s, x) => s + x[0], 0) - Object.values(vper[a] || {}).reduce((s, x) => s + x[0], 0));
+  out.dailyPosts = posts.map((k) => ({ post: k, days: days.map((d) => ({ date: d, views: (vper[k]?.[d] || [0, 0])[0], viewers: (vper[k]?.[d] || [0, 0])[1], clicks: (per[k]?.[d] || [0, 0])[0], clickers: (per[k]?.[d] || [0, 0])[1] })) }));
+  md += `### 글별 일별 — 조회(본 사람) / 제휴 클릭(누른 사람)\n\n| 글 | ${days.map(fmt).join(" | ")} |\n|---|${days.map(() => "---:").join("|")}|\n`;
+  const cell = (v, u) => (v ? (v > u ? `${v}(${u})` : `${v}`) : "·");
+  for (const p of out.dailyPosts) md += `| ${p.post} | ${p.days.map((x) => `${cell(x.views, x.viewers)} / ${cell(x.clicks, x.clickers)}`).join(" | ")} |\n`;
+  md += `\n중복 = 같은 사람이 여러 번 본·누른 횟수(횟수 − 사람 수). 괄호 안 숫자는 중복을 뺀 사람 수이며, 괄호가 없으면 중복이 없습니다.\n`;
+  md += `*합계의 사람 수는 날짜별 합이라, 여러 날 들어온 같은 사람은 날마다 따로 셉니다.\n\n`;
+} catch (e) { md += `## 일별\n\n조회 실패: ${e.message}\n\n`; }
+
 // ── 유입 매체와 오가닉 유입 키워드 (추천 모음 글, 최근 7일) ──
 const shopLanding = { filter: { fieldName: "landingPage", stringFilter: { matchType: "BEGINS_WITH", value: "/shop-" } } };
 try {
@@ -119,6 +155,7 @@ try {
 } catch (e) { md += `구글 검색어 조회 실패: ${e.message}\n\n`; }
 
 md += "※ 클릭률 = 제휴 버튼 클릭 ÷ 글 조회수. 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.\n";
+md += "※ 중복 판단: GA4는 개인정보 보호로 IP 주소를 저장·제공하지 않아, 같은 기기·브라우저(GA 사용자 식별값)를 같은 사람으로 봅니다. 같은 IP의 다른 기기는 다른 사람으로, 쿠키를 지운 같은 사람은 새 사람으로 셀 수 있습니다.\n";
 md += "※ 네이버 검색어는 검색 결과 페이지 주소가 함께 전달될 때만 잡힙니다. 전달되지 않은 방문은 '(검색어 미전달)'로 표시되며, 전체 검색어는 네이버 서치어드바이저 → 리포트 → 검색 유입에서 볼 수 있습니다.\n";
 mkdirSync("_cta", { recursive: true });
 writeFileSync("_cta/cta-latest.md", md);
