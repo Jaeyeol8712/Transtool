@@ -947,6 +947,32 @@ SHOP_TOPIC_BY_SECTION = {
 SHOP_PROMO_SKIP = {"connect", "hub-connect", "info", "util", "home"}
 
 
+def shop_og(post):
+    """추천 글 대표 사진으로 1200×630 공유 이미지(og.jpg)를 만듭니다. 사진이 잘리지 않게 가운데 놓고, 배경은 같은 사진을 흐리게 채웁니다."""
+    cp = post.get("cta_photo") or {}
+    src = cp.get("src")
+    if not src or not src.startswith("/"):
+        return None
+    full = src.lstrip("/")
+    out = os.path.join(os.path.dirname(full), "og.jpg")
+    try:
+        if not os.path.exists(out) or os.path.getmtime(out) < os.path.getmtime(full):
+            from PIL import Image, ImageFilter
+            W, H = 1200, 630
+            im = Image.open(full).convert("RGB")
+            sc = max(W / im.width, H / im.height)
+            bg = im.resize((round(im.width * sc), round(im.height * sc)), Image.LANCZOS)
+            bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+            bg = bg.filter(ImageFilter.GaussianBlur(28)).point(lambda v: int(v * 0.85 + 255 * 0.15))
+            fs = min(W / im.width, H / im.height)
+            fg = im.resize((round(im.width * fs), round(im.height * fs)), Image.LANCZOS)
+            bg.paste(fg, ((W - fg.width) // 2, (H - fg.height) // 2))
+            bg.save(out, "JPEG", quality=82, optimize=True, progressive=True)
+        return "/" + out
+    except Exception:
+        return None
+
+
 def shop_thumb(post):
     """추천 글 대표 사진의 작은 썸네일(가로 320px)을 만들어 주소를 돌려줍니다."""
     cp = post.get("cta_photo") or {}
@@ -1043,6 +1069,10 @@ def page_ld(p, extra=None):
           "inLanguage": "ko-KR", "isPartOf": {"@id": SITE + "/#website"},
           "publisher": {"@id": SITE + "/#org"}, "dateModified": p["date"],
           "primaryImageOfPage": image_ld("/assets/og/og-default.png", "어라운드툴 대표 이미지")}
+    if p["section"] == "connect" and p.get("post") and shop_og(p["post"]):
+        cp = p["post"].get("cta_photo") or {}
+        wp["primaryImageOfPage"] = image_ld(shop_og(p["post"]), cp.get("alt") or p["title"], seller=p["post"].get("brand") or "판매처")
+        wp["thumbnailUrl"] = SITE + shop_og(p["post"])
     bc = crumb_ld(p)
     if bc:
         wp["breadcrumb"] = {"@id": u + "#breadcrumb"}
@@ -1060,6 +1090,12 @@ def head_block(p, robots=None):
     title = p["title"] if f == "index.html" else f"{p['title']} | {NAME}"
     desc = p["desc"]
     img = f"{SITE}/assets/og/og-default.png"
+    img_alt = NAME
+    if p["section"] == "connect" and p.get("post"):
+        og = shop_og(p["post"])
+        if og:
+            img = SITE + og
+            img_alt = (p["post"].get("cta_photo") or {}).get("alt") or p["title"]
     if robots is None:
         robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" if indexable(p) else "noindex, follow"
     og_type = "article" if p["section"] in ("food", "trip", "guide", "connect") else "website"
@@ -1082,6 +1118,7 @@ def head_block(p, robots=None):
 <meta property="og:image" content="{img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(img_alt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(p['title'])}">
 <meta name="twitter:description" content="{esc(desc)}">
