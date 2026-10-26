@@ -91,22 +91,24 @@ h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(2.2re
 .days time{font-weight:700}
 .days p{margin:2px 0 0;color:var(--ink-2);font-size:.92rem}
 /* 픽셀 사무실 */
-.stage{background:#E8DCC6;padding:10px;display:flex;flex-direction:column;gap:8px}
+.stage{align-self:start;background:#E8DCC6;padding:10px;display:flex;flex-direction:column;gap:8px}
 .stage-scroll{overflow-x:auto;border-radius:12px;-webkit-overflow-scrolling:touch}
 #office{display:block;width:100%;height:auto;image-rendering:pixelated;image-rendering:crisp-edges;border-radius:12px}
 .stage .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0}
 .stage .ctl button{font:inherit;font-size:.85rem;border:1px solid #CDBFA6;background:#FFF8EC;color:#17201E;border-radius:999px;padding:0 14px;min-height:40px;cursor:pointer}
 .hint{font-size:.85rem;color:#5B4A35}
-.crew{background:var(--paper);border-radius:18px;padding:14px;max-height:560px;overflow:auto}
+.crew{background:var(--paper);border-radius:18px;padding:12px;align-self:start}
 .crew h2{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:1.15rem;margin:0 0 8px}
-.crew ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
-.crew button{display:grid;grid-template-columns:12px 1fr;gap:10px;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;border-radius:12px;padding:8px;cursor:pointer}
+.crew ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 6px}
+@media(min-width:1000px){.crew ul{grid-template-columns:1fr}}
+.crew button{display:grid;grid-template-columns:10px 1fr;gap:8px;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;border-radius:10px;padding:5px 6px;cursor:pointer;min-height:44px}
 .crew button:hover,.crew button:focus-visible{background:var(--page);outline:none}
-.crew i{width:12px;height:12px;border-radius:3px;margin-top:.35em}
-.crew b{display:block;font-size:.95rem}
-.crew small{display:block;font-size:.8rem;color:var(--ink-2);line-height:1.4}
-.crew em{display:block;font-style:normal;font-size:.75rem;color:var(--ink-3);margin-top:2px}
-@media(min-width:1000px){.stage-wrap{grid-template-columns:1fr 290px}}
+.crew i{width:10px;height:10px;border-radius:3px;margin-top:.4em}
+.crew b{font-size:.88rem;margin-right:6px}
+@media(max-width:999px){.crew b,.crew small{display:block!important}.crew em{display:none!important}.crew button{padding:6px}}
+.crew small{font-size:.8rem;color:var(--ink-2)}
+.crew em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-3)}
+@media(min-width:1000px){.stage-wrap{grid-template-columns:1fr 250px}}
 /* 아래 정리 */
 .brief{margin:0;padding:16px 16px 16px 34px;background:var(--paper);border-radius:16px;display:flex;flex-direction:column;gap:6px}
 .work{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
@@ -213,20 +215,20 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
 
   /* ───── 팀 ───── */
   var ROLES = {
-    chief:    { name: '총괄',           short: '총괄',   c: '--chief',     hair: '#2B211C', skin: '#F2C9A6', item: 'shelf' },
-    seo:      { name: '검색 노출',       short: '검색',   c: '--seo',       hair: '#1E1E1E', skin: '#EBC09A', item: 'chart' },
-    plan:     { name: '기획자',         short: '기획',   c: '--plan',      hair: '#5A3420', skin: '#F2C9A6', item: 'notes' },
-    writer:   { name: '콘텐츠 작성자',   short: '작성',   c: '--writer',    hair: '#3A2A22', skin: '#F4D0B0', item: 'books' },
-    designer: { name: '디자이너',       short: '디자인', c: '--designer',  hair: '#7A3E1C', skin: '#EBC09A', item: 'easel' },
-    dev:      { name: '사이트 개발',     short: '개발',   c: '--dev',       hair: '#222222', skin: '#E8BC94', item: 'server' },
-    analyst:  { name: '데이터 분석가',   short: '데이터', c: '--analyst',   hair: '#16161C', skin: '#F2C9A6', item: 'screen' },
-    qa:       { name: '검수·신뢰',       short: '검수',   c: '--qa',        hair: '#4A4A4A', skin: '#EBC09A', item: 'cabinet' },
-    cafe:     { name: '카페 담당',       short: '카페',   c: '--cafe',      hair: '#2E2420', skin: '#F4D0B0', item: 'cafe' },
-    insta:    { name: '인스타 기획자',   short: '인스타', c: '--insta',     hair: '#3A1E2A', skin: '#F2C9A6', item: 'ring' },
-    community:{ name: '커뮤니티 관리자', short: '커뮤',   c: '--community', hair: '#2B2B2B', skin: '#E8BC94', item: 'board' },
-    ads:      { name: '광고',           short: '광고',   c: '--ads',       hair: '#1E1E1E', skin: '#EBC09A', item: 'mega' }
+    chief:    { name: '총괄', desc: '우선순위·보고',           short: '총괄',   c: '--chief',     hair: '#2B211C', skin: '#F2C9A6', item: 'shelf' },
+    seo:      { name: '검색 노출', desc: '검색 순위 올리기',       short: '검색',   c: '--seo',       hair: '#1E1E1E', skin: '#EBC09A', item: 'chart' },
+    plan:     { name: '기획자', desc: '새 페이지 기획',         short: '기획',   c: '--plan',      hair: '#5A3420', skin: '#F2C9A6', item: 'notes' },
+    writer:   { name: '콘텐츠 작성자', desc: '글 쓰고 고치기',   short: '작성',   c: '--writer',    hair: '#3A2A22', skin: '#F4D0B0', item: 'books' },
+    designer: { name: '디자이너', desc: '화면·이미지',       short: '디자인', c: '--designer',  hair: '#7A3E1C', skin: '#EBC09A', item: 'easel' },
+    dev:      { name: '사이트 개발', desc: '사이트 만들기',     short: '개발',   c: '--dev',       hair: '#222222', skin: '#E8BC94', item: 'server' },
+    analyst:  { name: '데이터 분석가', desc: '유입 숫자 보고',   short: '데이터', c: '--analyst',   hair: '#16161C', skin: '#F2C9A6', item: 'screen' },
+    qa:       { name: '검수·신뢰', desc: '틀린 것 잡기',       short: '검수',   c: '--qa',        hair: '#4A4A4A', skin: '#EBC09A', item: 'cabinet' },
+    cafe:     { name: '카페 담당', desc: '카페로 유입',       short: '카페',   c: '--cafe',      hair: '#2E2420', skin: '#F4D0B0', item: 'cafe' },
+    insta:    { name: '인스타 기획자', desc: '인스타로 유입',   short: '인스타', c: '--insta',     hair: '#3A1E2A', skin: '#F2C9A6', item: 'ring' },
+    community:{ name: '커뮤니티 관리자', desc: '자유글 관리', short: '커뮤',   c: '--community', hair: '#2B2B2B', skin: '#E8BC94', item: 'board' },
+    ads:      { name: '광고', desc: '필요할 때 광고',           short: '광고',   c: '--ads',       hair: '#1E1E1E', skin: '#EBC09A', item: 'mega' }
   };
-  var BOSS = { name: '짹 (대표)', short: '짹', c: '--boss', hair: '#111111', skin: '#F2C9A6' };
+  var BOSS = { name: '짹 (대표)', desc: '방향 정하고 컨펌', short: '짹', c: '--boss', hair: '#111111', skin: '#F2C9A6' };
   var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
     '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community' };
 
@@ -370,6 +372,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       plant(g, r.x + 12, r.y + r.h - 18, false);
       if ((r.row + ROOM[id][1]) % 2) plant(g, r.x + r.w - 12, r.y + r.h - 18, true); else { R(g, r.x + r.w - 18, r.y + r.h - 30, 10, 18, '#E9EEF0'); R(g, r.x + r.w - 16, r.y + r.h - 28, 6, 4, '#8FB8C9'); }
       sign(g, r.x + 8, r.y + 10, R0.name, col);
+      if (!NARROW) { g.font = '500 6.5px "IBM Plex Sans KR", sans-serif'; g.fillStyle = '#5B4A35'; g.textBaseline = 'middle'; g.fillText(R0.desc, r.x + 9, r.y + 27); }
     });
   }
 
@@ -502,7 +505,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
       var li = document.createElement('li'), btn = document.createElement('button'); btn.type = 'button';
       var dot = document.createElement('i'); dot.style.background = people[id].col;
       var tx = document.createElement('span'); var nm = document.createElement('b'); nm.textContent = info.name;
-      var ms = document.createElement('small'); ms.textContent = id === 'boss' ? '방향을 정하고 컨펌판에서 안건을 승인' : (team ? team.mission : '');
+      var ms = document.createElement('small'); ms.textContent = info.desc;
       var st = document.createElement('em'); st.textContent = people[id].status; statusEls[id] = st;
       tx.appendChild(nm); tx.appendChild(ms); tx.appendChild(st); btn.appendChild(dot); btn.appendChild(tx); li.appendChild(btn); crew.appendChild(li);
       btn.addEventListener('mouseenter', function () { people[id].hl = true; }); btn.addEventListener('mouseleave', function () { people[id].hl = false; });
