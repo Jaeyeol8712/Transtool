@@ -18,7 +18,7 @@ async function token() {
   const sa = JSON.parse(raw);
   const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
   const now = Math.floor(Date.now() / 1000);
-  const uns = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({ iss: sa.client_email, scope: "https://www.googleapis.com/auth/analytics.readonly",
+  const uns = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({ iss: sa.client_email, scope: "https://www.googleapis.com/auth/analytics.readonly https://www.googleapis.com/auth/webmasters.readonly",
     aud: "https://oauth2.googleapis.com/token", iat: now, exp: now + 3600 });
   const jwt = uns + "." + crypto.sign("RSA-SHA256", Buffer.from(uns), sa.private_key).toString("base64url");
   const r = await fetch("https://oauth2.googleapis.com/token", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -64,7 +64,62 @@ for (const [label, start] of [["최근 7일", "7daysAgo"], ["최근 28일", "28d
   for (const b of btn.slice(0, 40)) md += `| \`${b.id}\` | ${b.type} | ${POS[b.pos] || b.pos} | ${b.clicks} | ${b.users} |\n`;
   md += "\n";
 }
+// ── 유입 매체와 오가닉 유입 키워드 (추천 모음 글, 최근 7일) ──
+const shopLanding = { filter: { fieldName: "landingPage", stringFilter: { matchType: "BEGINS_WITH", value: "/shop-" } } };
+try {
+  const src = await report({ dateRanges: [{ startDate: "7daysAgo", endDate: "today" }], dimensions: [{ name: "sessionSourceMedium" }],
+    metrics: [{ name: "sessions" }, { name: "engagedSessions" }], dimensionFilter: shopLanding, limit: 50,
+    orderBys: [{ metric: { metricName: "sessions" }, desc: true }] });
+  out.sources = src.map((r) => ({ source: r.dimensionValues[0].value, sessions: +r.metricValues[0].value, engaged: +r.metricValues[1].value }));
+  md += `## 유입 매체 (최근 7일, 추천 모음 글로 들어온 방문)\n\n| 매체 (소스 / 매체) | 방문 | 참여 방문 |\n|---|---:|---:|\n`;
+  for (const x of out.sources) md += `| ${x.source} | ${x.sessions} | ${x.engaged} |\n`;
+  if (!out.sources.length) md += `| (아직 없음) | 0 | 0 |\n`;
+  md += "\n";
+} catch (e) { md += `## 유입 매체\n\n조회 실패: ${e.message}\n\n`; }
+
+// 네이버·다음 검색어: 검색 결과 페이지 주소(리퍼러)에 남는 query/q 값
+md += `## 오가닉 유입 키워드\n\n`;
+try {
+  const ref = await report({ dateRanges: [{ startDate: "7daysAgo", endDate: "today" }], dimensions: [{ name: "pageReferrer" }, { name: "landingPage" }],
+    metrics: [{ name: "sessions" }], dimensionFilter: { andGroup: { expressions: [shopLanding,
+      { filter: { fieldName: "pageReferrer", stringFilter: { matchType: "PARTIAL_REGEXP", value: "search\\.naver\\.com|search\\.daum\\.net|search\\.zum\\.com" } } }] } }, limit: 500 });
+  const kw = {};
+  for (const r of ref) {
+    const [u, lp] = r.dimensionValues.map((d) => d.value); const n = +r.metricValues[0].value;
+    let q = ""; let eng = /naver/.test(u) ? "네이버" : /daum/.test(u) ? "다음" : "줌";
+    try { const x = new URL(u); q = x.searchParams.get("query") || x.searchParams.get("q") || ""; } catch {}
+    const key = `${eng}\t${q || "(검색어 미전달)"}\t${lp.replace(/^\/shop-|\.html$/g, "")}`; kw[key] = (kw[key] || 0) + n;
+  }
+  out.naverKeywords = Object.entries(kw).map(([k, n]) => { const [eng, q, post] = k.split("\t"); return { engine: eng, query: q, post, sessions: n }; }).sort((a, b) => b.sessions - a.sessions);
+  md += `### 네이버·다음 (최근 7일, GA4 리퍼러 기준)\n\n| 검색엔진 | 검색어 | 들어온 글 | 방문 |\n|---|---|---|---:|\n`;
+  for (const x of out.naverKeywords.slice(0, 40)) md += `| ${x.engine} | ${x.query} | ${x.post} | ${x.sessions} |\n`;
+  if (!out.naverKeywords.length) md += `| - | (아직 없음) | - | 0 |\n`;
+  md += "\n";
+} catch (e) { md += `네이버·다음 검색어 조회 실패: ${e.message}\n\n`; }
+
+// 구글 검색어: 서치 콘솔 (2~3일 늦게 반영)
+try {
+  const gtok = process.env.GSC_ACCESS_TOKEN || tok;
+  const sites = await (await fetch("https://www.googleapis.com/webmasters/v3/sites", { headers: { Authorization: `Bearer ${gtok}` } })).json();
+  const site = (sites.siteEntry || []).map((e) => e.siteUrl).find((u) => /aroundtool\.com/.test(u));
+  if (!site) throw new Error("서치 콘솔 속성 접근 권한 없음");
+  const end = new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10), start = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+  const r = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`, {
+    method: "POST", headers: { Authorization: `Bearer ${gtok}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ startDate: start, endDate: end, dimensions: ["query", "page"], rowLimit: 200,
+      dimensionFilterGroups: [{ filters: [{ dimension: "page", operator: "contains", expression: "/shop-" }] }] }) });
+  if (!r.ok) throw new Error(`${r.status} ${(await r.text()).slice(0, 200)}`);
+  const rows = (await r.json()).rows || [];
+  out.googleKeywords = rows.map((x) => ({ query: x.keys[0], post: x.keys[1].replace(/^.*\/shop-|\.html$/g, ""), clicks: x.clicks, impressions: x.impressions, position: +x.position.toFixed(1) }))
+    .sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions);
+  md += `### 구글 (${start} ~ ${end}, 서치 콘솔 · 2~3일 늦게 반영)\n\n| 검색어 | 들어온 글 | 클릭 | 노출 | 평균 순위 |\n|---|---|---:|---:|---:|\n`;
+  for (const x of out.googleKeywords.slice(0, 40)) md += `| ${x.query} | ${x.post} | ${x.clicks} | ${x.impressions} | ${x.position} |\n`;
+  if (!out.googleKeywords.length) md += `| (아직 없음) | - | 0 | 0 | - |\n`;
+  md += "\n";
+} catch (e) { md += `구글 검색어 조회 실패: ${e.message}\n\n`; }
+
 md += "※ 클릭률 = 제휴 버튼 클릭 ÷ 글 조회수. 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.\n";
+md += "※ 네이버 검색어는 검색 결과 페이지 주소가 함께 전달될 때만 잡힙니다. 전달되지 않은 방문은 '(검색어 미전달)'로 표시되며, 전체 검색어는 네이버 서치어드바이저 → 리포트 → 검색 유입에서 볼 수 있습니다.\n";
 mkdirSync("_cta", { recursive: true });
 writeFileSync("_cta/cta-latest.md", md);
 writeFileSync("_cta/cta-latest.json", JSON.stringify(out, null, 1));
