@@ -31,6 +31,7 @@ os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from calc_content import CALCS  # noqa: E402
 from calc_extra import LEGACY_STEPS, LEGACY_NOTE  # noqa: E402
+from shop_extra import SHOP_EXTRA, TRUST_NOTE, TRUST_NOTE_TRAVEL, SHOP_UPDATED  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 from guides import GUIDES  # noqa: E402
 
@@ -1152,6 +1153,57 @@ def transform_existing(p):
             tail = "" if x.endswith("집") else " 맛집"
             return f"<h1>{p['region_short']} {p['gu']} {x}{tail}</h1>"
         body = re.sub(r"<h1>([^<]{1,12})</h1>", _h1, body, count=1)
+    # 맛집 게시판: 이 페이지에 실린 가게 목록·조사 기준·선정 기준을 묻는 질문 (본문에 이미 있는 사실만)
+    body = re.sub(r"<!-- at:ffaq -->.*?<!-- /at:ffaq -->\n?", "", body, flags=re.S)
+    if p.get("section") == "food" and "FAQPage" in preserved:
+        # 페이지 고유 FAQ 구조화 데이터는 빼고, 아래에서 본문 질문 전체로 다시 만듭니다 (화면과 개수 일치).
+        def _drop_faq(m):
+            try:
+                d = json.loads(m.group(1))
+            except ValueError:
+                return m.group(0)
+            if isinstance(d, dict) and "@graph" in d:
+                d["@graph"] = [o for o in d["@graph"] if not (isinstance(o, dict) and o.get("@type") == "FAQPage")]
+                return f'<script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>'
+            if isinstance(d, dict) and d.get("@type") == "FAQPage":
+                return ""
+            return m.group(0)
+        preserved = re.sub(r'<script type="application/ld\+json">(.*?)</script>', _drop_faq, preserved, flags=re.S)
+    if p.get("section") == "food" and not p.get("research") and p.get("cat"):
+        bs = BeautifulSoup(body, "html.parser")
+        names = []
+        for art_ in bs.select("article.entry, article[class*=entry]"):
+            hd = art_.find(["h2", "h3"])
+            if hd and hd.get_text(strip=True):
+                names.append(re.sub(r"\s+", " ", hd.get_text(" ", strip=True)))
+        if not names:
+            names = re.findall(r'"@type"\s*:\s*"Restaurant"[^{}]*?"name"\s*:\s*"([^"]+)"', read(f))
+        names = list(dict.fromkeys(names))[:8]
+        area = f"{p['region_short']} {p['gu']}"
+        qs = []
+        if names:
+            qs.append((f"{area} {p['cat']}{'' if p['cat'].endswith('집') else ' 맛집'}은 어디가 있나요?",
+                       f"이 페이지에는 {', '.join(esc(n) for n in names)}{' 등' if len(names) >= 8 else ''} {len(names)}곳을 정리했습니다. "
+                       "곳마다 대표 메뉴와 선정 근거, 아쉬운 점을 함께 적었습니다."))
+        qs.append(("가격과 영업시간은 언제 기준인가요?",
+                   f"{int(BASE_DATE[:4])}년 {int(BASE_DATE[5:7])}월 조사 기준입니다. 바뀌었을 수 있으니 방문 전 가게 공지나 지도 앱에서 확인하세요."))
+        qs.append(("맛집은 어떤 기준으로 골랐나요?",
+                   "리뷰 개수보다 재방문 언급을 보고, 다이닝코드 지역 랭킹·미쉐린 가이드·백년가게·지자체 지정처럼 광고비로 살 수 없는 근거와 "
+                   "교차 확인했습니다. 협찬·체험단 글은 근거에서 뺐습니다. 자세한 기준은 <a href=\"/editorial.html\">편집 방침</a>에 있습니다."))
+        have = body
+        qs = [(q, a) for q, a in qs if q not in have]
+        if qs:
+            items = "".join(f"<details><summary>{q}</summary><div class=\"a\"><p>{a}</p></div></details>" for q, a in qs)
+            blk = f'<!-- at:ffaq --><section class="at-prose" style="margin:1.5rem auto"><h2>자주 묻는 질문</h2><div class="at-faq">{items}</div></section><!-- /at:ffaq -->\n'
+            m = re.search(r"<h2[^>]*>[^<]*(다른 맛집 기록|함께 보면|함께 보기)", body)
+            if "<details" in body:
+                # 이미 FAQ가 있으면 그 목록 끝에 덧붙임
+                if 'class="ans"' in body:
+                    items = "".join(f'<details><summary>{q}</summary>\n<div class="ans">{a}</div></details>' for q, a in qs)
+                i = body.rfind("</details>") + len("</details>")
+                body = body[:i] + "<!-- at:ffaq -->" + items + "<!-- /at:ffaq -->" + body[i:]
+            else:
+                body = body[:m.start()] + blk + body[m.start():] if m else body + blk
     # 구조화 데이터: 페이지 고유 JSON-LD 에 FAQ가 없으면 본문 <details>로 생성
     has_faq = "FAQPage" in preserved
     extra = list(photo_lds)
@@ -1440,6 +1492,18 @@ def build_connect_blog(p):
     if post.get("cta_photo"):
         ld_imgs.insert(0, image_ld(post["cta_photo"]["src"], post["cta_photo"]["alt"], seller=post.get("brand") or "판매처"))
     closing = "".join(f"<p>{x}</p>" for x in post.get("closing", []))
+    # 보강: 한눈에 보는 정리 표 + 자주 묻는 질문 + 이 글의 기준 (scripts/shop_extra.py)
+    sx = SHOP_EXTRA.get(post["slug"], {})
+    extra_html = ""
+    if sx.get("summary"):
+        st, head, rows = sx["summary"]
+        th = "".join(f"<th>{esc(h)}</th>" for h in head)
+        tr = "".join("<tr>" + f"<th>{esc(r[0])}</th>" + "".join(f"<td>{esc(c)}</td>" for c in r[1:]) + "</tr>" for r in rows)
+        extra_html += f'<h2>{esc(st)}</h2><div class="at-table"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
+    if sx.get("faq"):
+        extra_html += faq_html(sx["faq"])
+    trust = TRUST_NOTE_TRAVEL if post.get("kind") == "travel" else TRUST_NOTE
+    extra_html += f'<h2>이 글의 기준</h2><p class="at-note">{trust}</p>'
     content = f"""<article>
 <header class="at-page-head">
   <h1>{esc(post['title'])}</h1>
@@ -1450,23 +1514,22 @@ def build_connect_blog(p):
 <div class="at-page"><div class="at-prose at-blog">
 {"".join(parts)}
 {closing}
+{extra_html}
 {disclosure_box(post, 'bottom')}
 {link_card(post)}
 </div></div>
 </article>
 {popup_html(post)}"""
     art = {"@type": "BlogPosting", "headline": post["title"], "description": post["desc"], "inLanguage": "ko-KR",
-           "datePublished": p["date"], "dateModified": post.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
+           "datePublished": p["date"], "dateModified": max(post.get("updated", p["date"]), SHOP_UPDATED if post["slug"] in SHOP_EXTRA else ""), "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
            "image": ld_imgs or [SITE + src if src.startswith("/") else src for src, _ in imgs],
            "keywords": ", ".join([post["keyword"]] + post.get("sub_keywords", []))}
+    # Product 스키마는 가격·리뷰 없이 쓰면 구글에서 오류로 잡혀서, 글의 주제(about)로만 표시합니다.
+    art["about"] = {"@type": "Thing", "name": post["product"]}
     extra = [art]
-    if post.get("brand"):
-        prod = {"@type": "Product", "name": post["product"], "brand": {"@type": "Brand", "name": post["brand"]},
-                "description": post["desc"]}
-        if imgs:
-            prod["image"] = SITE + imgs[0][0] if imgs[0][0].startswith("/") else imgs[0][0]
-        extra.append(prod)
+    if sx.get("faq"):
+        extra.append(faq_ld(sx["faq"]))
     write(p["file"], page_shell(p, content, extra))
 
 
