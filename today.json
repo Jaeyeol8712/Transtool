@@ -1,0 +1,38 @@
+{
+ "date": "2026-10-26",
+ "reports": [
+  {
+   "type": "daily",
+   "file": "reports/daily-2026-10-25.html",
+   "title": "일간 보고서 · 2026-10-25(일)",
+   "kpi": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "topPosts": [],
+   "sources": [
+    {
+     "name": "m.search.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    }
+   ],
+   "keywords": [],
+   "google": []
+  }
+ ],
+ "errors": [
+  "합계 조회: Cannot read properties of undefined (reading 'map')",
+  "합계 클릭: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor",
+  "기간별 조회: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor",
+  "글별 조회: GA4 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Exhausted concurrent requests quota. Please send fewer requests concurrently. For example, wait for requests to finish before sending more. To learn mor"
+ ]
+}
