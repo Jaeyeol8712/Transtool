@@ -278,7 +278,7 @@ footer p{margin:0}
 <div class="formula">
             월 실수령액<br/>
 <span class="op">= 월 세전급여</span><br/>
-<span class="op">−</span> 국민연금 <span class="op">(과세급여 × 4.75%)</span><br/>
+<span class="op">−</span> 국민연금 <span class="op">(기준소득월액 × 4.75%, 월 41만~659만 원 범위)</span><br/>
 <span class="op">−</span> 건강보험 <span class="op">(과세급여 × 3.595%)</span><br/>
 <span class="op">−</span> 장기요양 <span class="op">(건강보험료 × 13.14%)</span><br/>
 <span class="op">−</span> 고용보험 <span class="op">(과세급여 × 0.9%)</span><br/>
@@ -321,7 +321,7 @@ footer p{margin:0}
         <ul>
 <li>회사는 국세청 간이세액표를 쓰고, 이 계산기는 연산 방식을 씁니다</li>
 <li>상여금·성과급 지급 방식에 따라 월별 공제액이 달라집니다</li>
-<li>국민연금·건강보험에는 상·하한선이 있어 고소득 구간에서 차이가 납니다</li>
+<li>국민연금은 기준소득월액 상·하한(2026년 7월~2027년 6월 월 41만~659만 원)을 반영했습니다. 건강보험 상·하한은 반영하지 않아 아주 높은 소득 구간에서는 차이가 날 수 있습니다</li>
 <li>의료비·교육비·연금저축 공제는 연말정산에서 반영됩니다</li>
 </ul>
 </div>
@@ -432,8 +432,10 @@ footer p{margin:0}
 (function(){
   var $=function(id){return document.getElementById(id);};
   /* 2026 / 2025 요율 */
-  var R26={np:0.0475, hi:0.03595, ltc:0.1314, ei:0.009};
-  var R25={np:0.045,  hi:0.03545, ltc:0.1295, ei:0.009};
+  var R26={np:0.0475, hi:0.03595, ltc:0.1314, ei:0.009, npMin:410000, npMax:6590000};
+  var R25={np:0.045,  hi:0.03545, ltc:0.1295, ei:0.009, npMin:400000, npMax:6370000};
+  /* 국민연금 기준소득월액 상·하한: 2026.7~2027.6 41만~659만 원, 직전(2025.7~2026.6) 40만~637만 원 (보건복지부 국민연금심의위원회, 2026.1.9) */
+  function npBase(t,R){return t>0 ? Math.min(R.npMax, Math.max(R.npMin, t)) : 0;}
   var S={mode:"year", amt:5000, fam:1, kid:0, tax:20, sev:true};
 
   function w(n){return Math.round(n).toLocaleString("ko-KR");}
@@ -472,7 +474,7 @@ footer p{margin:0}
   /* 핵심 계산: 월 세전(원), 비과세(원) → 결과 */
   function core(monGross, nontax, fam, kid, R){
     var taxable = Math.max(0, monGross - nontax);
-    var np = taxable*R.np, hi = taxable*R.hi, ltc = hi*R.ltc, ei = taxable*R.ei;
+    var np = npBase(taxable,R)*R.np, hi = taxable*R.hi, ltc = hi*R.ltc, ei = taxable*R.ei;
     var ins = np+hi+ltc+ei;
     /* 소득세: 연간 기준 연산 */
     var yearG = taxable*12;
@@ -510,7 +512,7 @@ footer p{margin:0}
 
     $("bd").innerHTML =
       '<li><span class="l">월 세전급여<small>'+(nontax?"비과세 "+w(nontax)+"원 포함":"비과세 없음")+'</small></span><span class="v">'+w(a.gross)+'원</span></li>'+
-      '<li><span class="l">국민연금<small>과세급여 × 4.75%</small></span><span class="v">−'+w(a.np)+'원</span></li>'+
+      '<li><span class="l">국민연금<small>'+(a.taxable>R26.npMax?'상한 659만 원 × 4.75%':a.taxable>0&&a.taxable<R26.npMin?'하한 41만 원 × 4.75%':'과세급여 × 4.75%')+'</small></span><span class="v">−'+w(a.np)+'원</span></li>'+
       '<li><span class="l">건강보험<small>과세급여 × 3.595%</small></span><span class="v">−'+w(a.hi)+'원</span></li>'+
       '<li><span class="l">장기요양<small>건강보험료 × 13.14%</small></span><span class="v">−'+w(a.ltc)+'원</span></li>'+
       '<li><span class="l">고용보험<small>과세급여 × 0.9%</small></span><span class="v">−'+w(a.ei)+'원</span></li>'+
@@ -527,7 +529,7 @@ footer p{margin:0}
       '<span class="v">'+(diff>0?"−"+w(diff):"+"+w(-diff))+'원</span></li>';
 
     /* 회사 부담 */
-    var t=a.taxable, enp=t*R26.np, ehi=t*R26.hi, eltc=ehi*R26.ltc, eei=t*(0.009+0.0025), esan=t*0.0147;
+    var t=a.taxable, enp=npBase(t,R26)*R26.np, ehi=t*R26.hi, eltc=ehi*R26.ltc, eei=t*(0.009+0.0025), esan=t*0.0147;
     var etot=enp+ehi+eltc+eei+esan;
     $("emp").innerHTML =
       '<li><span class="l">국민연금<small>4.75%</small></span><span class="v">'+w(enp)+'원</span></li>'+
