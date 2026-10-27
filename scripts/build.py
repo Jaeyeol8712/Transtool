@@ -516,10 +516,15 @@ PAGES["sitemap.html"].update(title="사이트맵 — 어라운드툴 전체 페�
                              desc=f"어라운드툴의 생활 계산기 {N_TOOLS}종, 지역별 맛집, 여행·가이드, 사이트 안내 페이지 전체 목록입니다.")
 
 
+GU_MIN_INDEX = 3  # 구 허브 검색 노출 최소 맛집 수. 3곳 이상이 되면 자동으로 다시 색인·사이트맵 포함
+
+
 def indexable(p):
     if p["section"] in ("util",):
         return False
     if p.get("research") or p.get("draft"):
+        return False
+    if p["section"] == "gu" and gu_count(p["prefix"]) < GU_MIN_INDEX:   # 맛집이 3곳 미만인 구 허브는 얇은 페이지 → 검색 제외(페이지는 유지)
         return False
     if p["section"] == "hub-connect" and not [q for q in PAGES.values() if q["section"] == "connect" and not q.get("draft")]:
         return False

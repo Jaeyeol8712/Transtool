@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 179 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 173 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -89,11 +89,6 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-bapjip-2.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://www.aroundtool.com/daejeon-daedeok.html</loc>
-    <lastmod>2026-10-26</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-dj-daedeok-1.jpg</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html</loc>
     <lastmod>2026-10-26</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-kalguksu-1.jpg</image:loc></image:image>
@@ -127,11 +122,6 @@
     <loc>https://www.aroundtool.com/daejeon-seogu-dunsan.html</loc>
     <lastmod>2026-10-26</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-gogi-1.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.aroundtool.com/daejeon-seogu.html</loc>
-    <lastmod>2026-10-26</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-dj-seogu-8.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/daejeon-yuseong-bongmyeong.html</loc>
@@ -305,19 +295,9 @@
     <lastmod>2026-10-26</lastmod>
   </url>
   <url>
-    <loc>https://www.aroundtool.com/gwangju-bukgu.html</loc>
-    <lastmod>2026-10-26</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-gj-bukgu-2.jpg</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://www.aroundtool.com/gwangju-donggu-bapjip.html</loc>
     <lastmod>2026-10-26</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-bapjip-3.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.aroundtool.com/gwangju-donggu.html</loc>
-    <lastmod>2026-10-26</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-gj-donggu-2.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/gwangju-gwangsan-cafe.html</loc>
@@ -340,18 +320,9 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-gj-gwangsan-5.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://www.aroundtool.com/gwangju-namgu.html</loc>
-    <lastmod>2026-10-26</lastmod>
-  </url>
-  <url>
     <loc>https://www.aroundtool.com/gwangju-seogu-sangmu.html</loc>
     <lastmod>2026-10-26</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-gogi-3.jpg</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://www.aroundtool.com/gwangju-seogu.html</loc>
-    <lastmod>2026-10-26</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-gj-seogu-3.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/haeundae-bapjip.html</loc>
