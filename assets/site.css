@@ -425,11 +425,11 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
 .vx-teal{--c:var(--vx-teal);--t:var(--vx-teal-t);--d:var(--vx-teal-d)}.vx-blue{--c:var(--vx-blue);--t:var(--vx-blue-t);--d:var(--vx-blue-d)}
 .vx-violet{--c:var(--vx-violet);--t:var(--vx-violet-t);--d:var(--vx-violet-d)}.vx-pink{--c:var(--vx-pink);--t:var(--vx-pink-t);--d:var(--vx-pink-d)}
 .at-blog .vx-hero{border-radius:14px;padding:1.6rem 1.3rem 1.3rem;margin:0 0 1.6rem;color:#fff;
-  background:linear-gradient(135deg,#FF5A4E 0%,#F59E0B 55%,#E8458B 100%);position:relative;overflow:hidden}
+  background:#A82C25;position:relative;overflow:hidden}
 .vx-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.14)}
 .vx-hero-emoji{font-size:2.4rem;line-height:1;margin-bottom:.5rem}
 .at-blog .vx-hero-h{font-size:1.375rem;font-weight:900;letter-spacing:-0.035em;line-height:1.35;margin:0 0 .4rem;position:relative}
-.at-blog .vx-hero-s{margin:0;opacity:.95;font-size:.9375rem;line-height:1.6;position:relative}
+.at-blog .vx-hero-s{margin:0;font-size:.9375rem;line-height:1.6;position:relative}
 .vx-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem;position:relative}
 .vx-chip{background:#fff;color:var(--d);font-weight:800;font-size:.8125rem;padding:.3rem .7rem;border-radius:999px}
 .vx-sec{margin:1.8rem 0}
