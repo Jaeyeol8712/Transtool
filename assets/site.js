@@ -134,8 +134,8 @@
   /* ---------- 유료 광고로 들어온 방문 ----------
      구글 애즈·네이버·카카오 키워드 광고 랜딩은 광고 정책(Better Ads Standards의 팝업·깜빡이는 광고 금지,
      이용자 의도와 무관한 화면 변화 금지)에 맞춰 팝업을 띄우지 않고 버튼 깜빡임도 멈춥니다.
-     광고 클릭 주소의 gclid·gad_source·n_media·utm_medium=cpc 등으로 판별하고, 같은 방문(세션) 동안 유지합니다. */
-  var adVisit = /[?&](gclid|gbraid|wbraid|gad_source|n_media|n_query|n_ad|napm|kakao_ad|ad)=|[?&]utm_medium=(cpc|ppc|paid|paidsearch|ad|ads|display|keyword)/i.test(location.search);
+     광고 클릭 주소의 gclid·gad_source·n_media·utm_medium=cpc/paid_social 등으로만 판별하고('?ad=' 같은 모호한 값은 제외), 같은 방문(세션) 동안 유지합니다. */
+  var adVisit = /[?&](gclid|gbraid|wbraid|gad_source|n_media|n_query|n_ad|napm|kakao_ad)=|[?&]utm_medium=(cpc|ppc|paid|paidsearch|paid_social|paidsocial|display|keyword)(&|$)/i.test(location.search);
   try {
     if (adVisit) sessionStorage.setItem('at_ad_visit', '1');
     else adVisit = sessionStorage.getItem('at_ad_visit') === '1';
@@ -146,21 +146,38 @@
   var pop = document.querySelector('[data-at-popup]');
   if (pop && !adVisit) {
     /* 글을 열 때마다(페이지를 볼 때마다) 한 번 뜹니다. 닫으면 그 화면에서는 다시 뜨지 않습니다. */
-    var seen = false;
+    var seen = false, prevFocus = null;
     var openPop = function () {
       if (seen) return; seen = true;
+      prevFocus = document.activeElement;   /* 닫으면 원래 자리로 초점을 돌려줍니다 */
       pop.hidden = false; document.documentElement.classList.add('at-pop-open');
       var go = pop.querySelector('[data-pop-go]'); if (go) go.focus();
       if (window.gtag) gtag('event', 'popup_view', { post: pop.getAttribute('data-at-popup') });
     };
-    var closePop = function () { pop.hidden = true; document.documentElement.classList.remove('at-pop-open'); };
+    var closePop = function () {
+      if (pop.hidden) return;
+      pop.hidden = true; document.documentElement.classList.remove('at-pop-open');
+      if (prevFocus && prevFocus.focus && document.contains(prevFocus)) { try { prevFocus.focus({ preventScroll: true }); } catch (e) { prevFocus.focus(); } }
+      prevFocus = null;
+    };
     pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', closePop); });
     var goBtn = pop.querySelector('[data-pop-go]');
     if (goBtn) goBtn.addEventListener('click', function () {
       if (window.gtag) gtag('event', 'popup_click', { post: pop.getAttribute('data-at-popup'), transport_type: 'beacon' });
       closePop();
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) closePop(); });
+    document.addEventListener('keydown', function (e) {
+      if (pop.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePop(); return; }
+      if (e.key !== 'Tab') return;
+      /* 팝업이 열려 있는 동안 Tab 초점이 팝업 안에서만 돕니다 */
+      var f = Array.prototype.filter.call(pop.querySelectorAll('a[href],button:not([disabled])'), function (el) { return el.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], lastEl = f[f.length - 1];
+      if (!pop.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+      else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+    });
     /* 탭이 보이는 동안만 3초를 셉니다 (다른 탭에 가 있던 시간은 제외) */
     var shown = 0, last = Date.now();
     var tick = setInterval(function () {

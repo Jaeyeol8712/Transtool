@@ -259,8 +259,27 @@ def write(p, s):
         os.makedirs(d, exist_ok=True)
     if p.endswith(".html"):
         s = focusable_tables(s)
+        s = drop_unused_fonts(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
+
+
+_PLEX_LINK = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">\n'
+_GF_PRECONNECT = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+                  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n')
+
+
+def drop_unused_fonts(s):
+    """IBM Plex Mono 는 실제로 글꼴을 쓰는 페이지(주로 계산기·맛집 상세)에만 불러옵니다.
+    안 쓰는 페이지에서는 글꼴 CSS와 구글 글꼴 preconnect 를 빼서 첫 화면 표시를 앞당깁니다."""
+    if _PLEX_LINK not in s:
+        return s
+    rest = s.replace(_PLEX_LINK, "")
+    if re.search(r"Plex Mono[\"']", rest):
+        return s
+    if "fonts.googleapis.com/css" not in rest and "fonts.gstatic.com/s/" not in rest:
+        rest = rest.replace(_GF_PRECONNECT, "")
+    return rest
 
 
 _TBL_RE = re.compile(r'<div class="(at-table|tablewrap)"(?![^>]*tabindex)([^>]*)>')
