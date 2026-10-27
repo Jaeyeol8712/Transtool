@@ -963,8 +963,11 @@ SHOP_TOPIC_BY_SECTION = {
     "hub-food": ["food-waste-disposer", "bespoke-ai-fridge-4door", "fukuoka-3days", "danang-5days"],
     "trip": ["fukuoka-3days", "danang-5days", "west-europe-3-10days", "c-type-65w-charger"],
     "hub-trip": ["fukuoka-3days", "danang-5days", "west-europe-3-10days", "c-type-65w-charger"],
-    "guide": ["student-office-laptop", "neck-traction", "galaxy-s26-ultra", "galaxy-tab-s12-ultra"],
     "hub-guide": ["student-office-laptop", "neck-traction", "galaxy-s26-ultra", "galaxy-tab-s12-ultra"],
+}
+# 가이드는 주제가 맞는 추천 글만 붙이고, 맞는 글이 없으면 카드를 넣지 않습니다(최신 글로 채우지 않음).
+SHOP_TOPIC_BY_GUIDE = {
+    "guide-annual-leave-rules": ["fukuoka-3days", "danang-5days", "west-europe-3-10days"],
 }
 SHOP_PROMO_SKIP = {"connect", "hub-connect", "info", "util", "home"}
 
@@ -1020,6 +1023,8 @@ def shop_thumb(post):
 def shop_pick(p, n=4):
     by_slug = {q["post"]["slug"]: q for q in SHOP_LIVE}
     f = p["file"]
+    if p["section"] == "guide":
+        return [by_slug[s] for s in SHOP_TOPIC_BY_GUIDE.get(f[:-5], []) if s in by_slug][:n]
     want = SHOP_TOPIC_BY_SLUG.get(f[:-5]) or SHOP_TOPIC_BY_SLUG.get(f)
     if not want and p["section"] == "tools":
         want = SHOP_TOPIC_BY_GROUP.get(p.get("group"))
@@ -1050,6 +1055,8 @@ def shop_promo_html(p, n=4, title="추천 모음에서 함께 보면 좋은 글"
                                                                         "privacy.html", "terms.html", "contact.html", "about.html", "editorial.html", "sitemap.html"):
         return ""
     cards = "".join(shop_card(q) for q in shop_pick(p, n))
+    if not cards:
+        return ""
     return (f'<section class="at-related at-shop-promo" aria-label="추천 모음">'
             f'<div class="at-box-head"><h2>{esc(title)}</h2><a class="more" href="/connect.html">추천 모음 전체</a></div>'
             f'<ul class="at-sp-grid">{cards}</ul>'
