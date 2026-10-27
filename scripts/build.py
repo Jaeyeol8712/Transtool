@@ -1925,7 +1925,7 @@ def build_home():
                                    "query-input": "required name=search_term_string"}}
     org = {"@type": "Organization", "@id": SITE + "/#org", "name": NAME, "url": SITE + "/",
            "logo": image_ld("/assets/logo-512.png", "어라운드툴 로고"),
-           "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
+           "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "aroundtool2026@gmail.com", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
     sections = {"@type": "ItemList", "name": "어라운드툴 주요 섹션", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/" + u} for i, (n, u) in
         enumerate([("전국 맛집", "food.html"), ("생활툴", "tools.html"), ("여행", "travel.html"), ("가이드", "etc.html"), ("추천 모음", "connect.html")])]}

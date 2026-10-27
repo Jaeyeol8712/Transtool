@@ -15,7 +15,7 @@
   --wood:#8A5A3B; --wood-top:#A8714C; --ink:#17201E; --ink-2:#4A5754; --ink-3:#6E7B77;
   --paper:#FFFFFF; --page:#EEF3F0; --line:#CAD6D1;
   --chief:#0B6E5F; --writer:#D93B3B; --analyst:#2A6FD6; --designer:#D98A00; --dev:#6A4FD0; --insta:#C2367A; --boss:#17201E;
-  --seo:#3D7A1F; --plan:#9C4F96; --qa:#5B6770; --ads:#C2410C; --cafe:#0A7F8F; --community:#7A5C2E; --legal:#1F3A6B; --up:#0B6E5F; --down:#C93434;
+  --seo:#3D7A1F; --plan:#9C4F96; --qa:#5B6770; --ads:#C2410C; --cafe:#0A7F8F; --community:#7A5C2E; --legal:#1F3A6B; --product:#A0522D; --finance:#5B5F97; --ai:#7C3AED; --cs:#D9466F; --up:#0B6E5F; --down:#C93434;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -249,28 +249,34 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     insta:    { name: '인스타 기획자', desc: '인스타로 유입',   short: '인스타', c: '--insta',     hair: '#3A1E2A', skin: '#F2C9A6', item: 'ring' },
     community:{ name: '커뮤니티 관리자', desc: '자유글 관리', short: '커뮤',   c: '--community', hair: '#2B2B2B', skin: '#E8BC94', item: 'board' },
     ads:      { name: '광고', desc: '필요할 때 광고',           short: '광고',   c: '--ads',       hair: '#1E1E1E', skin: '#EBC09A', item: 'mega' },
-    legal:    { name: '법무팀', desc: '법적 문서·권리 지키기', short: '법무', c: '--legal', hair: '#2A2A2A', skin: '#F2C9A6', item: 'books' }
+    legal:    { name: '법무팀', desc: '법적 문서·권리 지키기', short: '법무', c: '--legal', hair: '#2A2A2A', skin: '#F2C9A6', item: 'books' },
+    product:  { name: '상품 개발팀', desc: '수익 구조 설계', short: '상품', c: '--product', hair: '#3A2A22', skin: '#EBC09A', item: 'chart' },
+    finance:  { name: '재무 담당', desc: '예산·정산 관리', short: '재무', c: '--finance', hair: '#1E1E1E', skin: '#F2C9A6', item: 'cabinet' },
+    ai:       { name: 'AI 개발팀', desc: 'AI 활용 연구', short: 'AI', c: '--ai', hair: '#2B2B2B', skin: '#E8BC94', item: 'server' },
+    cs:       { name: '고객만족팀', desc: '문의·불만 처리', short: '고객', c: '--cs', hair: '#4A2E1E', skin: '#F4D0B0', item: 'board' }
   };
   var BOSS = { name: '짹 (대표)', desc: '방향 정하고 컨펌', short: '짹', c: '--boss', hair: '#111111', skin: '#F2C9A6' };
   var KEY = { '총괄': 'chief', '검색 노출': 'seo', '사이트 개발': 'dev', '기획자': 'plan', '디자이너': 'designer', '작성자': 'writer', '콘텐츠 작성자': 'writer',
-    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community', '법무팀': 'legal', '법무': 'legal' };
+    '데이터 분석가': 'analyst', '검수·신뢰': 'qa', '광고': 'ads', '카페': 'cafe', '카페 담당': 'cafe', '인스타 기획자': 'insta', '커뮤니티 관리자': 'community', '법무팀': 'legal', '법무': 'legal', '상품 개발팀': 'product', '재무 담당': 'finance', '재무': 'finance', 'AI 개발팀': 'ai', '고객만족팀': 'cs' };
 
   /* ───── 지도 (타일 16px) — 넓은 화면: 5칸×3줄(54×31), 휴대폰: 2칸×8줄(24×82) ───── */
   var NARROW = window.innerWidth < 1000;           // 좁은 화면: 작은 방 2칸×7줄 지도 + 오른쪽 구성원
   var T = 16, S = 2, FS = NARROW ? 1.6 : 1, W, H, RY, CY, ROOM, CWp, CHp, cx;
   if (!NARROW) {
     CWp = 10 * T; CHp = 8 * T; cx = function (col) { return (2 + col * 10) * T; };
-    W = 54 * T; H = 31 * T; RY = [2 * T, 12 * T, 22 * T]; CY = [11 * T, 11 * T, 21 * T];
+    W = 54 * T; H = 41 * T; RY = [2 * T, 12 * T, 22 * T, 32 * T]; CY = [11 * T, 11 * T, 21 * T, 31 * T];
     ROOM = { chief: [0, 0], meet: [0, 1, 2], seo: [0, 3], plan: [0, 4],
       writer: [1, 0], designer: [1, 1], dev: [1, 2], analyst: [1, 3], qa: [1, 4],
-      cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], legal: [2, 4] };
+      cafe: [2, 0], insta: [2, 1], community: [2, 2], ads: [2, 3], legal: [2, 4],
+      product: [3, 0], finance: [3, 1], ai: [3, 2], cs: [3, 3], lounge: [3, 4] };
   } else {
     CWp = 96; CHp = 84; cx = function (col) { return 14 + col * CWp; };
     W = 14 * 2 + 4 * CWp; RY = []; CY = [];
-    var yy = 30; for (var rr = 0; rr < 4; rr++) { var hh = rr === 0 ? 112 : CHp; RY.push(yy); CY.push(yy + hh + 11); yy += hh + 22; }
+    var yy = 30; for (var rr = 0; rr < 5; rr++) { var hh = rr === 0 ? 112 : CHp; RY.push(yy); CY.push(yy + hh + 11); yy += hh + 22; }
     H = yy - 4;
     ROOM = { meet: [0, 0, 2], chief: [0, 2], seo: [0, 3], plan: [1, 0], writer: [1, 1], designer: [1, 2], dev: [1, 3],
-      analyst: [2, 0], qa: [2, 1], cafe: [2, 2], insta: [2, 3], community: [3, 0], ads: [3, 1], legal: [3, 2], lounge: [3, 3] };
+      analyst: [2, 0], qa: [2, 1], cafe: [2, 2], insta: [2, 3], community: [3, 0], ads: [3, 1], legal: [3, 2], lounge: [3, 3],
+      product: [4, 0], finance: [4, 1], ai: [4, 2], cs: [4, 3] };
   }
   function room(id) { var r = ROOM[id]; var w = (r[2] || 1) * CWp, h = NARROW && r[0] === 0 ? 112 : CHp;
     return { x: cx(r[1]), y: RY[r[0]], w: w, h: h, row: r[0], door: cx(r[1]) + w / 2, bottom: NARROW || r[0] === 0 }; }
@@ -279,7 +285,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
   var K = NARROW ? 0.62 : 1;
   var MEET = room('meet'), TABLE = { x: MEET.x + MEET.w / 2, y: MEET.y + (NARROW ? 62 : 4 * T) };
   var MEET_SEATS = [];
-  (function () { for (var i = 0; i < 14; i++) { var a = -Math.PI / 2 + (i + 0.5) / 14 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T * K, y: TABLE.y + 8 * K + Math.sin(a) * 2.3 * T * K }); } })();
+  (function () { for (var i = 0; i < 18; i++) { var a = -Math.PI / 2 + (i + 0.5) / 18 * Math.PI * 2; MEET_SEATS.push({ x: TABLE.x + Math.cos(a) * 4.6 * T * K, y: TABLE.y + 8 * K + Math.sin(a) * 2.3 * T * K }); } })();
   var BOSS_SEAT = { x: TABLE.x, y: TABLE.y - 2.6 * T * K - (NARROW ? 4 : 0) };
   var LOUNGE_ID = ROOM.lounge ? 'lounge' : 'meet', LOUNGE = room(LOUNGE_ID);
 
@@ -487,8 +493,8 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     go(p, route(homeOf(p.id), { id: toId, pt: spot }), function () {
       p.at = { id: toId, pt: spot }; p.state = 'stand'; p.dir = 'left'; p.status = ROLES[toId].name + '에게 ' + label;
       say(p, line || label, 2600);
-      setTimeout(function () { var q = people[toId]; if (q && q.state === 'sit' && !q.busy) say(q, '확인할게요', 1800);
-        setTimeout(function () { p.paper = false; backHome(p, function () { p.busy = false; }); }, 1600); }, 1500);
+      setTimeout(function () { var q = people[toId]; if (q && q.state === 'sit' && !q.busy) say(q, linesOf(toId)[0], 2600);
+        setTimeout(function () { say(p, '좋아요, 그걸로 가요', 1800); setTimeout(function () { p.paper = false; backHome(p, function () { p.busy = false; }); }, 1400); }, 2200); }, 1800);
     }, ROLES[toId].name + '에게 가는 중');
   }
   function coffee(p) { p.busy = true; var spot = NARROW ? { x: LOUNGE.x + LOUNGE.w * 0.62 + (Math.random() * 8 - 4), y: LOUNGE.y + 44 } : { x: LOUNGE.x + LOUNGE.w - 34 + (Math.random() * 8 - 4), y: LOUNGE.y + LOUNGE.h - 22 };
@@ -512,7 +518,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     await sleep(600); say(chief, '회의 시작합니다. 주제는 ' + theme, 2800); await sleep(3000);
     var ls = lines().filter(function (l) { return KEY[l.role] && KEY[l.role] !== 'chief'; });
     for (var i = 0; i < ls.length; i++) { var p = people[KEY[ls[i].role]]; var t = ls[i].say.split(/[.。]/)[0];
-      say(p, t, 2600); await sleep(2700); }
+      say(p, t, 2600); await sleep(2700); if (i % 3 === 2) { say(chief, REPLY[i % REPLY.length], 1600); await sleep(1700); } }
     say(chief, '사이트 바꿀 안건은 컨펌판에 올릴게요', 2600); await sleep(2600);
     say(boss, '확인하고 컨펌할게', 2200); await sleep(2200);
     order.forEach(function (id, i) { setTimeout(function () { backHome(people[id], function () { people[id].busy = false; }); }, i * 180); });
@@ -526,7 +532,7 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     ['plan', 'designer', '시안 요청', '새 계산기 화면 부탁해요'], ['analyst', 'chief', '어제 숫자', '오가닉 방문 늘었어요'],
     ['qa', 'dev', '요율 확인', '전력기금 2.7%로 맞춰요'], ['writer', 'cafe', '원고 전달', '카페 원고 넘겨요'],
     ['designer', 'insta', '카드 전달', '카드뉴스 시안 나왔어요'], ['dev', 'chief', '배포 완료', '빌드·배포 끝났어요'],
-    ['community', 'dev', '게시판', 'Supabase 오면 바로 시작'], ['ads', 'chief', '광고 대기', '약관 확인 전엔 대기'], ['legal', 'dev', '처리방침', 'GA4 사용 사실대로 고쳐요'], ['legal', 'writer', '이미지 권리', 'CC 사진 제목도 표기해요'],
+    ['community', 'dev', '게시판', 'Supabase 오면 바로 시작'], ['ads', 'chief', '광고 대기', '약관 확인 전엔 대기'], ['legal', 'dev', '처리방침', 'GA4 사용 사실대로 고쳐요'], ['cs', 'qa', '오류 제보', '계산 오류 제보 넘겨요'], ['product', 'finance', '수익 기준선', '1천 명당 수익 같이 봐요'], ['ai', 'seo', 'AI 유입', 'AI 유입 세그먼트 만들어요'], ['finance', 'chief', '예산', '고정비 확인 필요해요'], ['cs', 'legal', '개인정보 요청', '10일 기한 확인해 주세요'], ['legal', 'writer', '이미지 권리', 'CC 사진 제목도 표기해요'],
     ['cafe', 'analyst', '유입 확인', '카페 UTM 붙였어요'], ['insta', 'writer', '캡션 요청', '첫 줄 검색어로 부탁']
   ];
   function tick() {
@@ -537,6 +543,32 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     var opts = TASKS.filter(function (t) { return free.indexOf(t[0]) >= 0 && free.indexOf(t[1]) >= 0; });
     if (!opts.length) return; var t = opts[Math.floor(Math.random() * opts.length)];
     visit(people[t[0]], t[1], t[2], t[3]);
+  }
+
+  /* ───── 계속 이어지는 대화: 오늘 회의·할 일·근거·학습 내용으로 ───── */
+  function teamOf(id) { return DATA && DATA.teams ? DATA.teams.filter(function (t) { return KEY[t.name] === id; })[0] : null; }
+  function clean(t) { return String(t || '').replace(/^\d+\.\d+ 입사 · /, '').replace(/^[＋－] /, ''); }
+  function linesOf(id) {
+    if (id === 'boss') return ['유입 숫자부터 보자', '컨펌판 확인할게', '근거 있는 것부터 해요', '오늘 할 일 정리됐어요?'];
+    var t = teamOf(id), out = [];
+    if (t) { if (t.todo) out.push('할 일: ' + t.todo); if (t.today) out.push(t.today); if (t.basis) t.basis.split(' / ').forEach(function (b) { out.push(clean(b)); });
+      (t.learn || []).slice(0, 2).forEach(function (l) { out.push(clean(l)); }); }
+    var m = lines().filter(function (l) { return KEY[l.role] === id; })[0]; if (m) out.push(m.say);
+    return out.length ? out : ['자료 정리 중이에요'];
+  }
+  var REPLY = ['좋아요, 근거 붙여서 진행해요', '숫자로 다시 확인할게요', '그거 우리 KPI랑 연결돼요', '컨펌판에 올려 둘게요', '오늘 안에 정리할게요', '데이터 먼저 볼게요'];
+  var talkTurn = 0;
+  function chatter() {
+    if (paused || meeting || reduce) return;
+    var live = order.concat(['boss']).filter(function (id) { var p = people[id]; return p.state !== 'walk' && !(p.say && p.sayUntil > now); });
+    if (live.length < 2) return;
+    var a = live[Math.floor(Math.random() * live.length)], ls = linesOf(a), t = ls[talkTurn++ % ls.length];
+    say(people[a], t, 3000);
+    // 가까운 사람이나 총괄이 받아 줌
+    var b = live.filter(function (x) { return x !== a; }).sort(function (x, y) { var px = people[x], py = people[y], pa = people[a];
+      return Math.hypot(px.x - pa.x, px.y - pa.y) - Math.hypot(py.x - pa.x, py.y - pa.y); })[Math.random() < 0.3 ? 0 : 0];
+    if (Math.random() < 0.35) b = 'chief';
+    setTimeout(function () { var q = people[b]; if (q && q.state !== 'walk' && !meeting) say(q, REPLY[Math.floor(Math.random() * REPLY.length)], 2400); }, 1700);
   }
 
   /* ───── 화면 ───── */
@@ -592,8 +624,9 @@ footer{max-width:1240px;margin:48px auto 0;padding:18px 16px 40px;color:var(--in
     paintBackground(); setup(); buildCrew(); nowLabel('각자 자리에서 작업 중');
     requestAnimationFrame(frame);
     setInterval(tick, 2600);
+    setInterval(chatter, 2200);
     setTimeout(holdMeeting, reduce ? 999999 : 9000);
-    setInterval(function () { if (!paused) holdMeeting(); }, 95000);
+    setInterval(function () { if (!paused) holdMeeting(); }, 70000);
   }
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
     fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { DATA = d; window.__DATA = d; start(); window.dispatchEvent(new Event('jackdata')); })
