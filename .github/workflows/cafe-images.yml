@@ -1,0 +1,22 @@
+name: 카페 원고 무료 이미지
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/cafe_image_queries.json", "scripts/cafe_images.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  imgs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet pillow
+      - run: python3 scripts/cafe_images.py
+      - run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B cafe-images
+          git add -f _cafeimg
+          git commit -qm "카페 원고 이미지 [skip ci]"
+          git push -f origin cafe-images
