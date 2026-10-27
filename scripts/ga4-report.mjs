@@ -94,6 +94,11 @@ async function collect(start, end, bucket) {
     () => ga(start, end, ["sessionSourceMedium"], ["sessions", "totalUsers"], F.land, 50),
     () => ga(start, end, ["pageReferrer", "landingPage"], ["sessions"], { andGroup: { expressions: [F.land,
       { filter: { fieldName: "pageReferrer", stringFilter: { matchType: "PARTIAL_REGEXP", value: "search\\.naver\\.com|search\\.daum\\.net|search\\.zum\\.com" } } }] } }, 1000),
+    // 사람 수는 더하면 부풀려지므로(한 사람이 여러 줄에 잡힘) 묶음마다 따로 조회
+    () => ga(start, end, ["pagePath"], ["eventCount", "totalUsers"], F.cta),
+    () => ga(start, end, ["sessionDefaultChannelGroup"], ["eventCount", "totalUsers"], F.cta, 50),
+    () => ga(start, end, ["sessionSourceMedium"], ["eventCount", "totalUsers"], F.cta, 50),
+    () => ga(start, end, ["searchTerm", "sessionSourceMedium"], ["eventCount", "totalUsers"], F.cta, 200),
   ];
   const settled = [];
   for (const job of jobs) { try { settled.push({ status: "fulfilled", value: await job() }); } catch (e) { settled.push({ status: "rejected", reason: e }); } }
@@ -102,8 +107,8 @@ async function collect(start, end, bucket) {
     var clickSrc = rows.map((r) => { const m = r.d[4].match(/^cta-(.+)-(top|mid|end|pop)$/) || [];
       return { channel: r.d[0], source: r.d[1], keyword: r.d[2], landing: r.d[3], post: m[1] || r.d[4], pos: m[2] || "", clicks: r.m[0], users: r.m[1] }; });
   } catch (e) { ERRORS.push(`버튼 누른 사람 유입: ${e.message}`); var clickSrc = []; }
-  const NAMES = ["합계 조회", "합계 클릭", "기간별 조회", "기간별 클릭", "글별 조회", "버튼별 클릭", "유입 매체", "검색어"];
-  const [tv, tc, sv, sc, pv, pc, src, ref] = settled.map((x, i) => { if (x.status === "fulfilled") return x.value; ERRORS.push(`${NAMES[i]}: ${x.reason.message}`); return []; });
+  const NAMES = ["합계 조회", "합계 클릭", "기간별 조회", "기간별 클릭", "글별 조회", "버튼별 클릭", "유입 매체", "검색어", "글별 누른 사람", "채널별 누른 사람", "매체별 누른 사람", "검색어별 누른 사람"];
+  const [tv, tc, sv, sc, pv, pc, src, ref, pcu, chu, sru, kwu] = settled.map((x, i) => { if (x.status === "fulfilled") return x.value; ERRORS.push(`${NAMES[i]}: ${x.reason.message}`); return []; });
   const tot = { views: tv[0]?.m[0] || 0, viewers: tv[0]?.m[1] || 0, clicks: tc[0]?.m[0] || 0, clickers: tc[0]?.m[1] || 0 };
   const series = {};
   for (const r of sv) (series[r.d[0]] ||= blank()).views = r.m[0], series[r.d[0]].viewers = r.m[1];
@@ -112,10 +117,13 @@ async function collect(start, end, bucket) {
   for (const r of pv) { const p = (posts[slugOf(r.d[0])] ||= postBlank()); p.views += r.m[0]; p.viewers += r.m[1]; }
   for (const r of pc) {
     let m = r.d[0].match(/^cta-(.+)-(top|mid|end|pop)$/);
-    if (m) { const p = (posts[m[1]] ||= postBlank()); p.clicks += r.m[0]; p.clickers += r.m[1]; p.pos[m[2]] += r.m[0]; continue; }
+    if (m) { const p = (posts[m[1]] ||= postBlank()); p.clicks += r.m[0]; p.pos[m[2]] += r.m[0]; continue; }
     m = r.d[0].match(/^(hub|promo)-(.+)$/);
     if (m) { const p = (posts[m[2]] ||= postBlank()); p.inbound[m[1]] += r.m[0]; }
   }
+  for (const r of pcu) { if (!/^\/shop-/.test(r.d[0])) continue; (posts[slugOf(r.d[0])] ||= postBlank()).clickers += r.m[1]; }
+  const clickAgg = { channel: chu.map((r) => ({ k: r.d[0], clicks: r.m[0], users: r.m[1] })), source: sru.map((r) => ({ k: r.d[0], clicks: r.m[0], users: r.m[1] })),
+    keyword: kwu.map((r) => ({ k: `${r.d[0]}\t${r.d[1]}`, clicks: r.m[0], users: r.m[1] })) };
   const sources = src.map((r) => ({ name: r.d[0], sessions: r.m[0], users: r.m[1] }));
   const kw = {};
   for (const r of ref) {
@@ -125,7 +133,7 @@ async function collect(start, end, bucket) {
   }
   const keywords = Object.entries(kw).map(([k, n]) => { const [engine, query, post] = k.split("\t"); return { engine, query, post, sessions: n }; })
     .sort((a, b) => b.sessions - a.sessions);
-  return { tot, series, posts, sources, keywords, clickSrc, google: await gsc(start, end) };
+  return { tot, series, posts, sources, keywords, clickSrc, clickAgg, google: await gsc(start, end) };
 }
 async function seq(fns) { const out = []; for (const f of fns) out.push(await f()); return out; }
 const blank = () => ({ views: 0, viewers: 0, clicks: 0, clickers: 0 });
@@ -165,6 +173,8 @@ function mock(start, end, bucket) {
       { channel: "Organic Search", source: "daum / organic", keyword: "로봇청소기 추천", landing: "/shop-bespoke-ai-steam-ultra.html", post: "bespoke-ai-steam-ultra", pos: "pop", clicks: 2, users: 2 },
       { channel: "Organic Search", source: "google / organic", keyword: "(검색어 미전달)", landing: "/shop-c-type-65w-charger.html", post: "c-type-65w-charger", pos: "mid", clicks: 1, users: 1 },
       { channel: "Direct", source: "(direct) / (none)", keyword: "(직접·내부)", landing: "/index.html", post: "jbl-authentics-200", pos: "top", clicks: 2, users: 1 }],
+    clickAgg: { channel: [{ k: "Organic Search", clicks: 7, users: 5 }, { k: "Direct", clicks: 2, users: 1 }], source: [{ k: "naver / organic", clicks: 4, users: 3 }, { k: "daum / organic", clicks: 2, users: 2 }],
+      keyword: [{ k: "갤럭시 s26 울트라 자급제\tnaver / organic", clicks: 4, users: 3 }, { k: "(not set)\t(direct) / (none)", clicks: 2, users: 1 }] },
     google: { rows: [{ query: "65w 충전기", post: "c-type-65w-charger", clicks: 2, impressions: 40, position: 8.2 }], note: "가짜 데이터" } };
 }
 
@@ -211,6 +221,10 @@ function delta(cur, prev) {
   if (prev === undefined || prev === null) return "";
   if (!prev && !cur) return `<span class="dl">변화 없음</span>`;
   if (!prev) return `<span class="dl up">▲ 새로 생김</span>`;
+  if (prev < 20 || cur < 20) {   // 작은 숫자는 %가 과장돼 보여 횟수로
+    const df = cur - prev;
+    return `<span class="dl ${df > 0 ? "up" : df < 0 ? "down" : ""}">${n(prev)} → ${n(cur)} <small>(${df > 0 ? "+" : ""}${n(df)})</small></span>`;
+  }
   const d = (cur - prev) / prev * 100;
   return `<span class="dl ${d > 0 ? "up" : d < 0 ? "down" : ""}">${d > 0 ? "▲" : d < 0 ? "▼" : "–"} ${Math.abs(d).toFixed(0)}% <small>(이전 ${n(prev)})</small></span>`;
 }
@@ -263,8 +277,11 @@ function clickersSection(data, label) {
     <p class="empty">이 기간에는 브랜드커넥트 버튼 클릭이 없습니다. 클릭이 생기면 채널·검색어·들어온 글이 여기에 나옵니다.</p></section>`;
   const sum = (key) => { const o = {}; for (const r of rows) { const k = key(r); o[k] ||= { clicks: 0, users: 0 }; o[k].clicks += r.clicks; o[k].users += r.users; } return Object.entries(o).sort((a, b) => b[1].clicks - a[1].clicks); };
   const total = rows.reduce((a, r) => a + r.clicks, 0);
-  const ch = sum((r) => CH[r.channel] || r.channel), src = sum((r) => r.source);
-  const kw = sum((r) => `${r.keyword}\t${r.source}`).filter(([k]) => !/^\(직접·내부\)|^\(not set\)/.test(k));
+  // 사람 수는 묶음별로 따로 조회한 값(clickAgg)을 씁니다. 줄마다 더하면 같은 사람이 여러 번 세어집니다.
+  const agg = (list, label) => list && list.length ? list.filter((x) => x.clicks).sort((a, b) => b.clicks - a.clicks).map((x) => [label(x.k), { clicks: x.clicks, users: x.users }]) : null;
+  const A = data.clickAgg || {};
+  const ch = agg(A.channel, (k) => CH[k] || k) || sum((r) => CH[r.channel] || r.channel), src = agg(A.source, (k) => k) || sum((r) => r.source);
+  const kw = (agg(A.keyword, (k) => k) || sum((r) => `${r.keyword}\t${r.source}`)).filter(([k]) => !/^\(직접·내부\)|^\(not set\)/.test(k));
   const gq = (post) => (data.google.rows || []).filter((g) => g.post === post).slice(0, 3).map((g) => g.query).join(", ");
   return `<section class="card main"><h2>★ 브랜드커넥트 버튼을 누른 사람은 어디서 왔나 · ${label}</h2>
     <p class="note" style="margin:0 0 .8rem">‘제품 가격 알아보기·여행 비용 알아보기’ 버튼(브랜드 커넥트로 이동)을 누른 방문이 처음에 어떤 채널·검색어로 사이트에 들어왔는지입니다. 총 ${n(total)}회.</p>
@@ -307,7 +324,7 @@ async function daily() {
   const b3 = days(s3, y).map(ymd), b7 = days(s7, y).map(ymd);
   return { name: `daily-${iso(y)}`, title: `일간 보고서 · ${iso(y)}(${DOW[y.getUTCDay()]})`,
     sub: `어제 하루 결과와 최근 3일 비교, 최근 7일 흐름입니다. (${iso(TODAY)} 08시 기준)`,
-    body: `<section class="card"><h2>어제 한눈에 (그제와 비교)</h2>${kpis(d1, d0)}</section>
+    body: `<section class="card"><h2>어제 한눈에 (그제와 비교) · 잠정</h2>${kpis(d1, d0)}<p class="note">어제 숫자는 잠정치입니다. GA4가 하루 이상 걸려 처리하므로 다음 날 조금 늘어날 수 있습니다.</p></section>
       ${clickersSection(d3, "최근 3일")}
       ${trend(b3, d3, dayLabel, "최근 3일 비교")}
       ${trend(b7, w7, dayLabel, "최근 7일 흐름")}
@@ -447,5 +464,5 @@ for (const t of plan) {
 if (!MOCK) { try { writeFileSync("_cta/kpi.json", JSON.stringify(await siteKpi(), null, 1)); console.log("✓ 사이트 KPI"); } catch (e) { console.log(`✗ 사이트 KPI: ${e.message}`); ERRORS.push(`kpi: ${e.message}`); } }
 writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
 let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
-for (const r of made) md += `- ${r.title}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
+for (const r of made) md += `- ${r.title}${r.type === "daily" ? " (어제 숫자 잠정)" : ""}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
 writeFileSync("_cta/cta-latest.md", md);
