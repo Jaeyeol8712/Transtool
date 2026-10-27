@@ -1,11 +1,11 @@
 {
- "made": "2026-10-26T16:21:49.548Z",
+ "made": "2026-10-27T02:04:58.308Z",
  "range": "2026-10-20 ~ 2026-10-26",
  "prevRange": "2026-10-13 ~ 2026-10-19",
  "cur": {
-  "users": 48,
-  "sessions": 77,
-  "views": 715
+  "users": 50,
+  "sessions": 82,
+  "views": 756
  },
  "prev": {
   "users": 30,
@@ -19,8 +19,7 @@
  "channels": {
   "cur": {
    "Organic Search": 48,
-   "Direct": 28,
-   "Unassigned": 5,
+   "Direct": 33,
    "Referral": 1
   },
   "prev": {
@@ -160,14 +159,14 @@
   },
   {
    "date": "20261026",
-   "users": 17,
-   "sessions": 23
+   "users": 19,
+   "sessions": 28
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 34
+   "sessions": 39
   },
   {
    "page": "/job_fortune_teller",
@@ -175,7 +174,7 @@
   },
   {
    "page": "/connect.html",
-   "sessions": 6
+   "sessions": 5
   },
   {
    "page": "/tire_date_calculator",
@@ -190,10 +189,6 @@
    "sessions": 2
   },
   {
-   "page": "",
-   "sessions": 1
-  },
-  {
    "page": "/bmi_calculator",
    "sessions": 1
   },
@@ -202,7 +197,11 @@
    "sessions": 1
   },
   {
-   "page": "/editorial.html",
+   "page": "/etc.html",
+   "sessions": 1
+  },
+  {
+   "page": "/gwangju-gwangsan-cafe.html",
    "sessions": 1
   }
  ],
