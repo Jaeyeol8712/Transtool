@@ -81,7 +81,10 @@ def photo_credit(m):
     if m.get("license_url"):
         lic_html = f'<a href="{esc(m["license_url"])}" rel="license nofollow noopener" target="_blank">{lic_html}</a>'
     src = f' · <a href="{esc(m["foreign_landing_url"])}" rel="nofollow noopener" target="_blank">원본</a>' if m.get("foreign_landing_url") else ""
-    return f"사진: {who} · {lic_html}{src}"
+    title = f"“{esc(m['title'])}” · " if m.get("title") else ""
+    ver_num = m.get("license_version") or ""
+    resized = " · 크기 조정" if ver_num.startswith("4") and m.get("license") not in ("pdm", "cc0") else ""
+    return f"사진: {title}{who} · {lic_html}{src}{resized}"
 
 
 def figure_html(src, alt, caption=None, credit=None, eager=False):
@@ -122,7 +125,6 @@ def image_ld(src, alt, photo=None, seller=None):
         o["creditText"] = f"{seller} 판매 페이지 이미지"
         o["creator"] = {"@type": "Organization", "name": seller}
         o["copyrightNotice"] = f"© {seller}"
-        o["license"] = SITE + "/terms.html#copyright"
         o["acquireLicensePage"] = SITE + "/contact.html"
     else:
         o["creditText"] = "어라운드툴"
