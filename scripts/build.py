@@ -1472,7 +1472,7 @@ def build_embed(slug, tool, head_css, ext_scripts):
 <p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">{esc(c['h1'])}</p>
 {tool}
 </section>
-<p class="at-embed-credit">계산기 제공 <a href="{u}" target="_blank" rel="noopener">{NAME} {esc(c['h1'])}</a></p>
+<p class="at-embed-credit">계산기 제공 <a href="{u}?utm_source=embed&amp;utm_campaign={slug}" target="_blank" rel="noopener">{NAME} {esc(c['h1'])}</a></p>
 </body>
 </html>
 """)
