@@ -318,17 +318,38 @@ const monLabel = (k) => `${+k.slice(4)}월`;
 function isoWeekKey(d) { const t = new Date(d); const day = (t.getUTCDay() + 6) % 7; t.setUTCDate(t.getUTCDate() - day + 3);
   const y = t.getUTCFullYear(), w = 1 + Math.round(((t - Date.UTC(y, 0, 4)) / 864e5 - 3 + ((new Date(Date.UTC(y, 0, 4)).getUTCDay() + 6) % 7)) / 7); return `${y}${String(w).padStart(2, "0")}`; }
 
+// ───────── AI 유입 (ChatGPT·Perplexity·Gemini 등 AI 서비스에서 온 방문, 사이트 전체) ─────────
+const AI_RE = "chatgpt\\.com|chat\\.openai\\.com|openai|perplexity|gemini\\.google|bard\\.google|claude\\.ai|copilot\\.microsoft|copilot\\.com|you\\.com|phind|deepseek|grok|meta\\.ai|kagi\\.com/assistant";
+const AI_FILTER = { filter: { fieldName: "sessionSource", stringFilter: { matchType: "PARTIAL_REGEXP", value: AI_RE, caseSensitive: false } } };
+async function aiVisits(start, end) {
+  if (MOCK) return { sessions: 7, users: 6, sources: [{ name: "chatgpt.com", sessions: 4, users: 3 }, { name: "perplexity.ai", sessions: 2, users: 2 }, { name: "gemini.google.com", sessions: 1, users: 1 }] };
+  try {
+    const [rows, tot] = await Promise.all([ga(start, end, ["sessionSource"], ["sessions", "totalUsers"], AI_FILTER, 50), ga(start, end, [], ["sessions", "totalUsers"], AI_FILTER)]);
+    return { sessions: tot[0]?.m[0] || 0, users: tot[0]?.m[1] || 0, sources: rows.map((r) => ({ name: r.d[0], sessions: r.m[0], users: r.m[1] })).sort((a, b) => b.sessions - a.sessions) };
+  } catch (e) { ERRORS.push(`AI 유입: ${e.message}`); return null; }
+}
+function aiSection(a1, a0, a3) {
+  if (!a1 || !a3) return `<section class="card"><h2>AI 유입</h2><p class="empty">AI 유입 숫자를 불러오지 못했습니다.</p></section>`;
+  return `<section class="card"><h2>AI 유입 · 사이트 전체</h2>
+    <p><b>어제 ${n(a1.sessions)}회</b> (사람 ${n(a1.users)}) · 그제 ${n(a0?.sessions || 0)}회 · 최근 3일 ${n(a3.sessions)}회 (사람 ${n(a3.users)})</p>
+    ${a3.sources.length ? hbars(a3.sources.slice(0, 8).map((x) => ({ label: x.name, value: x.sessions, note: `사람 ${n(x.users)}` })), "s1", "회") : `<p class="empty">최근 3일 AI 서비스에서 들어온 방문이 없습니다.</p>`}
+    <p class="note">ChatGPT·Perplexity·Gemini·Claude·Copilot 등에서 링크를 눌러 들어온 방문(세션)입니다. 추천 글만이 아니라 사이트 전체 기준이며, AI 서비스가 출처를 보내지 않으면 (direct)로 잡혀 실제보다 적을 수 있습니다.</p>
+  </section>`;
+}
+
 async function daily() {
   const y = add(TODAY, -1), s3 = add(y, -2), s7 = add(y, -6);
   const [d1, d0, d3, w7] = await seq([() => collect(y, y, "day"), () => collect(add(y, -1), add(y, -1), "day"), () => collect(s3, y, "day"), () => collect(s7, y, "day")]);
+  const [ai1, ai0, ai3] = await seq([() => aiVisits(y, y), () => aiVisits(add(y, -1), add(y, -1)), () => aiVisits(s3, y)]);
   const b3 = days(s3, y).map(ymd), b7 = days(s7, y).map(ymd);
   return { name: `daily-${iso(y)}`, title: `일간 보고서 · ${iso(y)}(${DOW[y.getUTCDay()]})`,
     sub: `어제 하루 결과와 최근 3일 비교, 최근 7일 흐름입니다. (${iso(TODAY)} 08시 기준)`,
     body: `<section class="card"><h2>어제 한눈에 (그제와 비교) · 잠정</h2>${kpis(d1, d0)}<p class="note">어제 숫자는 잠정치입니다. GA4가 하루 이상 걸려 처리하므로 다음 날 조금 늘어날 수 있습니다.</p></section>
       ${clickersSection(d3, "최근 3일")}
+      ${aiSection(ai1, ai0, ai3)}
       ${trend(b3, d3, dayLabel, "최근 3일 비교")}
       ${trend(b7, w7, dayLabel, "최근 7일 흐름")}
-      ${postsSection(d3, "최근 3일")}${sourcesSection(d3, "최근 3일")}`, kpi: d1.tot, prevKpi: d0.tot, data: d3 };
+      ${postsSection(d3, "최근 3일")}${sourcesSection(d3, "최근 3일")}`, kpi: d1.tot, prevKpi: d0.tot, data: d3, ai: ai1 };
 }
 async function weekly() {
   const end = add(TODAY, -((TODAY.getUTCDay() + 6) % 7) - 1);   // 지난 일요일
@@ -425,6 +446,7 @@ async function siteKpi() {
   const y = add(TODAY, -1), s7 = add(y, -6), p7e = add(s7, -1), p7s = add(p7e, -6), s28 = add(y, -27);
   const tot = async (a, b) => { const r = await ga(a, b, [], ["totalUsers", "sessions", "screenPageViews"]); const m = r[0] ? r[0].m : [0, 0, 0]; return { users: m[0], sessions: m[1], views: m[2] }; };
   const org = async (a, b) => { const r = await ga(a, b, ["sessionDefaultChannelGroup"], ["sessions"]); const o = {}; for (const x of r) o[x.d[0]] = x.m[0]; return o; };
+  const [aiCur, aiPrev] = await seq([() => aiVisits(s7, y), () => aiVisits(p7s, p7e)]);
   const [cur, prev, chCur, chPrev, series, land] = await seq([() => tot(s7, y), () => tot(p7s, p7e), () => org(s7, y), () => org(p7s, p7e),
     () => ga(s28, y, ["date"], ["totalUsers", "sessions"]), () => ga(s7, y, ["landingPage"], ["sessions"], null, 10)]);
   const g = {};
@@ -440,7 +462,8 @@ async function siteKpi() {
   return { made: new Date().toISOString(), range: `${iso(s7)} ~ ${iso(y)}`, prevRange: `${iso(p7s)} ~ ${iso(p7e)}`, cur, prev,
     organic: { cur: chCur["Organic Search"] || 0, prev: chPrev["Organic Search"] || 0 }, channels: { cur: chCur, prev: chPrev },
     daily: series.map((x) => ({ date: x.d[0], users: x.m[0], sessions: x.m[1] })).sort((a, b) => a.date.localeCompare(b.date)),
-    landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g };
+    landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g,
+    ai: { cur: aiCur, prev: aiPrev } };
 }
 
 // ───────── 실행 ─────────
@@ -456,7 +479,7 @@ for (const t of plan) {
     const rep = await FN[t]();
     writeFileSync(`_cta/reports/${rep.name}.html`, page(rep));
     made.push({ type: t, file: `reports/${rep.name}.html`, title: rep.title, kpi: rep.kpi, prev: rep.prevKpi,
-      topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
+      ai: rep.ai, topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
       sources: rep.data.sources.slice(0, 5), keywords: rep.data.keywords.slice(0, 8), google: rep.data.google.rows.slice(0, 8) });
     console.log(`✓ ${rep.title}`);
   } catch (e) { console.log(`✗ ${t}: ${e.message}`); ERRORS.push(`${t}: ${e.stack || e.message}`); }
@@ -464,5 +487,5 @@ for (const t of plan) {
 if (!MOCK) { try { writeFileSync("_cta/kpi.json", JSON.stringify(await siteKpi(), null, 1)); console.log("✓ 사이트 KPI"); } catch (e) { console.log(`✗ 사이트 KPI: ${e.message}`); ERRORS.push(`kpi: ${e.message}`); } }
 writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
 let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
-for (const r of made) md += `- ${r.title}${r.type === "daily" ? " (어제 숫자 잠정)" : ""}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers}) → ${r.file}\n`;
+for (const r of made) md += `- ${r.title}${r.type === "daily" ? " (어제 숫자 잠정)" : ""}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers})${r.ai ? ` · AI 유입 ${r.ai.sessions}회(사람 ${r.ai.users})` : ""} → ${r.file}\n`;
 writeFileSync("_cta/cta-latest.md", md);
