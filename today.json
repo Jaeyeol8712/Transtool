@@ -1,36 +1,36 @@
 {
- "date": "2026-10-27",
+ "date": "2026-10-28",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-10-26.html",
-   "title": "일간 보고서 · 2026-10-26(월)",
+   "file": "reports/daily-2026-10-27.html",
+   "title": "일간 보고서 · 2026-10-27(화)",
    "kpi": {
-    "views": 42,
-    "viewers": 10,
+    "views": 6,
+    "viewers": 3,
     "clicks": 0,
     "clickers": 0
    },
    "prev": {
-    "views": 63,
-    "viewers": 2,
+    "views": 42,
+    "viewers": 10,
     "clicks": 0,
     "clickers": 0
    },
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 23,
+     "views": 24,
      "clicks": 0
     },
     {
-     "post": "종아리 마사지기 공기압 추천 가격 총정리",
-     "views": 17,
+     "post": "비스포크 AI 냉장고 4도어 추천 가격 정리",
+     "views": 11,
      "clicks": 0
     },
     {
-     "post": "다낭 5일 여행 추천 코스 가격 정리",
-     "views": 15,
+     "post": "후쿠오카 3일 여행 추천 코스 2박3일 일정",
+     "views": 11,
      "clicks": 0
     }
    ],
@@ -39,6 +39,11 @@
      "name": "daum / organic",
      "sessions": 4,
      "users": 4
+    },
+    {
+     "name": "blog.naver.com / referral",
+     "sessions": 1,
+     "users": 1
     },
     {
      "name": "m.search.naver.com / referral",
@@ -83,7 +88,80 @@
      "sessions": 1
     }
    ],
-   "google": []
+   "google": [
+    {
+     "query": "게임용 무선 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 51
+    },
+    {
+     "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
+     "post": "prael-thermashot-ultimate",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 7
+    }
+   ]
+  },
+  {
+   "type": "weekly",
+   "file": "reports/weekly-2026-10-19.html",
+   "title": "주간 보고서 · 10.19(월) ~ 10.25(일)",
+   "kpi": {
+    "views": 157,
+    "viewers": 7,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "topPosts": [
+    {
+     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "views": 23,
+     "clicks": 0
+    },
+    {
+     "post": "종아리 마사지기 공기압 추천 가격 총정리",
+     "views": 16,
+     "clicks": 0
+    },
+    {
+     "post": "후쿠오카 3일 여행 추천 코스 2박3일 일정",
+     "views": 16,
+     "clicks": 0
+    }
+   ],
+   "sources": [
+    {
+     "name": "m.search.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    }
+   ],
+   "keywords": [],
+   "google": [
+    {
+     "query": "게임용 무선 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 51
+    },
+    {
+     "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
+     "post": "prael-thermashot-ultimate",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 7
+    }
+   ]
   }
  ],
  "errors": []
