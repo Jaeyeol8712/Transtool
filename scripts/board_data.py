@@ -37,4 +37,22 @@ if daily:
     w("board-posts.json", [{"post": x["post"], "views": x["views"], "clicks": x["clicks"]} for x in daily["topPosts"]])
 meta = {"made": kpi["made"], "range": kpi["range"], "prevRange": kpi["prevRange"], "googleRange": g["range"], "ctaDay": daily["title"] if daily else ""}
 w("board-meta.json", [meta])
-print("ok", sorted(os.listdir(out)))
+
+# 합본: 보고판은 이 파일 하나만 읽는다(행마다 id·section·label·cur·prev·alt·chg)
+rows = []
+def chg(c, p): return None if not p else round((c - p) / p * 100)
+def add(sec, key, label, cur, prev=None, alt=None):
+    rows.append({"id": f"{sec}-{key}", "section": sec, "label": label, "cur": cur, "prev": prev, "alt": alt, "chg": chg(cur, prev) if prev is not None else None})
+for r in json.load(open(os.path.join(out, "board-kpi.json"), encoding="utf-8")): add("kpi", {"사용자":"users","방문":"sessions","검색 유입 방문":"organic","조회":"views"}[r["metric"]], r["metric"], r["cur"], r["prev"])
+for r in json.load(open(os.path.join(out, "board-daily.json"), encoding="utf-8")): add("daily", r["date"], r["date"], r["users"], None, r["sessions"])
+for i, r in enumerate(json.load(open(os.path.join(out, "board-landing.json"), encoding="utf-8"))): add("landing", i, r["page"], r["sessions"])
+for i, r in enumerate(json.load(open(os.path.join(out, "board-channels.json"), encoding="utf-8"))): add("channel", i, r["channel"], r["cur"], r["prev"])
+for r in json.load(open(os.path.join(out, "board-google.json"), encoding="utf-8")): add("google", {"클릭":"clicks","노출":"impressions","평균 순위":"position"}[r["metric"]], r["metric"], r["cur"], r["prev"])
+if os.path.exists(os.path.join(out, "board-cta.json")):
+    for r in json.load(open(os.path.join(out, "board-cta.json"), encoding="utf-8")): add("cta", {"추천 글 조회":"views","추천 글 본 사람":"viewers","버튼 클릭":"clicks","버튼 누른 사람":"clickers"}[r["metric"]], r["metric"], r["cur"], r["prev"])
+    for i, r in enumerate(json.load(open(os.path.join(out, "board-posts.json"), encoding="utf-8"))): add("post", i, r["post"], r["views"], None, r["clicks"])
+m = meta
+for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일")):
+    rows.append({"id": f"meta-{k}", "section": "meta", "label": m[k], "cur": None, "prev": None, "alt": lab, "chg": None})
+json.dump(rows, open(os.path.join(out, "board.json"), "w", encoding="utf-8"), ensure_ascii=False)
+print("ok", len(rows), "rows")
