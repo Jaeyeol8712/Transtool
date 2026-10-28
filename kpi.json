@@ -1,39 +1,34 @@
 {
- "made": "2026-10-28T02:47:09.506Z",
- "range": "2026-10-21 ~ 2026-10-27",
- "prevRange": "2026-10-14 ~ 2026-10-20",
+ "made": "2026-10-28T23:26:19.774Z",
+ "range": "2026-10-22 ~ 2026-10-28",
+ "prevRange": "2026-10-15 ~ 2026-10-21",
  "cur": {
-  "users": 52,
-  "sessions": 101,
-  "views": 828
+  "users": 74,
+  "sessions": 134,
+  "views": 896
  },
  "prev": {
-  "users": 26,
-  "sessions": 29,
-  "views": 27
+  "users": 29,
+  "sessions": 32,
+  "views": 31
  },
  "organic": {
-  "cur": 48,
-  "prev": 29
+  "cur": 56,
+  "prev": 32
  },
  "channels": {
   "cur": {
-   "Direct": 51,
-   "Organic Search": 48,
+   "Direct": 69,
+   "Organic Search": 56,
+   "Organic Social": 8,
    "Unassigned": 2,
-   "Organic Social": 1,
    "Referral": 1
   },
   "prev": {
-   "Organic Search": 29
+   "Organic Search": 32
   }
  },
  "daily": [
-  {
-   "date": "20260930",
-   "users": 7,
-   "sessions": 7
-  },
   {
    "date": "20261001",
    "users": 4,
@@ -163,27 +158,32 @@
    "date": "20261027",
    "users": 8,
    "sessions": 23
+  },
+  {
+   "date": "20261028",
+   "users": 27,
+   "sessions": 37
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 53
-  },
-  {
-   "page": "/connect.html",
-   "sessions": 5
-  },
-  {
-   "page": "/job_fortune_teller",
-   "sessions": 5
-  },
-  {
-   "page": "/tire_date_calculator",
-   "sessions": 5
+   "sessions": 62
   },
   {
    "page": "/etc.html",
+   "sessions": 8
+  },
+  {
+   "page": "/connect.html",
+   "sessions": 6
+  },
+  {
+   "page": "/tire_date_calculator",
+   "sessions": 4
+  },
+  {
+   "page": "/yeonsu-sul-anju.html",
    "sessions": 4
   },
   {
@@ -191,33 +191,45 @@
    "sessions": 3
   },
   {
+   "page": "/jeju-seogwipo-galchi.html",
+   "sessions": 3
+  },
+  {
+   "page": "/percent_calculator.html",
+   "sessions": 3
+  },
+  {
+   "page": "/shop-neck-traction.html",
+   "sessions": 3
+  },
+  {
    "page": "/gas_bill_calculator",
    "sessions": 2
-  },
-  {
-   "page": "/increase_decrease_calculator",
-   "sessions": 2
-  },
-  {
-   "page": "/shop-bespoke-ai-steam-ultra.html",
-   "sessions": 2
-  },
-  {
-   "page": "",
-   "sessions": 1
   }
  ],
  "google": {
-  "range": "2026-10-19 ~ 2026-10-25",
+  "range": "2026-10-20 ~ 2026-10-26",
   "cur": {
    "clicks": 1,
-   "impressions": 478,
-   "position": 10.822175732217573
+   "impressions": 594,
+   "position": 10.018518518518519
   },
   "prev": {
    "clicks": 0,
-   "impressions": 290,
-   "position": 13.124137931034483
+   "impressions": 291,
+   "position": 13.168384879725085
+  }
+ },
+ "ai": {
+  "cur": {
+   "sessions": 0,
+   "users": 0,
+   "sources": []
+  },
+  "prev": {
+   "sessions": 0,
+   "users": 0,
+   "sources": []
   }
  }
 }
