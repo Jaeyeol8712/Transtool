@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from connect_posts import POSTS  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
-NOTE = "※ 링크한 페이지에는 네이버 쇼핑 커넥트 제휴 링크가 있어, 그 링크로 구매하시면 일정액의 수수료를 받을 수 있어요."
+NOTE = "※ 제휴 안내: 링크한 페이지에는 네이버 쇼핑 커넥트 제휴 링크가 있으며, 그 링크로 구매가 이뤄지면 수수료를 받습니다."
 
 # 슬러그: 카페 제목 (검색 많은 키워드를 맨 앞에)
 TITLES = {
@@ -79,7 +79,7 @@ def block(b):
 
 
 def post(p):
-    url = f"{SITE}/shop-{p['slug']}.html"
+    url = f"{SITE}/shop-{p['slug']}.html?utm_source=naver_cafe&utm_medium=cafe&utm_campaign=cafe_{p['slug']}&utm_content=v1"
     parts = [block(b) for b in p["body"] if not re.fullmatch(r"\{[^}]*\}", b.strip())]
     paras = [t for k, t in parts if k == "p"]
     tail = "가격·구성은 판매처와 시점마다 달라서, 비교 그래픽과 현재 가격 확인 링크는 아래 페이지에 정리해 두었어요." \
@@ -88,7 +88,7 @@ def post(p):
     drop_order = [[], ["meter", "other"], ["meter", "other", "versus"], ["meter", "other", "versus", "tags"],
                   ["meter", "other", "versus", "tags", "callout"], ["meter", "other", "versus", "tags", "callout", "cards"]]
     for drop in drop_order:
-        out = []
+        out = [NOTE]
         for i, (k, t) in enumerate(parts):
             if k in drop:
                 continue
@@ -97,11 +97,11 @@ def post(p):
             out.append(t)
         if len(paras) > 1:
             out.append(paras[-1])
-        out += [tail, url, NOTE]
+        out += [tail, url]
         body = "\n\n".join(out).replace("\n\n\n", "\n\n")
         if len(body) <= 1500:
             return TITLES[p["slug"]], body
-    return TITLES[p["slug"]], body[:1400] + "…\n\n" + url + "\n\n" + NOTE
+    return TITLES[p["slug"]], body[:1350] + "…\n\n" + url
 
 
 def main():

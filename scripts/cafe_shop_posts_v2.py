@@ -12,7 +12,7 @@ from cafe_shop_posts import block, NOTE, SITE  # noqa: E402
 # 슬러그: (제목, 첫머리 2~3문장)  — 사실 주장 없이 상황·질문으로만 연다
 V2 = {
     "queens-collagen-rg3": ("미백 주름 기능성 크림 고르는 법 — 식약처 기능성 표시 확인하기",
-        "미백 크림, 주름 크림 종류가 너무 많아서 뭘 기준으로 골라야 할지 모르겠다는 얘기 자주 보여요. 광고 문구보다 먼저 볼 건 상자에 적힌 ‘기능성화장품’ 표시예요. 질문 형식으로 정리해 봤어요."),
+        "미백 크림, 주름 크림 종류가 너무 많아서 뭘 기준으로 골라야 할지 모르겠다는 얘기 자주 보여요. 광고 문구보다 먼저 볼 건 상자에 적힌 ‘기능성화장품’ 표시예요. 질문 형식으로 정리했어요."),
     "bespoke-ai-fridge-4door": ("4도어 냉장고 추천 받기 전에 — 용량·키친핏·소비전력 체크",
         "냉장고 바꿀 때가 되면 4도어로 갈지, 몇 L가 맞을지부터 고민되죠. 매장 가기 전에 줄자로 잴 곳과 비교할 숫자를 먼저 정리해 두면 훨씬 수월해요."),
     "galaxy-s26-ultra": ("갤럭시 S26 울트라 256GB vs 512GB — 자급제로 살 때 비교",
@@ -53,7 +53,7 @@ Q = {"cards": "Q. 핵심만 먼저 알려 주세요", "versus": "Q. 둘 중 뭐�
 
 def post(p):
     title, opener = V2[p["slug"]]
-    url = f"{SITE}/shop-{p['slug']}.html"
+    url = f"{SITE}/shop-{p['slug']}.html?utm_source=naver_cafe&utm_medium=cafe&utm_campaign=cafe_{p['slug']}&utm_content=v2"
     parts = [block(b) for b in p["body"] if not re.fullmatch(r"\{[^}]*\}", b.strip())]
     paras = [t for k, t in parts if k == "p"]
     sec = {}
@@ -65,17 +65,17 @@ def post(p):
     # 1차와 다른 순서: 체크리스트 → 비교 → 주의점 → 핵심 → 대상
     order = ["check", "versus", "callout", "cards", "tags", "meter"]
     for drop in [[], ["meter"], ["meter", "tags"], ["meter", "tags", "cards"], ["meter", "tags", "cards", "versus"]]:
-        out = [opener]
+        out = [NOTE, opener]
         for k in order:
             if k in sec and k not in drop:
                 out.append(Q[k] + "\n" + sec[k])
         if paras:
             out.append(paras[-1])
-        out += [tail, url, NOTE]
+        out += [tail, url]
         body = "\n\n".join(out)
         if len(body) <= 1500:
             return title, body
-    return title, body[:1400] + "…\n\n" + url + "\n\n" + NOTE
+    return title, body[:1350] + "…\n\n" + url
 
 
 def main():
