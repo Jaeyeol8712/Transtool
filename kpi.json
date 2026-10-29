@@ -1,39 +1,34 @@
 {
- "made": "2026-10-29T02:27:22.852Z",
- "range": "2026-10-22 ~ 2026-10-28",
- "prevRange": "2026-10-15 ~ 2026-10-21",
+ "made": "2026-10-29T23:26:58.447Z",
+ "range": "2026-10-23 ~ 2026-10-29",
+ "prevRange": "2026-10-16 ~ 2026-10-22",
  "cur": {
-  "users": 74,
-  "sessions": 134,
-  "views": 896
+  "users": 83,
+  "sessions": 155,
+  "views": 958
  },
  "prev": {
-  "users": 29,
-  "sessions": 32,
-  "views": 31
+  "users": 27,
+  "sessions": 28,
+  "views": 29
  },
  "organic": {
-  "cur": 56,
-  "prev": 32
+  "cur": 63,
+  "prev": 28
  },
  "channels": {
   "cur": {
-   "Direct": 69,
-   "Organic Search": 56,
+   "Direct": 83,
+   "Organic Search": 63,
    "Organic Social": 8,
-   "Unassigned": 2,
+   "Unassigned": 3,
    "Referral": 1
   },
   "prev": {
-   "Organic Search": 32
+   "Organic Search": 28
   }
  },
  "daily": [
-  {
-   "date": "20261001",
-   "users": 4,
-   "sessions": 4
-  },
   {
    "date": "20261002",
    "users": 6,
@@ -163,20 +158,29 @@
    "date": "20261028",
    "users": 27,
    "sessions": 37
+  },
+  {
+   "date": "20261029",
+   "users": 16,
+   "sessions": 25
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 62
+   "sessions": 73
+  },
+  {
+   "page": "/connect.html",
+   "sessions": 8
   },
   {
    "page": "/etc.html",
    "sessions": 8
   },
   {
-   "page": "/connect.html",
-   "sessions": 6
+   "page": "/percent_calculator.html",
+   "sessions": 5
   },
   {
    "page": "/tire_date_calculator",
@@ -195,29 +199,25 @@
    "sessions": 3
   },
   {
-   "page": "/percent_calculator.html",
-   "sessions": 3
-  },
-  {
    "page": "/shop-neck-traction.html",
    "sessions": 3
   },
   {
-   "page": "/gas_bill_calculator",
+   "page": "(not set)",
    "sessions": 2
   }
  ],
  "google": {
-  "range": "2026-10-20 ~ 2026-10-26",
+  "range": "2026-10-21 ~ 2026-10-27",
   "cur": {
    "clicks": 1,
-   "impressions": 594,
-   "position": 10.018518518518519
+   "impressions": 865,
+   "position": 9.934104046242775
   },
   "prev": {
    "clicks": 0,
-   "impressions": 291,
-   "position": 13.168384879725085
+   "impressions": 289,
+   "position": 12.719723183391004
   }
  },
  "ai": {

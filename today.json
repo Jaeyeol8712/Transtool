@@ -1,19 +1,19 @@
 {
- "date": "2026-10-29",
+ "date": "2026-10-30",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-10-28.html",
-   "title": "일간 보고서 · 2026-10-28(수)",
+   "file": "reports/daily-2026-10-29.html",
+   "title": "일간 보고서 · 2026-10-29(목)",
    "kpi": {
-    "views": 5,
+    "views": 10,
     "viewers": 4,
-    "clicks": 0,
-    "clickers": 0
+    "clicks": 2,
+    "clickers": 2
    },
    "prev": {
-    "views": 6,
-    "viewers": 3,
+    "views": 5,
+    "viewers": 4,
     "clicks": 0,
     "clickers": 0
    },
@@ -25,33 +25,33 @@
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 10,
-     "clicks": 0
+     "views": 6,
+     "clicks": 1
     },
     {
-     "post": "비스포크 AI 냉장고 4도어 추천 가격 정리",
-     "views": 9,
-     "clicks": 0
+     "post": "다낭 5일 여행 추천 코스 가격 정리",
+     "views": 1,
+     "clicks": 1
     },
     {
-     "post": "후쿠오카 3일 여행 추천 코스 2박3일 일정",
-     "views": 5,
+     "post": "종아리 마사지기 공기압 추천 가격 총정리",
+     "views": 4,
      "clicks": 0
     }
    ],
    "sources": [
     {
-     "name": "daum / organic",
-     "sessions": 5,
-     "users": 5
+     "name": "(direct) / (none)",
+     "sessions": 2,
+     "users": 2
     },
     {
-     "name": "(direct) / (none)",
+     "name": "blog.naver.com / referral",
      "sessions": 1,
      "users": 1
     },
     {
-     "name": "blog.naver.com / referral",
+     "name": "daum / organic",
      "sessions": 1,
      "users": 1
     },
@@ -61,7 +61,7 @@
      "users": 1
     },
     {
-     "name": "naver / organic",
+     "name": "m.search.naver.com / referral",
      "sessions": 1,
      "users": 1
     }
@@ -69,48 +69,45 @@
    "keywords": [
     {
      "engine": "다음",
-     "query": "거북목 교정기",
-     "post": "neck-traction",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "로봇청소기 추천",
-     "post": "bespoke-ai-steam-ultra",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
      "query": "C타입 고속",
      "post": "c-type-65w-charger",
      "sessions": 1
     },
     {
-     "engine": "다음",
-     "query": "블루투스 스피커",
-     "post": "jbl-authentics-200",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "후쿠오카 여행",
-     "post": "fukuoka-3days",
-     "sessions": 1
-    },
-    {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "galaxy-s26-ultra",
+     "post": "calf-foot-air-massager",
      "sessions": 1
     }
    ],
    "google": [
     {
+     "query": "가격",
+     "post": "prael-thermashot-ultimate",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 3
+    },
+    {
+     "query": "가격대",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 5
+    },
+    {
+     "query": "대학생노트북",
+     "post": "student-office-laptop",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 60
+    },
+    {
      "query": "무선 게이밍 키보드 추천",
      "post": "wireless-gaming-keyboard",
      "clicks": 0,
      "impressions": 1,
-     "position": 8
+     "position": 7
     }
    ]
   }
