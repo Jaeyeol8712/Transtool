@@ -65,14 +65,14 @@
 
 ### 여행
 - [주유 경제성](https://www.aroundtool.com/fuel_economy_calculator.html): 이동 거리(km), 차량 연비(km/L), 리터당 연료 가격을 넣으면 필요한 연료량과 예상 유류비를 계산합니다. 왕복·카풀 정산, 공인연비와 실연비 차이, 전기차 충전비와 비교하는 방법도 정리했습니다.
-- [환율](https://www.aroundtool.com/exchange_rate_calculator.html): 미국 달러, 일본 엔(100엔), 유로, 중국 위안, 영국 파운드, 대만 달러, 태국 바트, 베트남 동을 원화로, 원화를 외화로 환산합니다. 공개 환율 API의 최신 기준 환율을 불러오고 직접 수정할 수도 있습니다.
+- [환율](https://www.aroundtool.com/exchange_rate_calculator.html): 환율 계산·환전 금액을 바로 확인합니다. 미국 달러, 일본 엔(100엔), 유로, 중국 위안, 영국 파운드, 대만 달러, 태국 바트, 베트남 동을 원화로, 원화를 외화로 환산합니다. 공개 환율 API의 최신 기준 환율을 불러오고 직접 수정할 수도 있습니다.
 - [일본 여행 경비](https://www.aroundtool.com/japan_travel_calculator.html): 일본 여행 비용이 얼마나 드는지 도쿄·오사카·후쿠오카·삿포로·오키나와·나고야 등 도시와 기간, 여행 스타일로 계산합니다. 항공권·숙박·식비·교통비 내역과 일자별 코스를 함께 보여 줍니다.
 - [캠핑 장비 견적](https://www.aroundtool.com/camping_gear_calculator.html): 2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.
 - [맞춤법 검사](https://www.aroundtool.com/spell_checker.html): 자기소개서·이메일에서 자주 틀리는 맞춤법 표현 약 70개(안되요, 됬다, 몇일, 금새, 오랫만에 등)를 찾아 올바른 표기와 함께 표시합니다. 입력 내용은 서버로 전송되지 않으며, 헷갈리는 맞춤법 규칙을 함께 정리했습니다.
-- [띄어쓰기 검사](https://www.aroundtool.com/spacing_checker.html): ‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 띄어쓰기를 고쳐 줍니다. 입력 내용은 서버로 전송되지 않으며, 의존명사·보조용언·단위명사 띄어쓰기 규칙을 예시와 함께 정리했습니다.
+- [띄어쓰기 검사](https://www.aroundtool.com/spacing_checker.html): 자기소개서·블로그 글에서 ‘할수있다’, ‘하는것’, ‘갈때’처럼 의존명사를 붙여 쓴 부분을 찾아 한글 띄어쓰기를 교정합니다. 입력 내용은 서버로 전송되지 않으며, 맞춤법은 맞춤법 검사기에서 따로 확인할 수 있습니다.
 
 ## 지역별 맛집 모아보기
 
@@ -202,6 +202,7 @@
 - [종합소득세 신고 기간 5월 — 프리랜서 3.3% 환급까지](https://www.aroundtool.com/guide-income-tax-filing-may.html)
 - [만 나이 계산법 — 올해 생일 지났으면 연도 차이 그대로](https://www.aroundtool.com/guide-korean-age-rules.html)
 - [BMI 정상 범위 18.5~22.9 — 23부터 비만 전단계 (한국 기준)](https://www.aroundtool.com/guide-bmi-normal-range.html)
+- [타이어 제조일 읽는 법 — DOT 4자리·교체 시기·겨울철 점검](https://www.aroundtool.com/guide-tire-dot-date-winter.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 
