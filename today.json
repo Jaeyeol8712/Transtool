@@ -1,31 +1,37 @@
 {
- "date": "2026-10-30",
+ "date": "2026-10-31",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-10-29.html",
-   "title": "일간 보고서 · 2026-10-29(목)",
+   "file": "reports/daily-2026-10-30.html",
+   "title": "일간 보고서 · 2026-10-30(금)",
    "kpi": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 10,
     "viewers": 4,
     "clicks": 2,
     "clickers": 2
    },
-   "prev": {
-    "views": 5,
-    "viewers": 4,
-    "clicks": 0,
-    "clickers": 0
-   },
    "ai": {
-    "sessions": 0,
-    "users": 0,
-    "sources": []
+    "sessions": 1,
+    "users": 1,
+    "sources": [
+     {
+      "name": "chatgpt.com",
+      "sessions": 1,
+      "users": 1
+     }
+    ]
    },
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 6,
+     "views": 5,
      "clicks": 1
     },
     {
@@ -44,11 +50,6 @@
      "name": "(direct) / (none)",
      "sessions": 2,
      "users": 2
-    },
-    {
-     "name": "blog.naver.com / referral",
-     "sessions": 1,
-     "users": 1
     },
     {
      "name": "daum / organic",
@@ -82,32 +83,25 @@
    ],
    "google": [
     {
-     "query": "가격",
-     "post": "prael-thermashot-ultimate",
+     "query": "후쿠오카 2박 3일 여행 코스",
+     "post": "fukuoka-3days",
      "clicks": 0,
      "impressions": 1,
-     "position": 3
+     "position": 27
     },
     {
-     "query": "가격대",
-     "post": "queens-collagen-rg3",
+     "query": "후쿠오카 2박3일 여행코스",
+     "post": "fukuoka-3days",
      "clicks": 0,
      "impressions": 1,
-     "position": 5
+     "position": 21
     },
     {
-     "query": "대학생노트북",
-     "post": "student-office-laptop",
+     "query": "후쿠오카 2박3일 코스",
+     "post": "fukuoka-3days",
      "clicks": 0,
      "impressions": 1,
-     "position": 60
-    },
-    {
-     "query": "무선 게이밍 키보드 추천",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 7
+     "position": 27
     }
    ]
   }

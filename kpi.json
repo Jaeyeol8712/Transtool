@@ -1,38 +1,36 @@
 {
- "made": "2026-10-30T02:36:58.990Z",
- "range": "2026-10-23 ~ 2026-10-29",
- "prevRange": "2026-10-16 ~ 2026-10-22",
+ "made": "2026-10-30T23:26:22.223Z",
+ "range": "2026-10-24 ~ 2026-10-30",
+ "prevRange": "2026-10-17 ~ 2026-10-23",
  "cur": {
   "users": 83,
   "sessions": 154,
-  "views": 958
+  "views": 871
  },
  "prev": {
-  "users": 27,
-  "sessions": 28,
-  "views": 29
+  "users": 35,
+  "sessions": 40,
+  "views": 141
  },
  "organic": {
-  "cur": 63,
-  "prev": 28
+  "cur": 65,
+  "prev": 32
  },
  "channels": {
   "cur": {
-   "Direct": 83,
-   "Organic Search": 63,
+   "Direct": 81,
+   "Organic Search": 65,
    "Organic Social": 8,
-   "Referral": 1
+   "Unassigned": 2,
+   "AI Assistant": 1
   },
   "prev": {
-   "Organic Search": 28
+   "Organic Search": 32,
+   "Direct": 7,
+   "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261002",
-   "users": 6,
-   "sessions": 7
-  },
   {
    "date": "20261003",
    "users": 2,
@@ -162,28 +160,29 @@
    "date": "20261029",
    "users": 16,
    "sessions": 25
+  },
+  {
+   "date": "20261030",
+   "users": 10,
+   "sessions": 14
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 73
+   "sessions": 70
   },
   {
    "page": "/etc.html",
-   "sessions": 8
+   "sessions": 9
+  },
+  {
+   "page": "/percent_calculator.html",
+   "sessions": 7
   },
   {
    "page": "/connect.html",
    "sessions": 6
-  },
-  {
-   "page": "/percent_calculator.html",
-   "sessions": 5
-  },
-  {
-   "page": "/tire_date_calculator",
-   "sessions": 4
   },
   {
    "page": "/yeonsu-sul-anju.html",
@@ -194,7 +193,11 @@
    "sessions": 3
   },
   {
-   "page": "/grave_weeding_calculator",
+   "page": "/haeundae-michelin.html",
+   "sessions": 3
+  },
+  {
+   "page": "/increase_decrease_calculator",
    "sessions": 3
   },
   {
@@ -207,23 +210,29 @@
   }
  ],
  "google": {
-  "range": "2026-10-21 ~ 2026-10-27",
+  "range": "2026-10-22 ~ 2026-10-28",
   "cur": {
    "clicks": 1,
-   "impressions": 865,
-   "position": 9.934104046242775
+   "impressions": 1165,
+   "position": 9.513304721030043
   },
   "prev": {
-   "clicks": 0,
-   "impressions": 289,
-   "position": 12.719723183391004
+   "clicks": 1,
+   "impressions": 312,
+   "position": 12.086538461538462
   }
  },
  "ai": {
   "cur": {
-   "sessions": 0,
-   "users": 0,
-   "sources": []
+   "sessions": 1,
+   "users": 1,
+   "sources": [
+    {
+     "name": "chatgpt.com",
+     "sessions": 1,
+     "users": 1
+    }
+   ]
   },
   "prev": {
    "sessions": 0,
