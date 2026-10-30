@@ -1,10 +1,10 @@
 {
- "made": "2026-10-29T23:26:58.447Z",
+ "made": "2026-10-30T02:36:58.990Z",
  "range": "2026-10-23 ~ 2026-10-29",
  "prevRange": "2026-10-16 ~ 2026-10-22",
  "cur": {
   "users": 83,
-  "sessions": 155,
+  "sessions": 154,
   "views": 958
  },
  "prev": {
@@ -21,7 +21,6 @@
    "Direct": 83,
    "Organic Search": 63,
    "Organic Social": 8,
-   "Unassigned": 3,
    "Referral": 1
   },
   "prev": {
@@ -171,12 +170,12 @@
    "sessions": 73
   },
   {
-   "page": "/connect.html",
+   "page": "/etc.html",
    "sessions": 8
   },
   {
-   "page": "/etc.html",
-   "sessions": 8
+   "page": "/connect.html",
+   "sessions": 6
   },
   {
    "page": "/percent_calculator.html",
@@ -191,6 +190,10 @@
    "sessions": 4
   },
   {
+   "page": "(not set)",
+   "sessions": 3
+  },
+  {
    "page": "/grave_weeding_calculator",
    "sessions": 3
   },
@@ -201,10 +204,6 @@
   {
    "page": "/shop-neck-traction.html",
    "sessions": 3
-  },
-  {
-   "page": "(not set)",
-   "sessions": 2
   }
  ],
  "google": {
