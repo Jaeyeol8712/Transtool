@@ -203,3 +203,6 @@ TRUST_NOTE_TRAVEL = ("이 글은 공개된 정보를 바탕으로 작성일 기�
                      "틀린 내용은 <a href=\"/contact.html\">문의하기</a>로 알려 주시면 고칩니다.")
 
 SHOP_UPDATED = "2026-10-26"
+
+from posts_1031 import EXTRA_1031  # noqa: E402
+SHOP_EXTRA.update(EXTRA_1031)

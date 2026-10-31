@@ -973,3 +973,7 @@ POSTS = [
         "related": ["shop-mung-bean-cleanser.html", "shop-prael-thermashot-ultimate.html", "discount_rate_calculator.html"],
     },
 ]
+
+# 2026-10-31 추가분 (대표 키워드 9개)
+from posts_1031 import POSTS_1031  # noqa: E402
+POSTS = POSTS_1031 + POSTS
