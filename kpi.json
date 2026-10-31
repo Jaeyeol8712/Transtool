@@ -1,40 +1,37 @@
 {
- "made": "2026-10-31T02:23:00.338Z",
- "range": "2026-10-24 ~ 2026-10-30",
- "prevRange": "2026-10-17 ~ 2026-10-23",
+ "made": "2026-10-31T23:26:12.173Z",
+ "range": "2026-10-25 ~ 2026-10-31",
+ "prevRange": "2026-10-18 ~ 2026-10-24",
  "cur": {
-  "users": 83,
+  "users": 90,
   "sessions": 154,
-  "views": 871
+  "views": 692
  },
  "prev": {
-  "users": 35,
-  "sessions": 40,
-  "views": 141
+  "users": 37,
+  "sessions": 49,
+  "views": 342
  },
  "organic": {
-  "cur": 65,
-  "prev": 32
+  "cur": 66,
+  "prev": 34
  },
  "channels": {
   "cur": {
-   "Direct": 81,
-   "Organic Search": 65,
+   "Direct": 78,
+   "Organic Search": 66,
    "Organic Social": 8,
-   "AI Assistant": 1
+   "Unassigned": 2,
+   "AI Assistant": 1,
+   "Paid Search": 1
   },
   "prev": {
-   "Organic Search": 32,
-   "Direct": 7,
+   "Organic Search": 34,
+   "Direct": 14,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261003",
-   "users": 2,
-   "sessions": 2
-  },
   {
    "date": "20261004",
    "users": 1,
@@ -164,12 +161,17 @@
    "date": "20261030",
    "users": 10,
    "sessions": 14
+  },
+  {
+   "date": "20261031",
+   "users": 11,
+   "sessions": 11
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 69
+   "sessions": 65
   },
   {
    "page": "/etc.html",
@@ -188,12 +190,12 @@
    "sessions": 4
   },
   {
-   "page": "/yeonsu-sul-anju.html",
+   "page": "/haeundae-michelin.html",
    "sessions": 4
   },
   {
-   "page": "/haeundae-michelin.html",
-   "sessions": 3
+   "page": "/yeonsu-sul-anju.html",
+   "sessions": 4
   },
   {
    "page": "/increase_decrease_calculator",
@@ -209,16 +211,16 @@
   }
  ],
  "google": {
-  "range": "2026-10-22 ~ 2026-10-28",
+  "range": "2026-10-23 ~ 2026-10-29",
   "cur": {
    "clicks": 1,
-   "impressions": 1165,
-   "position": 9.513304721030043
+   "impressions": 1497,
+   "position": 9.102204408817636
   },
   "prev": {
    "clicks": 1,
-   "impressions": 312,
-   "position": 12.086538461538462
+   "impressions": 306,
+   "position": 12.07843137254902
   }
  },
  "ai": {
