@@ -1,5 +1,5 @@
 {
- "made": "2026-10-30T23:26:22.223Z",
+ "made": "2026-10-31T02:23:00.338Z",
  "range": "2026-10-24 ~ 2026-10-30",
  "prevRange": "2026-10-17 ~ 2026-10-23",
  "cur": {
@@ -21,7 +21,6 @@
    "Direct": 81,
    "Organic Search": 65,
    "Organic Social": 8,
-   "Unassigned": 2,
    "AI Assistant": 1
   },
   "prev": {
@@ -170,7 +169,7 @@
  "landing": [
   {
    "page": "/",
-   "sessions": 70
+   "sessions": 69
   },
   {
    "page": "/etc.html",
@@ -185,12 +184,12 @@
    "sessions": 6
   },
   {
-   "page": "/yeonsu-sul-anju.html",
+   "page": "(not set)",
    "sessions": 4
   },
   {
-   "page": "(not set)",
-   "sessions": 3
+   "page": "/yeonsu-sul-anju.html",
+   "sessions": 4
   },
   {
    "page": "/haeundae-michelin.html",
