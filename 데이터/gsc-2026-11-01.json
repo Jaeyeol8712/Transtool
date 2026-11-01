@@ -1,0 +1,3876 @@
+{
+ "site": "sc-domain:aroundtool.com",
+ "range": {
+  "startDate": "2026-10-02",
+  "endDate": "2026-10-30"
+ },
+ "total": {
+  "clicks": 5,
+  "impressions": 2574
+ },
+ "daily": [
+  {
+   "date": "2026-10-02",
+   "clicks": 0,
+   "impressions": 14,
+   "ctr": 0,
+   "position": 18.9
+  },
+  {
+   "date": "2026-10-03",
+   "clicks": 0,
+   "impressions": 18,
+   "ctr": 0,
+   "position": 9.3
+  },
+  {
+   "date": "2026-10-04",
+   "clicks": 0,
+   "impressions": 18,
+   "ctr": 0,
+   "position": 16.8
+  },
+  {
+   "date": "2026-10-05",
+   "clicks": 0,
+   "impressions": 34,
+   "ctr": 0,
+   "position": 16.3
+  },
+  {
+   "date": "2026-10-06",
+   "clicks": 1,
+   "impressions": 37,
+   "ctr": 2.7,
+   "position": 19.2
+  },
+  {
+   "date": "2026-10-07",
+   "clicks": 0,
+   "impressions": 28,
+   "ctr": 0,
+   "position": 9.5
+  },
+  {
+   "date": "2026-10-08",
+   "clicks": 0,
+   "impressions": 38,
+   "ctr": 0,
+   "position": 11.4
+  },
+  {
+   "date": "2026-10-09",
+   "clicks": 0,
+   "impressions": 78,
+   "ctr": 0,
+   "position": 12.6
+  },
+  {
+   "date": "2026-10-10",
+   "clicks": 1,
+   "impressions": 21,
+   "ctr": 4.8,
+   "position": 14.3
+  },
+  {
+   "date": "2026-10-11",
+   "clicks": 0,
+   "impressions": 43,
+   "ctr": 0,
+   "position": 10.8
+  },
+  {
+   "date": "2026-10-12",
+   "clicks": 0,
+   "impressions": 72,
+   "ctr": 0,
+   "position": 10.9
+  },
+  {
+   "date": "2026-10-13",
+   "clicks": 0,
+   "impressions": 42,
+   "ctr": 0,
+   "position": 15.3
+  },
+  {
+   "date": "2026-10-14",
+   "clicks": 0,
+   "impressions": 34,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "date": "2026-10-15",
+   "clicks": 0,
+   "impressions": 34,
+   "ctr": 0,
+   "position": 14.6
+  },
+  {
+   "date": "2026-10-16",
+   "clicks": 0,
+   "impressions": 16,
+   "ctr": 0,
+   "position": 10.5
+  },
+  {
+   "date": "2026-10-17",
+   "clicks": 0,
+   "impressions": 50,
+   "ctr": 0,
+   "position": 12.8
+  },
+  {
+   "date": "2026-10-18",
+   "clicks": 0,
+   "impressions": 42,
+   "ctr": 0,
+   "position": 11.8
+  },
+  {
+   "date": "2026-10-19",
+   "clicks": 0,
+   "impressions": 73,
+   "ctr": 0,
+   "position": 11.1
+  },
+  {
+   "date": "2026-10-20",
+   "clicks": 0,
+   "impressions": 40,
+   "ctr": 0,
+   "position": 12.2
+  },
+  {
+   "date": "2026-10-21",
+   "clicks": 1,
+   "impressions": 57,
+   "ctr": 1.8,
+   "position": 11.8
+  },
+  {
+   "date": "2026-10-22",
+   "clicks": 0,
+   "impressions": 28,
+   "ctr": 0,
+   "position": 15.1
+  },
+  {
+   "date": "2026-10-23",
+   "clicks": 0,
+   "impressions": 24,
+   "ctr": 0,
+   "position": 16.1
+  },
+  {
+   "date": "2026-10-24",
+   "clicks": 0,
+   "impressions": 87,
+   "ctr": 0,
+   "position": 8.6
+  },
+  {
+   "date": "2026-10-25",
+   "clicks": 0,
+   "impressions": 169,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "date": "2026-10-26",
+   "clicks": 0,
+   "impressions": 189,
+   "ctr": 0,
+   "position": 8.4
+  },
+  {
+   "date": "2026-10-27",
+   "clicks": 0,
+   "impressions": 311,
+   "ctr": 0,
+   "position": 10.1
+  },
+  {
+   "date": "2026-10-28",
+   "clicks": 1,
+   "impressions": 357,
+   "ctr": 0.3,
+   "position": 8.9
+  },
+  {
+   "date": "2026-10-29",
+   "clicks": 0,
+   "impressions": 360,
+   "ctr": 0,
+   "position": 8.2
+  },
+  {
+   "date": "2026-10-30",
+   "clicks": 1,
+   "impressions": 260,
+   "ctr": 0.4,
+   "position": 9
+  }
+ ],
+ "queries": [
+  {
+   "query": "함박마을",
+   "clicks": 1,
+   "impressions": 8,
+   "ctr": 12.5,
+   "position": 20.9
+  },
+  {
+   "query": "$bmr",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 71.5
+  },
+  {
+   "query": "10 위안 한국 돈",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "100*5000",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "10년 퇴직금 얼마",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "304",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "query": "37000*1.3",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "4*100/20",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "50000*100",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "query": "bmr 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 81
+  },
+  {
+   "query": "dsr 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 101
+  },
+  {
+   "query": "dsr계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "query": "qr 코드 생성기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 70
+  },
+  {
+   "query": "site:www.instagram.com 제주 여행",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "query": "가격",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 3
+  },
+  {
+   "query": "가격대",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5
+  },
+  {
+   "query": "가벽 설치 비용",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "query": "가스비 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "query": "감소율 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "강남맛집 광고 디시",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "query": "게임용 무선 키보드 추천",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "query": "경력계산기 년월일",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 83
+  },
+  {
+   "query": "권장 칼로리 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 57
+  },
+  {
+   "query": "근속 연수 계산",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 59
+  },
+  {
+   "query": "근속연수 계산기",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 12.7
+  },
+  {
+   "query": "글자 수 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "query": "글자 수 계산기",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 27.3
+  },
+  {
+   "query": "글자 수 세기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25.5
+  },
+  {
+   "query": "글자 수 세기 사이트",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "글자수 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "query": "글자수 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "글자수 세기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 55
+  },
+  {
+   "query": "글자수 세기 사이트",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "글자수 세는 사이트",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "query": "글자수계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "글자수세기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28.5
+  },
+  {
+   "query": "글자수세기 프로그램",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "기초 대사량 계산",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 58.7
+  },
+  {
+   "query": "기초 대사량 측정",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "query": "기초대사량 계산",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 53.5
+  },
+  {
+   "query": "남자 평균 기초대사량 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "남자 하루 권장 칼로리 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "다이어트 권장 칼로리",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 60
+  },
+  {
+   "query": "다이어트 권장 칼로리 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "다이어트 칼로리 계산기",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 48.2
+  },
+  {
+   "query": "달러 환율 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "대전 신탄진",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "대출 원리금 균등상환 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 13.5
+  },
+  {
+   "query": "대출 중도상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "query": "대출금상환계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "대출상환계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "대출원리금 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14.5
+  },
+  {
+   "query": "대출원리금계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "대출이율계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "대학생노트북",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 60
+  },
+  {
+   "query": "더치페이 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "로또 랜덤 번호 생성",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "query": "로또 번호 생성",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "query": "로또 번호 생성 프로그램",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "query": "리모델링 견적",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "맞춤법 띄어쓰기 검사기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 55
+  },
+  {
+   "query": "매출액 증가율",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "무료 qr 코드 생성",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "query": "무선 게이밍 키보드 추천",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7.5
+  },
+  {
+   "query": "부동산 중개비 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "query": "부동산 취득세 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "부산 해운대 카페",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "상여금 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 67
+  },
+  {
+   "query": "서귀포 갈치",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 8.5
+  },
+  {
+   "query": "서귀포 갈치 맛집",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "서귀포 갈치조림 맛집",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "서귀포 커피 맛집",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "query": "서귀포 펍",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "신탄진 뜻",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 73
+  },
+  {
+   "query": "실업 급여 금액 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "query": "연수구 함박마을",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "연수동 러시아",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "연차 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 66
+  },
+  {
+   "query": "오탈자 검사",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 48.8
+  },
+  {
+   "query": "오탈자 검사기",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "외환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "query": "용산 생선구이 맛집",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 15.5
+  },
+  {
+   "query": "용산 은행나무포차",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "우사단로",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "원금 균등 분할상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "원금 균등 상환 계산기",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "원금균등 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "query": "원금균등계산기",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원금균등상환 계산",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9.3
+  },
+  {
+   "query": "원금균등상환 계산기",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 8.8
+  },
+  {
+   "query": "원금균등상환계산기",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리균등상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "원리금 균등 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원리금 균등 상환 계산",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14.5
+  },
+  {
+   "query": "원리금 균등 상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원리금 균등상환 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12.5
+  },
+  {
+   "query": "원리금 상환 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "원리금균등 계산기",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리금균등 상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "원리금균등계산기",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 4.7
+  },
+  {
+   "query": "원리금균등분할상환 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "원리금균등상환 계산",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 12.4
+  },
+  {
+   "query": "원리금균등상환 계산기",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "query": "원리금균등상환계산",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11.5
+  },
+  {
+   "query": "원리금균등상환계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "query": "원리금상환 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "원리금상환계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "query": "원리금상환계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "월급 시급 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "query": "은행나무포차",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "은행대출이자계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "이자 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "인테리어 견적",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 47.3
+  },
+  {
+   "query": "인테리어 견적 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 24.5
+  },
+  {
+   "query": "일본 여행 가격",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "query": "일본여행 비용",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 44.5
+  },
+  {
+   "query": "자기 소개서 맞춤법 검사기",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 35.7
+  },
+  {
+   "query": "자소서 글자 수 세기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "자소서 맞춤법 검사기",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 61.4
+  },
+  {
+   "query": "재직 기간 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 86
+  },
+  {
+   "query": "재직 기간 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 54
+  },
+  {
+   "query": "주택담보대출 원리금 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "중개보수 계산기",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "query": "중개수수료 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "중도상환 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "중도상환수수료",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "query": "중도상환수수료 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "중도상환수수료 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "중도상환수수료계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "증감률 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "query": "증감폭",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "천안시",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2
+  },
+  {
+   "query": "첫인상 띄어쓰기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "출산 예정일",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "query": "출산일 계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "칼로리 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 63
+  },
+  {
+   "query": "커피 스케치",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "타이어 생산일자",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "query": "타이어 제조일자",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 89
+  },
+  {
+   "query": "퇴직 급여 계산",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "퇴직금 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "퇴직금 조건",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 52.5
+  },
+  {
+   "query": "퇴직금계산기",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13.3
+  },
+  {
+   "query": "평수 변환",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "query": "하루 권장 칼로리 계산기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 44.5
+  },
+  {
+   "query": "한글 띄어쓰기 교정",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "함박마을 맛집",
+   "clicks": 0,
+   "impressions": 17,
+   "ctr": 0,
+   "position": 9.1
+  },
+  {
+   "query": "함박마을 빵집",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16.5
+  },
+  {
+   "query": "함박뫼로",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "query": "해운대 디저트 맛집",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "해운대 맛집",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "해운대 베이커리카페",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "해운대 소고기",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "해운대 카페",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "해운대 카페 추천",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39.5
+  },
+  {
+   "query": "해운대구 맛집",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 9.2
+  },
+  {
+   "query": "환율 계산기",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 33.8
+  },
+  {
+   "query": "환율계산",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "query": "환율계산기",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 29.8
+  },
+  {
+   "query": "환전계산기",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "후쿠오카 2박 3일 여행 코스",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "후쿠오카 2박3일 여행",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "후쿠오카 2박3일 여행코스",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "후쿠오카 2박3일 코스",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  }
+ ],
+ "pages": [
+  {
+   "page": "https://www.aroundtool.com/interior_calculator.html",
+   "clicks": 1,
+   "impressions": 26,
+   "ctr": 3.8,
+   "position": 31.8
+  },
+  {
+   "page": "https://www.aroundtool.com/tire_date_calculator.html",
+   "clicks": 1,
+   "impressions": 11,
+   "ctr": 9.1,
+   "position": 28.6
+  },
+  {
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 1,
+   "impressions": 101,
+   "ctr": 1,
+   "position": 14.5
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-iguk.html",
+   "clicks": 1,
+   "impressions": 11,
+   "ctr": 9.1,
+   "position": 30.5
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-usadan.html",
+   "clicks": 1,
+   "impressions": 76,
+   "ctr": 1.3,
+   "position": 12.9
+  },
+  {
+   "page": "https://www.aroundtool.com/",
+   "clicks": 0,
+   "impressions": 19,
+   "ctr": 0,
+   "position": 1.4
+  },
+  {
+   "page": "https://www.aroundtool.com/about.html",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 26.2
+  },
+  {
+   "page": "https://www.aroundtool.com/acquisition_tax_calculator",
+   "clicks": 0,
+   "impressions": 26,
+   "ctr": 0,
+   "position": 7.6
+  },
+  {
+   "page": "https://www.aroundtool.com/acquisition_tax_calculator.html",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "page": "https://www.aroundtool.com/age_calculator.html",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 36.1
+  },
+  {
+   "page": "https://www.aroundtool.com/bmi_calculator.html",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 34.6
+  },
+  {
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 18,
+   "ctr": 0,
+   "position": 40.1
+  },
+  {
+   "page": "https://www.aroundtool.com/brokerage_fee_calculator",
+   "clicks": 0,
+   "impressions": 20,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 19,
+   "ctr": 0,
+   "position": 37.4
+  },
+  {
+   "page": "https://www.aroundtool.com/camping_gear_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://www.aroundtool.com/car_tax_calculator",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 15.1
+  },
+  {
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 39,
+   "ctr": 0,
+   "position": 18.3
+  },
+  {
+   "page": "https://www.aroundtool.com/compound_calculator",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 33.1
+  },
+  {
+   "page": "https://www.aroundtool.com/connect.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 38
+  },
+  {
+   "page": "https://www.aroundtool.com/contact.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-daedeok-sintanjin.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 69
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-junggu.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 55.5
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-seogu-cafe.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 64.4
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-seogu.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 59
+  },
+  {
+   "page": "https://www.aroundtool.com/daejeon-yuseong.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 59.5
+  },
+  {
+   "page": "https://www.aroundtool.com/daily_calorie_calculator.html",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 36.8
+  },
+  {
+   "page": "https://www.aroundtool.com/date_calculator.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16.7
+  },
+  {
+   "page": "https://www.aroundtool.com/discount_calculator",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "page": "https://www.aroundtool.com/discount_rate_calculator.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 55.6
+  },
+  {
+   "page": "https://www.aroundtool.com/dsr_calculator",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 26.8
+  },
+  {
+   "page": "https://www.aroundtool.com/due_date_calculator.html",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 45.6
+  },
+  {
+   "page": "https://www.aroundtool.com/dutch_pay_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://www.aroundtool.com/dutch_pay_calculator.html",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 25.5
+  },
+  {
+   "page": "https://www.aroundtool.com/editorial.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 31
+  },
+  {
+   "page": "https://www.aroundtool.com/electricity_bill_calculator.html",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 31.1
+  },
+  {
+   "page": "https://www.aroundtool.com/etc.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 27.5
+  },
+  {
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 92,
+   "ctr": 0,
+   "position": 13.5
+  },
+  {
+   "page": "https://www.aroundtool.com/freelancer_tax_calculator",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 4.5
+  },
+  {
+   "page": "https://www.aroundtool.com/fuel_economy_calculator",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 23.9
+  },
+  {
+   "page": "https://www.aroundtool.com/fuel_economy_calculator.html",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 9.1
+  },
+  {
+   "page": "https://www.aroundtool.com/gangnam-cafe.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 62.7
+  },
+  {
+   "page": "https://www.aroundtool.com/gangnam-gogi.html",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 41.9
+  },
+  {
+   "page": "https://www.aroundtool.com/gangnam-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 72
+  },
+  {
+   "page": "https://www.aroundtool.com/gangnam-sul-anju.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 73.5
+  },
+  {
+   "page": "https://www.aroundtool.com/gangnam.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://www.aroundtool.com/gas_bill_calculator",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 17.9
+  },
+  {
+   "page": "https://www.aroundtool.com/gas_bill_calculator.html",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 10.4
+  },
+  {
+   "page": "https://www.aroundtool.com/grave_weeding_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "page": "https://www.aroundtool.com/grave_weeding_calculator.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 29.9
+  },
+  {
+   "page": "https://www.aroundtool.com/guide-bmi-normal-range.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://www.aroundtool.com/guide-korean-age-rules.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "page": "https://www.aroundtool.com/guide-severance-pay-conditions.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 50.7
+  },
+  {
+   "page": "https://www.aroundtool.com/guide-severance-pay-formula.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://www.aroundtool.com/guide-weekly-holiday-pay-rules.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 101
+  },
+  {
+   "page": "https://www.aroundtool.com/guide_2026_tax.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 27.3
+  },
+  {
+   "page": "https://www.aroundtool.com/gwangju-donggu.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 64
+  },
+  {
+   "page": "https://www.aroundtool.com/gwangju-gwangsan.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://www.aroundtool.com/gwangju-namgu.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 68.7
+  },
+  {
+   "page": "https://www.aroundtool.com/gwangju-seogu.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 66.3
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-bapjip.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 55
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 24,
+   "ctr": 0,
+   "position": 26.6
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-gogi.html",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 32.5
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 31.2
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-iguk.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 59.2
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-michelin.html",
+   "clicks": 0,
+   "impressions": 21,
+   "ctr": 0,
+   "position": 20.1
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae-sul-anju.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 48.5
+  },
+  {
+   "page": "https://www.aroundtool.com/haeundae.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 15.4
+  },
+  {
+   "page": "https://www.aroundtool.com/holiday_pay_calculator.html",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 22.9
+  },
+  {
+   "page": "https://www.aroundtool.com/hourly_monthly_wage_calculator.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "page": "https://www.aroundtool.com/increase_decrease_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 12.7
+  },
+  {
+   "page": "https://www.aroundtool.com/increase_decrease_calculator.html",
+   "clicks": 0,
+   "impressions": 28,
+   "ctr": 0,
+   "position": 14.2
+  },
+  {
+   "page": "https://www.aroundtool.com/japan_travel_calculator.html",
+   "clicks": 0,
+   "impressions": 165,
+   "ctr": 0,
+   "position": 8.7
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-jejusi-cafe.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 66.5
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-jejusi-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 11.3
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-jejusi-hyangto.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 69
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-jejusi-sul-anju.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 64.7
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-jejusi.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 57.2
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-seogwipo-cafe.html",
+   "clicks": 0,
+   "impressions": 22,
+   "ctr": 0,
+   "position": 26.2
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-seogwipo-galchi.html",
+   "clicks": 0,
+   "impressions": 73,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-seogwipo-gogi.html",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 14.9
+  },
+  {
+   "page": "https://www.aroundtool.com/jeju-seogwipo-sul-anju.html",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 37.3
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-dongbu-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 88
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-dongbu-namdo.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-jungbu-namdo.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 80.3
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-jungbu.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-nambu-bapjip.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 64
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-nambu-namdo.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 81
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-nambu.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 99
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-seobu-namdo.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 76.7
+  },
+  {
+   "page": "https://www.aroundtool.com/jeonnam-seobu-sul-anju.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 40.6
+  },
+  {
+   "page": "https://www.aroundtool.com/job_fortune_teller",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "page": "https://www.aroundtool.com/job_fortune_teller.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 101,
+   "ctr": 0,
+   "position": 9.7
+  },
+  {
+   "page": "https://www.aroundtool.com/lotto_generator",
+   "clicks": 0,
+   "impressions": 23,
+   "ctr": 0,
+   "position": 15.7
+  },
+  {
+   "page": "https://www.aroundtool.com/ltv_calculator",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 12.5
+  },
+  {
+   "page": "https://www.aroundtool.com/parental_leave_calculator.html",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 40.6
+  },
+  {
+   "page": "https://www.aroundtool.com/pension_age_calculator.html",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 27.1
+  },
+  {
+   "page": "https://www.aroundtool.com/percent_calculator",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 10.1
+  },
+  {
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1333,
+   "ctr": 0,
+   "position": 7.6
+  },
+  {
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 26,
+   "ctr": 0,
+   "position": 17.3
+  },
+  {
+   "page": "https://www.aroundtool.com/privacy.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "page": "https://www.aroundtool.com/pto_calculator.html",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 25.9
+  },
+  {
+   "page": "https://www.aroundtool.com/pyeong_calculator",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 25.8
+  },
+  {
+   "page": "https://www.aroundtool.com/qr_generator",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 26.4
+  },
+  {
+   "page": "https://www.aroundtool.com/salary_calculator",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 3.5
+  },
+  {
+   "page": "https://www.aroundtool.com/salary_calculator.html",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 25.2
+  },
+  {
+   "page": "https://www.aroundtool.com/savings_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 42.5
+  },
+  {
+   "page": "https://www.aroundtool.com/severance_calculator",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 6.2
+  },
+  {
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 21.5
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-bespoke-ai-fridge-4door.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-bespoke-ai-steam-ultra.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-c-type-65w-charger.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-calf-foot-air-massager.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11.5
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-danang-5days.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 73.5
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-food-waste-disposer.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-fukuoka-3days.html",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 34.3
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-galaxy-s26-ultra.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-jbl-authentics-200.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 35.7
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-mung-bean-cleanser.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-neck-traction.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 72.8
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-prael-thermashot-ultimate.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 15.4
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-queens-collagen-rg3.html",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 10.1
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-student-office-laptop.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-west-europe-3-10days.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 73
+  },
+  {
+   "page": "https://www.aroundtool.com/shop-wireless-gaming-keyboard.html",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 18.7
+  },
+  {
+   "page": "https://www.aroundtool.com/sitemap.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://www.aroundtool.com/sokcho-bapjip.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 62
+  },
+  {
+   "page": "https://www.aroundtool.com/sokcho.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 56
+  },
+  {
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 95,
+   "ctr": 0,
+   "position": 11.4
+  },
+  {
+   "page": "https://www.aroundtool.com/spell_checker",
+   "clicks": 0,
+   "impressions": 24,
+   "ctr": 0,
+   "position": 26.5
+  },
+  {
+   "page": "https://www.aroundtool.com/terms.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 17.4
+  },
+  {
+   "page": "https://www.aroundtool.com/tire_date_calculator",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://www.aroundtool.com/tools.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://www.aroundtool.com/travel-busan.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 58.8
+  },
+  {
+   "page": "https://www.aroundtool.com/travel-jeju.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 43.2
+  },
+  {
+   "page": "https://www.aroundtool.com/travel-osaka.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 55.5
+  },
+  {
+   "page": "https://www.aroundtool.com/travel-sokcho.html",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 38.4
+  },
+  {
+   "page": "https://www.aroundtool.com/unemployment_benefit_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "page": "https://www.aroundtool.com/unemployment_benefit_calculator.html",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 29.5
+  },
+  {
+   "page": "https://www.aroundtool.com/yeonsu-bapjip.html",
+   "clicks": 0,
+   "impressions": 18,
+   "ctr": 0,
+   "position": 33.8
+  },
+  {
+   "page": "https://www.aroundtool.com/yeonsu-gogi.html",
+   "clicks": 0,
+   "impressions": 31,
+   "ctr": 0,
+   "position": 20.5
+  },
+  {
+   "page": "https://www.aroundtool.com/yeonsu-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 38.3
+  },
+  {
+   "page": "https://www.aroundtool.com/yeonsu-sul-anju.html",
+   "clicks": 0,
+   "impressions": 21,
+   "ctr": 0,
+   "position": 26.3
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-bapjip.html",
+   "clicks": 0,
+   "impressions": 31,
+   "ctr": 0,
+   "position": 21.2
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-cafe.html",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 42.1
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-gogi.html",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 30.9
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-gukmul-myeon.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 65
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan-sul-anju.html",
+   "clicks": 0,
+   "impressions": 26,
+   "ctr": 0,
+   "position": 19.6
+  },
+  {
+   "page": "https://www.aroundtool.com/yongsan.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  }
+ ],
+ "queryPages": [
+  {
+   "query": "함박마을",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 1,
+   "impressions": 8,
+   "ctr": 12.5,
+   "position": 20.9
+  },
+  {
+   "query": "$bmr",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 71.5
+  },
+  {
+   "query": "10 위안 한국 돈",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "100*5000",
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "10년 퇴직금 얼마",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "304",
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "query": "37000*1.3",
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "4*100/20",
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "50000*100",
+   "page": "https://www.aroundtool.com/percent_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "query": "bmr 계산기",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 81
+  },
+  {
+   "query": "dsr 계산기",
+   "page": "https://www.aroundtool.com/dsr_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 101
+  },
+  {
+   "query": "dsr계산기",
+   "page": "https://www.aroundtool.com/dsr_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "query": "qr 코드 생성기",
+   "page": "https://www.aroundtool.com/qr_generator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 70
+  },
+  {
+   "query": "site:www.instagram.com 제주 여행",
+   "page": "https://www.aroundtool.com/travel-jeju.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "query": "가격",
+   "page": "https://www.aroundtool.com/shop-prael-thermashot-ultimate.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 3
+  },
+  {
+   "query": "가격대",
+   "page": "https://www.aroundtool.com/shop-queens-collagen-rg3.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5
+  },
+  {
+   "query": "가벽 설치 비용",
+   "page": "https://www.aroundtool.com/interior_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "query": "가스비 계산",
+   "page": "https://www.aroundtool.com/gas_bill_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "query": "감소율 계산",
+   "page": "https://www.aroundtool.com/increase_decrease_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "강남맛집 광고 디시",
+   "page": "https://www.aroundtool.com/gangnam-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "query": "게임용 무선 키보드 추천",
+   "page": "https://www.aroundtool.com/shop-wireless-gaming-keyboard.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "query": "경력계산기 년월일",
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 83
+  },
+  {
+   "query": "권장 칼로리 계산",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 57
+  },
+  {
+   "query": "근속 연수 계산",
+   "page": "https://www.aroundtool.com/pto_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "query": "근속 연수 계산",
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 72
+  },
+  {
+   "query": "근속연수 계산기",
+   "page": "https://www.aroundtool.com/pto_calculator.html",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 5.2
+  },
+  {
+   "query": "근속연수 계산기",
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "query": "글자 수 계산",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "query": "글자 수 계산기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 27.3
+  },
+  {
+   "query": "글자 수 세기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25.5
+  },
+  {
+   "query": "글자 수 세기 사이트",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "글자수 계산",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "query": "글자수 계산기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "글자수 세기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 55
+  },
+  {
+   "query": "글자수 세기 사이트",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "글자수 세는 사이트",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "query": "글자수계산",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "글자수세기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28.5
+  },
+  {
+   "query": "글자수세기 프로그램",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "기초 대사량 계산",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 58.7
+  },
+  {
+   "query": "기초 대사량 측정",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "query": "기초대사량 계산",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 53.5
+  },
+  {
+   "query": "남자 평균 기초대사량 계산기",
+   "page": "https://www.aroundtool.com/bmr_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "남자 하루 권장 칼로리 계산기",
+   "page": "https://www.aroundtool.com/daily_calorie_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "다이어트 권장 칼로리",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 60
+  },
+  {
+   "query": "다이어트 권장 칼로리 계산기",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "다이어트 칼로리 계산기",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 48.2
+  },
+  {
+   "query": "달러 환율 계산",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "대전 신탄진",
+   "page": "https://www.aroundtool.com/daejeon-daedeok-sintanjin.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "대출 원리금 균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 13.5
+  },
+  {
+   "query": "대출 중도상환 계산기",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "query": "대출금상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "대출상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "대출원리금 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14.5
+  },
+  {
+   "query": "대출원리금계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "대출이율계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "대학생노트북",
+   "page": "https://www.aroundtool.com/shop-student-office-laptop.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 60
+  },
+  {
+   "query": "더치페이 계산기",
+   "page": "https://www.aroundtool.com/dutch_pay_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "로또 랜덤 번호 생성",
+   "page": "https://www.aroundtool.com/lotto_generator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "query": "로또 번호 생성",
+   "page": "https://www.aroundtool.com/lotto_generator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "query": "로또 번호 생성 프로그램",
+   "page": "https://www.aroundtool.com/lotto_generator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "query": "리모델링 견적",
+   "page": "https://www.aroundtool.com/interior_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "맞춤법 띄어쓰기 검사기",
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 55
+  },
+  {
+   "query": "매출액 증가율",
+   "page": "https://www.aroundtool.com/increase_decrease_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "무료 qr 코드 생성",
+   "page": "https://www.aroundtool.com/qr_generator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "query": "무선 게이밍 키보드 추천",
+   "page": "https://www.aroundtool.com/shop-wireless-gaming-keyboard.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7.5
+  },
+  {
+   "query": "부동산 중개비 계산기",
+   "page": "https://www.aroundtool.com/brokerage_fee_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "query": "부동산 취득세 계산기",
+   "page": "https://www.aroundtool.com/acquisition_tax_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "부산 해운대 카페",
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "상여금 계산기",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 67
+  },
+  {
+   "query": "서귀포 갈치",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-galchi.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 8.5
+  },
+  {
+   "query": "서귀포 갈치 맛집",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-galchi.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "서귀포 갈치조림 맛집",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-galchi.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "서귀포 커피 맛집",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "query": "서귀포 펍",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-sul-anju.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "신탄진 뜻",
+   "page": "https://www.aroundtool.com/daejeon-daedeok-sintanjin.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 73
+  },
+  {
+   "query": "실업 급여 금액 계산기",
+   "page": "https://www.aroundtool.com/unemployment_benefit_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "query": "연수구 함박마을",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "연수동 러시아",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "연차 계산",
+   "page": "https://www.aroundtool.com/pto_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 66
+  },
+  {
+   "query": "오탈자 검사",
+   "page": "https://www.aroundtool.com/spell_checker",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 48.8
+  },
+  {
+   "query": "오탈자 검사기",
+   "page": "https://www.aroundtool.com/spell_checker",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "외환 계산기",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "query": "용산 생선구이 맛집",
+   "page": "https://www.aroundtool.com/yongsan-bapjip.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 15.5
+  },
+  {
+   "query": "용산 은행나무포차",
+   "page": "https://www.aroundtool.com/yongsan-sul-anju.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "우사단로",
+   "page": "https://www.aroundtool.com/yongsan-usadan.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "원금 균등 분할상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "원금 균등 상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "원금균등 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "query": "원금균등계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원금균등상환 계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9.3
+  },
+  {
+   "query": "원금균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 8.8
+  },
+  {
+   "query": "원금균등상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "원리금 균등 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원리금 균등 상환 계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14.5
+  },
+  {
+   "query": "원리금 균등 상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원리금 균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12.5
+  },
+  {
+   "query": "원리금 상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "원리금균등 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리금균등 상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "query": "원리금균등계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 4.7
+  },
+  {
+   "query": "원리금균등분할상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "원리금균등상환 계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 12.4
+  },
+  {
+   "query": "원리금균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "query": "원리금균등상환계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11.5
+  },
+  {
+   "query": "원리금균등상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "query": "원리금상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "원리금상환계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "query": "원리금상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "월급 시급 계산기",
+   "page": "https://www.aroundtool.com/hourly_monthly_wage_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "query": "은행나무포차",
+   "page": "https://www.aroundtool.com/yongsan-sul-anju.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "query": "은행대출이자계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
+   "page": "https://www.aroundtool.com/shop-prael-thermashot-ultimate.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "이자 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "인테리어 견적",
+   "page": "https://www.aroundtool.com/interior_calculator.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 47.3
+  },
+  {
+   "query": "인테리어 견적 계산기",
+   "page": "https://www.aroundtool.com/interior_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 24.5
+  },
+  {
+   "query": "일본 여행 가격",
+   "page": "https://www.aroundtool.com/japan_travel_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "query": "일본여행 비용",
+   "page": "https://www.aroundtool.com/japan_travel_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 44.5
+  },
+  {
+   "query": "자기 소개서 맞춤법 검사기",
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 35.7
+  },
+  {
+   "query": "자소서 글자 수 세기",
+   "page": "https://www.aroundtool.com/character_counter",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "자소서 맞춤법 검사기",
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 61.4
+  },
+  {
+   "query": "재직 기간 계산",
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 86
+  },
+  {
+   "query": "재직 기간 계산기",
+   "page": "https://www.aroundtool.com/service_years_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 54
+  },
+  {
+   "query": "주택담보대출 원리금 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "중개보수 계산기",
+   "page": "https://www.aroundtool.com/brokerage_fee_calculator",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "query": "중개수수료 계산기",
+   "page": "https://www.aroundtool.com/brokerage_fee_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "중도상환 계산기",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "query": "중도상환수수료",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "query": "중도상환수수료 계산",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "중도상환수수료 계산기",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "중도상환수수료계산",
+   "page": "https://www.aroundtool.com/prepayment_penalty_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "query": "증감률 계산기",
+   "page": "https://www.aroundtool.com/increase_decrease_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "query": "증감폭",
+   "page": "https://www.aroundtool.com/increase_decrease_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "천안시",
+   "page": "https://www.aroundtool.com/gas_bill_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2
+  },
+  {
+   "query": "첫인상 띄어쓰기",
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "출산 예정일",
+   "page": "https://www.aroundtool.com/due_date_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "query": "출산일 계산기",
+   "page": "https://www.aroundtool.com/due_date_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "query": "칼로리 계산",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 63
+  },
+  {
+   "query": "커피 스케치",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "타이어 생산일자",
+   "page": "https://www.aroundtool.com/tire_date_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "query": "타이어 제조일자",
+   "page": "https://www.aroundtool.com/tire_date_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 89
+  },
+  {
+   "query": "퇴직 급여 계산",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "query": "퇴직금 계산기",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "query": "퇴직금 조건",
+   "page": "https://www.aroundtool.com/guide-severance-pay-conditions.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 52.5
+  },
+  {
+   "query": "퇴직금계산기",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13.3
+  },
+  {
+   "query": "평수 변환",
+   "page": "https://www.aroundtool.com/pyeong_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "query": "하루 권장 칼로리 계산기",
+   "page": "https://www.aroundtool.com/calorie_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 59
+  },
+  {
+   "query": "하루 권장 칼로리 계산기",
+   "page": "https://www.aroundtool.com/daily_calorie_calculator.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "query": "한글 띄어쓰기 교정",
+   "page": "https://www.aroundtool.com/spacing_checker",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "query": "함박마을 맛집",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 17,
+   "ctr": 0,
+   "position": 9.1
+  },
+  {
+   "query": "함박마을 빵집",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16.5
+  },
+  {
+   "query": "함박뫼로",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "query": "해운대 디저트 맛집",
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "해운대 맛집",
+   "page": "https://www.aroundtool.com/haeundae.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "query": "해운대 베이커리카페",
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "해운대 소고기",
+   "page": "https://www.aroundtool.com/haeundae-gogi.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "query": "해운대 카페",
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 19
+  },
+  {
+   "query": "해운대 카페 추천",
+   "page": "https://www.aroundtool.com/haeundae-cafe.html",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39.5
+  },
+  {
+   "query": "해운대구 맛집",
+   "page": "https://www.aroundtool.com/haeundae.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 9.2
+  },
+  {
+   "query": "환율 계산기",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 33.8
+  },
+  {
+   "query": "환율계산",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "query": "환율계산기",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 29.8
+  },
+  {
+   "query": "환전계산기",
+   "page": "https://www.aroundtool.com/exchange_rate_calculator",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "후쿠오카 2박 3일 여행 코스",
+   "page": "https://www.aroundtool.com/shop-fukuoka-3days.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "query": "후쿠오카 2박3일 여행",
+   "page": "https://www.aroundtool.com/shop-fukuoka-3days.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "query": "후쿠오카 2박3일 여행코스",
+   "page": "https://www.aroundtool.com/shop-fukuoka-3days.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "query": "후쿠오카 2박3일 코스",
+   "page": "https://www.aroundtool.com/shop-fukuoka-3days.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  }
+ ],
+ "opportunities": [
+  {
+   "query": "함박마을 맛집",
+   "page": "https://www.aroundtool.com/yeonsu-hambak.html",
+   "clicks": 0,
+   "impressions": 17,
+   "ctr": 0,
+   "position": 9.1
+  },
+  {
+   "query": "원금균등상환계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리금균등 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 8.3
+  },
+  {
+   "query": "원리금균등상환 계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 12.4
+  },
+  {
+   "query": "해운대구 맛집",
+   "page": "https://www.aroundtool.com/haeundae.html",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 9.2
+  },
+  {
+   "query": "원금균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 8.8
+  },
+  {
+   "query": "원리금균등상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 9.8
+  },
+  {
+   "query": "서귀포 갈치 맛집",
+   "page": "https://www.aroundtool.com/jeju-seogwipo-galchi.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "query": "원금 균등 상환 계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "query": "원금균등계산기",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "query": "원금균등상환 계산",
+   "page": "https://www.aroundtool.com/loan_calculator",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 9.3
+  },
+  {
+   "query": "퇴직금계산기",
+   "page": "https://www.aroundtool.com/severance_calculator.html",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 13.3
+  }
+ ]
+}
