@@ -1,5 +1,5 @@
 {
- "made": "2026-10-31T23:26:12.173Z",
+ "made": "2026-11-01T02:14:03.945Z",
  "range": "2026-10-25 ~ 2026-10-31",
  "prevRange": "2026-10-18 ~ 2026-10-24",
  "cur": {
@@ -21,7 +21,6 @@
    "Direct": 78,
    "Organic Search": 66,
    "Organic Social": 8,
-   "Unassigned": 2,
    "AI Assistant": 1,
    "Paid Search": 1
   },
@@ -183,7 +182,7 @@
   },
   {
    "page": "/connect.html",
-   "sessions": 6
+   "sessions": 5
   },
   {
    "page": "(not set)",
