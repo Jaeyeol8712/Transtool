@@ -360,7 +360,7 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>중도상환수수료 계산기 — 대출 조기상환 시 잔존일수 기준 계산</title>
+      <title>중도상환수수료 계산기 — 대출 중도상환 수수료 계산 (잔존일수·3년 슬라이딩)</title>
       <link>https://www.aroundtool.com/prepayment_penalty_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/prepayment_penalty_calculator.html</guid>
       <category>생활툴</category>
@@ -368,11 +368,11 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>퍼센트 계산기 — 전체의 N%, 일부가 전체의 몇 %인지 계산</title>
+      <title>퍼센트 계산기 — 백분율 계산, % 구하는 법 (전체의 N%·몇 퍼센트인지)</title>
       <link>https://www.aroundtool.com/percent_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/percent_calculator.html</guid>
       <category>생활툴</category>
-      <description>전체 값의 N%가 얼마인지, 일부 값이 전체의 몇 퍼센트인지 두 가지 백분율을 바로 계산합니다. 백분율 공식과 퍼센트·퍼센트포인트 차이, 일상 계산 예시를 함께 정리했습니다.</description>
+      <description>전체 × N ÷ 100, 일부 ÷ 전체 × 100 공식으로 백분율을 바로 계산합니다. 전체의 N%가 얼마인지, 일부가 전체의 몇 %인지 구하고 부가세·할인 전 가격 역산, %와 %p 차이, 금액별 퍼센트 표를 정리했습니다.</description>
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -416,11 +416,11 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>증감률 계산기 — 이전 값 대비 증가율·감소율(%) 계산</title>
+      <title>증감률 계산기 — 증가율·감소율 계산, 매출액 증가율 공식 (%·%p 차이)</title>
       <link>https://www.aroundtool.com/increase_decrease_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/increase_decrease_calculator.html</guid>
       <category>생활툴</category>
-      <description>이전 값과 현재 값을 넣으면 증감률(%)과 증가·감소 여부를 바로 계산합니다. 증감률 공식, 퍼센트와 퍼센트포인트(%p)의 차이, 매출·주가·체중 변화 계산 예시를 함께 설명합니다.</description>
+      <description>이전 값과 현재 값을 넣으면 증감률(%)과 증가·감소 여부를 바로 계산합니다. (현재 값 − 이전 값) ÷ 이전 값 × 100 공식, 전년 대비 매출액 증가율 예시, 증감액과 퍼센트포인트(%p) 차이를 설명합니다.</description>
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -536,11 +536,11 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>글자수 세기 — 공백 포함·제외 글자수 계산기 (자소서·블로그)</title>
+      <title>글자수 세기 — 글자 수 계산기, 공백 포함·제외·바이트 (자소서·블로그)</title>
       <link>https://www.aroundtool.com/character_counter.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/character_counter.html</guid>
       <category>생활툴</category>
-      <description>자기소개서·블로그 원고를 붙여 넣으면 공백 포함·공백 제외 글자수, 단어 수, 문장 수, 줄 수, UTF-8 바이트를 실시간으로 계산합니다. 입력 내용은 서버로 전송되지 않으며, 자소서 글자수 기준과 바이트 계산법을 정리했습니다.</description>
+      <description>자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.</description>
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -592,7 +592,7 @@
       <pubDate>Fri, 23 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>우사단로 이슬람 거리 — 서울 안의 할랄 푸드 거리</title>
+      <title>우사단로 이슬람 거리 — 이태원 서울중앙성원 앞 할랄 음식 거리 안내</title>
       <link>https://www.aroundtool.com/yongsan-usadan.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/yongsan-usadan.html</guid>
       <category>맛집</category>
@@ -640,11 +640,11 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>용산 생선구이·순대국 맛집 2곳 — 후암동 순대국과 용산동 노포 대원식당</title>
+      <title>용산 생선구이 맛집 — 용산동 노포 대원식당 생선구이 백반·후암동 순대국</title>
       <link>https://www.aroundtool.com/yongsan-bapjip.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/yongsan-bapjip.html</guid>
       <category>맛집</category>
-      <description>서울 용산구 밥집. 다이닝코드 후암로 순대국 1위 순대국가마솥족발과 용산동 노포 대원식당. 검증 근거와 단점을 함께 밝혔습니다.</description>
+      <description>서울 용산구 생선구이 백반 노포 대원식당(다이닝코드 용산동 노포 부문 ★4.5)과 후암로 순대국가마솥족발(순대국 ★4.7). 선정 근거와 확인하지 못한 항목, 단점을 함께 밝혔습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -680,11 +680,11 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>인천 연수구 고기 맛집 3곳 — 인천 연수구 식당 기록</title>
+      <title>인천 연수구 고기 맛집 3곳 — 청학동 막창·동춘동 한우 등심·연수동 키조개 삼합</title>
       <link>https://www.aroundtool.com/yeonsu-gogi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/yeonsu-gogi.html</guid>
       <category>맛집</category>
-      <description>인천 연수구 막창·한우·키조개 삼합. 주차 가능 여부로 갈리는 세 곳.</description>
+      <description>인천 연수구 고깃집 3곳. 청학동 남도막창구이, 동춘동 우판등심 인천점, 연수동 부원집(키조개 관자 삼합)을 주차·룸 여부와 선정 근거, 단점으로 비교했습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -920,11 +920,11 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>서귀포 갈치 맛집 2곳 — 갈치국·갈치조림 (호림식당·네거리식당)</title>
+      <title>서귀포 갈치 맛집 2곳 — 갈치조림·갈치구이·갈치국 (호림식당·네거리식당)</title>
       <link>https://www.aroundtool.com/jeju-seogwipo-galchi.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/jeju-seogwipo-galchi.html</guid>
       <category>맛집</category>
-      <description>제주특별자치도 서귀포시 갈치. 호림식당 · 네거리식당. 검증 근거와 단점을 함께 밝혔습니다.</description>
+      <description>제주 서귀포 갈치조림·갈치구이를 하는 호림식당과 갈치국을 하는 네거리식당. 다이닝코드 현지인 목록 근거, 은갈치·먹갈치 차이, 확인하지 못한 주소·가격과 단점까지 밝혔습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -992,11 +992,11 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>인테리어 가견적 계산기 — 항목별 단가와 예상 구도</title>
+      <title>인테리어 견적 계산기 — 아파트 리모델링 가견적, 항목별 비용 (평수·마감 등급)</title>
       <link>https://www.aroundtool.com/interior_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/interior_calculator.html</guid>
       <category>생활툴</category>
-      <description>2026년 시세 기준 아파트 인테리어 가견적 계산기. 평수와 마감 등급, 공사 항목을 고르면 항목별 금액과 평면도 예상 구도가 함께 나옵니다. 철거·바닥·도배·주방·욕실·창호·확장까지 13개 항목.</description>
+      <description>평수·마감 등급·공사 항목을 고르면 아파트 인테리어·리모델링 가견적을 항목별 범위로 계산합니다. 철거·바닥·도배·주방·욕실·창호·발코니 확장 시세와 공사 유형별 비용·기간, 견적서 비교 요령을 정리했습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -1248,7 +1248,7 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
-      <title>부동산 취득세 계산기 — 생애최초·신생아 감면 반영</title>
+      <title>부동산 취득세 계산기 — 주택 취득세·지방교육세·농특세 계산 (생애최초·신생아 감면)</title>
       <link>https://www.aroundtool.com/acquisition_tax_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/acquisition_tax_calculator.html</guid>
       <category>생활툴</category>
