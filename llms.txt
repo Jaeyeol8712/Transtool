@@ -203,6 +203,8 @@
 - [만 나이 계산법 — 올해 생일 지났으면 연도 차이 그대로](https://www.aroundtool.com/guide-korean-age-rules.html)
 - [BMI 정상 범위 18.5~22.9 — 23부터 비만 전단계 (한국 기준)](https://www.aroundtool.com/guide-bmi-normal-range.html)
 - [타이어 제조일 읽는 법 — DOT 4자리·교체 시기·겨울철 점검](https://www.aroundtool.com/guide-tire-dot-date-winter.html)
+- [평수 계산법 — 전용면적·공급면적·계약면적 차이와 ㎡ 환산](https://www.aroundtool.com/guide-pyeong-area-types.html)
+- [자동차세 1월 연납 할인 — 신청 기간·공제 계산법·차 팔면 환급](https://www.aroundtool.com/guide-car-tax-january-prepay.html)
 - [연말정산 미리보기 이용법 — 11월에 챙길 3가지](https://www.aroundtool.com/guide-year-end-tax-preview.html)
 - [퍼센트 계산 공식 모음 — 비율·할인·증가율 한 번에](https://www.aroundtool.com/guide-percent-formulas.html)
 - [도시가스 요금 계산법 — 겨울 난방비, 기본요금과 사용량으로 계산](https://www.aroundtool.com/guide-gas-bill-formula.html)
