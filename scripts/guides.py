@@ -298,6 +298,9 @@ GUIDES = [
 ]
 
 
+from guides_1101 import GUIDES_1101  # noqa: E402  (2026-11-01 컨펌 i261101-01·02)
+GUIDES += GUIDES_1101
+
 # ── 보강 (2026-10-26): FAQ 5개 이상, 표가 없던 가이드에 표 추가 ──
 def _t(head, rows):
     th = "".join(f"<th>{h}</th>" for h in head)
