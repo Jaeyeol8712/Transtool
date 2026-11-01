@@ -23,18 +23,29 @@ def to_text(block):
     t = html.unescape(t)
     return re.sub(r"\n{3,}", "\n\n", "\n".join(l.strip() for l in t.splitlines())).strip()
 
+SITE = "https://www.aroundtool.com"
+
 def export(slug):
+    """블로그용: 대가성 문구 → 대표 사진 → 본문(그래픽 자리 표시) → 제휴 링크(브랜드 커넥트 발급 링크 그대로) → 사이트 정리 글 링크."""
     p = next(x for x in POSTS if x["slug"] == slug)
     d = DISCLOSURE[p.get("program", "shopping")]
-    out = [p["title"], "", d, "", p["link"], ""]
+    label = "👉 여행 비용 알아보기" if p.get("kind") == "travel" else "👉 제품 가격 알아보기"
+    link = f"{label}\n{p['link']}"
+    out = [p["title"], "", d, ""]
+    if p.get("cta_photo"):
+        out += ["[사진: 대표 사진]", ""]
+    out += [link, ""]
     for b in p["body"]:
         if b.startswith("{img"):
-            out += [f"[이미지 {b[4]}]", ""]
+            out += [f"[사진: 설명 그래픽 {b[4]}]", ""]
         elif b == "{cta}":
-            out += [p.get("cta_hook", ""), p["link"], ""]
+            out += [p.get("cta_hook", ""), link, ""]
         else:
-            out += [to_text(b), ""]
-    out += p.get("closing", []) + ["", d, "", p["link"]]
+            t = to_text(b)
+            t = re.sub(r"^(\S+)\n", r"\1 ", t) if t[:1] and not t[:1].isalnum() and "\n" in t[:4] else t
+            out += [t, ""]
+    out += [c.replace("아래 버튼에서", "아래 링크에서") for c in p.get("closing", [])]
+    out += ["", link, "", f"📌 표와 자주 묻는 질문까지 정리한 글: {SITE}/shop-{slug}.html", "", d]
     os.makedirs("blog-export", exist_ok=True)
     path = f"blog-export/{slug}.txt"
     open(path, "w", encoding="utf-8").write("\n".join(out).strip() + "\n")
