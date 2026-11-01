@@ -212,6 +212,9 @@
 - [미사용 연차수당 계산법 — 1일 통상임금 × 남은 일수 (연말 정산 전 확인)](https://www.aroundtool.com/guide-unused-annual-leave-pay.html)
 - [적금 이자 세금 15.4% — 만기 실수령액 계산법 (월 50만 원 예시)](https://www.aroundtool.com/guide-savings-interest-tax.html)
 - [2026 월급 실수령액 표 — 연봉 3천~1억, 4대보험·세금 빼면 얼마?](https://www.aroundtool.com/guide-monthly-net-salary-table.html)
+- [만 나이 기준 정리 — 초등 입학·병역·청약은 몇 살부터? (연 나이 예외)](https://www.aroundtool.com/guide-age-criteria-school-military-housing.html)
+- [더치페이 정산법 — 연말 모임 N분의 1, 술값 따로·먼저 낸 사람 정산까지](https://www.aroundtool.com/guide-dutch-pay-settlement.html)
+- [로또 당첨금 세금 — 3억 이하 22%, 3억 초과분 33%… 실수령액 계산](https://www.aroundtool.com/guide-lotto-prize-tax.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 
