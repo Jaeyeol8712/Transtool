@@ -1,73 +1,77 @@
 {
- "date": "2026-11-01",
+ "date": "2026-11-02",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-10-31.html",
-   "title": "일간 보고서 · 2026-10-31(토)",
+   "file": "reports/daily-2026-11-01.html",
+   "title": "일간 보고서 · 2026-11-01(일)",
    "kpi": {
+    "views": 4,
+    "viewers": 4,
+    "clicks": 1,
+    "clickers": 1
+   },
+   "prev": {
     "views": 3,
     "viewers": 1,
     "clicks": 0,
     "clickers": 0
    },
-   "prev": {
-    "views": 0,
-    "viewers": 0,
-    "clicks": 0,
-    "clickers": 0
-   },
    "ai": {
-    "sessions": 0,
-    "users": 0,
-    "sources": []
+    "sessions": 1,
+    "users": 1,
+    "sources": [
+     {
+      "name": "chatgpt.com",
+      "sessions": 1,
+      "users": 1
+     }
+    ]
    },
    "topPosts": [
     {
-     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 4,
-     "clicks": 1
-    },
-    {
-     "post": "다낭 5일 여행 추천 코스 가격 정리",
+     "post": "아이폰 17프로 자급제 256GB 사양 정리",
      "views": 1,
      "clicks": 1
     },
     {
-     "post": "종아리 마사지기 공기압 추천 가격 총정리",
-     "views": 4,
+     "post": "동유럽 3개국 여행 코스 추천 정리",
+     "views": 1,
+     "clicks": 0
+    },
+    {
+     "post": "갤럭시 S26 울트라 512GB 자급제 가격",
+     "views": 1,
      "clicks": 0
     }
    ],
    "sources": [
     {
-     "name": "(direct) / (none)",
-     "sessions": 1,
-     "users": 1
+     "name": "daum / organic",
+     "sessions": 2,
+     "users": 2
     },
     {
-     "name": "m.search.naver.com / referral",
-     "sessions": 1,
-     "users": 1
+     "name": "naver_cafe / cafe",
+     "sessions": 2,
+     "users": 2
     }
    ],
    "keywords": [
     {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "calf-foot-air-massager",
+     "engine": "다음",
+     "query": "대학생 노트북",
+     "post": "student-office-laptop",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "서유럽 여행",
+     "post": "west-europe-3-10days",
      "sessions": 1
     }
    ],
-   "google": [
-    {
-     "query": "후쿠오카 2박3일 여행",
-     "post": "fukuoka-3days",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 23
-    }
-   ]
+   "google": []
   }
  ],
  "errors": []
