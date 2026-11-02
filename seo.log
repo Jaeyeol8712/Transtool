@@ -1,31 +1,4 @@
-== 2026-11-01T06:13:13Z push 2b29287037eca4066f153f300ff48da42ee6eb38
-· 대상 35개
-  https://www.aroundtool.com/acquisition_tax_calculator.html
-  https://www.aroundtool.com/electricity_bill_calculator.html
-  https://www.aroundtool.com/exchange_rate_calculator.html
-  https://www.aroundtool.com/gas_bill_calculator.html
-  https://www.aroundtool.com/guide-age-criteria-school-military-housing.html
-  https://www.aroundtool.com/guide-annual-leave-rules.html
-  https://www.aroundtool.com/guide-bmi-normal-range.html
-  https://www.aroundtool.com/guide-car-tax-january-prepay.html
-  https://www.aroundtool.com/guide-comprehensive-property-tax-schedule.html
-  https://www.aroundtool.com/guide-dutch-pay-settlement.html
-  https://www.aroundtool.com/guide-gas-bill-formula.html
-  https://www.aroundtool.com/guide-income-tax-filing-may.html
-  https://www.aroundtool.com/guide-increase-rate-formula.html
-  https://www.aroundtool.com/guide-kimjang-cost.html
-  https://www.aroundtool.com/guide-korean-age-rules.html
-  https://www.aroundtool.com/guide-lotto-prize-tax.html
-  https://www.aroundtool.com/guide-minimum-wage-2027.html
-  https://www.aroundtool.com/guide-monthly-net-salary-table.html
-  https://www.aroundtool.com/guide-overseas-direct-purchase-duty-free.html
-  https://www.aroundtool.com/guide-percent-formulas.html
-  … 외 15개
-
-  ✓ api.indexnow.org — 200 접수됨
-  ✓ searchadvisor.naver.com — 200 접수됨
-
-· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+== 2026-11-02T02:33:09Z schedule fd32a101bb7e80fc68575a9519612845b3f31766
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
