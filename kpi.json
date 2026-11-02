@@ -1,42 +1,37 @@
 {
- "made": "2026-11-02T02:30:44.468Z",
- "range": "2026-10-26 ~ 2026-11-01",
- "prevRange": "2026-10-19 ~ 2026-10-25",
+ "made": "2026-11-02T23:26:58.760Z",
+ "range": "2026-10-27 ~ 2026-11-02",
+ "prevRange": "2026-10-20 ~ 2026-10-26",
  "cur": {
-  "users": 91,
-  "sessions": 146,
-  "views": 518
+  "users": 90,
+  "sessions": 136,
+  "views": 303
  },
  "prev": {
-  "users": 42,
-  "sessions": 64,
-  "views": 527
+  "users": 50,
+  "sessions": 82,
+  "views": 756
  },
  "organic": {
-  "cur": 57,
-  "prev": 46
+  "cur": 56,
+  "prev": 48
  },
  "channels": {
   "cur": {
-   "Direct": 76,
-   "Organic Search": 57,
+   "Direct": 62,
+   "Organic Search": 56,
    "Organic Social": 8,
-   "AI Assistant": 2,
-   "Unassigned": 2,
+   "Unassigned": 7,
+   "AI Assistant": 3,
    "Paid Search": 1
   },
   "prev": {
-   "Organic Search": 46,
-   "Direct": 17,
+   "Organic Search": 48,
+   "Direct": 33,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261005",
-   "users": 5,
-   "sessions": 5
-  },
   {
    "date": "20261006",
    "users": 7,
@@ -166,16 +161,21 @@
    "date": "20261101",
    "users": 8,
    "sessions": 8
+  },
+  {
+   "date": "20261102",
+   "users": 16,
+   "sessions": 18
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 57
+   "sessions": 43
   },
   {
    "page": "/etc.html",
-   "sessions": 9
+   "sessions": 10
   },
   {
    "page": "/percent_calculator.html",
@@ -186,7 +186,7 @@
    "sessions": 4
   },
   {
-   "page": "/connect.html",
+   "page": "/acquisition_tax_calculator",
    "sessions": 4
   },
   {
@@ -194,7 +194,11 @@
    "sessions": 4
   },
   {
-   "page": "/increase_decrease_calculator",
+   "page": "/interior_calculator.html",
+   "sessions": 4
+  },
+  {
+   "page": "/fuel_economy_calculator",
    "sessions": 3
   },
   {
@@ -202,36 +206,32 @@
    "sessions": 3
   },
   {
-   "page": "/shop-neck-traction.html",
-   "sessions": 3
-  },
-  {
-   "page": "/yeonsu-sul-anju.html",
+   "page": "/shop-east-europe-3countries.html",
    "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-24 ~ 2026-10-30",
+  "range": "2026-10-25 ~ 2026-10-31",
   "cur": {
    "clicks": 2,
-   "impressions": 1733,
-   "position": 8.989613387189845
+   "impressions": 1915,
+   "position": 8.92845953002611
   },
   "prev": {
    "clicks": 1,
-   "impressions": 314,
-   "position": 12.464968152866241
+   "impressions": 351,
+   "position": 11.452991452991453
   }
  },
  "ai": {
   "cur": {
-   "sessions": 2,
-   "users": 2,
+   "sessions": 3,
+   "users": 3,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 2,
-     "users": 2
+     "sessions": 3,
+     "users": 3
     }
    ]
   },

@@ -1,21 +1,21 @@
 {
- "date": "2026-11-02",
+ "date": "2026-11-03",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-01.html",
-   "title": "일간 보고서 · 2026-11-01(일)",
+   "file": "reports/daily-2026-11-02.html",
+   "title": "일간 보고서 · 2026-11-02(월)",
    "kpi": {
-    "views": 4,
+    "views": 6,
     "viewers": 4,
     "clicks": 1,
     "clickers": 1
    },
    "prev": {
-    "views": 3,
-    "viewers": 1,
-    "clicks": 0,
-    "clickers": 0
+    "views": 4,
+    "viewers": 4,
+    "clicks": 1,
+    "clickers": 1
    },
    "ai": {
     "sessions": 1,
@@ -35,26 +35,31 @@
      "clicks": 1
     },
     {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
+     "post": "설화수 탄력 3종 기획세트 고르는 법",
      "views": 1,
-     "clicks": 0
+     "clicks": 1
     },
     {
-     "post": "갤럭시 S26 울트라 512GB 자급제 가격",
-     "views": 1,
+     "post": "동유럽 3개국 여행 코스 추천 정리",
+     "views": 3,
      "clicks": 0
     }
    ],
    "sources": [
+    {
+     "name": "naver_cafe / cafe",
+     "sessions": 5,
+     "users": 5
+    },
     {
      "name": "daum / organic",
      "sessions": 2,
      "users": 2
     },
     {
-     "name": "naver_cafe / cafe",
-     "sessions": 2,
-     "users": 2
+     "name": "naver.com / referral",
+     "sessions": 1,
+     "users": 1
     }
    ],
    "keywords": [
@@ -69,9 +74,186 @@
      "query": "서유럽 여행",
      "post": "west-europe-3-10days",
      "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "east-europe-3countries",
+     "sessions": 1
     }
    ],
-   "google": []
+   "google": [
+    {
+     "query": "미백제품 추천",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 27
+    }
+   ]
+  },
+  {
+   "type": "monthly",
+   "file": "reports/monthly-2026-10.html",
+   "title": "월간 보고서 · 2026년 10월",
+   "kpi": {
+    "views": 223,
+    "viewers": 26,
+    "clicks": 2,
+    "clickers": 2
+   },
+   "prev": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "topPosts": [
+    {
+     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
+     "views": 29,
+     "clicks": 1
+    },
+    {
+     "post": "다낭 5일 여행 추천 코스 가격 정리",
+     "views": 16,
+     "clicks": 1
+    },
+    {
+     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "views": 25,
+     "clicks": 0
+    }
+   ],
+   "sources": [
+    {
+     "name": "daum / organic",
+     "sessions": 5,
+     "users": 5
+    },
+    {
+     "name": "(direct) / (none)",
+     "sessions": 2,
+     "users": 2
+    },
+    {
+     "name": "m.search.naver.com / referral",
+     "sessions": 2,
+     "users": 2
+    },
+    {
+     "name": "blog.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "m.facebook.com / referral",
+     "sessions": 1,
+     "users": 1
+    }
+   ],
+   "keywords": [
+    {
+     "engine": "다음",
+     "query": "거북목 교정기",
+     "post": "neck-traction",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "로봇청소기 추천",
+     "post": "bespoke-ai-steam-ultra",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "C타입 고속",
+     "post": "c-type-65w-charger",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "블루투스 스피커",
+     "post": "jbl-authentics-200",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "후쿠오카 여행",
+     "post": "fukuoka-3days",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "calf-foot-air-massager",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "galaxy-s26-ultra",
+     "sessions": 1
+    }
+   ],
+   "google": [
+    {
+     "query": "무선 게이밍 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 2,
+     "position": 7.5
+    },
+    {
+     "query": "가격",
+     "post": "prael-thermashot-ultimate",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 3
+    },
+    {
+     "query": "가격대",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 5
+    },
+    {
+     "query": "게임용 무선 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 51
+    },
+    {
+     "query": "대학생노트북",
+     "post": "student-office-laptop",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 60
+    },
+    {
+     "query": "미백제품 추천",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 27
+    },
+    {
+     "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
+     "post": "prael-thermashot-ultimate",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 7
+    },
+    {
+     "query": "후쿠오카 2박 3일 여행 코스",
+     "post": "fukuoka-3days",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 27
+    }
+   ]
   }
  ],
  "errors": []
