@@ -1,5 +1,5 @@
 {
- "made": "2026-11-01T23:26:27.476Z",
+ "made": "2026-11-02T02:30:44.468Z",
  "range": "2026-10-26 ~ 2026-11-01",
  "prevRange": "2026-10-19 ~ 2026-10-25",
  "cur": {
@@ -21,8 +21,8 @@
    "Direct": 76,
    "Organic Search": 57,
    "Organic Social": 8,
-   "Unassigned": 3,
    "AI Assistant": 2,
+   "Unassigned": 2,
    "Paid Search": 1
   },
   "prev": {
@@ -175,7 +175,7 @@
   },
   {
    "page": "/etc.html",
-   "sessions": 10
+   "sessions": 9
   },
   {
    "page": "/percent_calculator.html",
