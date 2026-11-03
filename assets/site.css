@@ -786,3 +786,9 @@ body.b .vx-card{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap
 body.b .vx-card .vx-card-e{display:none}
 body.b .at-content .vx-card .vx-card-n{position:static;grid-row:1/span 2;width:28px;height:28px;min-width:0;min-height:0;padding:0;border-radius:50%;display:grid;place-items:center;background:var(--at-brand-tint);color:var(--at-brand);font-size:.875rem;font-weight:800;margin-top:1px}
 body.b .vx-card .vx-card-t,body.b .vx-card .vx-card-d{grid-column:2}
+/* 추천 모음 목록: 카드가 테두리 밖으로 붙지 않게 안쪽 여백, 목록 버튼은 깜빡이지 않음 */
+.at-content>main>.at-pane{padding:0 1.1rem 1.2rem}
+.at-shop-item{min-width:0}
+.at-shop-thumb{flex-shrink:0}
+.at-cta.at-cta-sm{animation:none!important;background:#C81E1E!important;box-shadow:none!important}
+.at-cta.at-cta-sm:hover{background:#A51818!important}
