@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 259 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 263 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -28,7 +28,6 @@
   <url>
     <loc>https://www.aroundtool.com/acquisition_tax_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-3.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/age_calculator.html</loc>
@@ -58,7 +57,10 @@
   <url>
     <loc>https://www.aroundtool.com/camping_gear_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-tent-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/capital_gains_tax_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/car_tax_calculator.html</loc>
@@ -78,6 +80,10 @@
     <loc>https://www.aroundtool.com/compound_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-coins-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/comprehensive_property_tax_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/connect.html</loc>
@@ -376,6 +382,11 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-real-estate-price-lookup-tax.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/guide/real-estate-tax-banner.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-savings-interest-tax.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -518,7 +529,6 @@
   <url>
     <loc>https://www.aroundtool.com/holiday_pay_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-won-1.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/hourly_monthly_wage_calculator.html</loc>
@@ -532,12 +542,10 @@
   <url>
     <loc>https://www.aroundtool.com/interior_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-interior-3.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/japan_travel_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-dotonbori.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/jeju-jejusi-bapjip.html</loc>
@@ -720,7 +728,6 @@
   <url>
     <loc>https://www.aroundtool.com/parental_leave_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-stroller-5.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/pension_age_calculator.html</loc>
@@ -742,9 +749,12 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/property_tax_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/pto_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calendar-7.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/pyeong_calculator.html</loc>
@@ -758,7 +768,6 @@
   <url>
     <loc>https://www.aroundtool.com/salary_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-coins-1.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/savings_calculator.html</loc>
@@ -792,7 +801,6 @@
   <url>
     <loc>https://www.aroundtool.com/severance_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calendar-7.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-aa-battery-10pack.html</loc>
@@ -1219,7 +1227,6 @@
   <url>
     <loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
-    <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calendar-7.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/unit_converter.html</loc>

@@ -829,3 +829,5 @@ GUIDES += [
 
 from guides_1103 import GUIDES_1103  # noqa: E402  (2026-11-03 대표 지시: 인기 주제 10개)
 GUIDES += GUIDES_1103
+from guides_1104 import GUIDES_1104  # noqa: E402  (2026-11-03 부동산 실거래가·세금)
+GUIDES += GUIDES_1104

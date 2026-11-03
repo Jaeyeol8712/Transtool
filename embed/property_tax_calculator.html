@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>재산세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/property_tax_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=0bf02da6">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="재산세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">재산세 계산기</p>
+<label for="ptPrice">주택 공시가격 (만 원)</label>
+<input id="ptPrice" type="number" inputmode="numeric" placeholder="50000"/>
+<label for="ptOne">주택 수</label>
+<select id="ptOne"><option value="1">1세대 1주택</option><option value="0">다주택·법인</option></select>
+<label for="ptCity">도시지역 여부 (도시지역분 0.14%)</label>
+<select id="ptCity"><option value="1">도시지역 (대부분의 시 지역)</option><option value="0">도시지역 아님</option></select>
+<button onclick="calcPt()">재산세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">공정시장가액비율</span><span class="result-value" id="ptRatio" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">과세표준</span><span class="result-value" id="ptBase" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">재산세</span><span class="result-value" id="ptTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">도시지역분</span><span class="result-value" id="ptCityTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">지방교육세 (재산세의 20%)</span><span class="result-value" id="ptEdu" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1년 합계 (7월·9월 나눠 냄)</span><span class="result-value" id="ptSum">-</span></div>
+<p id="ptMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function ptRate(b,sp){var t=sp?[[6e7,.0005,0],[15e7,.001,3e4],[3e8,.002,18e4],[1/0,.0035,63e4]]:[[6e7,.001,0],[15e7,.0015,3e4],[3e8,.0025,18e4],[1/0,.004,63e4]];for(var i=0;i<t.length;i++){if(b<=t[i][0])return b*t[i][1]-t[i][2];}}
+function ptWon(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcPt(){
+ var p=(parseFloat(document.getElementById('ptPrice').value)||0)*1e4, one=document.getElementById('ptOne').value==='1', city=document.getElementById('ptCity').value==='1';
+ if(!(p>0)) return alert('공시가격을 입력해주세요.');
+ var r=one?(p<=3e8?.43:(p<=6e8?.44:.45)):.6, base=Math.floor(p*r/1000)*1000, sp=one&&p<=9e8;
+ var tax=Math.floor(Math.round(ptRate(base,sp))/10)*10, ct=city?Math.floor(Math.round(base*.0014)/10)*10:0, edu=Math.floor(Math.round(tax*.2)/10)*10;
+ document.getElementById('ptRatio').textContent=Math.round(r*100)+'%';
+ document.getElementById('ptBase').textContent=ptWon(base);
+ document.getElementById('ptTax').textContent=ptWon(tax);
+ document.getElementById('ptCityTax').textContent=ptWon(ct);
+ document.getElementById('ptEdu').textContent=ptWon(edu);
+ document.getElementById('ptSum').textContent=ptWon(tax+ct+edu);
+ document.getElementById('ptMsg').textContent=sp?'1세대 1주택 특례세율(공시가격 9억 원 이하)을 적용했습니다.':(one?'공시가격 9억 원 초과라 특례세율 없이 표준세율을 적용했습니다.':'표준세율을 적용했습니다.');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/property_tax_calculator.html?utm_source=embed&amp;utm_campaign=property_tax_calculator" target="_blank" rel="noopener">어라운드툴 재산세 계산기</a></p>
+</body>
+</html>

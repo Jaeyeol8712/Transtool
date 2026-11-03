@@ -176,7 +176,8 @@ REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "b
 TOOL_GROUPS = [
     ("money", "재테크·부동산", ["salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
-                              "acquisition_tax_calculator", "brokerage_fee_calculator",
+                              "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
+                              "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
                               "increase_decrease_calculator", "pension_age_calculator",
                               "prepayment_penalty_calculator", "interior_calculator",
                               "vat_calculator", "deposit_interest_calculator", "jeonwolse_conversion_calculator",
@@ -306,6 +307,14 @@ def focusable_tables(s):
     """가로로 밀리는 표 상자를 키보드로도 스크롤할 수 있게 (접근성: scrollable-region-focusable)."""
     return _TBL_RE.sub(lambda m: '<div class="%s"%s tabindex="0" role="region" aria-label="표 (좌우로 밀어서 보기)">'
                        % (m.group(1), m.group(2)), s)
+
+
+def short_desc(d, n=40):
+    """설명 첫 문장만, 길면 단어 단위로 자르기."""
+    first = re.split(r"(?<=[다요])\.\s", d.strip(), maxsplit=1)[0].rstrip(".")
+    if len(first) <= n:
+        return first + "."
+    return first[:n].rsplit(" ", 1)[0] + "…"
 
 
 def strip_tags(s):
@@ -1540,7 +1549,7 @@ def build_calc(slug):
         tool = tool.replace(x, "")
     steps = "".join(f"<li>{s}</li>" for s in c["steps"])
     formula = f'<h2>계산 방법</h2><div class="at-formula">{c["formula"]}</div>' if c.get("formula") else ""
-    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])} 계산기</a> — {esc(PAGES[r + ".html"]["desc"][:60].rsplit(" ", 1)[0])}…</li>'
+    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])}{"" if "계산" in PAGES[r + ".html"]["name"] else " 계산기"}</a></li>'
                       for r in c["related"] if r + ".html" in PAGES)
     g = p["group_name"]
     photo_blk, photo_ld = page_photo_block(p["file"])
@@ -1564,7 +1573,7 @@ def build_calc(slug):
 {faq_html(c['faq'])}
 {guide_links_for(slug)}
 <h2>함께 보면 좋은 계산기</h2>
-<ul>{related}</ul>
+<ul class="b-chips">{related}</ul>
 {embed_box(slug)}
 <p class="at-note">계산 결과는 입력값과 일반적인 기준을 바탕으로 한 참고용 추정치이며 법적 효력이 없습니다. 입력값은 브라우저 안에서만 처리되고 저장·전송되지 않습니다. 오류를 발견하면 <a href="/contact.html">문의하기</a>로 알려 주세요.</p>
 </div>
@@ -1772,10 +1781,11 @@ def build_qguide(p):
     secs = "".join(f"<h2>{esc(h)}</h2>{html_}" for h, html_ in g["body"])
     tool_btns = "".join(
         f'<a class="at-guide-tool" href="/{s}.html"><b>{esc(PAGES[s + ".html"]["name"])}{"" if "계산" in PAGES[s + ".html"]["name"] or "검사" in PAGES[s + ".html"]["name"] else " 계산기"}</b>'
-        f'<span>{esc(PAGES[s + ".html"]["desc"][:48].rsplit(" ", 1)[0])}…</span></a>'
+        f'<span>{esc(short_desc(PAGES[s + ".html"]["desc"]))}</span></a>'
         for s in g.get("tools", []) if s + ".html" in PAGES)
     src = "".join(f'<li><a href="{esc(u)}" rel="nofollow noopener" target="_blank">{esc(n)}</a></li>' for n, u in g.get("sources", []))
-    others = "".join(f'<li><a href="/guide-{x["slug"]}.html">{esc(x["title"])}</a></li>' for x in GUIDES if x is not g)[:4000]
+    pool = sorted((x for x in GUIDES if x is not g), key=lambda x: (len(set(x.get("tools", [])) & set(g.get("tools", []))), x.get("date", "")), reverse=True)[:6]
+    others = "".join(f'<li><a href="/guide-{x["slug"]}.html">{esc(x["title"])}</a></li>' for x in pool)
     content = f"""<article>
 <header class="at-page-head">
   <h1>{esc(g['title'])}</h1>
@@ -1902,6 +1912,7 @@ HOME_SITUATIONS = [  # (상황, [계산기])
     ("퇴사할 때", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator"]),
     ("대출 받기 전", ["loan_calculator", "dsr_calculator", "prepayment_penalty_calculator"]),
     ("집 살 때", ["acquisition_tax_calculator", "brokerage_fee_calculator", "ltv_calculator"]),
+    ("집 가질 때·팔 때", ["property_tax_calculator", "comprehensive_property_tax_calculator", "capital_gains_tax_calculator"]),
     ("해외여행 준비", ["exchange_rate_calculator", "japan_travel_calculator"]),
 ]
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>양도소득세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/capital_gains_tax_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=0bf02da6">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="양도소득세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">양도소득세 계산기</p>
+<label for="cgSell">양도가액 (판 가격, 만 원)</label>
+<input id="cgSell" type="number" inputmode="numeric" placeholder="150000"/>
+<label for="cgBuy">취득가액 (산 가격, 만 원)</label>
+<input id="cgBuy" type="number" inputmode="numeric" placeholder="90000"/>
+<label for="cgExp">필요경비 (취득세·중개보수·확장공사 등, 만 원)</label>
+<input id="cgExp" type="number" inputmode="numeric" placeholder="3000"/>
+<label for="cgHold">보유 기간 (년, 1년 미만은 0)</label>
+<input id="cgHold" type="number" inputmode="numeric" placeholder="10"/>
+<label for="cgLive">거주 기간 (년)</label>
+<input id="cgLive" type="number" inputmode="numeric" placeholder="5"/>
+<label for="cgType">주택 수 (양도일 기준, 1세대)</label>
+<select id="cgType"><option value="1">1세대 1주택</option><option value="2">2주택</option><option value="3">3주택 이상</option></select>
+<label for="cgAdj">조정대상지역 여부</label>
+<select id="cgAdj"><option value="0">아님</option><option value="buy">1주택: 살 때 조정대상지역이었음 (2년 거주 필요)</option><option value="sell">다주택: 파는 집이 조정대상지역에 있음 (중과)</option></select>
+<button onclick="calcCg()">양도세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">양도차익</span><span class="result-value" id="cgGain" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">과세 대상 양도차익</span><span class="result-value" id="cgTaxable" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">장기보유특별공제</span><span class="result-value" id="cgLtd" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">과세표준 (기본공제 250만 원 차감)</span><span class="result-value" id="cgBase" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">적용 세율</span><span class="result-value" id="cgRate" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">양도소득세</span><span class="result-value" id="cgTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">지방소득세 (10%)</span><span class="result-value" id="cgLocal" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">내야 할 세금 합계</span><span class="result-value" id="cgSum">-</span></div>
+<p id="cgMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function cgBasic(b){var t=[[14e6,.06,0],[5e7,.15,126e4],[88e6,.24,576e4],[15e7,.35,1544e4],[3e8,.38,1994e4],[5e8,.40,2594e4],[1e9,.42,3594e4],[1/0,.45,6594e4]];for(var i=0;i<t.length;i++){if(b<=t[i][0])return {tax:b*t[i][1]-t[i][2],rate:t[i][1]};}}
+function cgWon(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcCg(){
+ var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
+ var sell=g('cgSell')*1e4, buy=g('cgBuy')*1e4, exp=g('cgExp')*1e4, hold=Math.floor(g('cgHold')), live=Math.floor(g('cgLive'));
+ var type=+document.getElementById('cgType').value, adj=document.getElementById('cgAdj').value;
+ if(!(sell>0)||!(buy>0)) return alert('양도가액과 취득가액을 입력해주세요.');
+ var gain=Math.max(0,sell-buy-exp), taxable=gain, ltdRate=0, msg='', heavy=0;
+ if(type===1){
+  var ok=hold>=2&&(adj!=='buy'||live>=2);
+  if(ok&&sell<=12e8){taxable=0;msg='1세대 1주택 비과세 요건(2년 보유'+(adj==='buy'?'·2년 거주':'')+')을 채우고 양도가액이 12억 원 이하라 양도세가 없습니다.';}
+  else if(ok){taxable=gain*(sell-12e8)/sell;msg='12억 원 초과분에 해당하는 차익만 과세합니다.';
+   if(hold>=3&&live>=2){ltdRate=Math.min(hold,10)*.04+Math.min(live,10)*.04;}else if(hold>=3){ltdRate=Math.min(.3,.06+(hold-3)*.02);}}
+  else{msg='비과세 요건(2년 보유'+(adj==='buy'?'·2년 거주':'')+')을 채우지 못해 일반 과세로 계산했습니다.';if(hold>=3)ltdRate=Math.min(.3,.06+(hold-3)*.02);}
+ }else{
+  if(adj==='sell'&&hold>=2){heavy=type===2?.2:.3;msg='조정대상지역 다주택 중과: 기본세율에 '+(heavy*100)+'%p를 더하고 장기보유특별공제를 빼지 않습니다.';}
+  else if(hold>=3){ltdRate=Math.min(.3,.06+(hold-3)*.02);}
+ }
+ var ltd=taxable*ltdRate, base=Math.max(0,taxable-ltd-(taxable>0?25e5:0)), tax=0, rateTxt='-';
+ if(base>0){var b=cgBasic(base);
+  if(hold<1){tax=base*.7;rateTxt='70% (1년 미만 보유)';}
+  else if(hold<2){tax=base*.6;rateTxt='60% (2년 미만 보유)';}
+  else{tax=b.tax+base*heavy;rateTxt=Math.round((b.rate+heavy)*100)+'% 구간'+(heavy?' (기본 '+Math.round(b.rate*100)+'% + 중과 '+heavy*100+'%p)':' (기본세율)');}
+  if(hold<2&&adj==='sell'&&type>1){var hv=b.tax+base*(type===2?.2:.3);if(hv>tax){tax=hv;rateTxt='중과세율 (단기세율보다 높음)';}}
+ }
+ tax=Math.floor(Math.round(tax)/10)*10; var local=Math.floor(Math.round(tax*.1)/10)*10;
+ document.getElementById('cgGain').textContent=cgWon(gain);
+ document.getElementById('cgTaxable').textContent=cgWon(taxable);
+ document.getElementById('cgLtd').textContent=cgWon(ltd)+' ('+Math.round(ltdRate*100)+'%)';
+ document.getElementById('cgBase').textContent=cgWon(base);
+ document.getElementById('cgRate').textContent=rateTxt;
+ document.getElementById('cgTax').textContent=cgWon(tax);
+ document.getElementById('cgLocal').textContent=cgWon(local);
+ document.getElementById('cgSum').textContent=cgWon(tax+local);
+ document.getElementById('cgMsg').textContent=msg;
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/capital_gains_tax_calculator.html?utm_source=embed&amp;utm_campaign=capital_gains_tax_calculator" target="_blank" rel="noopener">어라운드툴 양도소득세 계산기</a></p>
+</body>
+</html>

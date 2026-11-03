@@ -4,7 +4,7 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 56종, 대가 없이 근거를 밝힌 전국 27개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 59종, 대가 없이 근거를 밝힌 전국 27개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
     <item>
@@ -240,6 +240,14 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>재산세 계산기 — 주택 재산세 2026 (1주택 특례세율·공정시장가액비율)</title>
+      <link>https://www.aroundtool.com/property_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/property_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>주택 공시가격을 넣으면 2026년 기준 재산세, 도시지역분, 지방교육세와 1년 합계를 계산합니다. 1세대 1주택 공정시장가액비율 43~45%와 공시가격 9억 원 이하 특례세율을 반영합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>서울 마포구 미쉐린 빕 구르망 라멘·우동·면 — 6곳</title>
       <link>https://www.aroundtool.com/mapo-michelin-noodle.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/mapo-michelin-noodle.html</guid>
@@ -301,6 +309,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/guide-unemployment-benefit-application-steps.html</guid>
       <category>가이드</category>
       <description>실업급여 신청 순서를 이직확인서 제출, 고용24 구직 등록, 수급자격 신청 교육, 고용센터 수급자격 신청, 실업인정과 구직활동까지 5단계로 정리하고, 12개월 신청 기한과 7일 대기기간을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부동산 실거래가 조회 방법 — 세금 계산기 4종까지</title>
+      <link>https://www.aroundtool.com/guide-real-estate-price-lookup-tax.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-real-estate-price-lookup-tax.html</guid>
+      <category>가이드</category>
+      <description>국토교통부 실거래가 공개시스템에서 아파트·빌라·오피스텔 매매·전월세 실거래가를 조회하는 방법, 공시가격 확인법, 집을 살 때·가지고 있을 때·팔 때 내는 취득세·재산세·종부세·양도세를 계산기로 바로 계산하는 방법을 정리했습니다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -440,11 +456,27 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>종합부동산세 계산기 — 주택 종부세 2026 (1주택 12억 공제·세액공제)</title>
+      <link>https://www.aroundtool.com/comprehensive_property_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/comprehensive_property_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>보유 주택 공시가격 합계를 넣으면 2026년 기준 주택분 종합부동산세와 농어촌특별세를 계산합니다. 1세대 1주택 12억 원·그 외 9억 원 공제, 공정시장가액비율 60%, 3주택 이상 중과, 재산세 중복분 공제, 고령자·장기보유 세액공제(최대 80%)를 반영합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>카드 할부 수수료 계산기 — 개월별 수수료와 매달 결제액</title>
       <link>https://www.aroundtool.com/card_installment_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/card_installment_calculator.html</guid>
       <category>생활툴</category>
       <description>결제 금액, 할부 개월, 카드사 할부 수수료율을 넣으면 회차별 원금·수수료·결제액과 총 할부 수수료를 계산합니다. 남은 원금에 수수료가 붙는 방식으로 계산해 무이자 할부와 비교할 수 있습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>양도소득세 계산기 — 주택 양도세 2026 (1주택 비과세·다주택 중과)</title>
+      <link>https://www.aroundtool.com/capital_gains_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/capital_gains_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>집을 팔 때 내는 양도소득세를 2026년 기준으로 계산합니다. 1세대 1주택 12억 원 비과세, 장기보유특별공제(최대 80%), 단기 보유 세율, 2026년 5월 10일부터 다시 적용된 조정대상지역 다주택 중과까지 반영합니다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
