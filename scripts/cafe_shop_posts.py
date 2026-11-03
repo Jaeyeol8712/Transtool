@@ -14,6 +14,15 @@ NOTE = "※ 제휴 안내: 링크한 페이지에는 네이버 쇼핑 커넥트 
 
 # 슬러그: 카페 제목 (검색 많은 키워드를 맨 앞에)
 TITLES = {
+    "galaxy-z-fold8-256": "갤럭시 Z폴드8 256GB 자급제 — 출고가와 폴드8 울트라 차이",
+    "shaving-foam-cream": "쉐이빙 폼 면도크림 고르는 법 — 폼·젤·크림 차이",
+    "aa-battery-10pack": "AA 건전지 10입 고르는 법 — 알카라인·망간·충전지 차이",
+    "premium-diffuser-gift": "대용량 디퓨저 선물세트 고르는 법 — 용량·향·안전 표시",
+    "mesh-office-chair": "메쉬 책상 의자 고르는 법 — 좌판 높이·허리 지지 체크",
+    "pulio-neck-shoulder-tapping": "목 어깨 마사지기 고르는 법 — 풀리오 두드림형 사기 전 확인",
+    "car-vacuum-air-duster": "차량용 무선 청소기 고르는 법 — 흡입력 단위·에어건 기능",
+    "navien-water-mat": "경동나비엔 온수매트 고르는 법 — 크기·좌우 분리·소비전력",
+    "hongkong-deal-travel": "홍콩 3박 4일 여행 코스 — 피크·야경·란타우 동선 정리",
     "iphone-17-pro-256": "아이폰 17프로 자급제 256GB — 공식 사양과 결제 전 확인할 것",
     "majangdong-hanwoo-gift": "한우 선물 세트 고르는 법 — 등급·이력번호·100g당 가격 보기",
     "sulwhasoo-firming-set": "설화수 탄력 3종 기획세트 — 구성표와 기능성 표시 확인법",
