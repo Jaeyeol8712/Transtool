@@ -2,7 +2,7 @@
 /**
  * IndexNow 색인 요청 스크립트
  * ─────────────────────────────────────────────
- * 네이버 · Bing · Yandex · Seznam · Yep 에 변경된 URL을 알립니다.
+ * 네이버 · Bing · Yandex · Seznam · Yep 에 변경된 URL을 알립니다. (Bing 은 직접 엔드포인트로도 한 번 더 보냅니다)
  * 구글은 IndexNow를 지원하지 않습니다 (SEO-AUTOMATION.md 참고).
  *
  * 사용법
@@ -29,6 +29,7 @@ const DRY = process.argv.includes("--dry");
 // 네이버는 국내 반영 속도를 위해 직접 함께 호출합니다.
 const ENDPOINTS = [
   "https://api.indexnow.org/indexnow",
+  "https://www.bing.com/indexnow",
   "https://searchadvisor.naver.com/indexnow",
 ];
 

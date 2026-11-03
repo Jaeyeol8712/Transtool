@@ -11,7 +11,7 @@
 | 검색엔진 | 자동 색인 요청 | 방법 |
 |---|---|---|
 | **네이버** | ✅ 가능 | IndexNow |
-| **Bing** | ✅ 가능 | IndexNow |
+| **Bing** | ✅ 가능 | IndexNow (api.indexnow.org + bing.com 직접) · 사이트맵은 Bing 웹마스터 API(`BING_WEBMASTER_KEY` 있을 때 푸시·매주 월요일 자동 제출) |
 | **Yandex · Seznam · Yep** | ✅ 가능 | IndexNow |
 | **구글** | ❌ 불가 | sitemap + 내부 링크가 유일한 정식 경로 |
 
@@ -172,3 +172,14 @@ INDEXNOW_KEY=620d91837f946664dd06905d8202fe8b node scripts/indexnow.mjs --all
 - [ ] 급하면 서치콘솔에서 대표 페이지 1~2개만 손으로 색인 요청
 
 세 번째만 사람 손이 필요하고, 그것도 지역당 한 번이면 충분합니다.
+
+
+## Bing 사이트맵 자동 제출 (2026-11-03)
+
+Bing 은 예전의 익명 사이트맵 핑을 더 받지 않습니다. 그래서 Bing 웹마스터 API 의 SubmitFeed 로 `sitemap.xml`·`feed.xml` 을 제출합니다(`scripts/bing-sitemap.mjs`).
+
+1. Bing 웹마스터 도구에서 사이트 인증 (모든 페이지 head 에 `msvalidate.01` 메타 태그가 들어 있음)
+2. Bing 웹마스터 도구 → 설정(톱니) → **API 액세스** → API 키 만들기
+3. GitHub 저장소 → Settings → Secrets and variables → Actions → `BING_WEBMASTER_KEY` 로 등록
+
+키가 없으면 이 단계는 안내만 남기고 건너뜁니다. robots.txt 의 `Sitemap:` 줄로도 Bing 이 사이트맵을 찾습니다.
