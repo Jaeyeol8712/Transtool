@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 56종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 21개 지역 맛집 147곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 56종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 27개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -87,8 +87,14 @@
 ## 지역별 맛집 모아보기
 
 - [인천 연수구 맛집 22곳 — 카테고리별 전체 정리](https://www.aroundtool.com/yeonsu.html)
-- [서울 강남구 맛집 17곳 — 카테고리별 전체 정리](https://www.aroundtool.com/gangnam.html)
-- [서울 용산구 맛집 12곳 — 카테고리별 전체 정리](https://www.aroundtool.com/yongsan.html)
+- [서울 강남구 맛집 21곳 — 카테고리별 전체 정리](https://www.aroundtool.com/gangnam.html)
+- [서울 용산구 맛집 16곳 — 카테고리별 전체 정리](https://www.aroundtool.com/yongsan.html)
+- [서울 종로구 맛집 11곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jongno.html)
+- [서울 중구 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/seoul-junggu.html)
+- [서울 마포구 맛집 14곳 — 카테고리별 전체 정리](https://www.aroundtool.com/mapo.html)
+- [서울 서초구 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/seocho.html)
+- [서울 성동구 맛집 2곳 — 카테고리별 전체 정리](https://www.aroundtool.com/seongdong.html)
+- [서울 영등포구 맛집 2곳 — 카테고리별 전체 정리](https://www.aroundtool.com/yeongdeungpo.html)
 - [부산 해운대구 맛집 14곳 — 카테고리별 전체 정리](https://www.aroundtool.com/haeundae.html)
 - [강원 속초시 맛집 12곳 — 카테고리별 전체 정리](https://www.aroundtool.com/sokcho.html)
 - [대전 동구 맛집 4곳 — 카테고리별 전체 정리](https://www.aroundtool.com/daejeon-donggu.html)
@@ -126,6 +132,7 @@
 - [서울 강남구 이국](https://www.aroundtool.com/gangnam-iguk.html) — 2곳
 - [서울 강남구 술과 안주](https://www.aroundtool.com/gangnam-sul-anju.html) — 2곳
 - [서울 강남구 카페·디저트](https://www.aroundtool.com/gangnam-cafe.html) — 1곳
+- [서울 강남구 미쉐린 빕 구르망](https://www.aroundtool.com/gangnam-michelin.html) — 4곳
 - [서울 강남구 노포](https://www.aroundtool.com/gangnam-nopo.html) — 5곳
 - [서울 용산구 밥집](https://www.aroundtool.com/yongsan-bapjip.html) — 2곳
 - [서울 용산구 고기](https://www.aroundtool.com/yongsan-gogi.html) — 2곳
@@ -133,7 +140,16 @@
 - [서울 용산구 이국](https://www.aroundtool.com/yongsan-iguk.html) — 1곳
 - [서울 용산구 술과 안주](https://www.aroundtool.com/yongsan-sul-anju.html) — 1곳
 - [서울 용산구 카페·디저트](https://www.aroundtool.com/yongsan-cafe.html) — 2곳
+- [서울 용산구 미쉐린 빕 구르망](https://www.aroundtool.com/yongsan-michelin.html) — 4곳
 - [서울 용산구 우사단로 이슬람 거리](https://www.aroundtool.com/yongsan-usadan.html) — 2곳
+- [서울 종로구 미쉐린 빕 구르망 북촌·삼청·인사·광화문](https://www.aroundtool.com/jongno-michelin-bukchon.html) — 5곳
+- [서울 종로구 미쉐린 빕 구르망 서촌·사직·부암](https://www.aroundtool.com/jongno-michelin-seochon.html) — 6곳
+- [서울 중구 미쉐린 빕 구르망 을지로·필동·신당·남대문](https://www.aroundtool.com/seoul-junggu-michelin.html) — 7곳
+- [서울 마포구 미쉐린 빕 구르망 국밥·곰탕·한식·중식](https://www.aroundtool.com/mapo-michelin-hansik.html) — 8곳
+- [서울 마포구 미쉐린 빕 구르망 라멘·우동·면](https://www.aroundtool.com/mapo-michelin-noodle.html) — 6곳
+- [서울 서초구 미쉐린 빕 구르망](https://www.aroundtool.com/seocho-michelin.html) — 5곳
+- [서울 성동구 미쉐린 빕 구르망 성수](https://www.aroundtool.com/seongdong-michelin.html) — 2곳
+- [서울 영등포구 미쉐린 빕 구르망 여의도](https://www.aroundtool.com/yeongdeungpo-michelin.html) — 2곳
 
 ### 부산광역시
 - [부산 해운대구 밥집](https://www.aroundtool.com/haeundae-bapjip.html) — 2곳
