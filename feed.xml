@@ -4,7 +4,7 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 59종, 대가 없이 근거를 밝힌 전국 27개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 69종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
     <item>
@@ -29,6 +29,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/work_time_calculator.html</guid>
       <category>생활툴</category>
       <description>출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>체감온도 계산기 — 기온과 바람으로 겨울 추위 계산</title>
+      <link>https://www.aroundtool.com/wind_chill_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/wind_chill_calculator.html</guid>
+      <category>생활툴</category>
+      <description>기온(℃)과 풍속(m/s)을 넣으면 기상청이 쓰는 겨울철 체감온도 식으로 체감온도를 계산하고, 낮음·보통·추움·주의·위험 단계와 옷차림을 알려 준다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -88,6 +96,22 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>태백 여행 코스 — 1박 2일·2박 3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-taebaek.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-taebaek.html</guid>
+      <category>여행</category>
+      <description>태백 겨울 여행 코스. 태백산 눈꽃 산행(유일사 코스), 황지연못, 검룡소, 바람의 언덕, 철암탄광역사촌을 1박 2일로 묶고 기차·버스 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>순천 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-suncheon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-suncheon.html</guid>
+      <category>여행</category>
+      <description>순천 여행 코스. 순천만습지 갈대·흑두루미, 순천만국가정원, 낙안읍성, 드라마촬영장을 당일·1박 2일로 묶고 KTX 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>싱가포르 여행 코스 — 3박4일·4박5일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-singapore.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-singapore.html</guid>
@@ -104,11 +128,43 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>평창 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-pyeongchang.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-pyeongchang.html</guid>
+      <category>여행</category>
+      <description>평창 겨울 여행 코스. 대관령 양떼목장, 오대산 월정사 전나무숲길, 발왕산 케이블카를 당일·1박 2일로 묶고 KTX 진부역 이동 시간과 겨울 준비물을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>오키나와 여행 코스 — 3박 4일·4박 5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-okinawa.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-okinawa.html</guid>
+      <category>여행</category>
+      <description>오키나와 겨울 여행 코스. 나하 국제거리, 츄라우미 수족관, 만좌모, 아메리칸 빌리지, 고우리 대교를 3박 4일·4박 5일로 묶고 비행·렌터카 이동 시간과 준비물을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>전주 여행 코스 — 당일·1박2일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-jeonju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-jeonju.html</guid>
       <category>여행</category>
       <description>전주 여행 코스를 당일·1박 2일로 정리했습니다. 전주 한옥마을, 경기전, 전동성당, 오목대, 남부시장, 객리단길을 걸어서 도는 동선과 KTX 이동 시간, 전주 대표 음식과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>인제 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-inje.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-inje.html</guid>
+      <category>여행</category>
+      <description>인제 겨울 여행 코스. 원대리 자작나무숲 걷는 시간과 코스, 백담사, 내린천을 당일·1박 2일로 묶고 동서울터미널 버스 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>하노이 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-hanoi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hanoi.html</guid>
+      <category>여행</category>
+      <description>하노이 겨울 여행 코스. 호안끼엠 호수·구시가지, 문묘, 하롱베이 당일, 닌빈 짱안을 3박 5일·4박 6일로 묶고 무비자 45일 입국과 이동 시간을 정리했다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -120,6 +176,14 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>괌 여행 코스 — 3박 4일·4박 5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-guam.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-guam.html</guid>
+      <category>여행</category>
+      <description>괌 겨울 여행 코스. 투몬 비치, 사랑의 절벽, 차모로 야시장, 이나라한 자연 풀을 3박 4일·4박 5일로 묶고 G-CNMI ETA·ESTA 입국 준비와 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>강릉 여행 코스 — 당일·1박2일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-gangneung.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-gangneung.html</guid>
@@ -128,11 +192,43 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>치앙마이 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-chiangmai.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-chiangmai.html</guid>
+      <category>여행</category>
+      <description>치앙마이 겨울 여행 코스. 올드시티 사원, 도이수텝, 님만해민, 일요 야시장, 치앙라이 백색사원 당일을 3박 5일·4박 6일로 묶고 무비자 90일·TDAC 입국 준비와 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>세부 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-cebu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-cebu.html</guid>
+      <category>여행</category>
+      <description>세부 겨울 여행 코스. 막탄 리조트·호핑, 세부시티 산토니뇨 성당, 모알보알, 보홀 당일을 3박 5일·4박 6일로 묶고 무비자 30일·eTravel 입국 준비와 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>방콕 여행 코스 — 3박5일·4박6일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-bangkok.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-bangkok.html</guid>
       <category>여행</category>
       <description>방콕 여행 코스를 3박 5일·4박 6일로 정리했습니다. 왕궁·왓포·왓아룬, 카오산로드, 시암·아속 쇼핑, 짜뚜짝 주말시장, 아유타야 당일치기를 권역별로 묶고 공항철도 이동 시간과 출발 전 확인할 점을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>아산 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-asan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-asan.html</guid>
+      <category>여행</category>
+      <description>아산 겨울 온천 여행 코스. 온양온천, 외암민속마을, 현충사, 공세리성당, 지중해마을을 당일·1박 2일로 묶고 KTX·수도권 전철 이동 시간을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>시차 계산기 — 한국 시각으로 해외 현지 시각 계산</title>
+      <link>https://www.aroundtool.com/time_difference_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/time_difference_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한국 날짜·시각을 넣고 도시를 고르면 현지 시각과 시차를 계산한다. 도쿄·방콕·하노이·세부·괌·런던·뉴욕 등 17곳, 서머타임 자동 반영. 겨울 해외여행·비행기 도착 시각 확인에 쓴다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -216,6 +312,86 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 송년회 고기·족발 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-yearend-gogi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-yearend-gogi.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 송년회 고기·족발 4곳(금돼지식당, 꿉당, 역전회관, 할매집)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 채식·비건 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-vegan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-vegan.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 채식·비건 4곳(고사리 익스프레스, 알트에이, 베이스 이즈 나이스, 황금콩밭)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 평양냉면·막국수 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-naengmyeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-naengmyeon.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 평양냉면·막국수 4곳(우래옥, 필동면옥, 정인면옥, 양양 메밀 막국수)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 메밀국수·소바 — 5곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-memil.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-memil.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 메밀국수·소바 5곳(유림면, 서령, 미진, 스바루, 소바키리 스즈)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 만두·만둣국 — 6곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-mandu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-mandu.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 만두·만둣국 6곳(개성만두 궁, 자하 손만두, 황생가 칼국수, 안덕, 미필담, 만두집)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 칼국수·수제비 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-kalguksu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-kalguksu.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 칼국수·수제비 4곳(황생가 칼국수, 임병주 산동 칼국수, 삼청동 수제비, 면서울)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 게장·한식 밥상 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-hansik.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-hansik.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 게장·한식 밥상 4곳(게방식당, 화해당, 오일제, 역전회관)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 국밥·탕 — 5곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-gukbap.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-gukbap.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 국밥·탕 5곳(안암, 옥동식, 용금옥, 3대 삼계장인, 오일제)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 곰탕·설렁탕 — 6곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-gomtang.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-gomtang.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 곰탕·설렁탕 6곳(마포옥, 합정옥, 곰탕랩, 능동미나리, 대성집, 계월)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 겨울 메뉴 미쉐린 빕 구르망 연말 모임 이국 요리 — 4곳</title>
+      <link>https://www.aroundtool.com/seoul-winter-asian.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/seoul-winter-asian.html</guid>
+      <category>맛집</category>
+      <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 겨울 메뉴 연말 모임 이국 요리 4곳(호라파, 유한, 진진, 맷돌)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>서울 중구 미쉐린 빕 구르망 을지로·필동·신당·남대문 — 7곳</title>
       <link>https://www.aroundtool.com/seoul-junggu-michelin.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/seoul-junggu-michelin.html</guid>
@@ -248,6 +424,30 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>연금저축·IRP 세액공제 계산기 — 연 900만 원, 최대 148만 원</title>
+      <link>https://www.aroundtool.com/pension_savings_tax_credit_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/pension_savings_tax_credit_calculator.html</guid>
+      <category>생활툴</category>
+      <description>연금저축과 IRP 납입액, 총급여를 넣으면 세액공제 금액을 계산한다. 연금저축 600만 원·합산 900만 원 한도, 총급여 5,500만 원 이하 16.5%·초과 13.2% 공제율(지방소득세 포함)을 반영했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>월세 세액공제 계산기 — 17%·15%, 연 1,000만 원 한도</title>
+      <link>https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html</guid>
+      <category>생활툴</category>
+      <description>총급여와 월세, 낸 개월 수를 넣으면 월세 세액공제 금액을 계산한다. 총급여 5,500만 원 이하 17%, 8,000만 원 이하 15%, 연 1,000만 원 한도를 반영했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>의료비 세액공제 계산기 — 총급여 3% 초과분 15%</title>
+      <link>https://www.aroundtool.com/medical_expense_tax_credit_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/medical_expense_tax_credit_calculator.html</guid>
+      <category>생활툴</category>
+      <description>총급여와 의료비를 넣으면 연말정산 의료비 세액공제를 계산한다. 총급여 3% 초과분 15%, 난임 시술 30%, 미숙아 20%, 그 밖의 가족 700만 원 한도, 본인·65세 이상·장애인·6세 이하 한도 없음을 반영했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>서울 마포구 미쉐린 빕 구르망 라멘·우동·면 — 6곳</title>
       <link>https://www.aroundtool.com/mapo-michelin-noodle.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/mapo-michelin-noodle.html</guid>
@@ -261,6 +461,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/mapo-michelin-hansik.html</guid>
       <category>맛집</category>
       <description>미쉐린 가이드 한국 2026 빕 구르망으로 선정된 서울 마포구 국밥·곰탕·한식·중식 8곳(마포옥, 역전회관, 황금콩밭, 옥동식, 합정옥, 미필담, 진진, 베이스 이즈 나이스)의 주소·장르·영업시간과 선정 이유를 공식 페이지 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>김장 비용 계산기 — 배추 포기 수로 재료비 계산</title>
+      <link>https://www.aroundtool.com/kimjang_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kimjang_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>배추 포기 수를 넣으면 aT 조사 비율(배추 20포기에 무 5개, 고춧가루 2kg)로 무·고춧가루 양을 정하고 2026년 10월 KAMIS 소매가격으로 김장 재료비를 계산한다. 가구별로 나눈 금액도 보여 준다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -285,6 +493,38 @@
       <guid isPermaLink="true">https://www.aroundtool.com/jeonwolse_conversion_calculator.html</guid>
       <category>생활툴</category>
       <description>보증금 일부를 월세로 바꾸거나 월세를 보증금으로 바꿀 때 전환율로 월세·보증금을 계산합니다. 주택임대차보호법상 전환율 상한(연 10%와 기준금리 + 2%p 중 낮은 비율)도 함께 설명합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>2027 연휴 계산기 — 연차 붙여 가장 길게 쉬는 날</title>
+      <link>https://www.aroundtool.com/holiday_leave_planner.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/holiday_leave_planner.html</guid>
+      <category>생활툴</category>
+      <description>쓸 수 있는 연차 일수를 고르면 2027년 공휴일·대체공휴일과 주말을 붙여 가장 길게 쉴 수 있는 기간과 연차 쓸 날짜를 찾아 준다. 한국천문연구원 2027년 월력요항 기준.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전기히터·전기장판 전기요금 계산기 — 누진 구간까지</title>
+      <link>https://www.aroundtool.com/heater_electricity_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/heater_electricity_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>전기장판·전기히터·라디에이터·온풍기 소비전력과 사용 시간을 넣으면 한 달 전기요금이 얼마나 늘어나는지 계산한다. 주택용 저압 누진 구간(200·400kWh)을 반영했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>2026 연말정산 달라진 점 — 카드 한도·자녀공제·월세 배우자</title>
+      <link>https://www.aroundtool.com/guide-year-end-tax-2026-changes.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-year-end-tax-2026-changes.html</guid>
+      <category>가이드</category>
+      <description>2027년 1~2월에 하는 2026년 귀속 연말정산에서 바뀐 4가지(자녀 수에 따른 신용카드 공제 한도 상향, 자녀세액공제 9세 이상, 주소가 다른 배우자 월세 공제, 초등 1~2학년 예체능 학원비)를 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>12월 31일 전에 할 일 — 세금 아끼는 체크리스트 7</title>
+      <link>https://www.aroundtool.com/guide-year-end-checklist-dec31.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-year-end-checklist-dec31.html</guid>
+      <category>가이드</category>
+      <description>올해가 가기 전에 해야 세금 혜택을 받는 것들: 연금저축·IRP 납입, 고향사랑기부, 카드 결제 수단 조정, 월세·의료비 증빙, 연차 사용, 자동차세 연납 신청 준비, 숨은 돈 찾기까지 7가지를 정리했다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -352,6 +592,14 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>김장 시기 2026 — 지역별 적기와 기온 기준</title>
+      <link>https://www.aroundtool.com/guide-kimjang-timing-2026.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-kimjang-timing-2026.html</guid>
+      <category>가이드</category>
+      <description>김장하기 좋은 때는 날짜보다 기온으로 정한다. 하루 최저기온 0도 이하·평균기온 4도 이하 기준, 서울·대전·광주·부산 등 지역별 평년 김장 적기, 2026년 정부 김장재료 할인(11월 9일~12월 6일)을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>전세 계약 전 확인할 7가지 — 등기부등본부터 특약까지</title>
       <link>https://www.aroundtool.com/guide-jeonse-contract-checklist.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/guide-jeonse-contract-checklist.html</guid>
@@ -376,6 +624,30 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>고향사랑기부제 2026 — 10만 원 전액·20만 원까지 44% 공제</title>
+      <link>https://www.aroundtool.com/guide-hometown-donation-2026.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-hometown-donation-2026.html</guid>
+      <category>가이드</category>
+      <description>2026년 기부분부터 바뀐 고향사랑기부제 세액공제율(10만 원 이하 전액, 10만~20만 원 44%, 20만 원 초과 16.5%), 연 2,000만 원 한도, 답례품 30%, 주소지 지자체 기부 불가, 고향사랑e음 기부 방법을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>2027 공휴일 달력 — 대체공휴일 7일·연휴 정리</title>
+      <link>https://www.aroundtool.com/guide-holidays-2027.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-holidays-2027.html</guid>
+      <category>가이드</category>
+      <description>2027년 공휴일과 대체공휴일 7일(2월 9일, 5월 3일, 7월 19일, 8월 16일, 10월 4일·11일, 12월 27일), 설 연휴 2월 6~9일, 추석 연휴 9월 14~16일, 사흘 이상 쉬는 연휴 10번을 한국천문연구원 월력요항 기준으로 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>숨은 돈 찾기 — 휴면예금·카드포인트·보험금 한 번에</title>
+      <link>https://www.aroundtool.com/guide-hidden-money-finder.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-hidden-money-finder.html</guid>
+      <category>가이드</category>
+      <description>연말에 챙기기 좋은 숨은 돈 찾는 곳 5곳: 어카운트인포(잠자는 계좌), 카드포인트 통합조회, 서민금융진흥원 휴면예금, 내보험찾아줌(숨은 보험금), 홈택스 국세환급금. 조회 방법과 주의할 점을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>퇴직 후 건강보험 임의계속가입 — 조건·신청 기한</title>
       <link>https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</guid>
@@ -397,6 +669,38 @@
       <guid isPermaLink="true">https://www.aroundtool.com/guide-four-insurance-rates-2026.html</guid>
       <category>가이드</category>
       <description>2026년 4대보험 요율을 국민연금 9.5%(근로자 4.75%), 건강보험 7.19%(3.595%), 장기요양 건강보험료의 13.14%, 고용보험 근로자 0.9%로 정리하고, 월급별 근로자 부담 예시와 계산법을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>독감 무료접종 2026-2027 — 대상·기간·예약</title>
+      <link>https://www.aroundtool.com/guide-flu-vaccine-2026-2027.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-flu-vaccine-2026-2027.html</guid>
+      <category>가이드</category>
+      <description>2026-2027절기 인플루엔자 국가예방접종 대상(생후 6개월~14세 어린이, 임신부, 65세 이상), 연령별 시작일, 2027년 4월 30일까지인 접종 기간, 위탁의료기관 찾는 법을 질병관리청 발표 기준으로 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>에너지바우처 2026 — 대상·금액·12월 31일 신청 마감</title>
+      <link>https://www.aroundtool.com/guide-energy-voucher-2026.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-energy-voucher-2026.html</guid>
+      <category>가이드</category>
+      <description>2026년 에너지바우처 지원 대상(생계·의료·주거·교육급여 수급 가구 중 노인·장애인·영유아 등), 가구원 수별 연간 금액(1인 295,200원~4인 이상 701,300원), 신청 기간(12월 31일까지), 동절기 사용법을 정리했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>음주운전 처벌 기준 — 혈중알코올농도별 벌금·면허</title>
+      <link>https://www.aroundtool.com/guide-drunk-driving-penalty.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-drunk-driving-penalty.html</guid>
+      <category>가이드</category>
+      <description>송년회 시즌 꼭 알아야 할 음주운전 처벌 기준을 도로교통법 기준으로 정리했다. 혈중알코올농도 0.03%부터 처벌, 0.08% 이상 면허 취소, 0.2% 이상 징역 2~5년, 측정 거부와 재범 가중 처벌까지.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>한랭질환 예방 — 저체온증·동상 증상과 응급 대처</title>
+      <link>https://www.aroundtool.com/guide-cold-illness-prevention.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-cold-illness-prevention.html</guid>
+      <category>가이드</category>
+      <description>겨울철 한랭질환(저체온증·동상) 증상, 위험한 사람(어르신·만성질환자·음주 후), 외출 전 준비, 증상이 보일 때 응급 대처를 질병관리청 안내를 바탕으로 정리했다. 체감온도 계산기와 함께 보세요.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -456,6 +760,14 @@
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>신용카드 소득공제 계산기 — 2026 연말정산 (자녀별 한도)</title>
+      <link>https://www.aroundtool.com/credit_card_deduction_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/credit_card_deduction_calculator.html</guid>
+      <category>생활툴</category>
+      <description>총급여와 신용카드·체크카드·전통시장·대중교통 사용액을 넣으면 2026년 귀속 신용카드 등 소득공제 금액을 계산한다. 최저사용금액 25%, 공제율 15·30·40%, 자녀 수에 따른 기본한도 상향을 반영했다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>종합부동산세 계산기 — 주택 종부세 2026 (1주택 12억 공제·세액공제)</title>
       <link>https://www.aroundtool.com/comprehensive_property_tax_calculator.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/comprehensive_property_tax_calculator.html</guid>
@@ -477,6 +789,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/capital_gains_tax_calculator.html</guid>
       <category>생활툴</category>
       <description>집을 팔 때 내는 양도소득세를 2026년 기준으로 계산합니다. 1세대 1주택 12억 원 비과세, 장기보유특별공제(최대 80%), 단기 보유 세율, 2026년 5월 10일부터 다시 적용된 조정대상지역 다주택 중과까지 반영합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>술 칼로리 계산기 — 소주·맥주·와인 알코올 열량</title>
+      <link>https://www.aroundtool.com/alcohol_calorie_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/alcohol_calorie_calculator.html</guid>
+      <category>생활툴</category>
+      <description>소주·맥주·막걸리·와인·위스키 마신 양을 넣으면 순수 알코올 양(g)과 알코올 열량(kcal)을 계산한다. 알코올 1g당 7kcal 기준. 송년회 전후 섭취량 확인에 쓴다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

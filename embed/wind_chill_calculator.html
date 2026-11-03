@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>체감온도 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/wind_chill_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="체감온도 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">체감온도 계산기</p>
+<label for="wcT">기온 (℃)</label>
+<input id="wcT" type="number" inputmode="decimal" placeholder="-5"/>
+<label for="wcV">풍속 (m/s, 일기예보의 바람 세기)</label>
+<input id="wcV" type="number" inputmode="decimal" placeholder="5"/>
+<button onclick="calcWc()">체감온도 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">체감온도</span><span class="result-value" id="wcOut">-</span></div>
+<div class="result-row"><span class="result-label">단계</span><span class="result-value" id="wcLv" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="wcMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcWc(){
+ var t=parseFloat(document.getElementById('wcT').value), v=parseFloat(document.getElementById('wcV').value);
+ if(isNaN(t)||isNaN(v)) return alert('기온과 풍속을 입력해주세요.');
+ var k=v*3.6, msg='';
+ var w=(t<=10&&k>=4.8)?13.12+0.6215*t-11.37*Math.pow(k,.16)+0.3965*t*Math.pow(k,.16):t;
+ if(!(t<=10&&k>=4.8)) msg='체감온도 식은 기온 10℃ 이하, 풍속 1.3m/s 이상일 때 씁니다. 이 조건이 아니면 기온을 그대로 봅니다.';
+ var lv=w>-10?['낮음','긴 옷이나 따뜻한 옷을 입으세요.']:w>-25?['보통','방풍 겉옷에 모자·장갑·목도리를 갖추세요.']:w>-45?['추움','피부가 드러나지 않게 모자·장갑·마스크까지 쓰세요.']:w>-60?['주의','야외 활동을 줄이거나 취소하세요.']:['위험','실내에 머무르세요.'];
+ document.getElementById('wcOut').textContent=w.toFixed(1)+'℃';
+ document.getElementById('wcLv').textContent=lv[0];
+ document.getElementById('wcMsg').textContent=(msg?msg+' ':'')+lv[1];
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/wind_chill_calculator.html?utm_source=embed&amp;utm_campaign=wind_chill_calculator" target="_blank" rel="noopener">어라운드툴 체감온도 계산기</a></p>
+</body>
+</html>

@@ -158,7 +158,7 @@ CAT_ORDER = list(CAT)
 FOOD_AREAS = [
     ("incheon", "인천광역시", "인천", [("yeonsu", "연수구")]),
     ("seoul", "서울특별시", "서울", [("gangnam", "강남구"), ("yongsan", "용산구"), ("jongno", "종로구"), ("seoul-junggu", "중구"),
-                                    ("mapo", "마포구"), ("seocho", "서초구"), ("seongdong", "성동구"), ("yeongdeungpo", "영등포구")]),
+                                    ("mapo", "마포구"), ("seocho", "서초구"), ("seongdong", "성동구"), ("yeongdeungpo", "영등포구"), ("seoul-winter", "겨울 메뉴")]),
     ("busan", "부산광역시", "부산", [("haeundae", "해운대구")]),
     ("gangwon", "강원특별자치도", "강원", [("sokcho", "속초시")]),
     ("daejeon", "대전광역시", "대전", [("daejeon-donggu", "동구"), ("daejeon-junggu", "중구"),
@@ -174,7 +174,7 @@ FOOD_AREAS = [
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -182,16 +182,16 @@ TOOL_GROUPS = [
                               "prepayment_penalty_calculator", "interior_calculator",
                               "vat_calculator", "deposit_interest_calculator", "jeonwolse_conversion_calculator",
                               "card_installment_calculator"]),
-    ("labor", "노동·구직", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
+    ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
-    ("trip", "여행", ["fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
+    ("trip", "여행", ["time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
@@ -210,9 +210,13 @@ TRIP_PAGES = [("travel-jeju", "제주도 여행", "국내"), ("travel-busan", "�
               ("travel-sokcho", "속초 여행", "국내"), ("travel-osaka", "오사카 여행", "해외")]
 from trips_1103 import TRIP_PAGES_1103  # noqa: E402  (2026-11-03 여행 코스 10개)
 TRIP_PAGES += TRIP_PAGES_1103
-PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103}  # 처음 올린 날
+from trips_1105 import TRIP_PAGES_1105, make as _make_trips_1105  # noqa: E402  (2026-11-03 겨울 여행지 10곳)
+TRIP_PAGES += TRIP_PAGES_1105
+PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
+from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
+PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1105})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -278,6 +282,10 @@ def write(p, s):
         s = drop_unused_fonts(s)
         if PAGES.get(p, {}).get("section") in B_SECTIONS:
             s = b_layout.apply(s)
+        if p == "etc.html":
+            s = guide_hub_list(s)
+        if p == "travel.html":
+            s = trip_hub_list(s)
         s = b_layout.tidy_spacing(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
@@ -482,7 +490,7 @@ def kind_of(p):
     k = (p.get("post") or {}).get("kind", "product")
     return k if k in KINDS else "product"
 N_TOOLS = len(TOOLS)
-N_PLACES = sum(p["count"] for p in FOOD_OK)
+N_PLACES = sum(p["count"] for p in FOOD_OK if p.get("prefix") != "seoul-winter")  # 겨울 메뉴 묶음은 다른 페이지 가게를 다시 모은 것이라 제외
 N_GU = sum(len(g) for _, _, _, g in FOOD_AREAS)
 
 
@@ -1550,7 +1558,7 @@ def build_calc(slug):
         tool = tool.replace(x, "")
     steps = "".join(f"<li>{s}</li>" for s in c["steps"])
     formula = f'<h2>계산 방법</h2><div class="at-formula">{c["formula"]}</div>' if c.get("formula") else ""
-    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])}{"" if "계산" in PAGES[r + ".html"]["name"] else " 계산기"}</a></li>'
+    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])}</a></li>'
                       for r in c["related"] if r + ".html" in PAGES)
     g = p["group_name"]
     photo_blk, photo_ld = page_photo_block(p["file"])
@@ -1963,10 +1971,15 @@ def build_home():
     sec_tag = {"tools": "계산기", "guide": "가이드", "trip": "여행", "food": "맛집", "connect": "추천"}
     order = {f: i for i, f in enumerate(PAGES)}
     pool = [q for q in PAGES.values() if q["section"] in sec_tag and not q.get("draft") and not q.get("research")]
-    latest = sorted(pool, key=lambda q: (q["date"], order[q["file"]]), reverse=True)[:100]
+    added = first_added()
+    now = int(datetime.now(timezone.utc).timestamp())
+    latest = sorted(pool, key=lambda q: (added.get(q["file"], now), order[q["file"]]), reverse=True)[:100]
+    def up_time(q):
+        t = datetime.fromtimestamp(added.get(q["file"], now), timezone(timedelta(hours=9)))
+        return t.strftime("%Y-%m-%dT%H:%M+09:00"), t.strftime("%Y.%m.%d %H:%M")
     MORE = ' class="is-more" hidden'
     news = "".join(f'<li{MORE if i >= 10 else ""}><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
-                   f'<time datetime="{q["date"]}">{q["date"].replace("-", ".")}</time></a></li>' for i, q in enumerate(latest))
+                   f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for i, q in enumerate(latest))
     more_btn = (f'<button type="button" class="ah-more" id="ah-more" aria-controls="ah-new-list" aria-expanded="false" data-n="{len(latest)}">더보기 (최근 {len(latest)}개)</button>'
                 "<script>document.getElementById('ah-more').addEventListener('click',function(){var o=this.getAttribute('aria-expanded')==='true';"
                 "document.querySelectorAll('#ah-new-list .is-more').forEach(function(x){x.hidden=o});this.setAttribute('aria-expanded',String(!o));"
@@ -2262,6 +2275,77 @@ def all_index_pages():
     order = ["index.html", "food.html", "tools.html", "travel.html", "etc.html"]
     ps = [PAGES[f] for f in order] + sorted([q for q in PAGES.values() if q["file"] not in order], key=lambda q: q["file"])
     return [q for q in ps if indexable(q)]
+
+
+GUIDE_GROUPS = [
+    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "기부")),
+    ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직")),
+    ("부동산·주거", ("전세", "월세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
+]
+
+
+def guide_hub_list(s):
+    """기타(가이드) 게시판에 모든 생활 가이드를 분류별·최신순으로 보여 줍니다."""
+    groups = {name: [] for name, _ in GUIDE_GROUPS}
+    groups["생활·건강·여행"] = []
+    for g in sorted(GUIDES, key=lambda x: x.get("date", ""), reverse=True):
+        name = next((n for n, keys in GUIDE_GROUPS if any(k in g["title"] for k in keys)), "생활·건강·여행")
+        groups[name].append(g)
+    secs = ""
+    for name, items in groups.items():
+        if not items:
+            continue
+        li = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(g["title"])}</a></li>' for g in items)
+        secs += f'<section class="grp grp-guide"><h2>{esc(name)}<span class="c">{len(items)}</span></h2><ul>{li}</ul></section>'
+    extra = ('<section class="grp"><h2>연도별 정리·사이트 안내<span class="c">3</span></h2><ul>'
+             '<li><a href="/guide_2026_wage.html">2026 최저임금·노동법</a></li><li><a href="/guide_2026_tax.html">2026 세금·연말정산</a></li>'
+             '<li><a href="/about.html">사이트 소개</a></li></ul></section>')
+    block = f'<div class="at-guides">{secs}{extra}</div>'
+    s = re.sub(r'<div class="at-guides">.*?</div>\s*', "", s, flags=re.S)
+    s = re.sub(r"<!-- at:guides -->.*?<!-- /at:guides -->", "", s, flags=re.S)
+    s = re.sub(r'<section class="grp">\s*<h2>정보 및 가이드.*?</section>', "", s, count=1, flags=re.S)
+    s = s.replace('<section class="faq">', block + '\n<section class="faq">', 1)
+    s = re.sub(r'<span class="n">텍스트 3 · 가이드 \d+</span>', f'<span class="n">텍스트 3 · 가이드 {len(GUIDES)}</span>', s)
+    s = s.replace("<h1>기타</h1>", "<h1>생활 가이드</h1>").replace("글자수·맞춤법 검사와 <b>연도별 제도 가이드</b>, 사이트 안내를 모았습니다.", "세금·노동·부동산·생활 제도를 <b>질문에 바로 답하는 가이드</b>로 정리했습니다. 글자수·맞춤법 검사 도구도 여기 있습니다.")
+    s = s.replace("계산기와 실용 도구 <b>43개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>")
+    return s
+
+
+def trip_hub_list(s):
+    """여행 게시판: 모든 여행 글을 국내·해외로 나눠 카드로 보여 줍니다."""
+    trips = [q for q in PAGES.values() if q.get("section") == "trip"]
+    def card(q):
+        cls = "d-dom" if q.get("kind") == "국내" else "d-abr"
+        first = re.split(r"(?<=다)\.\s", q.get("desc", ""), maxsplit=1)[0].rstrip(".")
+        first = re.sub(r"^\S+ 여행 코스를 (.*)로 정리했습니다$", r"\1 코스", first)
+        first = re.sub(r"^\S+ (.*)(을|를) 정리했습니다$", r"\1", first)
+        return (f'<a class="dest {cls}" href="/{q["file"]}"><h3>{esc(q["name"].replace(" 여행", ""))}</h3>'
+                f'<p>{esc(first)}</p><span class="go">코스·예산 보기</span></a>')
+    dom = [q for q in trips if q.get("kind") == "국내"]
+    abr = [q for q in trips if q.get("kind") != "국내"]
+    block = (f'<div class="at-trips"><h2 class="sec">국내 <span class="c">{len(dom)}</span></h2><div class="dests">{"".join(card(q) for q in dom)}</div>'
+             f'<h2 class="sec">해외 <span class="c">{len(abr)}</span></h2><div class="dests">{"".join(card(q) for q in abr)}</div></div>\n')
+    s = re.sub(r'<div class="at-trips">.*?</div></div>\n?', "", s, flags=re.S)
+    s = re.sub(r'<h2 class="sec">국내</h2>.*?(?=<h2 class="sec">여행 도구</h2>)', "", s, count=1, flags=re.S)
+    s = s.replace('<h2 class="sec">여행 도구</h2>', block + '<h2 class="sec">여행 도구</h2>', 1)
+    s = re.sub(r'<span class="n">국내 \d+곳 · 해외 \d+곳(?: · 도구 \d+종)?</span>', f'<span class="n">국내 {len(dom)}곳 · 해외 {len(abr)}곳</span>', s)
+    s = re.sub(r'<div class="note">\s*<b>목적지는 계속 늘려갑니다\.</b>.*?</div>', "", s, flags=re.S)
+    return s
+
+
+def first_added():
+    """파일이 처음 저장소에 올라간 시각(업로드 순서). 아직 안 올라간 파일은 빠짐."""
+    import subprocess
+    out = subprocess.run(["git", "log", "--diff-filter=A", "--format=@%ct", "--name-only", "--", "*.html"],
+                         capture_output=True, text=True).stdout
+    res, ts = {}, None
+    for line in out.splitlines():
+        if line.startswith("@"):
+            ts = int(line[1:])
+        elif line.strip() and ts is not None:
+            res.setdefault(line.strip(), ts)  # 로그는 최신순 → 가장 오래된 추가가 마지막에 덮어써야 함
+            res[line.strip()] = ts
+    return res
 
 
 def git_date(f):

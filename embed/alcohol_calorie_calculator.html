@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>술 칼로리 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/alcohol_calorie_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="술 칼로리 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">술 칼로리 계산기</p>
+<p style="margin:0 0 .6rem;line-height:1.6">마신 양을 넣으세요. 용량·도수는 흔한 제품 예시이며 제품마다 다릅니다.</p>
+<label for="alSoju">소주 (1병 360ml · 16.5%, 병)</label><input id="alSoju" type="number" inputmode="decimal" placeholder="1"/>
+<label for="alBeer">맥주 (500ml · 4.5%, 잔)</label><input id="alBeer" type="number" inputmode="decimal" placeholder="2"/>
+<label for="alMak">막걸리 (1병 750ml · 6%, 병)</label><input id="alMak" type="number" inputmode="decimal" placeholder="0"/>
+<label for="alWine">와인 (1잔 150ml · 12%, 잔)</label><input id="alWine" type="number" inputmode="decimal" placeholder="0"/>
+<label for="alWhisky">위스키 (1잔 30ml · 40%, 잔)</label><input id="alWhisky" type="number" inputmode="decimal" placeholder="0"/>
+<button onclick="calcAl()">열량 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">마신 순수 알코올</span><span class="result-value" id="alG" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">알코올 열량</span><span class="result-value" id="alK">-</span></div>
+<p id="alMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcAl(){
+ var d=[['alSoju',360,.165],['alBeer',500,.045],['alMak',750,.06],['alWine',150,.12],['alWhisky',30,.40]],g=0;
+ d.forEach(function(x){g+=(parseFloat(document.getElementById(x[0]).value)||0)*x[1]*x[2]*.789;});
+ if(!(g>0)) return alert('마신 양을 입력해주세요.');
+ document.getElementById('alG').textContent=Math.round(g)+'g';
+ document.getElementById('alK').textContent=Math.round(g*7).toLocaleString('ko-KR')+'kcal';
+ document.getElementById('alMsg').textContent='알코올만 계산한 값입니다(1g당 7kcal). 맥주·막걸리·칵테일은 당분 열량이 더해져 실제로는 더 높습니다. 술을 마셨다면 운전하지 마세요.';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/alcohol_calorie_calculator.html?utm_source=embed&amp;utm_campaign=alcohol_calorie_calculator" target="_blank" rel="noopener">어라운드툴 술 칼로리 계산기</a></p>
+</body>
+</html>

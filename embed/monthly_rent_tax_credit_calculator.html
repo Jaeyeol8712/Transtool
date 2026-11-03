@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>월세 세액공제 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="월세 세액공제 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">월세 세액공제 계산기</p>
+<label for="mrPay">총급여 (만 원)</label>
+<input id="mrPay" type="number" inputmode="numeric" placeholder="4000"/>
+<label for="mrRent">월세 (만 원)</label>
+<input id="mrRent" type="number" inputmode="numeric" placeholder="60"/>
+<label for="mrMonths">올해 낸 개월 수</label>
+<input id="mrMonths" type="number" inputmode="numeric" placeholder="12"/>
+<button onclick="calcMr()">월세 세액공제 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">올해 낸 월세 (한도 1,000만 원)</span><span class="result-value" id="mrSum" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공제율</span><span class="result-value" id="mrRate" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세금에서 빼는 금액</span><span class="result-value" id="mrTax">-</span></div>
+<p id="mrMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcMr(){
+ var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
+ var pay=g('mrPay')*1e4, sum=g('mrRent')*1e4*(g('mrMonths')||12);
+ if(!(pay>0)||!(sum>0)) return alert('총급여와 월세를 입력해주세요.');
+ var base=Math.min(sum,1e7), r=pay<=5.5e7?.17:(pay<=8e7?.15:0);
+ var w=function(n){return Math.round(n).toLocaleString('ko-KR')+'원';};
+ document.getElementById('mrSum').textContent=w(base);
+ document.getElementById('mrRate').textContent=r?Math.round(r*100)+'%':'대상 아님';
+ document.getElementById('mrTax').textContent=w(Math.floor(base*r));
+ document.getElementById('mrMsg').textContent=r?'무주택 세대주, 전용 85㎡ 이하 또는 기준시가 4억 원 이하, 계약서 주소로 전입한 경우에 받을 수 있습니다.':'총급여 8,000만 원을 넘으면 월세 세액공제 대상이 아닙니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html?utm_source=embed&amp;utm_campaign=monthly_rent_tax_credit_calculator" target="_blank" rel="noopener">어라운드툴 월세 세액공제 계산기</a></p>
+</body>
+</html>

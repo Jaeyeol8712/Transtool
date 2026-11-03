@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연금저축·IRP 세액공제 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/pension_savings_tax_credit_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="연금저축·IRP 세액공제 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">연금저축·IRP 세액공제 계산기</p>
+<label for="psPay">총급여 (만 원)</label>
+<input id="psPay" type="number" inputmode="numeric" placeholder="5000"/>
+<label for="psSave">연금저축 납입액 (올해, 만 원)</label>
+<input id="psSave" type="number" inputmode="numeric" placeholder="600"/>
+<label for="psIrp">IRP 납입액 (올해, 본인 추가 납입분, 만 원)</label>
+<input id="psIrp" type="number" inputmode="numeric" placeholder="300"/>
+<button onclick="calcPs()">세액공제 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">공제 대상 납입액</span><span class="result-value" id="psBase" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공제율 (지방소득세 포함)</span><span class="result-value" id="psRate" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">줄어드는 세금</span><span class="result-value" id="psTax">-</span></div>
+<div class="result-row"><span class="result-label">한도까지 더 넣을 수 있는 금액</span><span class="result-value" id="psLeft" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcPs(){
+ var g=function(id){return (parseFloat(document.getElementById(id).value)||0)*1e4;};
+ var pay=g('psPay'),sv=g('psSave'),irp=g('psIrp');
+ if(!(pay>0)) return alert('총급여를 입력해주세요.');
+ var base=Math.min(Math.min(sv,6e6)+irp,9e6), r=pay<=5.5e7?.165:.132;
+ var w=function(n){return Math.round(n).toLocaleString('ko-KR')+'원';};
+ document.getElementById('psBase').textContent=w(base);
+ document.getElementById('psRate').textContent=(r*100).toFixed(1)+'%';
+ document.getElementById('psTax').textContent=w(Math.floor(base*r));
+ document.getElementById('psLeft').textContent=w(Math.max(0,9e6-base));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/pension_savings_tax_credit_calculator.html?utm_source=embed&amp;utm_campaign=pension_savings_tax_credit_calculator" target="_blank" rel="noopener">어라운드툴 연금저축·IRP 세액공제 계산기</a></p>
+</body>
+</html>

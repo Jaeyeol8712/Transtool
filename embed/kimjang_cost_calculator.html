@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김장 비용 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/kimjang_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="김장 비용 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">김장 비용 계산기</p>
+<label for="kjN">배추 포기 수</label>
+<input id="kjN" type="number" inputmode="numeric" value="20"/>
+<p style="margin:.2rem 0 .6rem;line-height:1.6">무·고춧가루는 aT 조사 기준 비율(배추 20포기에 무 5개, 고춧가루 2kg)로 자동 계산합니다. 단가는 aT KAMIS 2026년 10월 16일 소매가격이며 바꿀 수 있습니다.</p>
+<label for="kjCab">배추 1포기 가격 (원)</label><input id="kjCab" type="number" inputmode="numeric" value="5557"/>
+<label for="kjRad">무 1개 가격 (원)</label><input id="kjRad" type="number" inputmode="numeric" value="2262"/>
+<label for="kjPep">고춧가루 1kg 가격 (원)</label><input id="kjPep" type="number" inputmode="numeric" value="31696"/>
+<label for="kjEtc">그 밖의 재료 합계 (마늘·젓갈·소금·쪽파 등, 원)</label><input id="kjEtc" type="number" inputmode="numeric" placeholder="50000"/>
+<label for="kjPpl">나눌 가구 수</label><input id="kjPpl" type="number" inputmode="numeric" value="1"/>
+<button onclick="calcKj()">김장 비용 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">배추</span><span class="result-value" id="kjA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">무</span><span class="result-value" id="kjB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">고춧가루</span><span class="result-value" id="kjC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 비용</span><span class="result-value" id="kjSum">-</span></div>
+<div class="result-row"><span class="result-label">가구당</span><span class="result-value" id="kjPer" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcKj(){
+ var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
+ var n=g('kjN'); if(!(n>0)) return alert('배추 포기 수를 입력해주세요.');
+ var radN=Math.ceil(n/4), pepKg=n/10;
+ var a=n*g('kjCab'), b=radN*g('kjRad'), c=pepKg*g('kjPep'), sum=a+b+c+g('kjEtc'), ppl=g('kjPpl')||1;
+ var f=function(x){return Math.round(x).toLocaleString('ko-KR')+'원';};
+ document.getElementById('kjA').textContent=n+'포기 · '+f(a);
+ document.getElementById('kjB').textContent=radN+'개 · '+f(b);
+ document.getElementById('kjC').textContent=pepKg.toFixed(1)+'kg · '+f(c);
+ document.getElementById('kjSum').textContent=f(sum);
+ document.getElementById('kjPer').textContent=f(sum/ppl);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/kimjang_cost_calculator.html?utm_source=embed&amp;utm_campaign=kimjang_cost_calculator" target="_blank" rel="noopener">어라운드툴 김장 비용 계산기</a></p>
+</body>
+</html>

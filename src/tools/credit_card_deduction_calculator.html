@@ -1,0 +1,43 @@
+<label for="ccPay">총급여 (연봉에서 비과세 뺀 금액, 만 원)</label>
+<input id="ccPay" type="number" inputmode="numeric" placeholder="5000"/>
+<label for="ccCredit">신용카드 사용액 (만 원)</label>
+<input id="ccCredit" type="number" inputmode="numeric" placeholder="1500"/>
+<label for="ccDebit">체크카드·현금영수증 (만 원)</label>
+<input id="ccDebit" type="number" inputmode="numeric" placeholder="600"/>
+<label for="ccMarket">전통시장 (만 원)</label>
+<input id="ccMarket" type="number" inputmode="numeric" placeholder="50"/>
+<label for="ccBus">대중교통 (만 원)</label>
+<input id="ccBus" type="number" inputmode="numeric" placeholder="60"/>
+<label for="ccCulture">도서·공연·영화·박물관 등 (만 원, 총급여 7천만 원 이하만 별도 공제)</label>
+<input id="ccCulture" type="number" inputmode="numeric" placeholder="20"/>
+<label for="ccKids">자녀 수 (20세 이하, 기본공제 대상)</label>
+<select id="ccKids"><option value="0">없음</option><option value="1">1명</option><option value="2">2명 이상</option></select>
+<button onclick="calcCc()">소득공제 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">최저사용금액 (총급여 25%)</span><span class="result-value" id="ccMin" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공제 계산액</span><span class="result-value" id="ccRaw" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">기본한도 / 추가한도</span><span class="result-value" id="ccLim" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">소득공제 금액</span><span class="result-value" id="ccDed">-</span></div>
+<p id="ccMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcCc(){
+ var g=function(id){return (parseFloat(document.getElementById(id).value)||0)*1e4;};
+ var pay=g('ccPay'),cr=g('ccCredit'),db=g('ccDebit'),mk=g('ccMarket'),bus=g('ccBus'),cu=g('ccCulture'),kids=+document.getElementById('ccKids').value;
+ if(!(pay>0)) return alert('총급여를 입력해주세요.');
+ var low=pay<=7e7; if(!low){cr+=cu;cu=0;}
+ var min=pay*.25, rest=min, b=[cr,db,cu,mk,bus], rt=[.15,.3,.3,.4,.4];
+ for(var i=0;i<5;i++){var c=Math.min(b[i],rest);b[i]-=c;rest-=c;}
+ var parts=b.map(function(x,i){return x*rt[i];}), raw=parts.reduce(function(a,x){return a+x;},0);
+ var base=low?[3e6,3.5e6,4e6][kids]:[2.5e6,2.75e6,3e6][kids], extraCap=low?3e6:2e6;
+ var special=parts[3]+parts[4]+(low?parts[2]:0);
+ var ded=Math.min(raw,base)+Math.max(0,Math.min(raw-base,extraCap,special));
+ var w=function(n){return Math.round(n).toLocaleString('ko-KR')+'원';};
+ document.getElementById('ccMin').textContent=w(min);
+ document.getElementById('ccRaw').textContent=w(raw);
+ document.getElementById('ccLim').textContent=w(base)+' / '+w(extraCap);
+ document.getElementById('ccDed').textContent=w(ded);
+ document.getElementById('ccMsg').textContent=(cr+db+mk+bus+cu)<=min?'카드 사용액이 총급여의 25%를 넘지 않아 공제가 없습니다.':'소득공제는 과세표준을 줄이는 금액입니다. 실제 줄어드는 세금은 공제 금액 × 내 세율(6~45%)입니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

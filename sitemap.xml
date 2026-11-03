@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 263 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 304 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -33,6 +33,10 @@
     <loc>https://www.aroundtool.com/age_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-cake-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/alcohol_calorie_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/bmi_calculator.html</loc>
@@ -91,6 +95,10 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/contact.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/credit_card_deduction_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
@@ -290,11 +298,27 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-cold-illness-prevention.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-comprehensive-property-tax-schedule.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-drunk-driving-penalty.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-dutch-pay-settlement.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-energy-voucher-2026.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-flu-vaccine-2026-2027.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
@@ -311,6 +335,18 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-hidden-money-finder.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-holidays-2027.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-hometown-donation-2026.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
@@ -335,6 +371,10 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kimjang-cost.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-kimjang-timing-2026.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
@@ -435,6 +475,14 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-year-end-checklist-dec31.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-year-end-tax-2026-changes.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-year-end-tax-preview.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -525,6 +573,14 @@
     <loc>https://www.aroundtool.com/haeundae.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-haeundae-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/heater_electricity_cost_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/holiday_leave_planner.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/holiday_pay_calculator.html</loc>
@@ -699,6 +755,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/kimjang_cost_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/loan_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-3.jpg</image:loc></image:image>
@@ -726,6 +786,14 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/medical_expense_tax_credit_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/parental_leave_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -733,6 +801,10 @@
     <loc>https://www.aroundtool.com/pension_age_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-retire-2.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/pension_savings_tax_credit_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/percent_calculator.html</loc>
@@ -793,6 +865,50 @@
   <url>
     <loc>https://www.aroundtool.com/seoul-junggu.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-asian.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-gomtang.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-gukbap.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-hansik.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-kalguksu.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-mandu.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-memil.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-naengmyeon.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-vegan.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter-yearend-gogi.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-winter.html</loc>
+    <lastmod>2026-10-24</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/service_years_calculator.html</loc>
@@ -1156,9 +1272,17 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/time_difference_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/tire_date_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-tire-2.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-asan.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-bangkok.html</loc>
@@ -1171,11 +1295,31 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/busan-haeundae-night.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-cebu.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-chiangmai.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-gangneung.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-guam.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-gyeongju.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-hanoi.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-inje.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
@@ -1189,10 +1333,18 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-okinawa.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-osaka.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-dotonbori.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-castle.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-pyeongchang.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-sapporo.html</loc>
@@ -1207,6 +1359,14 @@
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/seoraksan-ulsanbawi.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/seoraksan-valley.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-suncheon.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-taebaek.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-taipei.html</loc>
@@ -1238,6 +1398,10 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/week_number_calculator.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/wind_chill_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>

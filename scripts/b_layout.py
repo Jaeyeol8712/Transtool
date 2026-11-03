@@ -31,9 +31,11 @@ def _label_tables(root):
         names = [_text(c) for c in hr.find_all(["th", "td"])]
         if len(names) < 2:
             continue
-        cls = t.get("class") or []
-        want = ["b-stack"] + (["b-stack2"] if len(names) == 2 else [])
-        t["class"] = cls + [w for w in want if w not in cls]
+        cls = [c for c in (t.get("class") or []) if c not in ("b-stack", "b-stack2")]
+        # 3열 이하는 일반 표(네이버식 격자), 4열 이상만 카드형으로 쌓음
+        t["class"] = cls + (["b-stack"] if len(names) >= 4 else [])
+        if not t["class"]:
+            del t["class"]
         for tr in (t.find("tbody") or t).find_all("tr", recursive=False):
             for i, c in enumerate(tr.find_all(["th", "td"], recursive=False)):
                 if c.name == "td" and i < len(names) and names[i] and not c.get("data-label"):
