@@ -1550,7 +1550,7 @@ def build_calc(slug):
         tool = tool.replace(x, "")
     steps = "".join(f"<li>{s}</li>" for s in c["steps"])
     formula = f'<h2>계산 방법</h2><div class="at-formula">{c["formula"]}</div>' if c.get("formula") else ""
-    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])}{"" if "계산" in PAGES[r + ".html"]["name"] else " 계산기"}</a></li>'
+    related = "".join(f'<li><a href="/{r}.html">{esc(PAGES[r + ".html"]["name"])}</a></li>'
                       for r in c["related"] if r + ".html" in PAGES)
     g = p["group_name"]
     photo_blk, photo_ld = page_photo_block(p["file"])

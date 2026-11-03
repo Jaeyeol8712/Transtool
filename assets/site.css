@@ -849,3 +849,52 @@ body.b main table a{overflow-wrap:anywhere}
 /* 계산기 입력칸이 화면 밖으로 나가지 않게 */
 .at-content .app,.at-content .app *{min-width:0;max-width:100%}
 .at-content .ip{flex:1 1 140px}
+/* ════ 가독성 3차: 글자 크기 한 단계 낮춤, 강조는 크기 대신 색 ════ */
+body.b{--b-fs:1rem!important;--b-s:.9375rem!important;--t-body:1rem!important;--t-sub:.9375rem!important;--t-cap:.875rem!important;--t-h3:1.0625rem!important;--t-h2:1.25rem!important}
+body.b .b-card h2,body.b .b-card>h2.sec{font-size:var(--t-h2)!important;margin-bottom:14px!important}
+body.b .at-page-head h1,body.b .at-content>.head h1,body.b .at-content>.hero h1{font-size:1.5rem!important}
+body.b .at-page-head .lede,body.b .at-content>.head p,body.b .at-content>.hero .lede{font-size:1rem!important}
+body.b .vx-hero.b-sum .vx-hero-h{font-size:1.125rem!important}
+body.b .b-num{width:26px;height:26px;font-size:14px;margin-top:0}
+body.b main :is(li){line-height:1.7!important}
+/* 강조: 굵게 + 사이트 색 (크기는 그대로) */
+body.b main :is(p,li,td,dd,.ans,.a,.dc) :is(b,strong){color:var(--at-brand);font-size:inherit!important}
+body.b .b-sum :is(b,strong){color:#9FE3D4!important}
+body.b main .vx-hl{background:none;color:var(--at-brand);font-weight:800}
+/* 카드 안 상자는 여백을 줄여 줄이 덜 넘어가게 */
+body.b .b-card :is(.verify,.note,.at-note,.vx-callout,.vx-check,.intro,.compare,.tips){padding:12px 14px!important}
+body.b .b-card :is(.verify ul,.tips,.b-card ul){padding-left:1.1em}
+body.b .b-card .verify li{padding-left:1.4em!important}
+body.b .b-card ul,body.b .b-card ol{margin:0 0 12px!important}
+body.b .b-card li{margin:0 0 6px!important}
+/* ════ 가독성 4차 (네이버 블로그·지식백과식 정돈): 짙은 상자·겹친 회색 상자 없애고 표는 격자 ════ */
+/* 요약: 짙은 카드 → 연한 초록 바탕 + 왼쪽 선 */
+body.b .b-sum,body.b .vx-hero.b-sum{background:#EEF6F3!important;color:var(--at-ink)!important;border:0!important;border-left:4px solid var(--at-brand)!important;border-radius:10px!important;padding:16px 18px!important}
+body.b .b-sum::before{color:var(--at-brand);opacity:1;font-size:.875rem}
+body.b .b-sum,body.b .b-sum p,body.b .b-sum .vx-hero-s{color:var(--at-ink)!important;opacity:1!important}
+body.b .b-sum :is(b,strong),body.b .vx-hero.b-sum .vx-hero-h{color:var(--at-brand)!important}
+body.b .vx-hero.b-sum .vx-chip{background:#fff!important;color:var(--at-ink)!important;border:1px solid var(--at-line)!important}
+body.b .b-sum a{color:var(--at-brand)!important}
+/* 표 (3열 이하): 얇은 테두리 격자, 머리글 연회색 */
+body.b main .at-table,body.b main .tablewrap{overflow-x:auto!important;border:0!important;background:transparent!important;margin:0 0 14px!important}
+body.b main table:not(.b-stack){display:table!important;width:100%!important;min-width:0!important;border-collapse:collapse!important;table-layout:auto!important;background:#fff}
+body.b main table:not(.b-stack) :is(th,td){display:table-cell!important;border:1px solid #E3E6E2!important;padding:10px 12px!important;font-size:.9375rem!important;line-height:1.6!important;text-align:left!important;vertical-align:top!important;white-space:normal!important;background:#fff}
+body.b main table:not(.b-stack) thead th{background:#F4F6F4!important;font-weight:700;color:var(--at-ink)!important;font-size:.875rem!important}
+body.b main table:not(.b-stack) tbody th{background:#FAFBFA!important;font-weight:700;width:auto!important;min-width:0!important}
+body.b main table:not(.b-stack) td::before{display:none!important}
+body.b main table:not(.b-stack) tr{display:table-row!important;background:none!important;padding:0!important;margin:0!important;border-radius:0!important}
+body.b main table:not(.b-stack) thead{display:table-header-group!important}
+body.b main table:not(.b-stack) tbody{display:table-row-group!important}
+/* 4열 이상 카드형도 회색 상자 대신 흰 바탕 + 얇은 테두리 */
+body.b main table.b-stack tbody tr{background:#fff!important;border:1px solid #E3E6E2!important}
+/* 카드 안 회색 상자 없애고 구분선으로 */
+body.b .b-card :is(.steps li,.vx-card,.vx-vs-col,.places .place,.areas li,.ex){background:#fff!important;border:1px solid #E3E6E2!important}
+body.b .b-card .vx-check ul{background:transparent!important;padding:0!important}
+body.b .b-card :is(.verify,.intro,.compare){background:transparent!important;border:0!important;padding:0!important}
+body.b .b-card .verify{border-left:3px solid #E3E6E2!important;padding-left:12px!important}
+body.b .b-card :is(.note,.at-note,.vx-callout){background:#FAFBFA!important;border:1px solid #E3E6E2!important;border-radius:8px!important}
+body.b .b-card .vx-vs-mid{display:none}
+body.b .b-card h2.vx-title,body.b .b-card .vx-sec>h2{font-size:var(--t-h2)!important;font-weight:800!important}
+/* 추천 글 설명 그래픽(글씨가 작은 이미지)은 본문과 내용이 겹쳐 숨김 */
+body.b .at-blog figure.at-fig:has(img[src*="/assets/shop/"][src$=".png"]){display:none}
+body.b main table :is(th,td){overflow-wrap:anywhere!important;word-break:keep-all}
