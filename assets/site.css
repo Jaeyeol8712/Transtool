@@ -610,6 +610,10 @@ html.at-pop-open{overflow:hidden}
 .ah-ups li{margin:0}
 .ah-ups .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ah-ups time{flex-shrink:0;font-size:.8rem;color:var(--at-sub)}
+.ah-head-sub{margin-top:1.25rem}.ah-head-sub h3{margin:0;font-size:1rem}
+.ah-new .t{display:flex;align-items:center;gap:.5rem}
+.ah-new .tt{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ah-tag{flex-shrink:0;font-size:.6875rem;font-weight:700;color:var(--at-brand);background:var(--at-brand-tint);border-radius:6px;padding:.1rem .4rem}
 @media (min-width:40rem){
   .ah-main,.ah-side,.ah-card{padding:1.5rem}
   .ah-picks{grid-template-columns:repeat(2,minmax(0,1fr))}
