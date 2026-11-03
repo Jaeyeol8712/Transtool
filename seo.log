@@ -1,5 +1,10 @@
-== 2026-11-03T08:17:06Z push a5be0e923d5425ce6fb18972057424353db8f921
+== 2026-11-03T08:20:06Z workflow_dispatch 7671a3c363a2426758e52f2877b9cf9eebfce6fc
 · 대상 259개
+  https://www.aroundtool.com/
+  https://www.aroundtool.com/food.html
+  https://www.aroundtool.com/tools.html
+  https://www.aroundtool.com/travel.html
+  https://www.aroundtool.com/etc.html
   https://www.aroundtool.com/about.html
   https://www.aroundtool.com/acquisition_tax_calculator.html
   https://www.aroundtool.com/age_calculator.html
@@ -15,14 +20,10 @@
   https://www.aroundtool.com/connect.html
   https://www.aroundtool.com/contact.html
   https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
-  https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html
-  https://www.aroundtool.com/daejeon-donggu-station.html
-  https://www.aroundtool.com/daejeon-donggu.html
-  https://www.aroundtool.com/daejeon-junggu-cafe.html
-  https://www.aroundtool.com/daejeon-junggu-durus.html
   … 외 239개
 
   ✓ api.indexnow.org — 200 접수됨
+  ✓ www.bing.com — 200 접수됨
   ✓ searchadvisor.naver.com — 200 접수됨
 
 · 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
@@ -30,6 +31,8 @@
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
+· Bing 사이트맵 제출: BING_WEBMASTER_KEY 가 없어 건너뜁니다.
+  Bing 웹마스터 도구 → 설정(톱니) → API 액세스에서 키를 만들고 GitHub Secrets 에 BING_WEBMASTER_KEY 로 등록하세요.
 
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
