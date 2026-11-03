@@ -1,10 +1,30 @@
-== 2026-11-03T13:36:04Z push bcfbd781ede4c4853c4f103d5f380a23000dbce5
-· 대상 1개
-  https://www.aroundtool.com/
+== 2026-11-03T13:45:43Z push a92ad8f473cfac9898fd275c1a70e4dfd9f63b4f
+· 대상 263개
+  https://www.aroundtool.com/about.html
+  https://www.aroundtool.com/acquisition_tax_calculator.html
+  https://www.aroundtool.com/age_calculator.html
+  https://www.aroundtool.com/bmi_calculator.html
+  https://www.aroundtool.com/bmr_calculator.html
+  https://www.aroundtool.com/brokerage_fee_calculator.html
+  https://www.aroundtool.com/calorie_calculator.html
+  https://www.aroundtool.com/camping_gear_calculator.html
+  https://www.aroundtool.com/capital_gains_tax_calculator.html
+  https://www.aroundtool.com/car_tax_calculator.html
+  https://www.aroundtool.com/card_installment_calculator.html
+  https://www.aroundtool.com/character_counter.html
+  https://www.aroundtool.com/compound_calculator.html
+  https://www.aroundtool.com/comprehensive_property_tax_calculator.html
+  https://www.aroundtool.com/connect.html
+  https://www.aroundtool.com/contact.html
+  https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+  https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html
+  https://www.aroundtool.com/daejeon-donggu-station.html
+  https://www.aroundtool.com/daejeon-donggu.html
+  … 외 243개
 
   ✓ api.indexnow.org — 200 접수됨
   ✓ www.bing.com — 200 접수됨
-  ✗ searchadvisor.naver.com — 422 URL이 host와 맞지 않습니다
+  ✓ searchadvisor.naver.com — 200 접수됨
 
 · 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
