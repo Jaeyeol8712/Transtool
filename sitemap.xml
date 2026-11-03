@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 245 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 259 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -222,6 +222,10 @@
     <loc>https://www.aroundtool.com/gangnam-iguk.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-iguk-6.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/gangnam-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/gangnam-nopo.html</loc>
@@ -675,6 +679,18 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-clover-1.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/jongno-michelin-bukchon.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/jongno-michelin-seochon.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/jongno.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/loan_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-3.jpg</image:loc></image:image>
@@ -688,6 +704,18 @@
     <loc>https://www.aroundtool.com/ltv_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/mapo-michelin-hansik.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/mapo-michelin-noodle.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/mapo.html</loc>
+    <lastmod>2026-10-24</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/parental_leave_calculator.html</loc>
@@ -736,6 +764,26 @@
     <loc>https://www.aroundtool.com/savings_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-coins-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seocho-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seocho.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seongdong-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-junggu-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/seoul-junggu.html</loc>
+    <lastmod>2026-10-24</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/service_years_calculator.html</loc>
@@ -1190,6 +1238,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/yeongdeungpo-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/yeonsu-bapjip.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-bapjip-2.jpg</image:loc></image:image>
@@ -1253,6 +1305,10 @@
     <loc>https://www.aroundtool.com/yongsan-iguk.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-iguk-4.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/yongsan-michelin.html</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/yongsan-sul-anju.html</loc>

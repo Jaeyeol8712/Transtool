@@ -156,7 +156,8 @@ CAT_ORDER = list(CAT)
 # (지역 id, 지역명, 짧은 이름, [(파일 접두사, 구 이름)])
 FOOD_AREAS = [
     ("incheon", "인천광역시", "인천", [("yeonsu", "연수구")]),
-    ("seoul", "서울특별시", "서울", [("gangnam", "강남구"), ("yongsan", "용산구")]),
+    ("seoul", "서울특별시", "서울", [("gangnam", "강남구"), ("yongsan", "용산구"), ("jongno", "종로구"), ("seoul-junggu", "중구"),
+                                    ("mapo", "마포구"), ("seocho", "서초구"), ("seongdong", "성동구"), ("yeongdeungpo", "영등포구")]),
     ("busan", "부산광역시", "부산", [("haeundae", "해운대구")]),
     ("gangwon", "강원특별자치도", "강원", [("sokcho", "속초시")]),
     ("daejeon", "대전광역시", "대전", [("daejeon-donggu", "동구"), ("daejeon-junggu", "중구"),
@@ -208,6 +209,8 @@ TRIP_PAGES = [("travel-jeju", "제주도 여행", "국내"), ("travel-busan", "�
 from trips_1103 import TRIP_PAGES_1103  # noqa: E402  (2026-11-03 여행 코스 10개)
 TRIP_PAGES += TRIP_PAGES_1103
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103}  # 처음 올린 날
+from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
+PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -380,7 +383,7 @@ def register_food():
                 PAGES[f] = dict(
                     file=f, section="food", region=rid, region_name=rname, region_short=rshort, gu=gu,
                     prefix=prefix, slug=slug, cat=cat, special=special, count=n, research=research,
-                    detail=detail, desc=desc, old_title=title, date=BASE_DATE,
+                    detail=detail, desc=desc, old_title=title, date=PAGE_DATES.get(f, BASE_DATE),
                     name=f"{area} {cat}", short=cat,
                 )
 
@@ -889,7 +892,9 @@ def related_html(p):
         return ""
     note = ""
     if s == "food":
-        note = ('<p class="at-note" style="margin:0 0 .75rem"><b>조사 기준</b> 2026년 8월 조사. 가격·영업시간·휴무는 바뀔 수 있으니 방문 전 확인하세요. '
+        _d = p.get("date", BASE_DATE)
+        note = (f'<p class="at-note" style="margin:0 0 .75rem"><b>조사 기준</b> {int(_d[:4])}년 {int(_d[5:7])}월 조사. '
+                '가격·영업시간·휴무는 바뀔 수 있으니 방문 전 확인하세요. '
                 '협찬·체험단·원고료를 받은 콘텐츠는 검증 근거에서 제외했습니다. <a href="/editorial.html" style="color:var(--at-brand)">선정 기준 보기</a></p>')
     return f"""<section class="at-related" aria-label="{esc(head)}">
   <div class="at-box-head"><h2>{esc(head)}</h2>{more}</div>
@@ -1395,7 +1400,7 @@ def transform_existing(p):
                        f"이 페이지에는 {', '.join(esc(n) for n in names)}{' 등' if len(names) >= 8 else ''} {len(names)}곳을 정리했습니다. "
                        "곳마다 대표 메뉴와 선정 근거, 아쉬운 점을 함께 적었습니다."))
         qs.append(("가격과 영업시간은 언제 기준인가요?",
-                   f"{int(BASE_DATE[:4])}년 {int(BASE_DATE[5:7])}월 조사 기준입니다. 바뀌었을 수 있으니 방문 전 가게 공지나 지도 앱에서 확인하세요."))
+                   f"{int(p.get('date', BASE_DATE)[:4])}년 {int(p.get('date', BASE_DATE)[5:7])}월 조사 기준입니다. 바뀌었을 수 있으니 방문 전 가게 공지나 지도 앱에서 확인하세요."))
         qs.append(("맛집은 어떤 기준으로 골랐나요?",
                    "리뷰 개수보다 재방문 언급을 보고, 다이닝코드 지역 랭킹·미쉐린 가이드·백년가게·지자체 지정처럼 광고비로 살 수 없는 근거와 "
                    "교차 확인했습니다. 협찬·체험단 글은 근거에서 뺐습니다. 자세한 기준은 <a href=\"/editorial.html\">편집 방침</a>에 있습니다."))
@@ -2055,7 +2060,7 @@ def build_gu_hub(p):
     content = f"""<header class="at-page-head">
   <h1>{esc(area)} 맛집 {total}곳</h1>
   <p class="lede">{esc(p['gu'])}에서 광고·협찬을 빼고 고른 가게를 카테고리별로 모았습니다. 가게 이름을 누르면 선정 근거와 단점, 가격과 영업시간 확인 여부를 볼 수 있습니다.</p>
-  <p class="meta"><span>{len(pages)}개 카테고리</span><span>2026년 8월 조사</span><span><a href="/editorial.html">선정 기준</a></span></p>
+  <p class="meta"><span>{len(pages)}개 카테고리</span><span>{int(max([x["date"] for x in pages] or [BASE_DATE])[:4])}년 {int(max([x["date"] for x in pages] or [BASE_DATE])[5:7])}월 조사</span><span><a href="/editorial.html">선정 기준</a></span></p>
 </header>
 <div class="at-page"><div class="at-prose" style="max-width:none">
 <div class="at-answer"><p>{answer}</p></div>
