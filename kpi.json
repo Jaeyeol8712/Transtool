@@ -1,5 +1,5 @@
 {
- "made": "2026-11-02T23:26:58.760Z",
+ "made": "2026-11-03T03:57:06.221Z",
  "range": "2026-10-27 ~ 2026-11-02",
  "prevRange": "2026-10-20 ~ 2026-10-26",
  "cur": {
@@ -21,7 +21,7 @@
    "Direct": 62,
    "Organic Search": 56,
    "Organic Social": 8,
-   "Unassigned": 7,
+   "Unassigned": 6,
    "AI Assistant": 3,
    "Paid Search": 1
   },
@@ -183,7 +183,7 @@
   },
   {
    "page": "(not set)",
-   "sessions": 4
+   "sessions": 5
   },
   {
    "page": "/acquisition_tax_calculator",
