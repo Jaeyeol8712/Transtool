@@ -1,0 +1,24 @@
+<label for="tdCity">비교할 도시</label>
+<select id="tdCity"><option value="Asia/Tokyo">도쿄·오사카·오키나와</option><option value="Asia/Shanghai">베이징·상하이</option><option value="Asia/Hong_Kong">홍콩</option><option value="Asia/Taipei">타이베이</option><option value="Asia/Bangkok">방콕·치앙마이</option><option value="Asia/Ho_Chi_Minh">하노이·다낭·호찌민</option><option value="Asia/Manila">세부·마닐라</option><option value="Asia/Singapore">싱가포르</option><option value="Pacific/Guam">괌·사이판</option><option value="Australia/Sydney">시드니</option><option value="Asia/Dubai">두바이</option><option value="Europe/Istanbul">이스탄불</option><option value="Europe/Paris">파리·로마·프라하</option><option value="Europe/London">런던</option><option value="America/New_York">뉴욕</option><option value="America/Los_Angeles">로스앤젤레스</option><option value="Pacific/Honolulu">하와이</option></select>
+<label for="tdTime">한국 날짜·시각</label>
+<input id="tdTime" type="datetime-local"/>
+<button onclick="calcTd()">시차 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">현지 시각</span><span class="result-value" id="tdLocal">-</span></div>
+<div class="result-row"><span class="result-label">한국과 시차</span><span class="result-value" id="tdDiff" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="tdMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+(function(){var n=new Date(Date.now()+9*36e5);document.getElementById('tdTime').value=n.toISOString().slice(0,16);})();
+function tdOff(tz,date){var p=new Intl.DateTimeFormat('en-US',{timeZone:tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).formatToParts(date).reduce(function(o,x){o[x.type]=x.value;return o;},{});return (Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute)-date.getTime())/36e5;}
+function calcTd(){
+ var v=document.getElementById('tdTime').value; if(!v) return alert('날짜와 시각을 입력해주세요.');
+ var tz=document.getElementById('tdCity').value, utc=new Date(Date.parse(v+':00Z')-9*36e5);
+ var off=tdOff(tz,utc), diff=off-9, loc=new Date(utc.getTime()+off*36e5);
+ var wd=['일','월','화','수','목','금','토'][loc.getUTCDay()];
+ document.getElementById('tdLocal').textContent=(loc.getUTCMonth()+1)+'월 '+loc.getUTCDate()+'일 ('+wd+') '+String(loc.getUTCHours()).padStart(2,'0')+':'+String(loc.getUTCMinutes()).padStart(2,'0');
+ document.getElementById('tdDiff').textContent=diff===0?'시차 없음':('한국보다 '+Math.abs(diff)+'시간 '+(diff<0?'느림':'빠름'));
+ document.getElementById('tdMsg').textContent='서머타임(일광절약시간)이 있는 도시는 날짜에 따라 시차가 1시간 달라집니다. 계산기가 날짜에 맞춰 자동 반영합니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

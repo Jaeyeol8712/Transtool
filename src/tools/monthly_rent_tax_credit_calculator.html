@@ -1,0 +1,27 @@
+<label for="mrPay">총급여 (만 원)</label>
+<input id="mrPay" type="number" inputmode="numeric" placeholder="4000"/>
+<label for="mrRent">월세 (만 원)</label>
+<input id="mrRent" type="number" inputmode="numeric" placeholder="60"/>
+<label for="mrMonths">올해 낸 개월 수</label>
+<input id="mrMonths" type="number" inputmode="numeric" placeholder="12"/>
+<button onclick="calcMr()">월세 세액공제 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">올해 낸 월세 (한도 1,000만 원)</span><span class="result-value" id="mrSum" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공제율</span><span class="result-value" id="mrRate" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세금에서 빼는 금액</span><span class="result-value" id="mrTax">-</span></div>
+<p id="mrMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcMr(){
+ var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
+ var pay=g('mrPay')*1e4, sum=g('mrRent')*1e4*(g('mrMonths')||12);
+ if(!(pay>0)||!(sum>0)) return alert('총급여와 월세를 입력해주세요.');
+ var base=Math.min(sum,1e7), r=pay<=5.5e7?.17:(pay<=8e7?.15:0);
+ var w=function(n){return Math.round(n).toLocaleString('ko-KR')+'원';};
+ document.getElementById('mrSum').textContent=w(base);
+ document.getElementById('mrRate').textContent=r?Math.round(r*100)+'%':'대상 아님';
+ document.getElementById('mrTax').textContent=w(Math.floor(base*r));
+ document.getElementById('mrMsg').textContent=r?'무주택 세대주, 전용 85㎡ 이하 또는 기준시가 4억 원 이하, 계약서 주소로 전입한 경우에 받을 수 있습니다.':'총급여 8,000만 원을 넘으면 월세 세액공제 대상이 아닙니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

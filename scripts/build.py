@@ -278,6 +278,10 @@ def write(p, s):
         s = drop_unused_fonts(s)
         if PAGES.get(p, {}).get("section") in B_SECTIONS:
             s = b_layout.apply(s)
+        if p == "etc.html":
+            s = guide_hub_list(s)
+        if p == "travel.html":
+            s = trip_hub_list(s)
         s = b_layout.tidy_spacing(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
@@ -2267,6 +2271,62 @@ def all_index_pages():
     order = ["index.html", "food.html", "tools.html", "travel.html", "etc.html"]
     ps = [PAGES[f] for f in order] + sorted([q for q in PAGES.values() if q["file"] not in order], key=lambda q: q["file"])
     return [q for q in ps if indexable(q)]
+
+
+GUIDE_GROUPS = [
+    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "기부")),
+    ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직")),
+    ("부동산·주거", ("전세", "월세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
+]
+
+
+def guide_hub_list(s):
+    """기타(가이드) 게시판에 모든 생활 가이드를 분류별·최신순으로 보여 줍니다."""
+    groups = {name: [] for name, _ in GUIDE_GROUPS}
+    groups["생활·건강·여행"] = []
+    for g in sorted(GUIDES, key=lambda x: x.get("date", ""), reverse=True):
+        name = next((n for n, keys in GUIDE_GROUPS if any(k in g["title"] for k in keys)), "생활·건강·여행")
+        groups[name].append(g)
+    secs = ""
+    for name, items in groups.items():
+        if not items:
+            continue
+        li = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(g["title"])}</a></li>' for g in items)
+        secs += f'<section class="grp grp-guide"><h2>{esc(name)}<span class="c">{len(items)}</span></h2><ul>{li}</ul></section>'
+    extra = ('<section class="grp"><h2>연도별 정리·사이트 안내<span class="c">3</span></h2><ul>'
+             '<li><a href="/guide_2026_wage.html">2026 최저임금·노동법</a></li><li><a href="/guide_2026_tax.html">2026 세금·연말정산</a></li>'
+             '<li><a href="/about.html">사이트 소개</a></li></ul></section>')
+    block = f'<div class="at-guides">{secs}{extra}</div>'
+    s = re.sub(r'<div class="at-guides">.*?</div>\s*', "", s, flags=re.S)
+    s = re.sub(r"<!-- at:guides -->.*?<!-- /at:guides -->", "", s, flags=re.S)
+    s = re.sub(r'<section class="grp">\s*<h2>정보 및 가이드.*?</section>', "", s, count=1, flags=re.S)
+    s = s.replace('<section class="faq">', block + '\n<section class="faq">', 1)
+    s = re.sub(r'<span class="n">텍스트 3 · 가이드 \d+</span>', f'<span class="n">텍스트 3 · 가이드 {len(GUIDES)}</span>', s)
+    s = s.replace("<h1>기타</h1>", "<h1>생활 가이드</h1>").replace("글자수·맞춤법 검사와 <b>연도별 제도 가이드</b>, 사이트 안내를 모았습니다.", "세금·노동·부동산·생활 제도를 <b>질문에 바로 답하는 가이드</b>로 정리했습니다. 글자수·맞춤법 검사 도구도 여기 있습니다.")
+    s = s.replace("계산기와 실용 도구 <b>43개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>")
+    return s
+
+
+def trip_hub_list(s):
+    """여행 게시판: 모든 여행 글을 국내·해외로 나눠 카드로 보여 줍니다."""
+    trips = [q for q in PAGES.values() if q.get("section") == "trip"]
+    def card(q):
+        cls = "d-dom" if q.get("kind") == "국내" else "d-abr"
+        first = re.split(r"(?<=다)\.\s", q.get("desc", ""), maxsplit=1)[0].rstrip(".")
+        first = re.sub(r"^\S+ 여행 코스를 (.*)로 정리했습니다$", r"\1 코스", first)
+        first = re.sub(r"^\S+ (.*)(을|를) 정리했습니다$", r"\1", first)
+        return (f'<a class="dest {cls}" href="/{q["file"]}"><h3>{esc(q["name"].replace(" 여행", ""))}</h3>'
+                f'<p>{esc(first)}</p><span class="go">코스·예산 보기</span></a>')
+    dom = [q for q in trips if q.get("kind") == "국내"]
+    abr = [q for q in trips if q.get("kind") != "국내"]
+    block = (f'<div class="at-trips"><h2 class="sec">국내 <span class="c">{len(dom)}</span></h2><div class="dests">{"".join(card(q) for q in dom)}</div>'
+             f'<h2 class="sec">해외 <span class="c">{len(abr)}</span></h2><div class="dests">{"".join(card(q) for q in abr)}</div></div>\n')
+    s = re.sub(r'<div class="at-trips">.*?</div></div>\n?', "", s, flags=re.S)
+    s = re.sub(r'<h2 class="sec">국내</h2>.*?(?=<h2 class="sec">여행 도구</h2>)', "", s, count=1, flags=re.S)
+    s = s.replace('<h2 class="sec">여행 도구</h2>', block + '<h2 class="sec">여행 도구</h2>', 1)
+    s = re.sub(r'<span class="n">국내 \d+곳 · 해외 \d+곳 · 도구 \d+종</span>', f'<span class="n">국내 {len(dom)}곳 · 해외 {len(abr)}곳</span>', s)
+    s = re.sub(r'<div class="note">\s*<b>목적지는 계속 늘려갑니다\.</b>.*?</div>', "", s, flags=re.S)
+    return s
 
 
 def first_added():

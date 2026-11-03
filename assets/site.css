@@ -898,3 +898,32 @@ body.b .b-card h2.vx-title,body.b .b-card .vx-sec>h2{font-size:var(--t-h2)!impor
 /* 추천 글 설명 그래픽(글씨가 작은 이미지)은 본문과 내용이 겹쳐 숨김 */
 body.b .at-blog figure.at-fig:has(img[src*="/assets/shop/"][src$=".png"]){display:none}
 body.b main table :is(th,td){overflow-wrap:anywhere!important;word-break:keep-all}
+/* 가이드 안의 계산기 바로가기: 밑줄 없이 단정하게 */
+body.b .at-guide-tools{gap:8px!important}
+body.b .at-guide-tool{text-decoration:none!important;border:1px solid #E3E6E2!important;border-radius:10px!important;background:#fff!important;padding:12px 14px!important}
+body.b .at-guide-tool b{font-size:1rem!important;color:var(--at-brand)!important;text-decoration:none!important}
+body.b .at-guide-tool span{font-size:.875rem!important;color:var(--at-sub)!important;text-decoration:none!important}
+/* 기타 게시판 가이드 목록: 한 줄에 하나, 제목 전체 표시 */
+.grp-guide ul{grid-template-columns:1fr!important}
+.grp-guide li a{white-space:normal!important;line-height:1.5}
+/* 표 줄바꿈: 단어 중간에서 끊지 않고 띄어쓰기에서만. 첫 칸(항목 이름)은 한 줄 */
+body.b main table :is(th,td){overflow-wrap:normal!important;word-break:keep-all!important}
+body.b main table:not(.b-stack) tbody th{white-space:nowrap!important}
+body.b main table:not(.b-stack) thead th{white-space:nowrap!important}
+body.b main .at-table,body.b main .tablewrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+/* 표 폭 고정: 첫 칸 비율을 정해 두고 나머지를 나눔 → 옆으로 밀리지 않고 단어 중간에서 안 끊김 */
+body.b main table:not(.b-stack){table-layout:fixed!important}
+body.b main table:not(.b-stack) tr>*:first-child:nth-last-child(2){width:34%}
+body.b main table:not(.b-stack) tr>*:first-child:nth-last-child(3){width:28%}
+body.b main table:not(.b-stack) :is(th,td){white-space:normal!important;overflow-wrap:anywhere!important;word-break:keep-all!important;padding:10px!important}
+body.b main table:not(.b-stack) :is(thead,tbody) th{white-space:normal!important}
+body.b main table :is(th,td) *{white-space:normal!important;max-width:100%}
+/* 여행 게시판 목록: 큰 색 카드 대신 차분한 목록 */
+.at-trips .dests{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin:0 0 20px!important}
+.at-trips .dest{background:#fff!important;background-image:none!important;color:var(--at-ink)!important;border:1px solid #E3E6E2!important;border-left:4px solid var(--at-trip)!important;border-radius:10px!important;padding:12px 14px!important;min-height:0!important;box-shadow:none!important}
+.at-trips .dest.d-dom{border-left-color:var(--at-brand)!important}
+.at-trips .dest::before,.at-trips .dest::after{display:none!important}
+.at-trips .dest h3{font-size:1.0625rem!important;margin:0 0 4px!important;color:var(--at-ink)!important}
+.at-trips .dest p{font-size:.9375rem!important;line-height:1.6!important;color:var(--at-sub)!important;margin:0!important;opacity:1!important}
+.at-trips .dest .go{display:none!important}
+.at-trips h2.sec .c{font-size:.875rem;color:var(--at-sub);font-weight:600}
