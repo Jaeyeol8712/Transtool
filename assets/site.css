@@ -792,3 +792,5 @@ body.b .vx-card .vx-card-t,body.b .vx-card .vx-card-d{grid-column:2}
 .at-shop-thumb{flex-shrink:0}
 .at-cta.at-cta-sm{animation:none!important;background:#C81E1E!important;box-shadow:none!important}
 .at-cta.at-cta-sm:hover{background:#A51818!important}
+.at-shop-txt .tag{font-size:.8125rem}
+.at-shop-txt .x,.at-tabs-lg .c{font-size:.875rem}
