@@ -9,7 +9,7 @@ on:
       - "sitemap.xml"
       - "feed.xml"
   schedule:
-    - cron: "17 23 * * 0"   # 매주 월요일 08:17 (한국 시간) — 구글 사이트맵 재제출
+    - cron: "17 23 * * 0"   # 매주 월요일 08:17 (한국 시간) — 구글·빙 사이트맵 재제출
   workflow_dispatch:
     inputs:
       submit_all:
@@ -90,6 +90,16 @@ jobs:
           GOOGLE_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GCP_SERVICE_ACCOUNT: ${{ vars.GCP_SERVICE_ACCOUNT }}
           GSC_SITE: ${{ vars.GSC_SITE }}
+          SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
+
+      # ── 3-2. Bing 웹마스터 도구에 사이트맵 제출 (BING_WEBMASTER_KEY 가 있을 때) ──
+      - name: Bing 사이트맵 제출
+        if: always()
+        run: |
+          set -o pipefail
+          node scripts/bing-sitemap.mjs 2>&1 | tee -a _seo.log
+        env:
+          BING_WEBMASTER_KEY: ${{ secrets.BING_WEBMASTER_KEY }}
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
 
       # ── 4. 실행 결과를 seo-log 브랜치에 남김 (나중에 확인용) ──
