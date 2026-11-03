@@ -977,3 +977,5 @@ POSTS = [
 # 2026-10-31 추가분 (대표 키워드 9개)
 from posts_1031 import POSTS_1031  # noqa: E402
 POSTS = POSTS_1031 + POSTS
+from posts_1103 import POSTS_1103  # noqa: E402
+POSTS = POSTS_1103 + POSTS

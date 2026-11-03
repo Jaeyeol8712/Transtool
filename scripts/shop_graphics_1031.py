@@ -82,7 +82,7 @@ def out(slug, n):
     return os.path.join(p, f"{n}.png")
 
 def build_all():
-    from posts_1031_graphics import SPECS
+    import importlib; SPECS = importlib.import_module(os.environ.get("GSPEC","posts_1031_graphics")).SPECS
     for slug, specs in SPECS.items():
         for n, (kind, args) in enumerate(specs, 1):
             globals()[kind](out(slug, n), *args)

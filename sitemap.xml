@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 200 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 209 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -663,6 +663,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calendar-7.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-aa-battery-10pack.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/aa-battery-10pack/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/aa-battery-10pack/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/aa-battery-10pack/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/aa-battery-10pack/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-bespoke-ai-fridge-4door.html</loc>
     <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-fridge-4door/product.jpg</image:loc></image:image>
@@ -695,6 +703,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/calf-foot-air-massager/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-car-vacuum-air-duster.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/car-vacuum-air-duster/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/car-vacuum-air-duster/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/car-vacuum-air-duster/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/car-vacuum-air-duster/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-cozima-4d-arco.html</loc>
@@ -757,6 +773,21 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-tab-s12-ultra/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-galaxy-z-fold8-256.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-z-fold8-256/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-z-fold8-256/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/galaxy-z-fold8-256/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-hongkong-deal-travel.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/hongkong-deal-travel/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/hongkong-deal-travel/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/hongkong-deal-travel/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/hongkong-deal-travel/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-iphone-17-pro-256.html</loc>
     <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/iphone-17-pro-256/product.jpg</image:loc></image:image>
@@ -791,6 +822,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/majangdong-hanwoo-gift/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-mesh-office-chair.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mesh-office-chair/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mesh-office-chair/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mesh-office-chair/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/mesh-office-chair/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-mung-bean-cleanser.html</loc>
     <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/product.jpg</image:loc></image:image>
@@ -798,6 +837,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/mung-bean-cleanser/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-navien-water-mat.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/navien-water-mat/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/navien-water-mat/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/navien-water-mat/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/navien-water-mat/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-neck-traction.html</loc>
@@ -817,12 +864,36 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/prael-thermashot-ultimate/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-premium-diffuser-gift.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/premium-diffuser-gift/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/premium-diffuser-gift/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/premium-diffuser-gift/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/premium-diffuser-gift/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-pulio-neck-shoulder-tapping.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/pulio-neck-shoulder-tapping/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/pulio-neck-shoulder-tapping/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/pulio-neck-shoulder-tapping/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/pulio-neck-shoulder-tapping/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-queens-collagen-rg3.html</loc>
     <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/product.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-shaving-foam-cream.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/shaving-foam-cream/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/shaving-foam-cream/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/shaving-foam-cream/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/shaving-foam-cream/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-student-office-laptop.html</loc>

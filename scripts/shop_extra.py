@@ -206,3 +206,5 @@ SHOP_UPDATED = "2026-10-26"
 
 from posts_1031 import EXTRA_1031  # noqa: E402
 SHOP_EXTRA.update(EXTRA_1031)
+from posts_1103 import EXTRA_1103  # noqa: E402
+SHOP_EXTRA.update(EXTRA_1103)
