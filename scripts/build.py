@@ -31,6 +31,7 @@ os.chdir(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from calc_content import CALCS  # noqa: E402
 from calc_extra import LEGACY_STEPS, LEGACY_NOTE  # noqa: E402
+import b_layout  # noqa: E402
 from shop_extra import SHOP_EXTRA, TRUST_NOTE, TRUST_NOTE_TRAVEL, SHOP_UPDATED  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 from guides import GUIDES  # noqa: E402
@@ -264,6 +265,9 @@ def read(p):
         return f.read()
 
 
+B_SECTIONS = {"food", "tools", "guide", "connect", "trip"}
+
+
 def write(p, s):
     d = os.path.dirname(p)
     if d:
@@ -271,6 +275,8 @@ def write(p, s):
     if p.endswith(".html"):
         s = focusable_tables(s)
         s = drop_unused_fonts(s)
+        if PAGES.get(p, {}).get("section") in B_SECTIONS:
+            s = b_layout.apply(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
 
