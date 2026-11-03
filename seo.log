@@ -1,10 +1,5 @@
-== 2026-11-03T08:20:06Z workflow_dispatch 7671a3c363a2426758e52f2877b9cf9eebfce6fc
+== 2026-11-03T08:27:28Z push 07e8b7eb0c9bfc363203a0a8bff15fef6ca0f641
 · 대상 259개
-  https://www.aroundtool.com/
-  https://www.aroundtool.com/food.html
-  https://www.aroundtool.com/tools.html
-  https://www.aroundtool.com/travel.html
-  https://www.aroundtool.com/etc.html
   https://www.aroundtool.com/about.html
   https://www.aroundtool.com/acquisition_tax_calculator.html
   https://www.aroundtool.com/age_calculator.html
@@ -20,6 +15,11 @@
   https://www.aroundtool.com/connect.html
   https://www.aroundtool.com/contact.html
   https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+  https://www.aroundtool.com/daejeon-donggu-gukmul-myeon.html
+  https://www.aroundtool.com/daejeon-donggu-station.html
+  https://www.aroundtool.com/daejeon-donggu.html
+  https://www.aroundtool.com/daejeon-junggu-cafe.html
+  https://www.aroundtool.com/daejeon-junggu-durus.html
   … 외 239개
 
   ✓ api.indexnow.org — 200 접수됨
