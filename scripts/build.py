@@ -1945,9 +1945,14 @@ def build_home():
     sec_tag = {"tools": "계산기", "guide": "가이드", "trip": "여행", "food": "맛집", "connect": "추천"}
     order = {f: i for i, f in enumerate(PAGES)}
     pool = [q for q in PAGES.values() if q["section"] in sec_tag and not q.get("draft") and not q.get("research")]
-    latest = sorted(pool, key=lambda q: (q["date"], order[q["file"]]), reverse=True)[:14]
-    news = "".join(f'<li><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
-                   f'<time datetime="{q["date"]}">{q["date"].replace("-", ".")}</time></a></li>' for q in latest)
+    latest = sorted(pool, key=lambda q: (q["date"], order[q["file"]]), reverse=True)[:100]
+    MORE = ' class="is-more" hidden'
+    news = "".join(f'<li{MORE if i >= 10 else ""}><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
+                   f'<time datetime="{q["date"]}">{q["date"].replace("-", ".")}</time></a></li>' for i, q in enumerate(latest))
+    more_btn = (f'<button type="button" class="ah-more" id="ah-more" aria-controls="ah-new-list" aria-expanded="false" data-n="{len(latest)}">더보기 (최근 {len(latest)}개)</button>'
+                "<script>document.getElementById('ah-more').addEventListener('click',function(){var o=this.getAttribute('aria-expanded')==='true';"
+                "document.querySelectorAll('#ah-new-list .is-more').forEach(function(x){x.hidden=o});this.setAttribute('aria-expanded',String(!o));"
+                "this.textContent=o?'더보기 (최근 '+this.dataset.n+'개)':'접기';});</script>") if len(latest) > 10 else ""
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
     content = f"""<section class="ah-hero" aria-labelledby="ah-h1">
@@ -1971,7 +1976,8 @@ def build_home():
     <p class="ah-note">광고·협찬 글을 빼고 재방문 언급과 공식 지정 근거로 골랐어요.</p>
     <ul class="ah-regs">{"".join(regions)}</ul>
     <div class="ah-head ah-head-sub"><h3 id="ah-new">최신 글</h3><a href="/sitemap.html">전체 페이지</a></div>
-    <ul class="ah-ups ah-new" aria-labelledby="ah-new">{news}</ul>
+    <ul class="ah-ups ah-new" id="ah-new-list" aria-labelledby="ah-new">{news}</ul>
+    {more_btn}
   </section>
   <section class="ah-card" aria-labelledby="ah-trip">
     <div class="ah-head"><h2 id="ah-trip">여행·가이드</h2><a href="/travel.html">여행 전체</a></div>
