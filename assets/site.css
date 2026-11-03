@@ -794,3 +794,25 @@ body.b .vx-card .vx-card-t,body.b .vx-card .vx-card-d{grid-column:2}
 .at-cta.at-cta-sm:hover{background:#A51818!important}
 .at-shop-txt .tag{font-size:.8125rem}
 .at-shop-txt .x,.at-tabs-lg .c{font-size:.875rem}
+/* ── 시안 B 가독성 2차: 글자 크기 체계 통일 + 표·일정 줄 나눔 ── */
+/* 글자 크기는 4단계만: 제목 22~24 / 소제목 18 / 본문 17(PC 18) / 보조 15 / 캡션 14 */
+body.b{--t-h2:clamp(1.25rem,5vw,1.5rem);--t-h3:1.125rem;--t-body:var(--b-fs);--t-sub:.9375rem;--t-cap:.875rem}
+body.b main :is(p,li,dd,summary,.ans,.a,.lead,.dc,.vx-hero-s,.vx-card-d,.vx-check li,.vx-callout p,.vx-vs-col li){font-size:var(--t-body)!important;line-height:1.75!important}
+body.b main :is(td,th,.note,.at-note,.at-disclose,.vx-check li span,.pl-info,.verify li,.tips li,.meta,.meta span){font-size:var(--t-sub)!important;line-height:1.7!important}
+body.b main :is(figcaption,small,.at-credit,.src,thead th,.chip,.dn,.vx-chip,.vx-tag,.tag,.b-hsub){font-size:var(--t-cap)!important}
+body.b main :is(h3,.vx-card-t,.vx-vs-name,.dt,.b-card .vx-title){font-size:var(--t-h3)!important;line-height:1.45!important}
+body.b .b-sum,body.b .b-sum p{font-size:var(--t-body)!important}
+body.b .vx-hero.b-sum .vx-hero-h{font-size:1.25rem!important;line-height:1.45!important}
+/* 휴대폰 표 카드: 항목 이름은 위에 작게, 내용은 아래에 왼쪽 정렬 */
+@media (max-width:37.49rem){
+  body.b main table.b-stack tbody td{display:block!important;text-align:left!important;padding:8px 0!important;font-size:var(--t-body)!important;line-height:1.65!important}
+  body.b main table.b-stack tbody td::before{display:block!important;max-width:none!important;margin:0 0 2px;font-size:var(--t-cap)!important;font-weight:700;color:var(--at-sub)}
+  body.b main table.b-stack tbody th{font-size:var(--t-h3)!important}
+}
+/* 여행 일정: 제목 / 경로 / 먹을 것 을 각각 한 줄씩 */
+body.b .days>li{gap:12px!important;padding:14px 16px!important;align-items:flex-start}
+body.b .days .db{display:block;flex:1;min-width:0}
+body.b .days .dt{display:block!important;font-weight:800;margin:0 0 4px!important;color:var(--at-ink)}
+body.b .days .dc{display:block!important;color:var(--at-ink)!important}
+body.b .days .df{display:block!important;margin-top:6px!important;font-size:var(--t-sub)!important;color:#B3402B!important}
+body.b .days .dn{flex:none;font-size:var(--t-cap)!important;padding:4px 10px!important;border-radius:999px!important;line-height:1.4!important}
