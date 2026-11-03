@@ -1963,10 +1963,15 @@ def build_home():
     sec_tag = {"tools": "계산기", "guide": "가이드", "trip": "여행", "food": "맛집", "connect": "추천"}
     order = {f: i for i, f in enumerate(PAGES)}
     pool = [q for q in PAGES.values() if q["section"] in sec_tag and not q.get("draft") and not q.get("research")]
-    latest = sorted(pool, key=lambda q: (q["date"], order[q["file"]]), reverse=True)[:100]
+    added = first_added()
+    now = int(datetime.now(timezone.utc).timestamp())
+    latest = sorted(pool, key=lambda q: (added.get(q["file"], now), order[q["file"]]), reverse=True)[:100]
+    def up_time(q):
+        t = datetime.fromtimestamp(added.get(q["file"], now), timezone(timedelta(hours=9)))
+        return t.strftime("%Y-%m-%dT%H:%M+09:00"), t.strftime("%Y.%m.%d %H:%M")
     MORE = ' class="is-more" hidden'
     news = "".join(f'<li{MORE if i >= 10 else ""}><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
-                   f'<time datetime="{q["date"]}">{q["date"].replace("-", ".")}</time></a></li>' for i, q in enumerate(latest))
+                   f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for i, q in enumerate(latest))
     more_btn = (f'<button type="button" class="ah-more" id="ah-more" aria-controls="ah-new-list" aria-expanded="false" data-n="{len(latest)}">더보기 (최근 {len(latest)}개)</button>'
                 "<script>document.getElementById('ah-more').addEventListener('click',function(){var o=this.getAttribute('aria-expanded')==='true';"
                 "document.querySelectorAll('#ah-new-list .is-more').forEach(function(x){x.hidden=o});this.setAttribute('aria-expanded',String(!o));"
@@ -2262,6 +2267,21 @@ def all_index_pages():
     order = ["index.html", "food.html", "tools.html", "travel.html", "etc.html"]
     ps = [PAGES[f] for f in order] + sorted([q for q in PAGES.values() if q["file"] not in order], key=lambda q: q["file"])
     return [q for q in ps if indexable(q)]
+
+
+def first_added():
+    """파일이 처음 저장소에 올라간 시각(업로드 순서). 아직 안 올라간 파일은 빠짐."""
+    import subprocess
+    out = subprocess.run(["git", "log", "--diff-filter=A", "--format=@%ct", "--name-only", "--", "*.html"],
+                         capture_output=True, text=True).stdout
+    res, ts = {}, None
+    for line in out.splitlines():
+        if line.startswith("@"):
+            ts = int(line[1:])
+        elif line.strip() and ts is not None:
+            res.setdefault(line.strip(), ts)  # 로그는 최신순 → 가장 오래된 추가가 마지막에 덮어써야 함
+            res[line.strip()] = ts
+    return res
 
 
 def git_date(f):
