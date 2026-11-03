@@ -1,0 +1,28 @@
+<label for="ciP">할부 원금 (원)</label>
+<input id="ciP" type="number" inputmode="numeric" placeholder="1200000"/>
+<label for="ciN">할부 개월</label>
+<select id="ciN"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>10</option><option>12</option><option>18</option><option>24</option></select>
+<label for="ciR">할부 수수료율 (연 %)</label>
+<input id="ciR" type="number" step="0.1" inputmode="decimal" placeholder="15"/>
+<button onclick="calcCi()">할부 수수료 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 할부 수수료</span><span class="result-value" id="ciFee">-</span></div>
+<div class="result-row"><span class="result-label">첫 달 결제액</span><span class="result-value" id="ciFirst" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 결제액</span><span class="result-value" id="ciTot">-</span></div>
+</div>
+<div id="ciTable" style="margin-top:14px;font-size:.92rem"></div>
+<script>
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcCi(){
+ var p=parseFloat(document.getElementById('ciP').value), n=parseInt(document.getElementById('ciN').value,10), r=parseFloat(document.getElementById('ciR').value)/100;
+ if(!(p>0)||!(r>=0)) return alert('원금과 수수료율을 입력해주세요.');
+ var base=Math.floor(p/n), bal=p, fee=0, rows='', first=0;
+ for(var i=1;i<=n;i++){var pr = i<n ? base : bal; var f=Math.floor(bal*r/12); fee+=f; if(i===1) first=pr+f;
+  rows+='<tr><td>'+i+'회</td><td>'+won(pr)+'</td><td>'+won(f)+'</td><td>'+won(pr+f)+'</td></tr>'; bal-=pr;}
+ document.getElementById('ciFee').textContent=won(fee);
+ document.getElementById('ciFirst').textContent=won(first);
+ document.getElementById('ciTot').textContent=won(p+fee);
+ document.getElementById('ciTable').innerHTML='<div class="at-table"><table><thead><tr><th>회차</th><th>원금</th><th>수수료</th><th>결제액</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+ document.getElementById('result').classList.add('show');
+}
+</script>

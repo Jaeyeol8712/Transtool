@@ -822,3 +822,6 @@ GUIDES += [
         ],
     },
 ]
+
+from guides_1103 import GUIDES_1103  # noqa: E402  (2026-11-03 대표 지시: 인기 주제 10개)
+GUIDES += GUIDES_1103

@@ -1,0 +1,24 @@
+<label for="vtMode">계산 방식</label>
+<select id="vtMode"><option value="supply">공급가액(부가세 별도)으로 계산</option><option value="total">합계 금액(부가세 포함)으로 계산</option></select>
+<label for="vtAmt">금액 (원)</label>
+<input id="vtAmt" type="number" inputmode="numeric" placeholder="1000000"/>
+<button onclick="calcVat()">부가세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">공급가액</span><span class="result-value" id="vtS">-</span></div>
+<div class="result-row"><span class="result-label">부가세 (10%)</span><span class="result-value" id="vtV">-</span></div>
+<div class="result-row"><span class="result-label">합계 (부가세 포함)</span><span class="result-value" id="vtT">-</span></div>
+</div>
+<script>
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcVat(){
+ var a=parseFloat(document.getElementById('vtAmt').value), m=document.getElementById('vtMode').value;
+ if(!(a>0)) return alert('금액을 입력해주세요.');
+ var s,v,t;
+ if(m==='supply'){s=a; v=Math.round(a*0.1); t=s+v;}
+ else {t=a; s=Math.round(a/1.1); v=t-s;}
+ document.getElementById('vtS').textContent=won(s);
+ document.getElementById('vtV').textContent=won(v);
+ document.getElementById('vtT').textContent=won(t);
+ document.getElementById('result').classList.add('show');
+}
+</script>

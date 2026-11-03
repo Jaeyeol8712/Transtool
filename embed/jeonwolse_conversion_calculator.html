@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전월세 전환 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/jeonwolse_conversion_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="전월세 전환 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">전월세 전환 계산기</p>
+<label for="jwMode">계산 방식</label>
+<select id="jwMode"><option value="toRent">보증금을 월세로 바꾸기</option><option value="toDeposit">월세를 보증금으로 바꾸기</option></select>
+<label for="jwAmt" id="jwLab">월세로 바꿀 보증금 (원)</label>
+<input id="jwAmt" type="number" inputmode="numeric" placeholder="50000000"/>
+<label for="jwRate">전환율 (연 %)</label>
+<input id="jwRate" type="number" step="0.01" inputmode="decimal" placeholder="4.5"/>
+<button onclick="calcJw()">전환 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label" id="jwOutL">월세</span><span class="result-value" id="jwOut">-</span></div>
+<div class="result-row"><span class="result-label">연간 금액</span><span class="result-value" id="jwYear" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+document.getElementById('jwMode').onchange=function(){
+ document.getElementById('jwLab').textContent = this.value==='toRent' ? '월세로 바꿀 보증금 (원)' : '보증금으로 바꿀 월세 (원, 매달)';
+ document.getElementById('jwAmt').placeholder = this.value==='toRent' ? '50000000' : '200000';
+};
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcJw(){
+ var m=document.getElementById('jwMode').value, a=parseFloat(document.getElementById('jwAmt').value), r=parseFloat(document.getElementById('jwRate').value)/100;
+ if(!(a>0)||!(r>0)) return alert('금액과 전환율을 입력해주세요.');
+ if(m==='toRent'){var rent=a*r/12; document.getElementById('jwOutL').textContent='월세 (매달)'; document.getElementById('jwOut').textContent=won(rent); document.getElementById('jwYear').textContent='연 '+won(rent*12);}
+ else {var dep=a*12/r; document.getElementById('jwOutL').textContent='늘어날 보증금'; document.getElementById('jwOut').textContent=won(dep); document.getElementById('jwYear').textContent='월세 연 '+won(a*12)+' 기준';}
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/jeonwolse_conversion_calculator.html?utm_source=embed&amp;utm_campaign=jeonwolse_conversion_calculator" target="_blank" rel="noopener">어라운드툴 전월세 전환 계산기</a></p>
+</body>
+</html>

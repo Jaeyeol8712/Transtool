@@ -4,9 +4,49 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 46종, 대가 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 56종, 대가 없이 근거를 밝힌 전국 21개 시군구 맛집 147곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>근무시간 계산기 — 출퇴근 시각·휴게시간으로 하루·주 근무시간</title>
+      <link>https://www.aroundtool.com/work_time_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/work_time_calculator.html</guid>
+      <category>생활툴</category>
+      <description>출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>몇 주차 계산기 — 오늘은 올해 몇 주차? (ISO 주차)</title>
+      <link>https://www.aroundtool.com/week_number_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/week_number_calculator.html</guid>
+      <category>생활툴</category>
+      <description>날짜를 넣으면 ISO 8601 기준 올해 몇 주차인지, 이번 달 몇째 주인지, 올해 며칠이 지났고 며칠 남았는지 계산합니다. 업무 보고·학사 일정·임신 주수 외 일정 관리에 쓰세요.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부가세 계산기 — 공급가액·부가세 10%·합계 금액</title>
+      <link>https://www.aroundtool.com/vat_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/vat_calculator.html</guid>
+      <category>생활툴</category>
+      <description>공급가액을 넣으면 부가세 10%와 합계 금액을, 부가세 포함 합계 금액을 넣으면 공급가액과 부가세를 나눠 계산합니다. 세금계산서·견적서 작성과 간이영수증 확인에 바로 쓸 수 있습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단위 변환기 — 길이·무게·온도 (cm·인치·kg·파운드·근·℃·℉)</title>
+      <link>https://www.aroundtool.com/unit_converter.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/unit_converter.html</guid>
+      <category>생활툴</category>
+      <description>길이(mm·cm·m·km·인치·피트·야드·마일), 무게(g·kg·톤·파운드·온스·근), 온도(섭씨·화씨)를 한 번에 변환합니다. 고기 한 근 600g, 채소 한 근 375g 기준도 넣었습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수면 시간 계산기 — 90분 수면 주기로 잘 시각·일어날 시각</title>
+      <link>https://www.aroundtool.com/sleep_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/sleep_calculator.html</guid>
+      <category>생활툴</category>
+      <description>일어날 시각을 넣으면 90분 수면 주기에 맞춘 잠자리 시각을, 지금 잔다면 일어나기 좋은 시각을 알려 줍니다. 잠드는 데 걸리는 시간도 반영합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>쉐이빙 폼 면도크림 추천 가격 고르는 법</title>
       <link>https://www.aroundtool.com/shop-shaving-foam-cream.html</link>
@@ -77,6 +117,126 @@
       <guid isPermaLink="true">https://www.aroundtool.com/shop-aa-battery-10pack.html</guid>
       <category>추천 모음</category>
       <description>건전지 AA 10입을 살 때 볼 종류(알카라인·망간·충전지·리튬) 차이, 개당 가격 계산, 사용기한 확인, 섞어 쓰지 않기 등 안전 수칙을 그림으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전월세 전환 계산기 — 보증금↔월세 전환율 계산</title>
+      <link>https://www.aroundtool.com/jeonwolse_conversion_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonwolse_conversion_calculator.html</guid>
+      <category>생활툴</category>
+      <description>보증금 일부를 월세로 바꾸거나 월세를 보증금으로 바꿀 때 전환율로 월세·보증금을 계산합니다. 주택임대차보호법상 전환율 상한(연 10%와 기준금리 + 2%p 중 낮은 비율)도 함께 설명합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부가세 신고 기간 — 1월·7월 확정신고 정리</title>
+      <link>https://www.aroundtool.com/guide-vat-filing-schedule.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-vat-filing-schedule.html</guid>
+      <category>가이드</category>
+      <description>개인사업자 부가가치세 신고 기간을 일반과세자(1월·7월 확정신고, 4월·10월 예정고지)와 간이과세자(1월 연 1회)로 나눠 정리하고, 간이과세 기준(연 1억 400만 원 미만)과 부가세 계산법을 함께 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>실업급여 신청 방법 — 퇴사 후 순서 5단계</title>
+      <link>https://www.aroundtool.com/guide-unemployment-benefit-application-steps.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-unemployment-benefit-application-steps.html</guid>
+      <category>가이드</category>
+      <description>실업급여 신청 순서를 이직확인서 제출, 고용24 구직 등록, 수급자격 신청 교육, 고용센터 수급자격 신청, 실업인정과 구직활동까지 5단계로 정리하고, 12개월 신청 기한과 7일 대기기간을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전입신고·확정일자 — 대항력은 다음 날 0시부터</title>
+      <link>https://www.aroundtool.com/guide-move-in-report-fixed-date.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-move-in-report-fixed-date.html</guid>
+      <category>가이드</category>
+      <description>전세·월세 보증금을 지키는 전입신고와 확정일자의 차이, 대항력이 생기는 시점(다음 날 0시), 우선변제권 조건, 확정일자 받는 곳과 전월세 신고 시 자동 부여까지 주택임대차보호법 기준으로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>월세 세액공제 조건 — 총급여 8천만 원·연 1천만 원 한도</title>
+      <link>https://www.aroundtool.com/guide-monthly-rent-tax-credit.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-monthly-rent-tax-credit.html</guid>
+      <category>가이드</category>
+      <description>월세 세액공제를 받을 수 있는 조건(무주택 세대주, 총급여 8,000만 원 이하, 국민주택규모 또는 기준시가 4억 원 이하, 전입신고)과 공제율 15·17%, 연 1,000만 원 한도, 필요한 서류를 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>연말정산 의료비 세액공제 — 총급여 3% 넘어야 공제</title>
+      <link>https://www.aroundtool.com/guide-medical-expense-tax-credit.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-medical-expense-tax-credit.html</guid>
+      <category>가이드</category>
+      <description>연말정산 의료비 세액공제는 총급여의 3%를 넘는 의료비부터 15%(난임 30%, 미숙아·선천성이상아 20%)를 공제합니다. 한도 700만 원과 한도가 없는 대상, 공제되는 지출과 안 되는 지출을 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전세 계약 전 확인할 7가지 — 등기부등본부터 특약까지</title>
+      <link>https://www.aroundtool.com/guide-jeonse-contract-checklist.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-jeonse-contract-checklist.html</guid>
+      <category>가이드</category>
+      <description>전세 계약 전에 볼 등기부등본(갑구·을구), 선순위 근저당, 건축물대장, 집주인 세금 체납, 전세보증금 반환보증, 계약서 특약, 잔금일 재확인까지 7가지를 순서대로 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>퇴직 후 건강보험 임의계속가입 — 조건·신청 기한</title>
+      <link>https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</guid>
+      <category>가이드</category>
+      <description>퇴직 후 지역보험료가 크게 오를 때 직장 때 보험료로 최대 36개월 유지하는 임의계속가입 제도의 조건(퇴직 전 18개월 중 1년 이상), 신청 기한(첫 지역보험료 납부기한에서 2개월 이내), 보험료를 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수도 동파 예방법 — 계량기 보온·외출 시 할 일</title>
+      <link>https://www.aroundtool.com/guide-frozen-pipe-prevention.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-frozen-pipe-prevention.html</guid>
+      <category>가이드</category>
+      <description>한파 때 수도 계량기와 배관이 얼지 않게 하는 방법(계량기함 보온, 장기 외출 때 물 조금 틀어 두기), 얼었을 때 녹이는 방법과 하면 안 되는 것, 동파 신고처를 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>2026년 4대보험 요율 — 근로자·회사 부담 한눈에</title>
+      <link>https://www.aroundtool.com/guide-four-insurance-rates-2026.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-four-insurance-rates-2026.html</guid>
+      <category>가이드</category>
+      <description>2026년 4대보험 요율을 국민연금 9.5%(근로자 4.75%), 건강보험 7.19%(3.595%), 장기요양 건강보험료의 13.14%, 고용보험 근로자 0.9%로 정리하고, 월급별 근로자 부담 예시와 계산법을 담았습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>연차 사용 촉진 제도 — 회사가 하면 수당이 없을까?</title>
+      <link>https://www.aroundtool.com/guide-annual-leave-promotion.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-annual-leave-promotion.html</guid>
+      <category>가이드</category>
+      <description>근로기준법 제61조 연차 사용 촉진 제도의 절차(6개월 전 10일 이내 통보, 근로자 10일 내 사용 시기 지정, 2개월 전까지 회사가 시기 지정)와 절차를 지켰을 때 미사용 연차수당이 없어지는 조건을 정리했습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>학점 계산기 — 4.5·4.3 만점 평균 평점 계산</title>
+      <link>https://www.aroundtool.com/gpa_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gpa_calculator.html</guid>
+      <category>생활툴</category>
+      <description>과목별 학점과 성적(A+~F)을 넣으면 4.5 만점 또는 4.3 만점 기준 평균 평점을 계산합니다. 학점 가중 평균으로 계산하며 과목을 원하는 만큼 추가할 수 있습니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>4대보험 계산기 — 2026년 요율로 근로자·회사 부담 계산</title>
+      <link>https://www.aroundtool.com/four_insurance_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/four_insurance_calculator.html</guid>
+      <category>생활툴</category>
+      <description>월 보수를 넣으면 2026년 요율로 국민연금 4.75%, 건강보험 3.595%, 장기요양(건강보험료의 13.14%), 고용보험 0.9% 근로자 부담액과 회사 부담 합계를 계산합니다. 국민연금 기준소득월액 상·하한도 반영합니다.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>예금 이자 계산기 — 단리·월복리 세후 이자와 만기 수령액</title>
+      <link>https://www.aroundtool.com/deposit_interest_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/deposit_interest_calculator.html</guid>
+      <category>생활툴</category>
+      <description>예금 금액, 연 이자율, 기간을 넣으면 단리·월복리 세전 이자와 일반과세 15.4%·세금우대·비과세별 세후 이자, 만기 수령액을 계산합니다. 정기예금 금리 비교에 쓰세요.</description>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>카드 할부 수수료 계산기 — 개월별 수수료와 매달 결제액</title>
+      <link>https://www.aroundtool.com/card_installment_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/card_installment_calculator.html</guid>
+      <category>생활툴</category>
+      <description>결제 금액, 할부 개월, 카드사 할부 수수료율을 넣으면 회차별 원금·수수료·결제액과 총 할부 수수료를 계산합니다. 남은 원금에 수수료가 붙는 방식으로 계산해 무이자 할부와 비교할 수 있습니다.</description>
       <pubDate>Tue, 03 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -920,11 +1080,59 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>여수 여행 코스 — 1박2일·2박3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-yeosu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-yeosu.html</guid>
+      <category>여행</category>
+      <description>여수 여행 코스를 1박 2일·2박 3일로 정리했습니다. 오동도, 여수 해상케이블카, 이순신광장, 낭만포차 거리 밤바다, 향일암 해돋이, 돌산 일대를 권역별로 묶고 KTX·시내 이동 시간과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>통영 여행 코스 — 1박2일·2박3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-tongyeong.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-tongyeong.html</guid>
+      <category>여행</category>
+      <description>통영 여행 코스를 1박 2일·2박 3일로 정리했습니다. 동피랑 벽화마을, 강구안·중앙시장, 통영 케이블카(미륵산), 루지, 한산도 배편을 권역별로 묶고 이동 시간과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>도쿄 여행 코스 — 3박4일·4박5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-tokyo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-tokyo.html</guid>
+      <category>여행</category>
+      <description>도쿄 여행 코스를 3박 4일·4박 5일로 정리했습니다. 아사쿠사·우에노, 시부야·하라주쿠, 신주쿠, 오다이바, 근교 하코네·가마쿠라를 권역별로 묶고 공항에서 시내까지 이동 시간과 출발 전 확인할 점을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>타이베이 여행 코스 — 2박3일·3박4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-taipei.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-taipei.html</guid>
+      <category>여행</category>
+      <description>타이베이 여행 코스를 2박 3일·3박 4일로 정리했습니다. 타이베이 101, 스린 야시장, 고궁박물원, 지우펀·스펀·예류 근교를 권역별로 묶고 공항철도 이동 시간, 시차·통화 등 출발 전 확인할 점을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>속초 여행 — 코스·일정별·예산·교통·맛집</title>
       <link>https://www.aroundtool.com/travel-sokcho.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-sokcho.html</guid>
       <category>여행</category>
       <description>속초 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통 방법을 정리했습니다. 아바이마을 실향민 음식을 포함한 속초 맛집 12곳 기록과 연결됩니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>싱가포르 여행 코스 — 3박4일·4박5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-singapore.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-singapore.html</guid>
+      <category>여행</category>
+      <description>싱가포르 여행 코스를 3박 4일·4박 5일로 정리했습니다. 마리나베이, 가든스 바이 더 베이, 센토사, 차이나타운·리틀인디아, 호커센터를 권역별로 묶고 공항 이동 시간과 전자 입국카드 등 출발 전 확인할 점을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>삿포로 여행 코스 — 3박4일·4박5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-sapporo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-sapporo.html</guid>
+      <category>여행</category>
+      <description>삿포로 여행 코스를 3박 4일·4박 5일로 정리했습니다. 오도리공원·TV타워, 스스키노, 오타루 운하, 비에이·후라노 근교, 2월 삿포로 눈축제를 권역별로 묶고 공항 이동 시간과 겨울 준비물을 담았습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -936,6 +1144,14 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>전주 여행 코스 — 당일·1박2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-jeonju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-jeonju.html</guid>
+      <category>여행</category>
+      <description>전주 여행 코스를 당일·1박 2일로 정리했습니다. 전주 한옥마을, 경기전, 전동성당, 오목대, 남부시장, 객리단길을 걸어서 도는 동선과 KTX 이동 시간, 전주 대표 음식과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>제주도 여행 — 코스·일정별·예산·교통·맛집</title>
       <link>https://www.aroundtool.com/travel-jeju.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-jeju.html</guid>
@@ -944,11 +1160,35 @@
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>경주 여행 코스 — 1박2일·2박3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-gyeongju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-gyeongju.html</guid>
+      <category>여행</category>
+      <description>경주 여행 코스를 1박 2일·2박 3일로 정리했습니다. 대릉원·첨성대·동궁과 월지 야경, 불국사·석굴암, 황리단길, 보문관광단지, 양동마을까지 권역별로 묶고 KTX·버스 이동 시간과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강릉 여행 코스 — 당일·1박2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-gangneung.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-gangneung.html</guid>
+      <category>여행</category>
+      <description>강릉 여행 코스를 당일·1박 2일로 정리했습니다. 안목해변 커피거리, 경포대·경포해변, 오죽헌, 주문진 수산시장, 정동진 해돋이를 권역별로 묶고 KTX·시내 이동 시간과 자주 묻는 질문을 담았습니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>부산 해운대 여행 — 코스·일정별·예산·교통·맛집</title>
       <link>https://www.aroundtool.com/travel-busan.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-busan.html</guid>
       <category>여행</category>
       <description>해운대 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통 방법을 정리했습니다. 미쉐린 1스타 3곳과 빕구르망 4곳을 포함한 해운대 맛집 14곳 기록과 연결됩니다.</description>
+      <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>방콕 여행 코스 — 3박5일·4박6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-bangkok.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-bangkok.html</guid>
+      <category>여행</category>
+      <description>방콕 여행 코스를 3박 5일·4박 6일로 정리했습니다. 왕궁·왓포·왓아룬, 카오산로드, 시암·아속 쇼핑, 짜뚜짝 주말시장, 아유타야 당일치기를 권역별로 묶고 공항철도 이동 시간과 출발 전 확인할 점을 담았습니다.</description>
       <pubDate>Sat, 29 Aug 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

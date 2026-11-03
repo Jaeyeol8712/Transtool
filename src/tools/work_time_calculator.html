@@ -1,0 +1,30 @@
+<label for="wtIn">출근 시각</label>
+<input id="wtIn" type="time" value="09:00"/>
+<label for="wtOut">퇴근 시각</label>
+<input id="wtOut" type="time" value="18:00"/>
+<label for="wtBreak">휴게 시간 (분)</label>
+<input id="wtBreak" type="number" inputmode="numeric" value="60"/>
+<label for="wtDays">한 주 근무일 수</label>
+<input id="wtDays" type="number" inputmode="numeric" value="5"/>
+<label for="wtWage">시급 (원, 선택)</label>
+<input id="wtWage" type="number" inputmode="numeric" placeholder="10320"/>
+<button onclick="calcWt()">근무시간 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">하루 근무시간</span><span class="result-value" id="wtDay">-</span></div>
+<div class="result-row"><span class="result-label">한 주 근무시간</span><span class="result-value" id="wtWeek" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">일급 (시급 입력 시)</span><span class="result-value" id="wtPay" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function hhmm(m){return Math.floor(m/60)+'시간'+(m%60?' '+(m%60)+'분':'');}
+function calcWt(){
+ var a=document.getElementById('wtIn').value, b=document.getElementById('wtOut').value, br=parseInt(document.getElementById('wtBreak').value,10)||0;
+ var d=parseInt(document.getElementById('wtDays').value,10)||0, w=parseFloat(document.getElementById('wtWage').value);
+ if(!a||!b) return alert('출근·퇴근 시각을 입력해주세요.');
+ var pa=a.split(':'), pb=b.split(':'), s=+pa[0]*60+ +pa[1], e=+pb[0]*60+ +pb[1]; if(e<=s) e+=1440;
+ var m=e-s-br; if(m<=0) return alert('휴게 시간이 근무시간보다 깁니다.');
+ document.getElementById('wtDay').textContent=hhmm(m);
+ document.getElementById('wtWeek').textContent=d>0?hhmm(m*d)+' ('+d+'일)':'-';
+ document.getElementById('wtPay').textContent=w>0?Math.round(w*m/60).toLocaleString('ko-KR')+'원 (가산수당 제외)':'-';
+ document.getElementById('result').classList.add('show');
+}
+</script>

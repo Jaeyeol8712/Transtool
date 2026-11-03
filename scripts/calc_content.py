@@ -1004,3 +1004,4 @@ for _k, _v in EXTRA_FAQ.items():
 for _k, _v in EXTRA_BODY.items():
     if _k in CALCS:
         CALCS[_k]["body"] = CALCS[_k]["body"] + "\n" + _v
+from calc_1103 import *  # noqa: E402,F401,F403  (2026-11-03 신규 계산기 10종)
