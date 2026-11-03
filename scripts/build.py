@@ -278,6 +278,7 @@ def write(p, s):
         s = drop_unused_fonts(s)
         if PAGES.get(p, {}).get("section") in B_SECTIONS:
             s = b_layout.apply(s)
+        s = b_layout.tidy_spacing(s)
     with open(p, "w", encoding="utf-8") as f:
         f.write(s)
 

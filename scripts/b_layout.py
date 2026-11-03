@@ -226,14 +226,38 @@ def _tidy_formula(soup):
             f.append(row)
 
 
+_FIXES = [
+    (_PAREN, r"\1 ("),                                   # 375,000원(이자만) → 375,000원 (이자만)
+    (re.compile(r"(\d)박(\d)일"), r"\1박 \2일"),          # 2박3일 → 2박 3일
+    (re.compile(r"(\d)(만|천|억)원"), r"\1\2 원"),          # 200만원 → 200만 원
+    (re.compile(r"(\d)(만|억)(\d)"), r"\1\2 \3"),          # 1억5천 → 1억 5천
+]
+
+
 def _tidy_text(soup):
-    """'375,000원(이자만)' → '375,000원 (이자만)' 처럼 괄호 앞 띄어쓰기."""
+    """띄어쓰기 맞춤법: 괄호 앞, 'N박 N일', 'N만 원' 등."""
     for t in soup.find_all(string=True):
-        if isinstance(t, Comment) or t.parent is None or t.parent.name in ("script", "style", "code"):
+        if isinstance(t, Comment) or t.parent is None or t.parent.name in ("script", "style", "code", "textarea", "pre"):
             continue
-        new = _PAREN.sub(r"\1 (", str(t))
+        new = str(t)
+        for rx, rep in _FIXES:
+            new = rx.sub(rep, new)
         if new != str(t):
             t.replace_with(NavigableString(new))
+
+
+def tidy_spacing(s):
+    """모든 페이지 본문(상단·하단 공통 영역 제외)에 띄어쓰기 정리를 적용합니다."""
+    if TOP not in s or BOT not in s:
+        return s
+    a = s.index(TOP) + len(TOP)
+    b = s.index(BOT, a)
+    region = s[a:b]
+    if not any(rx.search(region) for rx, _ in _FIXES):
+        return s
+    soup = BeautifulSoup(region, "html.parser")
+    _tidy_text(soup)
+    return s[:a] + str(soup) + s[b:]
 
 
 def apply(s):
