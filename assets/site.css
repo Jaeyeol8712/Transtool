@@ -638,3 +638,124 @@ html.at-pop-open{overflow:hidden}
 .ah-more{display:block;width:100%;margin-top:.5rem;padding:.7rem;border:1px solid #E3EAE7;border-radius:12px;background:var(--at-surface);color:var(--at-brand);font:inherit;font-weight:700;font-size:.875rem;cursor:pointer}
 .ah-more:hover{border-color:var(--at-brand)}
 .at-table tbody th{min-width:5.5em}
+
+/* ════════ 시안 B · 카드형 (글 페이지 전체, body.b) ════════ */
+body.b{--at-bg:#F5F3EE;--at-sunk:#F1EEE7;--at-line:#E4E1D9;--b-fs:1.0625rem;--b-s:.9375rem;--b-xs:.875rem;--b-r:18px;background:var(--at-bg)!important}
+@media (min-width:56rem){body.b{--b-fs:1.125rem;--b-s:1rem}}
+body.b .at-content{background:transparent;border:0;border-radius:0;overflow:visible}
+body.b .at-content>main{display:block;padding:0;margin:0;max-width:none;background:transparent}
+body.b .at-board{background:var(--at-surface);border:1px solid var(--at-line);border-radius:var(--b-r);margin:0 0 14px;overflow:clip}
+body.b .at-board-meta,body.b .at-board-sub,body.b .at-board-tabs a,body.b .at-board-tabs .c,body.b .at-crumb{font-size:.875rem}
+/* 카드 */
+body.b .b-card,body.b .at-page-head,body.b .at-og-wrap,body.b .at-tool,body.b .at-related,body.b .at-content>.head,body.b .at-content>.hero,body.b .b-sum{
+  background:var(--at-surface);border:1px solid var(--at-line);border-radius:var(--b-r);padding:22px 18px;margin:0 0 14px;box-shadow:none;max-width:none;overflow:visible;position:relative}
+@media (min-width:44rem){body.b .b-card,body.b .at-page-head,body.b .at-og-wrap,body.b .at-tool,body.b .at-related,body.b .at-content>.head,body.b .at-content>.hero,body.b .b-sum{padding:30px 32px}}
+body.b .at-related{padding:0}
+body.b .at-related .at-box-head{padding:16px 18px 6px;border:0;background:transparent}
+body.b .at-related .at-box-body{padding:0 18px 12px}
+body.b .at-page{padding:0;max-width:none}
+body.b .at-prose{max-width:none;font-size:var(--b-fs);line-height:1.8}
+body.b .at-prose>p,body.b .at-prose>ul{margin-left:0;margin-right:0}
+body.b .b-card .wrap,body.b .at-content>.head .in,body.b .at-content>.hero .wrap{max-width:none!important;padding:0!important;margin:0!important}
+body.b .b-card>:last-child{margin-bottom:0}
+/* 머리 카드 */
+body.b .at-page-head{border-bottom:1px solid var(--at-line)}
+body.b .at-page-head h1,body.b .at-content>.head h1,body.b .at-content>.hero h1{font-size:clamp(1.625rem,6.4vw,2.125rem)!important;line-height:1.32!important;letter-spacing:-.035em;font-weight:800;color:var(--at-ink)!important;margin:0 0 12px!important}
+body.b .at-page-head .lede,body.b .at-content>.head p,body.b .at-content>.hero .lede{font-size:calc(var(--b-fs) + 1px)!important;line-height:1.7!important;color:var(--at-sub)!important;opacity:1!important;max-width:none!important;margin:0 0 12px!important}
+body.b .at-page-head .meta{font-size:.875rem;margin-top:.5rem}
+body.b .at-content>.head,body.b .at-content>.hero{background:var(--at-surface)!important;color:var(--at-ink)!important;background-image:none!important}
+body.b .at-content>.head .n,body.b .at-content>.hero .eyebrow{display:inline-block;font-family:var(--at-font)!important;font-size:.875rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:var(--at-brand)!important;background:var(--at-brand-tint)!important;border:0!important;border-radius:999px;padding:3px 10px!important;margin:0 0 10px!important;opacity:1!important}
+body.b .at-og-wrap{text-align:center}
+body.b .at-disclose{border-radius:12px;font-size:.875rem;margin:0 0 14px}
+/* 요약 카드 (짙은 색) */
+body.b .b-sum{background:#1E2421!important;color:#F4F6F5!important;border-color:#1E2421;border-left:0!important;border-radius:var(--b-r)!important;font-size:var(--b-fs);line-height:1.75}
+body.b .b-sum::before{content:"먼저 알아둘 것";display:block;font-size:.875rem;font-weight:800;opacity:.75;margin:0 0 10px;letter-spacing:0}
+body.b .b-sum p{color:inherit!important;margin:0 0 .5em}
+body.b .b-sum p:last-child{margin:0}
+body.b .b-sum b,body.b .b-sum strong{color:#fff}
+body.b .b-sum a{color:#9FE3D4}
+body.b .vx-hero.b-sum{background-image:none!important;text-align:left}
+body.b .vx-hero.b-sum::after{display:none}
+body.b .vx-hero.b-sum .vx-hero-emoji{display:none}
+body.b .vx-hero.b-sum .vx-hero-h{font-size:calc(var(--b-fs) + 4px)!important;line-height:1.45;color:#fff}
+body.b .vx-hero.b-sum .vx-hero-s{font-size:var(--b-fs)!important;opacity:.9}
+body.b .vx-hero.b-sum .vx-chip{background:rgba(255,255,255,.12)!important;color:#fff!important;border:0!important;font-size:.875rem!important}
+/* 소제목 */
+body.b .b-card h2,body.b .b-card>h2.sec{display:flex;align-items:flex-start;gap:10px;font-family:var(--at-font)!important;font-size:clamp(1.25rem,5vw,1.5rem)!important;font-weight:800!important;line-height:1.4!important;letter-spacing:-.03em!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:none!important;color:var(--at-ink)!important;text-transform:none!important}
+body.b .b-card h2::before,body.b .b-card h2::after{display:none!important}
+body.b .b-num{flex:none;display:inline-grid;place-items:center;width:30px;height:30px;margin-top:2px;border-radius:50%;background:var(--at-brand-tint);color:var(--at-brand);font-size:15px;font-weight:800;letter-spacing:0}
+body.b .b-card h3{font-size:calc(var(--b-fs) + 1px)!important;line-height:1.45!important;font-weight:800!important;margin:1.4em 0 .5em!important}
+body.b main p,body.b main li,body.b main .dc,body.b main .ans,body.b main .lead{font-size:var(--b-fs);line-height:1.8}
+body.b main .meta,body.b main .meta span,body.b main .chip,body.b main .dn,body.b main .dt,body.b main small,body.b main .note,body.b main figcaption,body.b main .at-note,body.b main .vx-tags-h{font-size:max(.875rem,var(--b-xs))}
+body.b main .note,body.b main .at-note{font-size:var(--b-s);line-height:1.7}
+/* 표: 기본 */
+body.b .at-table,body.b .tablewrap{border:1px solid var(--at-line);border-radius:12px;background:var(--at-surface);overflow-x:auto;margin:0 0 12px}
+body.b main table{font-size:var(--b-s);line-height:1.6;min-width:0!important}
+body.b main th,body.b main td{padding:12px 14px;vertical-align:top}
+body.b main thead th{font-size:.875rem;background:var(--at-sunk)}
+/* 표: 휴대폰은 카드로 */
+@media (max-width:37.49rem){
+  body.b main .at-table,body.b main .tablewrap{border:0;background:transparent;overflow:visible}
+  body.b main table.b-stack,body.b main table.b-stack tbody,body.b main table.b-stack tr,body.b main table.b-stack th,body.b main table.b-stack td{display:block;width:auto!important;min-width:0!important;max-width:none!important}
+  body.b main table.b-stack thead{display:none}
+  body.b main table.b-stack tbody tr{background:var(--at-sunk);border:0;border-radius:12px;padding:12px 14px;margin:0 0 8px}
+  body.b main table.b-stack tbody th{padding:0 0 6px;border:0;font-size:var(--b-fs);font-weight:800;white-space:normal;background:transparent;text-align:left}
+  body.b main table.b-stack tbody td{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border:0;border-top:1px solid var(--at-line);text-align:right;white-space:normal;background:transparent}
+  body.b main table.b-stack tbody td:first-child{border-top:0}
+  body.b main table.b-stack tbody td::before{content:attr(data-label);flex:none;max-width:45%;text-align:left;color:var(--at-sub);font-size:.875rem;font-weight:700;padding-top:1px}
+  body.b main table.b-stack tbody td:not([data-label])::before{display:none}
+}
+/* 블록 손질 */
+body.b .vx-sec,body.b .vx-cards,body.b .vx-vs,body.b .vx-callout,body.b .vx-tags,body.b .vx-check{border-radius:14px}
+body.b .vx-card-d,body.b .vx-vs-col li,body.b .vx-check li,body.b .vx-callout p{font-size:var(--b-s)!important;line-height:1.7!important}
+body.b .vx-card-t,body.b .vx-vs-name,body.b .vx-title{font-size:var(--b-fs)!important}
+body.b .vx-tag,body.b .vx-chip{font-size:.875rem!important}
+body.b .at-faq summary{font-size:var(--b-fs);line-height:1.55}
+body.b .at-faq .a,body.b .at-faq .a p{font-size:var(--b-s)}
+body.b .at-tool label,body.b .at-tool .result-label{font-size:var(--b-s)}
+body.b .at-tool input,body.b .at-tool select{font-size:max(1rem,16px)}
+body.b .at-steps li,body.b .at-formula{font-size:var(--b-s)}
+body.b .at-list a{font-size:.9375rem}
+body.b .at-list .d,body.b .at-list .n,body.b .at-list .tag,body.b .at-sp-k,body.b .at-sp-x{font-size:.875rem}
+/* PC 목차: 사이드바 끝에서 따라 내려옴 */
+body.b .b-toc{display:none}
+@media (min-width:64rem){
+  body.b .at-side{align-self:stretch;align-content:start}
+  body.b .b-toc{display:block;position:sticky;top:16px;border-radius:14px}
+  body.b .b-toc ol{list-style:none;margin:0;padding:4px 16px 14px;counter-reset:t}
+  body.b .b-toc li{margin:0}
+  body.b .b-toc a{display:block;padding:7px 0 7px 12px;border-left:2px solid var(--at-line);font-size:.9375rem;line-height:1.5;color:var(--at-sub);text-decoration:none}
+  body.b .b-toc a:hover{color:var(--at-brand);border-left-color:var(--at-brand)}
+}
+html{scroll-padding-top:16px}
+/* 시안 B: 작은 글자 최소 14px */
+body.b .at-content :is(small,sup,sub,label,button,textarea,select,.more,.at-credit,.at-note,.cnt,.vx-card-n,.vx-vs-mid,.vx-meter-d,.prep-badge,.gwtag,.tag,.cap,.q,.df,.de,.amt,.rom,.unit,.lb,.hint,.tool-note,.it-desc,.set-label,.stat-label,.fx-src,.fx-sub,.gsec-h,.post-meta,[class*="lg--"]){font-size:.875rem}
+body.b .at-content :is(.at-credit,.at-note) :is(a,b,strong){font-size:inherit}
+body.b .at-content :is(h3,h4){font-size:max(.9375rem,1em)}
+body.b .at-content h2:not(.b-card h2){font-size:max(1.125rem,1em)}
+body.b .at-content .vx-card-n{min-width:1.9em;min-height:1.9em}
+body.b .at-content :is(.n,.c,.d,.p,.op,.notice,.notice *,.formula,.alert-up,.alert-up *,.at-disclose-sm,.at-disclose-sm *,.it-cost,.it-tag,.flag,.bar-lab,.bar-val,.day-n,.day-c,.badge,.it-d,.it-c,.ball){font-size:.875rem}
+body.b .at-tool>div:not([class]){font-size:.875rem}
+body.b .at-content .ball{width:auto;min-width:2.2em;height:2.2em}
+body.b .at-content :is(.it-qty,.it-qty *,.day-f,.qty,.qty *,.l,.l *,.v,.toolbar,.toolbar *,.at-guide-tool span){font-size:.875rem}
+body.b .at-tool>div[style*="font-size"]{font-size:.875rem!important}
+body.b .at-content .b-card li>a{font-size:inherit}
+body.b .at-tool{overflow-x:clip}
+/* 시안 B: 2열 표는 휴대폰에서 제목 + 내용 */
+@media (max-width:37.49rem){
+  body.b main table.b-stack2 tbody td{display:block;text-align:left;border-top:0;padding:0}
+  body.b main table.b-stack2 tbody td::before{display:none}
+}
+/* 시안 B: 글꼴 하나로, 자간 정리 */
+body.b .at-content :is(h1,h2,h3,h4,p,li,td,th,dt,dd,span,b,strong,a,small,div,label,summary,figcaption):not(code):not(kbd){font-family:var(--at-font)!important}
+body.b .at-content :is(h3,h4,.meta,.meta *,.chip,.eyebrow,.n,.dn,.q,.tag,.cnt,td,th,.lead,.note,small,figcaption){letter-spacing:-.005em!important}
+/* 시안 B: 색 블록을 한 가지 색으로 차분하게 */
+body.b .at-prose :is(.vx-coral,.vx-amber,.vx-teal,.vx-blue,.vx-violet,.vx-pink){--c:var(--at-brand);--t:var(--at-sunk);--d:var(--at-ink)}
+body.b .vx-card{border:0!important}
+body.b .vx-vs-col{border-top:0!important}
+body.b .vx-callout{border-left:0!important;background:var(--at-brand-tint)!important}
+body.b .vx-check{background:var(--at-sunk)!important}
+body.b .b-card h2.vx-title{margin-bottom:14px!important}
+body.b .b-card>section.vx-sec{background:none!important;padding:0!important;margin:0 0 1rem;border:0}
+body.b .b-card>section.vx-sec.vx-check ul{background:var(--at-sunk);border-radius:12px;padding:.4rem 1rem}
+body.b .app>*{min-width:0;max-width:100%}
