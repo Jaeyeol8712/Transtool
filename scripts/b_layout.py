@@ -115,12 +115,125 @@ def _toc(root):
         h2 = sec.find("h2")
         if not h2 or not sec.get("id"):
             continue
-        t = h2.get_text(" ", strip=True)
-        num = h2.find(class_="b-num")
-        if num:
-            t = t[len(num.get_text()):].strip()
+        ht = h2.find(class_="b-ht")
+        if ht is not None:
+            t = "".join(x for x in ht.find_all(string=True, recursive=False)).strip() or ht.get_text(" ", strip=True)
+        else:
+            t = h2.get_text(" ", strip=True)
+            num = h2.find(class_="b-num")
+            if num:
+                t = t[len(num.get_text()):].strip()
         out.append((sec["id"], re.sub(r"\s+", " ", t)))
     return out
+
+
+_HSPLIT = re.compile(r"^(.{4,}?)\s*(?:\(([^()]{2,})\)|\s[—–]\s(.{2,}))\s*$")
+_OPS = re.compile(r"\s+([×÷+−\-])\s+")
+_PAREN = re.compile(r"([가-힣%])\((?=[가-힣])")
+
+
+def _tidy_heads(soup):
+    """소제목: 괄호·줄표 뒤 설명은 작은 둘째 줄로, 번호 옆 글자는 한 덩어리로."""
+    for h in soup.find_all("h2"):
+        if h.find(class_="b-ht"):
+            continue
+        num = h.find(class_="b-num")
+        if num is not None:
+            num.extract()
+        kids = list(h.contents)
+        only_text = all(isinstance(k, NavigableString) for k in kids)
+        span = soup.new_tag("span")
+        span["class"] = ["b-ht"]
+        text = re.sub(r"\s+", " ", h.get_text()).strip()
+        m = _HSPLIT.match(text) if only_text else None
+        for k in kids:
+            k.extract()
+        if m:
+            span.append(m.group(1).strip())
+            sub = soup.new_tag("span")
+            sub["class"] = ["b-hsub"]
+            sub.append((m.group(2) or m.group(3)).strip())
+            span.append(sub)
+        else:
+            for k in kids:
+                span.append(k)
+        if num is not None:
+            h.append(num)
+        h.append(span)
+
+
+def _tidy_formula(soup):
+    """계산식: 줄마다 이름과 식을 나누고, 식은 연산자 앞뒤에서 줄이 바뀌지 않게."""
+    for f in soup.find_all(class_="at-formula"):
+        if f.find(class_="f-row"):
+            continue
+        lines, cur = [], []
+        for k in list(f.contents):
+            if getattr(k, "name", None) == "br":
+                lines.append(cur)
+                cur = []
+            else:
+                cur.append(k)
+        lines.append(cur)
+        for k in list(f.contents):
+            k.extract()
+        split = []
+        for ln in lines:
+            if ln and all(isinstance(k, NavigableString) for k in ln):
+                txt = re.sub(r"\s+", " ", "".join(str(k) for k in ln)).strip()
+                parts = [x for x in re.split(r"\s·\s", txt) if x]
+                if len(parts) > 1 and all("=" in x for x in parts):
+                    split.extend([[NavigableString(x)] for x in parts])
+                    continue
+            split.append(ln)
+        lines = split
+        for ln in lines:
+            ln = [k for k in ln if not (isinstance(k, NavigableString) and not k.strip())]
+            if not ln:
+                continue
+            row = soup.new_tag("div")
+            row["class"] = ["f-row"]
+            if getattr(ln[0], "name", None) == "small":
+                row["class"] = ["f-row", "f-note"]
+            label = None
+            if getattr(ln[0], "name", None) == "b":
+                label = ln.pop(0)
+            elif all(isinstance(k, NavigableString) for k in ln):
+                txt = re.sub(r"\s+", " ", "".join(str(k) for k in ln)).strip()
+                if ":" in txt.split("=")[0]:
+                    k_, v_ = txt.split(":", 1)
+                elif "=" in txt:
+                    k_, v_ = txt.split("=", 1)
+                    v_ = "= " + v_.strip()
+                else:
+                    k_, v_ = "", txt
+                ln = [NavigableString(v_.strip())]
+                if k_.strip():
+                    label = soup.new_tag("b")
+                    label.append(k_.strip())
+            if label is not None:
+                ks = soup.new_tag("span")
+                ks["class"] = ["f-k"]
+                ks.append(label.get_text())
+                row.append(ks)
+            vs = soup.new_tag("span")
+            vs["class"] = ["f-v"]
+            for k in ln:
+                if isinstance(k, NavigableString):
+                    k = NavigableString(_OPS.sub(lambda m: "\u00a0" + m.group(1) + "\u00a0", str(k)).strip(" "))
+                vs.append(k)
+            row.append(vs)
+            f.append(row)
+
+
+def _tidy_text(soup):
+    """'375,000원(이자만)' → '375,000원 (이자만)' 처럼 괄호 앞 띄어쓰기."""
+    for t in soup.find_all(string=True):
+        if isinstance(t, Comment) or t.parent is None or t.parent.name in ("script", "style", "code"):
+            continue
+        new = _PAREN.sub(r"\1 (", str(t))
+        if new != str(t):
+            t.replace_with(NavigableString(new))
 
 
 def apply(s):
@@ -146,6 +259,9 @@ def apply(s):
             else:
                 _mark_blocks(m)
     _label_tables(soup)
+    _tidy_heads(soup)
+    _tidy_formula(soup)
+    _tidy_text(soup)
     toc = _toc(root)
     region = str(soup)
     s = s[:a] + region + s[b:]

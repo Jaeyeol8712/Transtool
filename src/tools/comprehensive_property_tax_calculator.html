@@ -1,0 +1,45 @@
+<label for="cpPrice">보유 주택 공시가격 합계 (만 원)</label>
+<input id="cpPrice" type="number" inputmode="numeric" placeholder="150000"/>
+<label for="cpType">주택 수</label>
+<select id="cpType"><option value="1">1세대 1주택 (단독 명의)</option><option value="2">2주택 이하</option><option value="3">3주택 이상</option></select>
+<label for="cpAge">나이 (만, 1세대 1주택 세액공제)</label>
+<input id="cpAge" type="number" inputmode="numeric" placeholder="55"/>
+<label for="cpHold">보유 기간 (년, 1세대 1주택 세액공제)</label>
+<input id="cpHold" type="number" inputmode="numeric" placeholder="8"/>
+<button onclick="calcCp()">종부세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">공제 금액</span><span class="result-value" id="cpDed" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">과세표준 (× 공정시장가액비율 60%)</span><span class="result-value" id="cpBase" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세율로 계산한 세액</span><span class="result-value" id="cpGross" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">재산세 중복분 공제 (약)</span><span class="result-value" id="cpOver" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">고령자·장기보유 세액공제</span><span class="result-value" id="cpCredit" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">종합부동산세</span><span class="result-value" id="cpTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">농어촌특별세 (20%)</span><span class="result-value" id="cpRural" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">12월 납부 합계</span><span class="result-value" id="cpSum">-</span></div>
+<p id="cpMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function cpRate(b,heavy){var t=heavy?[[3e8,.005,0],[6e8,.007,6e5],[12e8,.01,24e5],[25e8,.02,144e5],[50e8,.03,394e5],[94e8,.04,894e5],[1/0,.05,1834e5]]:[[3e8,.005,0],[6e8,.007,6e5],[12e8,.01,24e5],[25e8,.013,60e5],[50e8,.015,110e5],[94e8,.02,360e5],[1/0,.027,1018e5]];for(var i=0;i<t.length;i++){if(b<=t[i][0])return b*t[i][1]-t[i][2];}}
+function cpProp(b){var t=[[6e7,.001,0],[15e7,.0015,3e4],[3e8,.0025,18e4],[1/0,.004,63e4]];for(var i=0;i<t.length;i++){if(b<=t[i][0])return b*t[i][1]-t[i][2];}}
+function cpWon(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcCp(){
+ var p=(parseFloat(document.getElementById('cpPrice').value)||0)*1e4, type=+document.getElementById('cpType').value;
+ var age=parseFloat(document.getElementById('cpAge').value)||0, hold=parseFloat(document.getElementById('cpHold').value)||0;
+ if(!(p>0)) return alert('공시가격 합계를 입력해주세요.');
+ var ded=type===1?12e8:9e8, base=Math.max(0,(p-ded)*.6), gross=base>0?cpRate(base,type===3):0;
+ var pr=type===1?(p<=3e8?.43:(p<=6e8?.44:.45)):.6, pBase=p*pr, pTax=cpProp(pBase);
+ var over=base>0?Math.min(pTax,pTax*(base*pr*.004)/pTax):0; over=Math.min(over,gross);
+ var c=0; if(type===1){c+=age>=70?.4:(age>=65?.3:(age>=60?.2:0));c+=hold>=15?.5:(hold>=10?.4:(hold>=5?.2:0));c=Math.min(c,.8);}
+ var after=gross-over, credit=after*c, tax=Math.floor(Math.round(after-credit)/10)*10, rural=Math.floor(Math.round(tax*.2)/10)*10;
+ document.getElementById('cpDed').textContent=cpWon(ded);
+ document.getElementById('cpBase').textContent=cpWon(base);
+ document.getElementById('cpGross').textContent=cpWon(gross);
+ document.getElementById('cpOver').textContent=cpWon(over);
+ document.getElementById('cpCredit').textContent=cpWon(credit)+(c?' ('+Math.round(c*100)+'%)':'');
+ document.getElementById('cpTax').textContent=cpWon(tax);
+ document.getElementById('cpRural').textContent=cpWon(rural);
+ document.getElementById('cpSum').textContent=cpWon(tax+rural);
+ document.getElementById('cpMsg').textContent=base>0?'전년도 세액 대비 150% 세부담상한은 반영하지 않았습니다.':'공시가격 합계가 공제 금액('+(ded/1e8)+'억 원) 이하라 종부세 대상이 아닙니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

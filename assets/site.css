@@ -759,3 +759,20 @@ body.b .b-card h2.vx-title{margin-bottom:14px!important}
 body.b .b-card>section.vx-sec{background:none!important;padding:0!important;margin:0 0 1rem;border:0}
 body.b .b-card>section.vx-sec.vx-check ul{background:var(--at-sunk);border-radius:12px;padding:.4rem 1rem}
 body.b .app>*{min-width:0;max-width:100%}
+/* 시안 B: 줄바꿈·띄어쓰기 정리 */
+body.b .at-content{word-break:keep-all;overflow-wrap:break-word}
+body.b .at-content :is(p,li,dd,td,.a,.ans,.lede){text-wrap:pretty}
+body.b .at-content :is(h1,h2,h3,summary,.vx-hero-h){text-wrap:balance}
+body.b .b-ht{flex:1;min-width:0}
+body.b .b-hsub{display:block;margin-top:4px;font-size:.9375rem;font-weight:600;line-height:1.5;letter-spacing:-.01em;color:var(--at-sub)}
+body.b .b-sum .b-hsub{color:inherit;opacity:.75}
+body.b .at-formula{padding:6px 18px!important;line-height:1.6}
+body.b .at-formula .f-row{padding:12px 0;border-top:1px dashed var(--at-line)}
+body.b .at-formula .f-row:first-child{border-top:0}
+body.b .at-formula .f-k{display:block;margin-bottom:2px;font-size:.875rem;font-weight:800;color:var(--at-brand)}
+body.b .at-formula .f-v{display:block;font-size:var(--b-s);word-break:keep-all}
+body.b .at-formula .f-note .f-v,body.b .at-formula .f-note small{font-size:.875rem;color:var(--at-sub)}
+body.b .b-chips{list-style:none;margin:0;padding:0!important;display:flex;flex-wrap:wrap;gap:8px}
+body.b .b-chips li{margin:0}
+body.b .b-chips a{display:inline-block;padding:9px 14px;border:1px solid var(--at-line);border-radius:999px;background:var(--at-surface);text-decoration:none!important;font-size:var(--b-s);font-weight:600;color:var(--at-ink)!important}
+body.b .b-chips a:hover{border-color:var(--at-brand);color:var(--at-brand)!important}
