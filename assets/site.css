@@ -776,3 +776,13 @@ body.b .b-chips{list-style:none;margin:0;padding:0!important;display:flex;flex-w
 body.b .b-chips li{margin:0}
 body.b .b-chips a{display:inline-block;padding:9px 14px;border:1px solid var(--at-line);border-radius:999px;background:var(--at-surface);text-decoration:none!important;font-size:var(--b-s);font-weight:600;color:var(--at-ink)!important}
 body.b .b-chips a:hover{border-color:var(--at-brand);color:var(--at-brand)!important}
+/* 가독성: 자간을 거의 0으로, 단어 사이를 조금 넓게 (사이트 전체) */
+html body,html body *:not(code):not(pre):not(kbd){letter-spacing:-.005em!important;word-spacing:.05em}
+html body :is(h1,h2,h3,.vx-hero-h,.at-board-name,.ah-lead){letter-spacing:-.012em!important}
+body.b .at-prose,body.b main p,body.b main li{line-height:1.75}
+body.b .vx-hero.b-sum .vx-hero-h{font-weight:800}
+/* 시안 B: 핵심 카드 — 번호 원 + 제목·설명 (이모지·떠 있는 번호 제거) */
+body.b .vx-card{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:start;padding:14px 16px!important}
+body.b .vx-card .vx-card-e{display:none}
+body.b .at-content .vx-card .vx-card-n{position:static;grid-row:1/span 2;width:28px;height:28px;min-width:0;min-height:0;padding:0;border-radius:50%;display:grid;place-items:center;background:var(--at-brand-tint);color:var(--at-brand);font-size:.875rem;font-weight:800;margin-top:1px}
+body.b .vx-card .vx-card-t,body.b .vx-card .vx-card-d{grid-column:2}
