@@ -392,6 +392,8 @@ from guides_1110 import GUIDES_1110  # noqa: E402  (2026-11-03 컨펌 i261103-02
 GUIDES += GUIDES_1110
 from guides_1109 import GUIDES_1109  # noqa: E402  (2026-11-03 컨펌 i261103-01)
 GUIDES += GUIDES_1109
+from guides_1111 import GUIDES_1111  # noqa: E402  (2026-11-04 컨펌 i261104-01)
+GUIDES += GUIDES_1111
 
 # ── 보강 (2026-10-26): FAQ 5개 이상, 표가 없던 가이드에 표 추가 ──
 
