@@ -158,7 +158,7 @@ CAT_ORDER = list(CAT)
 FOOD_AREAS = [
     ("incheon", "인천광역시", "인천", [("yeonsu", "연수구")]),
     ("seoul", "서울특별시", "서울", [("gangnam", "강남구"), ("yongsan", "용산구"), ("jongno", "종로구"), ("seoul-junggu", "중구"),
-                                    ("mapo", "마포구"), ("seocho", "서초구"), ("seongdong", "성동구"), ("yeongdeungpo", "영등포구")]),
+                                    ("mapo", "마포구"), ("seocho", "서초구"), ("seongdong", "성동구"), ("yeongdeungpo", "영등포구"), ("seoul-winter", "겨울 메뉴")]),
     ("busan", "부산광역시", "부산", [("haeundae", "해운대구")]),
     ("gangwon", "강원특별자치도", "강원", [("sokcho", "속초시")]),
     ("daejeon", "대전광역시", "대전", [("daejeon-donggu", "동구"), ("daejeon-junggu", "중구"),
@@ -174,7 +174,7 @@ FOOD_AREAS = [
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -182,16 +182,16 @@ TOOL_GROUPS = [
                               "prepayment_penalty_calculator", "interior_calculator",
                               "vat_calculator", "deposit_interest_calculator", "jeonwolse_conversion_calculator",
                               "card_installment_calculator"]),
-    ("labor", "노동·구직", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
+    ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
-    ("trip", "여행", ["fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
+    ("trip", "여행", ["time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
@@ -210,9 +210,13 @@ TRIP_PAGES = [("travel-jeju", "제주도 여행", "국내"), ("travel-busan", "�
               ("travel-sokcho", "속초 여행", "국내"), ("travel-osaka", "오사카 여행", "해외")]
 from trips_1103 import TRIP_PAGES_1103  # noqa: E402  (2026-11-03 여행 코스 10개)
 TRIP_PAGES += TRIP_PAGES_1103
-PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103}  # 처음 올린 날
+from trips_1105 import TRIP_PAGES_1105, make as _make_trips_1105  # noqa: E402  (2026-11-03 겨울 여행지 10곳)
+TRIP_PAGES += TRIP_PAGES_1105
+PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
+from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
+PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1105})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -486,7 +490,7 @@ def kind_of(p):
     k = (p.get("post") or {}).get("kind", "product")
     return k if k in KINDS else "product"
 N_TOOLS = len(TOOLS)
-N_PLACES = sum(p["count"] for p in FOOD_OK)
+N_PLACES = sum(p["count"] for p in FOOD_OK if p.get("prefix") != "seoul-winter")  # 겨울 메뉴 묶음은 다른 페이지 가게를 다시 모은 것이라 제외
 N_GU = sum(len(g) for _, _, _, g in FOOD_AREAS)
 
 
@@ -2324,7 +2328,7 @@ def trip_hub_list(s):
     s = re.sub(r'<div class="at-trips">.*?</div></div>\n?', "", s, flags=re.S)
     s = re.sub(r'<h2 class="sec">국내</h2>.*?(?=<h2 class="sec">여행 도구</h2>)', "", s, count=1, flags=re.S)
     s = s.replace('<h2 class="sec">여행 도구</h2>', block + '<h2 class="sec">여행 도구</h2>', 1)
-    s = re.sub(r'<span class="n">국내 \d+곳 · 해외 \d+곳 · 도구 \d+종</span>', f'<span class="n">국내 {len(dom)}곳 · 해외 {len(abr)}곳</span>', s)
+    s = re.sub(r'<span class="n">국내 \d+곳 · 해외 \d+곳(?: · 도구 \d+종)?</span>', f'<span class="n">국내 {len(dom)}곳 · 해외 {len(abr)}곳</span>', s)
     s = re.sub(r'<div class="note">\s*<b>목적지는 계속 늘려갑니다\.</b>.*?</div>', "", s, flags=re.S)
     return s
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>난방기 전기요금 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/heater_electricity_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="난방기 전기요금 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">난방기 전기요금 계산기</p>
+<label for="heDev">난방기 종류 (소비전력 예시)</label>
+<select id="heDev" onchange="document.getElementById('heW').value=this.value"><option value="150">전기장판·전기요 (약 150W)</option><option value="1000">전기히터 (약 1,000W)</option><option value="1500">라디에이터 (약 1,500W)</option><option value="2000">온풍기 (약 2,000W)</option><option value="">직접 입력</option></select>
+<label for="heW">소비전력 (W, 제품 라벨 확인)</label>
+<input id="heW" type="number" inputmode="numeric" value="150"/>
+<label for="heHours">하루 사용 시간</label>
+<input id="heHours" type="number" inputmode="decimal" placeholder="8"/>
+<label for="heDays">한 달 사용 일수</label>
+<input id="heDays" type="number" inputmode="numeric" placeholder="30"/>
+<label for="heBase">난방기 없이 한 달 전기 사용량 (kWh, 고지서 확인)</label>
+<input id="heBase" type="number" inputmode="numeric" placeholder="250"/>
+<button onclick="calcHe()">늘어나는 전기요금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">난방기 한 달 사용량</span><span class="result-value" id="heKwh" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">난방기 없을 때 요금</span><span class="result-value" id="heB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">난방기 쓸 때 요금</span><span class="result-value" id="heA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">늘어나는 요금</span><span class="result-value" id="heDiff">-</span></div>
+<p id="heMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function heBill(k){var b,e;if(k<=200){b=910;e=k*120.0;}else if(k<=400){b=1600;e=200*120.0+(k-200)*214.6;}else{b=7300;e=200*120.0+200*214.6+(k-400)*307.3;}
+ var s=b+e+k*9+k*5;return Math.floor((s+s*.1+Math.floor(s*.037/10)*10)/10)*10;}
+function calcHe(){
+ var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
+ var w=g('heW'),h=g('heHours'),d=g('heDays')||30,base=g('heBase');
+ if(!(w>0)||!(h>0)) return alert('소비전력과 사용 시간을 입력해주세요.');
+ var add=w*h*d/1000, b0=heBill(base), b1=heBill(base+add);
+ var f=function(n){return Math.round(n).toLocaleString('ko-KR')+'원';};
+ document.getElementById('heKwh').textContent=add.toFixed(1)+'kWh';
+ document.getElementById('heB').textContent=f(b0);
+ document.getElementById('heA').textContent=f(b1);
+ document.getElementById('heDiff').textContent=f(b1-b0);
+ document.getElementById('heMsg').textContent=(base<=400&&base+add>400)?'사용량이 400kWh를 넘어 가장 비싼 누진 구간(kWh당 307.3원)에 들어갑니다.':((base<=200&&base+add>200)?'사용량이 200kWh를 넘어 2단계 누진 구간에 들어갑니다.':'주택용 저압, 7~8월이 아닌 달 기준입니다.');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/heater_electricity_cost_calculator.html?utm_source=embed&amp;utm_campaign=heater_electricity_cost_calculator" target="_blank" rel="noopener">어라운드툴 난방기 전기요금 계산기</a></p>
+</body>
+</html>

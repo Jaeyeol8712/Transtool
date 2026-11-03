@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 연휴 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/holiday_leave_planner.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="2027 연휴 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">2027 연휴 계산기</p>
+<label for="hlN">쓸 수 있는 연차 (일)</label>
+<select id="hlN"><option value="1">1일</option><option value="2" selected>2일</option><option value="3">3일</option><option value="4">4일</option><option value="5">5일</option></select>
+<button onclick="calcHl()">2027년 연휴 찾기</button>
+<div class="result" id="result">
+<p style="margin:0 0 .4rem;font-weight:700">연차를 붙이면 가장 길게 쉬는 기간 (2027년)</p>
+<ol id="hlList" style="margin:0;padding-left:1.2rem;line-height:1.8"></ol>
+<p style="margin:.6rem 0 0;line-height:1.6">토·일과 2027년 공휴일·대체공휴일 기준입니다. 회사 휴무일·근로자의 날 처리는 회사마다 다를 수 있습니다.</p>
+</div>
+<script>
+var HL=['2027-01-01','2027-02-06','2027-02-07','2027-02-08','2027-02-09','2027-03-01','2027-05-01','2027-05-03','2027-05-05','2027-05-13','2027-06-06','2027-07-17','2027-07-19','2027-08-15','2027-08-16','2027-09-14','2027-09-15','2027-09-16','2027-10-03','2027-10-04','2027-10-09','2027-10-11','2027-12-25','2027-12-27'];
+function hlKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function calcHl(){
+ var n=+document.getElementById('hlN').value, days=[], d=new Date(2027,0,1);
+ while(d.getFullYear()===2027){var off=d.getDay()===0||d.getDay()===6||HL.indexOf(hlKey(d))>=0;days.push({d:new Date(d),off:off});d.setDate(d.getDate()+1);}
+ var res=[];
+ for(var s=0;s<days.length;s++){if(s>0&&days[s-1].off)continue;var used=0,lv=[],e=s;
+  while(e<days.length){if(!days[e].off){if(used===n)break;used++;lv.push(days[e].d);}e++;}
+  while(e-1>s&&!days[e-1].off){e--;used--;lv.pop();}
+  var len=e-s; if(used>0&&len>=4)res.push({s:days[s].d,e:days[e-1].d,len:len,lv:lv.slice()});}
+ res.sort(function(a,b){return b.len-a.len||a.lv.length-b.lv.length;});
+ var out=[],seen=[];for(var i=0;i<res.length&&out.length<6;i++){var r=res[i];if(seen.some(function(x){return !(r.e<x.s||r.s>x.e);}))continue;seen.push(r);out.push(r);}
+ out.sort(function(a,b){return a.s-b.s;});
+ var f=function(x){return (x.getMonth()+1)+'/'+x.getDate();};
+ document.getElementById('hlList').innerHTML=out.map(function(r){return '<li><b>'+f(r.s)+' ~ '+f(r.e)+' ('+r.len+'일)</b> — 연차 '+r.lv.map(f).join(', ')+'</li>';}).join('');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/holiday_leave_planner.html?utm_source=embed&amp;utm_campaign=holiday_leave_planner" target="_blank" rel="noopener">어라운드툴 2027 연휴 계산기</a></p>
+</body>
+</html>

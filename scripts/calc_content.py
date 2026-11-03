@@ -1006,3 +1006,4 @@ for _k, _v in EXTRA_BODY.items():
         CALCS[_k]["body"] = CALCS[_k]["body"] + "\n" + _v
 from calc_1103 import *  # noqa: E402,F401,F403  (2026-11-03 신규 계산기 10종)
 from calc_1104 import *  # noqa: E402,F401,F403  (2026-11-03 부동산 세금 계산기)
+from calc_1105 import *  # noqa: E402,F401,F403  (2026-11-03 11~12월 시즌 계산기 10종)
