@@ -60,8 +60,8 @@ add("monthly_rent_tax_credit_calculator", date=D, name="월세 세액공제",
     formula="세액공제 = min(올해 낸 월세, 1,000만) × 17% (총급여 5,500만 원 초과 15%)",
     body="""<h2>받을 수 있는 조건</h2>
 <div class="at-table"><table><thead><tr><th>항목</th><th>조건</th></tr></thead><tbody>
-<tr><th>소득</th><td>총급여 8,000만 원 이하</td></tr><tr><th>주택 소유</th><td>12월 31일 기준 무주택 세대</td></tr>
-<tr><th>집</th><td>전용 85㎡ 이하 또는 기준시가 4억 원 이하 (오피스텔 포함)</td></tr><tr><th>주소</th><td>계약서 주소로 전입신고</td></tr>
+<tr><th>소득</th><td>총급여 8천만 원 이하</td></tr><tr><th>주택</th><td>무주택 세대</td></tr>
+<tr><th>집 크기</th><td>85㎡ 이하 또는 4억 원 이하</td></tr><tr><th>주소</th><td>계약서 주소로 전입신고</td></tr>
 </tbody></table></div>
 <p>2026년 지급분부터 세대주와 주소가 다른 배우자도 받을 수 있다(부부 합계 1,000만 원 한도). 자세한 조건은 <a href="/guide-monthly-rent-tax-credit.html">월세 세액공제 가이드</a>.</p>""",
     faq=[("월세 세액공제율은?", "총급여 5,500만 원 이하 17%, 8,000만 원 이하 15%."),
@@ -81,8 +81,8 @@ add("medical_expense_tax_credit_calculator", date=D, name="의료비 세액공�
     body="""<h2>계산 예시</h2>
 <p>총급여 5,000만 원이면 3%인 150만 원을 넘는 금액부터 공제됩니다. 본인 의료비 200만 원, 부모님(64세) 150만 원이면 150만 원을 먼저 빼고 남은 200만 원 × 15% = <b>30만 원</b>.</p>
 <h2>들어가는 것·빠지는 것</h2>
-<div class="at-table"><table><thead><tr><th>들어감</th><th>빠짐</th></tr></thead><tbody>
-<tr><td>진료비·약값, 안경·콘택트렌즈 (1명 50만 원까지), 산후조리원 (출산 1회 200만 원까지)</td><td>미용·성형, 건강기능식품, 실손보험으로 돌려받은 금액</td></tr>
+<div class="at-table"><table><thead><tr><th>항목</th><th>공제</th></tr></thead><tbody>
+<tr><th>진료비·약값</th><td>들어감</td></tr><tr><th>안경·렌즈</th><td>1명 50만 원까지</td></tr><tr><th>산후조리원</th><td>1회 200만 원까지</td></tr><tr><th>미용·성형</th><td>빠짐</td></tr><tr><th>실손 보험금</th><td>받은 만큼 뺌</td></tr>
 </tbody></table></div>""",
     faq=[("의료비 공제는 얼마부터 받나요?", "총급여의 3%를 넘는 금액부터."),
          ("공제율은?", "15%. 난임 시술 30%, 미숙아·선천성 이상아 20%."),
@@ -177,12 +177,12 @@ add("alcohol_calorie_calculator", date=D, name="술 칼로리",
     answer="알코올 열량은 <b>용량(ml) × 도수 × 0.789 × 7</b>. 소주 1병(360ml·16.5%)은 알코올 약 <b>47g, 328kcal</b>. 맥주·막걸리는 당분 열량이 더해져 실제로는 더 높습니다.",
     steps=["마신 술 종류별로 병·잔 수를 넣습니다.", "용량·도수는 흔한 제품 예시입니다.", "알코올 양과 열량이 나옵니다."],
     formula="알코올(g) = 용량(ml) × 도수 × 0.789<br>열량(kcal) = 알코올(g) × 7",
-    body="""<h2>한 병·한 잔 기준 (예시)</h2>
+    body="""<h2>한 병·한 잔 기준 (소주 16.5%·맥주 4.5%·막걸리 6%·와인 12%)</h2>
 <div class="at-table"><table><thead><tr><th>술</th><th>알코올</th><th>알코올 열량</th></tr></thead><tbody>
-<tr><th>소주 1병 360ml·16.5%</th><td>약 47g</td><td>약 328kcal</td></tr>
-<tr><th>맥주 500ml·4.5%</th><td>약 18g</td><td>약 124kcal</td></tr>
-<tr><th>막걸리 1병 750ml·6%</th><td>약 36g</td><td>약 249kcal</td></tr>
-<tr><th>와인 1잔 150ml·12%</th><td>약 14g</td><td>약 99kcal</td></tr>
+<tr><th>소주 1병</th><td>약 47g</td><td>약 328kcal</td></tr>
+<tr><th>맥주 500ml</th><td>약 18g</td><td>약 124kcal</td></tr>
+<tr><th>막걸리 1병</th><td>약 36g</td><td>약 249kcal</td></tr>
+<tr><th>와인 1잔</th><td>약 14g</td><td>약 99kcal</td></tr>
 </tbody></table></div>
 <p>술을 마셨다면 양과 관계없이 운전하지 않습니다. 처벌 기준은 <a href="/guide-drunk-driving-penalty.html">음주운전 처벌 기준</a>.</p>""",
     faq=[("소주 1병 칼로리는?", "알코올만 약 328kcal(360ml·16.5% 기준)."),
@@ -201,10 +201,10 @@ add("wind_chill_calculator", date=D, name="체감온도",
     formula="체감온도 = 13.12 + 0.6215T − 11.37V<sup>0.16</sup> + 0.3965TV<sup>0.16</sup><br><small>T: 기온(℃), V: 풍속(km/h) · 기온 10℃ 이하, 풍속 1.3m/s 이상에서 사용</small>",
     body="""<h2>단계별 옷차림 (기상청 산출 도표 기준)</h2>
 <div class="at-table"><table><thead><tr><th>체감온도</th><th>단계</th><th>준비</th></tr></thead><tbody>
-<tr><th>10 ~ −10℃</th><td>낮음</td><td>긴 옷, 따뜻한 옷</td></tr>
-<tr><th>−10 ~ −25℃</th><td>보통</td><td>방풍 겉옷, 모자·장갑·목도리</td></tr>
-<tr><th>−25 ~ −45℃</th><td>추움</td><td>피부 노출 최소화, 마스크</td></tr>
-<tr><th>−45℃ 이하</th><td>주의·위험</td><td>야외 활동 줄이거나 실내에</td></tr>
+<tr><th>10 ~ −10℃</th><td>낮음</td><td>따뜻한 옷</td></tr>
+<tr><th>−10 ~ −25℃</th><td>보통</td><td>방풍 겉옷·장갑</td></tr>
+<tr><th>−25 ~ −45℃</th><td>추움</td><td>얼굴까지 가리기</td></tr>
+<tr><th>−45℃ 이하</th><td>주의·위험</td><td>야외 활동 자제</td></tr>
 </tbody></table></div>
 <p>저체온증·동상 증상은 <a href="/guide-cold-illness-prevention.html">한랭질환 예방 가이드</a>.</p>""",
     faq=[("체감온도는 어떻게 계산하나요?", "기온과 풍속으로 계산합니다. 기상청은 2001년 JAG/TI 식을 씁니다."),

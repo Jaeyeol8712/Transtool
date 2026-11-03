@@ -2017,10 +2017,6 @@ def build_home():
   </section>
 </div>
 <div class="ah-row">
-  <section class="ah-card" aria-labelledby="ah-up">
-    <div class="ah-head"><h2 id="ah-up">최근 업데이트</h2><a href="/sitemap.html">전체 페이지</a></div>
-    <ul class="ah-ups">{ups}</ul>
-  </section>
   <section class="ah-card" aria-labelledby="ah-faq">
     <div class="ah-head"><h2 id="ah-faq">자주 묻는 질문</h2><a href="/about.html">사이트 소개</a></div>
     <div class="at-faq">{faqs}</div>
@@ -2278,9 +2274,9 @@ def all_index_pages():
 
 
 GUIDE_GROUPS = [
-    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "기부")),
+    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "고향사랑")),
     ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직")),
-    ("부동산·주거", ("전세", "월세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
+    ("부동산·주거", ("전세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
 ]
 
 
@@ -2289,13 +2285,14 @@ def guide_hub_list(s):
     groups = {name: [] for name, _ in GUIDE_GROUPS}
     groups["생활·건강·여행"] = []
     for g in sorted(GUIDES, key=lambda x: x.get("date", ""), reverse=True):
-        name = next((n for n, keys in GUIDE_GROUPS if any(k in g["title"] for k in keys)), "생활·건강·여행")
+        order = [GUIDE_GROUPS[2], GUIDE_GROUPS[0], GUIDE_GROUPS[1]]  # 부동산 키워드를 먼저 봄 (전세·실거래 글이 세금으로 가지 않게)
+        name = next((n for n, keys in order if any(k in g["title"] for k in keys)), "생활·건강·여행")
         groups[name].append(g)
     secs = ""
     for name, items in groups.items():
         if not items:
             continue
-        li = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(g["title"])}</a></li>' for g in items)
+        li = "".join(f'<li><a href="/guide-{g["slug"]}.html" title="{esc(g["title"])}">{esc(re.sub(r"\s*\(.*?\)$", "", re.split(r"(?<=\?) ", g["title"].split(" — ")[0])[0]))}</a></li>' for g in items)
         secs += f'<section class="grp grp-guide"><h2>{esc(name)}<span class="c">{len(items)}</span></h2><ul>{li}</ul></section>'
     extra = ('<section class="grp"><h2>연도별 정리·사이트 안내<span class="c">3</span></h2><ul>'
              '<li><a href="/guide_2026_wage.html">2026 최저임금·노동법</a></li><li><a href="/guide_2026_tax.html">2026 세금·연말정산</a></li>'
@@ -2307,7 +2304,7 @@ def guide_hub_list(s):
     s = s.replace('<section class="faq">', block + '\n<section class="faq">', 1)
     s = re.sub(r'<span class="n">텍스트 3 · 가이드 \d+</span>', f'<span class="n">텍스트 3 · 가이드 {len(GUIDES)}</span>', s)
     s = s.replace("<h1>기타</h1>", "<h1>생활 가이드</h1>").replace("글자수·맞춤법 검사와 <b>연도별 제도 가이드</b>, 사이트 안내를 모았습니다.", "세금·노동·부동산·생활 제도를 <b>질문에 바로 답하는 가이드</b>로 정리했습니다. 글자수·맞춤법 검사 도구도 여기 있습니다.")
-    s = s.replace("계산기와 실용 도구 <b>43개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>")
+    s = re.sub(r"계산기와 실용 도구 <b>\d+개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>", s)
     return s
 
 
