@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단위 변환기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/unit_converter.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="단위 변환기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">단위 변환기</p>
+<label for="ucType">종류</label>
+<select id="ucType"><option value="len">길이</option><option value="wt">무게</option><option value="temp">온도</option></select>
+<label for="ucVal">값</label>
+<input id="ucVal" type="number" step="any" inputmode="decimal" placeholder="1"/>
+<label for="ucFrom">단위</label>
+<select id="ucFrom"></select>
+<button onclick="calcUc()">변환</button>
+<div class="result" id="result"><div id="ucOut" style="font-size:.98rem;line-height:1.9"></div></div>
+<script>
+var U={len:[['mm',0.001],['cm',0.01],['m',1],['km',1000],['인치(in)',0.0254],['피트(ft)',0.3048],['야드(yd)',0.9144],['마일(mi)',1609.344]],
+ wt:[['g',1],['kg',1000],['톤(t)',1000000],['파운드(lb)',453.59237],['온스(oz)',28.349523125],['근(고기 600g)',600],['근(채소 375g)',375]],
+ temp:[['섭씨(℃)',0],['화씨(℉)',0]]};
+function fill(){var t=document.getElementById('ucType').value, s=document.getElementById('ucFrom'); s.innerHTML='';
+ U[t].forEach(function(u,i){var o=document.createElement('option'); o.value=i; o.textContent=u[0]; s.appendChild(o);});}
+document.getElementById('ucType').onchange=fill; fill();
+function nf(x){return (Math.round(x*1e6)/1e6).toLocaleString('ko-KR',{maximumFractionDigits:6});}
+function calcUc(){
+ var t=document.getElementById('ucType').value, v=parseFloat(document.getElementById('ucVal').value), i=+document.getElementById('ucFrom').value;
+ if(isNaN(v)) return alert('값을 입력해주세요.');
+ var out='';
+ if(t==='temp'){ out = i===0 ? nf(v)+' ℃ = <b>'+nf(v*9/5+32)+' ℉</b>' : nf(v)+' ℉ = <b>'+nf((v-32)*5/9)+' ℃</b>'; }
+ else { var base=v*U[t][i][1]; U[t].forEach(function(u,j){ if(j!==i) out+=nf(v)+' '+U[t][i][0]+' = <b>'+nf(base/u[1])+' '+u[0]+'</b><br>'; }); }
+ document.getElementById('ucOut').innerHTML=out;
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/unit_converter.html?utm_source=embed&amp;utm_campaign=unit_converter" target="_blank" rel="noopener">어라운드툴 단위 변환기</a></p>
+</body>
+</html>

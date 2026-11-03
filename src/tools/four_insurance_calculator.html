@@ -1,0 +1,31 @@
+<label for="fiPay">월 보수 (세전, 비과세 제외, 원)</label>
+<input id="fiPay" type="number" inputmode="numeric" placeholder="3000000"/>
+<label for="fiSize">회사 규모 (회사 고용보험 부담)</label>
+<select id="fiSize"><option value="0.0025">150인 미만</option><option value="0.0045">150인 이상 우선지원대상기업</option><option value="0.0065">150~1,000인 미만</option><option value="0.0085">1,000인 이상·국가기관 등</option></select>
+<button onclick="calcFi()">4대보험 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">국민연금 (4.75%)</span><span class="result-value" id="fiNp" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">건강보험 (3.595%)</span><span class="result-value" id="fiHi" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">장기요양 (건보료의 13.14%)</span><span class="result-value" id="fiLt" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">고용보험 (0.9%)</span><span class="result-value" id="fiEi" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">근로자 부담 합계</span><span class="result-value" id="fiSum">-</span></div>
+<div class="result-row"><span class="result-label">회사 부담 합계 (산재 제외)</span><span class="result-value" id="fiCo" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function f10(x){return Math.floor(Math.round(x)/10)*10;}
+function won(n){return n.toLocaleString('ko-KR')+'원';}
+function calcFi(){
+ var p=parseFloat(document.getElementById('fiPay').value), cs=parseFloat(document.getElementById('fiSize').value);
+ if(!(p>0)) return alert('월 보수를 입력해주세요.');
+ var base=Math.min(Math.max(p,410000),6590000);
+ var np=f10(base*0.0475), hi=f10(p*0.03595), lt=f10(hi*0.1314), ei=f10(p*0.009);
+ var me=np+hi+lt+ei, co=np+hi+lt+ei+f10(p*cs);
+ document.getElementById('fiNp').textContent=won(np);
+ document.getElementById('fiHi').textContent=won(hi);
+ document.getElementById('fiLt').textContent=won(lt);
+ document.getElementById('fiEi').textContent=won(ei);
+ document.getElementById('fiSum').textContent=won(me);
+ document.getElementById('fiCo').textContent=won(co);
+ document.getElementById('result').classList.add('show');
+}
+</script>

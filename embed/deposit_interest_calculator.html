@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예금 이자 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/deposit_interest_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="예금 이자 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">예금 이자 계산기</p>
+<label for="diP">예치 금액 (원)</label>
+<input id="diP" type="number" inputmode="numeric" placeholder="10000000"/>
+<label for="diR">연 이자율 (%)</label>
+<input id="diR" type="number" step="0.01" inputmode="decimal" placeholder="3.0"/>
+<label for="diN">예치 기간 (개월)</label>
+<input id="diN" type="number" inputmode="numeric" placeholder="12"/>
+<label for="diT">이자 방식</label>
+<select id="diT"><option value="simple">단리</option><option value="monthly">월복리</option></select>
+<label for="diX">과세 방식</label>
+<select id="diX"><option value="0.154">일반과세 (15.4%)</option><option value="0.095">세금우대 (9.5%)</option><option value="0">비과세</option></select>
+<button onclick="calcDi()">이자 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">세전 이자</span><span class="result-value" id="diG">-</span></div>
+<div class="result-row"><span class="result-label">이자 세금</span><span class="result-value" id="diTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세후 이자</span><span class="result-value" id="diNet">-</span></div>
+<div class="result-row"><span class="result-label">만기 수령액</span><span class="result-value" id="diSum">-</span></div>
+</div>
+<script>
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcDi(){
+ var p=parseFloat(document.getElementById('diP').value), r=parseFloat(document.getElementById('diR').value)/100, n=parseInt(document.getElementById('diN').value,10);
+ var t=document.getElementById('diT').value, x=parseFloat(document.getElementById('diX').value);
+ if(!(p>0)||!(r>=0)||!(n>0)) return alert('금액·이자율·기간을 입력해주세요.');
+ var g = t==='simple' ? p*r*n/12 : p*(Math.pow(1+r/12,n)-1);
+ g=Math.floor(g); var tax=Math.floor(g*x/10)*10; var net=g-tax;
+ document.getElementById('diG').textContent=won(g);
+ document.getElementById('diTax').textContent=won(tax);
+ document.getElementById('diNet').textContent=won(net);
+ document.getElementById('diSum').textContent=won(p+net);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/deposit_interest_calculator.html?utm_source=embed&amp;utm_campaign=deposit_interest_calculator" target="_blank" rel="noopener">어라운드툴 예금 이자 계산기</a></p>
+</body>
+</html>

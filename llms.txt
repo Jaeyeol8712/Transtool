@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 46종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 21개 지역 맛집 147곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 56종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 21개 지역 맛집 147곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -32,6 +32,10 @@
 - [국민연금 수급나이](https://www.aroundtool.com/pension_age_calculator.html): 출생연도를 넣으면 국민연금 노령연금 수급개시 나이와 수령 시작 연도를 알려줍니다. 1953~1969년생 단계별 상향표, 최소 가입기간 10년, 조기노령연금과 연기연금 증감률을 함께 정리했습니다.
 - [중도상환수수료](https://www.aroundtool.com/prepayment_penalty_calculator.html): 대출 실행일, 상환 예정일, 상환 금액, 수수료율로 중도상환수수료를 계산합니다. 3년(1,095일) 슬라이딩 방식 공식과 경과 기간별 예시표, 수수료 면제 조건을 함께 정리했습니다.
 - [인테리어 가견적](https://www.aroundtool.com/interior_calculator.html): 평수·마감 등급·공사 항목을 고르면 아파트 인테리어·리모델링 가견적을 항목별 범위로 계산합니다. 철거·바닥·도배·주방·욕실·창호·발코니 확장 시세와 공사 유형별 비용·기간, 견적서 비교 요령을 정리했습니다.
+- [부가세](https://www.aroundtool.com/vat_calculator.html): 공급가액을 넣으면 부가세 10%와 합계 금액을, 부가세 포함 합계 금액을 넣으면 공급가액과 부가세를 나눠 계산합니다. 세금계산서·견적서 작성과 간이영수증 확인에 바로 쓸 수 있습니다.
+- [예금 이자](https://www.aroundtool.com/deposit_interest_calculator.html): 예금 금액, 연 이자율, 기간을 넣으면 단리·월복리 세전 이자와 일반과세 15.4%·세금우대·비과세별 세후 이자, 만기 수령액을 계산합니다. 정기예금 금리 비교에 쓰세요.
+- [전월세 전환](https://www.aroundtool.com/jeonwolse_conversion_calculator.html): 보증금 일부를 월세로 바꾸거나 월세를 보증금으로 바꿀 때 전환율로 월세·보증금을 계산합니다. 주택임대차보호법상 전환율 상한(연 10%와 기준금리 + 2%p 중 낮은 비율)도 함께 설명합니다.
+- [카드 할부 수수료](https://www.aroundtool.com/card_installment_calculator.html): 결제 금액, 할부 개월, 카드사 할부 수수료율을 넣으면 회차별 원금·수수료·결제액과 총 할부 수수료를 계산합니다. 남은 원금에 수수료가 붙는 방식으로 계산해 무이자 할부와 비교할 수 있습니다.
 
 ### 노동·구직
 - [퇴직금](https://www.aroundtool.com/severance_calculator.html): 재직 기간과 퇴직 전 3개월 임금을 넣으면 1일 평균임금과 퇴직금을 계산합니다. 상여금 3/12, 연차수당 3/12 반영과 평균임금 포함·제외 항목까지 정리했습니다.
@@ -41,6 +45,8 @@
 - [육아휴직급여](https://www.aroundtool.com/parental_leave_calculator.html): 2026년 기준 육아휴직급여 계산기. 1~3개월 250만원, 4~6개월 200만원, 7개월 이후 160만원 상한과 6+6 부모육아휴직제, 한부모 특례까지 반영해 총 수령액을 계산합니다.
 - [근속연수](https://www.aroundtool.com/service_years_calculator.html): 입사일과 퇴사일(또는 오늘)을 넣으면 근속기간을 년·개월·일로, 총 재직일수를 일 단위로 계산합니다. 퇴직금 대상(계속근로 1년 이상) 여부와 근속연수 세는 법, 퇴직금·연차 계산과의 관계를 설명합니다.
 - [시급 월급 변환](https://www.aroundtool.com/hourly_monthly_wage_calculator.html): 시급과 1주 근무시간을 넣으면 주휴수당을 포함한 월급, 주급, 연봉 환산액을 계산합니다. 주 40시간 월 209시간 기준, 2026년 최저임금 10,320원과 2027년 10,700원 기준 월급을 함께 확인할 수 있습니다.
+- [4대보험](https://www.aroundtool.com/four_insurance_calculator.html): 월 보수를 넣으면 2026년 요율로 국민연금 4.75%, 건강보험 3.595%, 장기요양(건강보험료의 13.14%), 고용보험 0.9% 근로자 부담액과 회사 부담 합계를 계산합니다. 국민연금 기준소득월액 상·하한도 반영합니다.
+- [근무시간](https://www.aroundtool.com/work_time_calculator.html): 출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.
 
 ### 생활·건강
 - [할인율](https://www.aroundtool.com/discount_calculator.html): 원래 가격과 할인율(%)을 넣으면 할인 금액과 최종 결제 금액을 계산합니다. 중복 할인(20% + 10%)이 30%가 아닌 이유, 할인 후 가격에서 정가를 거꾸로 구하는 방법도 함께 설명합니다.
@@ -62,6 +68,10 @@
 - [QR코드 생성](https://www.aroundtool.com/qr_generator.html): 웹사이트 주소나 텍스트를 넣으면 브라우저에서 바로 QR코드를 만들고 PNG 이미지로 내려받을 수 있습니다. 입력값은 서버로 전송되지 않습니다. 인쇄용 크기와 오류 복원 수준, 잘 읽히는 QR 만드는 팁을 정리했습니다.
 - [로또 번호](https://www.aroundtool.com/lotto_generator.html): 1부터 45까지 숫자 중 중복 없이 6개를 무작위로 골라 로또 6/45 번호를 최대 10게임까지 생성합니다. 1등 당첨 확률 1/8,145,060의 계산 근거와 번호 선택에 관한 오해를 함께 설명합니다.
 - [취업운세](https://www.aroundtool.com/job_fortune_teller.html): 이름을 넣으면 오늘의 취업·면접 응원 메시지를 무작위로 보여주는 재미용 도구입니다. 결과는 과학적 근거가 없으며, 면접 직전 긴장을 푸는 체크리스트와 자기소개서 글자수 점검 도구를 함께 안내합니다.
+- [수면 시간](https://www.aroundtool.com/sleep_calculator.html): 일어날 시각을 넣으면 90분 수면 주기에 맞춘 잠자리 시각을, 지금 잔다면 일어나기 좋은 시각을 알려 줍니다. 잠드는 데 걸리는 시간도 반영합니다.
+- [단위 변환](https://www.aroundtool.com/unit_converter.html): 길이(mm·cm·m·km·인치·피트·야드·마일), 무게(g·kg·톤·파운드·온스·근), 온도(섭씨·화씨)를 한 번에 변환합니다. 고기 한 근 600g, 채소 한 근 375g 기준도 넣었습니다.
+- [학점](https://www.aroundtool.com/gpa_calculator.html): 과목별 학점과 성적(A+~F)을 넣으면 4.5 만점 또는 4.3 만점 기준 평균 평점을 계산합니다. 학점 가중 평균으로 계산하며 과목을 원하는 만큼 추가할 수 있습니다.
+- [몇 주차](https://www.aroundtool.com/week_number_calculator.html): 날짜를 넣으면 ISO 8601 기준 올해 몇 주차인지, 이번 달 몇째 주인지, 올해 며칠이 지났고 며칠 남았는지 계산합니다. 업무 보고·학사 일정·임신 주수 외 일정 관리에 쓰세요.
 
 ### 여행
 - [주유 경제성](https://www.aroundtool.com/fuel_economy_calculator.html): 이동 거리(km), 차량 연비(km/L), 리터당 연료 가격을 넣으면 필요한 연료량과 예상 유류비를 계산합니다. 왕복·카풀 정산, 공인연비와 실연비 차이, 전기차 충전비와 비교하는 방법도 정리했습니다.
@@ -189,6 +199,16 @@
 - [부산 해운대 여행](https://www.aroundtool.com/travel-busan.html): 해운대 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통 방법을 정리했습니다. 미쉐린 1스타 3곳과 빕구르망 4곳을 포함한 해운대 맛집 14곳 기록과 연결됩니다.
 - [속초 여행](https://www.aroundtool.com/travel-sokcho.html): 속초 1박2일부터 3박4일까지 일정별 코스와 항목별 예산, 서울에서 가는 교통 방법을 정리했습니다. 아바이마을 실향민 음식을 포함한 속초 맛집 12곳 기록과 연결됩니다.
 - [오사카 여행](https://www.aroundtool.com/travel-osaka.html): 오사카 2박3일부터 4박5일까지 일정별 코스와 항목별 예산, 간사이공항에서 시내 가는 교통 방법을 정리했습니다. 교토·나라 당일치기와 도톤보리 먹거리 예산도 함께.
+- [경주 여행](https://www.aroundtool.com/travel-gyeongju.html): 경주 여행 코스를 1박 2일·2박 3일로 정리했습니다. 대릉원·첨성대·동궁과 월지 야경, 불국사·석굴암, 황리단길, 보문관광단지, 양동마을까지 권역별로 묶고 KTX·버스 이동 시간과 자주 묻는 질문을 담았습니다.
+- [강릉 여행](https://www.aroundtool.com/travel-gangneung.html): 강릉 여행 코스를 당일·1박 2일로 정리했습니다. 안목해변 커피거리, 경포대·경포해변, 오죽헌, 주문진 수산시장, 정동진 해돋이를 권역별로 묶고 KTX·시내 이동 시간과 자주 묻는 질문을 담았습니다.
+- [전주 여행](https://www.aroundtool.com/travel-jeonju.html): 전주 여행 코스를 당일·1박 2일로 정리했습니다. 전주 한옥마을, 경기전, 전동성당, 오목대, 남부시장, 객리단길을 걸어서 도는 동선과 KTX 이동 시간, 전주 대표 음식과 자주 묻는 질문을 담았습니다.
+- [여수 여행](https://www.aroundtool.com/travel-yeosu.html): 여수 여행 코스를 1박 2일·2박 3일로 정리했습니다. 오동도, 여수 해상케이블카, 이순신광장, 낭만포차 거리 밤바다, 향일암 해돋이, 돌산 일대를 권역별로 묶고 KTX·시내 이동 시간과 자주 묻는 질문을 담았습니다.
+- [통영 여행](https://www.aroundtool.com/travel-tongyeong.html): 통영 여행 코스를 1박 2일·2박 3일로 정리했습니다. 동피랑 벽화마을, 강구안·중앙시장, 통영 케이블카(미륵산), 루지, 한산도 배편을 권역별로 묶고 이동 시간과 자주 묻는 질문을 담았습니다.
+- [도쿄 여행](https://www.aroundtool.com/travel-tokyo.html): 도쿄 여행 코스를 3박 4일·4박 5일로 정리했습니다. 아사쿠사·우에노, 시부야·하라주쿠, 신주쿠, 오다이바, 근교 하코네·가마쿠라를 권역별로 묶고 공항에서 시내까지 이동 시간과 출발 전 확인할 점을 담았습니다.
+- [타이베이 여행](https://www.aroundtool.com/travel-taipei.html): 타이베이 여행 코스를 2박 3일·3박 4일로 정리했습니다. 타이베이 101, 스린 야시장, 고궁박물원, 지우펀·스펀·예류 근교를 권역별로 묶고 공항철도 이동 시간, 시차·통화 등 출발 전 확인할 점을 담았습니다.
+- [방콕 여행](https://www.aroundtool.com/travel-bangkok.html): 방콕 여행 코스를 3박 5일·4박 6일로 정리했습니다. 왕궁·왓포·왓아룬, 카오산로드, 시암·아속 쇼핑, 짜뚜짝 주말시장, 아유타야 당일치기를 권역별로 묶고 공항철도 이동 시간과 출발 전 확인할 점을 담았습니다.
+- [싱가포르 여행](https://www.aroundtool.com/travel-singapore.html): 싱가포르 여행 코스를 3박 4일·4박 5일로 정리했습니다. 마리나베이, 가든스 바이 더 베이, 센토사, 차이나타운·리틀인디아, 호커센터를 권역별로 묶고 공항 이동 시간과 전자 입국카드 등 출발 전 확인할 점을 담았습니다.
+- [삿포로 여행](https://www.aroundtool.com/travel-sapporo.html): 삿포로 여행 코스를 3박 4일·4박 5일로 정리했습니다. 오도리공원·TV타워, 스스키노, 오타루 운하, 비에이·후라노 근교, 2월 삿포로 눈축제를 권역별로 묶고 공항 이동 시간과 겨울 준비물을 담았습니다.
 
 ## 가이드
 
@@ -223,6 +243,16 @@
 - [겨울 전기요금 누진제 — 200·400kWh 경계, 전기장판·히터 쓰면 얼마?](https://www.aroundtool.com/guide-winter-electricity-progressive.html)
 - [해외직구 면세 기준 — 150달러(미국 200달러) 이하, 합산과세 피하는 법](https://www.aroundtool.com/guide-overseas-direct-purchase-duty-free.html)
 - [종합부동산세 납부 일정 — 12월 1~15일, 분납 300만 원 초과·공제 9억/12억](https://www.aroundtool.com/guide-comprehensive-property-tax-schedule.html)
+- [전입신고·확정일자 — 대항력은 다음 날 0시부터](https://www.aroundtool.com/guide-move-in-report-fixed-date.html)
+- [전세 계약 전 확인할 7가지 — 등기부등본부터 특약까지](https://www.aroundtool.com/guide-jeonse-contract-checklist.html)
+- [퇴직 후 건강보험 임의계속가입 — 조건·신청 기한](https://www.aroundtool.com/guide-health-insurance-continued-coverage.html)
+- [부가세 신고 기간 — 1월·7월 확정신고 정리](https://www.aroundtool.com/guide-vat-filing-schedule.html)
+- [2026년 4대보험 요율 — 근로자·회사 부담 한눈에](https://www.aroundtool.com/guide-four-insurance-rates-2026.html)
+- [연말정산 의료비 세액공제 — 총급여 3% 넘어야 공제](https://www.aroundtool.com/guide-medical-expense-tax-credit.html)
+- [월세 세액공제 조건 — 총급여 8천만 원·연 1천만 원 한도](https://www.aroundtool.com/guide-monthly-rent-tax-credit.html)
+- [수도 동파 예방법 — 계량기 보온·외출 시 할 일](https://www.aroundtool.com/guide-frozen-pipe-prevention.html)
+- [실업급여 신청 방법 — 퇴사 후 순서 5단계](https://www.aroundtool.com/guide-unemployment-benefit-application-steps.html)
+- [연차 사용 촉진 제도 — 회사가 하면 수당이 없을까?](https://www.aroundtool.com/guide-annual-leave-promotion.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 

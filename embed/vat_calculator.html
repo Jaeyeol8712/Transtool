@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부가세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/vat_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="부가세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">부가세 계산기</p>
+<label for="vtMode">계산 방식</label>
+<select id="vtMode"><option value="supply">공급가액(부가세 별도)으로 계산</option><option value="total">합계 금액(부가세 포함)으로 계산</option></select>
+<label for="vtAmt">금액 (원)</label>
+<input id="vtAmt" type="number" inputmode="numeric" placeholder="1000000"/>
+<button onclick="calcVat()">부가세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">공급가액</span><span class="result-value" id="vtS">-</span></div>
+<div class="result-row"><span class="result-label">부가세 (10%)</span><span class="result-value" id="vtV">-</span></div>
+<div class="result-row"><span class="result-label">합계 (부가세 포함)</span><span class="result-value" id="vtT">-</span></div>
+</div>
+<script>
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcVat(){
+ var a=parseFloat(document.getElementById('vtAmt').value), m=document.getElementById('vtMode').value;
+ if(!(a>0)) return alert('금액을 입력해주세요.');
+ var s,v,t;
+ if(m==='supply'){s=a; v=Math.round(a*0.1); t=s+v;}
+ else {t=a; s=Math.round(a/1.1); v=t-s;}
+ document.getElementById('vtS').textContent=won(s);
+ document.getElementById('vtV').textContent=won(v);
+ document.getElementById('vtT').textContent=won(t);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/vat_calculator.html?utm_source=embed&amp;utm_campaign=vat_calculator" target="_blank" rel="noopener">어라운드툴 부가세 계산기</a></p>
+</body>
+</html>

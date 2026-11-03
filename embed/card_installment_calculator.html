@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카드 할부 수수료 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/card_installment_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="카드 할부 수수료 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">카드 할부 수수료 계산기</p>
+<label for="ciP">할부 원금 (원)</label>
+<input id="ciP" type="number" inputmode="numeric" placeholder="1200000"/>
+<label for="ciN">할부 개월</label>
+<select id="ciN"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>10</option><option>12</option><option>18</option><option>24</option></select>
+<label for="ciR">할부 수수료율 (연 %)</label>
+<input id="ciR" type="number" step="0.1" inputmode="decimal" placeholder="15"/>
+<button onclick="calcCi()">할부 수수료 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 할부 수수료</span><span class="result-value" id="ciFee">-</span></div>
+<div class="result-row"><span class="result-label">첫 달 결제액</span><span class="result-value" id="ciFirst" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 결제액</span><span class="result-value" id="ciTot">-</span></div>
+</div>
+<div id="ciTable" style="margin-top:14px;font-size:.92rem"></div>
+<script>
+function won(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function calcCi(){
+ var p=parseFloat(document.getElementById('ciP').value), n=parseInt(document.getElementById('ciN').value,10), r=parseFloat(document.getElementById('ciR').value)/100;
+ if(!(p>0)||!(r>=0)) return alert('원금과 수수료율을 입력해주세요.');
+ var base=Math.floor(p/n), bal=p, fee=0, rows='', first=0;
+ for(var i=1;i<=n;i++){var pr = i<n ? base : bal; var f=Math.floor(bal*r/12); fee+=f; if(i===1) first=pr+f;
+  rows+='<tr><td>'+i+'회</td><td>'+won(pr)+'</td><td>'+won(f)+'</td><td>'+won(pr+f)+'</td></tr>'; bal-=pr;}
+ document.getElementById('ciFee').textContent=won(fee);
+ document.getElementById('ciFirst').textContent=won(first);
+ document.getElementById('ciTot').textContent=won(p+fee);
+ document.getElementById('ciTable').innerHTML='<div class="at-table" tabindex="0" role="region" aria-label="표 (좌우로 밀어서 보기)"><table><thead><tr><th>회차</th><th>원금</th><th>수수료</th><th>결제액</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/card_installment_calculator.html?utm_source=embed&amp;utm_campaign=card_installment_calculator" target="_blank" rel="noopener">어라운드툴 카드 할부 수수료 계산기</a></p>
+</body>
+</html>

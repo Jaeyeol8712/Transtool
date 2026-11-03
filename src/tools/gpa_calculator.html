@@ -1,0 +1,28 @@
+<label for="gpScale">만점 기준</label>
+<select id="gpScale"><option value="45">4.5 만점</option><option value="43">4.3 만점</option></select>
+<div id="gpRows"></div>
+<button type="button" onclick="addRow()" style="background:var(--bg);color:var(--text);border:1px solid var(--line);margin-bottom:8px">과목 추가</button>
+<button onclick="calcGp()">평점 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">평균 평점</span><span class="result-value" id="gpAvg">-</span></div>
+<div class="result-row"><span class="result-label">총 이수 학점 (P/F 제외)</span><span class="result-value" id="gpCr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+var G45={'A+':4.5,'A0':4.0,'B+':3.5,'B0':3.0,'C+':2.5,'C0':2.0,'D+':1.5,'D0':1.0,'F':0};
+var G43={'A+':4.3,'A0':4.0,'A-':3.7,'B+':3.3,'B0':3.0,'B-':2.7,'C+':2.3,'C0':2.0,'C-':1.7,'D+':1.3,'D0':1.0,'D-':0.7,'F':0};
+var n=0;
+function opts(){var g=document.getElementById('gpScale').value==='45'?G45:G43; return Object.keys(g).map(function(k){return '<option>'+k+'</option>';}).join('');}
+function addRow(){n++; var d=document.createElement('div'); d.style.cssText='display:flex;gap:8px;align-items:center;margin-bottom:6px';
+ d.innerHTML='<input type="number" min="0" step="0.5" placeholder="학점" aria-label="과목 '+n+' 학점" class="gpC" style="margin:0;flex:1"/><select class="gpG" aria-label="과목 '+n+' 성적" style="margin:0;flex:1">'+opts()+'</select>';
+ document.getElementById('gpRows').appendChild(d);}
+for(var i=0;i<5;i++) addRow();
+document.getElementById('gpScale').onchange=function(){document.querySelectorAll('.gpG').forEach(function(s){s.innerHTML=opts();});};
+function calcGp(){
+ var g=document.getElementById('gpScale').value==='45'?G45:G43, cs=document.querySelectorAll('.gpC'), gs=document.querySelectorAll('.gpG'), sum=0, cr=0;
+ cs.forEach(function(c,i){var x=parseFloat(c.value); if(x>0){sum+=x*g[gs[i].value]; cr+=x;}});
+ if(!cr) return alert('학점을 하나 이상 입력해주세요.');
+ document.getElementById('gpAvg').textContent=(Math.round(sum/cr*100)/100).toFixed(2)+' / '+(g===G45?'4.5':'4.3');
+ document.getElementById('gpCr').textContent=cr+'학점';
+ document.getElementById('result').classList.add('show');
+}
+</script>

@@ -176,15 +176,18 @@ TOOL_GROUPS = [
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "brokerage_fee_calculator",
                               "increase_decrease_calculator", "pension_age_calculator",
-                              "prepayment_penalty_calculator", "interior_calculator"]),
+                              "prepayment_penalty_calculator", "interior_calculator",
+                              "vat_calculator", "deposit_interest_calculator", "jeonwolse_conversion_calculator",
+                              "card_installment_calculator"]),
     ("labor", "노동·구직", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
-                           "hourly_monthly_wage_calculator"]),
+                           "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
     ("life", "생활·건강", ["discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
-                          "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller"]),
+                          "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
+                          "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
     ("trip", "여행", ["fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
@@ -202,6 +205,8 @@ KEY_TOOLS = ["salary_calculator", "severance_calculator", "unemployment_benefit_
 
 TRIP_PAGES = [("travel-jeju", "제주도 여행", "국내"), ("travel-busan", "부산 해운대 여행", "국내"),
               ("travel-sokcho", "속초 여행", "국내"), ("travel-osaka", "오사카 여행", "해외")]
+from trips_1103 import TRIP_PAGES_1103  # noqa: E402  (2026-11-03 여행 코스 10개)
+TRIP_PAGES += TRIP_PAGES_1103
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -386,7 +391,7 @@ def register_tools():
             if slug in CALCS:
                 c = CALCS[slug]
                 PAGES[f] = dict(file=f, section="tools", group=gid, group_name=gname, name=c["name"],
-                                short=c["name"], desc=c["desc"], date=CALC_DATE, calc=True,
+                                short=c["name"], desc=c["desc"], date=c.get("date", CALC_DATE), calc=True,
                                 title=c["title"])
             else:
                 title, desc = head_info(f)
@@ -1157,6 +1162,7 @@ def head_block(p, robots=None):
 <meta name="robots" content="{robots}">
 <meta name="theme-color" content="#0B6E5F">
 <meta name="naver-site-verification" content="{NAVER_VERIFY}">
+<meta name="msvalidate.01" content="14B6BD6C2AF11B0D12515414F9FCDD11">
 <meta name="google-adsense-account" content="{ADSENSE}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{NAME}">

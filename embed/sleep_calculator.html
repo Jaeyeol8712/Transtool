@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수면 시간 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/sleep_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=39b56cea">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="수면 시간 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">수면 시간 계산기</p>
+<label for="slMode">무엇을 계산할까요</label>
+<select id="slMode"><option value="wake">일어날 시각에 맞춰 잘 시각 찾기</option><option value="now">지금 자면 일어날 시각 찾기</option></select>
+<label for="slTime">일어날 시각</label>
+<input id="slTime" type="time" value="07:00"/>
+<label for="slFall">잠드는 데 걸리는 시간 (분)</label>
+<input id="slFall" type="number" inputmode="numeric" value="15"/>
+<button onclick="calcSl()">시각 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label" id="slHead">추천 시각</span><span class="result-value" id="slOut" style="font-size:1.05rem">-</span></div>
+</div>
+<script>
+document.getElementById('slMode').onchange=function(){document.getElementById('slTime').disabled=this.value==='now';};
+function hm(d){return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+function calcSl(){
+ var m=document.getElementById('slMode').value, fall=parseInt(document.getElementById('slFall').value,10)||0, out=[];
+ if(m==='wake'){var v=document.getElementById('slTime').value; if(!v) return alert('일어날 시각을 입력해주세요.');
+  var p=v.split(':'), w=new Date(); w.setHours(+p[0],+p[1],0,0);
+  [6,5,4].forEach(function(c){var t=new Date(w.getTime()-(c*90+fall)*60000); out.push(hm(t)+' ('+c+'주기 · '+(c*1.5)+'시간)');});
+  document.getElementById('slHead').textContent='잠자리에 들 시각';}
+ else {var now=new Date();
+  [4,5,6].forEach(function(c){var t=new Date(now.getTime()+(c*90+fall)*60000); out.push(hm(t)+' ('+c+'주기 · '+(c*1.5)+'시간)');});
+  document.getElementById('slHead').textContent='일어날 시각';}
+ document.getElementById('slOut').innerHTML=out.join('<br>');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/sleep_calculator.html?utm_source=embed&amp;utm_campaign=sleep_calculator" target="_blank" rel="noopener">어라운드툴 수면 시간 계산기</a></p>
+</body>
+</html>
