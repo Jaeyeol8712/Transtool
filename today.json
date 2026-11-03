@@ -1,55 +1,60 @@
 {
- "date": "2026-11-03",
+ "date": "2026-11-04",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-02.html",
-   "title": "일간 보고서 · 2026-11-02(월)",
+   "file": "reports/daily-2026-11-03.html",
+   "title": "일간 보고서 · 2026-11-03(화)",
    "kpi": {
+    "views": 33,
+    "viewers": 7,
+    "clicks": 1,
+    "clickers": 1
+   },
+   "prev": {
     "views": 6,
     "viewers": 4,
     "clicks": 1,
     "clickers": 1
    },
-   "prev": {
-    "views": 4,
-    "viewers": 4,
-    "clicks": 1,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 1,
-    "users": 1,
+    "sessions": 3,
+    "users": 3,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 1,
-      "users": 1
+      "sessions": 3,
+      "users": 3
      }
     ]
    },
    "topPosts": [
     {
-     "post": "아이폰 17프로 자급제 256GB 사양 정리",
-     "views": 1,
-     "clicks": 1
-    },
-    {
      "post": "설화수 탄력 3종 기획세트 고르는 법",
-     "views": 1,
+     "views": 3,
      "clicks": 1
     },
     {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 3,
-     "clicks": 0
+     "post": "갤럭시탭 S12 울트라 256GB 추천 가격",
+     "views": 2,
+     "clicks": 1
+    },
+    {
+     "post": "아이폰 17프로 자급제 256GB 사양 정리",
+     "views": 2,
+     "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "naver_cafe / cafe",
-     "sessions": 5,
-     "users": 5
+     "sessions": 7,
+     "users": 7
+    },
+    {
+     "name": "(direct) / (none)",
+     "sessions": 2,
+     "users": 2
     },
     {
      "name": "daum / organic",
@@ -64,6 +69,12 @@
    ],
    "keywords": [
     {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "east-europe-3countries",
+     "sessions": 2
+    },
+    {
      "engine": "다음",
      "query": "대학생 노트북",
      "post": "student-office-laptop",
@@ -74,62 +85,56 @@
      "query": "서유럽 여행",
      "post": "west-europe-3-10days",
      "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "east-europe-3countries",
-     "sessions": 1
     }
    ],
    "google": [
     {
-     "query": "미백제품 추천",
-     "post": "queens-collagen-rg3",
+     "query": "대학생 인강용 노트북 추천",
+     "post": "student-office-laptop",
      "clicks": 0,
      "impressions": 1,
-     "position": 27
+     "position": 9
     }
    ]
   },
   {
-   "type": "monthly",
-   "file": "reports/monthly-2026-10.html",
-   "title": "월간 보고서 · 2026년 10월",
+   "type": "weekly",
+   "file": "reports/weekly-2026-10-26.html",
+   "title": "주간 보고서 · 10.26(월) ~ 11.1(일)",
    "kpi": {
-    "views": 223,
-    "viewers": 26,
-    "clicks": 2,
-    "clickers": 2
+    "views": 70,
+    "viewers": 24,
+    "clicks": 3,
+    "clickers": 3
    },
    "prev": {
-    "views": 0,
-    "viewers": 0,
+    "views": 157,
+    "viewers": 7,
     "clicks": 0,
     "clickers": 0
    },
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 29,
+     "views": 14,
      "clicks": 1
     },
     {
      "post": "다낭 5일 여행 추천 코스 가격 정리",
-     "views": 16,
+     "views": 4,
      "clicks": 1
     },
     {
-     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
-     "views": 25,
-     "clicks": 0
+     "post": "아이폰 17프로 자급제 256GB 사양 정리",
+     "views": 1,
+     "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "daum / organic",
-     "sessions": 5,
-     "users": 5
+     "sessions": 7,
+     "users": 7
     },
     {
      "name": "(direct) / (none)",
@@ -137,7 +142,7 @@
      "users": 2
     },
     {
-     "name": "m.search.naver.com / referral",
+     "name": "naver_cafe / cafe",
      "sessions": 2,
      "users": 2
     },
@@ -173,8 +178,20 @@
     },
     {
      "engine": "다음",
+     "query": "대학생 노트북",
+     "post": "student-office-laptop",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
      "query": "블루투스 스피커",
      "post": "jbl-authentics-200",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "서유럽 여행",
+     "post": "west-europe-3-10days",
      "sessions": 1
     },
     {
@@ -187,12 +204,6 @@
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "calf-foot-air-massager",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "galaxy-s26-ultra",
      "sessions": 1
     }
    ],
@@ -219,11 +230,11 @@
      "position": 5
     },
     {
-     "query": "게임용 무선 키보드 추천",
-     "post": "wireless-gaming-keyboard",
+     "query": "대학생 인강용 노트북 추천",
+     "post": "student-office-laptop",
      "clicks": 0,
      "impressions": 1,
-     "position": 51
+     "position": 9
     },
     {
      "query": "대학생노트북",
@@ -240,18 +251,18 @@
      "position": 27
     },
     {
-     "query": "이 원고에 사용할 실제 이미지들을 10장 이상 찾아서 가져와 보여주세요",
-     "post": "prael-thermashot-ultimate",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 7
-    },
-    {
      "query": "후쿠오카 2박 3일 여행 코스",
      "post": "fukuoka-3days",
      "clicks": 0,
      "impressions": 1,
      "position": 27
+    },
+    {
+     "query": "후쿠오카 2박3일 여행",
+     "post": "fukuoka-3days",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 23
     }
    ]
   }

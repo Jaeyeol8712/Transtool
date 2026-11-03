@@ -1,42 +1,39 @@
 {
- "made": "2026-11-03T03:57:06.221Z",
- "range": "2026-10-27 ~ 2026-11-02",
- "prevRange": "2026-10-20 ~ 2026-10-26",
+ "made": "2026-11-03T23:26:50.819Z",
+ "range": "2026-10-28 ~ 2026-11-03",
+ "prevRange": "2026-10-21 ~ 2026-10-27",
  "cur": {
-  "users": 90,
-  "sessions": 136,
-  "views": 303
+  "users": 103,
+  "sessions": 135,
+  "views": 426
  },
  "prev": {
-  "users": 50,
-  "sessions": 82,
-  "views": 756
+  "users": 52,
+  "sessions": 101,
+  "views": 828
  },
  "organic": {
-  "cur": 56,
+  "cur": 58,
   "prev": 48
  },
  "channels": {
   "cur": {
-   "Direct": 62,
-   "Organic Search": 56,
-   "Organic Social": 8,
-   "Unassigned": 6,
-   "AI Assistant": 3,
-   "Paid Search": 1
+   "Organic Search": 58,
+   "Direct": 53,
+   "Unassigned": 13,
+   "Organic Social": 7,
+   "AI Assistant": 6,
+   "Paid Search": 1,
+   "Referral": 1
   },
   "prev": {
+   "Direct": 51,
    "Organic Search": 48,
-   "Direct": 33,
+   "Organic Social": 1,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261006",
-   "users": 7,
-   "sessions": 7
-  },
   {
    "date": "20261007",
    "users": 10,
@@ -166,72 +163,77 @@
    "date": "20261102",
    "users": 16,
    "sessions": 18
+  },
+  {
+   "date": "20261103",
+   "users": 19,
+   "sessions": 22
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 43
-  },
-  {
-   "page": "/etc.html",
-   "sessions": 10
+   "sessions": 36
   },
   {
    "page": "/percent_calculator.html",
+   "sessions": 8
+  },
+  {
+   "page": "/etc.html",
    "sessions": 7
   },
   {
-   "page": "(not set)",
+   "page": "/interior_calculator.html",
+   "sessions": 6
+  },
+  {
+   "page": "/haeundae-michelin.html",
    "sessions": 5
+  },
+  {
+   "page": "(not set)",
+   "sessions": 4
   },
   {
    "page": "/acquisition_tax_calculator",
    "sessions": 4
   },
   {
-   "page": "/haeundae-michelin.html",
+   "page": "/connect.html",
    "sessions": 4
   },
   {
-   "page": "/interior_calculator.html",
+   "page": "/shop-east-europe-3countries.html",
    "sessions": 4
   },
   {
    "page": "/fuel_economy_calculator",
    "sessions": 3
-  },
-  {
-   "page": "/jeju-seogwipo-galchi.html",
-   "sessions": 3
-  },
-  {
-   "page": "/shop-east-europe-3countries.html",
-   "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-25 ~ 2026-10-31",
+  "range": "2026-10-26 ~ 2026-11-01",
   "cur": {
    "clicks": 2,
-   "impressions": 1915,
-   "position": 8.92845953002611
+   "impressions": 2126,
+   "position": 8.924741298212606
   },
   "prev": {
    "clicks": 1,
-   "impressions": 351,
-   "position": 11.452991452991453
+   "impressions": 478,
+   "position": 10.822175732217573
   }
  },
  "ai": {
   "cur": {
-   "sessions": 3,
-   "users": 3,
+   "sessions": 6,
+   "users": 6,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 3,
-     "users": 3
+     "sessions": 6,
+     "users": 6
     }
    ]
   },
