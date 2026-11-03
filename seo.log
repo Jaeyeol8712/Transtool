@@ -1,4 +1,4 @@
-== 2026-11-03T08:27:28Z push 07e8b7eb0c9bfc363203a0a8bff15fef6ca0f641
+== 2026-11-03T12:18:06Z workflow_dispatch 07e8b7eb0c9bfc363203a0a8bff15fef6ca0f641
 · 대상 259개
   https://www.aroundtool.com/about.html
   https://www.aroundtool.com/acquisition_tax_calculator.html
@@ -31,8 +31,8 @@
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
-· Bing 사이트맵 제출: BING_WEBMASTER_KEY 가 없어 건너뜁니다.
-  Bing 웹마스터 도구 → 설정(톱니) → API 액세스에서 키를 만들고 GitHub Secrets 에 BING_WEBMASTER_KEY 로 등록하세요.
+  ✓ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 제출됨
+  ✓ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 제출됨
 
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
