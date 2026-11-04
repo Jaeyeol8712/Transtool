@@ -1,34 +1,33 @@
 {
- "date": "2026-11-04",
+ "date": "2026-11-05",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-03.html",
-   "title": "일간 보고서 · 2026-11-03(화)",
+   "file": "reports/daily-2026-11-04.html",
+   "title": "일간 보고서 · 2026-11-04(수)",
    "kpi": {
+    "views": 14,
+    "viewers": 5,
+    "clicks": 3,
+    "clickers": 2
+   },
+   "prev": {
     "views": 33,
     "viewers": 7,
     "clicks": 1,
     "clickers": 1
    },
-   "prev": {
-    "views": 6,
-    "viewers": 4,
-    "clicks": 1,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 3,
-    "users": 3,
-    "sources": [
-     {
-      "name": "chatgpt.com",
-      "sessions": 3,
-      "users": 3
-     }
-    ]
+    "sessions": 0,
+    "users": 0,
+    "sources": []
    },
    "topPosts": [
+    {
+     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
+     "views": 3,
+     "clicks": 2
+    },
     {
      "post": "설화수 탄력 3종 기획세트 고르는 법",
      "views": 3,
@@ -38,18 +37,13 @@
      "post": "갤럭시탭 S12 울트라 256GB 추천 가격",
      "views": 2,
      "clicks": 1
-    },
-    {
-     "post": "아이폰 17프로 자급제 256GB 사양 정리",
-     "views": 2,
-     "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "naver_cafe / cafe",
-     "sessions": 7,
-     "users": 7
+     "sessions": 5,
+     "users": 5
     },
     {
      "name": "(direct) / (none)",
@@ -57,12 +51,17 @@
      "users": 2
     },
     {
-     "name": "daum / organic",
-     "sessions": 2,
-     "users": 2
+     "name": "(not set)",
+     "sessions": 1,
+     "users": 1
     },
     {
-     "name": "naver.com / referral",
+     "name": "m.blog.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "m.search.naver.com / referral",
      "sessions": 1,
      "users": 1
     }
@@ -75,196 +74,19 @@
      "sessions": 2
     },
     {
-     "engine": "다음",
-     "query": "대학생 노트북",
-     "post": "student-office-laptop",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "서유럽 여행",
-     "post": "west-europe-3-10days",
-     "sessions": 1
-    }
-   ],
-   "google": [
-    {
-     "query": "대학생 인강용 노트북 추천",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 9
-    }
-   ]
-  },
-  {
-   "type": "weekly",
-   "file": "reports/weekly-2026-10-26.html",
-   "title": "주간 보고서 · 10.26(월) ~ 11.1(일)",
-   "kpi": {
-    "views": 70,
-    "viewers": 24,
-    "clicks": 3,
-    "clickers": 3
-   },
-   "prev": {
-    "views": 157,
-    "viewers": 7,
-    "clicks": 0,
-    "clickers": 0
-   },
-   "topPosts": [
-    {
-     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 14,
-     "clicks": 1
-    },
-    {
-     "post": "다낭 5일 여행 추천 코스 가격 정리",
-     "views": 4,
-     "clicks": 1
-    },
-    {
-     "post": "아이폰 17프로 자급제 256GB 사양 정리",
-     "views": 1,
-     "clicks": 1
-    }
-   ],
-   "sources": [
-    {
-     "name": "daum / organic",
-     "sessions": 7,
-     "users": 7
-    },
-    {
-     "name": "(direct) / (none)",
-     "sessions": 2,
-     "users": 2
-    },
-    {
-     "name": "naver_cafe / cafe",
-     "sessions": 2,
-     "users": 2
-    },
-    {
-     "name": "blog.naver.com / referral",
-     "sessions": 1,
-     "users": 1
-    },
-    {
-     "name": "m.facebook.com / referral",
-     "sessions": 1,
-     "users": 1
-    }
-   ],
-   "keywords": [
-    {
-     "engine": "다음",
-     "query": "거북목 교정기",
-     "post": "neck-traction",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "로봇청소기 추천",
-     "post": "bespoke-ai-steam-ultra",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "C타입 고속",
-     "post": "c-type-65w-charger",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "대학생 노트북",
-     "post": "student-office-laptop",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "블루투스 스피커",
-     "post": "jbl-authentics-200",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "서유럽 여행",
-     "post": "west-europe-3-10days",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "후쿠오카 여행",
-     "post": "fukuoka-3days",
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "queens-collagen-rg3",
      "sessions": 1
     },
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "calf-foot-air-massager",
+     "post": "mesh-office-chair",
      "sessions": 1
     }
    ],
-   "google": [
-    {
-     "query": "무선 게이밍 키보드 추천",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 2,
-     "position": 7.5
-    },
-    {
-     "query": "가격",
-     "post": "prael-thermashot-ultimate",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 3
-    },
-    {
-     "query": "가격대",
-     "post": "queens-collagen-rg3",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 5
-    },
-    {
-     "query": "대학생 인강용 노트북 추천",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 9
-    },
-    {
-     "query": "대학생노트북",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 60
-    },
-    {
-     "query": "미백제품 추천",
-     "post": "queens-collagen-rg3",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 27
-    },
-    {
-     "query": "후쿠오카 2박 3일 여행 코스",
-     "post": "fukuoka-3days",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 27
-    },
-    {
-     "query": "후쿠오카 2박3일 여행",
-     "post": "fukuoka-3days",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 23
-    }
-   ]
+   "google": []
   }
  ],
  "errors": []
