@@ -1,21 +1,21 @@
 {
- "date": "2026-11-05",
+ "date": "2026-11-06",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-04.html",
-   "title": "일간 보고서 · 2026-11-04(수)",
+   "file": "reports/daily-2026-11-05.html",
+   "title": "일간 보고서 · 2026-11-05(목)",
    "kpi": {
+    "views": 1,
+    "viewers": 1,
+    "clicks": 1,
+    "clickers": 1
+   },
+   "prev": {
     "views": 14,
     "viewers": 5,
     "clicks": 3,
     "clickers": 2
-   },
-   "prev": {
-    "views": 33,
-    "viewers": 7,
-    "clicks": 1,
-    "clickers": 1
    },
    "ai": {
     "sessions": 0,
@@ -29,7 +29,7 @@
      "clicks": 2
     },
     {
-     "post": "설화수 탄력 3종 기획세트 고르는 법",
+     "post": "동유럽 3개국 여행 코스 추천 정리",
      "views": 3,
      "clicks": 1
     },
@@ -42,8 +42,8 @@
    "sources": [
     {
      "name": "naver_cafe / cafe",
-     "sessions": 5,
-     "users": 5
+     "sessions": 3,
+     "users": 3
     },
     {
      "name": "(direct) / (none)",
@@ -71,7 +71,7 @@
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "east-europe-3countries",
-     "sessions": 2
+     "sessions": 1
     },
     {
      "engine": "네이버",
@@ -86,7 +86,15 @@
      "sessions": 1
     }
    ],
-   "google": []
+   "google": [
+    {
+     "query": "비스포크 4도어",
+     "post": "bespoke-ai-fridge-4door",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 13
+    }
+   ]
   }
  ],
  "errors": []

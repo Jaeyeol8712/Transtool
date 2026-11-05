@@ -1,44 +1,39 @@
 {
- "made": "2026-11-05T03:29:40.696Z",
- "range": "2026-10-29 ~ 2026-11-04",
- "prevRange": "2026-10-22 ~ 2026-10-28",
+ "made": "2026-11-05T23:36:42.273Z",
+ "range": "2026-10-30 ~ 2026-11-05",
+ "prevRange": "2026-10-23 ~ 2026-10-29",
  "cur": {
   "users": 98,
-  "sessions": 122,
-  "views": 439
+  "sessions": 118,
+  "views": 405
  },
  "prev": {
-  "users": 74,
-  "sessions": 134,
-  "views": 896
+  "users": 83,
+  "sessions": 154,
+  "views": 958
  },
  "organic": {
-  "cur": 62,
-  "prev": 56
+  "cur": 61,
+  "prev": 63
  },
  "channels": {
   "cur": {
-   "Organic Search": 62,
-   "Direct": 43,
-   "Unassigned": 9,
+   "Organic Search": 61,
+   "Direct": 35,
+   "Unassigned": 12,
    "AI Assistant": 6,
-   "Organic Social": 1,
+   "Organic Social": 3,
    "Paid Search": 1,
    "Referral": 1
   },
   "prev": {
-   "Direct": 69,
-   "Organic Search": 56,
+   "Direct": 83,
+   "Organic Search": 63,
    "Organic Social": 8,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261008",
-   "users": 8,
-   "sessions": 8
-  },
   {
    "date": "20261009",
    "users": 2,
@@ -168,27 +163,24 @@
    "date": "20261104",
    "users": 22,
    "sessions": 25
+  },
+  {
+   "date": "20261105",
+   "users": 16,
+   "sessions": 20
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 30
+   "sessions": 24
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 6
-  },
-  {
-   "page": "(not set)",
    "sessions": 5
   },
   {
-   "page": "/haeundae-michelin.html",
-   "sessions": 5
-  },
-  {
-   "page": "/percent_calculator.html",
+   "page": "/shop-east-europe-3countries.html",
    "sessions": 5
   },
   {
@@ -196,33 +188,41 @@
    "sessions": 5
   },
   {
+   "page": "(not set)",
+   "sessions": 4
+  },
+  {
    "page": "/acquisition_tax_calculator",
    "sessions": 4
   },
   {
-   "page": "/etc.html",
+   "page": "/haeundae-michelin.html",
    "sessions": 4
+  },
+  {
+   "page": "/calorie_calculator.html",
+   "sessions": 3
+  },
+  {
+   "page": "/etc.html",
+   "sessions": 3
   },
   {
    "page": "/fuel_economy_calculator",
-   "sessions": 4
-  },
-  {
-   "page": "/shop-east-europe-3countries.html",
-   "sessions": 4
+   "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-27 ~ 2026-11-02",
+  "range": "2026-10-28 ~ 2026-11-03",
   "cur": {
-   "clicks": 6,
-   "impressions": 2332,
-   "position": 9.074185248713551
+   "clicks": 9,
+   "impressions": 2498,
+   "position": 8.870296236989592
   },
   "prev": {
    "clicks": 1,
-   "impressions": 594,
-   "position": 10.018518518518519
+   "impressions": 865,
+   "position": 9.934104046242775
   }
  },
  "ai": {
