@@ -39,7 +39,18 @@ def main():
     tk = token()
     for meta_p in todo:
         meta = json.loads(meta_p.read_text())
-        content = meta_p.with_suffix(".html").read_text()
+        hp = meta_p.with_suffix(".html")
+        content = hp.read_text() if hp.exists() else ""
+        src = meta.get("content_from")
+        if src:
+            content = pathlib.Path("queue", src).read_text()
+        if meta.get("post_id"):  # 이미 올린 글 고치기
+            pub = req("PATCH", f"{API}/blogs/{blog}/posts/{meta['post_id']}", {
+                "title": meta["title"], "content": content, "labels": meta.get("labels", [])}, tk)
+            rec = {"title": meta["title"], "post_id": pub.get("id"), "url": pub.get("url"), "status": pub.get("status"),
+                   "updated": pub.get("updated"), "done_at": datetime.now(KST).isoformat(timespec="minutes"), "update": True}
+            pathlib.Path("posted", meta_p.name).write_text(json.dumps(rec, ensure_ascii=False, indent=1))
+            print("고침:", rec["url"]); continue
         post = req("POST", f"{API}/blogs/{blog}/posts?isDraft=true", {
             "kind": "blogger#post", "title": meta["title"], "content": content, "labels": meta.get("labels", [])}, tk)
         q = ""
