@@ -51,17 +51,17 @@
      "users": 2
     },
     {
-     "name": "(not set)",
-     "sessions": 1,
-     "users": 1
-    },
-    {
      "name": "m.blog.naver.com / referral",
      "sessions": 1,
      "users": 1
     },
     {
      "name": "m.search.naver.com / referral",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "naver / organic",
      "sessions": 1,
      "users": 1
     }

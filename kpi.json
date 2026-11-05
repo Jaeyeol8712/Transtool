@@ -1,5 +1,5 @@
 {
- "made": "2026-11-04T23:26:42.689Z",
+ "made": "2026-11-05T03:29:40.696Z",
  "range": "2026-10-29 ~ 2026-11-04",
  "prevRange": "2026-10-22 ~ 2026-10-28",
  "cur": {
@@ -20,7 +20,7 @@
   "cur": {
    "Organic Search": 62,
    "Direct": 43,
-   "Unassigned": 11,
+   "Unassigned": 9,
    "AI Assistant": 6,
    "Organic Social": 1,
    "Paid Search": 1,
@@ -180,6 +180,10 @@
    "sessions": 6
   },
   {
+   "page": "(not set)",
+   "sessions": 5
+  },
+  {
    "page": "/haeundae-michelin.html",
    "sessions": 5
   },
@@ -206,10 +210,6 @@
   {
    "page": "/shop-east-europe-3countries.html",
    "sessions": 4
-  },
-  {
-   "page": "",
-   "sessions": 3
   }
  ],
  "google": {
