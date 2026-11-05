@@ -835,3 +835,5 @@ from guides_1104 import GUIDES_1104  # noqa: E402  (2026-11-03 부동산 실거�
 GUIDES += GUIDES_1104
 from guides_1105 import GUIDES_1105  # noqa: E402  (2026-11-03 11~12월 시즌 가이드 10개)
 GUIDES += GUIDES_1105
+from guides_1106 import GUIDES_1106  # noqa: E402  (2026-11-05 컨펌 i261105-02 가이드 10개)
+GUIDES += GUIDES_1106

@@ -2,7 +2,7 @@
 """2026-11-05 컨펌 i261105-01: 11.06 새 계산기 (확인된 기준만 6종). 짧은 합니다체."""
 from calc_content import add
 
-D = "2026-11-06"
+D = "2026-11-05"
 F = "FinanceApplication"
 U = "UtilitiesApplication"
 
