@@ -174,7 +174,7 @@ FOOD_AREAS = [
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -185,7 +185,7 @@ TOOL_GROUPS = [
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
@@ -212,7 +212,10 @@ from trips_1103 import TRIP_PAGES_1103  # noqa: E402  (2026-11-03 여행 코스 
 TRIP_PAGES += TRIP_PAGES_1103
 from trips_1105 import TRIP_PAGES_1105, make as _make_trips_1105  # noqa: E402  (2026-11-03 겨울 여행지 10곳)
 TRIP_PAGES += TRIP_PAGES_1105
+from trips_1106 import TRIP_PAGES_1106  # noqa: E402  (2026-11-05 컨펌 i261105-03 여행 10곳)
+TRIP_PAGES += TRIP_PAGES_1106
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
+PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -2274,9 +2277,9 @@ def all_index_pages():
 
 
 GUIDE_GROUPS = [
-    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "고향사랑")),
-    ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직")),
-    ("부동산·주거", ("전세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
+    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "고향사랑", "증여세", "연금저축")),
+    ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직", "성과급", "근로장려금")),
+    ("부동산·주거", ("전세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래", "청약")),
 ]
 
 

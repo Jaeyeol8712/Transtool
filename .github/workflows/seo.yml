@@ -36,14 +36,15 @@ jobs:
           node-version: "20"
 
       # ── 1. sitemap lastmod 를 실제 커밋 날짜로 맞춤 ──
+      # 2026-11-05: 빌드(scripts/build.py)가 본문이 바뀐 날로 lastmod를 정하므로 커밋 날짜 덮어쓰기는 끔 (컨펌 i13)
       - name: sitemap lastmod 갱신
-        if: github.event_name != 'schedule'
+        if: false
         run: node scripts/update-sitemap.mjs
         env:
           SITE_HOST: ${{ vars.SITE_HOST || 'www.aroundtool.com' }}
 
       - name: sitemap 변경분 커밋
-        if: github.event_name != 'schedule'
+        if: false
         run: |
           if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
             git config user.name  "github-actions[bot]"

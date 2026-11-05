@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>증여세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/gift_tax_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="증여세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">증여세 계산기</p>
+<label for="gtR">주는 사람과의 관계</label>
+<select id="gtR">
+<option value="600000000">배우자에게서 (공제 6억 원)</option>
+<option value="50000000" selected>부모·조부모에게서, 성인 (공제 5천만 원)</option>
+<option value="20000000">부모·조부모에게서, 미성년 (공제 2천만 원)</option>
+<option value="50000000">자녀·손자녀에게서 (공제 5천만 원)</option>
+<option value="10000000">그 밖의 친족에게서 (공제 1천만 원)</option>
+<option value="0">타인에게서 (공제 없음)</option>
+</select>
+<label for="gtA">이번에 받는 금액 (원)</label>
+<input id="gtA" type="number" inputmode="numeric" placeholder="100000000"/>
+<label for="gtP">같은 사람(부모는 부부 합산)에게 최근 10년 안에 받은 금액 (원)</label>
+<input id="gtP" type="number" inputmode="numeric" placeholder="0"/>
+<label class="chk"><input id="gtM" type="checkbox"/> 혼인·출산 증여재산공제 (부모·조부모에게서, 최대 1억 원)</label>
+<label for="gtMu">혼인·출산 공제 이미 쓴 금액 (원)</label>
+<input id="gtMu" type="number" inputmode="numeric" placeholder="0"/>
+<button onclick="calcGt()">증여세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">납부할 증여세 (신고세액공제 3% 반영)</span><span class="result-value" id="gtOut">-</span></div>
+<div class="result-row"><span class="result-label">과세표준</span><span class="result-value" id="gtBase" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">산출세액</span><span class="result-value" id="gtCalc" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="gtMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function gtTax(b){if(b<=100000000)return b*0.1;if(b<=500000000)return b*0.2-10000000;if(b<=1000000000)return b*0.3-60000000;if(b<=3000000000)return b*0.4-160000000;return b*0.5-460000000;}
+function calcGt(){
+ var ded=parseFloat(document.getElementById('gtR').value), a=parseFloat(document.getElementById('gtA').value),
+     p=parseFloat(document.getElementById('gtP').value)||0, mu=parseFloat(document.getElementById('gtMu').value)||0,
+     m=document.getElementById('gtM').checked;
+ if(isNaN(a)||a<=0) return alert('받는 금액을 입력해주세요.');
+ var rel=document.getElementById('gtR').selectedIndex, md=0;
+ if(m&&(rel===1||rel===2)) md=Math.max(0,100000000-mu);
+ var total=a+p, usedBefore=Math.min(p,ded), dedNow=Math.max(0,ded-usedBefore)+md;
+ var baseNow=Math.max(0,a-dedNow);
+ /* 10년 합산: 이전 증여분 과표 포함해 계산하고, 이전 증여분 세액을 뺍니다 */
+ var basePrev=Math.max(0,p-ded), baseAll=basePrev+baseNow;
+ var calc=Math.max(0,gtTax(baseAll)-gtTax(basePrev));
+ if(baseAll<500000){calc=0;}
+ var pay=Math.floor(calc*0.97);
+ function w(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+ document.getElementById('gtOut').textContent=w(pay);
+ document.getElementById('gtBase').textContent=w(baseNow);
+ document.getElementById('gtCalc').textContent=w(calc);
+ document.getElementById('gtMsg').textContent=pay===0?'공제 한도 안이라 낼 증여세가 없습니다. 그래도 신고해 두면 나중에 자금 출처를 설명하기 쉽습니다.':'받은 날이 속한 달의 말일부터 3개월 안에 신고·납부하면 3% 신고세액공제를 받습니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/gift_tax_calculator.html?utm_source=embed&amp;utm_campaign=gift_tax_calculator" target="_blank" rel="noopener">어라운드툴 증여세 계산기</a></p>
+</body>
+</html>

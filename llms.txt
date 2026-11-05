@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 69종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 75종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -19,6 +19,11 @@
 ## 생활 계산기
 
 ### 재테크·부동산
+- [증여세](https://www.aroundtool.com/gift_tax_calculator.html): 관계와 증여 금액, 최근 10년 증여액을 넣으면 증여세를 계산합니다. 증여재산공제(배우자 6억, 성인 자녀 5천만, 미성년 2천만), 혼인·출산 공제 1억, 세율 10~50%, 신고세액공제 3%를 반영했습니다.
+- [퇴직소득세](https://www.aroundtool.com/retirement_income_tax_calculator.html): 퇴직금과 근속연수를 넣으면 퇴직소득세와 지방소득세, 실수령액을 계산합니다. 근속연수공제, 환산급여공제, 기본세율 6~45%와 연분연승 방식을 반영했습니다.
+- [성과급 실수령액](https://www.aroundtool.com/bonus_net_pay_calculator.html): 연봉과 성과급을 넣으면 성과급에 붙는 소득세·지방소득세와 4대보험을 빼고 실제로 받을 금액을 추정합니다. 2026년 4대보험 요율과 근로소득 세율을 반영했습니다.
+- [기부금 세액공제](https://www.aroundtool.com/donation_tax_credit_calculator.html): 일반 기부금, 고향사랑기부금, 정치자금 기부금을 넣으면 연말정산 세액공제 금액을 지방소득세 포함으로 계산합니다. 2026년 고향사랑기부 10만~20만 원 44% 공제를 반영했습니다.
+- [주택청약 가점](https://www.aroundtool.com/housing_subscription_score_calculator.html): 무주택 기간, 부양가족 수, 청약통장 가입 기간을 넣으면 주택청약 가점을 계산합니다. 무주택 32점, 부양가족 35점, 통장 17점, 84점 만점 기준입니다.
 - [신용카드 소득공제](https://www.aroundtool.com/credit_card_deduction_calculator.html): 총급여와 신용카드·체크카드·전통시장·대중교통 사용액을 넣으면 2026년 귀속 신용카드 등 소득공제 금액을 계산합니다. 최저사용금액 25%, 공제율 15·30·40%, 자녀 수에 따른 기본한도 상향을 반영했습니다.
 - [연금저축·IRP 세액공제](https://www.aroundtool.com/pension_savings_tax_credit_calculator.html): 연금저축과 IRP 납입액, 총급여를 넣으면 세액공제 금액을 계산합니다. 연금저축 600만 원·합산 900만 원 한도, 총급여 5,500만 원 이하 16.5%·초과 13.2% 공제율(지방소득세 포함)을 반영했습니다.
 - [월세 세액공제](https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html): 총급여와 월세, 낸 개월 수를 넣으면 월세 세액공제 금액을 계산합니다. 총급여 5,500만 원 이하 17%, 8,000만 원 이하 15%, 연 1,000만 원 한도를 반영했습니다.
@@ -57,6 +62,7 @@
 - [근무시간](https://www.aroundtool.com/work_time_calculator.html): 출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.
 
 ### 생활·건강
+- [등유 난방비](https://www.aroundtool.com/kerosene_heating_cost_calculator.html): 등유 가격, 보일러 시간당 등유 소비량, 하루 가동 시간과 일수를 넣으면 등유 난방비와 필요한 등유 양(L·드럼)을 계산합니다. 기본 가격은 오피넷 실내등유 전국 평균(2026.11.1 기준)입니다.
 - [난방기 전기요금](https://www.aroundtool.com/heater_electricity_cost_calculator.html): 전기장판·전기히터·라디에이터·온풍기 소비전력과 사용 시간을 넣으면 한 달 전기요금이 얼마나 늘어나는지 계산합니다. 주택용 저압 누진 구간(200·400kWh)을 반영했습니다.
 - [김장 비용](https://www.aroundtool.com/kimjang_cost_calculator.html): 배추 포기 수를 넣으면 aT 조사 비율(배추 20포기에 무 5개, 고춧가루 2kg)로 무·고춧가루 양을 정하고 2026년 10월 KAMIS 소매가격으로 김장 재료비를 계산합니다. 가구별로 나눈 금액도 보여 줍니다.
 - [술 칼로리](https://www.aroundtool.com/alcohol_calorie_calculator.html): 소주·맥주·막걸리·와인·위스키 마신 양을 넣으면 순수 알코올 양(g)과 알코올 열량(kcal)을 계산합니다. 알코올 1g당 7kcal 기준. 송년회 전후 섭취량 확인에 씁니다.
@@ -259,6 +265,16 @@
 - [세부 여행](https://www.aroundtool.com/travel-cebu.html): 세부 겨울 여행 코스. 막탄 리조트·호핑, 세부시티 산토니뇨 성당, 모알보알, 보홀 당일을 3박 5일·4박 6일로 묶고 무비자 30일·eTravel 입국 준비와 이동 시간을 정리했습니다.
 - [치앙마이 여행](https://www.aroundtool.com/travel-chiangmai.html): 치앙마이 겨울 여행 코스. 올드시티 사원, 도이수텝, 님만해민, 일요 야시장, 치앙라이 백색사원 당일을 3박 5일·4박 6일로 묶고 무비자 90일·TDAC 입국 준비와 이동 시간을 정리했습니다.
 - [하노이 여행](https://www.aroundtool.com/travel-hanoi.html): 하노이 겨울 여행 코스. 호안끼엠 호수·구시가지, 문묘, 하롱베이 당일, 닌빈 짱안을 3박 5일·4박 6일로 묶고 무비자 45일 입국과 이동 시간을 정리했습니다.
+- [후쿠오카 여행](https://www.aroundtool.com/travel-fukuoka.html): 후쿠오카 여행 코스. 하카타·텐진 시내, 다자이후, 유후인 당일치기를 2박 3일·3박 4일로 묶고 비행·지하철·버스 이동 시간과 2026년 11월 면세 환급 방식 변경을 정리했습니다.
+- [다낭 여행](https://www.aroundtool.com/travel-danang.html): 다낭 여행 코스. 미케 해변, 바나힐, 호이안 구시가지, 오행산을 3박 5일·4박 6일로 묶고 비행·이동 시간, 무비자 45일, 우기 정보를 정리했습니다.
+- [나트랑 여행](https://www.aroundtool.com/travel-nhatrang.html): 나트랑 여행 코스. 나트랑 해변, 호핑투어, 머드 온천, 빈원더스, 포나가르 탑을 3박 5일·4박 6일로 묶고 비행·이동 시간과 우기 정보를 정리했습니다.
+- [홍콩 여행](https://www.aroundtool.com/travel-hongkong.html): 홍콩 여행 코스. 침사추이·센트럴, 빅토리아 피크, 스타페리, 몽콕, 란타우섬 옹핑을 2박 3일·3박 4일로 묶고 이동 시간과 날씨를 정리했습니다.
+- [교토 여행](https://www.aroundtool.com/travel-kyoto.html): 교토 여행 코스. 기요미즈데라, 후시미 이나리, 아라시야마, 금각사, 기온을 2박 3일·3박 4일로 묶고 간사이 공항·오사카에서 이동 시간과 단풍 시기를 정리했습니다.
+- [무주 스키 여행](https://www.aroundtool.com/travel-muju.html): 무주 겨울 여행 코스. 무주 덕유산리조트 스키·곤돌라, 덕유산 향적봉 눈꽃, 반디랜드, 머루와인동굴을 당일·1박 2일로 묶고 이동 시간을 정리했습니다.
+- [단양 여행](https://www.aroundtool.com/travel-danyang.html): 단양 여행 코스. 도담삼봉, 만천하스카이워크, 단양강 잔도, 고수동굴, 구경시장을 당일·1박 2일로 묶고 KTX 이음 이동 시간을 정리했습니다.
+- [포천 여행](https://www.aroundtool.com/travel-pocheon.html): 포천 당일 여행 코스. 산정호수 둘레길, 포천아트밸리, 허브아일랜드 야간 불빛, 일동·신북 온천을 묶고 서울에서 이동 시간을 정리했습니다.
+- [춘천 여행](https://www.aroundtool.com/travel-chuncheon.html): 춘천 여행 코스. 남이섬, 소양강 스카이워크, 삼악산 케이블카, 명동 닭갈비골목, 김유정역을 당일·1박 2일로 묶고 ITX·전철 이동 시간을 정리했습니다.
+- [안동 여행](https://www.aroundtool.com/travel-andong.html): 안동 여행 코스. 하회마을, 부용대, 병산서원, 월영교 야경, 도산서원, 구시장 찜닭골목을 당일·1박 2일로 묶고 KTX 이음 이동 시간을 정리했습니다.
 
 ## 가이드
 
@@ -320,6 +336,16 @@
 - [고향사랑기부제 2026 — 10만 원 전액·20만 원까지 44% 공제](https://www.aroundtool.com/guide-hometown-donation-2026.html)
 - [12월 31일 전에 할 일 — 세금 아끼는 체크리스트 7](https://www.aroundtool.com/guide-year-end-checklist-dec31.html)
 - [한랭질환 예방 — 저체온증·동상 증상과 응급 대처](https://www.aroundtool.com/guide-cold-illness-prevention.html)
+- [가족별 증여세 면제 한도 — 자녀 5천만·배우자 6억·결혼 1억](https://www.aroundtool.com/guide-gift-tax-exemption-by-family.html)
+- [청약 가점 계산법 — 무주택 32·부양가족 35·통장 17점](https://www.aroundtool.com/guide-housing-subscription-score-guide.html)
+- [근로장려금 신청 일정 — 반기 3월·9월, 정기 5월](https://www.aroundtool.com/guide-earned-income-credit-schedule-2026.html)
+- [성과급 세금 정리 — 몇 % 떼고, 연말정산에서 어떻게 맞추나](https://www.aroundtool.com/guide-year-end-bonus-tax.html)
+- [국가건강검진 마감 — 2026년은 짝수년생, 12월 31일까지](https://www.aroundtool.com/guide-national-health-checkup-deadline.html)
+- [자동차 정기검사 기간·과태료 — 만료 전 90일~후 31일, 최대 60만 원](https://www.aroundtool.com/guide-car-inspection-period-fine.html)
+- [연금저축·IRP 연말 납입 — 900만 원 한도, 12월 31일까지](https://www.aroundtool.com/guide-pension-irp-year-end-limit.html)
+- [보일러 외출모드 vs 끄기 — 언제 무엇이 난방비를 아끼나](https://www.aroundtool.com/guide-boiler-away-mode-vs-off.html)
+- [겨울 자동차 배터리 방전 — 시동 안 걸릴 때 순서대로](https://www.aroundtool.com/guide-winter-car-battery-dead.html)
+- [퇴직소득세 계산 방법 — 근속연수공제·환산급여 4단계](https://www.aroundtool.com/guide-retirement-income-tax-method.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 

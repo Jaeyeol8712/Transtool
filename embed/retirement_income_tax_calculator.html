@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>퇴직소득세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/retirement_income_tax_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="퇴직소득세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">퇴직소득세 계산기</p>
+<label for="rtA">퇴직금 (퇴직소득, 원)</label>
+<input id="rtA" type="number" inputmode="numeric" placeholder="50000000"/>
+<label for="rtY">근속연수 (년, 1년 미만은 올림)</label>
+<input id="rtY" type="number" inputmode="numeric" placeholder="10"/>
+<button onclick="calcRt()">퇴직소득세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">퇴직소득세 + 지방소득세</span><span class="result-value" id="rtOut">-</span></div>
+<div class="result-row"><span class="result-label">실수령액 (일시금)</span><span class="result-value" id="rtNet" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">근속연수공제</span><span class="result-value" id="rtD1" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">환산급여 / 환산급여공제</span><span class="result-value" id="rtD2" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">실효세율</span><span class="result-value" id="rtR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function rtSvc(n){if(n<=5)return n*1000000;if(n<=10)return 5000000+(n-5)*2000000;if(n<=20)return 15000000+(n-10)*2500000;return 40000000+(n-20)*3000000;}
+function rtConv(c){if(c<=8000000)return c;if(c<=70000000)return 8000000+(c-8000000)*0.6;if(c<=100000000)return 45200000+(c-70000000)*0.55;if(c<=300000000)return 61700000+(c-100000000)*0.45;return 151700000+(c-300000000)*0.35;}
+function rtPT(b){if(b<=14000000)return b*0.06;if(b<=50000000)return 840000+(b-14000000)*0.15;if(b<=88000000)return 6240000+(b-50000000)*0.24;if(b<=150000000)return 15360000+(b-88000000)*0.35;if(b<=300000000)return 37060000+(b-150000000)*0.38;if(b<=500000000)return 94060000+(b-300000000)*0.40;if(b<=1000000000)return 174060000+(b-500000000)*0.42;return 384060000+(b-1000000000)*0.45;}
+function calcRt(){
+ var a=parseFloat(document.getElementById('rtA').value),n=Math.ceil(parseFloat(document.getElementById('rtY').value));
+ if(isNaN(a)||isNaN(n)||n<1) return alert('퇴직금과 근속연수를 입력해주세요.');
+ var d1=Math.min(a,rtSvc(n)), conv=(a-d1)*12/n, d2=Math.min(conv,rtConv(conv)), base=Math.max(0,conv-d2);
+ var tax=Math.floor(rtPT(base)*n/12), total=tax+Math.floor(tax*0.1);
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('rtOut').textContent=w(total);
+ document.getElementById('rtNet').textContent=w(a-total);
+ document.getElementById('rtD1').textContent=w(d1);
+ document.getElementById('rtD2').textContent=w(conv)+' / '+w(d2);
+ document.getElementById('rtR').textContent=(total/a*100).toFixed(2)+'%';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/retirement_income_tax_calculator.html?utm_source=embed&amp;utm_campaign=retirement_income_tax_calculator" target="_blank" rel="noopener">어라운드툴 퇴직소득세 계산기</a></p>
+</body>
+</html>

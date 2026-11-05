@@ -1,0 +1,26 @@
+<label for="kpP">등유 가격 (원/L)</label>
+<input id="kpP" type="number" inputmode="numeric" value="1571"/>
+<label for="kpU">보일러 등유 소비량 (L/시간)</label>
+<input id="kpU" type="number" inputmode="decimal" placeholder="1.2"/>
+<label for="kpH">하루 가동 시간 (시간)</label>
+<input id="kpH" type="number" inputmode="decimal" placeholder="5"/>
+<label for="kpD">일수 (일)</label>
+<input id="kpD" type="number" inputmode="numeric" value="30"/>
+<button onclick="calcKp()">난방비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 등유 난방비</span><span class="result-value" id="kpOut">-</span></div>
+<div class="result-row"><span class="result-label">필요한 등유</span><span class="result-value" id="kpL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">드럼(200L) 기준</span><span class="result-value" id="kpDr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcKp(){
+ var p=parseFloat(document.getElementById('kpP').value),u=parseFloat(document.getElementById('kpU').value),
+     h=parseFloat(document.getElementById('kpH').value),d=parseFloat(document.getElementById('kpD').value);
+ if([p,u,h,d].some(isNaN)) return alert('모든 칸을 입력해주세요.');
+ var l=u*h*d;
+ document.getElementById('kpOut').textContent=Math.round(l*p).toLocaleString('ko-KR')+'원';
+ document.getElementById('kpL').textContent=l.toFixed(1)+'L';
+ document.getElementById('kpDr').textContent=(l/200).toFixed(2)+'드럼';
+ document.getElementById('result').classList.add('show');
+}
+</script>

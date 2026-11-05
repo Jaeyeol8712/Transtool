@@ -1,0 +1,30 @@
+<label for="hsN">무주택 기간 (년, 만 30세 또는 혼인신고일부터)</label>
+<input id="hsN" type="number" inputmode="decimal" placeholder="7"/>
+<label class="chk"><input id="hsNo" type="checkbox"/> 만 30세 미만 미혼이거나 집이 있음 (무주택 기간 0점)</label>
+<label for="hsF">부양가족 수 (본인 제외)</label>
+<input id="hsF" type="number" inputmode="numeric" placeholder="2"/>
+<label for="hsA">청약통장 가입 기간 (년)</label>
+<input id="hsA" type="number" inputmode="decimal" placeholder="8"/>
+<button onclick="calcHs()">가점 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">청약 가점 합계</span><span class="result-value" id="hsOut">-</span></div>
+<div class="result-row"><span class="result-label">무주택 기간 (최대 32점)</span><span class="result-value" id="hs1" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">부양가족 (최대 35점)</span><span class="result-value" id="hs2" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">통장 가입 기간 (최대 17점)</span><span class="result-value" id="hs3" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p style="margin:.6rem 0 0;line-height:1.6">정확한 점수와 자격은 청약홈에서 공고별로 확인하세요.</p>
+</div>
+<script>
+function calcHs(){
+ var n=parseFloat(document.getElementById('hsN').value)||0, no=document.getElementById('hsNo').checked,
+     f=parseInt(document.getElementById('hsF').value), a=parseFloat(document.getElementById('hsA').value);
+ if(isNaN(f)||isNaN(a)) return alert('부양가족 수와 통장 가입 기간을 입력해주세요.');
+ var s1=no?0:(n<1?2:Math.min(32,2+Math.floor(n)*2));
+ var s2=Math.min(35,5+Math.max(0,f)*5);
+ var s3=a<0.5?1:a<1?2:Math.min(17,2+Math.floor(a));
+ document.getElementById('hs1').textContent=s1+'점';
+ document.getElementById('hs2').textContent=s2+'점';
+ document.getElementById('hs3').textContent=s3+'점';
+ document.getElementById('hsOut').textContent=(s1+s2+s3)+'점 / 84점';
+ document.getElementById('result').classList.add('show');
+}
+</script>
