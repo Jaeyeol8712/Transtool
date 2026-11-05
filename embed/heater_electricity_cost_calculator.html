@@ -37,7 +37,7 @@
 </div>
 <script>
 function heBill(k){var b,e;if(k<=200){b=910;e=k*120.0;}else if(k<=400){b=1600;e=200*120.0+(k-200)*214.6;}else{b=7300;e=200*120.0+200*214.6+(k-400)*307.3;}
- var s=b+e+k*9+k*5;return Math.floor((s+s*.1+Math.floor(s*.037/10)*10)/10)*10;}
+ var s=b+e+k*9+k*5;return Math.floor((s+s*.1+Math.floor(s*.027/10)*10)/10)*10;}
 function calcHe(){
  var g=function(id){return parseFloat(document.getElementById(id).value)||0;};
  var w=g('heW'),h=g('heHours'),d=g('heDays')||30,base=g('heBase');

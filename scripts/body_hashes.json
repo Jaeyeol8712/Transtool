@@ -1,0 +1,1230 @@
+{
+"about.html": {
+"d": "2026-11-03",
+"h": "b1bb8fc317b15cef"
+},
+"acquisition_tax_calculator.html": {
+"d": "2026-11-05",
+"h": "a878b3817843558d"
+},
+"age_calculator.html": {
+"d": "2026-11-03",
+"h": "a7771b13b1c1da8f"
+},
+"alcohol_calorie_calculator.html": {
+"d": "2026-11-03",
+"h": "b3ae0a1a71dbb701"
+},
+"bmi_calculator.html": {
+"d": "2026-11-03",
+"h": "99c5504b51169904"
+},
+"bmr_calculator.html": {
+"d": "2026-11-03",
+"h": "18a27141b8625e95"
+},
+"brokerage_fee_calculator.html": {
+"d": "2026-11-03",
+"h": "7ef21f0084654680"
+},
+"calorie_calculator.html": {
+"d": "2026-11-03",
+"h": "c897bc0170d7b6a1"
+},
+"camping_gear_calculator.html": {
+"d": "2026-11-03",
+"h": "ea52ff23aaf60330"
+},
+"capital_gains_tax_calculator.html": {
+"d": "2026-11-03",
+"h": "d7682b681ee98a22"
+},
+"car_tax_calculator.html": {
+"d": "2026-11-03",
+"h": "9154e656616fd1c3"
+},
+"card_installment_calculator.html": {
+"d": "2026-11-03",
+"h": "c9c5141b347ca24e"
+},
+"character_counter.html": {
+"d": "2026-11-03",
+"h": "2f810907a7b1f0b1"
+},
+"compound_calculator.html": {
+"d": "2026-11-03",
+"h": "4d9dff9acda5f6ed"
+},
+"comprehensive_property_tax_calculator.html": {
+"d": "2026-11-03",
+"h": "86a4f14785cd530c"
+},
+"connect.html": {
+"d": "2026-11-03",
+"h": "de8fde0cd11c3cc7"
+},
+"contact.html": {
+"d": "2026-11-03",
+"h": "6c8e58645221297a"
+},
+"credit_card_deduction_calculator.html": {
+"d": "2026-11-03",
+"h": "ba95596a6aa42028"
+},
+"daejeon-daedeok-sintanjin.html": {
+"d": "2026-11-03",
+"h": "4bcf98dd14c2182a"
+},
+"daejeon-donggu-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "35120bf6cc842510"
+},
+"daejeon-donggu-station.html": {
+"d": "2026-11-03",
+"h": "1962629d1338f5ad"
+},
+"daejeon-donggu.html": {
+"d": "2026-11-03",
+"h": "84ec645cb22e5b9c"
+},
+"daejeon-junggu-cafe.html": {
+"d": "2026-11-03",
+"h": "b8fc6550c67be5d4"
+},
+"daejeon-junggu-durus.html": {
+"d": "2026-11-03",
+"h": "faa96f59fa0f4e43"
+},
+"daejeon-junggu.html": {
+"d": "2026-11-03",
+"h": "09b014919ce15e4a"
+},
+"daejeon-seogu-dunsan.html": {
+"d": "2026-11-03",
+"h": "49cb1d65b5f244f9"
+},
+"daejeon-yuseong-bongmyeong.html": {
+"d": "2026-11-03",
+"h": "624ae4bed9e74923"
+},
+"daejeon-yuseong.html": {
+"d": "2026-11-03",
+"h": "c199cd9fc1af98df"
+},
+"date_calculator.html": {
+"d": "2026-11-03",
+"h": "68d25bcfb6a9d246"
+},
+"deposit_interest_calculator.html": {
+"d": "2026-11-03",
+"h": "24fc46cc0f07cd39"
+},
+"discount_calculator.html": {
+"d": "2026-11-03",
+"h": "8c8b971401990392"
+},
+"discount_rate_calculator.html": {
+"d": "2026-11-03",
+"h": "aec003a9e762ef00"
+},
+"dsr_calculator.html": {
+"d": "2026-11-03",
+"h": "6cebdd87e456dad4"
+},
+"due_date_calculator.html": {
+"d": "2026-11-03",
+"h": "2d7484fb9141897f"
+},
+"dutch_pay_calculator.html": {
+"d": "2026-11-03",
+"h": "308d719d291821bb"
+},
+"editorial.html": {
+"d": "2026-11-03",
+"h": "9a85d9e5d20c4812"
+},
+"electricity_bill_calculator.html": {
+"d": "2026-11-05",
+"h": "a111eb3fa8ea0410"
+},
+"etc.html": {
+"d": "2026-11-03",
+"h": "dcc418d7c85cc4d5"
+},
+"exchange_rate_calculator.html": {
+"d": "2026-11-03",
+"h": "82162097e5b9e557"
+},
+"food.html": {
+"d": "2026-11-03",
+"h": "2cfb9e99509007d7"
+},
+"four_insurance_calculator.html": {
+"d": "2026-11-03",
+"h": "0a6117f690d4edd6"
+},
+"freelancer_tax_calculator.html": {
+"d": "2026-11-03",
+"h": "d4c45916bfc4a85a"
+},
+"fuel_economy_calculator.html": {
+"d": "2026-11-03",
+"h": "bde9f7eb31272666"
+},
+"gangnam-bapjip.html": {
+"d": "2026-11-03",
+"h": "ea3fd8f05383d738"
+},
+"gangnam-cafe.html": {
+"d": "2026-11-03",
+"h": "ca525e544a529680"
+},
+"gangnam-gogi.html": {
+"d": "2026-11-03",
+"h": "7c3c84af801e7a7d"
+},
+"gangnam-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "99d4f93a73e81f62"
+},
+"gangnam-iguk.html": {
+"d": "2026-11-03",
+"h": "50e0581ef3967908"
+},
+"gangnam-michelin.html": {
+"d": "2026-11-03",
+"h": "4174aa55900224c4"
+},
+"gangnam-nopo.html": {
+"d": "2026-11-03",
+"h": "a3a6c35c799c44b4"
+},
+"gangnam-sul-anju.html": {
+"d": "2026-11-03",
+"h": "eb61ac8f38d8bbf8"
+},
+"gangnam.html": {
+"d": "2026-11-03",
+"h": "80685a848ce4f1f5"
+},
+"gas_bill_calculator.html": {
+"d": "2026-11-03",
+"h": "f7665e9a0b77043f"
+},
+"gpa_calculator.html": {
+"d": "2026-11-03",
+"h": "011d6db4a0bd6774"
+},
+"grave_weeding_calculator.html": {
+"d": "2026-11-03",
+"h": "188cc56b9e8003fc"
+},
+"guide-acquisition-tax-rates.html": {
+"d": "2026-11-03",
+"h": "2c2f204f1d0e8169"
+},
+"guide-age-criteria-school-military-housing.html": {
+"d": "2026-11-03",
+"h": "1996eeed9291b410"
+},
+"guide-annual-leave-promotion.html": {
+"d": "2026-11-03",
+"h": "a4299b8fcc5f64f1"
+},
+"guide-annual-leave-rules.html": {
+"d": "2026-11-03",
+"h": "638040a98e4be17a"
+},
+"guide-bmi-normal-range.html": {
+"d": "2026-11-03",
+"h": "aa8b73311639d050"
+},
+"guide-brokerage-fee-rates.html": {
+"d": "2026-11-03",
+"h": "40c1b1d3ac3f9b30"
+},
+"guide-car-acquisition-tax.html": {
+"d": "2026-11-03",
+"h": "b53c34ff3e253ed0"
+},
+"guide-car-tax-january-prepay.html": {
+"d": "2026-11-03",
+"h": "d6b47cd600a9bac3"
+},
+"guide-cold-illness-prevention.html": {
+"d": "2026-11-03",
+"h": "809be1af60f2cf45"
+},
+"guide-comprehensive-property-tax-schedule.html": {
+"d": "2026-11-03",
+"h": "d8434a70d6a5020a"
+},
+"guide-drunk-driving-penalty.html": {
+"d": "2026-11-03",
+"h": "009bc5aebb2d5ac2"
+},
+"guide-dutch-pay-settlement.html": {
+"d": "2026-11-03",
+"h": "47ea672e6825efac"
+},
+"guide-energy-voucher-2026.html": {
+"d": "2026-11-03",
+"h": "c2a2a4b18283c81e"
+},
+"guide-flu-vaccine-2026-2027.html": {
+"d": "2026-11-03",
+"h": "1eca97b594e3b098"
+},
+"guide-four-insurance-rates-2026.html": {
+"d": "2026-11-03",
+"h": "3318654fde074684"
+},
+"guide-frozen-pipe-prevention.html": {
+"d": "2026-11-03",
+"h": "fd6f2fb324658284"
+},
+"guide-gas-bill-formula.html": {
+"d": "2026-11-03",
+"h": "6e9ee68cd786d81c"
+},
+"guide-health-insurance-continued-coverage.html": {
+"d": "2026-11-03",
+"h": "476a6884ef36185a"
+},
+"guide-hidden-money-finder.html": {
+"d": "2026-11-03",
+"h": "add6a888725ce8d8"
+},
+"guide-holidays-2027.html": {
+"d": "2026-11-03",
+"h": "78dffd6b814387a6"
+},
+"guide-hometown-donation-2026.html": {
+"d": "2026-11-03",
+"h": "7532fe0ed0715baf"
+},
+"guide-income-tax-filing-may.html": {
+"d": "2026-11-03",
+"h": "9c7f1922a1434d50"
+},
+"guide-increase-rate-formula.html": {
+"d": "2026-11-03",
+"h": "e67714e6600e732f"
+},
+"guide-interior-cost-by-pyeong.html": {
+"d": "2026-11-03",
+"h": "4cfea534905b4856"
+},
+"guide-interior-estimate-items.html": {
+"d": "2026-11-03",
+"h": "e1960520952a1f7f"
+},
+"guide-japan-travel-budget.html": {
+"d": "2026-11-05",
+"h": "96782c659be83b8f"
+},
+"guide-jeonse-contract-checklist.html": {
+"d": "2026-11-03",
+"h": "6626666d28436b2f"
+},
+"guide-kimjang-cost.html": {
+"d": "2026-11-03",
+"h": "6d6b7d9b2bc5ce64"
+},
+"guide-kimjang-timing-2026.html": {
+"d": "2026-11-03",
+"h": "a4c19d337c9073bb"
+},
+"guide-korean-age-rules.html": {
+"d": "2026-11-03",
+"h": "ddca4cd536b13b40"
+},
+"guide-loan-repayment-methods.html": {
+"d": "2026-11-03",
+"h": "084e27f5cb5f6f94"
+},
+"guide-lotto-prize-tax.html": {
+"d": "2026-11-03",
+"h": "1c6c7d373e07d721"
+},
+"guide-medical-expense-tax-credit.html": {
+"d": "2026-11-03",
+"h": "7d4ff73fca3b06b0"
+},
+"guide-minimum-wage-2027.html": {
+"d": "2026-11-05",
+"h": "214f5bc92b8859c0"
+},
+"guide-monthly-net-salary-table.html": {
+"d": "2026-11-03",
+"h": "badc5600b4624284"
+},
+"guide-monthly-rent-tax-credit.html": {
+"d": "2026-11-03",
+"h": "6391d5c245cd7cd9"
+},
+"guide-move-in-report-fixed-date.html": {
+"d": "2026-11-03",
+"h": "6d937146dd52b5a1"
+},
+"guide-overseas-direct-purchase-duty-free.html": {
+"d": "2026-11-03",
+"h": "00d3b3060bf405ec"
+},
+"guide-percent-formulas.html": {
+"d": "2026-11-03",
+"h": "d3f3cb4c4c9b4ead"
+},
+"guide-percent-vs-percentage-point.html": {
+"d": "2026-11-03",
+"h": "4a1edec5ee776b94"
+},
+"guide-pyeong-area-types.html": {
+"d": "2026-11-03",
+"h": "287da83beb2fba9e"
+},
+"guide-real-estate-price-lookup-tax.html": {
+"d": "2026-11-03",
+"h": "a652b3f9a1352ab0"
+},
+"guide-savings-interest-tax.html": {
+"d": "2026-11-03",
+"h": "d54212b8c7368ba4"
+},
+"guide-seogwipo-galchi-jorim-gui.html": {
+"d": "2026-11-03",
+"h": "cbd21997498ec2e1"
+},
+"guide-severance-pay-conditions.html": {
+"d": "2026-11-03",
+"h": "f7288101b4d50964"
+},
+"guide-severance-pay-formula.html": {
+"d": "2026-11-03",
+"h": "658117d555dd4626"
+},
+"guide-tire-dot-date-winter.html": {
+"d": "2026-11-03",
+"h": "8407b122d20801fa"
+},
+"guide-unemployment-benefit-application-steps.html": {
+"d": "2026-11-03",
+"h": "9c420e920a8b4afb"
+},
+"guide-unemployment-benefit-conditions.html": {
+"d": "2026-11-03",
+"h": "b087dd983bcc8864"
+},
+"guide-unused-annual-leave-pay.html": {
+"d": "2026-11-03",
+"h": "f1129564ff31b1c2"
+},
+"guide-vat-filing-schedule.html": {
+"d": "2026-11-03",
+"h": "11b18cb532e01b15"
+},
+"guide-weekly-holiday-pay-rules.html": {
+"d": "2026-11-03",
+"h": "7b621e8fea0d4875"
+},
+"guide-winter-electricity-progressive.html": {
+"d": "2026-11-03",
+"h": "b36e88ac069ec5e1"
+},
+"guide-winter-fuel-economy.html": {
+"d": "2026-11-03",
+"h": "c6c4593e09043ec0"
+},
+"guide-year-end-checklist-dec31.html": {
+"d": "2026-11-03",
+"h": "a82724dd46958275"
+},
+"guide-year-end-tax-2026-changes.html": {
+"d": "2026-11-03",
+"h": "a6ad654d1311a535"
+},
+"guide-year-end-tax-preview.html": {
+"d": "2026-11-03",
+"h": "8d7ababf307e6be7"
+},
+"guide-year-end-tax-schedule.html": {
+"d": "2026-11-03",
+"h": "27197e03eadc74e4"
+},
+"guide_2026_tax.html": {
+"d": "2026-11-03",
+"h": "af0383c69d92201e"
+},
+"guide_2026_wage.html": {
+"d": "2026-11-03",
+"h": "0bbfe2b58638d457"
+},
+"gwangju-bukgu-bapjip.html": {
+"d": "2026-11-03",
+"h": "f7348d0479af2f72"
+},
+"gwangju-bukgu-oritang.html": {
+"d": "2026-11-03",
+"h": "1fd8fd6acd567a62"
+},
+"gwangju-donggu-bapjip.html": {
+"d": "2026-11-03",
+"h": "4be954d233817259"
+},
+"gwangju-gwangsan-cafe.html": {
+"d": "2026-11-03",
+"h": "52cf4bf1b57b9856"
+},
+"gwangju-gwangsan-iguk.html": {
+"d": "2026-11-03",
+"h": "3a6677e835ac644d"
+},
+"gwangju-gwangsan-songjeong.html": {
+"d": "2026-11-03",
+"h": "7c8428648e306919"
+},
+"gwangju-gwangsan.html": {
+"d": "2026-11-03",
+"h": "98e319610535bed0"
+},
+"gwangju-seogu-sangmu.html": {
+"d": "2026-11-03",
+"h": "e7bb565308aa7b0c"
+},
+"haeundae-bapjip.html": {
+"d": "2026-11-03",
+"h": "72954a060f810c42"
+},
+"haeundae-cafe.html": {
+"d": "2026-11-03",
+"h": "dfa074c7ee14ed65"
+},
+"haeundae-gogi.html": {
+"d": "2026-11-03",
+"h": "aa37485790b54dda"
+},
+"haeundae-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "a5d6b42270ea521c"
+},
+"haeundae-iguk.html": {
+"d": "2026-11-03",
+"h": "419042ae96f7b347"
+},
+"haeundae-michelin.html": {
+"d": "2026-11-03",
+"h": "13958f6513f509af"
+},
+"haeundae.html": {
+"d": "2026-11-03",
+"h": "4e1aae84ad55efdf"
+},
+"heater_electricity_cost_calculator.html": {
+"d": "2026-11-05",
+"h": "5d16ede4b58d5a43"
+},
+"holiday_leave_planner.html": {
+"d": "2026-11-03",
+"h": "cd0803ab5ede22ac"
+},
+"holiday_pay_calculator.html": {
+"d": "2026-11-03",
+"h": "b06b234cdb45040d"
+},
+"hourly_monthly_wage_calculator.html": {
+"d": "2026-11-03",
+"h": "12f18a18ca915f47"
+},
+"increase_decrease_calculator.html": {
+"d": "2026-11-03",
+"h": "fb5ecea9c8780245"
+},
+"index.html": {
+"d": "2026-11-03",
+"h": "9e49a79ab5d54fbf"
+},
+"interior_calculator.html": {
+"d": "2026-11-03",
+"h": "d6d0720eb1196c11"
+},
+"japan_travel_calculator.html": {
+"d": "2026-11-03",
+"h": "8cb76361f6d59e6c"
+},
+"jeju-jejusi-bapjip.html": {
+"d": "2026-11-03",
+"h": "adf6f6b19d28d2d1"
+},
+"jeju-jejusi-cafe.html": {
+"d": "2026-11-03",
+"h": "27e7e45b066002eb"
+},
+"jeju-jejusi-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "ad1a2969493e204a"
+},
+"jeju-jejusi-hyangto.html": {
+"d": "2026-11-03",
+"h": "c43a50833c7eee9e"
+},
+"jeju-jejusi-sul-anju.html": {
+"d": "2026-11-03",
+"h": "7d0d11580e084741"
+},
+"jeju-jejusi.html": {
+"d": "2026-11-03",
+"h": "a0896e4cf281c8aa"
+},
+"jeju-seogwipo-bapjip.html": {
+"d": "2026-11-03",
+"h": "9622ab54ee411fbf"
+},
+"jeju-seogwipo-cafe.html": {
+"d": "2026-11-03",
+"h": "4a539042d4d5c34c"
+},
+"jeju-seogwipo-galchi.html": {
+"d": "2026-11-03",
+"h": "2cca0ff67f1b104d"
+},
+"jeju-seogwipo-gogi.html": {
+"d": "2026-11-03",
+"h": "241c9f27ea06ec5d"
+},
+"jeju-seogwipo-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "cada43697618f36a"
+},
+"jeju-seogwipo-iguk.html": {
+"d": "2026-11-03",
+"h": "30ca8e8e2d1300a9"
+},
+"jeju-seogwipo-sul-anju.html": {
+"d": "2026-11-03",
+"h": "c6ee7d7828df27ad"
+},
+"jeju-seogwipo.html": {
+"d": "2026-11-03",
+"h": "9b0df435c2479f62"
+},
+"jeonnam-dongbu-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "a1f13ad477483b67"
+},
+"jeonnam-dongbu-namdo.html": {
+"d": "2026-11-03",
+"h": "1c63a5543ee7ed3d"
+},
+"jeonnam-dongbu.html": {
+"d": "2026-11-03",
+"h": "adc6385237906ca4"
+},
+"jeonnam-jungbu-bapjip.html": {
+"d": "2026-11-03",
+"h": "7064233f198b49f0"
+},
+"jeonnam-jungbu-namdo.html": {
+"d": "2026-11-03",
+"h": "cda901915e718a1f"
+},
+"jeonnam-jungbu.html": {
+"d": "2026-11-03",
+"h": "77e4f9961576e619"
+},
+"jeonnam-nambu-bapjip.html": {
+"d": "2026-11-03",
+"h": "b9bbcebb5dd1e8c6"
+},
+"jeonnam-nambu-namdo.html": {
+"d": "2026-11-03",
+"h": "57b78d9a1ade4431"
+},
+"jeonnam-nambu.html": {
+"d": "2026-11-03",
+"h": "334fc17c6faac6b7"
+},
+"jeonnam-seobu-namdo.html": {
+"d": "2026-11-03",
+"h": "948baaed7f1c5c4a"
+},
+"jeonnam-seobu-sul-anju.html": {
+"d": "2026-11-03",
+"h": "20d5bc029fc9e450"
+},
+"jeonnam-seobu.html": {
+"d": "2026-11-03",
+"h": "88d819853679490e"
+},
+"jeonwolse_conversion_calculator.html": {
+"d": "2026-11-03",
+"h": "72655c5107a3d7c7"
+},
+"job_fortune_teller.html": {
+"d": "2026-11-03",
+"h": "3f1ea48c80e9aa0c"
+},
+"jongno-michelin-bukchon.html": {
+"d": "2026-11-03",
+"h": "65d9c1501bffe397"
+},
+"jongno-michelin-seochon.html": {
+"d": "2026-11-03",
+"h": "aa24ca21cb64ea82"
+},
+"jongno.html": {
+"d": "2026-11-03",
+"h": "fa36623b2bd481a5"
+},
+"kimjang_cost_calculator.html": {
+"d": "2026-11-03",
+"h": "34cbe31fde9ae749"
+},
+"loan_calculator.html": {
+"d": "2026-11-03",
+"h": "828facef85776802"
+},
+"lotto_generator.html": {
+"d": "2026-11-03",
+"h": "223d40add52cdd2d"
+},
+"ltv_calculator.html": {
+"d": "2026-11-03",
+"h": "760791e78b4637e2"
+},
+"mapo-michelin-hansik.html": {
+"d": "2026-11-03",
+"h": "29f728eaca23fc5b"
+},
+"mapo-michelin-noodle.html": {
+"d": "2026-11-03",
+"h": "58249119e17f6248"
+},
+"mapo.html": {
+"d": "2026-11-03",
+"h": "0bd9b307f0a97e92"
+},
+"medical_expense_tax_credit_calculator.html": {
+"d": "2026-11-03",
+"h": "8b3438dcc7308f33"
+},
+"monthly_rent_tax_credit_calculator.html": {
+"d": "2026-11-03",
+"h": "f2ab4d459495d1e1"
+},
+"parental_leave_calculator.html": {
+"d": "2026-11-03",
+"h": "09e7a31eef1cc74d"
+},
+"pension_age_calculator.html": {
+"d": "2026-11-03",
+"h": "657e6431d3bfbcfa"
+},
+"pension_savings_tax_credit_calculator.html": {
+"d": "2026-11-03",
+"h": "a9b3f55c7fe1579b"
+},
+"percent_calculator.html": {
+"d": "2026-11-03",
+"h": "ea0411bb4faeed26"
+},
+"prepayment_penalty_calculator.html": {
+"d": "2026-11-03",
+"h": "60652f6121df8192"
+},
+"privacy.html": {
+"d": "2026-11-03",
+"h": "24897be415437db4"
+},
+"property_tax_calculator.html": {
+"d": "2026-11-03",
+"h": "9049a95bb017f34b"
+},
+"pto_calculator.html": {
+"d": "2026-11-03",
+"h": "b65d5be812e3213a"
+},
+"pyeong_calculator.html": {
+"d": "2026-11-03",
+"h": "0ecbb046b2c6d495"
+},
+"qr_generator.html": {
+"d": "2026-11-03",
+"h": "4a6fb121ae1ba627"
+},
+"salary_calculator.html": {
+"d": "2026-11-03",
+"h": "c01de4edffd9aefe"
+},
+"savings_calculator.html": {
+"d": "2026-11-03",
+"h": "e5135318e6376544"
+},
+"seocho-michelin.html": {
+"d": "2026-11-03",
+"h": "e1b69f25ecb4e035"
+},
+"seocho.html": {
+"d": "2026-11-03",
+"h": "7da6ccf9f827cca5"
+},
+"seongdong-michelin.html": {
+"d": "2026-11-03",
+"h": "d7460d28ac2ba7e4"
+},
+"seoul-junggu-michelin.html": {
+"d": "2026-11-03",
+"h": "cccb074692981978"
+},
+"seoul-junggu.html": {
+"d": "2026-11-03",
+"h": "dac35fae6b04a39b"
+},
+"seoul-winter-asian.html": {
+"d": "2026-11-03",
+"h": "1f9faf6f4410d9e4"
+},
+"seoul-winter-gomtang.html": {
+"d": "2026-11-03",
+"h": "8af7797b36ab2109"
+},
+"seoul-winter-gukbap.html": {
+"d": "2026-11-03",
+"h": "cfaa2873711b642c"
+},
+"seoul-winter-hansik.html": {
+"d": "2026-11-03",
+"h": "db6a999aad582427"
+},
+"seoul-winter-kalguksu.html": {
+"d": "2026-11-03",
+"h": "500c7f610b87d462"
+},
+"seoul-winter-mandu.html": {
+"d": "2026-11-03",
+"h": "efd19f6c13b00f1e"
+},
+"seoul-winter-memil.html": {
+"d": "2026-11-03",
+"h": "3dcaab3dfe2488af"
+},
+"seoul-winter-naengmyeon.html": {
+"d": "2026-11-03",
+"h": "cd8733c2cbe2cbd7"
+},
+"seoul-winter-vegan.html": {
+"d": "2026-11-03",
+"h": "93dcb427445cbf91"
+},
+"seoul-winter-yearend-gogi.html": {
+"d": "2026-11-03",
+"h": "1c51eecdc8244e9f"
+},
+"seoul-winter.html": {
+"d": "2026-11-03",
+"h": "734f4332d4d1478f"
+},
+"service_years_calculator.html": {
+"d": "2026-11-03",
+"h": "475089d6e03bf6bd"
+},
+"severance_calculator.html": {
+"d": "2026-11-03",
+"h": "1eab7d28028c6383"
+},
+"shop-aa-battery-10pack.html": {
+"d": "2026-11-03",
+"h": "583e0b969f92bdbe"
+},
+"shop-bespoke-ai-fridge-4door.html": {
+"d": "2026-11-03",
+"h": "403f5da37371ed74"
+},
+"shop-bespoke-ai-steam-ultra.html": {
+"d": "2026-11-03",
+"h": "76892814edae4895"
+},
+"shop-c-type-65w-charger.html": {
+"d": "2026-11-03",
+"h": "e405dc573619c6e6"
+},
+"shop-calf-foot-air-massager.html": {
+"d": "2026-11-03",
+"h": "7b2c8da2b61d2290"
+},
+"shop-car-vacuum-air-duster.html": {
+"d": "2026-11-03",
+"h": "850f87109a6fb2fa"
+},
+"shop-cozima-4d-arco.html": {
+"d": "2026-11-03",
+"h": "2c751f75b5065b3b"
+},
+"shop-danang-5days.html": {
+"d": "2026-11-03",
+"h": "dcf73c745b8fdfa2"
+},
+"shop-east-europe-3countries.html": {
+"d": "2026-11-03",
+"h": "52a03868818b109b"
+},
+"shop-food-waste-disposer.html": {
+"d": "2026-11-03",
+"h": "8fdb281dc5e25109"
+},
+"shop-fukuoka-3days.html": {
+"d": "2026-11-03",
+"h": "d46d65135f836f79"
+},
+"shop-galaxy-s26-ultra.html": {
+"d": "2026-11-03",
+"h": "aaa22c22338111b4"
+},
+"shop-galaxy-tab-s12-ultra.html": {
+"d": "2026-11-03",
+"h": "b572d2277cfef235"
+},
+"shop-galaxy-z-fold8-256.html": {
+"d": "2026-11-03",
+"h": "b1b2bddc71bba8bf"
+},
+"shop-hongkong-deal-travel.html": {
+"d": "2026-11-03",
+"h": "a42f60ae0dad16d4"
+},
+"shop-iphone-17-pro-256.html": {
+"d": "2026-11-03",
+"h": "e13170eede7da6c9"
+},
+"shop-italy-swiss-9days.html": {
+"d": "2026-11-03",
+"h": "78a9763d2e18f79c"
+},
+"shop-jbl-authentics-200.html": {
+"d": "2026-11-03",
+"h": "0cea306b70a947b5"
+},
+"shop-majangdong-hanwoo-gift.html": {
+"d": "2026-11-03",
+"h": "a6f7896cda47f510"
+},
+"shop-mesh-office-chair.html": {
+"d": "2026-11-03",
+"h": "5bca9c814fbcf905"
+},
+"shop-mung-bean-cleanser.html": {
+"d": "2026-11-03",
+"h": "53abafcd61f04eb1"
+},
+"shop-navien-water-mat.html": {
+"d": "2026-11-03",
+"h": "d16a876f9f72b62d"
+},
+"shop-neck-traction.html": {
+"d": "2026-11-03",
+"h": "1c09c2d3053ec25d"
+},
+"shop-prael-thermashot-ultimate.html": {
+"d": "2026-11-03",
+"h": "01dde8ec1f611e7f"
+},
+"shop-premium-diffuser-gift.html": {
+"d": "2026-11-03",
+"h": "5c4f51e796318a49"
+},
+"shop-pulio-neck-shoulder-tapping.html": {
+"d": "2026-11-03",
+"h": "c75ed5244c7e2686"
+},
+"shop-queens-collagen-rg3.html": {
+"d": "2026-11-03",
+"h": "ed56879e32950edc"
+},
+"shop-shaving-foam-cream.html": {
+"d": "2026-11-03",
+"h": "23b1d931cb1f78d9"
+},
+"shop-student-office-laptop.html": {
+"d": "2026-11-03",
+"h": "0b1ec5297c409a8d"
+},
+"shop-sulwhasoo-firming-set.html": {
+"d": "2026-11-03",
+"h": "43b80c119c469a41"
+},
+"shop-sydney-6days.html": {
+"d": "2026-11-03",
+"h": "00555cdd7f50767c"
+},
+"shop-sydney-7days-full.html": {
+"d": "2026-11-03",
+"h": "2234de88ae290fa6"
+},
+"shop-turkiye-9days.html": {
+"d": "2026-11-03",
+"h": "a21193aa8f15f2a3"
+},
+"shop-west-europe-3-10days.html": {
+"d": "2026-11-03",
+"h": "4dee78e779aad08d"
+},
+"shop-wireless-gaming-keyboard.html": {
+"d": "2026-11-03",
+"h": "b40c20c411500ecb"
+},
+"sitemap.html": {
+"d": "2026-11-03",
+"h": "3c8dc98653d93e4b"
+},
+"sleep_calculator.html": {
+"d": "2026-11-03",
+"h": "263652c672995485"
+},
+"sokcho-abai.html": {
+"d": "2026-11-03",
+"h": "86a2cfcafb392459"
+},
+"sokcho-bapjip.html": {
+"d": "2026-11-03",
+"h": "2444572347ff8f4d"
+},
+"sokcho-cafe.html": {
+"d": "2026-11-03",
+"h": "3c4af0a73a3414e5"
+},
+"sokcho-gogi.html": {
+"d": "2026-11-03",
+"h": "26f57ae1b34a35f4"
+},
+"sokcho-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "d8ecb59894fbdddd"
+},
+"sokcho-sul-anju.html": {
+"d": "2026-11-03",
+"h": "a6af3dc8d86a8245"
+},
+"sokcho.html": {
+"d": "2026-11-03",
+"h": "2d49817c8a30ad11"
+},
+"spacing_checker.html": {
+"d": "2026-11-03",
+"h": "9171f9b73bbcf38f"
+},
+"spell_checker.html": {
+"d": "2026-11-03",
+"h": "328d6cf7070753d6"
+},
+"terms.html": {
+"d": "2026-11-03",
+"h": "2582064a50225fe5"
+},
+"time_difference_calculator.html": {
+"d": "2026-11-03",
+"h": "b0cfc8777c92b7d7"
+},
+"tire_date_calculator.html": {
+"d": "2026-11-03",
+"h": "5135404bbf2ff0bb"
+},
+"tools.html": {
+"d": "2026-11-03",
+"h": "144895f2f3b0f1bd"
+},
+"travel-asan.html": {
+"d": "2026-11-03",
+"h": "98ec2c9978c71386"
+},
+"travel-bangkok.html": {
+"d": "2026-11-03",
+"h": "863aa4bece6f9d28"
+},
+"travel-busan.html": {
+"d": "2026-11-03",
+"h": "5f64cc14d1fe982c"
+},
+"travel-cebu.html": {
+"d": "2026-11-03",
+"h": "8defddab1ac7a868"
+},
+"travel-chiangmai.html": {
+"d": "2026-11-03",
+"h": "2a9120bde7fa14f8"
+},
+"travel-gangneung.html": {
+"d": "2026-11-03",
+"h": "835f33bbb323fb86"
+},
+"travel-guam.html": {
+"d": "2026-11-03",
+"h": "8e5cd2a9425b279b"
+},
+"travel-gyeongju.html": {
+"d": "2026-11-03",
+"h": "9f57a7581b388d48"
+},
+"travel-hanoi.html": {
+"d": "2026-11-03",
+"h": "5824f59eeb4d063e"
+},
+"travel-inje.html": {
+"d": "2026-11-03",
+"h": "8867878108ecda42"
+},
+"travel-jeju.html": {
+"d": "2026-11-03",
+"h": "5099cc4cfe54516e"
+},
+"travel-jeonju.html": {
+"d": "2026-11-03",
+"h": "dee47179808ba65d"
+},
+"travel-okinawa.html": {
+"d": "2026-11-03",
+"h": "28c60f2a1081ca5d"
+},
+"travel-osaka.html": {
+"d": "2026-11-03",
+"h": "6ff2d3e00bb6ec2c"
+},
+"travel-pyeongchang.html": {
+"d": "2026-11-03",
+"h": "43b910868395972d"
+},
+"travel-sapporo.html": {
+"d": "2026-11-03",
+"h": "541a53b239cb5f47"
+},
+"travel-singapore.html": {
+"d": "2026-11-03",
+"h": "e973d3b064cf459f"
+},
+"travel-sokcho.html": {
+"d": "2026-11-03",
+"h": "ec358f5ef2f04d8b"
+},
+"travel-suncheon.html": {
+"d": "2026-11-03",
+"h": "3d066f8522855262"
+},
+"travel-taebaek.html": {
+"d": "2026-11-03",
+"h": "6347d65840a63ca9"
+},
+"travel-taipei.html": {
+"d": "2026-11-03",
+"h": "df68a523ac34c680"
+},
+"travel-tokyo.html": {
+"d": "2026-11-03",
+"h": "2c7a321dbe99ca4e"
+},
+"travel-tongyeong.html": {
+"d": "2026-11-03",
+"h": "d8f3a39d1ecafe33"
+},
+"travel-yeosu.html": {
+"d": "2026-11-03",
+"h": "6f652af8d62d3dda"
+},
+"travel.html": {
+"d": "2026-11-03",
+"h": "1d058f59cb04474f"
+},
+"unemployment_benefit_calculator.html": {
+"d": "2026-11-05",
+"h": "8226cd07c6a5f156"
+},
+"unit_converter.html": {
+"d": "2026-11-03",
+"h": "efdc376ca6bc3796"
+},
+"vat_calculator.html": {
+"d": "2026-11-03",
+"h": "8163410b271ff4d0"
+},
+"week_number_calculator.html": {
+"d": "2026-11-03",
+"h": "28090e4761a73957"
+},
+"wind_chill_calculator.html": {
+"d": "2026-11-03",
+"h": "6aad49759d5274ad"
+},
+"work_time_calculator.html": {
+"d": "2026-11-03",
+"h": "faa6394e7e141629"
+},
+"yeongdeungpo-michelin.html": {
+"d": "2026-11-03",
+"h": "37434acf75497a99"
+},
+"yeonsu-bapjip.html": {
+"d": "2026-11-03",
+"h": "955383d1a3418170"
+},
+"yeonsu-cafe.html": {
+"d": "2026-11-03",
+"h": "99d6b964109ec560"
+},
+"yeonsu-gogi.html": {
+"d": "2026-11-03",
+"h": "3057f2da34d886f2"
+},
+"yeonsu-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "e55c366801083a86"
+},
+"yeonsu-hambak.html": {
+"d": "2026-11-03",
+"h": "0c312dd68ca745a7"
+},
+"yeonsu-iguk.html": {
+"d": "2026-11-03",
+"h": "915574bb24af47e3"
+},
+"yeonsu-sul-anju.html": {
+"d": "2026-11-03",
+"h": "981f4408ccfc5c7e"
+},
+"yeonsu.html": {
+"d": "2026-11-03",
+"h": "0131b1b889e80059"
+},
+"yongsan-bapjip.html": {
+"d": "2026-11-03",
+"h": "331820e33e255d38"
+},
+"yongsan-cafe.html": {
+"d": "2026-11-03",
+"h": "f3ede26430295dad"
+},
+"yongsan-gogi.html": {
+"d": "2026-11-03",
+"h": "e848055eb26f1c2c"
+},
+"yongsan-gukmul-myeon.html": {
+"d": "2026-11-03",
+"h": "d47f8d8853b3a830"
+},
+"yongsan-iguk.html": {
+"d": "2026-11-03",
+"h": "0ed896a070f282f0"
+},
+"yongsan-michelin.html": {
+"d": "2026-11-03",
+"h": "3d906088b6e0f253"
+},
+"yongsan-sul-anju.html": {
+"d": "2026-11-03",
+"h": "696a9a4014ae01c9"
+},
+"yongsan-usadan.html": {
+"d": "2026-11-03",
+"h": "a524d2cd7af9b090"
+},
+"yongsan.html": {
+"d": "2026-11-03",
+"h": "c71756fd938c9a78"
+}
+}

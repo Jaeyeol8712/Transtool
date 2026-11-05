@@ -2370,11 +2370,46 @@ def sitemap_images(file):
     return "".join(out[:20])
 
 
+_BH_PATH = os.path.join(_ROOT, "scripts", "body_hashes.json")
+
+
+def body_date(file):
+    """사이트맵 수정일: 공통 영역(상단·하단)을 뺀 본문이 실제로 바뀐 날만 갱신합니다."""
+    global _BH
+    if "_BH" not in globals():
+        try:
+            _BH = json.load(open(_BH_PATH, encoding="utf-8"))
+        except Exception:
+            _BH = {}
+    path = os.path.join(_ROOT, file)
+    if not os.path.exists(path):
+        return None
+    s = open(path, encoding="utf-8").read()
+    a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
+    body = s[a:b] if a >= 0 and b > a else s
+    body = re.sub(r"\?v=[0-9a-f]{6,}", "", body)
+    body = re.sub(r"\s+", " ", body)
+    h = _hl.md5(body.encode("utf-8")).hexdigest()[:16]
+    old = _BH.get(file)
+    if old and old.get("h") == h:
+        return old["d"]
+    d = (old and git_date(file)) or git_date(file) or None
+    if old:  # 본문이 바뀜 → 오늘(한국 날짜)
+        import datetime as _dt
+        d = (_dt.datetime.utcnow() + _dt.timedelta(hours=9)).strftime("%Y-%m-%d")
+    _BH[file] = {"h": h, "d": d}
+    return d
+
+
 def build_sitemap_xml():
     urls = []
     for q in all_index_pages():
-        lm = max(filter(None, [git_date(q["file"]), q["date"]]))
+        lm = max(filter(None, [body_date(q["file"]), q["date"]]))
         urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n{sitemap_images(q['file'])}  </url>")
+    try:
+        json.dump(globals().get("_BH", {}), open(_BH_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=0, sort_keys=True)
+    except Exception:
+        pass
     write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
 <!-- aroundtool.com · scripts/build.py 가 생성 · {TODAY} · {len(urls)} URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">

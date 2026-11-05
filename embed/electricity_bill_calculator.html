@@ -47,7 +47,7 @@
  const fuel = kwh * 5;
  const subtotal = basic + energy + climate + fuel;
  const vat = subtotal * 0.1;
- const fund = subtotal * 0.037;
+ const fund = subtotal * 0.027; // 전력산업기반기금 2.7% (2025.7.1~)
  const total = subtotal + vat + fund;
  document.getElementById('basicFee').textContent = Math.round(basic).toLocaleString() + '원';
  document.getElementById('energyFee').textContent = Math.round(energy).toLocaleString() + '원';

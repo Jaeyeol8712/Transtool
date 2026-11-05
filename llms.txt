@@ -30,7 +30,7 @@
 - [종합소득세](https://www.aroundtool.com/freelancer_tax_calculator.html): 3.3% 원천징수된 프리랜서·N잡러 사업소득을 단순경비율로 추계해 예상 결정세액과 환급 또는 추가 납부액을 계산합니다. 2023년 이후 소득세 과세표준 구간 8단계를 모두 반영했습니다.
 - [DSR](https://www.aroundtool.com/dsr_calculator.html): 연소득과 기존·신규 대출의 연간 원리금 상환액으로 DSR(총부채원리금상환비율)을 계산하고 은행권 40% 기준 충족 여부를 판정합니다. DSR과 DTI 차이, 한도를 늘리는 방법도 정리했습니다.
 - [LTV](https://www.aroundtool.com/ltv_calculator.html): 주택 가격, 선순위 채권·임대보증금, 신규 대출 금액으로 LTV(주택담보인정비율)를 계산합니다. LTV 공식, 지역·주택 수에 따라 한도가 달라지는 이유, 방공제(소액임차보증금) 개념까지 설명합니다.
-- [부동산 취득세](https://www.aroundtool.com/acquisition_tax_calculator.html): 2026년 기준 주택 취득세 계산기. 생애최초 주택 구입 감면(최대 200만원, 인구감소지역 300만원)과 출산·양육 신생아 감면(최대 500만원)을 반영해 취득세·지방교육세·농어촌특별세를 한 번에 계산합니다.
+- [부동산 취득세](https://www.aroundtool.com/acquisition_tax_calculator.html): 2026년 기준 주택 취득세 계산기. 생애최초 주택 구입 감면(최대 200만원, 소형 비아파트·인구감소지역 300만원)과 출산·양육 신생아 감면(최대 500만원)을 반영해 취득세·지방교육세·농어촌특별세를 한 번에 계산합니다.
 - [양도소득세](https://www.aroundtool.com/capital_gains_tax_calculator.html): 집을 팔 때 내는 양도소득세를 2026년 기준으로 계산합니다. 1세대 1주택 12억 원 비과세, 장기보유특별공제(최대 80%), 단기 보유 세율, 2026년 5월 10일부터 다시 적용된 조정대상지역 다주택 중과까지 반영합니다.
 - [재산세](https://www.aroundtool.com/property_tax_calculator.html): 주택 공시가격을 넣으면 2026년 기준 재산세, 도시지역분, 지방교육세와 1년 합계를 계산합니다. 1세대 1주택 공정시장가액비율 43~45%와 공시가격 9억 원 이하 특례세율을 반영합니다.
 - [종합부동산세](https://www.aroundtool.com/comprehensive_property_tax_calculator.html): 보유 주택 공시가격 합계를 넣으면 2026년 기준 주택분 종합부동산세와 농어촌특별세를 계산합니다. 1세대 1주택 12억 원·그 외 9억 원 공제, 공정시장가액비율 60%, 3주택 이상 중과, 재산세 중복분 공제, 고령자·장기보유 세액공제(최대 80%)를 반영합니다.
