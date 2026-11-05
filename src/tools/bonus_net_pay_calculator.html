@@ -1,0 +1,33 @@
+<label for="bnS">연봉 (성과급 제외, 원)</label>
+<input id="bnS" type="number" inputmode="numeric" placeholder="50000000"/>
+<label for="bnB">성과급 (세전, 원)</label>
+<input id="bnB" type="number" inputmode="numeric" placeholder="5000000"/>
+<label for="bnF">부양가족 수 (본인 포함)</label>
+<input id="bnF" type="number" inputmode="numeric" value="1" min="1"/>
+<button onclick="calcBn()">실수령액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">성과급 실수령액 (예상)</span><span class="result-value" id="bnOut">-</span></div>
+<div class="result-row"><span class="result-label">소득세·지방소득세</span><span class="result-value" id="bnTax" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">4대보험 (근로자 몫)</span><span class="result-value" id="bnIns" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">성과급에 붙는 세율</span><span class="result-value" id="bnRate" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p style="margin:.6rem 0 0;line-height:1.6">연간 세금 기준 추정입니다. 회사가 지급할 때 떼는 원천징수액은 간이세액표 방식이라 다를 수 있고, 차이는 연말정산에서 맞춰집니다.</p>
+</div>
+<script>
+function bnED(g){if(g<=5000000)return g*0.7;if(g<=15000000)return 3500000+(g-5000000)*0.4;if(g<=45000000)return 7500000+(g-15000000)*0.15;if(g<=100000000)return 12000000+(g-45000000)*0.05;return 14750000+(g-100000000)*0.02;}
+function bnPT(b){if(b<=14000000)return b*0.06;if(b<=50000000)return 840000+(b-14000000)*0.15;if(b<=88000000)return 6240000+(b-50000000)*0.24;if(b<=150000000)return 15360000+(b-88000000)*0.35;if(b<=300000000)return 37060000+(b-150000000)*0.38;if(b<=500000000)return 94060000+(b-300000000)*0.40;if(b<=1000000000)return 174060000+(b-500000000)*0.42;return 384060000+(b-1000000000)*0.45;}
+function bnTC(c,g){var t=c<=1300000?c*0.55:715000+(c-1300000)*0.30,cap;if(g<=33000000)cap=740000;else if(g<=70000000)cap=Math.max(740000-(g-33000000)*0.008,660000);else if(g<=120000000)cap=Math.max(660000-(g-70000000)*0.5,500000);else cap=Math.max(500000-(g-120000000)*0.5,200000);return Math.min(t,cap);}
+/* 2026년 근로자 부담: 국민연금 4.75%(월 상한 기준소득 659만 원), 건강 3.595%, 장기요양 건강의 13.14%, 고용 0.9% */
+function bnIns(y){var m=y/12,np=Math.min(m,6590000)*0.0475,hi=m*0.03595;return (np+hi+hi*0.1314+m*0.009)*12;}
+function bnYearTax(g,fam){var b=g-bnED(g)-1500000*fam-bnIns(g);b=Math.max(0,b);var c=bnPT(b);return Math.max(0,c-bnTC(c,g))*1.1;}
+function calcBn(){
+ var s=parseFloat(document.getElementById('bnS').value),b=parseFloat(document.getElementById('bnB').value),f=parseInt(document.getElementById('bnF').value)||1;
+ if(isNaN(s)||isNaN(b)||b<=0) return alert('연봉과 성과급을 입력해주세요.');
+ var tax=bnYearTax(s+b,f)-bnYearTax(s,f), ins=bnIns(s+b)-bnIns(s), net=b-tax-ins;
+ function w(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+ document.getElementById('bnOut').textContent=w(net);
+ document.getElementById('bnTax').textContent=w(tax);
+ document.getElementById('bnIns').textContent=w(ins);
+ document.getElementById('bnRate').textContent='약 '+(tax/b*100).toFixed(1)+'% (세금만)';
+ document.getElementById('result').classList.add('show');
+}
+</script>

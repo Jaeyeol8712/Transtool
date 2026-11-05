@@ -23,6 +23,10 @@
 "d": "2026-11-03",
 "h": "18a27141b8625e95"
 },
+"bonus_net_pay_calculator.html": {
+"d": "2026-11-05",
+"h": "e53f1f42fa8af1e2"
+},
 "brokerage_fee_calculator.html": {
 "d": "2026-11-03",
 "h": "7ef21f0084654680"
@@ -127,6 +131,10 @@
 "d": "2026-11-03",
 "h": "aec003a9e762ef00"
 },
+"donation_tax_credit_calculator.html": {
+"d": null,
+"h": "6f158f3aedd01ea2"
+},
 "dsr_calculator.html": {
 "d": "2026-11-03",
 "h": "6cebdd87e456dad4"
@@ -148,8 +156,8 @@
 "h": "a111eb3fa8ea0410"
 },
 "etc.html": {
-"d": "2026-11-03",
-"h": "dcc418d7c85cc4d5"
+"d": "2026-11-05",
+"h": "1d45966c0ed1f96b"
 },
 "exchange_rate_calculator.html": {
 "d": "2026-11-03",
@@ -210,6 +218,10 @@
 "gas_bill_calculator.html": {
 "d": "2026-11-03",
 "h": "f7665e9a0b77043f"
+},
+"gift_tax_calculator.html": {
+"d": null,
+"h": "ee5fb647d67702f3"
 },
 "gpa_calculator.html": {
 "d": "2026-11-03",
@@ -535,13 +547,17 @@
 "d": "2026-11-03",
 "h": "12f18a18ca915f47"
 },
+"housing_subscription_score_calculator.html": {
+"d": null,
+"h": "549988b46a6be445"
+},
 "increase_decrease_calculator.html": {
 "d": "2026-11-03",
 "h": "fb5ecea9c8780245"
 },
 "index.html": {
-"d": "2026-11-03",
-"h": "9e49a79ab5d54fbf"
+"d": "2026-11-05",
+"h": "a99c5baa76ac8b39"
 },
 "interior_calculator.html": {
 "d": "2026-11-03",
@@ -675,6 +691,10 @@
 "d": "2026-11-03",
 "h": "fa36623b2bd481a5"
 },
+"kerosene_heating_cost_calculator.html": {
+"d": null,
+"h": "05056e3e16086ffb"
+},
 "kimjang_cost_calculator.html": {
 "d": "2026-11-03",
 "h": "34cbe31fde9ae749"
@@ -750,6 +770,10 @@
 "qr_generator.html": {
 "d": "2026-11-03",
 "h": "4a6fb121ae1ba627"
+},
+"retirement_income_tax_calculator.html": {
+"d": null,
+"h": "c876a3d71a445066"
 },
 "salary_calculator.html": {
 "d": "2026-11-03",
@@ -972,8 +996,8 @@
 "h": "b40c20c411500ecb"
 },
 "sitemap.html": {
-"d": "2026-11-03",
-"h": "3c8dc98653d93e4b"
+"d": "2026-11-05",
+"h": "3b596aacfcb2fc1b"
 },
 "sleep_calculator.html": {
 "d": "2026-11-03",
@@ -1028,8 +1052,8 @@
 "h": "5135404bbf2ff0bb"
 },
 "tools.html": {
-"d": "2026-11-03",
-"h": "144895f2f3b0f1bd"
+"d": "2026-11-05",
+"h": "739e3addcf4a5f3c"
 },
 "travel-asan.html": {
 "d": "2026-11-03",

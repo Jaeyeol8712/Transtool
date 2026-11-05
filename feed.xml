@@ -4,9 +4,57 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 69종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 75종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>퇴직소득세 계산기 — 근속연수공제·환산급여공제 (2026)</title>
+      <link>https://www.aroundtool.com/retirement_income_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/retirement_income_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>퇴직금과 근속연수를 넣으면 퇴직소득세와 지방소득세, 실수령액을 계산합니다. 근속연수공제, 환산급여공제, 기본세율 6~45%와 연분연승 방식을 반영했습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>등유 난방비 계산기 — 보일러 시간당 소비량으로 한 달 비용</title>
+      <link>https://www.aroundtool.com/kerosene_heating_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kerosene_heating_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>등유 가격, 보일러 시간당 등유 소비량, 하루 가동 시간과 일수를 넣으면 등유 난방비와 필요한 등유 양(L·드럼)을 계산합니다. 기본 가격은 오피넷 실내등유 전국 평균(2026.11.1 기준)입니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>주택청약 가점 계산기 — 84점 만점, 무주택·부양가족·통장</title>
+      <link>https://www.aroundtool.com/housing_subscription_score_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/housing_subscription_score_calculator.html</guid>
+      <category>생활툴</category>
+      <description>무주택 기간, 부양가족 수, 청약통장 가입 기간을 넣으면 주택청약 가점을 계산합니다. 무주택 32점, 부양가족 35점, 통장 17점, 84점 만점 기준입니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>증여세 계산기 — 자녀·배우자 공제, 혼인·출산 1억 (2026)</title>
+      <link>https://www.aroundtool.com/gift_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/gift_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>관계와 증여 금액, 최근 10년 증여액을 넣으면 증여세를 계산합니다. 증여재산공제(배우자 6억, 성인 자녀 5천만, 미성년 2천만), 혼인·출산 공제 1억, 세율 10~50%, 신고세액공제 3%를 반영했습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>기부금 세액공제 계산기 — 일반·고향사랑·정치자금 (2026)</title>
+      <link>https://www.aroundtool.com/donation_tax_credit_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/donation_tax_credit_calculator.html</guid>
+      <category>생활툴</category>
+      <description>일반 기부금, 고향사랑기부금, 정치자금 기부금을 넣으면 연말정산 세액공제 금액을 지방소득세 포함으로 계산합니다. 2026년 고향사랑기부 10만~20만 원 44% 공제를 반영했습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>성과급 실수령액 계산기 — 세금·4대보험 떼고 얼마 (2026)</title>
+      <link>https://www.aroundtool.com/bonus_net_pay_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/bonus_net_pay_calculator.html</guid>
+      <category>생활툴</category>
+      <description>연봉과 성과급을 넣으면 성과급에 붙는 소득세·지방소득세와 4대보험을 빼고 실제로 받을 금액을 추정합니다. 2026년 4대보험 요율과 근로소득 세율을 반영했습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>퍼센트와 퍼센트포인트 차이 — %p 계산법과 예시</title>
       <link>https://www.aroundtool.com/guide-percent-vs-percentage-point.html</link>

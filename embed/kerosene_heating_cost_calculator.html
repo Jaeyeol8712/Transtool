@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>등유 난방비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/kerosene_heating_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="등유 난방비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">등유 난방비 계산기</p>
+<label for="kpP">등유 가격 (원/L)</label>
+<input id="kpP" type="number" inputmode="numeric" value="1571"/>
+<label for="kpU">보일러 등유 소비량 (L/시간)</label>
+<input id="kpU" type="number" inputmode="decimal" placeholder="1.2"/>
+<label for="kpH">하루 가동 시간 (시간)</label>
+<input id="kpH" type="number" inputmode="decimal" placeholder="5"/>
+<label for="kpD">일수 (일)</label>
+<input id="kpD" type="number" inputmode="numeric" value="30"/>
+<button onclick="calcKp()">난방비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 등유 난방비</span><span class="result-value" id="kpOut">-</span></div>
+<div class="result-row"><span class="result-label">필요한 등유</span><span class="result-value" id="kpL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">드럼(200L) 기준</span><span class="result-value" id="kpDr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcKp(){
+ var p=parseFloat(document.getElementById('kpP').value),u=parseFloat(document.getElementById('kpU').value),
+     h=parseFloat(document.getElementById('kpH').value),d=parseFloat(document.getElementById('kpD').value);
+ if([p,u,h,d].some(isNaN)) return alert('모든 칸을 입력해주세요.');
+ var l=u*h*d;
+ document.getElementById('kpOut').textContent=Math.round(l*p).toLocaleString('ko-KR')+'원';
+ document.getElementById('kpL').textContent=l.toFixed(1)+'L';
+ document.getElementById('kpDr').textContent=(l/200).toFixed(2)+'드럼';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/kerosene_heating_cost_calculator.html?utm_source=embed&amp;utm_campaign=kerosene_heating_cost_calculator" target="_blank" rel="noopener">어라운드툴 등유 난방비 계산기</a></p>
+</body>
+</html>
