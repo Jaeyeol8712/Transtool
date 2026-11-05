@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.aroundtool.com/electricity_bill_calculator.html">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/site.css?v=4ceb8d1e">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
 <style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
 .at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
 .at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
@@ -47,7 +47,7 @@
  const fuel = kwh * 5;
  const subtotal = basic + energy + climate + fuel;
  const vat = subtotal * 0.1;
- const fund = subtotal * 0.037;
+ const fund = subtotal * 0.027; // 전력산업기반기금 2.7% (2025.7.1~)
  const total = subtotal + vat + fund;
  document.getElementById('basicFee').textContent = Math.round(basic).toLocaleString() + '원';
  document.getElementById('energyFee').textContent = Math.round(energy).toLocaleString() + '원';

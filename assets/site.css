@@ -927,3 +927,6 @@ body.b main table :is(th,td) *{white-space:normal!important;max-width:100%}
 .at-trips .dest p{font-size:.9375rem!important;line-height:1.6!important;color:var(--at-sub)!important;margin:0!important;opacity:1!important}
 .at-trips .dest .go{display:none!important}
 .at-trips h2.sec .c{font-size:.875rem;color:var(--at-sub);font-weight:600}
+/* 표 오른쪽 테두리가 잘리지 않게 */
+body.b main table:not(.b-stack){width:calc(100% - 1px)!important}
+body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}

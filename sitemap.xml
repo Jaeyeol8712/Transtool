@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 304 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 307 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/acquisition_tax_calculator.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/age_calculator.html</loc>
@@ -190,7 +190,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/electricity_bill_calculator.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-meter-5.jpg</image:loc></image:image>
   </url>
   <url>
@@ -294,6 +294,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-car-acquisition-tax.html</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-car-tax-january-prepay.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -362,8 +366,12 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-interior-estimate-items.html</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-japan-travel-budget.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-jeonse-contract-checklist.html</loc>
@@ -395,7 +403,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-minimum-wage-2027.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-monthly-net-salary-table.html</loc>
@@ -416,6 +424,10 @@
   <url>
     <loc>https://www.aroundtool.com/guide-percent-formulas.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-percent-vs-percentage-point.html</loc>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-pyeong-area-types.html</loc>
@@ -576,7 +588,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/heater_electricity_cost_calculator.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/holiday_leave_planner.html</loc>
@@ -908,7 +920,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/seoul-winter.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/service_years_calculator.html</loc>
@@ -1386,7 +1398,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/unit_converter.html</loc>

@@ -43,7 +43,7 @@ GUIDES = [
             ("5인 미만 사업장도 최저임금을 지켜야 하나요?", "네. 최저임금은 사업장 규모와 관계없이 모든 근로자에게 적용됩니다."),
         ],
         "tools": ["hourly_monthly_wage_calculator", "holiday_pay_calculator", "unemployment_benefit_calculator"],
-        "sources": [("2027년 최저임금 1만700원 확정 (토스플레이스, 2026.7.16)", "https://tossplace.com/story/2027_minimum_wage_2")],
+        "sources": [("2027년 적용 최저임금안 시간급 10,700원 (고용노동부 보도자료, 2026.7.14)", "https://moel.go.kr/news/enews/report/enewsView.do?news_seq=19659"), ("고용노동부, 2027년도 적용 최저임금 시간급 10,700원 고시 (뉴스서울, 2026.8.5)", "https://newsseoul.co.kr/news/view/1065579017067312"), ("최저임금위원회", "https://www.minimumwage.go.kr/")],
     },
     {
         "slug": "severance-pay-conditions",
@@ -392,6 +392,8 @@ from guides_1110 import GUIDES_1110  # noqa: E402  (2026-11-03 컨펌 i261103-02
 GUIDES += GUIDES_1110
 from guides_1109 import GUIDES_1109  # noqa: E402  (2026-11-03 컨펌 i261103-01)
 GUIDES += GUIDES_1109
+from guides_1111 import GUIDES_1111  # noqa: E402  (2026-11-04 컨펌 i261104-01)
+GUIDES += GUIDES_1111
 
 # ── 보강 (2026-10-26): FAQ 5개 이상, 표가 없던 가이드에 표 추가 ──
 

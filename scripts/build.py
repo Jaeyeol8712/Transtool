@@ -2017,10 +2017,6 @@ def build_home():
   </section>
 </div>
 <div class="ah-row">
-  <section class="ah-card" aria-labelledby="ah-up">
-    <div class="ah-head"><h2 id="ah-up">최근 업데이트</h2><a href="/sitemap.html">전체 페이지</a></div>
-    <ul class="ah-ups">{ups}</ul>
-  </section>
   <section class="ah-card" aria-labelledby="ah-faq">
     <div class="ah-head"><h2 id="ah-faq">자주 묻는 질문</h2><a href="/about.html">사이트 소개</a></div>
     <div class="at-faq">{faqs}</div>
@@ -2278,9 +2274,9 @@ def all_index_pages():
 
 
 GUIDE_GROUPS = [
-    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "기부")),
+    ("세금·연말정산", ("연말정산", "세액공제", "소득공제", "부가세", "종합소득", "세금", "양도", "재산세", "종부세", "고향사랑")),
     ("노동·급여", ("최저임금", "퇴직", "실업급여", "연차", "주휴", "4대보험", "급여", "육아휴직")),
-    ("부동산·주거", ("전세", "월세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
+    ("부동산·주거", ("전세", "전입", "부동산", "취득세", "중개", "평수", "인테리어", "실거래")),
 ]
 
 
@@ -2289,13 +2285,14 @@ def guide_hub_list(s):
     groups = {name: [] for name, _ in GUIDE_GROUPS}
     groups["생활·건강·여행"] = []
     for g in sorted(GUIDES, key=lambda x: x.get("date", ""), reverse=True):
-        name = next((n for n, keys in GUIDE_GROUPS if any(k in g["title"] for k in keys)), "생활·건강·여행")
+        order = [GUIDE_GROUPS[2], GUIDE_GROUPS[0], GUIDE_GROUPS[1]]  # 부동산 키워드를 먼저 봄 (전세·실거래 글이 세금으로 가지 않게)
+        name = next((n for n, keys in order if any(k in g["title"] for k in keys)), "생활·건강·여행")
         groups[name].append(g)
     secs = ""
     for name, items in groups.items():
         if not items:
             continue
-        li = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(g["title"])}</a></li>' for g in items)
+        li = "".join(f'<li><a href="/guide-{g["slug"]}.html" title="{esc(g["title"])}">{esc(re.sub(r"\s*\(.*?\)$", "", re.split(r"(?<=\?) ", g["title"].split(" — ")[0])[0]))}</a></li>' for g in items)
         secs += f'<section class="grp grp-guide"><h2>{esc(name)}<span class="c">{len(items)}</span></h2><ul>{li}</ul></section>'
     extra = ('<section class="grp"><h2>연도별 정리·사이트 안내<span class="c">3</span></h2><ul>'
              '<li><a href="/guide_2026_wage.html">2026 최저임금·노동법</a></li><li><a href="/guide_2026_tax.html">2026 세금·연말정산</a></li>'
@@ -2307,7 +2304,7 @@ def guide_hub_list(s):
     s = s.replace('<section class="faq">', block + '\n<section class="faq">', 1)
     s = re.sub(r'<span class="n">텍스트 3 · 가이드 \d+</span>', f'<span class="n">텍스트 3 · 가이드 {len(GUIDES)}</span>', s)
     s = s.replace("<h1>기타</h1>", "<h1>생활 가이드</h1>").replace("글자수·맞춤법 검사와 <b>연도별 제도 가이드</b>, 사이트 안내를 모았습니다.", "세금·노동·부동산·생활 제도를 <b>질문에 바로 답하는 가이드</b>로 정리했습니다. 글자수·맞춤법 검사 도구도 여기 있습니다.")
-    s = s.replace("계산기와 실용 도구 <b>43개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>")
+    s = re.sub(r"계산기와 실용 도구 <b>\d+개</b>", f"계산기와 실용 도구 <b>{N_TOOLS}개</b>", s)
     return s
 
 
@@ -2373,11 +2370,46 @@ def sitemap_images(file):
     return "".join(out[:20])
 
 
+_BH_PATH = os.path.join(_ROOT, "scripts", "body_hashes.json")
+
+
+def body_date(file):
+    """사이트맵 수정일: 공통 영역(상단·하단)을 뺀 본문이 실제로 바뀐 날만 갱신합니다."""
+    global _BH
+    if "_BH" not in globals():
+        try:
+            _BH = json.load(open(_BH_PATH, encoding="utf-8"))
+        except Exception:
+            _BH = {}
+    path = os.path.join(_ROOT, file)
+    if not os.path.exists(path):
+        return None
+    s = open(path, encoding="utf-8").read()
+    a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
+    body = s[a:b] if a >= 0 and b > a else s
+    body = re.sub(r"\?v=[0-9a-f]{6,}", "", body)
+    body = re.sub(r"\s+", " ", body)
+    h = _hl.md5(body.encode("utf-8")).hexdigest()[:16]
+    old = _BH.get(file)
+    if old and old.get("h") == h:
+        return old["d"]
+    d = (old and git_date(file)) or git_date(file) or None
+    if old:  # 본문이 바뀜 → 오늘(한국 날짜)
+        import datetime as _dt
+        d = (_dt.datetime.utcnow() + _dt.timedelta(hours=9)).strftime("%Y-%m-%d")
+    _BH[file] = {"h": h, "d": d}
+    return d
+
+
 def build_sitemap_xml():
     urls = []
     for q in all_index_pages():
-        lm = max(filter(None, [git_date(q["file"]), q["date"]]))
+        lm = max(filter(None, [body_date(q["file"]), q["date"]]))
         urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n{sitemap_images(q['file'])}  </url>")
+    try:
+        json.dump(globals().get("_BH", {}), open(_BH_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=0, sort_keys=True)
+    except Exception:
+        pass
     write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
 <!-- aroundtool.com · scripts/build.py 가 생성 · {TODAY} · {len(urls)} URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
