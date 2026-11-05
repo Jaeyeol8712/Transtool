@@ -1,5 +1,32 @@
-== 2026-11-05T11:36:21Z push b65f2e6c8ba7aea891ee0cbc2f5aa5388c2bdb0a
-· 전송할 URL이 없습니다. 변경된 HTML이 없습니다.
+== 2026-11-05T11:40:27Z push 1bc29941062e6c654a82039a586b7f4408baad54
+· 대상 333개
+  https://www.aroundtool.com/about.html
+  https://www.aroundtool.com/acquisition_tax_calculator.html
+  https://www.aroundtool.com/age_calculator.html
+  https://www.aroundtool.com/alcohol_calorie_calculator.html
+  https://www.aroundtool.com/bmi_calculator.html
+  https://www.aroundtool.com/bmr_calculator.html
+  https://www.aroundtool.com/bonus_net_pay_calculator.html
+  https://www.aroundtool.com/brokerage_fee_calculator.html
+  https://www.aroundtool.com/calorie_calculator.html
+  https://www.aroundtool.com/camping_gear_calculator.html
+  https://www.aroundtool.com/capital_gains_tax_calculator.html
+  https://www.aroundtool.com/car_tax_calculator.html
+  https://www.aroundtool.com/card_installment_calculator.html
+  https://www.aroundtool.com/character_counter.html
+  https://www.aroundtool.com/compound_calculator.html
+  https://www.aroundtool.com/comprehensive_property_tax_calculator.html
+  https://www.aroundtool.com/connect.html
+  https://www.aroundtool.com/contact.html
+  https://www.aroundtool.com/credit_card_deduction_calculator.html
+  https://www.aroundtool.com/daejeon-daedeok-sintanjin.html
+  … 외 313개
+
+  ✓ api.indexnow.org — 200 접수됨
+  ✓ www.bing.com — 200 접수됨
+  ✓ searchadvisor.naver.com — 200 접수됨
+
+· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
