@@ -142,7 +142,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [겨울 제철 음식·시장 안내 10가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [겨울 제철 음식·시장 안내 12가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -257,8 +257,10 @@
 - [제철 겨울 바다·시장 모슬포 방어](https://www.aroundtool.com/season-moseulpo-bangeo.html)
 - [제철 겨울 바다·시장 남당리 새조개](https://www.aroundtool.com/season-namdang-saejogae.html)
 - [제철 겨울 바다·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
+- [제철 겨울 바다·시장 포항 과메기](https://www.aroundtool.com/season-pohang-gwamegi.html)
 - [제철 겨울 바다·시장 도루묵](https://www.aroundtool.com/season-sokcho-dorumuk.html)
 - [제철 겨울 바다·시장 소래포구 김장 젓갈](https://www.aroundtool.com/season-sorae-jeotgal.html)
+- [제철 겨울 바다·시장 통영 굴](https://www.aroundtool.com/season-tongyeong-gul.html)
 - [제철 겨울 바다·시장 영덕 대게](https://www.aroundtool.com/season-yeongdeok-daege.html)
 
 ## 여행

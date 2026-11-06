@@ -226,6 +226,8 @@ from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1105})
 from food_1107 import PAGES_1107 as _FOOD_1107  # noqa: E402  (2026-11-06 컨펌 i261106-04 제철·시장 안내 10곳)
 PAGE_DATES.update({x["file"]: "2026-11-06" for x in _FOOD_1107})
+from food_1108 import PAGES_1108 as _FOOD_1108  # noqa: E402  (2026-11-07 컨펌 i261105-04 제철 안내 2곳: 통영 굴·포항 과메기)
+PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
