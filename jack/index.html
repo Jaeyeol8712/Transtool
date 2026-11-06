@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
-<script src="office3d.js?v=4"></script>
+<script src="office3d.js?v=5"></script>
 <style>
 :root{
   --bg:#eef1ec; --panel:#ffffff; --fg:#22261f; --muted:#6c7268; --line:#e2e3dc;
@@ -47,6 +47,9 @@ body{background:var(--bg);color:var(--fg);font:14px/1.5 var(--sans)}
 .o3-badge.s-run .o3-b{background:var(--run)}.o3-badge.s-think .o3-b{background:var(--think)}.o3-badge.s-turn .o3-b{background:var(--turn)}.o3-badge.s-err .o3-b{background:var(--err)}
 .o3-bub{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:4px 10px;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);max-width:220px;overflow:hidden;text-overflow:ellipsis}
 .m-hint{display:none}@media (max-width:900px){.m-hint{display:inline}}
+.zoom{position:absolute;right:12px;bottom:12px;z-index:5;display:flex;gap:6px}
+.zoom button{font:700 15px var(--sans);min-width:36px;height:36px;padding:0 10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.zoom button#zAll{font-size:12.5px}
 .loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted)}
 .pop{position:absolute;z-index:5;width:320px;max-width:calc(100% - 32px);max-height:70%;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 8px 28px rgba(0,0,0,.14)}
 .pop h3{margin:0 0 2px;font-size:15px}.pop .sub{color:var(--muted);font-size:12.5px;margin-bottom:8px}
@@ -75,7 +78,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 <body>
 <div class="app">
   <div class="stage" id="stage">
-    <div class="scroller" id="scroller"><div id="scene" role="img" aria-label="어라운드툴 팀 사무실 3D 지도. 방과 직원을 누르면 상세가 열립니다."><div class="loading">사무실을 불러오는 중…</div></div></div>
+    <div class="scroller" id="scroller"><div class="zoom" role="group" aria-label="확대·축소"><button id="zIn" aria-label="확대">＋</button><button id="zOut" aria-label="축소">－</button><button id="zAll" aria-label="전체 보기">전체</button></div><div id="scene" role="img" aria-label="어라운드툴 팀 사무실 3D 지도. 방과 직원을 누르면 상세가 열립니다."><div class="loading">사무실을 불러오는 중…</div></div></div>
     <div class="top"><b>짹의 운영실</b><span id="stamp">불러오는 중…</span><span>방이나 직원을 누르면 상세가 열립니다</span><div class="kpi" id="kpi"></div></div>
     
     <div class="legend"><span><i style="background:var(--run)"></i>오늘 할 일</span><span><i style="background:var(--think)"></i>공부 순번</span><span><i style="background:var(--turn)"></i>대표님 차례</span><span><i style="background:var(--err)"></i>오류</span><span><i style="background:var(--idle)"></i>대기</span></div>
@@ -177,7 +180,7 @@ function init(){
     onPick:function(h,e){if(!h){$("#pop").hidden=true;return}var rc=$("#stage").getBoundingClientRect(),r=ROOMS.filter(function(x){return x.id===h.room.id})[0];showPop(r,h.idx!=null?r.people[h.idx]:null,e.clientX-rc.left,e.clientY-rc.top)}});
     refresh();
 }
-render();init();(function(){function fit(){var sc=document.getElementById("scroller");if(!sc)return;var w=sc.clientWidth||window.innerWidth;document.documentElement.style.setProperty("--s",Math.min(1,w/1140).toFixed(4));}fit();window.addEventListener("resize",fit);})();
+render();init();document.getElementById("zIn").onclick=function(){OFF&&OFF.zoomBy(1.35)};document.getElementById("zOut").onclick=function(){OFF&&OFF.zoomBy(1/1.35)};document.getElementById("zAll").onclick=function(){OFF&&OFF.zoomReset()};(function(){function fit(){var sc=document.getElementById("scroller");if(!sc)return;var w=sc.clientWidth||window.innerWidth;document.documentElement.style.setProperty("--s",Math.min(1,w/1140).toFixed(4));}fit();window.addEventListener("resize",fit);})();
 fetch("data.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){D=d;head();render();refresh()}).catch(function(){$("#stamp").textContent="데이터를 불러오지 못했습니다."});
 setInterval(function(){if(D){head();refresh()}},60000);
 })();

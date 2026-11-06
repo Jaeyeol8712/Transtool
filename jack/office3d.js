@@ -198,8 +198,9 @@ function createOffice(container, opt) {
   const corners = []; for (const x of [0, W0]) for (const z of [0, D0]) for (const y of [-1.2, 3.4]) corners.push(new THREE.Vector3(x, y, z));
   const tmp = new THREE.Vector3();
   function place() {
-    const aspect = Wd / Hd, span = Math.max(17.5, 23 / aspect);
-    cam.left = -span * aspect; cam.right = span * aspect; cam.top = span; cam.bottom = -span; cam.updateProjectionMatrix();
+    const aspect = Wd / Hd, base = Math.max(17.5, 23 / aspect), span = base / zoom;
+    const lim = base - span; panX = Math.max(-lim * aspect, Math.min(lim * aspect, panX)); panZ = Math.max(-lim, Math.min(lim, panZ));
+    cam.left = -span * aspect + panX; cam.right = span * aspect + panX; cam.top = span + panZ; cam.bottom = -span + panZ; cam.updateProjectionMatrix();
     const dist = 80;
     cam.position.set(CX + Math.sin(az) * Math.cos(EL) * dist, Math.sin(EL) * dist, CZ + Math.cos(az) * Math.cos(EL) * dist); cam.lookAt(CX, 0, CZ);
   }
@@ -226,8 +227,14 @@ function createOffice(container, opt) {
   }
 
   /* ── 조작: 끌어서 회전, 휠·핀치 확대, 클릭 선택 ── */
-  const el = renderer.domElement; el.style.cursor = "default";
-  el.addEventListener("click", e => pick(e));
+  const el = renderer.domElement; el.style.cursor = "default"; let drag = null;
+  function touchMode() { el.style.touchAction = tZoom > 1.01 ? "none" : "pan-y"; el.style.cursor = tZoom > 1.01 ? "grab" : "default"; }
+  el.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, px: panX, pz: panZ, moved: false }; if (tZoom > 1.01) el.setPointerCapture(e.pointerId); });
+  el.addEventListener("pointermove", e => { if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 5) drag.moved = true;
+    if (tZoom > 1.01 && drag.moved) { const r = el.getBoundingClientRect(), k = (cam.right - cam.left) / r.width; panX = drag.px - dx * k; panZ = drag.pz + dy * k; } });
+  el.addEventListener("pointerup", e => { const d = drag; drag = null; if (d && !d.moved) pick(e); });
+  el.addEventListener("pointercancel", () => { drag = null; });
+  touchMode();
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   function pick(e) { const r = el.getBoundingClientRect(); ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); ray.setFromCamera(ndc, cam);
     const hit = ray.intersectObjects(pickables, false)[0]; if (!hit) { opt.onPick && opt.onPick(null, e); return; }
@@ -242,7 +249,7 @@ function createOffice(container, opt) {
     setRoom(roomId, st) { const R = roomObjs[roomId]; if (R) R.dot.el.className = "o3-l o3-room s-" + st; },
     setBubble(roomId, idx, text) { const R = roomObjs[roomId]; if (!R || !R.people[idx]) return; const b = R.people[idx].bub; if (!text) { b.el.style.display = "none"; return; } b.el.textContent = text; b.el.style.display = ""; },
     setName(roomId, idx, text) { const R = roomObjs[roomId]; if (R && R.people[idx]) R.people[idx].tag.el.textContent = text; },
-    rotate(d) { tAz += d; }, zoomBy(f) { tZoom = Math.max(0.7, Math.min(3, tZoom * f)); },
+    rotate(d) { tAz += d; }, zoomBy(f) { tZoom = Math.max(1, Math.min(3.5, tZoom * f)); touchMode(); }, zoomReset() { tZoom = 1; panX = 0; panZ = 0; touchMode(); },
   };
 }
 global.createOffice = createOffice;
