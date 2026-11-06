@@ -1,30 +1,10 @@
-== 2026-11-06T03:44:01Z push 4a6baf882904da43e2f950c7aa4032d440a64a6c
-· 대상 99개
-  https://www.aroundtool.com/calorie_calculator.html
-  https://www.aroundtool.com/car_tax_calculator.html
-  https://www.aroundtool.com/credit_card_deduction_calculator.html
-  https://www.aroundtool.com/donation_tax_credit_calculator.html
-  https://www.aroundtool.com/electricity_bill_calculator.html
-  https://www.aroundtool.com/etc.html
-  https://www.aroundtool.com/exchange_rate_calculator.html
-  https://www.aroundtool.com/fuel_economy_calculator.html
-  https://www.aroundtool.com/gas_bill_calculator.html
-  https://www.aroundtool.com/guide-acquisition-tax-rates.html
-  https://www.aroundtool.com/guide-age-criteria-school-military-housing.html
-  https://www.aroundtool.com/guide-annual-leave-promotion.html
-  https://www.aroundtool.com/guide-annual-leave-rules.html
-  https://www.aroundtool.com/guide-bmi-normal-range.html
-  https://www.aroundtool.com/guide-boiler-away-mode-vs-off.html
-  https://www.aroundtool.com/guide-brokerage-fee-rates.html
-  https://www.aroundtool.com/guide-car-acquisition-tax.html
-  https://www.aroundtool.com/guide-car-antifreeze-check.html
-  https://www.aroundtool.com/guide-car-inspection-period-fine.html
-  https://www.aroundtool.com/guide-car-insurance-emergency-service.html
-  … 외 79개
+== 2026-11-06T03:46:11Z push 8dd382c2872fe7e929e5e1a3a5b99442ac267b18
+· 대상 1개
+  https://www.aroundtool.com/
 
   ✓ api.indexnow.org — 200 접수됨
   ✓ www.bing.com — 200 접수됨
-  ✓ searchadvisor.naver.com — 200 접수됨
+  ✗ searchadvisor.naver.com — 422 URL이 host와 맞지 않습니다
 
 · 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
