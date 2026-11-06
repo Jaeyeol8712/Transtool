@@ -1,0 +1,31 @@
+<label for="evS">충전 방식 (공공 충전기 요금, 2026.8.1~)</label>
+<select id="evS" onchange="if(this.value)document.getElementById('evP').value=this.value"><option value="295">완속 30kW 미만 (295.0원)</option><option value="307.2">30~50kW 미만 (307.2원)</option><option value="325.6" selected>급속 50~100kW 미만 (325.6원)</option><option value="348.4">급속 100~200kW 미만 (348.4원)</option><option value="393.1">초급속 200kW 이상 (393.1원)</option><option value="">직접 입력 (집·민간 충전기)</option></select>
+<label for="evP">충전 요금 (원/kWh)</label>
+<input id="evP" type="number" inputmode="decimal" value="325.6"/>
+<label for="evE">전비 (km/kWh, 차량 표시 값)</label>
+<input id="evE" type="number" inputmode="decimal" placeholder="5.0"/>
+<label for="evD">한 달 주행 거리 (km)</label>
+<input id="evD" type="number" inputmode="numeric" placeholder="1200"/>
+<label for="evB">배터리 용량 (kWh, 선택)</label>
+<input id="evB" type="number" inputmode="decimal" placeholder="77.4"/>
+<button onclick="calcEv()">충전비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">한 달 충전비</span><span class="result-value" id="evOut">-</span></div>
+<div class="result-row"><span class="result-label">필요 전력량</span><span class="result-value" id="evK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1km당 비용</span><span class="result-value" id="evKm" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">10%→80% 한 번 충전</span><span class="result-value" id="evOne" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcEv(){
+ function v(id){return parseFloat(document.getElementById(id).value);}
+ var p=v('evP'),e=v('evE'),d=v('evD'),b=v('evB');
+ if([p,e,d].some(isNaN)||e<=0) return alert('요금·전비·거리를 입력해주세요.');
+ var k=d/e;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('evOut').textContent=w(k*p);
+ document.getElementById('evK').textContent=k.toFixed(1)+'kWh';
+ document.getElementById('evKm').textContent=(p/e).toFixed(1)+'원';
+ document.getElementById('evOne').textContent=isNaN(b)?'-':w(b*0.7*p);
+ document.getElementById('result').classList.add('show');
+}
+</script>

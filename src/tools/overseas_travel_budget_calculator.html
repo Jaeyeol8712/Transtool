@@ -1,0 +1,35 @@
+<label for="otP">인원 (명)</label>
+<input id="otP" type="number" inputmode="numeric" value="2"/>
+<label for="otN">숙박 (박)</label>
+<input id="otN" type="number" inputmode="numeric" value="3"/>
+<label for="otF">항공권 1인 왕복 (원)</label>
+<input id="otF" type="number" inputmode="numeric" placeholder="400000"/>
+<label for="otH">숙소 1박 요금, 방 1개 (원)</label>
+<input id="otH" type="number" inputmode="numeric" placeholder="150000"/>
+<label for="otX">환율 (현지 돈 1단위 = 원)</label>
+<input id="otX" type="number" inputmode="decimal" placeholder="9.5"/>
+<label for="otL">1인 하루 현지 경비, 현지 돈 (식비·교통·입장료)</label>
+<input id="otL" type="number" inputmode="decimal" placeholder="10000"/>
+<label for="otE">기타 (보험·유심·쇼핑, 원)</label>
+<input id="otE" type="number" inputmode="numeric" placeholder="100000"/>
+<button onclick="calcOt()">경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 예상 경비</span><span class="result-value" id="otOut">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="otPer" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">항공 / 숙소</span><span class="result-value" id="otFH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">현지 경비 (원 환산)</span><span class="result-value" id="otLoc" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcOt(){
+ function v(id){return parseFloat(document.getElementById(id).value)||0;}
+ var p=v('otP'),n=v('otN');
+ if(p<=0) return alert('인원을 입력해주세요.');
+ var f=v('otF')*p,h=v('otH')*n,loc=v('otL')*v('otX')*p*(n+1),e=v('otE'),t=f+h+loc+e;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('otOut').textContent=w(t);
+ document.getElementById('otPer').textContent=w(t/p);
+ document.getElementById('otFH').textContent=w(f)+' / '+w(h);
+ document.getElementById('otLoc').textContent=w(loc)+' ('+(n+1)+'일)';
+ document.getElementById('result').classList.add('show');
+}
+</script>

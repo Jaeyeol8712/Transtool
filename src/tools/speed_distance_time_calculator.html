@@ -1,0 +1,32 @@
+<label for="sdM">구할 값</label>
+<select id="sdM" onchange="sdSw()"><option value="t" selected>걸리는 시간 (거리·속도로)</option><option value="v">속도 (거리·시간으로)</option><option value="d">거리 (속도·시간으로)</option></select>
+<div id="sdDw"><label for="sdD">거리 (km)</label>
+<input id="sdD" type="number" inputmode="decimal" placeholder="390"/></div>
+<div id="sdVw"><label for="sdV">속도 (km/h)</label>
+<input id="sdV" type="number" inputmode="decimal" placeholder="90"/></div>
+<div id="sdTw" style="display:none"><label for="sdH">시간 (시간)</label>
+<input id="sdH" type="number" inputmode="numeric" placeholder="2"/>
+<label for="sdMi">분</label>
+<input id="sdMi" type="number" inputmode="numeric" placeholder="30"/></div>
+<button onclick="calcSd()">계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label" id="sdLab">결과</span><span class="result-value" id="sdOut">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="sdX" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function sdSw(){var m=document.getElementById('sdM').value;
+ document.getElementById('sdDw').style.display=m==='d'?'none':'';
+ document.getElementById('sdVw').style.display=m==='v'?'none':'';
+ document.getElementById('sdTw').style.display=m==='t'?'none':'';}
+function calcSd(){
+ var m=document.getElementById('sdM').value,d=parseFloat(document.getElementById('sdD').value),v=parseFloat(document.getElementById('sdV').value),
+     t=(parseFloat(document.getElementById('sdH').value)||0)+(parseFloat(document.getElementById('sdMi').value)||0)/60;
+ function hm(h){var mm=Math.round(h*60);return Math.floor(mm/60)+'시간 '+(mm%60)+'분';}
+ var lab,out,x;
+ if(m==='t'){if(isNaN(d)||isNaN(v)||v<=0)return alert('거리와 속도를 입력해주세요.');lab='걸리는 시간';out=hm(d/v);x='1km에 '+(60/v).toFixed(2)+'분';}
+ else if(m==='v'){if(isNaN(d)||t<=0)return alert('거리와 시간을 입력해주세요.');lab='평균 속도';out=(d/t).toFixed(1)+'km/h';x='초속 '+(d/t/3.6).toFixed(2)+'m · 1km에 '+(60*t/d).toFixed(2)+'분';}
+ else{if(isNaN(v)||t<=0)return alert('속도와 시간을 입력해주세요.');lab='이동 거리';out=(v*t).toFixed(1)+'km';x=hm(t)+' 동안';}
+ document.getElementById('sdLab').textContent=lab;document.getElementById('sdOut').textContent=out;document.getElementById('sdX').textContent=x;
+ document.getElementById('result').classList.add('show');
+}
+</script>

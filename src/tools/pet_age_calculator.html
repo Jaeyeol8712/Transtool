@@ -1,0 +1,23 @@
+<label for="paK">반려동물</label>
+<select id="paK"><option value="cat">고양이</option><option value="s">소형견 (약 9kg 이하)</option><option value="m" selected>중형견 (약 10~22kg)</option><option value="l">대형견 (약 23kg 이상)</option></select>
+<label for="paY">나이 (년)</label>
+<input id="paY" type="number" inputmode="decimal" placeholder="5"/>
+<button onclick="calcPa()">사람 나이로 환산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">사람 나이로 약</span><span class="result-value" id="paOut">-</span></div>
+<div class="result-row"><span class="result-label">생애 단계</span><span class="result-value" id="paSt" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcPa(){
+ var k=document.getElementById('paK').value,y=parseFloat(document.getElementById('paY').value);
+ if(isNaN(y)||y<0||y>30) return alert('나이를 0~30 사이로 넣어주세요.');
+ var inc={cat:4,s:4,m:5,l:6}[k],h;
+ if(y<=1)h=15*y;else if(y<=2)h=15+9*(y-1);else h=24+inc*(y-2);
+ var st;
+ if(k==='cat'){st=y<1?'아기 고양이':y<=6?'청년기':y<=10?'중년기':'노년기';}
+ else{var sr={s:10,m:8,l:6}[k];st=y<1?'강아지':y<3?'청년기':y<sr?'성견':'노령견';}
+ document.getElementById('paOut').textContent=Math.round(h)+'세';
+ document.getElementById('paSt').textContent=st;
+ document.getElementById('result').classList.add('show');
+}
+</script>

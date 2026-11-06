@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전세대출 이자 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/jeonse_loan_interest_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="전세대출 이자 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">전세대출 이자 계산기</p>
+<label for="jlA">전세대출 금액 (원)</label>
+<input id="jlA" type="number" inputmode="numeric" placeholder="200000000"/>
+<label for="jlR">대출 금리 (연 %)</label>
+<input id="jlR" type="number" inputmode="decimal" placeholder="4.0"/>
+<label for="jlY">대출 기간 (년)</label>
+<input id="jlY" type="number" inputmode="numeric" value="2"/>
+<button onclick="calcJl()">이자 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">월 이자 (만기일시상환)</span><span class="result-value" id="jlOut">-</span></div>
+<div class="result-row"><span class="result-label">기간 총 이자</span><span class="result-value" id="jlT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">연 이자</span><span class="result-value" id="jlYr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="jlMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcJl(){
+ var a=parseFloat(document.getElementById('jlA').value),r=parseFloat(document.getElementById('jlR').value),y=parseFloat(document.getElementById('jlY').value);
+ if([a,r,y].some(isNaN)||a<=0) return alert('모든 칸을 입력해주세요.');
+ var yr=a*r/100,mo=yr/12;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('jlOut').textContent=w(mo);
+ document.getElementById('jlYr').textContent=w(yr);
+ document.getElementById('jlT').textContent=w(yr*y);
+ document.getElementById('jlMsg').textContent='금리 0.5%p 차이는 월 '+w(a*0.005/12)+'입니다. 원금은 만기에 한 번에 갚습니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/jeonse_loan_interest_calculator.html?utm_source=embed&amp;utm_campaign=jeonse_loan_interest_calculator" target="_blank" rel="noopener">어라운드툴 전세대출 이자 계산기</a></p>
+</body>
+</html>

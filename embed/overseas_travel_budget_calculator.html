@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>해외여행 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/overseas_travel_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="해외여행 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">해외여행 경비 계산기</p>
+<label for="otP">인원 (명)</label>
+<input id="otP" type="number" inputmode="numeric" value="2"/>
+<label for="otN">숙박 (박)</label>
+<input id="otN" type="number" inputmode="numeric" value="3"/>
+<label for="otF">항공권 1인 왕복 (원)</label>
+<input id="otF" type="number" inputmode="numeric" placeholder="400000"/>
+<label for="otH">숙소 1박 요금, 방 1개 (원)</label>
+<input id="otH" type="number" inputmode="numeric" placeholder="150000"/>
+<label for="otX">환율 (현지 돈 1단위 = 원)</label>
+<input id="otX" type="number" inputmode="decimal" placeholder="9.5"/>
+<label for="otL">1인 하루 현지 경비, 현지 돈 (식비·교통·입장료)</label>
+<input id="otL" type="number" inputmode="decimal" placeholder="10000"/>
+<label for="otE">기타 (보험·유심·쇼핑, 원)</label>
+<input id="otE" type="number" inputmode="numeric" placeholder="100000"/>
+<button onclick="calcOt()">경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 예상 경비</span><span class="result-value" id="otOut">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="otPer" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">항공 / 숙소</span><span class="result-value" id="otFH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">현지 경비 (원 환산)</span><span class="result-value" id="otLoc" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcOt(){
+ function v(id){return parseFloat(document.getElementById(id).value)||0;}
+ var p=v('otP'),n=v('otN');
+ if(p<=0) return alert('인원을 입력해주세요.');
+ var f=v('otF')*p,h=v('otH')*n,loc=v('otL')*v('otX')*p*(n+1),e=v('otE'),t=f+h+loc+e;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('otOut').textContent=w(t);
+ document.getElementById('otPer').textContent=w(t/p);
+ document.getElementById('otFH').textContent=w(f)+' / '+w(h);
+ document.getElementById('otLoc').textContent=w(loc)+' ('+(n+1)+'일)';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/overseas_travel_budget_calculator.html?utm_source=embed&amp;utm_campaign=overseas_travel_budget_calculator" target="_blank" rel="noopener">어라운드툴 해외여행 경비 계산기</a></p>
+</body>
+</html>

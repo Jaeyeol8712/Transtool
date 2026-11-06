@@ -170,11 +170,12 @@ FOOD_AREAS = [
     ("jeju", "제주특별자치도", "제주", [("jeju-jejusi", "제주시"), ("jeju-seogwipo", "서귀포시")]),
     ("jeonnam", "전라남도", "전남", [("jeonnam-dongbu", "동부권"), ("jeonnam-jungbu", "중부권"),
                                     ("jeonnam-seobu", "서부권"), ("jeonnam-nambu", "남부권")]),
+    ("season", "전국 제철 음식", "제철", [("season", "겨울 바다·시장")]),  # 2026-11-06 i261106-04 제철·시장 안내(가게 이름 없음)
 ]
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["dividend_tax_calculator", "stock_average_price_calculator", "jeonse_loan_interest_calculator", "car_installment_calculator", "gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -185,13 +186,13 @@ TOOL_GROUPS = [
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
-    ("trip", "여행", ["time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
+    ("trip", "여행", ["overseas_travel_budget_calculator", "time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
@@ -214,12 +215,17 @@ from trips_1105 import TRIP_PAGES_1105, make as _make_trips_1105  # noqa: E402  
 TRIP_PAGES += TRIP_PAGES_1105
 from trips_1106 import TRIP_PAGES_1106  # noqa: E402  (2026-11-05 컨펌 i261105-03 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1106
+from trips_1107 import TRIP_PAGES_1107  # noqa: E402  (2026-11-06 컨펌 i261106-03 여행 10곳)
+TRIP_PAGES += TRIP_PAGES_1107
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
+PAGE_DATES.update({s + ".html": "2026-11-06" for s, _, _ in TRIP_PAGES_1107})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1105})
+from food_1107 import PAGES_1107 as _FOOD_1107  # noqa: E402  (2026-11-06 컨펌 i261106-04 제철·시장 안내 10곳)
+PAGE_DATES.update({x["file"]: "2026-11-06" for x in _FOOD_1107})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -368,6 +374,8 @@ def head_info(f):
 
 
 def count_places(f, title):
+    if f.startswith("season-"):  # 제철·시장 안내는 가게 목록이 아니므로 0곳
+        return 0
     s = read(f)
     m = re.search(r"(\d+)곳", title)
     if m:
@@ -494,7 +502,7 @@ def kind_of(p):
     return k if k in KINDS else "product"
 N_TOOLS = len(TOOLS)
 N_PLACES = sum(p["count"] for p in FOOD_OK if p.get("prefix") != "seoul-winter")  # 겨울 메뉴 묶음은 다른 페이지 가게를 다시 모은 것이라 제외
-N_GU = sum(len(g) for _, _, _, g in FOOD_AREAS)
+N_GU = sum(len(g) for r, _, _, g in FOOD_AREAS if r != "season")  # 제철 안내 묶음은 지역이 아님
 
 
 def food_pages(prefix):
@@ -710,7 +718,7 @@ def board_html(p):
                 links.append(f'<a href="/{pre}.html"{cur}>{esc(gu)}</a>')
             sub = f'<div class="at-board-sub"><span>{esc(area[2])} 다른 지역</span>{"".join(links)}</div>'
         return f"""<div class="at-board is-food">
-  <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{esc(p['region_short'])} {esc(p['gu'])} 맛집</a></p><span class="at-board-meta">{gu_count(p['prefix'])}곳 수록 · 광고·협찬 제외</span></div>
+  <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{"겨울 제철 음식·시장" if p['prefix'] == "season" else esc(p['region_short']) + " " + esc(p['gu']) + " 맛집"}</a></p><span class="at-board-meta">{"제철·장소 안내" if p['prefix'] == "season" else str(gu_count(p['prefix'])) + "곳 수록"} · 광고·협찬 제외</span></div>
   <ul class="at-board-tabs">{"".join(tabs)}</ul>{sub}
 </div>"""
     if s == "tools":
@@ -1386,7 +1394,7 @@ def transform_existing(p):
             m = re.search(r"<h2[^>]*>\s*자주 묻는 질문", body)
             body = body[:m.start()] + blk + body[m.start():] if m else body + blk
     # 맛집 게시판의 짧은 H1('밥집', '갈치')에 지역명을 붙여 검색어와 맞춥니다 (한 번만 적용).
-    if p.get("section") == "food" and p.get("gu"):
+    if p.get("section") == "food" and p.get("gu") and p.get("prefix") != "season":
         def _h1(m):
             x = m.group(1).strip()
             if p["gu"] in x or len(x) > 10:
@@ -1410,7 +1418,7 @@ def transform_existing(p):
                 return ""
             return m.group(0)
         preserved = re.sub(r'<script type="application/ld\+json">(.*?)</script>', _drop_faq, preserved, flags=re.S)
-    if p.get("section") == "food" and not p.get("research") and p.get("cat"):
+    if p.get("section") == "food" and not p.get("research") and p.get("cat") and p.get("prefix") != "season":
         bs = BeautifulSoup(body, "html.parser")
         names = []
         for art_ in bs.select("article.entry, article[class*=entry]"):
@@ -1967,26 +1975,23 @@ def build_home():
         pre, gu = gus[0]
         label = gu if len(gus) == 1 else rshort
         href = f"/{pre}.html" if len(gus) == 1 else f"/food.html#r-{rid}"
-        regions.append(f'<li><a class="ah-reg" href="{href}"><b>{esc(label)}</b><span>{esc(rshort)} · {region_count(rid)}곳</span></a></li>')
+        regions.append(f'<li><a class="ah-reg" href="{href}"><b>{esc(label)}</b><span>{esc(rshort)} · {"안내" if rid == "season" else str(region_count(rid)) + "곳"}</span></a></li>')
     regions.append(f'<li><a class="ah-reg is-all" href="/food.html"><b>전체 {N_GU}개 지역</b><span>맛집 {N_PLACES}곳</span></a></li>')
-    trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}<span>{"해외" if kind == "해외" else "국내"}</span></a></li>' for slug, name, kind in TRIP_PAGES)
-    guides = "".join(f'<li><a href="/{slug}.html">{esc(PAGES[slug + ".html"]["name"])}</a></li>' for slug, _ in (Q_GUIDES[:4] + GUIDE_PAGES))
+    # 2026-11-06 대표 지시: 홈 여행·가이드는 최신 15개만 (여행 10 + 가이드 5)
+    trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}<span>{"해외" if kind == "해외" else "국내"}</span></a></li>' for slug, name, kind in TRIP_PAGES[::-1][:10])
+    new_guides = sorted(GUIDES, key=lambda g: g.get("date", ""), reverse=True)[:5]
+    guides = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(PAGES["guide-" + g["slug"] + ".html"]["name"])}</a></li>' for g in new_guides)
     sec_tag = {"tools": "계산기", "guide": "가이드", "trip": "여행", "food": "맛집", "connect": "추천"}
     order = {f: i for i, f in enumerate(PAGES)}
     pool = [q for q in PAGES.values() if q["section"] in sec_tag and not q.get("draft") and not q.get("research")]
     added = first_added()
     now = int(datetime.now(timezone.utc).timestamp())
-    latest = sorted(pool, key=lambda q: (added.get(q["file"], now), order[q["file"]]), reverse=True)[:100]
+    latest = sorted(pool, key=lambda q: (added.get(q["file"], now), order[q["file"]]), reverse=True)[:10]  # 2026-11-06 대표 지시: 더보기 없앰
     def up_time(q):
         t = datetime.fromtimestamp(added.get(q["file"], now), timezone(timedelta(hours=9)))
         return t.strftime("%Y-%m-%dT%H:%M+09:00"), t.strftime("%Y.%m.%d %H:%M")
-    MORE = ' class="is-more" hidden'
-    news = "".join(f'<li{MORE if i >= 10 else ""}><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
-                   f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for i, q in enumerate(latest))
-    more_btn = (f'<button type="button" class="ah-more" id="ah-more" aria-controls="ah-new-list" aria-expanded="false" data-n="{len(latest)}">더보기 (최근 {len(latest)}개)</button>'
-                "<script>document.getElementById('ah-more').addEventListener('click',function(){var o=this.getAttribute('aria-expanded')==='true';"
-                "document.querySelectorAll('#ah-new-list .is-more').forEach(function(x){x.hidden=o});this.setAttribute('aria-expanded',String(!o));"
-                "this.textContent=o?'더보기 (최근 '+this.dataset.n+'개)':'접기';});</script>") if len(latest) > 10 else ""
+    news = "".join(f'<li><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
+                   f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
     content = f"""<section class="ah-hero" aria-labelledby="ah-h1">
@@ -2011,7 +2016,6 @@ def build_home():
     <ul class="ah-regs">{"".join(regions)}</ul>
     <div class="ah-head ah-head-sub"><h3 id="ah-new">최신 글</h3><a href="/sitemap.html">전체 페이지</a></div>
     <ul class="ah-ups ah-new" id="ah-new-list" aria-labelledby="ah-new">{news}</ul>
-    {more_btn}
   </section>
   <section class="ah-card" aria-labelledby="ah-trip">
     <div class="ah-head"><h2 id="ah-trip">여행·가이드</h2><a href="/travel.html">여행 전체</a></div>
@@ -2106,6 +2110,15 @@ def build_gu_hub(p):
 {travel}{other_html}
 <p>전국 다른 지역은 <a href="/food.html">전국 맛집 기록</a>에서 볼 수 있습니다.</p>
 </div></div>"""
+    if p["prefix"] == "season":  # 제철·시장 안내 묶음: 가게 목록이 아니므로 '맛집 N곳' 문구와 Restaurant 구조화 데이터를 쓰지 않음
+        n = len(pages)
+        p["title"] = f"겨울 제철 음식·시장 안내 {n}가지 — 제철 시기·먹는 법"
+        p["desc"] = "방어·꼬막·새조개·대게·도루묵·대구·새우젓·매생이 등 겨울 제철 해산물과 시장을 제철 시기·장소·먹는 법 중심으로 정리했습니다. 가게 추천은 하지 않습니다."
+        content = content.replace(f"<h1>{esc(area)} 맛집 {total}곳</h1>", f"<h1>겨울 제철 음식·시장 {n}가지</h1>")
+        content = content.replace(f"{esc(p['gu'])}에서 광고·협찬을 빼고 고른 가게를 카테고리별로 모았습니다. 가게 이름을 누르면 선정 근거와 단점, 가격과 영업시간 확인 여부를 볼 수 있습니다.",
+                                  "겨울에 많이 찾는 제철 해산물과 시장을 모았습니다. 가게 추천이 아니라 제철 시기·장소·먹는 법 안내입니다.")
+        content = content.replace(f"<p>{answer}</p>", "<p>제철 음식은 시기가 짧습니다. 대게는 12월부터(6~11월 금어기), 새조개는 12~3월, 매생이는 12~2월에 나옵니다. 아래에서 음식별 제철과 가는 법을 보세요.</p>")
+        ld_items = []
     lst = {"@type": "ItemList", "name": f"{area} 맛집", "numberOfItems": len(ld_items), "itemListElement": ld_items}
     if photo_ld:
         lst["image"] = photo_ld[0]
@@ -2118,11 +2131,12 @@ def build_food_hub():
     jump = []
     for rid, rname, rshort, gus in FOOD_AREAS:
         jump.append(f'<a href="#r-{rid}">{esc(rshort)} <span class="c">{region_count(rid)}</span></a>')
-        rows.append(f'<tr class="at-gr" id="r-{rid}"><td colspan="4">{esc(rname)}<span>{region_count(rid)}곳</span></td></tr>')
+        rows.append(f'<tr class="at-gr" id="r-{rid}"><td colspan="4">{esc(rname)}<span>{"안내" if rid == "season" else str(region_count(rid)) + "곳"}</span></td></tr>')
         for pre, gu in gus:
-            rows.append(f'<tr data-k="{esc(rname)} {esc(gu)}"><td class="k"><span class="tag food">{esc(gu)}</span></td>'
-                        f'<td><a href="/{pre}.html"><b>{esc(rshort)} {esc(gu)} 맛집 전체 보기</b></a><span class="x">카테고리별 가게 목록을 한 페이지에</span></td>'
-                        f'<td class="c">{gu_count(pre)}</td><td class="d">{short_date(TODAY)}</td></tr>')
+            _mid = (f'<td><a href="/{pre}.html"><b>겨울 제철 음식·시장 안내 전체 보기</b></a><span class="x">제철 시기·장소·먹는 법 (가게 추천 없음)</span></td>' if pre == "season" else f'<td><a href="/{pre}.html"><b>{esc(rshort)} {esc(gu)} 맛집 전체 보기</b></a><span class="x">카테고리별 가게 목록을 한 페이지에</span></td>')
+            rows.append(f'<tr data-k="{esc(rname)} {esc(gu)}"><td class="k"><span class="tag food">{esc(gu)}</span></td>' + _mid +
+
+                        f'<td class="c">{"—" if pre == "season" else gu_count(pre)}</td><td class="d">{short_date(TODAY)}</td></tr>')
             for q in food_pages(pre):
                 dim = ' class="is-dim"' if q["research"] else ""
                 cnt = q["count"] if q["count"] else "—"

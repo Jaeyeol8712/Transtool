@@ -1,0 +1,28 @@
+<label for="poS">마지막 생리 시작일</label>
+<input id="poS" type="date"/>
+<label for="poC">평균 생리 주기 (일)</label>
+<input id="poC" type="number" inputmode="numeric" value="28"/>
+<button onclick="calcPo()">날짜 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">다음 생리 예정일</span><span class="result-value" id="poOut">-</span></div>
+<div class="result-row"><span class="result-label">배란 예정일</span><span class="result-value" id="poOv" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">가임기 (추정)</span><span class="result-value" id="poF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="poList" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcPo(){
+ var s=document.getElementById('poS').value,c=parseInt(document.getElementById('poC').value,10);
+ if(!s||isNaN(c)) return alert('날짜와 주기를 입력해주세요.');
+ if(c<21||c>45) return alert('주기는 21~45일 사이로 넣어주세요.');
+ var b=new Date(s+'T00:00:00');
+ function add(d,k){var x=new Date(d);x.setDate(x.getDate()+k);return x;}
+ function f(d){return (d.getMonth()+1)+'월 '+d.getDate()+'일';}
+ var nx=add(b,c),ov=add(nx,-14);
+ document.getElementById('poOut').textContent=f(nx);
+ document.getElementById('poOv').textContent=f(ov);
+ document.getElementById('poF').textContent=f(add(ov,-5))+' ~ '+f(add(ov,1));
+ var l=[];for(var i=2;i<=4;i++){l.push(f(add(b,c*i)));}
+ document.getElementById('poList').textContent='그다음 예정일: '+l.join(' · ')+'. 주기가 불규칙하면 실제와 다를 수 있습니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

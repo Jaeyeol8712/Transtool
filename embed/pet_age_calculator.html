@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>반려견·반려묘 나이 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/pet_age_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="반려견·반려묘 나이 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">반려견·반려묘 나이 계산기</p>
+<label for="paK">반려동물</label>
+<select id="paK"><option value="cat">고양이</option><option value="s">소형견 (약 9kg 이하)</option><option value="m" selected>중형견 (약 10~22kg)</option><option value="l">대형견 (약 23kg 이상)</option></select>
+<label for="paY">나이 (년)</label>
+<input id="paY" type="number" inputmode="decimal" placeholder="5"/>
+<button onclick="calcPa()">사람 나이로 환산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">사람 나이로 약</span><span class="result-value" id="paOut">-</span></div>
+<div class="result-row"><span class="result-label">생애 단계</span><span class="result-value" id="paSt" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcPa(){
+ var k=document.getElementById('paK').value,y=parseFloat(document.getElementById('paY').value);
+ if(isNaN(y)||y<0||y>30) return alert('나이를 0~30 사이로 넣어주세요.');
+ var inc={cat:4,s:4,m:5,l:6}[k],h;
+ if(y<=1)h=15*y;else if(y<=2)h=15+9*(y-1);else h=24+inc*(y-2);
+ var st;
+ if(k==='cat'){st=y<1?'아기 고양이':y<=6?'청년기':y<=10?'중년기':'노년기';}
+ else{var sr={s:10,m:8,l:6}[k];st=y<1?'강아지':y<3?'청년기':y<sr?'성견':'노령견';}
+ document.getElementById('paOut').textContent=Math.round(h)+'세';
+ document.getElementById('paSt').textContent=st;
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/pet_age_calculator.html?utm_source=embed&amp;utm_campaign=pet_age_calculator" target="_blank" rel="noopener">어라운드툴 반려견·반려묘 나이 계산기</a></p>
+</body>
+</html>

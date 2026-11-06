@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주식 평단가 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/stock_average_price_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="주식 평단가 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">주식 평단가 계산기</p>
+<label for="saP1">지금 평균 단가 (원)</label>
+<input id="saP1" type="number" inputmode="decimal" placeholder="70000"/>
+<label for="saQ1">지금 보유 수량 (주)</label>
+<input id="saQ1" type="number" inputmode="decimal" placeholder="10"/>
+<label for="saP2">추가 매수 가격 (원)</label>
+<input id="saP2" type="number" inputmode="decimal" placeholder="55000"/>
+<label for="saQ2">추가 매수 수량 (주)</label>
+<input id="saQ2" type="number" inputmode="decimal" placeholder="10"/>
+<label for="saC">현재가 (원, 선택)</label>
+<input id="saC" type="number" inputmode="decimal" placeholder="55000"/>
+<button onclick="calcSa()">평단가 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">새 평균 단가</span><span class="result-value" id="saOut">-</span></div>
+<div class="result-row"><span class="result-label">총 수량 / 총 매수 금액</span><span class="result-value" id="saQ" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">현재가 기준 수익률</span><span class="result-value" id="saR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="saMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcSa(){
+ function v(id){return parseFloat(document.getElementById(id).value);}
+ var p1=v('saP1'),q1=v('saQ1'),p2=v('saP2'),q2=v('saQ2'),c=v('saC');
+ if([p1,q1,p2,q2].some(isNaN)||q1+q2<=0) return alert('단가와 수량을 입력해주세요.');
+ var amt=p1*q1+p2*q2,q=q1+q2,avg=amt/q;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('saOut').textContent=w(avg);
+ document.getElementById('saQ').textContent=q.toLocaleString('ko-KR')+'주 / '+w(amt);
+ if(!isNaN(c)&&c>0){var r=(c/avg-1)*100;document.getElementById('saR').textContent=(r>=0?'+':'')+r.toFixed(2)+'%';
+  document.getElementById('saMsg').textContent='물타기 전 수익률은 '+((c/p1-1)*100).toFixed(2)+'%입니다. 본전이 되려면 주가가 '+w(avg)+'까지 올라야 합니다(수수료·세금 제외).';}
+ else{document.getElementById('saR').textContent='-';document.getElementById('saMsg').textContent='';}
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/stock_average_price_calculator.html?utm_source=embed&amp;utm_campaign=stock_average_price_calculator" target="_blank" rel="noopener">어라운드툴 주식 평단가 계산기</a></p>
+</body>
+</html>
