@@ -198,18 +198,14 @@ function createOffice(container, opt) {
   const corners = []; for (const x of [0, W0]) for (const z of [0, D0]) for (const y of [-1.2, 3.4]) corners.push(new THREE.Vector3(x, y, z));
   const tmp = new THREE.Vector3();
   function place() {
+    const aspect = Wd / Hd, span = Math.max(17.5, 23 / aspect);
+    cam.left = -span * aspect; cam.right = span * aspect; cam.top = span; cam.bottom = -span; cam.updateProjectionMatrix();
     const dist = 80;
-    cam.position.set(CX + Math.sin(az) * Math.cos(EL) * dist, Math.sin(EL) * dist, CZ + Math.cos(az) * Math.cos(EL) * dist); cam.lookAt(CX, 0, CZ); cam.updateMatrixWorld();
-    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-    for (const c of corners) { tmp.copy(c).applyMatrix4(cam.matrixWorldInverse); x0 = Math.min(x0, tmp.x); x1 = Math.max(x1, tmp.x); y0 = Math.min(y0, tmp.y); y1 = Math.max(y1, tmp.y); }
-    const pad = 1.04, aspect = Wd / Hd; let w = (x1 - x0) * pad, h = (y1 - y0) * pad;
-    if (w / h > aspect) h = w / aspect; else w = h * aspect;
-    const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
-    cam.left = mx - w / 2; cam.right = mx + w / 2; cam.top = my + h / 2; cam.bottom = my - h / 2; cam.updateProjectionMatrix();
+    cam.position.set(CX + Math.sin(az) * Math.cos(EL) * dist, Math.sin(EL) * dist, CZ + Math.cos(az) * Math.cos(EL) * dist); cam.lookAt(CX, 0, CZ);
   }
   const v = new THREE.Vector3();
   function updLabels() {
-    const showTags = Wd >= 760, showBub = Wd >= 600; for (const L of labels) { if (L.cls === "o3-tag") L.el.style.visibility = showTags ? "visible" : "hidden"; if (L.cls === "o3-bub") L.el.style.visibility = showBub ? "visible" : "hidden"; if (L.el.style.display === "none") continue; v.copy(L.pos).project(cam);
+    const showTags = false, showBub = true; for (const L of labels) { if (L.cls === "o3-tag") L.el.style.visibility = showTags ? "visible" : "hidden"; if (L.cls === "o3-bub") L.el.style.visibility = showBub ? "visible" : "hidden"; if (L.el.style.display === "none") continue; v.copy(L.pos).project(cam);
       const x = (v.x + 1) / 2 * Wd, y = (1 - v.y) / 2 * Hd; L.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-50%)`; L.el.style.zIndex = String(1000 - Math.round(v.z * 500)); }
   }
 
