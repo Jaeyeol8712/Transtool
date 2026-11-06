@@ -20,7 +20,7 @@ function createOffice(container, opt) {
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.NoToneMapping;
   container.appendChild(renderer.domElement);
-  renderer.domElement.style.cssText = "display:block;width:100%;height:100%;cursor:grab;touch-action:none";
+  renderer.domElement.style.cssText = "display:block;width:100%;height:100%";
 
   const scene = new THREE.Scene();
   const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 400);
@@ -194,15 +194,22 @@ function createOffice(container, opt) {
   /* ── 투영 · 리사이즈 ── */
   let Wd = 1, Hd = 1;
   function resize() { const r = container.getBoundingClientRect(); Wd = Math.max(1, r.width); Hd = Math.max(1, r.height); renderer.setSize(Wd, Hd, false); }
+  /* 사무실 전체가 화면에 딱 맞게: 바닥 모서리와 벽 윗부분을 카메라 좌표로 투영해 범위를 잡음 */
+  const corners = []; for (const x of [0, W0]) for (const z of [0, D0]) for (const y of [-1.2, 3.4]) corners.push(new THREE.Vector3(x, y, z));
+  const tmp = new THREE.Vector3();
   function place() {
-    const aspect = Wd / Hd, span = Math.max(17.5, 23 / aspect) / zoom;
-    cam.left = -span * aspect; cam.right = span * aspect; cam.top = span; cam.bottom = -span; cam.updateProjectionMatrix();
-    const tx = CX + panX, tz = CZ + panZ, dist = 80;
-    cam.position.set(tx + Math.sin(az) * Math.cos(EL) * dist, Math.sin(EL) * dist, tz + Math.cos(az) * Math.cos(EL) * dist); cam.lookAt(tx, 0, tz);
+    const dist = 80;
+    cam.position.set(CX + Math.sin(az) * Math.cos(EL) * dist, Math.sin(EL) * dist, CZ + Math.cos(az) * Math.cos(EL) * dist); cam.lookAt(CX, 0, CZ); cam.updateMatrixWorld();
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    for (const c of corners) { tmp.copy(c).applyMatrix4(cam.matrixWorldInverse); x0 = Math.min(x0, tmp.x); x1 = Math.max(x1, tmp.x); y0 = Math.min(y0, tmp.y); y1 = Math.max(y1, tmp.y); }
+    const pad = 1.04, aspect = Wd / Hd; let w = (x1 - x0) * pad, h = (y1 - y0) * pad;
+    if (w / h > aspect) h = w / aspect; else w = h * aspect;
+    const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    cam.left = mx - w / 2; cam.right = mx + w / 2; cam.top = my + h / 2; cam.bottom = my - h / 2; cam.updateProjectionMatrix();
   }
   const v = new THREE.Vector3();
   function updLabels() {
-    const showTags = zoom > 1.2, showBub = Wd >= 700 || zoom > 1.8; for (const L of labels) { if (L.cls === "o3-tag") L.el.style.visibility = showTags ? "visible" : "hidden"; if (L.cls === "o3-bub") L.el.style.visibility = showBub ? "visible" : "hidden"; if (L.el.style.display === "none") continue; v.copy(L.pos).project(cam);
+    const showTags = Wd >= 760, showBub = Wd >= 600; for (const L of labels) { if (L.cls === "o3-tag") L.el.style.visibility = showTags ? "visible" : "hidden"; if (L.cls === "o3-bub") L.el.style.visibility = showBub ? "visible" : "hidden"; if (L.el.style.display === "none") continue; v.copy(L.pos).project(cam);
       const x = (v.x + 1) / 2 * Wd, y = (1 - v.y) / 2 * Hd; L.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-50%)`; L.el.style.zIndex = String(1000 - Math.round(v.z * 500)); }
   }
 
@@ -223,13 +230,8 @@ function createOffice(container, opt) {
   }
 
   /* ── 조작: 끌어서 회전, 휠·핀치 확대, 클릭 선택 ── */
-  const el = renderer.domElement; let drag = null, pinch = null;
-  el.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, a: tAz, moved: false }; el.setPointerCapture(e.pointerId); el.style.cursor = "grabbing"; });
-  el.addEventListener("pointermove", e => { if (!drag || pinch) return; const dx = e.clientX - drag.x; if (Math.abs(dx) + Math.abs(e.clientY - drag.y) > 5) drag.moved = true; tAz = drag.a - dx * 0.006; });
-  el.addEventListener("pointerup", e => { el.style.cursor = "grab"; const d = drag; drag = null; if (d && !d.moved) pick(e); });
-  el.addEventListener("wheel", e => { e.preventDefault(); tZoom = Math.max(0.7, Math.min(3, tZoom * (e.deltaY < 0 ? 1.12 : 0.89))); }, { passive: false });
-  el.addEventListener("touchmove", e => { if (e.touches.length === 2) { const [a, b] = e.touches, d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY); if (pinch) tZoom = Math.max(0.7, Math.min(3, tZoom * d / pinch)); pinch = d; } }, { passive: true });
-  el.addEventListener("touchend", () => { pinch = null; });
+  const el = renderer.domElement; el.style.cursor = "default";
+  el.addEventListener("click", e => pick(e));
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   function pick(e) { const r = el.getBoundingClientRect(); ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); ray.setFromCamera(ndc, cam);
     const hit = ray.intersectObjects(pickables, false)[0]; if (!hit) { opt.onPick && opt.onPick(null, e); return; }
