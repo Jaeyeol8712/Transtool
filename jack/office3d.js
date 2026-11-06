@@ -193,7 +193,7 @@ function createOffice(container, opt) {
 
   /* ── 투영 · 리사이즈 ── */
   let Wd = 1, Hd = 1;
-  function resize() { const r = container.getBoundingClientRect(); Wd = Math.max(1, r.width); Hd = Math.max(1, r.height); renderer.setSize(Wd, Hd, false); }
+  function resize() { Wd = Math.max(1, container.clientWidth); Hd = Math.max(1, container.clientHeight); renderer.setSize(Wd, Hd, false); }
   /* 사무실 전체가 화면에 딱 맞게: 바닥 모서리와 벽 윗부분을 카메라 좌표로 투영해 범위를 잡음 */
   const corners = []; for (const x of [0, W0]) for (const z of [0, D0]) for (const y of [-1.2, 3.4]) corners.push(new THREE.Vector3(x, y, z));
   const tmp = new THREE.Vector3();
