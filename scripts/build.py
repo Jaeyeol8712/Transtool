@@ -34,6 +34,7 @@ from calc_extra import LEGACY_STEPS, LEGACY_NOTE  # noqa: E402
 import b_layout  # noqa: E402
 from shop_extra import SHOP_EXTRA, TRUST_NOTE, TRUST_NOTE_TRAVEL, SHOP_UPDATED  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
+from shop_sources import SHOP_SOURCES  # noqa: E402  (컨펌 i08)
 from guides import GUIDES  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
@@ -1761,6 +1762,10 @@ def build_connect_blog(p):
         extra_html += f'<h2>{esc(st)}</h2><div class="at-table"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
     if sx.get("faq"):
         extra_html += faq_html(sx["faq"])
+    srcs = SHOP_SOURCES.get(post["slug"], [])  # 컨펌 i08 근거 자료 (scripts/shop_sources.py)
+    if srcs:
+        li = "".join(f'<li><a href="{esc(u)}" rel="nofollow noopener" target="_blank">{esc(n)}</a></li>' for n, u in srcs)
+        extra_html += f'<h2>근거 자료</h2><ul class="at-sources">{li}</ul>'
     trust = TRUST_NOTE_TRAVEL if post.get("kind") == "travel" else TRUST_NOTE
     extra_html += f'<h2>이 글의 기준</h2><p class="at-note">{trust}</p>'
     content = f"""<article>
