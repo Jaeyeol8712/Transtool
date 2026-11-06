@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 342 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 352 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
@@ -1439,8 +1439,20 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-gapyeong.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-geoje.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-guam.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gunsan.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-gyeongju.html</loc>
@@ -1449,6 +1461,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-hanoi.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-hongcheon.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-hongkong.html</loc>
@@ -1465,16 +1481,32 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/jeju-seongsan-coast.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-jeongseon.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-jeonju.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-kaohsiung.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kyoto.html</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-macau.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-muju.html</loc>
     <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-nagoya.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-nhatrang.html</loc>
@@ -1491,6 +1523,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-castle.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-phuquoc.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-pocheon.html</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
@@ -1501,6 +1537,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-sapporo.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-shanghai.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-singapore.html</loc>
