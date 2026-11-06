@@ -174,7 +174,7 @@ FOOD_AREAS = [
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["dividend_tax_calculator", "stock_average_price_calculator", "jeonse_loan_interest_calculator", "car_installment_calculator", "gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -185,13 +185,13 @@ TOOL_GROUPS = [
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
-    ("trip", "여행", ["time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
+    ("trip", "여행", ["overseas_travel_budget_calculator", "time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]

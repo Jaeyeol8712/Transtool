@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동차 할부 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/car_installment_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="자동차 할부 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">자동차 할부 계산기</p>
+<label for="ciP">차량 가격 (원)</label>
+<input id="ciP" type="number" inputmode="numeric" placeholder="35000000"/>
+<label for="ciD">선수금 (원)</label>
+<input id="ciD" type="number" inputmode="numeric" placeholder="5000000"/>
+<label for="ciR">할부 금리 (연 %)</label>
+<input id="ciR" type="number" inputmode="decimal" placeholder="5.5"/>
+<label for="ciN">할부 기간 (개월)</label>
+<select id="ciN"><option value="12">12개월</option><option value="24">24개월</option><option value="36" selected>36개월</option><option value="48">48개월</option><option value="60">60개월</option><option value="72">72개월</option></select>
+<button onclick="calcCi()">할부금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">월 납입금 (원리금균등)</span><span class="result-value" id="ciOut">-</span></div>
+<div class="result-row"><span class="result-label">할부 원금</span><span class="result-value" id="ciPr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 이자</span><span class="result-value" id="ciI" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 납입액 (선수금 포함)</span><span class="result-value" id="ciT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcCi(){
+ var p=parseFloat(document.getElementById('ciP').value),d=parseFloat(document.getElementById('ciD').value)||0,
+     r=parseFloat(document.getElementById('ciR').value),n=parseInt(document.getElementById('ciN').value,10);
+ if(isNaN(p)||p<=0||isNaN(r)) return alert('차량 가격과 금리를 입력해주세요.');
+ var pr=Math.max(0,p-d),m=r/100/12,pay=m>0?pr*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):pr/n;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('ciOut').textContent=w(pay);
+ document.getElementById('ciPr').textContent=w(pr);
+ document.getElementById('ciI').textContent=w(pay*n-pr);
+ document.getElementById('ciT').textContent=w(pay*n+d);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/car_installment_calculator.html?utm_source=embed&amp;utm_campaign=car_installment_calculator" target="_blank" rel="noopener">어라운드툴 자동차 할부 계산기</a></p>
+</body>
+</html>

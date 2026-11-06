@@ -1,0 +1,26 @@
+<label for="jlA">전세대출 금액 (원)</label>
+<input id="jlA" type="number" inputmode="numeric" placeholder="200000000"/>
+<label for="jlR">대출 금리 (연 %)</label>
+<input id="jlR" type="number" inputmode="decimal" placeholder="4.0"/>
+<label for="jlY">대출 기간 (년)</label>
+<input id="jlY" type="number" inputmode="numeric" value="2"/>
+<button onclick="calcJl()">이자 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">월 이자 (만기일시상환)</span><span class="result-value" id="jlOut">-</span></div>
+<div class="result-row"><span class="result-label">기간 총 이자</span><span class="result-value" id="jlT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">연 이자</span><span class="result-value" id="jlYr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<p id="jlMsg" style="margin:.6rem 0 0;line-height:1.6"></p>
+</div>
+<script>
+function calcJl(){
+ var a=parseFloat(document.getElementById('jlA').value),r=parseFloat(document.getElementById('jlR').value),y=parseFloat(document.getElementById('jlY').value);
+ if([a,r,y].some(isNaN)||a<=0) return alert('모든 칸을 입력해주세요.');
+ var yr=a*r/100,mo=yr/12;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('jlOut').textContent=w(mo);
+ document.getElementById('jlYr').textContent=w(yr);
+ document.getElementById('jlT').textContent=w(yr*y);
+ document.getElementById('jlMsg').textContent='금리 0.5%p 차이는 월 '+w(a*0.005/12)+'입니다. 원금은 만기에 한 번에 갚습니다.';
+ document.getElementById('result').classList.add('show');
+}
+</script>

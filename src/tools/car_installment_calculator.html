@@ -1,0 +1,29 @@
+<label for="ciP">차량 가격 (원)</label>
+<input id="ciP" type="number" inputmode="numeric" placeholder="35000000"/>
+<label for="ciD">선수금 (원)</label>
+<input id="ciD" type="number" inputmode="numeric" placeholder="5000000"/>
+<label for="ciR">할부 금리 (연 %)</label>
+<input id="ciR" type="number" inputmode="decimal" placeholder="5.5"/>
+<label for="ciN">할부 기간 (개월)</label>
+<select id="ciN"><option value="12">12개월</option><option value="24">24개월</option><option value="36" selected>36개월</option><option value="48">48개월</option><option value="60">60개월</option><option value="72">72개월</option></select>
+<button onclick="calcCi()">할부금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">월 납입금 (원리금균등)</span><span class="result-value" id="ciOut">-</span></div>
+<div class="result-row"><span class="result-label">할부 원금</span><span class="result-value" id="ciPr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 이자</span><span class="result-value" id="ciI" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 납입액 (선수금 포함)</span><span class="result-value" id="ciT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function calcCi(){
+ var p=parseFloat(document.getElementById('ciP').value),d=parseFloat(document.getElementById('ciD').value)||0,
+     r=parseFloat(document.getElementById('ciR').value),n=parseInt(document.getElementById('ciN').value,10);
+ if(isNaN(p)||p<=0||isNaN(r)) return alert('차량 가격과 금리를 입력해주세요.');
+ var pr=Math.max(0,p-d),m=r/100/12,pay=m>0?pr*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):pr/n;
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('ciOut').textContent=w(pay);
+ document.getElementById('ciPr').textContent=w(pr);
+ document.getElementById('ciI').textContent=w(pay*n-pr);
+ document.getElementById('ciT').textContent=w(pay*n+d);
+ document.getElementById('result').classList.add('show');
+}
+</script>

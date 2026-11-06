@@ -1008,3 +1008,4 @@ from calc_1103 import *  # noqa: E402,F401,F403  (2026-11-03 신규 계산기 10
 from calc_1104 import *  # noqa: E402,F401,F403  (2026-11-03 부동산 세금 계산기)
 from calc_1105 import *  # noqa: E402,F401,F403  (2026-11-03 11~12월 시즌 계산기 10종)
 from calc_1106 import *  # noqa: E402,F401,F403  (2026-11-05 컨펌 i261105-01 계산기 6종)
+from calc_1107 import *  # noqa: E402,F401,F403  (2026-11-06 컨펌 i261106-01 계산기 9종)

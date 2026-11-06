@@ -43,6 +43,10 @@
 "d": "2026-11-03",
 "h": "d7682b681ee98a22"
 },
+"car_installment_calculator.html": {
+"d": null,
+"h": "445de61a6039a63a"
+},
 "car_tax_calculator.html": {
 "d": "2026-11-05",
 "h": "ceec24a644760a3e"
@@ -131,6 +135,10 @@
 "d": "2026-11-03",
 "h": "aec003a9e762ef00"
 },
+"dividend_tax_calculator.html": {
+"d": null,
+"h": "de15114119d35d6a"
+},
 "donation_tax_credit_calculator.html": {
 "d": "2026-11-05",
 "h": "92c80278cab4d517"
@@ -156,8 +164,12 @@
 "h": "a111eb3fa8ea0410"
 },
 "etc.html": {
-"d": "2026-11-05",
-"h": "de55b7e74ffff057"
+"d": "2026-11-06",
+"h": "193016a2ac9c4e45"
+},
+"ev_charging_cost_calculator.html": {
+"d": null,
+"h": "5d12eba919888a3b"
 },
 "exchange_rate_calculator.html": {
 "d": "2026-11-03",
@@ -597,7 +609,7 @@
 },
 "index.html": {
 "d": "2026-11-06",
-"h": "bd5b385d5bc7d814"
+"h": "292858d6b9dc987d"
 },
 "interior_calculator.html": {
 "d": "2026-11-03",
@@ -711,6 +723,10 @@
 "d": "2026-11-03",
 "h": "88d819853679490e"
 },
+"jeonse_loan_interest_calculator.html": {
+"d": null,
+"h": "5c7c642b5be654e1"
+},
 "jeonwolse_conversion_calculator.html": {
 "d": "2026-11-03",
 "h": "72655c5107a3d7c7"
@@ -771,6 +787,10 @@
 "d": "2026-11-03",
 "h": "f2ab4d459495d1e1"
 },
+"overseas_travel_budget_calculator.html": {
+"d": null,
+"h": "be69b89d4a84c122"
+},
 "parental_leave_calculator.html": {
 "d": "2026-11-03",
 "h": "09e7a31eef1cc74d"
@@ -786,6 +806,14 @@
 "percent_calculator.html": {
 "d": "2026-11-03",
 "h": "ea0411bb4faeed26"
+},
+"period_ovulation_calculator.html": {
+"d": null,
+"h": "868926404ec1c7b0"
+},
+"pet_age_calculator.html": {
+"d": null,
+"h": "f2308af92e7f3bac"
 },
 "prepayment_penalty_calculator.html": {
 "d": "2026-11-03",
@@ -1036,8 +1064,8 @@
 "h": "b40c20c411500ecb"
 },
 "sitemap.html": {
-"d": "2026-11-05",
-"h": "5d3e4058f5376994"
+"d": "2026-11-06",
+"h": "062a98e91ce4ea44"
 },
 "sleep_calculator.html": {
 "d": "2026-11-03",
@@ -1075,9 +1103,17 @@
 "d": "2026-11-03",
 "h": "9171f9b73bbcf38f"
 },
+"speed_distance_time_calculator.html": {
+"d": null,
+"h": "93de076ef426d376"
+},
 "spell_checker.html": {
 "d": "2026-11-03",
 "h": "328d6cf7070753d6"
+},
+"stock_average_price_calculator.html": {
+"d": null,
+"h": "e130d8abf3f45197"
 },
 "terms.html": {
 "d": "2026-11-03",
@@ -1092,8 +1128,8 @@
 "h": "a5e8994e49dad6b3"
 },
 "tools.html": {
-"d": "2026-11-05",
-"h": "6743a6c9d805a4fe"
+"d": "2026-11-06",
+"h": "b14f315d8f3fd704"
 },
 "travel-andong.html": {
 "d": null,

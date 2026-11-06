@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 75종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 84종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -19,6 +19,10 @@
 ## 생활 계산기
 
 ### 재테크·부동산
+- [배당금 세후](https://www.aroundtool.com/dividend_tax_calculator.html): 세전 배당금을 넣으면 배당소득세 14%와 지방소득세를 뗀 세후 배당금을 계산합니다. 2026년 지급분부터 생긴 고배당기업 배당 분리과세(14~30%)와 금융소득 종합과세 2천만 원 기준도 확인합니다.
+- [주식 평단가(물타기)](https://www.aroundtool.com/stock_average_price_calculator.html): 지금 평균 단가와 보유 수량, 추가 매수 가격과 수량을 넣으면 새 평균 단가와 총 매수 금액, 현재가 기준 수익률을 계산합니다. 본전이 되는 주가도 함께 보여 줍니다.
+- [전세대출 이자](https://www.aroundtool.com/jeonse_loan_interest_calculator.html): 전세대출 금액과 금리, 기간을 넣으면 만기일시상환 기준 월 이자와 연 이자, 대출 기간 총 이자를 계산합니다. 금리 0.5%p 차이가 월 얼마인지도 함께 보여 줍니다.
+- [자동차 할부 이자](https://www.aroundtool.com/car_installment_calculator.html): 차량 가격, 선수금, 할부 금리, 기간을 넣으면 자동차 할부 월 납입금과 총 이자, 총 납입액을 원리금균등 방식으로 계산합니다. 36·48·60개월을 바꿔 가며 비교할 수 있습니다.
 - [증여세](https://www.aroundtool.com/gift_tax_calculator.html): 관계와 증여 금액, 최근 10년 증여액을 넣으면 증여세를 계산합니다. 증여재산공제(배우자 6억, 성인 자녀 5천만, 미성년 2천만), 혼인·출산 공제 1억, 세율 10~50%, 신고세액공제 3%를 반영했습니다.
 - [퇴직소득세](https://www.aroundtool.com/retirement_income_tax_calculator.html): 퇴직금과 근속연수를 넣으면 퇴직소득세와 지방소득세, 실수령액을 계산합니다. 근속연수공제, 환산급여공제, 기본세율 6~45%와 연분연승 방식을 반영했습니다.
 - [성과급 실수령액](https://www.aroundtool.com/bonus_net_pay_calculator.html): 연봉과 성과급을 넣으면 성과급에 붙는 소득세·지방소득세와 4대보험을 빼고 실제로 받을 금액을 추정합니다. 2026년 4대보험 요율과 근로소득 세율을 반영했습니다.
@@ -62,6 +66,10 @@
 - [근무시간](https://www.aroundtool.com/work_time_calculator.html): 출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.
 
 ### 생활·건강
+- [전기차 충전비](https://www.aroundtool.com/ev_charging_cost_calculator.html): 충전 요금, 전비(km/kWh), 한 달 주행 거리를 넣으면 전기차 한 달 충전비와 1km당 비용, 한 번 충전 비용을 계산합니다. 2026년 8월 1일부터 바뀐 공공 충전 요금 5단계(295.0~393.1원/kWh)를 넣었습니다.
+- [반려견·반려묘 나이](https://www.aroundtool.com/pet_age_calculator.html): 강아지(소형·중형·대형견)와 고양이 나이를 넣으면 사람 나이로 환산합니다. 첫해 15세, 둘째 해 9세, 이후 해마다 4~6세를 더하는 미국수의사협회(AVMA) 기준을 따랐습니다.
+- [생리주기·가임기](https://www.aroundtool.com/period_ovulation_calculator.html): 마지막 생리 시작일과 평균 주기를 넣으면 다음 생리 예정일, 배란 예정일, 가임기(추정)와 그다음 3번의 예정일을 계산합니다. 배란일은 다음 생리 14일 전 기준입니다.
+- [속도·거리·시간](https://www.aroundtool.com/speed_distance_time_calculator.html): 거리와 속도로 걸리는 시간을, 거리와 시간으로 평균 속도를, 속도와 시간으로 이동 거리를 계산합니다. km/h를 초속(m/s)과 1km당 분(페이스)으로도 바꿔 줍니다.
 - [등유 난방비](https://www.aroundtool.com/kerosene_heating_cost_calculator.html): 등유 가격, 보일러 시간당 등유 소비량, 하루 가동 시간과 일수를 넣으면 등유 난방비와 필요한 등유 양(L·드럼)을 계산합니다. 기본 가격은 오피넷 실내등유 전국 평균(2026.11.1 기준)입니다.
 - [난방기 전기요금](https://www.aroundtool.com/heater_electricity_cost_calculator.html): 전기장판·전기히터·라디에이터·온풍기 소비전력과 사용 시간을 넣으면 한 달 전기요금이 얼마나 늘어나는지 계산합니다. 주택용 저압 누진 구간(200·400kWh)을 반영했습니다.
 - [김장 비용](https://www.aroundtool.com/kimjang_cost_calculator.html): 배추 포기 수를 넣으면 aT 조사 비율(배추 20포기에 무 5개, 고춧가루 2kg)로 무·고춧가루 양을 정하고 2026년 10월 KAMIS 소매가격으로 김장 재료비를 계산합니다. 가구별로 나눈 금액도 보여 줍니다.
@@ -92,6 +100,7 @@
 - [몇 주차](https://www.aroundtool.com/week_number_calculator.html): 날짜를 넣으면 ISO 8601 기준 올해 몇 주차인지, 이번 달 몇째 주인지, 올해 며칠이 지났고 며칠 남았는지 계산합니다. 업무 보고·학사 일정·임신 주수 외 일정 관리에 쓰세요.
 
 ### 여행
+- [해외여행 경비](https://www.aroundtool.com/overseas_travel_budget_calculator.html): 인원, 숙박 일수, 항공권, 숙소 요금, 환율, 하루 현지 경비를 넣으면 해외여행 총경비와 1인당 금액을 원화로 계산합니다. 나라와 상관없이 환율만 바꿔 쓸 수 있습니다.
 - [시차](https://www.aroundtool.com/time_difference_calculator.html): 한국 날짜·시각을 넣고 도시를 고르면 현지 시각과 시차를 계산합니다. 도쿄·방콕·하노이·세부·괌·런던·뉴욕 등 17곳, 서머타임 자동 반영. 겨울 해외여행·비행기 도착 시각 확인에 씁니다.
 - [주유 경제성](https://www.aroundtool.com/fuel_economy_calculator.html): 이동 거리(km), 차량 연비(km/L), 리터당 연료 가격을 넣으면 필요한 연료량과 예상 유류비를 계산합니다. 왕복·카풀 정산, 공인연비와 실연비 차이, 전기차 충전비와 비교하는 방법도 정리했습니다.
 - [환율](https://www.aroundtool.com/exchange_rate_calculator.html): 환율 계산·환전 금액을 바로 확인합니다. 미국 달러, 일본 엔(100엔), 유로, 중국 위안, 영국 파운드, 대만 달러, 태국 바트, 베트남 동을 원화로, 원화를 외화로 환산합니다. 공개 환율 API의 최신 기준 환율을 불러오고 직접 수정할 수도 있습니다.

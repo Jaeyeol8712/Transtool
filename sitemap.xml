@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 333 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 342 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/about.html</loc>
@@ -69,6 +69,10 @@
   <url>
     <loc>https://www.aroundtool.com/capital_gains_tax_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/car_installment_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/car_tax_calculator.html</loc>
@@ -174,6 +178,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-sale-1.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/dividend_tax_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/donation_tax_credit_calculator.html</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
@@ -200,6 +208,10 @@
     <loc>https://www.aroundtool.com/electricity_bill_calculator.html</loc>
     <lastmod>2026-11-05</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-meter-5.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/ev_charging_cost_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/exchange_rate_calculator.html</loc>
@@ -802,6 +814,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-jn-seobu-3.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/jeonse_loan_interest_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/jeonwolse_conversion_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -866,6 +882,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/overseas_travel_budget_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/parental_leave_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -882,6 +902,14 @@
     <loc>https://www.aroundtool.com/percent_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-sale-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/period_ovulation_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/pet_age_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/prepayment_penalty_calculator.html</loc>
@@ -1292,7 +1320,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/sleep_calculator.html</loc>
@@ -1339,9 +1367,17 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-writing-6.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/speed_distance_time_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/spell_checker.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-book-5.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/stock_average_price_calculator.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/terms.html</loc>

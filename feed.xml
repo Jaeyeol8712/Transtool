@@ -4,9 +4,81 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 75종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 84종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>주식 평단가 계산기 — 물타기·불타기 후 평균 단가와 수익률</title>
+      <link>https://www.aroundtool.com/stock_average_price_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/stock_average_price_calculator.html</guid>
+      <category>생활툴</category>
+      <description>지금 평균 단가와 보유 수량, 추가 매수 가격과 수량을 넣으면 새 평균 단가와 총 매수 금액, 현재가 기준 수익률을 계산합니다. 본전이 되는 주가도 함께 보여 줍니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>속도 거리 시간 계산기 — 걸리는 시간·평균 속도·이동 거리</title>
+      <link>https://www.aroundtool.com/speed_distance_time_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/speed_distance_time_calculator.html</guid>
+      <category>생활툴</category>
+      <description>거리와 속도로 걸리는 시간을, 거리와 시간으로 평균 속도를, 속도와 시간으로 이동 거리를 계산합니다. km/h를 초속(m/s)과 1km당 분(페이스)으로도 바꿔 줍니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강아지·고양이 나이 계산기 — 사람 나이로 환산 (크기별)</title>
+      <link>https://www.aroundtool.com/pet_age_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/pet_age_calculator.html</guid>
+      <category>생활툴</category>
+      <description>강아지(소형·중형·대형견)와 고양이 나이를 넣으면 사람 나이로 환산합니다. 첫해 15세, 둘째 해 9세, 이후 해마다 4~6세를 더하는 미국수의사협회(AVMA) 기준을 따랐습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>생리주기 계산기 — 다음 생리 예정일·배란일·가임기</title>
+      <link>https://www.aroundtool.com/period_ovulation_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/period_ovulation_calculator.html</guid>
+      <category>생활툴</category>
+      <description>마지막 생리 시작일과 평균 주기를 넣으면 다음 생리 예정일, 배란 예정일, 가임기(추정)와 그다음 3번의 예정일을 계산합니다. 배란일은 다음 생리 14일 전 기준입니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해외여행 경비 계산기 — 항공·숙소·현지 경비 1인당 총액</title>
+      <link>https://www.aroundtool.com/overseas_travel_budget_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/overseas_travel_budget_calculator.html</guid>
+      <category>생활툴</category>
+      <description>인원, 숙박 일수, 항공권, 숙소 요금, 환율, 하루 현지 경비를 넣으면 해외여행 총경비와 1인당 금액을 원화로 계산합니다. 나라와 상관없이 환율만 바꿔 쓸 수 있습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전세대출 이자 계산기 — 월 이자·연 이자·총 이자 (만기일시)</title>
+      <link>https://www.aroundtool.com/jeonse_loan_interest_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonse_loan_interest_calculator.html</guid>
+      <category>생활툴</category>
+      <description>전세대출 금액과 금리, 기간을 넣으면 만기일시상환 기준 월 이자와 연 이자, 대출 기간 총 이자를 계산합니다. 금리 0.5%p 차이가 월 얼마인지도 함께 보여 줍니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전기차 충전비 계산기 — 공공 충전 요금 5단계 (2026.8~)</title>
+      <link>https://www.aroundtool.com/ev_charging_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/ev_charging_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>충전 요금, 전비(km/kWh), 한 달 주행 거리를 넣으면 전기차 한 달 충전비와 1km당 비용, 한 번 충전 비용을 계산합니다. 2026년 8월 1일부터 바뀐 공공 충전 요금 5단계(295.0~393.1원/kWh)를 넣었습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>배당금 세금 계산기 — 15.4% 원천징수·고배당 분리과세 (2026)</title>
+      <link>https://www.aroundtool.com/dividend_tax_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/dividend_tax_calculator.html</guid>
+      <category>생활툴</category>
+      <description>세전 배당금을 넣으면 배당소득세 14%와 지방소득세를 뗀 세후 배당금을 계산합니다. 2026년 지급분부터 생긴 고배당기업 배당 분리과세(14~30%)와 금융소득 종합과세 2천만 원 기준도 확인합니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>자동차 할부 계산기 — 선수금·금리·기간별 월 납입금과 총 이자</title>
+      <link>https://www.aroundtool.com/car_installment_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/car_installment_calculator.html</guid>
+      <category>생활툴</category>
+      <description>차량 가격, 선수금, 할부 금리, 기간을 넣으면 자동차 할부 월 납입금과 총 이자, 총 납입액을 원리금균등 방식으로 계산합니다. 36·48·60개월을 바꿔 가며 비교할 수 있습니다.</description>
+      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>포천 여행 코스 — 반나절·당일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-pocheon.html</link>
