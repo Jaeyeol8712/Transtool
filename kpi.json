@@ -1,5 +1,5 @@
 {
- "made": "2026-11-05T23:36:42.273Z",
+ "made": "2026-11-06T03:26:51.441Z",
  "range": "2026-10-30 ~ 2026-11-05",
  "prevRange": "2026-10-23 ~ 2026-10-29",
  "cur": {
@@ -19,8 +19,8 @@
  "channels": {
   "cur": {
    "Organic Search": 61,
-   "Direct": 35,
-   "Unassigned": 12,
+   "Direct": 36,
+   "Unassigned": 10,
    "AI Assistant": 6,
    "Organic Social": 3,
    "Paid Search": 1,
@@ -176,6 +176,10 @@
    "sessions": 24
   },
   {
+   "page": "(not set)",
+   "sessions": 5
+  },
+  {
    "page": "/interior_calculator.html",
    "sessions": 5
   },
@@ -186,10 +190,6 @@
   {
    "page": "/yeonsu-bapjip.html",
    "sessions": 5
-  },
-  {
-   "page": "(not set)",
-   "sessions": 4
   },
   {
    "page": "/acquisition_tax_calculator",
