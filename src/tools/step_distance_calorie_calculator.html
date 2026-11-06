@@ -1,0 +1,27 @@
+<label for="stN">걸음 수</label>
+<input id="stN" type="number" inputmode="numeric" placeholder="10000"/>
+<label for="stL">보폭 (cm, 직접 입력)</label>
+<input id="stL" type="number" inputmode="decimal" placeholder="70"/>
+<label for="stW">몸무게 (kg)</label>
+<input id="stW" type="number" inputmode="decimal" placeholder="70"/>
+<label for="stV">걷는 속도</label>
+<select id="stV"><option value="3.5|2.8">천천히 (약 3.5km/h)</option><option value="4|3.0">조금 천천히 (약 4km/h)</option><option value="5|3.8" selected>보통 (약 5km/h)</option><option value="6|4.8">빠르게 (약 6km/h)</option><option value="6.7|5.5">아주 빠르게 (약 6.7km/h)</option></select>
+<button onclick="calcSt()">거리·칼로리 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">걸은 거리</span><span class="result-value" id="stD">-</span></div>
+<div class="result-row"><span class="result-label">걸린 시간 (추정)</span><span class="result-value" id="stT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">소비 열량 (추정)</span><span class="result-value" id="stK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function stCalc(n,cm,kg,v,met){var km=n*cm/100000,h=km/v;return {km:km,min:h*60,kcal:met*kg*h};}
+function calcSt(){
+ var n=parseFloat(document.getElementById('stN').value),cm=parseFloat(document.getElementById('stL').value),
+     kg=parseFloat(document.getElementById('stW').value),p=document.getElementById('stV').value.split('|');
+ if(isNaN(n)||n<=0||isNaN(cm)||cm<=0) return alert('걸음 수와 보폭을 입력해주세요.');
+ var o=stCalc(n,cm,kg,parseFloat(p[0]),parseFloat(p[1]));
+ document.getElementById('stD').textContent=o.km.toFixed(2)+'km';
+ var m=Math.round(o.min);document.getElementById('stT').textContent=(m>=60?Math.floor(m/60)+'시간 ':'')+(m%60)+'분';
+ document.getElementById('stK').textContent=isNaN(kg)||kg<=0?'몸무게를 넣으면 표시됩니다':Math.round(o.kcal).toLocaleString('ko-KR')+'kcal (MET '+p[1]+')';
+ document.getElementById('result').classList.add('show');
+}
+</script>

@@ -1,0 +1,36 @@
+<label for="lrB">지금 대출 잔액 (원)</label>
+<input id="lrB" type="number" inputmode="numeric" placeholder="100000000"/>
+<label for="lrN">남은 기간 (개월)</label>
+<input id="lrN" type="number" inputmode="numeric" placeholder="240"/>
+<label for="lrR1">지금 금리 (연 %)</label>
+<input id="lrR1" type="number" inputmode="decimal" placeholder="5"/>
+<label for="lrR2">갈아탈 대출 금리 (연 %)</label>
+<input id="lrR2" type="number" inputmode="decimal" placeholder="4"/>
+<label for="lrF">중도상환수수료 (원)</label>
+<input id="lrF" type="number" inputmode="numeric" placeholder="500000"/>
+<label for="lrE">기타 비용 (인지세·설정비 등, 원)</label>
+<input id="lrE" type="number" inputmode="numeric" placeholder="200000"/>
+<button onclick="calcLr()">갈아타기 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">비용 빼고 아끼는 돈</span><span class="result-value" id="lrNet">-</span></div>
+<div class="result-row"><span class="result-label">월 납입금 (지금 → 새 대출)</span><span class="result-value" id="lrPay" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">남은 총 이자 (지금 → 새 대출)</span><span class="result-value" id="lrInt" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">비용 회수 기간</span><span class="result-value" id="lrBe" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function lrPay(p,r,n){var m=r/100/12;return m>0?p*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):p/n;}
+function lrCalc(b,n,r1,r2,f,e){var a=lrPay(b,r1,n),c=lrPay(b,r2,n),cost=f+e,save=(a-c)*n;
+ return {a:a,c:c,i1:a*n-b,i2:c*n-b,save:save,net:save-cost,be:a>c?cost/(a-c):null};}
+function calcLr(){
+ function g(id){return parseFloat(document.getElementById(id).value);}
+ var b=g('lrB'),n=parseInt(document.getElementById('lrN').value,10),r1=g('lrR1'),r2=g('lrR2'),f=g('lrF')||0,e=g('lrE')||0;
+ if(isNaN(b)||b<=0||!(n>0)||isNaN(r1)||isNaN(r2)) return alert('잔액, 남은 기간, 두 금리를 입력해주세요.');
+ var o=lrCalc(b,n,r1,r2,f,e);
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('lrNet').textContent=o.net>=0?w(o.net):'오히려 '+w(-o.net)+' 손해';
+ document.getElementById('lrPay').textContent=w(o.a)+' → '+w(o.c);
+ document.getElementById('lrInt').textContent=w(o.i1)+' → '+w(o.i2);
+ document.getElementById('lrBe').textContent=o.be===null?'새 금리가 낮아야 회수됩니다':'약 '+Math.ceil(o.be)+'개월';
+ document.getElementById('result').classList.add('show');
+}
+</script>

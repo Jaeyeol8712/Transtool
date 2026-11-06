@@ -1,0 +1,34 @@
+<label for="esD">시험일</label>
+<input id="esD" type="date"/>
+<p class="hint">2027학년도 수능은 2026년 11월 19일(목)입니다.</p>
+<label for="esH">하루 공부 시간 (시간)</label>
+<input id="esH" type="number" inputmode="decimal" placeholder="8"/>
+<label for="esR">일주일에 쉬는 날</label>
+<select id="esR"><option value="0" selected>없음</option><option value="0.5">반나절</option><option value="1">1일</option><option value="2">2일</option></select>
+<label for="esS">과목 수 (선택)</label>
+<input id="esS" type="number" inputmode="numeric" placeholder="4"/>
+<button onclick="calcEs()">남은 시간 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">D-day</span><span class="result-value" id="esDd">-</span></div>
+<div class="result-row"><span class="result-label">공부할 수 있는 날 (오늘 포함)</span><span class="result-value" id="esDays" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">남은 공부 시간</span><span class="result-value" id="esT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">과목당 시간</span><span class="result-value" id="esSub" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+(function(){var t=new Date(),s=new Date(2026,10,19);if(t<=s)document.getElementById('esD').value='2026-11-19';})();
+function esCalc(left,h,rest,subj){var days=Math.round(left*(7-rest)/7),hours=days*h;return {days:days,hours:hours,per:subj>0?hours/subj:null};}
+function calcEs(){
+ var v=document.getElementById('esD').value,h=parseFloat(document.getElementById('esH').value),
+     r=parseFloat(document.getElementById('esR').value),s=parseInt(document.getElementById('esS').value,10);
+ if(!v||isNaN(h)||h<=0) return alert('시험일과 하루 공부 시간을 입력해주세요.');
+ var n=new Date();n=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+ var left=Math.round((new Date(v+'T00:00:00')-n)/864e5);
+ if(left<=0) return alert(left===0?'오늘이 시험일입니다.':'이미 지난 날짜입니다.');
+ var o=esCalc(left,h,r,s);
+ document.getElementById('esDd').textContent='D-'+left;
+ document.getElementById('esDays').textContent='약 '+o.days+'일';
+ document.getElementById('esT').textContent='약 '+Math.round(o.hours).toLocaleString('ko-KR')+'시간';
+ document.getElementById('esSub').textContent=o.per===null?'과목 수를 넣으면 표시됩니다':'약 '+Math.round(o.per).toLocaleString('ko-KR')+'시간';
+ document.getElementById('result').classList.add('show');
+}
+</script>

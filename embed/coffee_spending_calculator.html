@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커피값 연간 지출 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/coffee_spending_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="커피값 연간 지출 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">커피값 연간 지출 계산기</p>
+<label for="cfP">한 잔 가격 (원)</label>
+<input id="cfP" type="number" inputmode="numeric" placeholder="4500"/>
+<label for="cfC">하루 잔 수</label>
+<input id="cfC" type="number" inputmode="decimal" placeholder="1"/>
+<label for="cfD">일주일에 마시는 날</label>
+<select id="cfD"><option value="1">1일</option><option value="2">2일</option><option value="3">3일</option><option value="4">4일</option><option value="5" selected>5일</option><option value="6">6일</option><option value="7">7일</option></select>
+<label for="cfH">바꿀 한 잔 가격 (원, 선택 · 예: 집에서 내린 커피)</label>
+<input id="cfH" type="number" inputmode="numeric" placeholder="500"/>
+<button onclick="calcCf()">커피값 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">1년 커피값 (52주)</span><span class="result-value" id="cfY">-</span></div>
+<div class="result-row"><span class="result-label">한 달 평균</span><span class="result-value" id="cfM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">10년 합계</span><span class="result-value" id="cf10" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">바꾸면 1년에 아끼는 돈</span><span class="result-value" id="cfS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function cfCalc(p,c,d,h){var y=p*c*d*52;return {y:y,m:y/12,t:y*10,s:isNaN(h)?null:(p-h)*c*d*52};}
+function calcCf(){
+ var p=parseFloat(document.getElementById('cfP').value),c=parseFloat(document.getElementById('cfC').value),
+     d=parseInt(document.getElementById('cfD').value,10),h=parseFloat(document.getElementById('cfH').value);
+ if(isNaN(p)||p<=0||isNaN(c)||c<=0) return alert('한 잔 가격과 하루 잔 수를 입력해주세요.');
+ var o=cfCalc(p,c,d,h);
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('cfY').textContent=w(o.y);
+ document.getElementById('cfM').textContent=w(o.m);
+ document.getElementById('cf10').textContent=w(o.t);
+ document.getElementById('cfS').textContent=o.s===null?'바꿀 가격을 넣으면 표시됩니다':w(o.s);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/coffee_spending_calculator.html?utm_source=embed&amp;utm_campaign=coffee_spending_calculator" target="_blank" rel="noopener">어라운드툴 커피값 연간 지출 계산기</a></p>
+</body>
+</html>

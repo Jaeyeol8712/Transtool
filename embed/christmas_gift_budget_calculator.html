@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>크리스마스 선물 예산 나누기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/christmas_gift_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="크리스마스 선물 예산 나누기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">크리스마스 선물 예산 나누기</p>
+<label for="gbT">선물 총예산 (원)</label>
+<input id="gbT" type="number" inputmode="numeric" placeholder="500000"/>
+<label for="gbW">선물 1개당 포장·배송비 (원, 선택)</label>
+<input id="gbW" type="number" inputmode="numeric" placeholder="3000"/>
+<p style="margin:1rem 0 .25rem;font-size:15px">받는 사람 묶음마다 인원과 비중을 넣습니다. 비중 2는 비중 1보다 두 배 금액입니다.</p>
+<div id="gbRows"></div>
+<button onclick="calcGb()">예산 나누기</button>
+<div class="result" id="result">
+<div id="gbOut"></div>
+<div class="result-row"><span class="result-label">포장·배송비 합계</span><span class="result-value" id="gbWr" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">남는 금액 (100원 단위 내림)</span><span class="result-value" id="gbL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+var gbDef=[['가족',4,2],['친구',3,1],['동료',2,0.5],['',0,1]];
+(function(){var h='';gbDef.forEach(function(r,i){h+='<label for="gbN'+i+'">묶음 '+(i+1)+'</label><input id="gbN'+i+'" type="text" placeholder="'+(r[0]||'이름')+'"/>'+
+ '<input id="gbC'+i+'" type="number" inputmode="numeric" placeholder="인원 (예: '+(r[1]||1)+')" aria-label="묶음 '+(i+1)+' 인원"/>'+
+ '<input id="gbR'+i+'" type="number" inputmode="decimal" placeholder="비중 (예: '+r[2]+')" aria-label="묶음 '+(i+1)+' 비중"/>';});
+ document.getElementById('gbRows').innerHTML=h;})();
+function gbCalc(total,wrap,groups){var n=0,pts=0;groups.forEach(function(g){n+=g.c;pts+=g.c*g.r;});
+ var budget=total-wrap*n,unit=budget/pts,used=0;
+ var out=groups.map(function(g){var each=Math.floor(unit*g.r/100)*100;used+=each*g.c;return {name:g.name,c:g.c,each:each};});
+ return {out:out,wrap:wrap*n,left:total-wrap*n-used,budget:budget};}
+function calcGb(){
+ var t=parseFloat(document.getElementById('gbT').value),wr=parseFloat(document.getElementById('gbW').value)||0,gs=[];
+ for(var i=0;i<gbDef.length;i++){var c=parseInt(document.getElementById('gbC'+i).value,10),r=parseFloat(document.getElementById('gbR'+i).value);
+  if(c>0) gs.push({name:document.getElementById('gbN'+i).value||gbDef[i][0]||('묶음 '+(i+1)),c:c,r:isNaN(r)||r<=0?1:r});}
+ if(isNaN(t)||t<=0||!gs.length) return alert('총예산과 묶음 인원을 하나 이상 입력해주세요.');
+ var o=gbCalc(t,wr,gs);
+ if(o.budget<=0) return alert('포장·배송비가 총예산보다 많습니다.');
+ function w(v){return Math.round(v).toLocaleString('ko-KR')+'원';}
+ document.getElementById('gbOut').innerHTML=o.out.map(function(g,i){return '<div class="result-row"><span class="result-label">'+g.name.replace(/[<>&]/g,'')+' '+g.c+'명 · 1인당</span><span class="result-value"'+(i?' style="font-size:1.1rem;color:var(--text);"':'')+'>'+w(g.each)+'</span></div>';}).join('');
+ document.getElementById('gbWr').textContent=w(o.wrap);
+ document.getElementById('gbL').textContent=w(o.left);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/christmas_gift_budget_calculator.html?utm_source=embed&amp;utm_campaign=christmas_gift_budget_calculator" target="_blank" rel="noopener">어라운드툴 크리스마스 선물 예산 나누기</a></p>
+</body>
+</html>

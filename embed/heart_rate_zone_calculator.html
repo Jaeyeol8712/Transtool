@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>운동 심박수 구간 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/heart_rate_zone_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="운동 심박수 구간 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">운동 심박수 구간 계산기</p>
+<label for="hrA">나이 (만 나이)</label>
+<input id="hrA" type="number" inputmode="numeric" placeholder="40"/>
+<label for="hrM">최대 심박수를 잰 값이 있으면 (bpm, 선택)</label>
+<input id="hrM" type="number" inputmode="numeric" placeholder="비우면 220 − 나이"/>
+<button onclick="calcHr()">심박수 구간 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">최대 심박수 (추정)</span><span class="result-value" id="hrMax">-</span></div>
+<div class="result-row"><span class="result-label">중강도 (50~70%)</span><span class="result-value" id="hrMod" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">고강도 (70~85%)</span><span class="result-value" id="hrVig" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function hrCalc(age,mx){var M=mx>0?mx:220-age;return {max:M,mod:[Math.round(M*.5),Math.round(M*.7)],vig:[Math.round(M*.7),Math.round(M*.85)]};}
+function calcHr(){
+ var a=parseFloat(document.getElementById('hrA').value),m=parseFloat(document.getElementById('hrM').value);
+ if(!(m>0)&&(isNaN(a)||a<=0||a>=120)) return alert('나이를 입력해주세요.');
+ var o=hrCalc(a,m);
+ document.getElementById('hrMax').textContent=o.max+'bpm';
+ document.getElementById('hrMod').textContent='분당 '+o.mod[0]+'~'+o.mod[1]+'회';
+ document.getElementById('hrVig').textContent='분당 '+o.vig[0]+'~'+o.vig[1]+'회';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/heart_rate_zone_calculator.html?utm_source=embed&amp;utm_campaign=heart_rate_zone_calculator" target="_blank" rel="noopener">어라운드툴 운동 심박수 구간 계산기</a></p>
+</body>
+</html>
