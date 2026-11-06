@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 362 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 372 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -7,7 +7,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
@@ -989,6 +989,46 @@
     <loc>https://www.aroundtool.com/savings_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-coins-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-beolgyo-kkomak.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-geoje-oepo-daegu.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-gwangcheon-saeujeot.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jangheung-maesaengi.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-moseulpo-bangeo.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-namdang-saejogae.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-noryangjin-winter-hoe.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-sokcho-dorumuk.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-sorae-jeotgal.html</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-yeongdeok-daege.html</loc>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/seocho-michelin.html</loc>

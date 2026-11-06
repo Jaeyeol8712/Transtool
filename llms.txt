@@ -142,6 +142,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
+- [겨울 제철 음식·시장 안내 10가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -247,6 +248,18 @@
 - [전남 서부권 남도음식거리](https://www.aroundtool.com/jeonnam-seobu-namdo.html) — 5곳
 - [전남 남부권 밥집](https://www.aroundtool.com/jeonnam-nambu-bapjip.html) — 1곳
 - [전남 남부권 남도음식거리](https://www.aroundtool.com/jeonnam-nambu-namdo.html) — 6곳
+
+### 전국 제철 음식
+- [제철 겨울 바다·시장 벌교 꼬막](https://www.aroundtool.com/season-beolgyo-kkomak.html)
+- [제철 겨울 바다·시장 거제 외포 대구](https://www.aroundtool.com/season-geoje-oepo-daegu.html)
+- [제철 겨울 바다·시장 광천 토굴 새우젓](https://www.aroundtool.com/season-gwangcheon-saeujeot.html)
+- [제철 겨울 바다·시장 장흥 매생이](https://www.aroundtool.com/season-jangheung-maesaengi.html)
+- [제철 겨울 바다·시장 모슬포 방어](https://www.aroundtool.com/season-moseulpo-bangeo.html)
+- [제철 겨울 바다·시장 남당리 새조개](https://www.aroundtool.com/season-namdang-saejogae.html)
+- [제철 겨울 바다·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
+- [제철 겨울 바다·시장 도루묵](https://www.aroundtool.com/season-sokcho-dorumuk.html)
+- [제철 겨울 바다·시장 소래포구 김장 젓갈](https://www.aroundtool.com/season-sorae-jeotgal.html)
+- [제철 겨울 바다·시장 영덕 대게](https://www.aroundtool.com/season-yeongdeok-daege.html)
 
 ## 여행
 
