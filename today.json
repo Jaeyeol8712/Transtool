@@ -1,52 +1,53 @@
 {
- "date": "2026-11-06",
+ "date": "2026-11-07",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-05.html",
-   "title": "일간 보고서 · 2026-11-05(목)",
+   "file": "reports/daily-2026-11-06.html",
+   "title": "일간 보고서 · 2026-11-06(금)",
    "kpi": {
+    "views": 3,
+    "viewers": 1,
+    "clicks": 2,
+    "clickers": 1
+   },
+   "prev": {
     "views": 1,
     "viewers": 1,
     "clicks": 1,
     "clickers": 1
    },
-   "prev": {
-    "views": 14,
-    "viewers": 5,
-    "clicks": 3,
-    "clickers": 2
-   },
    "ai": {
-    "sessions": 0,
-    "users": 0,
-    "sources": []
+    "sessions": 1,
+    "users": 1,
+    "sources": [
+     {
+      "name": "chatgpt.com",
+      "sessions": 1,
+      "users": 1
+     }
+    ]
    },
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 3,
-     "clicks": 2
+     "views": 5,
+     "clicks": 4
     },
     {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 3,
+     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "views": 1,
      "clicks": 1
     },
     {
-     "post": "갤럭시탭 S12 울트라 256GB 추천 가격",
-     "views": 2,
+     "post": "동유럽 3개국 여행 코스 추천 정리",
+     "views": 1,
      "clicks": 1
     }
    ],
    "sources": [
     {
-     "name": "naver_cafe / cafe",
-     "sessions": 3,
-     "users": 3
-    },
-    {
-     "name": "(direct) / (none)",
+     "name": "m.search.naver.com / referral",
      "sessions": 2,
      "users": 2
     },
@@ -56,12 +57,12 @@
      "users": 1
     },
     {
-     "name": "m.search.naver.com / referral",
+     "name": "naver / organic",
      "sessions": 1,
      "users": 1
     },
     {
-     "name": "naver / organic",
+     "name": "naver_cafe / cafe",
      "sessions": 1,
      "users": 1
     }
@@ -70,14 +71,8 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "east-europe-3countries",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
      "post": "queens-collagen-rg3",
-     "sessions": 1
+     "sessions": 2
     },
     {
      "engine": "네이버",
@@ -86,15 +81,7 @@
      "sessions": 1
     }
    ],
-   "google": [
-    {
-     "query": "비스포크 4도어",
-     "post": "bespoke-ai-fridge-4door",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 13
-    }
-   ]
+   "google": []
   }
  ],
  "errors": []

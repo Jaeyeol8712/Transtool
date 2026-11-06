@@ -1,44 +1,39 @@
 {
- "made": "2026-11-06T03:26:51.441Z",
- "range": "2026-10-30 ~ 2026-11-05",
- "prevRange": "2026-10-23 ~ 2026-10-29",
+ "made": "2026-11-06T23:26:36.369Z",
+ "range": "2026-10-31 ~ 2026-11-06",
+ "prevRange": "2026-10-24 ~ 2026-10-30",
  "cur": {
-  "users": 98,
-  "sessions": 118,
-  "views": 405
+  "users": 113,
+  "sessions": 141,
+  "views": 430
  },
  "prev": {
   "users": 83,
   "sessions": 154,
-  "views": 958
+  "views": 871
  },
  "organic": {
-  "cur": 61,
-  "prev": 63
+  "cur": 76,
+  "prev": 65
  },
  "channels": {
   "cur": {
-   "Organic Search": 61,
-   "Direct": 36,
-   "Unassigned": 10,
+   "Organic Search": 76,
+   "Direct": 43,
+   "Unassigned": 15,
    "AI Assistant": 6,
-   "Organic Social": 3,
+   "Organic Social": 4,
    "Paid Search": 1,
    "Referral": 1
   },
   "prev": {
-   "Direct": 83,
-   "Organic Search": 63,
+   "Direct": 81,
+   "Organic Search": 65,
    "Organic Social": 8,
-   "Referral": 1
+   "AI Assistant": 1
   }
  },
  "daily": [
-  {
-   "date": "20261009",
-   "users": 2,
-   "sessions": 2
-  },
   {
    "date": "20261011",
    "users": 4,
@@ -168,20 +163,25 @@
    "date": "20261105",
    "users": 16,
    "sessions": 20
+  },
+  {
+   "date": "20261106",
+   "users": 27,
+   "sessions": 37
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 24
+   "sessions": 32
   },
   {
-   "page": "(not set)",
-   "sessions": 5
+   "page": "",
+   "sessions": 8
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 5
+   "sessions": 6
   },
   {
    "page": "/shop-east-europe-3countries.html",
@@ -192,37 +192,37 @@
    "sessions": 5
   },
   {
-   "page": "/acquisition_tax_calculator",
+   "page": "(not set)",
    "sessions": 4
   },
   {
-   "page": "/haeundae-michelin.html",
-   "sessions": 4
+   "page": "/acquisition_tax_calculator",
+   "sessions": 3
   },
   {
    "page": "/calorie_calculator.html",
    "sessions": 3
   },
   {
-   "page": "/etc.html",
+   "page": "/fuel_economy_calculator",
    "sessions": 3
   },
   {
-   "page": "/fuel_economy_calculator",
+   "page": "/gas_bill_calculator.html",
    "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-28 ~ 2026-11-03",
+  "range": "2026-10-29 ~ 2026-11-04",
   "cur": {
-   "clicks": 9,
-   "impressions": 2498,
-   "position": 8.870296236989592
+   "clicks": 8,
+   "impressions": 2593,
+   "position": 8.830312379483225
   },
   "prev": {
    "clicks": 1,
-   "impressions": 865,
-   "position": 9.934104046242775
+   "impressions": 1165,
+   "position": 9.513304721030043
   }
  },
  "ai": {
@@ -238,9 +238,15 @@
    ]
   },
   "prev": {
-   "sessions": 0,
-   "users": 0,
-   "sources": []
+   "sessions": 1,
+   "users": 1,
+   "sources": [
+    {
+     "name": "chatgpt.com",
+     "sessions": 1,
+     "users": 1
+    }
+   ]
   }
  }
 }
