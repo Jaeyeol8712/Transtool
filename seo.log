@@ -1,12 +1,5 @@
-== 2026-11-06T02:02:55Z push 09611ccfd10c3e010ae1bd922a07a08f25a81aff
-· 대상 1개
-  https://www.aroundtool.com/
-
-  ✓ api.indexnow.org — 200 접수됨
-  ✓ www.bing.com — 200 접수됨
-  ✗ searchadvisor.naver.com — 422 URL이 host와 맞지 않습니다
-
-· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+== 2026-11-06T02:52:55Z push 8fd8399ebe081c4e33a167fa7b085fa244db7a33
+· 전송할 URL이 없습니다. 변경된 HTML이 없습니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
