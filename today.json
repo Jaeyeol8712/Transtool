@@ -18,34 +18,86 @@
     "clickers": 1
    },
    "ai": {
-    "sessions": 1,
-    "users": 1,
+    "sessions": 6,
+    "users": 6,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 1,
-      "users": 1
+      "sessions": 6,
+      "users": 6
      }
     ]
+   },
+   "site": {
+    "20261031": {
+     "views": 25,
+     "users": 11,
+     "sessions": 11
+    },
+    "20261101": {
+     "views": 13,
+     "users": 8,
+     "sessions": 8
+    },
+    "20261102": {
+     "views": 23,
+     "users": 16,
+     "sessions": 18
+    },
+    "20261103": {
+     "views": 199,
+     "users": 19,
+     "sessions": 22
+    },
+    "20261104": {
+     "views": 86,
+     "users": 22,
+     "sessions": 25
+    },
+    "20261105": {
+     "views": 32,
+     "users": 16,
+     "sessions": 20
+    },
+    "20261106": {
+     "views": 52,
+     "users": 27,
+     "sessions": 37
+    }
    },
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 5,
+     "views": 6,
      "clicks": 4
     },
     {
-     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
-     "views": 1,
+     "post": "동유럽 3개국 여행 코스 추천 정리",
+     "views": 6,
      "clicks": 1
     },
     {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 1,
+     "post": "설화수 탄력 3종 기획세트 고르는 법",
+     "views": 3,
      "clicks": 1
     }
    ],
    "sources": [
+    {
+     "name": "naver_cafe / cafe",
+     "sessions": 8,
+     "users": 8
+    },
+    {
+     "name": "(direct) / (none)",
+     "sessions": 2,
+     "users": 2
+    },
+    {
+     "name": "daum / organic",
+     "sessions": 2,
+     "users": 2
+    },
     {
      "name": "m.search.naver.com / referral",
      "sessions": 2,
@@ -53,16 +105,6 @@
     },
     {
      "name": "m.blog.naver.com / referral",
-     "sessions": 1,
-     "users": 1
-    },
-    {
-     "name": "naver / organic",
-     "sessions": 1,
-     "users": 1
-    },
-    {
-     "name": "naver_cafe / cafe",
      "sessions": 1,
      "users": 1
     }
@@ -77,11 +119,51 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
+     "post": "east-europe-3countries",
+     "sessions": 2
+    },
+    {
+     "engine": "다음",
+     "query": "대학생 노트북",
+     "post": "student-office-laptop",
+     "sessions": 1
+    },
+    {
+     "engine": "다음",
+     "query": "서유럽 여행",
+     "post": "west-europe-3-10days",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
      "post": "mesh-office-chair",
      "sessions": 1
     }
    ],
-   "google": []
+   "google": [
+    {
+     "query": "대학생 인강용 노트북 추천",
+     "post": "student-office-laptop",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 9
+    },
+    {
+     "query": "미백제품 추천",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 27
+    },
+    {
+     "query": "비스포크 4도어",
+     "post": "bespoke-ai-fridge-4door",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 13
+    }
+   ]
   }
  ],
  "errors": []
