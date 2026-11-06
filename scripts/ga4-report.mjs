@@ -337,19 +337,65 @@ function aiSection(a1, a0, a3) {
   </section>`;
 }
 
+// ───────── 사이트 전체 조회수 (추천 모음과 별개) ─────────
+async function siteSeries(start, end, bucket) {
+  if (MOCK) { const o = {}; for (const d of days(start, end)) { const k = bucket === "day" ? ymd(d) : isoWeekKey(d); const v = 40 + Math.floor(Math.random() * 60); (o[k] ||= { views: 0, users: 0, sessions: 0 }); o[k].views += v; o[k].users += Math.ceil(v / 4); o[k].sessions += Math.ceil(v / 3); } return o; }
+  try {
+    const rows = await ga(start, end, [bucket === "day" ? "date" : "isoYearIsoWeek"], ["screenPageViews", "totalUsers", "sessions"]);
+    const o = {}; for (const r of rows) o[r.d[0]] = { views: r.m[0], users: r.m[1], sessions: r.m[2] }; return o;
+  } catch (e) { ERRORS.push(`사이트 전체 조회수: ${e.message}`); return null; }
+}
+function siteSection(keys, ser, labelFn, titleTxt) {
+  if (!ser) return `<section class="card"><h2>${titleTxt}</h2><p class="empty">사이트 전체 숫자를 불러오지 못했습니다.</p></section>`;
+  const items = keys.map((k) => { const x = ser[k] || { views: 0, users: 0, sessions: 0 }; return { label: labelFn(k), people: x.views, dup: 0, tip: `${labelFn(k)}: 조회 ${n(x.views)} · 사용자 ${n(x.users)} · 방문 ${n(x.sessions)}` }; });
+  const sum = keys.reduce((a, k) => a + (ser[k]?.views || 0), 0);
+  return `<section class="card"><h2>${titleTxt}</h2>
+    <p>합계 <b>${n(sum)}회</b> · 사이트의 모든 페이지(계산기·가이드·여행·추천 모음 등) 조회수입니다.</p>
+    ${columns(items, "s3", "회")}
+    ${table(["기간", "전체 조회수", "사용자", "방문"], keys.map((k) => { const x = ser[k] || { views: 0, users: 0, sessions: 0 }; return [labelFn(k), n(x.views), n(x.users), n(x.sessions)]; }), true)}
+  </section>`;
+}
+const monday = (d) => add(d, -((d.getUTCDay() + 6) % 7));
+const wkLabel = (k, all, last) => { const m = all.find((d) => isoWeekKey(d) === k); const sun = add(m, 6); return `${md_(m)}~${sun > last ? "(진행 중)" : md_(sun)}`; };
+function ai7Section(a, ap) {
+  if (!a) return `<section class="card"><h2>AI 유입</h2><p class="empty">AI 유입 숫자를 불러오지 못했습니다.</p></section>`;
+  return `<section class="card"><h2>AI 유입 · 사이트 전체 · 최근 7일</h2>
+    <p><b>${n(a.sessions)}회</b> (사람 ${n(a.users)}) ${delta(a.sessions, ap?.sessions)}</p>
+    ${a.sources.length ? hbars(a.sources.slice(0, 8).map((x) => ({ label: x.name, value: x.sessions, note: `사람 ${n(x.users)}` })), "s1", "회") : `<p class="empty">최근 7일 AI 서비스에서 들어온 방문이 없습니다.</p>`}
+    <p class="note">ChatGPT·Perplexity·Gemini·Claude·Copilot 등에서 링크를 눌러 들어온 방문(세션)입니다. AI 서비스가 출처를 보내지 않으면 (direct)로 잡혀 실제보다 적을 수 있습니다.</p>
+  </section>`;
+}
+
+/** 일간 보고서: [일별 · 최근 7일] [주별 · 최근 8주] 탭 */
 async function daily() {
-  const y = add(TODAY, -1), s3 = add(y, -2), s7 = add(y, -6);
-  const [d1, d0, d3, w7] = await seq([() => collect(y, y, "day"), () => collect(add(y, -1), add(y, -1), "day"), () => collect(s3, y, "day"), () => collect(s7, y, "day")]);
-  const [ai1, ai0, ai3] = await seq([() => aiVisits(y, y), () => aiVisits(add(y, -1), add(y, -1)), () => aiVisits(s3, y)]);
-  const b3 = days(s3, y).map(ymd), b7 = days(s7, y).map(ymd);
+  const y = add(TODAY, -1), s7 = add(y, -6), p7e = add(s7, -1), p7s = add(p7e, -6);
+  const w8s = add(monday(y), -49);
+  const [w7, p7, w8] = await seq([() => collect(s7, y, "day"), () => collect(p7s, p7e, "day"), () => collect(w8s, y, "week")]);
+  const [ai7, aiP7] = await seq([() => aiVisits(s7, y), () => aiVisits(p7s, p7e)]);
+  const [site7, site8] = await seq([() => siteSeries(s7, y, "day"), () => siteSeries(w8s, y, "week")]);
+  const b7 = days(s7, y).map(ymd), all8 = days(w8s, y), wk = [...new Set(all8.map(isoWeekKey))];
+  const wl = (k) => wkLabel(k, all8, y);
+  // 주별 비교: 마지막으로 끝난 주 vs 그 전 주
+  const done = wk.filter((k) => add(all8.find((d) => isoWeekKey(d) === k), 6) <= y);
+  const lk = done[done.length - 1], pk = done[done.length - 2];
+  const wkTot = (k) => ({ tot: { ...blank(), ...(w8.series[k] || {}) } });
+  const yd = { tot: { ...blank(), ...(w7.series[ymd(y)] || {}) } }, yd0 = { tot: { ...blank(), ...(w7.series[ymd(add(y, -1))] || {}) } };
+  const dayPane = `<section class="card"><h2>최근 7일 한눈에 (그 전 7일 대비)</h2>${kpis(w7, p7)}<p class="note">${md_(s7)}~${md_(y)} · 어제 숫자는 잠정치라 다음 날 조금 늘어날 수 있습니다.</p></section>
+      ${siteSection(b7, site7, dayLabel, "사이트 전체 조회수 · 일별")}
+      ${trend(b7, w7, dayLabel, "추천 모음 · 일별 (최근 7일)")}
+      ${clickersSection(w7, "최근 7일")}
+      ${ai7Section(ai7, aiP7)}
+      ${postsSection(w7, "최근 7일")}${sourcesSection(w7, "최근 7일")}`;
+  const weekPane = `<section class="card"><h2>지난주 한눈에 (${lk ? wl(lk) : ""} · 전주 대비)</h2>${lk ? kpis(wkTot(lk), pk ? wkTot(pk) : null) : `<p class="empty">끝난 주가 아직 없습니다.</p>`}<p class="note">주는 월~일 기준입니다. 이번 주는 진행 중이라 비교에서 뺐습니다.</p></section>
+      ${siteSection(wk, site8, wl, "사이트 전체 조회수 · 주별")}
+      ${trend(wk, w8, wl, "추천 모음 · 주별 (최근 8주)")}
+      ${clickersSection(w8, "최근 8주")}
+      ${postsSection(w8, "최근 8주")}${sourcesSection(w8, "최근 8주")}`;
   return { name: `daily-${iso(y)}`, title: `일간 보고서 · ${iso(y)}(${DOW[y.getUTCDay()]})`,
-    sub: `어제 하루 결과와 최근 3일 비교, 최근 7일 흐름입니다. (${iso(TODAY)} 08시 기준)`,
-    body: `<section class="card"><h2>어제 한눈에 (그제와 비교) · 잠정</h2>${kpis(d1, d0)}<p class="note">어제 숫자는 잠정치입니다. GA4가 하루 이상 걸려 처리하므로 다음 날 조금 늘어날 수 있습니다.</p></section>
-      ${clickersSection(d3, "최근 3일")}
-      ${aiSection(ai1, ai0, ai3)}
-      ${trend(b3, d3, dayLabel, "최근 3일 비교")}
-      ${trend(b7, w7, dayLabel, "최근 7일 흐름")}
-      ${postsSection(d3, "최근 3일")}${sourcesSection(d3, "최근 3일")}`, kpi: d1.tot, prevKpi: d0.tot, data: d3, ai: ai1 };
+    sub: `최근 7일을 날짜별로, 최근 8주를 주별로 봅니다. 위 탭으로 바꿔 보세요. (${iso(TODAY)} 08시 기준)`,
+    body: `<nav class="tabs" role="tablist"><button role="tab" aria-selected="true" data-pane="pd">일별 · 최근 7일</button><button role="tab" aria-selected="false" data-pane="pw">주별 · 최근 8주</button></nav>
+      <div class="pane" id="pd">${dayPane}</div><div class="pane" id="pw" hidden>${weekPane}</div>`,
+    kpi: yd.tot, prevKpi: yd0.tot, data: w7, ai: ai7, site: site7 };
 }
 async function weekly() {
   const end = add(TODAY, -((TODAY.getUTCDay() + 6) % 7) - 1);   // 지난 일요일
@@ -405,7 +451,7 @@ async function yearly() {
 function page(rep) {
   return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(rep.title)} — 어라운드툴 추천 모음</title><style>
-:root{--bg:#f4f3ef;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--ink3:#76756f;--line:#e4e2dc;--s1:#2a78d6;--s2:#eb6834;--up:#0c7a43;--down:#b42318}
+:root{--bg:#f4f3ef;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--ink3:#76756f;--line:#e4e2dc;--s1:#2a78d6;--s2:#eb6834;--s3:#1f9d6a;--up:#0c7a43;--down:#b42318}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121211;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--ink3:#9a998f;--line:#33332f;--s1:#3987e5;--s2:#d95926;--up:#4cc38a;--down:#f97066}}
 :root[data-theme="dark"]{--bg:#121211;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--ink3:#9a998f;--line:#33332f;--s1:#3987e5;--s2:#d95926;--up:#4cc38a;--down:#f97066}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
@@ -417,7 +463,7 @@ h2{font-size:1.08rem;margin:0 0 .8rem}h3{font-size:.9rem;margin:.2rem 0 .4rem;co
 .kpi em{display:block;font-style:normal;font-size:.78rem;color:var(--ink3)}.dl{display:block;font-size:.8rem;margin-top:.3rem;color:var(--ink2)}.dl.up{color:var(--up)}.dl.down{color:var(--down)}.dl small{color:var(--ink3)}
 .two{display:grid;gap:18px}.two>div{min-width:0}@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
 .chart{width:100%;height:auto;display:block}.grid{stroke:var(--line);stroke-width:1}.axis{stroke:var(--ink3);stroke-width:1}.tick{fill:var(--ink3);font-size:11px}.val{fill:var(--ink2);font-size:11px;font-weight:600}
-.s1{fill:var(--s1);background:var(--s1)}.s2{fill:var(--s2);background:var(--s2)}.dup{opacity:.38}
+.s3{fill:var(--s3);background:var(--s3)}.s1{fill:var(--s1);background:var(--s1)}.s2{fill:var(--s2);background:var(--s2)}.dup{opacity:.38}
 .lg{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 .2rem;font-size:.76rem;color:var(--ink2)}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .hb-row{display:grid;grid-template-columns:minmax(90px,38%) 1fr auto;gap:8px;align-items:center;padding:4px 0;font-size:.84rem}
 .hb-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hb-t{height:12px;background:transparent;border-radius:0 4px 4px 0}.hb-t i{display:block;height:12px;border-radius:0 4px 4px 0;min-width:2px}
@@ -426,6 +472,7 @@ h2{font-size:1.08rem;margin:0 0 .8rem}h3{font-size:.9rem;margin:.2rem 0 .4rem;co
 th{color:var(--ink2);font-weight:600;background:var(--bg)}td.r{text-align:right;font-variant-numeric:tabular-nums}
 .note{font-size:.76rem;color:var(--ink3);margin:.5rem 0 0}.empty{color:var(--ink3);font-size:.86rem;margin:.4rem 0}
 .foot{font-size:.76rem;color:var(--ink3);margin-top:18px;line-height:1.7}
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:8px;padding:12px 0;margin-top:8px;background:var(--bg)}.tabs button{flex:1;font:600 .92rem inherit;font-family:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink2);cursor:pointer}.tabs button[aria-selected="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}[hidden]{display:none!important}
 #tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-size:.78rem;padding:6px 9px;border-radius:8px;max-width:280px;display:none;z-index:9}
 </style></head><body><div class="wrap">
 <header><h1>${esc(rep.title)}</h1><p>${esc(rep.sub)}</p></header>
@@ -435,7 +482,7 @@ ${ERRORS.length ? `<p class="foot" style="color:var(--down)">일부 숫자를 �
 · 브랜드커넥트(BC) 버튼 = 네이버 브랜드 커넥트(구매·예약 페이지)로 가는 '제품 가격 알아보기·여행 비용 알아보기' 버튼(첫 버튼·중간·글 끝·팝업). 실제 구매 수는 네이버 커넥트 관리 화면에서 확인하세요.<br>
 · 만든 시각 ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC · GA4 속성 ${PROPERTY}</p></div>
 <div id="tip" role="tooltip"></div>
-<script>(function(){var t=document.getElementById('tip');document.addEventListener('mousemove',function(e){var el=e.target.closest&&e.target.closest('[data-tip]');if(!el){t.style.display='none';return}t.textContent=el.getAttribute('data-tip');t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-290)+'px';t.style.top=(e.clientY+14)+'px'});
+<script>(function(){document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b);document.getElementById(x.dataset.pane).hidden=x!==b})}})})();(function(){var t=document.getElementById('tip');document.addEventListener('mousemove',function(e){var el=e.target.closest&&e.target.closest('[data-tip]');if(!el){t.style.display='none';return}t.textContent=el.getAttribute('data-tip');t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-290)+'px';t.style.top=(e.clientY+14)+'px'});
 document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('[data-tip]');if(!el){t.style.display='none';return}var r=el.getBoundingClientRect();t.textContent=el.getAttribute('data-tip');t.style.display='block';t.style.left=Math.min(r.left,innerWidth-290)+'px';t.style.top=(r.top-36)+'px'})})();</script>
 </body></html>`;
 }
@@ -479,13 +526,13 @@ for (const t of plan) {
     const rep = await FN[t]();
     writeFileSync(`_cta/reports/${rep.name}.html`, page(rep));
     made.push({ type: t, file: `reports/${rep.name}.html`, title: rep.title, kpi: rep.kpi, prev: rep.prevKpi,
-      ai: rep.ai, topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
+      ai: rep.ai, site: rep.site || null, topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
       sources: rep.data.sources.slice(0, 5), keywords: rep.data.keywords.slice(0, 8), google: rep.data.google.rows.slice(0, 8) });
     console.log(`✓ ${rep.title}`);
   } catch (e) { console.log(`✗ ${t}: ${e.message}`); ERRORS.push(`${t}: ${e.stack || e.message}`); }
 }
 if (!MOCK) { try { writeFileSync("_cta/kpi.json", JSON.stringify(await siteKpi(), null, 1)); console.log("✓ 사이트 KPI"); } catch (e) { console.log(`✗ 사이트 KPI: ${e.message}`); ERRORS.push(`kpi: ${e.message}`); } }
 writeFileSync("_cta/today.json", JSON.stringify({ date: iso(TODAY), reports: made, errors: [...new Set(ERRORS)] }, null, 1));
-let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서), 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
-for (const r of made) md += `- ${r.title}${r.type === "daily" ? " (어제 숫자 잠정)" : ""}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers})${r.ai ? ` · AI 유입 ${r.ai.sessions}회(사람 ${r.ai.users})` : ""} → ${r.file}\n`;
+let md = `# 추천 모음 보고서 ${iso(TODAY)}\n\n> 전달 방법: 이 브랜치의 today.json 에 적힌 reports/*.html 파일을 그대로 사용자에게 보내고(그래프·표가 든 시각 보고서, 일별·주별 탭), 사이트 전체 조회수(일별)와 추천 모음 핵심 숫자·상위 글·유입 매체·검색어를 짧게 요약한다.\n\n`;
+for (const r of made) md += `- ${r.title}${r.type === "daily" ? " (어제 숫자 잠정)" : ""}: 조회 ${r.kpi.views}(사람 ${r.kpi.viewers}) · 브랜드커넥트 버튼 클릭 ${r.kpi.clicks}(사람 ${r.kpi.clickers})${r.ai ? ` · AI 유입 ${r.ai.sessions}회(사람 ${r.ai.users})` : ""}${r.site ? ` · 사이트 전체 조회(최근 7일 일별) ${Object.keys(r.site).sort().map((k) => `${+k.slice(4, 6)}.${+k.slice(6)} ${r.site[k].views}`).join(", ")}` : ""} → ${r.file}\n`;
 writeFileSync("_cta/cta-latest.md", md);
