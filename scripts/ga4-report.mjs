@@ -395,7 +395,11 @@ async function daily() {
     sub: `최근 7일을 날짜별로, 최근 8주를 주별로 봅니다. 위 탭으로 바꿔 보세요. (${iso(TODAY)} 08시 기준)`,
     body: `<nav class="tabs" role="tablist"><button role="tab" aria-selected="true" data-pane="pd">일별 · 최근 7일</button><button role="tab" aria-selected="false" data-pane="pw">주별 · 최근 8주</button></nav>
       <div class="pane" id="pd">${dayPane}</div><div class="pane" id="pw" hidden>${weekPane}</div>`,
-    kpi: yd.tot, prevKpi: yd0.tot, data: w7, ai: ai7, site: site7 };
+    kpi: yd.tot, prevKpi: yd0.tot, data: w7, ai: ai7, site: site7,
+    // 데이터 보고판용: 일별·주별 표 (추천 모음 + 사이트 전체 조회수)
+    days7: b7.map((k) => ({ key: k, label: dayLabel(k), ...blank(), ...(w7.series[k] || {}), site: site7?.[k]?.views ?? null })),
+    weeks8: wk.map((k) => ({ key: k, label: wl(k), done: done.includes(k), ...blank(), ...(w8.series[k] || {}), site: site8?.[k]?.views ?? null })),
+    clickSrc7: Object.values((w7.clickSrc || []).reduce((o, r) => { const k = `${r.channel}\t${r.keyword}`; (o[k] ||= { channel: r.channel, keyword: r.keyword, clicks: 0 }).clicks += r.clicks; return o; }, {})).sort((a, b) => b.clicks - a.clicks).slice(0, 10) };
 }
 async function weekly() {
   const end = add(TODAY, -((TODAY.getUTCDay() + 6) % 7) - 1);   // 지난 일요일
@@ -526,7 +530,7 @@ for (const t of plan) {
     const rep = await FN[t]();
     writeFileSync(`_cta/reports/${rep.name}.html`, page(rep));
     made.push({ type: t, file: `reports/${rep.name}.html`, title: rep.title, kpi: rep.kpi, prev: rep.prevKpi,
-      ai: rep.ai, site: rep.site || null, topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
+      ai: rep.ai, site: rep.site || null, days7: rep.days7, weeks8: rep.weeks8, clickSrc7: rep.clickSrc7, topPosts: Object.entries(rep.data.posts).sort((a, b) => b[1].clicks - a[1].clicks || b[1].views - a[1].views).slice(0, 3).map(([k, p]) => ({ post: title(k), views: p.views, clicks: p.clicks })),
       sources: rep.data.sources.slice(0, 5), keywords: rep.data.keywords.slice(0, 8), google: rep.data.google.rows.slice(0, 8) });
     console.log(`✓ ${rep.title}`);
   } catch (e) { console.log(`✗ ${t}: ${e.message}`); ERRORS.push(`${t}: ${e.stack || e.message}`); }

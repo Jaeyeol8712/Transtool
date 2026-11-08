@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파티 음료 양 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/party_drink_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="파티 음료 양 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">파티 음료 양 계산기</p>
+<label for="pdP">인원 (명)</label>
+<input id="pdP" type="number" inputmode="numeric" placeholder="10"/>
+<label for="pdH">파티 시간 (시간)</label>
+<input id="pdH" type="number" inputmode="decimal" placeholder="3"/>
+<label for="pdC">1인 시간당 잔 수 (직접 입력)</label>
+<input id="pdC" type="number" inputmode="decimal" placeholder="1"/>
+<label for="pdG">한 잔 용량 (ml)</label>
+<input id="pdG" type="number" inputmode="numeric" placeholder="200"/>
+<label for="pdB">병 하나 용량 (ml)</label>
+<input id="pdB" type="number" inputmode="numeric" placeholder="1500"/>
+<label for="pdX">여유분 (%)</label>
+<input id="pdX" type="number" inputmode="decimal" placeholder="10"/>
+<button onclick="calcPd()">음료 양 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">필요한 병 수 (올림)</span><span class="result-value" id="pdN">-</span></div>
+<div class="result-row"><span class="result-label">총 잔 수</span><span class="result-value" id="pdCups" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">총 음료 양</span><span class="result-value" id="pdL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function pdCalc(p,h,c,g,b,x){var cups=p*h*c*(1+x/100),ml=cups*g;return {cups:cups,ml:ml,bottles:Math.ceil(ml/b-1e-9)};}
+function calcPd(){
+ function g(id){return parseFloat(document.getElementById(id).value);}
+ var p=g('pdP'),h=g('pdH'),c=g('pdC'),gl=g('pdG'),b=g('pdB'),x=g('pdX')||0;
+ if(!(p>0)||!(h>0)||!(c>0)||!(gl>0)||!(b>0)) return alert('인원, 시간, 잔 수, 잔·병 용량을 입력해주세요.');
+ var o=pdCalc(p,h,c,gl,b,x);
+ document.getElementById('pdN').textContent=o.bottles.toLocaleString('ko-KR')+'병';
+ document.getElementById('pdCups').textContent=Math.ceil(o.cups-1e-9).toLocaleString('ko-KR')+'잔';
+ document.getElementById('pdL').textContent=(o.ml/1000).toFixed(1)+'L';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/party_drink_calculator.html?utm_source=embed&amp;utm_campaign=party_drink_calculator" target="_blank" rel="noopener">어라운드툴 파티 음료 양 계산기</a></p>
+</body>
+</html>

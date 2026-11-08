@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구독료 합계 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/subscription_total_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="구독료 합계 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">구독료 합계 계산기</p>
+<p style="margin:0 0 .5rem;font-size:15px">구독 이름은 비워 둬도 됩니다. 요금은 내 결제 내역의 금액을 넣으세요.</p>
+<div id="sbRows"></div>
+<button type="button" onclick="sbAdd()" style="background:var(--card);color:var(--text);border:1px solid var(--border);margin-bottom:.5rem">+ 구독 추가</button>
+<button onclick="calcSb()">합계 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">한 달 합계</span><span class="result-value" id="sbM">-</span></div>
+<div class="result-row"><span class="result-label">1년 합계</span><span class="result-value" id="sbY" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">가장 비싼 구독 (월 환산)</span><span class="result-value" id="sbTop" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+var sbN=0;
+function sbAdd(){var i=sbN++,d=document.createElement('div');
+ d.innerHTML='<label for="sbName'+i+'">구독 '+(i+1)+'</label><input id="sbName'+i+'" type="text" placeholder="이름 (선택)"/>'+
+ '<input id="sbFee'+i+'" type="number" inputmode="numeric" placeholder="요금 (원)" aria-label="구독 '+(i+1)+' 요금"/>'+
+ '<select id="sbCy'+i+'" aria-label="구독 '+(i+1)+' 결제 주기"><option value="1">매월 결제</option><option value="12">매년 결제</option></select>';
+ document.getElementById('sbRows').appendChild(d);}
+for(var k=0;k<4;k++) sbAdd();
+function sbCalc(items){var m=0,top=null;items.forEach(function(it){var v=it.fee/it.cycle;m+=v;if(!top||v>top.v)top={name:it.name,v:v};});return {m:m,y:m*12,top:top};}
+function calcSb(){
+ var items=[];for(var i=0;i<sbN;i++){var f=parseFloat(document.getElementById('sbFee'+i).value);
+  if(!isNaN(f)&&f>0) items.push({name:document.getElementById('sbName'+i).value||('구독 '+(i+1)),fee:f,cycle:parseInt(document.getElementById('sbCy'+i).value,10)});}
+ if(!items.length) return alert('요금을 하나 이상 입력해주세요.');
+ var o=sbCalc(items);
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('sbM').textContent=w(o.m)+' ('+items.length+'개)';
+ document.getElementById('sbY').textContent=w(o.y);
+ document.getElementById('sbTop').textContent=o.top.name+' · 월 '+w(o.top.v);
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/subscription_total_calculator.html?utm_source=embed&amp;utm_campaign=subscription_total_calculator" target="_blank" rel="noopener">어라운드툴 구독료 합계 계산기</a></p>
+</body>
+</html>

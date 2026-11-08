@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>물가 반영 돈 가치 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/inflation_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="물가 반영 돈 가치 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">물가 반영 돈 가치 계산기</p>
+<label for="ifA">금액 (원)</label>
+<input id="ifA" type="number" inputmode="numeric" placeholder="1000000"/>
+<label for="ifR">연 물가상승률 (%, 직접 입력)</label>
+<input id="ifR" type="number" inputmode="decimal" placeholder="2"/>
+<label for="ifN">기간 (년)</label>
+<input id="ifN" type="number" inputmode="numeric" placeholder="10"/>
+<label for="ifS">연봉 인상률 (%, 선택)</label>
+<input id="ifS" type="number" inputmode="decimal" placeholder="4"/>
+<button onclick="calcIf()">돈 가치 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">기간 뒤 실질 가치 (지금 돈 기준)</span><span class="result-value" id="ifReal">-</span></div>
+<div class="result-row"><span class="result-label">같은 물건의 기간 뒤 가격</span><span class="result-value" id="ifFut" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">누적 물가 상승</span><span class="result-value" id="ifCum" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">실질 연봉 인상률</span><span class="result-value" id="ifSal" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function ifCalc(a,r,n,s){var g=Math.pow(1+r/100,n);return {real:a/g,fut:a*g,cum:(g-1)*100,sal:isNaN(s)?null:((1+s/100)/(1+r/100)-1)*100};}
+function calcIf(){
+ var a=parseFloat(document.getElementById('ifA').value),r=parseFloat(document.getElementById('ifR').value),
+     n=parseFloat(document.getElementById('ifN').value),s=parseFloat(document.getElementById('ifS').value);
+ if(isNaN(a)||a<=0||isNaN(r)||isNaN(n)||n<0) return alert('금액, 물가상승률, 기간을 입력해주세요.');
+ var o=ifCalc(a,r,n,s);
+ function w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+ document.getElementById('ifReal').textContent=w(o.real);
+ document.getElementById('ifFut').textContent=w(o.fut);
+ document.getElementById('ifCum').textContent=o.cum.toFixed(1)+'%';
+ document.getElementById('ifSal').textContent=o.sal===null?'인상률을 넣으면 표시됩니다':(o.sal>=0?'+':'')+o.sal.toFixed(2)+'%';
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/inflation_calculator.html?utm_source=embed&amp;utm_campaign=inflation_calculator" target="_blank" rel="noopener">어라운드툴 물가 반영 돈 가치 계산기</a></p>
+</body>
+</html>

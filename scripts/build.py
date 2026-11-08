@@ -34,6 +34,7 @@ from calc_extra import LEGACY_STEPS, LEGACY_NOTE  # noqa: E402
 import b_layout  # noqa: E402
 from shop_extra import SHOP_EXTRA, TRUST_NOTE, TRUST_NOTE_TRAVEL, SHOP_UPDATED  # noqa: E402
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
+from shop_sources import SHOP_SOURCES  # noqa: E402  (컨펌 i08)
 from guides import GUIDES  # noqa: E402
 
 SITE = "https://www.aroundtool.com"
@@ -170,12 +171,12 @@ FOOD_AREAS = [
     ("jeju", "제주특별자치도", "제주", [("jeju-jejusi", "제주시"), ("jeju-seogwipo", "서귀포시")]),
     ("jeonnam", "전라남도", "전남", [("jeonnam-dongbu", "동부권"), ("jeonnam-jungbu", "중부권"),
                                     ("jeonnam-seobu", "서부권"), ("jeonnam-nambu", "남부권")]),
-    ("season", "전국 제철 음식", "제철", [("season", "겨울 바다·시장")]),  # 2026-11-06 i261106-04 제철·시장 안내(가게 이름 없음)
+    ("season", "전국 제철 음식", "제철", [("season", "제철 음식·시장")]),  # 2026-11-06 i261106-04 제철·시장 안내(가게 이름 없음)
 ]
 REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
 
 TOOL_GROUPS = [
-    ("money", "재테크·부동산", ["dividend_tax_calculator", "stock_average_price_calculator", "jeonse_loan_interest_calculator", "car_installment_calculator", "gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
+    ("money", "재테크·부동산", ["inflation_calculator", "loan_refinance_calculator", "dividend_tax_calculator", "stock_average_price_calculator", "jeonse_loan_interest_calculator", "car_installment_calculator", "gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
                               "freelancer_tax_calculator", "dsr_calculator", "ltv_calculator",
                               "acquisition_tax_calculator", "capital_gains_tax_calculator", "property_tax_calculator",
                               "comprehensive_property_tax_calculator", "brokerage_fee_calculator",
@@ -186,7 +187,7 @@ TOOL_GROUPS = [
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["step_distance_calorie_calculator", "coffee_spending_calculator", "subscription_total_calculator", "taxi_vs_car_cost_calculator", "christmas_gift_budget_calculator", "party_drink_calculator", "heart_rate_zone_calculator", "exam_study_time_calculator", "ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
@@ -217,15 +218,22 @@ from trips_1106 import TRIP_PAGES_1106  # noqa: E402  (2026-11-05 컨펌 i261105
 TRIP_PAGES += TRIP_PAGES_1106
 from trips_1107 import TRIP_PAGES_1107  # noqa: E402  (2026-11-06 컨펌 i261106-03 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1107
+from trips_1108 import TRIP_PAGES_1108  # noqa: E402  (2026-11-07 컨펌 i261107-03 여행 10곳)
+TRIP_PAGES += TRIP_PAGES_1108
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
 PAGE_DATES.update({s + ".html": "2026-11-06" for s, _, _ in TRIP_PAGES_1107})
+PAGE_DATES.update({s + ".html": "2026-11-07" for s, _, _ in TRIP_PAGES_1108})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1105})
 from food_1107 import PAGES_1107 as _FOOD_1107  # noqa: E402  (2026-11-06 컨펌 i261106-04 제철·시장 안내 10곳)
 PAGE_DATES.update({x["file"]: "2026-11-06" for x in _FOOD_1107})
+from food_1108 import PAGES_1108 as _FOOD_1108  # noqa: E402  (2026-11-07 컨펌 i261105-04 제철 안내 2곳: 통영 굴·포항 과메기)
+PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108})
+from food_1108b import PAGES_1108B as _FOOD_1108B  # noqa: E402  (2026-11-07 컨펌 i261107-04 제철·시장 안내 9곳, 구룡포 과메기는 포항 과메기와 겹쳐 뺌)
+PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108B})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -718,7 +726,7 @@ def board_html(p):
                 links.append(f'<a href="/{pre}.html"{cur}>{esc(gu)}</a>')
             sub = f'<div class="at-board-sub"><span>{esc(area[2])} 다른 지역</span>{"".join(links)}</div>'
         return f"""<div class="at-board is-food">
-  <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{"겨울 제철 음식·시장" if p['prefix'] == "season" else esc(p['region_short']) + " " + esc(p['gu']) + " 맛집"}</a></p><span class="at-board-meta">{"제철·장소 안내" if p['prefix'] == "season" else str(gu_count(p['prefix'])) + "곳 수록"} · 광고·협찬 제외</span></div>
+  <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{"제철 음식·시장" if p['prefix'] == "season" else esc(p['region_short']) + " " + esc(p['gu']) + " 맛집"}</a></p><span class="at-board-meta">{"제철·장소 안내" if p['prefix'] == "season" else str(gu_count(p['prefix'])) + "곳 수록"} · 광고·협찬 제외</span></div>
   <ul class="at-board-tabs">{"".join(tabs)}</ul>{sub}
 </div>"""
     if s == "tools":
@@ -1756,6 +1764,10 @@ def build_connect_blog(p):
         extra_html += f'<h2>{esc(st)}</h2><div class="at-table"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
     if sx.get("faq"):
         extra_html += faq_html(sx["faq"])
+    srcs = SHOP_SOURCES.get(post["slug"], [])  # 컨펌 i08 근거 자료 (scripts/shop_sources.py)
+    if srcs:
+        li = "".join(f'<li><a href="{esc(u)}" rel="nofollow noopener" target="_blank">{esc(n)}</a></li>' for n, u in srcs)
+        extra_html += f'<h2>근거 자료</h2><ul class="at-sources">{li}</ul>'
     trust = TRUST_NOTE_TRAVEL if post.get("kind") == "travel" else TRUST_NOTE
     extra_html += f'<h2>이 글의 기준</h2><p class="at-note">{trust}</p>'
     content = f"""<article>
@@ -2112,11 +2124,11 @@ def build_gu_hub(p):
 </div></div>"""
     if p["prefix"] == "season":  # 제철·시장 안내 묶음: 가게 목록이 아니므로 '맛집 N곳' 문구와 Restaurant 구조화 데이터를 쓰지 않음
         n = len(pages)
-        p["title"] = f"겨울 제철 음식·시장 안내 {n}가지 — 제철 시기·먹는 법"
-        p["desc"] = "방어·꼬막·새조개·대게·도루묵·대구·새우젓·매생이 등 겨울 제철 해산물과 시장을 제철 시기·장소·먹는 법 중심으로 정리했습니다. 가게 추천은 하지 않습니다."
-        content = content.replace(f"<h1>{esc(area)} 맛집 {total}곳</h1>", f"<h1>겨울 제철 음식·시장 {n}가지</h1>")
+        p["title"] = f"제철 음식·시장 안내 {n}가지 — 제철 시기·먹는 법"
+        p["desc"] = "방어·꼬막·대게·과메기·굴·감귤·딸기·전복 등 전국 제철 음식과 시장을 제철 시기·장소·먹는 법 중심으로 정리했습니다. 가게 추천은 하지 않습니다."
+        content = content.replace(f"<h1>{esc(area)} 맛집 {total}곳</h1>", f"<h1>제철 음식·시장 {n}가지</h1>")
         content = content.replace(f"{esc(p['gu'])}에서 광고·협찬을 빼고 고른 가게를 카테고리별로 모았습니다. 가게 이름을 누르면 선정 근거와 단점, 가격과 영업시간 확인 여부를 볼 수 있습니다.",
-                                  "겨울에 많이 찾는 제철 해산물과 시장을 모았습니다. 가게 추천이 아니라 제철 시기·장소·먹는 법 안내입니다.")
+                                  "철마다 많이 찾는 제철 음식과 시장을 모았습니다. 가게 추천이 아니라 제철 시기·장소·먹는 법 안내입니다.")
         content = content.replace(f"<p>{answer}</p>", "<p>제철 음식은 시기가 짧습니다. 대게는 12월부터(6~11월 금어기), 새조개는 12~3월, 매생이는 12~2월에 나옵니다. 아래에서 음식별 제철과 가는 법을 보세요.</p>")
         ld_items = []
     lst = {"@type": "ItemList", "name": f"{area} 맛집", "numberOfItems": len(ld_items), "itemListElement": ld_items}
@@ -2133,7 +2145,7 @@ def build_food_hub():
         jump.append(f'<a href="#r-{rid}">{esc(rshort)} <span class="c">{region_count(rid)}</span></a>')
         rows.append(f'<tr class="at-gr" id="r-{rid}"><td colspan="4">{esc(rname)}<span>{"안내" if rid == "season" else str(region_count(rid)) + "곳"}</span></td></tr>')
         for pre, gu in gus:
-            _mid = (f'<td><a href="/{pre}.html"><b>겨울 제철 음식·시장 안내 전체 보기</b></a><span class="x">제철 시기·장소·먹는 법 (가게 추천 없음)</span></td>' if pre == "season" else f'<td><a href="/{pre}.html"><b>{esc(rshort)} {esc(gu)} 맛집 전체 보기</b></a><span class="x">카테고리별 가게 목록을 한 페이지에</span></td>')
+            _mid = (f'<td><a href="/{pre}.html"><b>제철 음식·시장 안내 전체 보기</b></a><span class="x">제철 시기·장소·먹는 법 (가게 추천 없음)</span></td>' if pre == "season" else f'<td><a href="/{pre}.html"><b>{esc(rshort)} {esc(gu)} 맛집 전체 보기</b></a><span class="x">카테고리별 가게 목록을 한 페이지에</span></td>')
             rows.append(f'<tr data-k="{esc(rname)} {esc(gu)}"><td class="k"><span class="tag food">{esc(gu)}</span></td>' + _mid +
 
                         f'<td class="c">{"—" if pre == "season" else gu_count(pre)}</td><td class="d">{short_date(TODAY)}</td></tr>')

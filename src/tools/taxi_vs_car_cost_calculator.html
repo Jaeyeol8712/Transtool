@@ -1,0 +1,44 @@
+<label for="tcD">편도 거리 (km)</label>
+<input id="tcD" type="number" inputmode="decimal" placeholder="10"/>
+<label for="tcT">한 달 이동 횟수 (편도 기준)</label>
+<input id="tcT" type="number" inputmode="numeric" placeholder="20"/>
+<p style="margin:1rem 0 .25rem;font-weight:700">택시 (지역 요금표를 보고 입력)</p>
+<label for="tcB">기본요금 (원)</label>
+<input id="tcB" type="number" inputmode="numeric" placeholder="5000"/>
+<label for="tcBk">기본 거리 (km)</label>
+<input id="tcBk" type="number" inputmode="decimal" placeholder="2"/>
+<label for="tcK">이후 1km당 요금 (원)</label>
+<input id="tcK" type="number" inputmode="numeric" placeholder="1000"/>
+<label for="tcX">할증·시간요금 추가 (%, 선택)</label>
+<input id="tcX" type="number" inputmode="decimal" placeholder="0"/>
+<p style="margin:1rem 0 .25rem;font-weight:700">자가용</p>
+<label for="tcE">연비 (km/L)</label>
+<input id="tcE" type="number" inputmode="decimal" placeholder="12"/>
+<label for="tcF">기름값 (원/L)</label>
+<input id="tcF" type="number" inputmode="numeric" placeholder="1700"/>
+<label for="tcP">1회 주차비·통행료 (원)</label>
+<input id="tcP" type="number" inputmode="numeric" placeholder="3000"/>
+<label for="tcM">한 달 고정비 (보험·세금 등, 원, 선택)</label>
+<input id="tcM" type="number" inputmode="numeric" placeholder="0"/>
+<button onclick="calcTc()">비용 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">1회 비용 (택시 / 자가용)</span><span class="result-value" id="tcOne">-</span></div>
+<div class="result-row"><span class="result-label">한 달 택시비</span><span class="result-value" id="tcTm" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">한 달 자가용 비용</span><span class="result-value" id="tcCm" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">차이</span><span class="result-value" id="tcDiff" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function tcCalc(d,t,b,bk,k,x,e,f,p,m){var taxi=(b+Math.max(0,d-bk)*k)*(1+x/100),car=d/e*f+p;return {taxi:taxi,car:car,tm:taxi*t,cm:car*t+m};}
+function calcTc(){
+ function g(id){return parseFloat(document.getElementById(id).value);}
+ var d=g('tcD'),t=g('tcT'),b=g('tcB'),bk=g('tcBk')||0,k=g('tcK'),x=g('tcX')||0,e=g('tcE'),f=g('tcF'),p=g('tcP')||0,m=g('tcM')||0;
+ if(isNaN(d)||d<=0||isNaN(t)||isNaN(b)||isNaN(k)||isNaN(e)||e<=0||isNaN(f)) return alert('거리, 횟수, 택시 요금, 연비, 기름값을 입력해주세요.');
+ var o=tcCalc(d,t,b,bk,k,x,e,f,p,m);
+ function w(v){return Math.round(v).toLocaleString('ko-KR')+'원';}
+ document.getElementById('tcOne').textContent=w(o.taxi)+' / '+w(o.car);
+ document.getElementById('tcTm').textContent=w(o.tm);
+ document.getElementById('tcCm').textContent=w(o.cm);
+ var df=o.tm-o.cm;document.getElementById('tcDiff').textContent=df>=0?'자가용이 '+w(df)+' 적음':'택시가 '+w(-df)+' 적음';
+ document.getElementById('result').classList.add('show');
+}
+</script>
