@@ -65,6 +65,180 @@
      "sessions": 21
     }
    },
+   "days7": [
+    {
+     "key": "20261101",
+     "label": "11.1(일)",
+     "views": 4,
+     "viewers": 4,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 13
+    },
+    {
+     "key": "20261102",
+     "label": "11.2(월)",
+     "views": 6,
+     "viewers": 4,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 23
+    },
+    {
+     "key": "20261103",
+     "label": "11.3(화)",
+     "views": 33,
+     "viewers": 7,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 199
+    },
+    {
+     "key": "20261104",
+     "label": "11.4(수)",
+     "views": 14,
+     "viewers": 5,
+     "clicks": 3,
+     "clickers": 2,
+     "site": 86
+    },
+    {
+     "key": "20261105",
+     "label": "11.5(목)",
+     "views": 1,
+     "viewers": 1,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 32
+    },
+    {
+     "key": "20261106",
+     "label": "11.6(금)",
+     "views": 3,
+     "viewers": 1,
+     "clicks": 2,
+     "clickers": 1,
+     "site": 52
+    },
+    {
+     "key": "20261107",
+     "label": "11.7(토)",
+     "views": 6,
+     "viewers": 6,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 25
+    }
+   ],
+   "weeks8": [
+    {
+     "key": "202638",
+     "label": "9.14~9.20",
+     "done": true,
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 52
+    },
+    {
+     "key": "202639",
+     "label": "9.21~9.27",
+     "done": true,
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 47
+    },
+    {
+     "key": "202640",
+     "label": "9.28~10.4",
+     "done": true,
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 36
+    },
+    {
+     "key": "202641",
+     "label": "10.5~10.11",
+     "done": true,
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 38
+    },
+    {
+     "key": "202642",
+     "label": "10.12~10.18",
+     "done": true,
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 28
+    },
+    {
+     "key": "202643",
+     "label": "10.19~10.25",
+     "done": true,
+     "views": 157,
+     "viewers": 7,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 527
+    },
+    {
+     "key": "202644",
+     "label": "10.26~11.1",
+     "done": true,
+     "views": 70,
+     "viewers": 24,
+     "clicks": 3,
+     "clickers": 3,
+     "site": 518
+    },
+    {
+     "key": "202645",
+     "label": "11.2~(진행 중)",
+     "done": false,
+     "views": 63,
+     "viewers": 23,
+     "clicks": 9,
+     "clickers": 7,
+     "site": 417
+    }
+   ],
+   "clickSrc7": [
+    {
+     "channel": "Organic Search",
+     "keyword": "(검색어 미전달)",
+     "clicks": 4
+    },
+    {
+     "channel": "Unassigned",
+     "keyword": "(검색어 미전달)",
+     "clicks": 3
+    },
+    {
+     "channel": "AI Assistant",
+     "keyword": "(직접·내부)",
+     "clicks": 1
+    },
+    {
+     "channel": "Direct",
+     "keyword": "(직접·내부)",
+     "clicks": 1
+    },
+    {
+     "channel": "Organic Social",
+     "keyword": "(검색어 미전달)",
+     "clicks": 1
+    }
+   ],
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
