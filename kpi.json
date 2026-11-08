@@ -1,44 +1,274 @@
 {
- "made": "2026-11-08T09:21:18.945Z",
- "range": "2026-11-01 ~ 2026-11-07",
- "prevRange": "2026-10-25 ~ 2026-10-31",
+ "yday": {
+  "date": "2026-11-08",
+  "users": 14,
+  "sessions": 17,
+  "views": 20,
+  "organic": 17
+ },
+ "yday0": {
+  "date": "2026-11-07",
+  "users": 17,
+  "sessions": 21,
+  "views": 25,
+  "organic": 17
+ },
+ "weeks": [
+  {
+   "key": "202638",
+   "start": "2026-09-14",
+   "end": "2026-09-20",
+   "done": true,
+   "users": 38,
+   "sessions": 47,
+   "views": 52,
+   "organic": 47
+  },
+  {
+   "key": "202639",
+   "start": "2026-09-21",
+   "end": "2026-09-27",
+   "done": true,
+   "users": 33,
+   "sessions": 42,
+   "views": 47,
+   "organic": 42
+  },
+  {
+   "key": "202640",
+   "start": "2026-09-28",
+   "end": "2026-10-04",
+   "done": true,
+   "users": 34,
+   "sessions": 35,
+   "views": 36,
+   "organic": 34
+  },
+  {
+   "key": "202641",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "done": true,
+   "users": 35,
+   "sessions": 36,
+   "views": 38,
+   "organic": 30
+  },
+  {
+   "key": "202642",
+   "start": "2026-10-12",
+   "end": "2026-10-18",
+   "done": true,
+   "users": 26,
+   "sessions": 28,
+   "views": 28,
+   "organic": 28
+  },
+  {
+   "key": "202643",
+   "start": "2026-10-19",
+   "end": "2026-10-25",
+   "done": true,
+   "users": 42,
+   "sessions": 64,
+   "views": 527,
+   "organic": 46
+  },
+  {
+   "key": "202644",
+   "start": "2026-10-26",
+   "end": "2026-11-01",
+   "done": true,
+   "users": 91,
+   "sessions": 146,
+   "views": 518,
+   "organic": 57
+  },
+  {
+   "key": "202645",
+   "start": "2026-11-02",
+   "end": "2026-11-08",
+   "done": true,
+   "users": 124,
+   "sessions": 160,
+   "views": 437,
+   "organic": 100
+  }
+ ],
+ "lastWeek": {
+  "range": "2026-11-02 ~ 2026-11-08",
+  "prevRange": "2026-10-26 ~ 2026-11-01",
+  "landing": [
+   {
+    "page": "/",
+    "sessions": 33
+   },
+   {
+    "page": "(not set)",
+    "sessions": 7
+   },
+   {
+    "page": "/interior_calculator.html",
+    "sessions": 5
+   },
+   {
+    "page": "/acquisition_tax_calculator",
+    "sessions": 4
+   },
+   {
+    "page": "/shop-east-europe-3countries.html",
+    "sessions": 4
+   },
+   {
+    "page": "/yeonsu-bapjip.html",
+    "sessions": 4
+   },
+   {
+    "page": "/yeonsu.html",
+    "sessions": 4
+   },
+   {
+    "page": "/fuel_economy_calculator",
+    "sessions": 3
+   },
+   {
+    "page": "/gas_bill_calculator.html",
+    "sessions": 3
+   },
+   {
+    "page": "/haeundae-gukmul-myeon.html",
+    "sessions": 3
+   }
+  ],
+  "channels": {
+   "cur": {
+    "Organic Search": 100,
+    "Direct": 39,
+    "Unassigned": 11,
+    "AI Assistant": 6,
+    "Organic Social": 4,
+    "Referral": 1
+   },
+   "prev": {
+    "Direct": 76,
+    "Organic Search": 57,
+    "Organic Social": 8,
+    "AI Assistant": 2,
+    "Unassigned": 2,
+    "Paid Search": 1
+   }
+  }
+ },
+ "googleWeeks": [
+  {
+   "key": "202638",
+   "start": "2026-09-14",
+   "end": "2026-09-20",
+   "complete": true,
+   "clicks": 5,
+   "impressions": 153,
+   "position": 16.4
+  },
+  {
+   "key": "202639",
+   "start": "2026-09-21",
+   "end": "2026-09-27",
+   "complete": true,
+   "clicks": 4,
+   "impressions": 109,
+   "position": 19.5
+  },
+  {
+   "key": "202640",
+   "start": "2026-09-28",
+   "end": "2026-10-04",
+   "complete": true,
+   "clicks": 1,
+   "impressions": 114,
+   "position": 22
+  },
+  {
+   "key": "202641",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "complete": true,
+   "clicks": 2,
+   "impressions": 279,
+   "position": 13.3
+  },
+  {
+   "key": "202642",
+   "start": "2026-10-12",
+   "end": "2026-10-18",
+   "complete": true,
+   "clicks": 0,
+   "impressions": 290,
+   "position": 13.1
+  },
+  {
+   "key": "202643",
+   "start": "2026-10-19",
+   "end": "2026-10-25",
+   "complete": true,
+   "clicks": 1,
+   "impressions": 478,
+   "position": 10.8
+  },
+  {
+   "key": "202644",
+   "start": "2026-10-26",
+   "end": "2026-11-01",
+   "complete": true,
+   "clicks": 2,
+   "impressions": 2126,
+   "position": 8.9
+  },
+  {
+   "key": "202645",
+   "start": "2026-11-02",
+   "end": "2026-11-08",
+   "complete": false,
+   "clicks": 13,
+   "impressions": 2143,
+   "position": 9.2
+  }
+ ],
+ "made": "2026-11-08T21:36:53.754Z",
+ "range": "2026-11-02 ~ 2026-11-08",
+ "prevRange": "2026-10-26 ~ 2026-11-01",
  "cur": {
-  "users": 119,
-  "sessions": 151,
-  "views": 430
+  "users": 124,
+  "sessions": 160,
+  "views": 437
  },
  "prev": {
-  "users": 90,
-  "sessions": 154,
-  "views": 692
+  "users": 91,
+  "sessions": 146,
+  "views": 518
  },
  "organic": {
-  "cur": 87,
-  "prev": 66
+  "cur": 100,
+  "prev": 57
  },
  "channels": {
   "cur": {
-   "Organic Search": 87,
-   "Direct": 40,
-   "Unassigned": 12,
-   "AI Assistant": 7,
+   "Organic Search": 100,
+   "Direct": 39,
+   "Unassigned": 11,
+   "AI Assistant": 6,
    "Organic Social": 4,
    "Referral": 1
   },
   "prev": {
-   "Direct": 78,
-   "Organic Search": 66,
+   "Direct": 76,
+   "Organic Search": 57,
    "Organic Social": 8,
-   "AI Assistant": 1,
+   "AI Assistant": 2,
+   "Unassigned": 2,
    "Paid Search": 1
   }
  },
  "daily": [
-  {
-   "date": "20261011",
-   "users": 4,
-   "sessions": 4
-  },
   {
    "date": "20261012",
    "users": 5,
@@ -173,12 +403,17 @@
    "date": "20261107",
    "users": 17,
    "sessions": 21
+  },
+  {
+   "date": "20261108",
+   "users": 14,
+   "sessions": 17
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 31
+   "sessions": 33
   },
   {
    "page": "(not set)",
@@ -186,19 +421,23 @@
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 6
+   "sessions": 5
+  },
+  {
+   "page": "/acquisition_tax_calculator",
+   "sessions": 4
   },
   {
    "page": "/shop-east-europe-3countries.html",
-   "sessions": 5
+   "sessions": 4
   },
   {
    "page": "/yeonsu-bapjip.html",
    "sessions": 4
   },
   {
-   "page": "/acquisition_tax_calculator",
-   "sessions": 3
+   "page": "/yeonsu.html",
+   "sessions": 4
   },
   {
    "page": "/fuel_economy_calculator",
@@ -211,45 +450,41 @@
   {
    "page": "/haeundae-gukmul-myeon.html",
    "sessions": 3
-  },
-  {
-   "page": "/job_fortune_teller",
-   "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-30 ~ 2026-11-05",
+  "range": "2026-10-31 ~ 2026-11-06",
   "cur": {
-   "clicks": 10,
-   "impressions": 2682,
-   "position": 8.972408650260999
+   "clicks": 13,
+   "impressions": 2792,
+   "position": 9.165472779369628
   },
   "prev": {
-   "clicks": 1,
-   "impressions": 1497,
-   "position": 9.102204408817636
+   "clicks": 2,
+   "impressions": 1733,
+   "position": 8.989613387189845
   }
  },
  "ai": {
   "cur": {
-   "sessions": 7,
-   "users": 7,
+   "sessions": 6,
+   "users": 6,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 7,
-     "users": 7
+     "sessions": 6,
+     "users": 6
     }
    ]
   },
   "prev": {
-   "sessions": 1,
-   "users": 1,
+   "sessions": 2,
+   "users": 2,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 1,
-     "users": 1
+     "sessions": 2,
+     "users": 2
     }
    ]
   }

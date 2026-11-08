@@ -1,39 +1,34 @@
 {
- "date": "2026-11-08",
+ "date": "2026-11-09",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-07.html",
-   "title": "일간 보고서 · 2026-11-07(토)",
+   "file": "reports/daily-2026-11-08.html",
+   "title": "일간 보고서 · 2026-11-08(일)",
    "kpi": {
+    "views": 0,
+    "viewers": 0,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 6,
     "viewers": 6,
     "clicks": 1,
     "clickers": 1
    },
-   "prev": {
-    "views": 3,
-    "viewers": 1,
-    "clicks": 2,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 7,
-    "users": 7,
+    "sessions": 6,
+    "users": 6,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 7,
-      "users": 7
+      "sessions": 6,
+      "users": 6
      }
     ]
    },
    "site": {
-    "20261101": {
-     "views": 13,
-     "users": 8,
-     "sessions": 8
-    },
     "20261102": {
      "views": 23,
      "users": 16,
@@ -63,18 +58,14 @@
      "views": 25,
      "users": 17,
      "sessions": 21
+    },
+    "20261108": {
+     "views": 20,
+     "users": 14,
+     "sessions": 17
     }
    },
    "days7": [
-    {
-     "key": "20261101",
-     "label": "11.1(일)",
-     "views": 4,
-     "viewers": 4,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 13
-    },
     {
      "key": "20261102",
      "label": "11.2(월)",
@@ -128,6 +119,15 @@
      "clicks": 1,
      "clickers": 1,
      "site": 25
+    },
+    {
+     "key": "20261108",
+     "label": "11.8(일)",
+     "views": 0,
+     "viewers": 0,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 20
     }
    ],
    "weeks8": [
@@ -203,13 +203,13 @@
     },
     {
      "key": "202645",
-     "label": "11.2~(진행 중)",
-     "done": false,
+     "label": "11.2~11.8",
+     "done": true,
      "views": 63,
      "viewers": 23,
      "clicks": 9,
      "clickers": 7,
-     "site": 417
+     "site": 437
     }
    ],
    "clickSrc7": [
@@ -221,7 +221,7 @@
     {
      "channel": "Unassigned",
      "keyword": "(검색어 미전달)",
-     "clicks": 3
+     "clicks": 2
     },
     {
      "channel": "AI Assistant",
@@ -247,7 +247,7 @@
     },
     {
      "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 6,
+     "views": 5,
      "clicks": 1
     },
     {
@@ -259,13 +259,13 @@
    "sources": [
     {
      "name": "naver_cafe / cafe",
-     "sessions": 10,
-     "users": 10
+     "sessions": 8,
+     "users": 8
     },
     {
      "name": "daum / organic",
-     "sessions": 5,
-     "users": 5
+     "sessions": 3,
+     "users": 3
     },
     {
      "name": "(direct) / (none)",
@@ -316,20 +316,20 @@
     },
     {
      "engine": "다음",
-     "query": "대학생 노트북",
-     "post": "student-office-laptop",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
      "query": "목 어깨",
      "post": "pulio-neck-shoulder-tapping",
      "sessions": 1
     },
     {
      "engine": "다음",
-     "query": "서유럽 여행",
-     "post": "west-europe-3-10days",
+     "query": "차량용",
+     "post": "car-vacuum-air-duster",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "mesh-office-chair",
      "sessions": 1
     }
    ],
@@ -338,8 +338,15 @@
      "query": "무선 게이밍 키보드 추천",
      "post": "wireless-gaming-keyboard",
      "clicks": 0,
-     "impressions": 2,
+     "impressions": 4,
      "position": 7
+    },
+    {
+     "query": "가격",
+     "post": "queens-collagen-rg3",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 2
     },
     {
      "query": "대학생 노트북",
@@ -349,18 +356,18 @@
      "position": 37
     },
     {
-     "query": "대학생 인강용 노트북 추천",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 9
-    },
-    {
      "query": "비스포크 4도어",
      "post": "bespoke-ai-fridge-4door",
      "clicks": 0,
      "impressions": 1,
      "position": 13
+    },
+    {
+     "query": "쉐이빙폼 추천",
+     "post": "shaving-foam-cream",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 56
     },
     {
      "query": "폴드8 256 출고가",
