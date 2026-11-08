@@ -510,7 +510,35 @@ async function siteKpi() {
       const row = ((await r.json()).rows || [])[0] || {}; return { clicks: row.clicks || 0, impressions: row.impressions || 0, position: row.position || null }; };
     if (site) { g.range = `${iso(add(last, -6))} ~ ${iso(last)}`; g.cur = await q(add(last, -6), last); g.prev = await q(add(last, -13), add(last, -7)); }
   } catch (e) { g.error = e.message; }
-  return { made: new Date().toISOString(), range: `${iso(s7)} ~ ${iso(y)}`, prevRange: `${iso(p7s)} ~ ${iso(p7e)}`, cur, prev,
+  // 데이터 보고판: 어제 하루(그제 대비) + 주별(월~일, 최근 8주) + 지난주 랜딩·경로 + 구글 주별
+  const y0 = add(y, -1), ws = add(add(y, -((y.getUTCDay() + 6) % 7)), -49), wDays = days(ws, y), wKeys = [...new Set(wDays.map(isoWeekKey))];
+  const wMon = (k) => wDays.find((d) => isoWeekKey(d) === k);
+  const lwEnd = y.getUTCDay() === 0 ? y : add(y, -y.getUTCDay()), lwStart = add(lwEnd, -6), pwStart = add(lwStart, -7), pwEnd = add(lwStart, -1);
+  const [yd, yd0, ydCh, yd0Ch, wTot, wCh, lwLand, lwCh, pwCh] = await seq([() => tot(y, y), () => tot(y0, y0), () => org(y, y), () => org(y0, y0),
+    () => ga(ws, y, ["isoYearIsoWeek"], ["totalUsers", "sessions", "screenPageViews"]), () => ga(ws, y, ["isoYearIsoWeek", "sessionDefaultChannelGroup"], ["sessions"]),
+    () => ga(lwStart, lwEnd, ["landingPage"], ["sessions"], null, 10), () => org(lwStart, lwEnd), () => org(pwStart, pwEnd)]);
+  const wk = wKeys.map((k) => { const r = wTot.find((x) => x.d[0] === k); const m = wMon(k);
+    return { key: k, start: iso(m), end: iso(add(m, 6)), done: add(m, 6) <= y, users: r ? r.m[0] : 0, sessions: r ? r.m[1] : 0, views: r ? r.m[2] : 0,
+      organic: wCh.filter((x) => x.d[0] === k && x.d[1] === "Organic Search").reduce((a, x) => a + x.m[0], 0) }; });
+  const gw = [];
+  try {
+    const last = add(kstToday(), -3), t = await token();
+    const sites = await (await fetch("https://www.googleapis.com/webmasters/v3/sites", { headers: { Authorization: `Bearer ${t}` } })).json();
+    const site = (sites.siteEntry || []).map((x) => x.siteUrl).find((u) => /aroundtool\.com/.test(u));
+    if (site) {
+      const r = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`, {
+        method: "POST", headers: { Authorization: `Bearer ${t}`, "Content-Type": "application/json" }, body: JSON.stringify({ startDate: iso(ws), endDate: iso(last), dimensions: ["date"], rowLimit: 100 }) });
+      const rows = (await r.json()).rows || [];
+      for (const k of wKeys) { const m = wMon(k), e = add(m, 6); const rr = rows.filter((x) => { const d = new Date(x.keys[0] + "T00:00:00Z"); return d >= m && d <= e; });
+        const imp = rr.reduce((a, x) => a + x.impressions, 0);
+        gw.push({ key: k, start: iso(m), end: iso(e), complete: e <= last, clicks: rr.reduce((a, x) => a + x.clicks, 0), impressions: imp,
+          position: imp ? Math.round(rr.reduce((a, x) => a + x.position * x.impressions, 0) / imp * 10) / 10 : null }); }
+    }
+  } catch (e) { g.weekError = e.message; }
+  const ext = { yday: { date: iso(y), ...yd, organic: ydCh["Organic Search"] || 0 }, yday0: { date: iso(y0), ...yd0, organic: yd0Ch["Organic Search"] || 0 },
+    weeks: wk, lastWeek: { range: `${iso(lwStart)} ~ ${iso(lwEnd)}`, prevRange: `${iso(pwStart)} ~ ${iso(pwEnd)}`,
+      landing: lwLand.map((x) => ({ page: x.d[0], sessions: x.m[0] })), channels: { cur: lwCh, prev: pwCh } }, googleWeeks: gw };
+  return { ...ext, made: new Date().toISOString(), range: `${iso(s7)} ~ ${iso(y)}`, prevRange: `${iso(p7s)} ~ ${iso(p7e)}`, cur, prev,
     organic: { cur: chCur["Organic Search"] || 0, prev: chPrev["Organic Search"] || 0 }, channels: { cur: chCur, prev: chPrev },
     daily: series.map((x) => ({ date: x.d[0], users: x.m[0], sessions: x.m[1] })).sort((a, b) => a.date.localeCompare(b.date)),
     landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g,

@@ -66,8 +66,40 @@ if daily and daily.get("days7"):
         rows.append({"id": f"rclk-{i}", "section": "rclk", "label": x["channel"], "cur": x["clicks"], "prev": None, "alt": x["keyword"], "chg": None})
     for i, x in enumerate(daily.get("keywords") or []):
         rows.append({"id": f"rkw-{i}", "section": "rkw", "label": x["query"], "cur": x["sessions"], "prev": None, "alt": x["engine"], "chg": None})
+# 맨 위: 어제 하루(그제 대비) / 아래: 주별(월~일)
+if kpi.get("yday"):
+    yd, y0 = kpi["yday"], kpi["yday0"]
+    for key, lab in (("users", "사용자"), ("sessions", "방문"), ("organic", "검색 유입 방문"), ("views", "조회")):
+        add("yday", key, lab, yd[key], y0[key])
+    def wlab(w): return f'{int(w["start"][5:7])}.{int(w["start"][8:])}~' + (f'{int(w["end"][5:7])}.{int(w["end"][8:])}' if w.get("done", w.get("complete", True)) else "(진행 중)")
+    for w_ in kpi.get("weeks", []):
+        rows.append({"id": f'wsite-{w_["key"]}', "section": "wsite", "label": wlab(w_), "cur": w_["users"], "prev": None, "alt": w_["sessions"], "chg": None,
+                     "organic": w_["organic"], "views": w_["views"], "done": w_["done"]})
+    done = [w_ for w_ in kpi.get("weeks", []) if w_["done"]]
+    if len(done) >= 1:
+        c_, p_ = done[-1], (done[-2] if len(done) >= 2 else None)
+        for key, lab in (("users", "사용자"), ("sessions", "방문"), ("organic", "검색 유입 방문"), ("views", "조회")):
+            add("week", key, lab, c_[key], p_[key] if p_ else None)
+    lw = kpi.get("lastWeek") or {}
+    for i, l in enumerate(lw.get("landing", [])): add("wland", i, l["page"], l["sessions"])
+    chw = lw.get("channels") or {"cur": {}, "prev": {}}
+    for i, (k, v) in enumerate(sorted(chw["cur"].items(), key=lambda x: -x[1])): add("wchan", i, k, v, chw["prev"].get(k, 0))
+    gws = kpi.get("googleWeeks") or []
+    for w_ in gws:
+        rows.append({"id": f'gweek-{w_["key"]}', "section": "gweek", "label": wlab({**w_, "done": w_["complete"]}), "cur": w_["clicks"], "prev": None, "alt": w_["impressions"], "chg": None, "position": w_["position"]})
+    gdone = [w_ for w_ in gws if w_["complete"]]
+    if gdone:
+        c_, p_ = gdone[-1], (gdone[-2] if len(gdone) >= 2 else None)
+        add("gw", "clicks", "클릭", c_["clicks"], p_["clicks"] if p_ else None)
+        add("gw", "impressions", "노출", c_["impressions"], p_["impressions"] if p_ else None)
+        add("gw", "position", "평균 순위", c_["position"], p_["position"] if p_ else None)
+        meta["gwRange"] = f'{c_["start"]} ~ {c_["end"]}'
+    meta["yday"] = yd["date"]
+    meta["weekRange"] = f'{done[-1]["start"]} ~ {done[-1]["end"]}' if done else ""
+    meta["lwRange"] = lw.get("range", "")
 m = meta
-for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일")):
+for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일"),("yday","어제"),("weekRange","지난주"),("lwRange","지난주 랜딩"),("gwRange","구글 주")):
+    if k not in m: continue
     rows.append({"id": f"meta-{k}", "section": "meta", "label": m[k], "cur": None, "prev": None, "alt": lab, "chg": None})
 json.dump(rows, open(os.path.join(out, "board.json"), "w", encoding="utf-8"), ensure_ascii=False)
 print("ok", len(rows), "rows")
