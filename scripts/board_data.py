@@ -51,6 +51,21 @@ for r in json.load(open(os.path.join(out, "board-google.json"), encoding="utf-8"
 if os.path.exists(os.path.join(out, "board-cta.json")):
     for r in json.load(open(os.path.join(out, "board-cta.json"), encoding="utf-8")): add("cta", {"추천 글 조회":"views","추천 글 본 사람":"viewers","버튼 클릭":"clicks","버튼 누른 사람":"clickers"}[r["metric"]], r["metric"], r["cur"], r["prev"])
     for i, r in enumerate(json.load(open(os.path.join(out, "board-posts.json"), encoding="utf-8"))): add("post", i, r["post"], r["views"], None, r["clicks"])
+# 추천 모음 일간 보고서: 일별(최근 7일)·주별(최근 8주) — 추천 글 조회·버튼 클릭 + 사이트 전체 조회수
+def ctr(c, v): return round(c / v * 100, 1) if v else None
+if daily and daily.get("days7"):
+    for d in daily["days7"]:
+        rows.append({"id": f'rday-{d["key"]}', "section": "rday", "label": d["label"], "cur": d["views"], "prev": None, "alt": d["clicks"], "chg": None,
+                     "viewers": d["viewers"], "clickers": d["clickers"], "ctr": ctr(d["clicks"], d["views"]), "site": d.get("site")})
+    for d in daily.get("weeks8") or []:
+        rows.append({"id": f'rweek-{d["key"]}', "section": "rweek", "label": d["label"], "cur": d["views"], "prev": None, "alt": d["clicks"], "chg": None,
+                     "viewers": d["viewers"], "clickers": d["clickers"], "ctr": ctr(d["clicks"], d["views"]), "site": d.get("site")})
+    for i, x in enumerate(daily.get("sources") or []):
+        rows.append({"id": f"rsrc-{i}", "section": "rsrc", "label": x["name"], "cur": x["sessions"], "prev": None, "alt": x["users"], "chg": None})
+    for i, x in enumerate(daily.get("clickSrc7") or []):
+        rows.append({"id": f"rclk-{i}", "section": "rclk", "label": x["channel"], "cur": x["clicks"], "prev": None, "alt": x["keyword"], "chg": None})
+    for i, x in enumerate(daily.get("keywords") or []):
+        rows.append({"id": f"rkw-{i}", "section": "rkw", "label": x["query"], "cur": x["sessions"], "prev": None, "alt": x["engine"], "chg": None})
 m = meta
 for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일")):
     rows.append({"id": f"meta-{k}", "section": "meta", "label": m[k], "cur": None, "prev": None, "alt": lab, "chg": None})
