@@ -1,5 +1,5 @@
 {
- "made": "2026-11-07T23:26:17.530Z",
+ "made": "2026-11-08T02:29:30.766Z",
  "range": "2026-11-01 ~ 2026-11-07",
  "prevRange": "2026-10-25 ~ 2026-10-31",
  "cur": {
@@ -20,7 +20,7 @@
   "cur": {
    "Organic Search": 87,
    "Direct": 40,
-   "Unassigned": 17,
+   "Unassigned": 12,
    "AI Assistant": 7,
    "Organic Social": 4,
    "Referral": 1
@@ -189,10 +189,6 @@
    "sessions": 6
   },
   {
-   "page": "",
-   "sessions": 5
-  },
-  {
    "page": "/shop-east-europe-3countries.html",
    "sessions": 5
   },
@@ -205,15 +201,19 @@
    "sessions": 3
   },
   {
-   "page": "/connect.html",
-   "sessions": 3
-  },
-  {
    "page": "/fuel_economy_calculator",
    "sessions": 3
   },
   {
    "page": "/gas_bill_calculator.html",
+   "sessions": 3
+  },
+  {
+   "page": "/haeundae-gukmul-myeon.html",
+   "sessions": 3
+  },
+  {
+   "page": "/job_fortune_teller",
    "sessions": 3
   }
  ],
