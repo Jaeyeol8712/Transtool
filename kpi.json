@@ -144,7 +144,7 @@
    "cur": {
     "Organic Search": 100,
     "Direct": 39,
-    "Unassigned": 11,
+    "Unassigned": 10,
     "AI Assistant": 6,
     "Organic Social": 4,
     "Referral": 1
@@ -233,7 +233,7 @@
    "position": 9.2
   }
  ],
- "made": "2026-11-08T23:36:45.406Z",
+ "made": "2026-11-09T02:39:50.815Z",
  "range": "2026-11-02 ~ 2026-11-08",
  "prevRange": "2026-10-26 ~ 2026-11-01",
  "cur": {
@@ -254,7 +254,7 @@
   "cur": {
    "Organic Search": 100,
    "Direct": 39,
-   "Unassigned": 11,
+   "Unassigned": 10,
    "AI Assistant": 6,
    "Organic Social": 4,
    "Referral": 1
