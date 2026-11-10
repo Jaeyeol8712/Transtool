@@ -1,21 +1,21 @@
 {
- "date": "2026-11-09",
+ "date": "2026-11-10",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-08.html",
-   "title": "일간 보고서 · 2026-11-08(일)",
+   "file": "reports/daily-2026-11-09.html",
+   "title": "일간 보고서 · 2026-11-09(월)",
    "kpi": {
+    "views": 2,
+    "viewers": 1,
+    "clicks": 1,
+    "clickers": 1
+   },
+   "prev": {
     "views": 0,
     "viewers": 0,
     "clicks": 0,
     "clickers": 0
-   },
-   "prev": {
-    "views": 6,
-    "viewers": 6,
-    "clicks": 1,
-    "clickers": 1
    },
    "ai": {
     "sessions": 6,
@@ -29,11 +29,6 @@
     ]
    },
    "site": {
-    "20261102": {
-     "views": 23,
-     "users": 16,
-     "sessions": 18
-    },
     "20261103": {
      "views": 199,
      "users": 19,
@@ -63,18 +58,14 @@
      "views": 20,
      "users": 14,
      "sessions": 17
+    },
+    "20261109": {
+     "views": 29,
+     "users": 25,
+     "sessions": 28
     }
    },
    "days7": [
-    {
-     "key": "20261102",
-     "label": "11.2(월)",
-     "views": 6,
-     "viewers": 4,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 23
-    },
     {
      "key": "20261103",
      "label": "11.3(화)",
@@ -128,19 +119,18 @@
      "clicks": 0,
      "clickers": 0,
      "site": 20
+    },
+    {
+     "key": "20261109",
+     "label": "11.9(월)",
+     "views": 2,
+     "viewers": 1,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 29
     }
    ],
    "weeks8": [
-    {
-     "key": "202638",
-     "label": "9.14~9.20",
-     "done": true,
-     "views": 0,
-     "viewers": 0,
-     "clicks": 0,
-     "clickers": 0,
-     "site": 52
-    },
     {
      "key": "202639",
      "label": "9.21~9.27",
@@ -210,18 +200,23 @@
      "clicks": 9,
      "clickers": 7,
      "site": 437
+    },
+    {
+     "key": "202646",
+     "label": "11.9~(진행 중)",
+     "done": false,
+     "views": 2,
+     "viewers": 1,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 29
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 4
-    },
-    {
-     "channel": "Unassigned",
-     "keyword": "(검색어 미전달)",
-     "clicks": 2
+     "clicks": 5
     },
     {
      "channel": "AI Assistant",
@@ -237,6 +232,11 @@
      "channel": "Organic Social",
      "keyword": "(검색어 미전달)",
      "clicks": 1
+    },
+    {
+     "channel": "Unassigned",
+     "keyword": "(검색어 미전달)",
+     "clicks": 1
     }
    ],
    "topPosts": [
@@ -247,20 +247,20 @@
     },
     {
      "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 5,
+     "views": 3,
      "clicks": 1
     },
     {
-     "post": "설화수 탄력 3종 기획세트 고르는 법",
-     "views": 3,
+     "post": "갤럭시탭 S12 울트라 256GB 추천 가격",
+     "views": 2,
      "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "naver_cafe / cafe",
-     "sessions": 8,
-     "users": 8
+     "sessions": 5,
+     "users": 5
     },
     {
      "name": "daum / organic",
@@ -268,12 +268,12 @@
      "users": 3
     },
     {
-     "name": "(direct) / (none)",
-     "sessions": 2,
-     "users": 2
+     "name": "m.search.naver.com / referral",
+     "sessions": 3,
+     "users": 3
     },
     {
-     "name": "m.search.naver.com / referral",
+     "name": "(direct) / (none)",
      "sessions": 2,
      "users": 2
     },
@@ -288,12 +288,6 @@
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "queens-collagen-rg3",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "east-europe-3countries",
      "sessions": 2
     },
     {
@@ -329,7 +323,13 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "mesh-office-chair",
+     "post": "east-europe-3countries",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "neck-traction",
      "sessions": 1
     }
    ],
@@ -342,11 +342,25 @@
      "position": 7
     },
     {
+     "query": "jbl 어센틱 200",
+     "post": "jbl-authentics-200",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 27
+    },
+    {
      "query": "가격",
      "post": "queens-collagen-rg3",
      "clicks": 0,
      "impressions": 1,
      "position": 2
+    },
+    {
+     "query": "갤탭 12 울트라",
+     "post": "galaxy-tab-s12-ultra",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 50
     },
     {
      "query": "대학생 노트북",

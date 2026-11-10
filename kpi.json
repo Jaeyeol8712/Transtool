@@ -1,29 +1,19 @@
 {
  "yday": {
+  "date": "2026-11-09",
+  "users": 25,
+  "sessions": 28,
+  "views": 29,
+  "organic": 22
+ },
+ "yday0": {
   "date": "2026-11-08",
   "users": 14,
   "sessions": 17,
   "views": 20,
   "organic": 17
  },
- "yday0": {
-  "date": "2026-11-07",
-  "users": 17,
-  "sessions": 21,
-  "views": 25,
-  "organic": 17
- },
  "weeks": [
-  {
-   "key": "202638",
-   "start": "2026-09-14",
-   "end": "2026-09-20",
-   "done": true,
-   "users": 38,
-   "sessions": 47,
-   "views": 52,
-   "organic": 47
-  },
   {
    "key": "202639",
    "start": "2026-09-21",
@@ -93,6 +83,16 @@
    "sessions": 160,
    "views": 437,
    "organic": 100
+  },
+  {
+   "key": "202646",
+   "start": "2026-11-09",
+   "end": "2026-11-15",
+   "done": false,
+   "users": 25,
+   "sessions": 28,
+   "views": 29,
+   "organic": 22
   }
  ],
  "lastWeek": {
@@ -161,15 +161,6 @@
  },
  "googleWeeks": [
   {
-   "key": "202638",
-   "start": "2026-09-14",
-   "end": "2026-09-20",
-   "complete": true,
-   "clicks": 5,
-   "impressions": 153,
-   "position": 16.4
-  },
-  {
    "key": "202639",
    "start": "2026-09-21",
    "end": "2026-09-27",
@@ -228,52 +219,56 @@
    "start": "2026-11-02",
    "end": "2026-11-08",
    "complete": false,
-   "clicks": 13,
-   "impressions": 2143,
-   "position": 9.2
+   "clicks": 14,
+   "impressions": 2515,
+   "position": 9.6
+  },
+  {
+   "key": "202646",
+   "start": "2026-11-09",
+   "end": "2026-11-15",
+   "complete": false,
+   "clicks": 0,
+   "impressions": 0,
+   "position": null
   }
  ],
- "made": "2026-11-09T02:39:50.815Z",
- "range": "2026-11-02 ~ 2026-11-08",
- "prevRange": "2026-10-26 ~ 2026-11-01",
+ "made": "2026-11-10T04:37:51.406Z",
+ "range": "2026-11-03 ~ 2026-11-09",
+ "prevRange": "2026-10-27 ~ 2026-11-02",
  "cur": {
-  "users": 124,
-  "sessions": 160,
-  "views": 437
+  "users": 132,
+  "sessions": 170,
+  "views": 443
  },
  "prev": {
-  "users": 91,
-  "sessions": 146,
-  "views": 518
+  "users": 90,
+  "sessions": 136,
+  "views": 303
  },
  "organic": {
-  "cur": 100,
-  "prev": 57
+  "cur": 111,
+  "prev": 56
  },
  "channels": {
   "cur": {
-   "Organic Search": 100,
+   "Organic Search": 111,
    "Direct": 39,
-   "Unassigned": 10,
+   "Unassigned": 9,
    "AI Assistant": 6,
    "Organic Social": 4,
    "Referral": 1
   },
   "prev": {
-   "Direct": 76,
-   "Organic Search": 57,
+   "Direct": 62,
+   "Organic Search": 56,
    "Organic Social": 8,
-   "AI Assistant": 2,
-   "Unassigned": 2,
+   "Unassigned": 6,
+   "AI Assistant": 3,
    "Paid Search": 1
   }
  },
  "daily": [
-  {
-   "date": "20261012",
-   "users": 5,
-   "sessions": 5
-  },
   {
    "date": "20261013",
    "users": 8,
@@ -408,6 +403,11 @@
    "date": "20261108",
    "users": 14,
    "sessions": 17
+  },
+  {
+   "date": "20261109",
+   "users": 25,
+   "sessions": 28
   }
  ],
  "landing": [
@@ -417,18 +417,22 @@
   },
   {
    "page": "(not set)",
-   "sessions": 7
+   "sessions": 8
   },
   {
    "page": "/interior_calculator.html",
+   "sessions": 6
+  },
+  {
+   "page": "/yeonsu.html",
    "sessions": 5
   },
   {
-   "page": "/acquisition_tax_calculator",
+   "page": "/haeundae-gukmul-myeon.html",
    "sessions": 4
   },
   {
-   "page": "/shop-east-europe-3countries.html",
+   "page": "/job_fortune_teller",
    "sessions": 4
   },
   {
@@ -436,33 +440,29 @@
    "sessions": 4
   },
   {
-   "page": "/yeonsu.html",
-   "sessions": 4
+   "page": "/acquisition_tax_calculator",
+   "sessions": 3
   },
   {
-   "page": "/fuel_economy_calculator",
+   "page": "/daejeon-donggu-station.html",
    "sessions": 3
   },
   {
    "page": "/gas_bill_calculator.html",
    "sessions": 3
-  },
-  {
-   "page": "/haeundae-gukmul-myeon.html",
-   "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-10-31 ~ 2026-11-06",
+  "range": "2026-11-01 ~ 2026-11-07",
   "cur": {
-   "clicks": 13,
-   "impressions": 2792,
-   "position": 9.165472779369628
+   "clicks": 14,
+   "impressions": 2895,
+   "position": 9.546113989637306
   },
   "prev": {
    "clicks": 2,
-   "impressions": 1733,
-   "position": 8.989613387189845
+   "impressions": 1915,
+   "position": 8.92845953002611
   }
  },
  "ai": {
@@ -478,13 +478,13 @@
    ]
   },
   "prev": {
-   "sessions": 2,
-   "users": 2,
+   "sessions": 3,
+   "users": 3,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 2,
-     "users": 2
+     "sessions": 3,
+     "users": 3
     }
    ]
   }
