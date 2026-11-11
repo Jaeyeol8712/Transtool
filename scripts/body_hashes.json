@@ -765,7 +765,7 @@
 },
 "index.html": {
 "d": "2026-11-11",
-"h": "1082294a7c1255c9"
+"h": "434501d5fc664104"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -1397,7 +1397,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-11",
-"h": "11b01328d7ee26ca"
+"h": "66c42454993b21d4"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1487,6 +1487,10 @@
 "d": "2026-11-03",
 "h": "863aa4bece6f9d28"
 },
+"travel-beppu.html": {
+"d": null,
+"h": "de81f468fdf70dcf"
+},
 "travel-bohol.html": {
 "d": null,
 "h": "b54580632e94fed5"
@@ -1495,13 +1499,25 @@
 "d": null,
 "h": "aab6ea79759a034f"
 },
+"travel-boseong.html": {
+"d": null,
+"h": "bf08cd8dbd2cfa5c"
+},
 "travel-busan.html": {
 "d": "2026-11-03",
 "h": "5f64cc14d1fe982c"
 },
+"travel-buyeo.html": {
+"d": null,
+"h": "eb0c83eeefe1e645"
+},
 "travel-cebu.html": {
 "d": "2026-11-03",
 "h": "8defddab1ac7a868"
+},
+"travel-cheongju.html": {
+"d": null,
+"h": "f0cddd9f5ea1931b"
 },
 "travel-chiangmai.html": {
 "d": "2026-11-03",
@@ -1531,6 +1547,10 @@
 "d": null,
 "h": "da9ca1ffb9d8c78d"
 },
+"travel-ganghwa.html": {
+"d": null,
+"h": "31cc762274bc5770"
+},
 "travel-gangneung.html": {
 "d": "2026-11-03",
 "h": "835f33bbb323fb86"
@@ -1542,6 +1562,10 @@
 "travel-geoje.html": {
 "d": null,
 "h": "e6f5686c3489a47f"
+},
+"travel-gongju.html": {
+"d": null,
+"h": "1f18d98e82761e05"
 },
 "travel-guam.html": {
 "d": "2026-11-03",
@@ -1555,6 +1579,10 @@
 "d": "2026-11-03",
 "h": "9f57a7581b388d48"
 },
+"travel-hadong.html": {
+"d": null,
+"h": "408d2ac54c09ca09"
+},
 "travel-hakodate.html": {
 "d": null,
 "h": "aad0bbce2819c89d"
@@ -1562,6 +1590,10 @@
 "travel-hanoi.html": {
 "d": "2026-11-03",
 "h": "5824f59eeb4d063e"
+},
+"travel-hochiminh.html": {
+"d": null,
+"h": "15f63f6e356dad06"
 },
 "travel-hongcheon.html": {
 "d": null,
@@ -1575,6 +1607,10 @@
 "d": "2026-11-03",
 "h": "8867878108ecda42"
 },
+"travel-jecheon.html": {
+"d": null,
+"h": "c21730cb131005d3"
+},
 "travel-jeju.html": {
 "d": "2026-11-03",
 "h": "5099cc4cfe54516e"
@@ -1587,6 +1623,10 @@
 "d": "2026-11-03",
 "h": "dee47179808ba65d"
 },
+"travel-kagoshima.html": {
+"d": null,
+"h": "838e39b112486269"
+},
 "travel-kaohsiung.html": {
 "d": null,
 "h": "cbbd1785d7ca0756"
@@ -1595,6 +1635,10 @@
 "d": null,
 "h": "8f76c63a5d2e19eb"
 },
+"travel-kualalumpur.html": {
+"d": null,
+"h": "dc68c3a09dc14a3b"
+},
 "travel-kyoto.html": {
 "d": null,
 "h": "4fe778678284565f"
@@ -1602,6 +1646,10 @@
 "travel-macau.html": {
 "d": null,
 "h": "b0c764418b62cb6c"
+},
+"travel-matsuyama.html": {
+"d": null,
+"h": "f44aa91b42f0380a"
 },
 "travel-mokpo.html": {
 "d": null,
@@ -1618,6 +1666,10 @@
 "travel-namhae.html": {
 "d": null,
 "h": "8cb2fa4c0f261116"
+},
+"travel-namwon.html": {
+"d": null,
+"h": "7f19c8178d1e790c"
 },
 "travel-nhatrang.html": {
 "d": null,
@@ -1639,9 +1691,17 @@
 "d": null,
 "h": "e0f29cde12c127fa"
 },
+"travel-pohang.html": {
+"d": null,
+"h": "f97ed801732fe849"
+},
 "travel-pyeongchang.html": {
 "d": "2026-11-03",
 "h": "43b910868395972d"
+},
+"travel-saipan.html": {
+"d": null,
+"h": "d09b0a49b8e3890a"
 },
 "travel-samcheok.html": {
 "d": null,
@@ -1655,6 +1715,10 @@
 "d": null,
 "h": "c421044f46c0ab52"
 },
+"travel-shizuoka.html": {
+"d": null,
+"h": "6a2fe684d2a21333"
+},
 "travel-singapore.html": {
 "d": "2026-11-03",
 "h": "e973d3b064cf459f"
@@ -1666,6 +1730,10 @@
 "travel-suncheon.html": {
 "d": "2026-11-03",
 "h": "3d066f8522855262"
+},
+"travel-taean.html": {
+"d": null,
+"h": "9f8f578ef5e3084e"
 },
 "travel-taebaek.html": {
 "d": "2026-11-03",
@@ -1679,6 +1747,10 @@
 "d": "2026-11-03",
 "h": "df68a523ac34c680"
 },
+"travel-takamatsu.html": {
+"d": null,
+"h": "3da70efa93609284"
+},
 "travel-tokyo.html": {
 "d": "2026-11-03",
 "h": "2c7a321dbe99ca4e"
@@ -1687,13 +1759,21 @@
 "d": "2026-11-03",
 "h": "d8f3a39d1ecafe33"
 },
+"travel-yeongju.html": {
+"d": null,
+"h": "97020374e3d94704"
+},
+"travel-yeongwol.html": {
+"d": null,
+"h": "6b2bf704efc6309e"
+},
 "travel-yeosu.html": {
 "d": "2026-11-03",
 "h": "6f652af8d62d3dda"
 },
 "travel.html": {
-"d": "2026-11-07",
-"h": "6f892bb8afa0c325"
+"d": "2026-11-11",
+"h": "678c4733a7808e1c"
 },
 "unemployment_benefit_calculator.html": {
 "d": "2026-11-05",

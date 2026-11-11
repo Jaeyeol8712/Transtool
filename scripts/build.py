@@ -220,10 +220,13 @@ from trips_1107 import TRIP_PAGES_1107  # noqa: E402  (2026-11-06 컨펌 i261106
 TRIP_PAGES += TRIP_PAGES_1107
 from trips_1108 import TRIP_PAGES_1108  # noqa: E402  (2026-11-07 컨펌 i261107-03 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1108
+from trips_1111 import TRIP_PAGES_1111  # noqa: E402  (2026-11-08·09 컨펌 i261108-03·i261109-03 여행 20곳, 11.11 중간 크기)
+TRIP_PAGES += TRIP_PAGES_1111
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
 PAGE_DATES.update({s + ".html": "2026-11-06" for s, _, _ in TRIP_PAGES_1107})
 PAGE_DATES.update({s + ".html": "2026-11-07" for s, _, _ in TRIP_PAGES_1108})
+PAGE_DATES.update({s + ".html": "2026-11-11" for s, _, _ in TRIP_PAGES_1111})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
