@@ -1148,8 +1148,75 @@ def top_block(p, board=True):
             f"{board_html(p) if board else ''}\n<!-- /at:top -->")
 
 
+# ── K링크 연결 (2026-11-11 대표 지시) ─────────────────────────────
+# K링크(/klink/)의 지역과 어라운드툴 여행·맛집 페이지를 서로 잇는다.
+# 여행 가이드(travel-<지역>.html)나 맛집 지역(FOOD_AREAS)이 늘면 다음 빌드에서 자동으로 연결된다.
+KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지역 id, 추가로 묶을 맛집 권역 prefix)
+    "seoul": ("서울", "seoul", []), "busan": ("부산", "busan", []), "jeju": ("제주", "jeju", []),
+    "gyeongju": ("경주", None, []), "gangneung": ("강릉", None, []), "jeonju": ("전주", None, []),
+    "yeosu": ("여수", None, ["jeonnam-dongbu"]),
+}
+
+
+def klink_region_of(p):
+    """이 페이지가 K링크의 어느 지역에 해당하는지 (없으면 None)."""
+    f = p["file"]
+    for rid, (_, food_rid, extra) in KLINK_REGIONS.items():
+        if f == f"travel-{rid}.html":
+            return rid
+        if p.get("section") in ("food", "gu") and ((food_rid and p.get("region") == food_rid) or p.get("prefix") in extra):
+            return rid
+    return None
+
+
+def klink_cta_html(p):
+    rid = klink_region_of(p)
+    if p["file"] == "travel.html":
+        return ('<a class="at-klink" href="/klink/"><span class="at-klink-mark" aria-hidden="true">K</span><span class="at-klink-tx">'
+                '<b>가고 싶은 곳만 저장하면 일정이 나와요</b><span>K링크 · 지도에서 고르면 날짜별 동선과 숙소를 짜 드려요</span></span>'
+                '<span class="at-klink-go" aria-hidden="true">›</span></a>')
+    if not rid:
+        return ""
+    name = KLINK_REGIONS[rid][0]
+    return (f'<a class="at-klink" href="/klink/#{rid}"><span class="at-klink-mark" aria-hidden="true">K</span><span class="at-klink-tx">'
+            f'<b>{esc(name)} 일정, 지도에서 바로 짜 보기</b><span>K링크 · 이 글의 장소를 저장하면 날짜별 동선과 숙소를 추천해요</span></span>'
+            f'<span class="at-klink-go" aria-hidden="true">›</span></a>')
+
+
+def build_klink_data():
+    """K링크가 읽는 연결 데이터(/klink/around.json)."""
+    def page(f):
+        q = PAGES[f]
+        return {"url": f"{SITE}/{f}", "name": q["name"], "title": q.get("title") or q["name"], "desc": q.get("desc", "")}
+    def gu_entry(pre, gu, rshort):
+        cats = [{"cat": q["cat"], "url": f"{SITE}/{q['file']}", "count": q["count"]} for q in FOOD
+                if q.get("prefix") == pre and not q.get("research") and q.get("count")]
+        return {"gu": gu, "area": rshort, "url": f"{SITE}/{pre}.html", "count": gu_count(pre), "cats": cats}
+    regions = {}
+    for rid, (name, food_rid, extra) in KLINK_REGIONS.items():
+        r = {"name": name, "trip": None, "food": None, "gus": []}
+        if f"travel-{rid}.html" in PAGES:
+            r["trip"] = page(f"travel-{rid}.html")
+        for frid, _, rshort, gus in FOOD_AREAS:
+            for pre, gu in gus:
+                if (frid == food_rid or pre in extra) and gu_count(pre):
+                    r["gus"].append(gu_entry(pre, gu, rshort))
+        if food_rid and r["gus"]:
+            r["food"] = {"url": f"{SITE}/food.html#r-{food_rid}", "count": region_count(food_rid)}
+        elif r["gus"]:
+            r["food"] = {"url": r["gus"][0]["url"], "count": sum(g["count"] for g in r["gus"])}
+        regions[rid] = r
+    linked = {f"travel-{rid}" for rid in KLINK_REGIONS}
+    more = [{"url": f"{SITE}/{slug}.html", "name": name} for slug, name, kind in TRIP_PAGES[::-1] if kind != "해외" and slug not in linked]
+    data = {"site": SITE, "name": NAME, "travel": f"{SITE}/travel.html", "food": f"{SITE}/food.html",
+            "counts": {"places": N_PLACES, "gu": N_GU, "trips": len(TRIP_PAGES)}, "regions": regions, "moreTrips": more}
+    os.makedirs("klink", exist_ok=True)
+    with open("klink/around.json", "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
+
+
 def bottom_block(p):
-    return (f"<!-- at:bottom -->\n{shop_promo_html(p)}\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
+    return (f"<!-- at:bottom -->\n{klink_cta_html(p)}\n{shop_promo_html(p)}\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
             f'<script src="/assets/site.js?v={JS_V}" defer></script>\n<!-- /at:bottom -->')
 
 
@@ -2554,6 +2621,7 @@ def main():
         if f in generated or f in UNTOUCHED:
             continue
         transform_existing(p)
+    build_klink_data()
     build_home()
     build_food_hub()
     build_tools_hub()
