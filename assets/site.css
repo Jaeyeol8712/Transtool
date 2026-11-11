@@ -939,15 +939,10 @@ body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 .ah-klink-mark{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:#2443E8;display:grid;place-items:center}
 .ah-klink-k{width:40px;height:40px;display:block}
 .ah-klink-tx{flex:1;min-width:0;display:block}
-<<<<<<< ours
 .ah-klink-tx b{display:block;font-size:1.06rem;line-height:1.35;word-break:keep-all;color:#2443E8;font-weight:800}
 .ah-klink-tx b em{font-style:normal;white-space:nowrap;color:var(--at-ink);font-weight:700;margin-left:.2rem}
 .ah-klink-tx span{display:block;font-size:.86rem;line-height:1.45;color:var(--at-muted,#5B6B66);margin-top:.15rem;word-break:keep-all}
 .ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;color:#2443E8}
-=======
-.ah-klink-tx b{display:block;font-size:1.06rem;line-height:1.35;word-break:keep-all}
-.ah-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
-.ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}
 
 /* 여행·맛집 글 아래 K링크 연결 배너 */
 .at-klink{display:flex;align-items:center;gap:.8rem;margin:1.5rem 0 1.25rem;padding:.9rem 1rem;border-radius:16px;background:#2443E8;color:#fff!important;text-decoration:none!important}
@@ -957,4 +952,3 @@ body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 .at-klink-tx b{display:block;font-size:1.02rem;line-height:1.35;word-break:keep-all}
 .at-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
 .at-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}
->>>>>>> theirs
