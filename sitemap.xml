@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 428 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 448 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -7,7 +7,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
@@ -1123,28 +1123,84 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-buan-gomso-jeotgal.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-cheonbuk-gul.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-cheongsong-sagwa.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-ganghwa-sunmu.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-gapyeong-jat.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-geoje-oepo-daegu.html</loc>
     <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-goheung-yuja.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-goseong-garibi.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gwangcheon-saeujeot.html</loc>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-haenam-goguma.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-haenam-winter-baechu.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-inje-yongdae-hwangtae.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-jangheung-maesaengi.html</loc>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-jangheung-pyogo.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-jeju-gamgyul.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jeju-hallabong.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jeju-woldongmu.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jindo-daepa.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jumunjin-yangmiri.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-masan-agujjim.html</loc>
@@ -1179,6 +1235,22 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-sangju-gotgam.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-seocheon-gim.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-seosan-gamtae.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-sinan-seomcho.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-sokcho-dorumuk.html</loc>
     <lastmod>2026-11-06</lastmod>
   </url>
@@ -1191,6 +1263,10 @@
     <lastmod>2026-11-07</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-tongyeong-mulmegi.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-wando-jeonbok.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
@@ -1201,6 +1277,10 @@
   <url>
     <loc>https://www.aroundtool.com/season-yeonggwang-gulbi.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-yeosu-dolsan-gat.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/seocho-michelin.html</loc>

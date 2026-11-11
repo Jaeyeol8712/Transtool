@@ -152,7 +152,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [제철 음식·시장 안내 21가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [제철 음식·시장 안내 41가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -261,12 +261,26 @@
 
 ### 전국 제철 음식
 - [제철 제철 음식·시장 벌교 꼬막](https://www.aroundtool.com/season-beolgyo-kkomak.html)
+- [제철 제철 음식·시장 부안 곰소 젓갈](https://www.aroundtool.com/season-buan-gomso-jeotgal.html)
 - [제철 제철 음식·시장 보령 천북 굴](https://www.aroundtool.com/season-cheonbuk-gul.html)
+- [제철 제철 음식·시장 청송 사과](https://www.aroundtool.com/season-cheongsong-sagwa.html)
 - [제철 제철 음식·시장 대부도 바지락칼국수](https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html)
+- [제철 제철 음식·시장 강화 순무](https://www.aroundtool.com/season-ganghwa-sunmu.html)
+- [제철 제철 음식·시장 가평 잣](https://www.aroundtool.com/season-gapyeong-jat.html)
 - [제철 제철 음식·시장 거제 외포 대구](https://www.aroundtool.com/season-geoje-oepo-daegu.html)
+- [제철 제철 음식·시장 고흥 유자](https://www.aroundtool.com/season-goheung-yuja.html)
+- [제철 제철 음식·시장 고성 가리비](https://www.aroundtool.com/season-goseong-garibi.html)
 - [제철 제철 음식·시장 광천 토굴 새우젓](https://www.aroundtool.com/season-gwangcheon-saeujeot.html)
+- [제철 제철 음식·시장 해남 고구마](https://www.aroundtool.com/season-haenam-goguma.html)
+- [제철 제철 음식·시장 해남 겨울배추](https://www.aroundtool.com/season-haenam-winter-baechu.html)
+- [제철 제철 음식·시장 인제 용대리 황태](https://www.aroundtool.com/season-inje-yongdae-hwangtae.html)
 - [제철 제철 음식·시장 장흥 매생이](https://www.aroundtool.com/season-jangheung-maesaengi.html)
+- [제철 제철 음식·시장 장흥 표고버섯](https://www.aroundtool.com/season-jangheung-pyogo.html)
 - [제철 제철 음식·시장 제주 감귤](https://www.aroundtool.com/season-jeju-gamgyul.html)
+- [제철 제철 음식·시장 제주 한라봉](https://www.aroundtool.com/season-jeju-hallabong.html)
+- [제철 제철 음식·시장 제주 월동무](https://www.aroundtool.com/season-jeju-woldongmu.html)
+- [제철 제철 음식·시장 진도 대파](https://www.aroundtool.com/season-jindo-daepa.html)
+- [제철 제철 음식·시장 주문진 양미리](https://www.aroundtool.com/season-jumunjin-yangmiri.html)
 - [제철 제철 음식·시장 마산 아귀찜 거리](https://www.aroundtool.com/season-masan-agujjim.html)
 - [제철 제철 음식·시장 목포 홍어·세발낙지](https://www.aroundtool.com/season-mokpo-hongeo-nakji.html)
 - [제철 제철 음식·시장 모슬포 방어](https://www.aroundtool.com/season-moseulpo-bangeo.html)
@@ -275,12 +289,18 @@
 - [제철 제철 음식·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
 - [제철 제철 음식·시장 포항 과메기](https://www.aroundtool.com/season-pohang-gwamegi.html)
 - [제철 제철 음식·시장 삼척 곰치국](https://www.aroundtool.com/season-samcheok-gomchiguk.html)
+- [제철 제철 음식·시장 상주 곶감](https://www.aroundtool.com/season-sangju-gotgam.html)
+- [제철 제철 음식·시장 서천 김](https://www.aroundtool.com/season-seocheon-gim.html)
+- [제철 제철 음식·시장 서산 감태](https://www.aroundtool.com/season-seosan-gamtae.html)
+- [제철 제철 음식·시장 신안 섬초](https://www.aroundtool.com/season-sinan-seomcho.html)
 - [제철 제철 음식·시장 도루묵](https://www.aroundtool.com/season-sokcho-dorumuk.html)
 - [제철 제철 음식·시장 소래포구 김장 젓갈](https://www.aroundtool.com/season-sorae-jeotgal.html)
 - [제철 제철 음식·시장 통영 굴](https://www.aroundtool.com/season-tongyeong-gul.html)
+- [제철 제철 음식·시장 통영 물메기](https://www.aroundtool.com/season-tongyeong-mulmegi.html)
 - [제철 제철 음식·시장 완도 전복](https://www.aroundtool.com/season-wando-jeonbok.html)
 - [제철 제철 음식·시장 영덕 대게](https://www.aroundtool.com/season-yeongdeok-daege.html)
 - [제철 제철 음식·시장 영광 굴비](https://www.aroundtool.com/season-yeonggwang-gulbi.html)
+- [제철 제철 음식·시장 여수 돌산 갓김치](https://www.aroundtool.com/season-yeosu-dolsan-gat.html)
 
 ## 여행
 

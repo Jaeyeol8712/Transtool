@@ -188,8 +188,8 @@
 "h": "1deb71868f468c77"
 },
 "food.html": {
-"d": "2026-11-07",
-"h": "0b4a60184a1fa013"
+"d": "2026-11-11",
+"h": "499667ffe4cd44e0"
 },
 "four_insurance_calculator.html": {
 "d": "2026-11-05",
@@ -765,7 +765,7 @@
 },
 "index.html": {
 "d": "2026-11-11",
-"h": "a27f01f638d8343b"
+"h": "1082294a7c1255c9"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -1023,29 +1023,85 @@
 "d": null,
 "h": "48a686a62ea04443"
 },
+"season-buan-gomso-jeotgal.html": {
+"d": null,
+"h": "d55c9199f4e1680c"
+},
 "season-cheonbuk-gul.html": {
 "d": null,
 "h": "71645f93f139efe5"
+},
+"season-cheongsong-sagwa.html": {
+"d": null,
+"h": "bdd139b1ffe6cd9a"
 },
 "season-daebudo-bajirak-kalguksu.html": {
 "d": null,
 "h": "8126546fda0dcca0"
 },
+"season-ganghwa-sunmu.html": {
+"d": null,
+"h": "b0f236456d573f78"
+},
+"season-gapyeong-jat.html": {
+"d": null,
+"h": "360a208b1de33d66"
+},
 "season-geoje-oepo-daegu.html": {
 "d": null,
 "h": "1b7b17aa6467bb92"
+},
+"season-goheung-yuja.html": {
+"d": null,
+"h": "4ca03a977cda4481"
+},
+"season-goseong-garibi.html": {
+"d": null,
+"h": "70536fa76d18a7ec"
 },
 "season-gwangcheon-saeujeot.html": {
 "d": null,
 "h": "dfb910ace8b8a1fd"
 },
+"season-haenam-goguma.html": {
+"d": null,
+"h": "3931fefb24767523"
+},
+"season-haenam-winter-baechu.html": {
+"d": null,
+"h": "ce8a0aadf2d88cc5"
+},
+"season-inje-yongdae-hwangtae.html": {
+"d": null,
+"h": "4670223bda2d2ef2"
+},
 "season-jangheung-maesaengi.html": {
 "d": null,
 "h": "a368aeb4998f4408"
 },
+"season-jangheung-pyogo.html": {
+"d": null,
+"h": "15257a7843aea4c7"
+},
 "season-jeju-gamgyul.html": {
 "d": null,
 "h": "a60da57bcaf89411"
+},
+"season-jeju-hallabong.html": {
+"d": null,
+"h": "fa8e7045d0bbedae"
+},
+"season-jeju-woldongmu.html": {
+"d": null,
+"h": "98021f89c8647875"
+},
+"season-jindo-daepa.html": {
+"d": null,
+"h": "883f1b9c905e0fde"
+},
+"season-jumunjin-yangmiri.html": {
+"d": null,
+"h": "158c6d44dd0587f0"
 },
 "season-masan-agujjim.html": {
 "d": null,
@@ -1079,6 +1135,22 @@
 "d": null,
 "h": "cc0a396c5a895583"
 },
+"season-sangju-gotgam.html": {
+"d": null,
+"h": "14382e2481626433"
+},
+"season-seocheon-gim.html": {
+"d": null,
+"h": "03709dc404883634"
+},
+"season-seosan-gamtae.html": {
+"d": null,
+"h": "be9b9b2f2464ab5b"
+},
+"season-sinan-seomcho.html": {
+"d": null,
+"h": "98ea33e6c434eddb"
+},
 "season-sokcho-dorumuk.html": {
 "d": null,
 "h": "cec1fc45e7e2521b"
@@ -1091,6 +1163,10 @@
 "d": null,
 "h": "9cacc815129fe1d7"
 },
+"season-tongyeong-mulmegi.html": {
+"d": null,
+"h": "fa6f029654f764ee"
+},
 "season-wando-jeonbok.html": {
 "d": null,
 "h": "e0b4418ca91f1609"
@@ -1102,6 +1178,10 @@
 "season-yeonggwang-gulbi.html": {
 "d": null,
 "h": "3a5818a9956f0e81"
+},
+"season-yeosu-dolsan-gat.html": {
+"d": null,
+"h": "8ec9ceb6eebe486d"
 },
 "seocho-michelin.html": {
 "d": "2026-11-03",
@@ -1317,7 +1397,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-11",
-"h": "99c8b4e1f7182e4b"
+"h": "11b01328d7ee26ca"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
