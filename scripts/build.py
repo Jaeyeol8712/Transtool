@@ -268,7 +268,9 @@ UPDATES = [  # (날짜, 말머리, 제목, 링크)
 
 FAQ_HOME = [
     ("어라운드툴은 어떤 사이트인가요?",
-     "연봉 실수령액·퇴직금·실업급여 같은 생활 계산기와, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 지역 맛집 기록, 국내외 여행 코스·예산 가이드를 무료로 제공하는 사이트입니다. 회원가입 없이 모든 페이지를 이용할 수 있습니다."),
+     "여행을 가볍게 준비하도록 돕는 사이트입니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소 위치를 짜 주는 여행 플래너 K링크를 중심으로, 국내외 여행 코스 가이드, 광고·협찬을 배제하고 선정 근거를 밝힌 지역 맛집 기록, 환율·여행 경비 같은 계산기를 무료로 제공합니다. 회원가입 없이 모든 페이지를 이용할 수 있습니다."),
+    ("K링크는 무엇인가요?",
+     "지도에서 가고 싶은 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천하는 여행 일정 플래너입니다. 국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). 여행 가이드·맛집 기록과 서로 연결돼 있습니다."),
     ("계산 결과를 그대로 믿어도 되나요?",
      "계산기는 최신 법령과 요율을 반영하지만 결과는 참고용 추정치이며 법적 효력이 없습니다. 각 계산기 페이지에 계산 기준과 공식을 적어 두었으니, 급여명세서·고지서·금융기관 안내와 함께 확인하세요."),
     ("맛집은 어떤 기준으로 고르나요?",
@@ -558,9 +560,10 @@ for p in PAGES.values():
     elif "title" not in p:
         p["title"] = clean_title(p.get("old_title") or p["name"])
 
-PAGES["index.html"]["title"] = "어라운드툴 — 생활 계산기·전국 맛집 기록·여행 가이드"
-PAGES["index.html"]["desc"] = (f"연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 {N_TOOLS}종, 대가 없이 근거를 밝힌 "
-                               f"전국 {N_GU}개 시군구 맛집 {N_PLACES}곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.")
+PAGES["index.html"]["title"] = "어라운드툴 — 여행 일정 플래너 K링크 · 여행 코스 · 맛집 · 여행 계산기"
+PAGES["index.html"]["desc"] = (f"어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, "
+                               f"국내외 여행 코스 {len(TRIP_PAGES)}곳, 대가 없이 근거를 밝힌 {N_GU}개 지역 맛집 {N_PLACES}곳, "
+                               f"환율·여행 경비를 비롯한 무료 계산기 {N_TOOLS}종을 한곳에서.")
 PAGES["food.html"]["title"] = f"전국 맛집 기록 — {len(FOOD_AREAS)}개 시도 {N_GU}개 지역 {N_PLACES}곳"
 PAGES["food.html"]["desc"] = (f"인천 연수구, 서울 강남·용산, 부산 해운대, 속초, 대전, 광주, 제주, 전남까지 {N_GU}개 지역의 맛집 {N_PLACES}곳. "
                               "광고·협찬을 빼고 재방문 언급과 공식 지정 근거로 고르고, 단점까지 적은 지역별 맛집 게시판입니다.")
@@ -631,9 +634,10 @@ def indexable(p):
 # 4. 공통 영역 HTML
 # ════════════════════════════════════════════════════════════════
 
-GNB = [("tools.html", "계산기", "g-tool", "tools"), ("food.html", "맛집", "g-food", "food"),
-       ("travel.html", "여행", "g-trip", "trip"), ("connect.html", "추천", "g-shop", "connect"),
-       ("etc.html", "가이드", "g-etc", "guide")]
+# 2026-11-12 대표 지시: 여행 중심 개편 — K링크가 맨 앞, 여행·맛집이 앞쪽, 계산기·추천·가이드는 여행을 돕는 서브
+GNB = [("klink/", "K링크", "g-klink", "klink"), ("travel.html", "여행", "g-trip", "trip"),
+       ("food.html", "맛집", "g-food", "food"), ("tools.html", "계산기", "g-tool", "tools"),
+       ("connect.html", "추천", "g-shop", "connect"), ("etc.html", "가이드", "g-etc", "guide")]
 LOGO_SVG = ('<span class="at-logo-mark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" '
             'stroke-width="2.4" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 13h2M14 13h2M8 17h2M14 17h2"/></svg></span>')
 
@@ -659,7 +663,7 @@ def header_html(p):
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-    <input id="at-q" type="search" name="q" placeholder="퇴직금, 환율, 해운대 맛집…" autocomplete="off">
+    <input id="at-q" type="search" name="q" placeholder="오사카 여행, 해운대 맛집, 환율…" autocomplete="off">
     <button type="submit">검색</button>
   </form>
 </div></header>"""
@@ -956,7 +960,13 @@ def side_html():
     shops = "".join(row("/" + q["file"], q["title"], KINDS[kind_of(q)][:2], "shop", None, "", q["date"], is_new(q["date"])) for q in SHOP_LIVE[:5])
     regions = "".join(f'<a href="/food.html#r-{rid}">{esc(rshort)} <span style="color:var(--at-faint)">{region_count(rid)}</span></a>'
                       for rid, _, rshort, _ in FOOD_AREAS)
+    trips_new = "".join(row("/" + sl + ".html", n, k, "trip", None, "", None) for sl, n, k in TRIP_PAGES[::-1][:5])
     return f"""<aside class="at-side" aria-label="사이드바">
+  <a class="at-side-klink" href="/klink/"><span class="ah-klink-mark">{K_MARK}</span><span class="tx"><b>K링크 여행 일정 짜기</b><span>가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 추천해요</span></span></a>
+  <section class="at-box is-trip"><div class="at-box-head"><p>새 여행 코스</p><a class="more" href="/travel.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list is-wrap">{trips_new}</ul></div></section>
+  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
+    <div class="at-regions">{regions}</div></section>
   <section class="at-box"><div class="at-stat">
     <div><b>{N_TOOLS}</b><span>생활 계산기</span></div>
     <div><b>{N_PLACES}</b><span>맛집 기록</span></div>
@@ -965,8 +975,6 @@ def side_html():
   <div class="at-visitors" data-visitors hidden><span>오늘 <b data-v="today">-</b></span><span>어제 <b data-v="yesterday">-</b></span><span>전체 <b data-v="total">-</b></span></div></section>
   <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
     <div class="at-box-body"><ul class="at-list">{key}</ul></div></section>
-  <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
-    <div class="at-regions">{regions}</div></section>
   <section class="at-box is-shop"><div class="at-box-head"><p>추천 모음 새 글</p><a class="more" href="/connect.html">전체</a></div>
     <div class="at-box-body"><ul class="at-list is-wrap">{shops}</ul></div></section>
   <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
@@ -984,11 +992,11 @@ def footer_html():
     shop_links = "".join(f'<li><a href="/{q["file"]}">{esc(q["post"]["keyword"])}</a></li>' for q in SHOP_LIVE[:5])
     return f"""<footer class="at-footer"><div class="at-in">
   <div class="at-footer-brand"><a class="at-logo" href="/">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
-    <p>무료 생활 계산기와 대가 없이 근거를 밝힌 지역 맛집 기록. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
+    <p>어딜 가나 가볍게, 여행을 엽니다. 여행 일정 플래너 K링크와 여행 코스, 대가 없이 근거를 밝힌 맛집 기록, 여행·생활 계산기. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
   <div class="at-footer-cols">
-    <div><p>생활툴</p><ul>{groups}</ul></div>
+    <div><p>여행</p><ul><li><a href="/klink/">K링크 여행 일정 짜기</a></li>{trips}</ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>
-    <div><p>여행</p><ul>{trips}</ul></div>
+    <div><p>생활툴</p><ul>{groups}</ul></div>
     <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
     <div><p>추천 모음</p><ul>{shop_links}<li><a href="/connect.html">추천 모음 전체</a></li></ul></div>
   </div>
@@ -1151,6 +1159,20 @@ def top_block(p, board=True):
 # ── K링크 연결 (2026-11-11 대표 지시) ─────────────────────────────
 # K링크(/klink/)의 지역과 어라운드툴 여행·맛집 페이지를 서로 잇는다.
 # 여행 가이드(travel-<지역>.html)나 맛집 지역(FOOD_AREAS)이 늘면 다음 빌드에서 자동으로 연결된다.
+TRIP_TOOL_SLUGS = next(xs for gid, _, xs in TOOL_GROUPS if gid == "trip")
+TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "kr", "camping_gear_calculator": "kr",  # K링크 준비 탭: 어느 여행에 보여 줄지
+                  "overseas_travel_budget_calculator": "ov", "time_difference_calculator": "ov", "exchange_rate_calculator": "ov",
+                  "tip_calculator": "ov", "volumetric_weight_calculator": "ov"}
+TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
+TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr"}
+
+
+def travel_guides():
+    """여행 준비에 쓰는 가이드 글 (제목 기준). 새 글이 올라오면 자동으로 잡힌다."""
+    out = [g for g in GUIDES if any(k in (g.get("title") or g.get("name") or "") for k in TRIP_GUIDE_KEYS) and "해외직구" not in (g.get("title") or "")]
+    return sorted(out, key=lambda g: g.get("date", ""), reverse=True)
+
+
 KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지역 id, 추가로 묶을 맛집 권역 prefix)
     "seoul": ("서울", "seoul", []), "busan": ("부산", "busan", []), "jeju": ("제주", "jeju", []),
     "gyeongju": ("경주", None, []), "gangneung": ("강릉", None, []), "jeonju": ("전주", None, []),
@@ -1158,9 +1180,27 @@ KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지
 }
 
 
+def klink_index():
+    """K링크에 들어 있는 지역 목록. scripts/klink/build/regions.json(K링크 데이터 빌드가 만든다)이 없으면 국내만."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "klink", "build", "regions.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    return [{"id": rid, "name": v[0], "cc": "kr", "country": "대한민국", "ov": False} for rid, v in KLINK_REGIONS.items()]
+
+
+KLINK_INDEX = klink_index()
+KLINK_OV = {r["id"]: r for r in KLINK_INDEX if r.get("ov")}  # 해외 지역 id → 정보 (travel-<id>.html과 이어진다)
+K_MARK = ('<svg class="ah-klink-k" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">'
+          '<path d="M21 12v42M21 33l25-15M21 33l26 15"/></g><g fill="#2443E8" stroke="#fff" stroke-width="3.5"><circle cx="21" cy="12" r="5"/>'
+          '<circle cx="21" cy="33" r="5"/><circle cx="46" cy="18" r="5"/><circle cx="47" cy="48" r="5"/></g></svg>')
+
+
 def klink_region_of(p):
     """이 페이지가 K링크의 어느 지역에 해당하는지 (없으면 None)."""
     f = p["file"]
+    if f.startswith("travel-") and f[7:-5] in KLINK_OV:
+        return f[7:-5]
     for rid, (_, food_rid, extra) in KLINK_REGIONS.items():
         if f == f"travel-{rid}.html":
             return rid
@@ -1176,8 +1216,13 @@ def klink_cta_html(p):
                 '<b>가고 싶은 곳만 저장하면 일정이 나와요</b><span>K링크 · 지도에서 고르면 날짜별 동선과 숙소를 짜 드려요</span></span>'
                 '<span class="at-klink-go" aria-hidden="true">›</span></a>')
     if not rid:
+        # 2026-11-12 여행 중심 개편: K링크에 아직 없는 여행 글·여행 계산기도 K링크로 잇는다
+        if p.get("section") == "trip" or p["file"][:-5] in TRIP_TOOL_SLUGS:
+            return ('<a class="at-klink" href="/klink/"><span class="at-klink-mark" aria-hidden="true">K</span><span class="at-klink-tx">'
+                    '<b>여행 일정은 K링크에서 짜 보세요</b><span>K링크 · 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 추천해요</span></span>'
+                    '<span class="at-klink-go" aria-hidden="true">›</span></a>')
         return ""
-    name = KLINK_REGIONS[rid][0]
+    name = KLINK_OV[rid]["name"] if rid in KLINK_OV else KLINK_REGIONS[rid][0]
     return (f'<a class="at-klink" href="/klink/#{rid}"><span class="at-klink-mark" aria-hidden="true">K</span><span class="at-klink-tx">'
             f'<b>{esc(name)} 일정, 지도에서 바로 짜 보기</b><span>K링크 · 이 글의 장소를 저장하면 날짜별 동선과 숙소를 추천해요</span></span>'
             f'<span class="at-klink-go" aria-hidden="true">›</span></a>')
@@ -1206,10 +1251,21 @@ def build_klink_data():
         elif r["gus"]:
             r["food"] = {"url": r["gus"][0]["url"], "count": sum(g["count"] for g in r["gus"])}
         regions[rid] = r
-    linked = {f"travel-{rid}" for rid in KLINK_REGIONS}
+    for rid, info in KLINK_OV.items():  # 해외: 여행 가이드만 잇는다 (맛집 기록은 국내만 있음)
+        f = f"travel-{rid}.html"
+        regions[rid] = {"name": info["name"], "trip": page(f) if f in PAGES else None, "food": None, "gus": []}
+    linked = {f"travel-{rid}" for rid in list(KLINK_REGIONS) + list(KLINK_OV)}
     more = [{"url": f"{SITE}/{slug}.html", "name": name} for slug, name, kind in TRIP_PAGES[::-1] if kind != "해외" and slug not in linked]
+    # 여행 준비: 계산기·가이드가 K링크의 '준비' 탭에 정보를 댄다
+    def tool(slug, when="all"):
+        q = PAGES[slug + ".html"]
+        return {"url": f"{SITE}/{slug}.html", "name": q["name"], "desc": q.get("desc", ""), "when": when}
+    prep_tools = [tool(sl, TRIP_TOOL_WHEN.get(sl, "all")) for sl in TRIP_TOOL_SLUGS if sl + ".html" in PAGES]
+    prep_guides = [{"url": f"{SITE}/guide-{g['slug']}.html", "name": PAGES["guide-" + g["slug"] + ".html"]["name"], "when": TRIP_GUIDE_WHEN.get(g["slug"], "all")}
+                   for g in travel_guides()]
     data = {"site": SITE, "name": NAME, "travel": f"{SITE}/travel.html", "food": f"{SITE}/food.html",
-            "counts": {"places": N_PLACES, "gu": N_GU, "trips": len(TRIP_PAGES)}, "regions": regions, "moreTrips": more}
+            "counts": {"places": N_PLACES, "gu": N_GU, "trips": len(TRIP_PAGES)}, "regions": regions, "moreTrips": more,
+            "prep": {"tools": prep_tools, "guides": prep_guides}}
     os.makedirs("klink", exist_ok=True)
     with open("klink/around.json", "w", encoding="utf-8") as fh:
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
@@ -2011,6 +2067,13 @@ HOME_TILES = [  # (계산기, 아이콘 글자, 한 줄) — 한 줄은 각 계�
     ("exchange_rate_calculator", "$", "8개 통화"), ("holiday_pay_calculator", "주", "2027 최저임금 버튼"),
     ("character_counter", "자", "공백 포함·제외"),
 ]
+HOME_TRIP_TILES = [  # 여행 준비 계산기 (한 줄은 각 계산기 페이지에 실제로 있는 내용만)
+    ("exchange_rate_calculator", "$", "8개 통화"), ("overseas_travel_budget_calculator", "총", "항공·숙소·현지 경비"),
+    ("japan_travel_calculator", "¥", "도시별 예산·코스"), ("time_difference_calculator", "시", "도시 17곳 시차"),
+    ("tip_calculator", "팁", "15·18·20%"), ("fuel_economy_calculator", "L", "거리·연비로 주유비"),
+    ("camping_gear_calculator", "캠", "텐트캠핑·차박"), ("volumetric_weight_calculator", "kg", "해외 배송·특송"),
+]
+HOME_OV_FIRST = ["tokyo", "osaka", "fukuoka", "kyoto", "sapporo", "okinawa", "taipei", "danang", "bangkok", "hongkong", "singapore", "cebu", "guam"]
 HOME_SITUATIONS = [  # (상황, [계산기])
     ("월급날", ["salary_calculator", "holiday_pay_calculator", "hourly_monthly_wage_calculator"]),
     ("퇴사할 때", ["severance_calculator", "unemployment_benefit_calculator", "pto_calculator"]),
@@ -2077,11 +2140,63 @@ def build_home():
     news = "".join(f'<li><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
-    faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
-    content = f"""<a class="ah-klink" href="/klink/"><span class="ah-klink-mark"><svg class="ah-klink-k" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12v42M21 33l25-15M21 33l26 15"/></g><g fill="#2443E8" stroke="#fff" stroke-width="3.5"><circle cx="21" cy="12" r="5"/><circle cx="21" cy="33" r="5"/><circle cx="46" cy="18" r="5"/><circle cx="47" cy="48" r="5"/></g></svg></span><span class="ah-klink-tx"><b>K링크 <em>여행 동선 짜기</em></b><span>지도에서 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 드려요</span></span><span class="ah-klink-go" aria-hidden="true">›</span></a>
-<section class="ah-hero" aria-labelledby="ah-h1">
+    faq_home = [(q, a if KLINK_OV else a.replace("국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). ", "")) for q, a in FAQ_HOME]
+    faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in faq_home)
+    # ── 2026-11-12 대표 지시: 여행 중심 개편. K링크가 맨 위, 여행·맛집이 그다음, 계산기·추천·가이드는 여행을 돕는 서브 ──
+    kr_chips = "".join(f'<li><a href="/klink/#{r["id"]}">{esc(r["name"])}</a></li>' for r in KLINK_INDEX if not r.get("ov"))
+    ov_all = [r for r in KLINK_INDEX if r.get("ov")]
+    ov_pick = [r for rid in HOME_OV_FIRST for r in ov_all if r["id"] == rid][:11]
+    ov_chips = "".join(f'<li><a href="/klink/#{r["id"]}">{esc(r["name"])}</a></li>' for r in ov_pick)
+    if ov_all:
+        ov_chips += f'<li><a class="is-all" href="/klink/#overseas">해외 {len(ov_all)}곳 전체</a></li>'
+    dest = (f'<p>국내 <span>3D 거리</span></p><ul>{kr_chips}</ul>' +
+            (f'<p>해외 <span>도시 지도</span></p><ul>{ov_chips}</ul>' if ov_all else ''))
+    trip_li = lambda slug, name: f'<li><a href="/{slug}.html">{esc(name)}</a></li>'
+    trip_name = {sl: n for sl, n, _ in TRIP_PAGES}
+    def first_trips(ids, kind_ov):  # K링크와 이어진 여행지를 먼저, 모자라면 최신 글로 채운다
+        out = [(f"travel-{i}", trip_name[f"travel-{i}"]) for i in ids if f"travel-{i}" in trip_name]
+        out += [(sl, n) for sl, n, k in TRIP_PAGES[::-1] if (k == "해외") == kind_ov and (sl, n) not in out]
+        return out[:6]
+    kr_list = first_trips([r["id"] for r in KLINK_INDEX if not r.get("ov")], False)
+    ov_list = first_trips(HOME_OV_FIRST, True)
+    n_kr = sum(1 for _, _, k in TRIP_PAGES if k != "해외"); n_ov = len(TRIP_PAGES) - n_kr
+    trip_tiles = "".join(f'<li><a class="ah-tile" href="/{slug}.html"><span class="ah-ico" aria-hidden="true">{esc(mk)}</span>'
+                         f'<b>{esc(tool_name(slug))}</b><span class="ah-sub">{esc(sub)}</span></a></li>'
+                         for slug, mk, sub in HOME_TRIP_TILES if slug + ".html" in PAGES)
+    prep_guides = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(PAGES["guide-" + g["slug"] + ".html"]["name"])}</a></li>' for g in travel_guides()[:4])
+    content = f"""<section class="ah-khero" aria-labelledby="ah-h1">
+  <div class="ah-khero-tx">
+    <p class="ah-khero-eb"><span class="ah-klink-mark">{K_MARK}</span><span><b>K링크</b> 여행 일정 플래너</span></p>
+    <h1 id="ah-h1">가고 싶은 곳만 고르면<br>여행 일정이 나와요</h1>
+    <p class="ah-khero-lead">지도에서 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 짜 드려요. 가입 없이 무료.</p>
+    <a class="ah-khero-cta" href="/klink/">여행 일정 짜기 <span aria-hidden="true">›</span></a>
+  </div>
+  <div class="ah-khero-dest" aria-label="K링크 여행지 바로 가기">{dest}</div>
+</section>
+<div class="ah-row">
+  <section class="ah-card" aria-labelledby="ah-trip">
+    <div class="ah-head"><h2 id="ah-trip">여행 코스 가이드</h2><a href="/travel.html">전체 {len(TRIP_PAGES)}곳</a></div>
+    <p class="ah-note">일정별 코스·이동 시간·예산을 정리했어요. K링크 일정의 바탕이 되는 글이에요.</p>
+    <div class="ah-two">
+      <div><h3>국내 <span>{n_kr}곳</span></h3><ul class="ah-links">{"".join(trip_li(sl, n) for sl, n in kr_list)}</ul></div>
+      <div><h3>해외 <span>{n_ov}곳</span></h3><ul class="ah-links">{"".join(trip_li(sl, n) for sl, n in ov_list)}</ul></div>
+    </div>
+  </section>
+  <section class="ah-card" aria-labelledby="ah-reg">
+    <div class="ah-head"><h2 id="ah-reg">여행지 맛집·제철 음식</h2><a href="/food.html">전체 보기</a></div>
+    <p class="ah-note">광고·협찬 글을 빼고 재방문 언급과 공식 지정 근거로 골랐어요.</p>
+    <ul class="ah-regs">{"".join(regions)}</ul>
+  </section>
+</div>
+<section class="ah-card ah-prep" aria-labelledby="ah-prep">
+  <div class="ah-head"><h2 id="ah-prep">여행 준비 계산기</h2><a href="/tools.html#g-trip">여행 도구 전체</a></div>
+  <p class="ah-note">환전·경비·시차처럼 떠나기 전에 필요한 계산을 모았어요.</p>
+  <ul class="ah-tiles">{trip_tiles}</ul>
+  {f'<ul class="ah-links ah-prep-guides">{prep_guides}</ul>' if prep_guides else ''}
+</section>
+<section class="ah-hero" aria-labelledby="ah-life">
   <div class="ah-main">
-    <h1 id="ah-h1">필요한 계산, 3초면 끝나요</h1>
+    <h2 class="ah-h2" id="ah-life">생활 계산기</h2>
     <p class="ah-lead">가입 없이 무료 · 계산 기준과 공식을 함께 보여 드려요</p>
     <ul class="ah-tiles">{tiles}</ul>
   </div>
@@ -2095,20 +2210,12 @@ def build_home():
   <ul class="ah-picks">{picks}</ul>
 </section>
 <div class="ah-row">
-  <section class="ah-card" aria-labelledby="ah-reg">
-    <div class="ah-head"><h2 id="ah-reg">지역 맛집 기록</h2><a href="/food.html">전체 보기</a></div>
-    <p class="ah-note">광고·협찬 글을 빼고 재방문 언급과 공식 지정 근거로 골랐어요.</p>
-    <ul class="ah-regs">{"".join(regions)}</ul>
-    <div class="ah-head ah-head-sub"><h3 id="ah-new">최신 글</h3><a href="/sitemap.html">전체 페이지</a></div>
+  <section class="ah-card" aria-labelledby="ah-new">
+    <div class="ah-head"><h2 id="ah-new">최신 글</h2><a href="/sitemap.html">전체 페이지</a></div>
     <ul class="ah-ups ah-new" id="ah-new-list" aria-labelledby="ah-new">{news}</ul>
-  </section>
-  <section class="ah-card" aria-labelledby="ah-trip">
-    <div class="ah-head"><h2 id="ah-trip">여행·가이드</h2><a href="/travel.html">여행 전체</a></div>
-    <ul class="ah-links is-trip">{trips}</ul>
+    <div class="ah-head ah-head-sub"><h3>새 가이드</h3><a href="/etc.html">가이드 전체</a></div>
     <ul class="ah-links">{guides}</ul>
   </section>
-</div>
-<div class="ah-row">
   <section class="ah-card" aria-labelledby="ah-faq">
     <div class="ah-head"><h2 id="ah-faq">자주 묻는 질문</h2><a href="/about.html">사이트 소개</a></div>
     <div class="at-faq">{faqs}</div>
@@ -2124,9 +2231,9 @@ def build_home():
            "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "aroundtool2026@gmail.com", "url": SITE + "/contact.html", "availableLanguage": ["Korean"]}}
     sections = {"@type": "ItemList", "name": "어라운드툴 주요 섹션", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/" + u} for i, (n, u) in
-        enumerate([("전국 맛집", "food.html"), ("생활툴", "tools.html"), ("여행", "travel.html"), ("가이드", "etc.html"), ("추천 모음", "connect.html")])]}
+        enumerate([("K링크 여행 플래너", "klink/"), ("여행", "travel.html"), ("전국 맛집", "food.html"), ("생활툴", "tools.html"), ("가이드", "etc.html"), ("추천 모음", "connect.html")])]}
     # 홈은 at-content 상자 없이 박스들을 직접 배치
-    html_ = page_shell(p, content, [website, org, sections, faq_ld(FAQ_HOME)], board=False)
+    html_ = page_shell(p, content, [website, org, sections, faq_ld(faq_home)], board=False)
     html_ = html_.replace('<div class="at-content" id="at-main" tabindex="-1">', '<div class="at-home" id="at-main" tabindex="-1">', 1)
     html_ = html_.replace('<div class="at-layout">', '<div class="at-layout is-home">', 1).replace(side_html(), "", 1)
     html_ = re.sub(r'\s*<small class="at-foot-visitors"[^>]*>.*?</small>', "", html_, count=1, flags=re.S)
@@ -2370,7 +2477,7 @@ def mark_untouched_noindex():
 # ════════════════════════════════════════════════════════════════
 
 def all_index_pages():
-    order = ["index.html", "food.html", "tools.html", "travel.html", "etc.html"]
+    order = ["index.html", "travel.html", "food.html", "tools.html", "etc.html"]
     ps = [PAGES[f] for f in order] + sorted([q for q in PAGES.values() if q["file"] not in order], key=lambda q: q["file"])
     return [q for q in ps if indexable(q)]
 
