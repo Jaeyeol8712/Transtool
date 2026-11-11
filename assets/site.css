@@ -48,6 +48,8 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
   font-size:1.25rem;font-weight:800;letter-spacing:-0.04em;line-height:1;min-height:44px;justify-self:start}
 .at-logo-mark{width:1.85rem;height:1.85rem;border-radius:8px;background:var(--at-brand);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .at-logo b{color:var(--at-brand);font-weight:800}
+.at-logo-tx{display:flex;flex-direction:column;gap:.3rem}
+.at-slogan{font-size:.78rem;font-weight:600;letter-spacing:-0.02em;color:#5B6B66;line-height:1.2}
 .at-search{grid-area:search;display:flex;align-items:center;gap:.5rem;border:2px solid var(--at-brand);border-radius:14px;
   background:var(--at-surface);padding:0 .35rem 0 .85rem;margin:0;min-height:48px;box-sizing:border-box;color:var(--at-brand)}
 .at-search svg{flex-shrink:0}
@@ -932,10 +934,12 @@ body.b main table:not(.b-stack){width:calc(100% - 1px)!important}
 body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 
 /* 홈: 카테고리 바로 아래 K링크 배너 (2026-11-11 대표 지시) */
-.ah-klink{display:flex;align-items:center;gap:.8rem;margin:0;padding:.9rem 1rem;border-radius:16px;background:#2443E8;color:#fff;text-decoration:none}
-.ah-klink:hover{background:#1B34C4}
-.ah-klink-mark{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:#fff;color:#2443E8;display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+.ah-klink{display:flex;align-items:center;gap:.9rem;margin:0;padding:.85rem 1rem;border-radius:16px;background:var(--at-surface);color:var(--at-ink);text-decoration:none;border:1px solid #E3EAE7}
+.ah-klink:hover{border-color:#2443E8}
+.ah-klink-mark{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:#2443E8;display:grid;place-items:center}
+.ah-klink-k{width:40px;height:40px;display:block}
 .ah-klink-tx{flex:1;min-width:0;display:block}
-.ah-klink-tx b{display:block;font-size:1.06rem;line-height:1.35;word-break:keep-all}
-.ah-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
-.ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}
+.ah-klink-tx b{display:block;font-size:1.06rem;line-height:1.35;word-break:keep-all;color:#2443E8;font-weight:800}
+.ah-klink-tx b em{font-style:normal;white-space:nowrap;color:var(--at-ink);font-weight:700;margin-left:.2rem}
+.ah-klink-tx span{display:block;font-size:.86rem;line-height:1.45;color:var(--at-muted,#5B6B66);margin-top:.15rem;word-break:keep-all}
+.ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;color:#2443E8}

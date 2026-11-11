@@ -654,7 +654,7 @@ def header_html(p):
         items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{label}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
 <header class="at-header"><div class="at-in">
-  <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
+  <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span class="at-logo-tx"><span>어라운드<b>툴</b></span><small class="at-slogan">어딜 가나 가볍게, 여행을 엽니다.</small></span></a>
   <nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
@@ -2011,7 +2011,7 @@ def build_home():
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
-    content = f"""<a class="ah-klink" href="/klink/"><span class="ah-klink-mark" aria-hidden="true">K</span><span class="ah-klink-tx"><b>어딜 가나 가볍게, 여행을 엽니다.</b><span>K링크 · 지도에서 저장하면 날짜별 동선과 숙소를 짜 드려요</span></span><span class="ah-klink-go" aria-hidden="true">›</span></a>
+    content = f"""<a class="ah-klink" href="/klink/"><span class="ah-klink-mark"><svg class="ah-klink-k" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12v42M21 33l25-15M21 33l26 15"/></g><g fill="#2443E8" stroke="#fff" stroke-width="3.5"><circle cx="21" cy="12" r="5"/><circle cx="21" cy="33" r="5"/><circle cx="46" cy="18" r="5"/><circle cx="47" cy="48" r="5"/></g></svg></span><span class="ah-klink-tx"><b>K링크 <em>여행 동선 짜기</em></b><span>지도에서 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 드려요</span></span><span class="ah-klink-go" aria-hidden="true">›</span></a>
 <section class="ah-hero" aria-labelledby="ah-h1">
   <div class="ah-main">
     <h1 id="ah-h1">필요한 계산, 3초면 끝나요</h1>
