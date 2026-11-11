@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 418 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 428 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -290,7 +290,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/gas_bill_calculator.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-gas-3.jpg</image:loc></image:image>
   </url>
   <url>
@@ -338,6 +338,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-boiler-pipe-cleaning.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-brokerage-fee-rates.html</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
@@ -348,6 +352,10 @@
   <url>
     <loc>https://www.aroundtool.com/guide-car-antifreeze-check.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-car-cabin-filter-replacement.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-car-inspection-period-fine.html</loc>
@@ -486,6 +494,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-kimjang-kimchi-storage.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-kimjang-timing-2026.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -534,6 +546,14 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-overseas-trip-departure-checklist.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-parcel-loss-damage-compensation.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-passport-reissue.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -579,7 +599,15 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-snow-chain-how-to.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-suneung-checklist-banned-items.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-suneung-ticket-discount-check.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
@@ -627,6 +655,14 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-winter-dog-walking-safety.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-winter-dry-cracked-hands.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-winter-electric-gas-safety-check.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -665,6 +701,10 @@
   <url>
     <loc>https://www.aroundtool.com/guide-year-end-checklist-dec31.html</loc>
     <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-year-end-cleaning-order.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-year-end-tax-2026-changes.html</loc>
@@ -960,7 +1000,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/kerosene_heating_cost_calculator.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/kimjang_cost_calculator.html</loc>
@@ -1007,7 +1047,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/overseas_travel_budget_calculator.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/parental_leave_calculator.html</loc>
@@ -1037,7 +1077,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/pet_age_calculator.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/prepayment_penalty_calculator.html</loc>
@@ -1580,7 +1620,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/speed_distance_time_calculator.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/spell_checker.html</loc>
@@ -1589,7 +1629,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/step_distance_calorie_calculator.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/stock_average_price_calculator.html</loc>
@@ -1846,7 +1886,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/unit_converter.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/vat_calculator.html</loc>

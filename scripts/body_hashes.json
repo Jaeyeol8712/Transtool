@@ -17,7 +17,7 @@
 },
 "bmi_calculator.html": {
 "d": "2026-11-11",
-"h": "d158822afdce732d"
+"h": "8a1cac27fc1e3f4e"
 },
 "bmr_calculator.html": {
 "d": "2026-11-03",
@@ -33,7 +33,7 @@
 },
 "calorie_calculator.html": {
 "d": "2026-11-11",
-"h": "786e0baf091e8f59"
+"h": "26bde3cb628f7c0c"
 },
 "camping_gear_calculator.html": {
 "d": "2026-11-11",
@@ -45,7 +45,7 @@
 },
 "car_installment_calculator.html": {
 "d": "2026-11-11",
-"h": "672268d992b81d4f"
+"h": "baa007581b8b852e"
 },
 "car_tax_calculator.html": {
 "d": "2026-11-06",
@@ -129,7 +129,7 @@
 },
 "date_calculator.html": {
 "d": "2026-11-11",
-"h": "99483f952d35f557"
+"h": "db28b4bc2d4c93f0"
 },
 "deposit_interest_calculator.html": {
 "d": "2026-11-03",
@@ -137,7 +137,7 @@
 },
 "discount_calculator.html": {
 "d": "2026-11-11",
-"h": "c4d2645396511ab6"
+"h": "970ce82fa5814ef3"
 },
 "discount_rate_calculator.html": {
 "d": "2026-11-03",
@@ -169,11 +169,11 @@
 },
 "electricity_bill_calculator.html": {
 "d": "2026-11-11",
-"h": "ca11353ac99a1a5e"
+"h": "cef1c5123f7029f1"
 },
 "etc.html": {
 "d": "2026-11-11",
-"h": "87554022ad0a1142"
+"h": "9af5f55894586ec5"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -185,7 +185,7 @@
 },
 "exchange_rate_calculator.html": {
 "d": "2026-11-11",
-"h": "a71da5f3a582ebf8"
+"h": "1deb71868f468c77"
 },
 "food.html": {
 "d": "2026-11-07",
@@ -201,7 +201,7 @@
 },
 "fuel_economy_calculator.html": {
 "d": "2026-11-11",
-"h": "f3dc4a5c9067ec85"
+"h": "64ae7c16360d7c04"
 },
 "gangnam-bapjip.html": {
 "d": "2026-11-03",
@@ -240,8 +240,8 @@
 "h": "80685a848ce4f1f5"
 },
 "gas_bill_calculator.html": {
-"d": "2026-11-07",
-"h": "1666d1d9268c5ad5"
+"d": "2026-11-11",
+"h": "c8c95a6f21e7fe9e"
 },
 "gift_tax_calculator.html": {
 "d": "2026-11-05",
@@ -261,7 +261,7 @@
 },
 "guide-age-criteria-school-military-housing.html": {
 "d": "2026-11-11",
-"h": "02e5b58e1b538373"
+"h": "28422f8f0f54983d"
 },
 "guide-annual-leave-promotion.html": {
 "d": "2026-11-03",
@@ -272,8 +272,8 @@
 "h": "983a67e687e65601"
 },
 "guide-black-friday-direct-purchase-refund.html": {
-"d": null,
-"h": "d9b04d69c01cbe28"
+"d": "2026-11-11",
+"h": "686abbe46ff0e4da"
 },
 "guide-black-ice-safe-driving.html": {
 "d": "2026-11-11",
@@ -281,11 +281,15 @@
 },
 "guide-bmi-normal-range.html": {
 "d": "2026-11-11",
-"h": "87e6897d53e77a4f"
+"h": "a45adf087f8c46b9"
 },
 "guide-boiler-away-mode-vs-off.html": {
 "d": "2026-11-11",
-"h": "d52348621834aab0"
+"h": "47274f61d5e94d7b"
+},
+"guide-boiler-pipe-cleaning.html": {
+"d": null,
+"h": "3fbd89753e44b356"
 },
 "guide-brokerage-fee-rates.html": {
 "d": "2026-11-05",
@@ -299,17 +303,21 @@
 "d": "2026-11-07",
 "h": "b93e72bf21ab0cd3"
 },
+"guide-car-cabin-filter-replacement.html": {
+"d": null,
+"h": "fd566d729e1726a2"
+},
 "guide-car-inspection-period-fine.html": {
 "d": "2026-11-11",
-"h": "caa2810e81c27929"
+"h": "9af3d86d1e953913"
 },
 "guide-car-insurance-emergency-service.html": {
 "d": "2026-11-07",
 "h": "47ac9e173ba38a4a"
 },
 "guide-car-insurance-renewal-discount.html": {
-"d": null,
-"h": "7a6a89ab6f4895e6"
+"d": "2026-11-11",
+"h": "7e36231b5fc6c3aa"
 },
 "guide-car-tax-january-prepay.html": {
 "d": "2026-11-11",
@@ -317,7 +325,7 @@
 },
 "guide-carbon-monoxide-poisoning-prevention.html": {
 "d": "2026-11-11",
-"h": "9f8cdb0c099ae66b"
+"h": "e0ca919ea4fa1305"
 },
 "guide-card-point-expiry-check.html": {
 "d": null,
@@ -329,7 +337,7 @@
 },
 "guide-cold-wave-action-guide.html": {
 "d": "2026-11-11",
-"h": "27b66b0e08388a6c"
+"h": "b1b5ef80d0325502"
 },
 "guide-comprehensive-property-tax-schedule.html": {
 "d": "2026-11-11",
@@ -357,7 +365,7 @@
 },
 "guide-electric-mat-fire-safety.html": {
 "d": "2026-11-11",
-"h": "9d7f2bb654050ef3"
+"h": "7ab83b5d045e8c48"
 },
 "guide-energy-voucher-2026.html": {
 "d": "2026-11-11",
@@ -373,11 +381,11 @@
 },
 "guide-frozen-pipe-prevention.html": {
 "d": "2026-11-11",
-"h": "7d01de494853b260"
+"h": "0ae627c6e7e37cab"
 },
 "guide-gas-bill-formula.html": {
 "d": "2026-11-11",
-"h": "cf8b3793a6a2c29a"
+"h": "ec375d3b2c162d14"
 },
 "guide-gift-tax-exemption-by-family.html": {
 "d": "2026-11-11",
@@ -397,7 +405,7 @@
 },
 "guide-holidays-2027.html": {
 "d": "2026-11-11",
-"h": "96f115d0cb5679ab"
+"h": "2c8a96f431c3a116"
 },
 "guide-hometown-donation-2026.html": {
 "d": "2026-11-06",
@@ -425,7 +433,7 @@
 },
 "guide-japan-travel-budget.html": {
 "d": "2026-11-11",
-"h": "be534ec2733574d4"
+"h": "f84e3cb616364d44"
 },
 "guide-jeonse-contract-checklist.html": {
 "d": "2026-11-03",
@@ -435,13 +443,17 @@
 "d": "2026-11-11",
 "h": "967cc105996ca274"
 },
+"guide-kimjang-kimchi-storage.html": {
+"d": null,
+"h": "192a5b35f5f289c6"
+},
 "guide-kimjang-timing-2026.html": {
 "d": "2026-11-11",
 "h": "020d5f3b9d5d4a8f"
 },
 "guide-korean-age-rules.html": {
 "d": "2026-11-11",
-"h": "f160087d10319d1b"
+"h": "505fc39010f34f80"
 },
 "guide-loan-repayment-methods.html": {
 "d": "2026-11-11",
@@ -473,7 +485,7 @@
 },
 "guide-national-health-checkup-deadline.html": {
 "d": "2026-11-11",
-"h": "db5ce56cfe5e8879"
+"h": "896b15b0489047d8"
 },
 "guide-norovirus-prevention.html": {
 "d": "2026-11-11",
@@ -481,11 +493,19 @@
 },
 "guide-overseas-direct-purchase-duty-free.html": {
 "d": "2026-11-11",
-"h": "9d90b6ae6b5a1b39"
+"h": "5ef78e59e25cfe3c"
+},
+"guide-overseas-trip-departure-checklist.html": {
+"d": null,
+"h": "ebb8869be69fe40e"
+},
+"guide-parcel-loss-damage-compensation.html": {
+"d": null,
+"h": "9afb29d468a535ac"
 },
 "guide-passport-reissue.html": {
 "d": "2026-11-11",
-"h": "0852cef5a8b83fd9"
+"h": "850720551a651440"
 },
 "guide-pension-irp-year-end-limit.html": {
 "d": "2026-11-06",
@@ -493,7 +513,7 @@
 },
 "guide-percent-formulas.html": {
 "d": "2026-11-11",
-"h": "f40c6d1c1135abe5"
+"h": "86386b8bb96c6844"
 },
 "guide-percent-vs-percentage-point.html": {
 "d": "2026-11-03",
@@ -527,17 +547,25 @@
 "d": "2026-11-06",
 "h": "2e58cce1683d56e4"
 },
-"guide-suneung-checklist-banned-items.html": {
+"guide-snow-chain-how-to.html": {
 "d": null,
-"h": "afa9568ae8d399c5"
+"h": "14ac310b12cac214"
+},
+"guide-suneung-checklist-banned-items.html": {
+"d": "2026-11-11",
+"h": "c24d8bd68ab8d947"
+},
+"guide-suneung-ticket-discount-check.html": {
+"d": null,
+"h": "f0bb3ce1eef0f04c"
 },
 "guide-sweet-potato-storage.html": {
-"d": null,
-"h": "3f8b3017f70bfcb4"
+"d": "2026-11-11",
+"h": "0dcd64365aa5425c"
 },
 "guide-tangerine-storage.html": {
-"d": null,
-"h": "c9c9c196dd6770bc"
+"d": "2026-11-11",
+"h": "8137f897350df01a"
 },
 "guide-tire-dot-date-winter.html": {
 "d": "2026-11-07",
@@ -564,8 +592,8 @@
 "h": "d18ba5142da560e5"
 },
 "guide-winter-camping-checklist.html": {
-"d": null,
-"h": "9a2e64c85728f3b9"
+"d": "2026-11-11",
+"h": "a5a40a9a66e21a17"
 },
 "guide-winter-car-battery-dead.html": {
 "d": "2026-11-07",
@@ -573,7 +601,15 @@
 },
 "guide-winter-condensation-mold.html": {
 "d": "2026-11-11",
-"h": "6f8c4167de1594dd"
+"h": "1ad7df758d6cb08e"
+},
+"guide-winter-dog-walking-safety.html": {
+"d": null,
+"h": "789c266ca4e5ff21"
+},
+"guide-winter-dry-cracked-hands.html": {
+"d": null,
+"h": "aa7bf311bc3d2aea"
 },
 "guide-winter-electric-gas-safety-check.html": {
 "d": "2026-11-11",
@@ -581,7 +617,7 @@
 },
 "guide-winter-electricity-progressive.html": {
 "d": "2026-11-11",
-"h": "2527bb5fe5bc7c07"
+"h": "342ccda203dad7e9"
 },
 "guide-winter-fuel-economy.html": {
 "d": "2026-11-11",
@@ -589,23 +625,23 @@
 },
 "guide-winter-hiking-safety.html": {
 "d": "2026-11-11",
-"h": "3153b5b57c5c77b4"
+"h": "8a9074878c420103"
 },
 "guide-winter-indoor-humidity-humidifier.html": {
 "d": "2026-11-11",
-"h": "5eb625ca9a964625"
+"h": "ef2f4b80ed6ed8b9"
 },
 "guide-winter-static-electricity.html": {
-"d": null,
-"h": "66c357aced66c520"
+"d": "2026-11-11",
+"h": "f3bc4f15253b67ff"
 },
 "guide-winter-wiper-washer-fluid.html": {
-"d": null,
-"h": "3a8ddf7f05dca071"
+"d": "2026-11-11",
+"h": "72c4d6ed12d73dc3"
 },
 "guide-year-end-bank-business-days.html": {
-"d": null,
-"h": "f2a9ff98f01f8441"
+"d": "2026-11-11",
+"h": "8338bbc822534aec"
 },
 "guide-year-end-bonus-tax.html": {
 "d": "2026-11-06",
@@ -614,6 +650,10 @@
 "guide-year-end-checklist-dec31.html": {
 "d": "2026-11-06",
 "h": "6d835045cf3f2c6c"
+},
+"guide-year-end-cleaning-order.html": {
+"d": null,
+"h": "cc3de46232a77194"
 },
 "guide-year-end-tax-2026-changes.html": {
 "d": "2026-11-11",
@@ -725,7 +765,7 @@
 },
 "index.html": {
 "d": "2026-11-11",
-"h": "5e12641a48e2b4c0"
+"h": "a27f01f638d8343b"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -868,8 +908,8 @@
 "h": "fa36623b2bd481a5"
 },
 "kerosene_heating_cost_calculator.html": {
-"d": "2026-11-07",
-"h": "1cbed6591a9aba78"
+"d": "2026-11-11",
+"h": "561d4442fed2a156"
 },
 "kimjang_cost_calculator.html": {
 "d": "2026-11-03",
@@ -912,8 +952,8 @@
 "h": "f2ab4d459495d1e1"
 },
 "overseas_travel_budget_calculator.html": {
-"d": null,
-"h": "be69b89d4a84c122"
+"d": "2026-11-11",
+"h": "7c15d9a4e6b0bcbd"
 },
 "parental_leave_calculator.html": {
 "d": "2026-11-03",
@@ -940,8 +980,8 @@
 "h": "868926404ec1c7b0"
 },
 "pet_age_calculator.html": {
-"d": null,
-"h": "f2308af92e7f3bac"
+"d": "2026-11-11",
+"h": "b998d76754ea1be1"
 },
 "prepayment_penalty_calculator.html": {
 "d": "2026-11-03",
@@ -1277,7 +1317,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-11",
-"h": "d2f4cfab3e8cec72"
+"h": "99c8b4e1f7182e4b"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1316,16 +1356,16 @@
 "h": "9171f9b73bbcf38f"
 },
 "speed_distance_time_calculator.html": {
-"d": null,
-"h": "93de076ef426d376"
+"d": "2026-11-11",
+"h": "1e267065e0c70542"
 },
 "spell_checker.html": {
 "d": "2026-11-03",
 "h": "328d6cf7070753d6"
 },
 "step_distance_calorie_calculator.html": {
-"d": null,
-"h": "04b413bbea6b5948"
+"d": "2026-11-11",
+"h": "323ceedbdf394e06"
 },
 "stock_average_price_calculator.html": {
 "d": null,
@@ -1580,8 +1620,8 @@
 "h": "8226cd07c6a5f156"
 },
 "unit_converter.html": {
-"d": "2026-11-03",
-"h": "efdc376ca6bc3796"
+"d": "2026-11-11",
+"h": "8c308c141ff0b930"
 },
 "vat_calculator.html": {
 "d": "2026-11-03",

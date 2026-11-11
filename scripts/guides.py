@@ -844,3 +844,5 @@ apply_1108(GUIDES)
 GUIDES += GUIDES_1108
 from guides_1111a import GUIDES_1111A  # noqa: E402  (2026-11-08 컨펌 i261108-02, 11.11 적용)
 GUIDES += GUIDES_1111A
+from guides_1111b import GUIDES_1111B  # noqa: E402  (2026-11-09 컨펌 i261109-02, 11.11 적용)
+GUIDES += GUIDES_1111B
