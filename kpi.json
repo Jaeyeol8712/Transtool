@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-10",
+  "users": 36,
+  "sessions": 37,
+  "views": 45,
+  "organic": 20
+ },
+ "yday0": {
   "date": "2026-11-09",
   "users": 25,
   "sessions": 28,
   "views": 29,
   "organic": 22
- },
- "yday0": {
-  "date": "2026-11-08",
-  "users": 14,
-  "sessions": 17,
-  "views": 20,
-  "organic": 17
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "done": false,
-   "users": 25,
-   "sessions": 28,
-   "views": 29,
-   "organic": 22
+   "users": 61,
+   "sessions": 65,
+   "views": 74,
+   "organic": 42
   }
  ],
  "lastWeek": {
@@ -218,10 +218,10 @@
    "key": "202645",
    "start": "2026-11-02",
    "end": "2026-11-08",
-   "complete": false,
-   "clicks": 14,
-   "impressions": 2515,
-   "position": 9.6
+   "complete": true,
+   "clicks": 17,
+   "impressions": 3027,
+   "position": 9.8
   },
   {
    "key": "202646",
@@ -233,47 +233,42 @@
    "position": null
   }
  ],
- "made": "2026-11-10T04:37:51.406Z",
- "range": "2026-11-03 ~ 2026-11-09",
- "prevRange": "2026-10-27 ~ 2026-11-02",
+ "made": "2026-11-11T02:46:21.501Z",
+ "range": "2026-11-04 ~ 2026-11-10",
+ "prevRange": "2026-10-28 ~ 2026-11-03",
  "cur": {
-  "users": 132,
-  "sessions": 170,
-  "views": 443
+  "users": 152,
+  "sessions": 185,
+  "views": 289
  },
  "prev": {
-  "users": 90,
-  "sessions": 136,
-  "views": 303
+  "users": 103,
+  "sessions": 134,
+  "views": 426
  },
  "organic": {
-  "cur": 111,
-  "prev": 56
+  "cur": 125,
+  "prev": 58
  },
  "channels": {
   "cur": {
-   "Organic Search": 111,
-   "Direct": 39,
-   "Unassigned": 9,
-   "AI Assistant": 6,
+   "Organic Search": 125,
+   "Direct": 47,
+   "Unassigned": 6,
    "Organic Social": 4,
-   "Referral": 1
+   "AI Assistant": 3
   },
   "prev": {
-   "Direct": 62,
-   "Organic Search": 56,
-   "Organic Social": 8,
-   "Unassigned": 6,
-   "AI Assistant": 3,
-   "Paid Search": 1
+   "Organic Search": 58,
+   "Direct": 53,
+   "Unassigned": 9,
+   "Organic Social": 7,
+   "AI Assistant": 6,
+   "Paid Search": 1,
+   "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261013",
-   "users": 8,
-   "sessions": 8
-  },
   {
    "date": "20261014",
    "users": 1,
@@ -408,27 +403,40 @@
    "date": "20261109",
    "users": 25,
    "sessions": 28
+  },
+  {
+   "date": "20261110",
+   "users": 36,
+   "sessions": 37
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 33
+   "sessions": 30
   },
   {
    "page": "(not set)",
-   "sessions": 8
+   "sessions": 9
   },
   {
-   "page": "/interior_calculator.html",
-   "sessions": 6
+   "page": "/jeju-seogwipo-galchi.html",
+   "sessions": 9
   },
   {
    "page": "/yeonsu.html",
-   "sessions": 5
+   "sessions": 6
   },
   {
    "page": "/haeundae-gukmul-myeon.html",
+   "sessions": 5
+  },
+  {
+   "page": "/yeonsu-bapjip.html",
+   "sessions": 5
+  },
+  {
+   "page": "/interior_calculator.html",
    "sessions": 4
   },
   {
@@ -436,48 +444,29 @@
    "sessions": 4
   },
   {
-   "page": "/yeonsu-bapjip.html",
+   "page": "/kerosene_heating_cost_calculator.html",
    "sessions": 4
   },
   {
-   "page": "/acquisition_tax_calculator",
-   "sessions": 3
-  },
-  {
-   "page": "/daejeon-donggu-station.html",
-   "sessions": 3
-  },
-  {
-   "page": "/gas_bill_calculator.html",
-   "sessions": 3
+   "page": "/shop-queens-collagen-rg3.html",
+   "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-01 ~ 2026-11-07",
+  "range": "2026-11-02 ~ 2026-11-08",
   "cur": {
-   "clicks": 14,
-   "impressions": 2895,
-   "position": 9.546113989637306
+   "clicks": 17,
+   "impressions": 3027,
+   "position": 9.764453254046911
   },
   "prev": {
    "clicks": 2,
-   "impressions": 1915,
-   "position": 8.92845953002611
+   "impressions": 2126,
+   "position": 8.924741298212606
   }
  },
  "ai": {
   "cur": {
-   "sessions": 6,
-   "users": 6,
-   "sources": [
-    {
-     "name": "chatgpt.com",
-     "sessions": 6,
-     "users": 6
-    }
-   ]
-  },
-  "prev": {
    "sessions": 3,
    "users": 3,
    "sources": [
@@ -485,6 +474,17 @@
      "name": "chatgpt.com",
      "sessions": 3,
      "users": 3
+    }
+   ]
+  },
+  "prev": {
+   "sessions": 6,
+   "users": 6,
+   "sources": [
+    {
+     "name": "chatgpt.com",
+     "sessions": 6,
+     "users": 6
     }
    ]
   }
