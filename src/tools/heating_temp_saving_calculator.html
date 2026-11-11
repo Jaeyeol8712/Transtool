@@ -1,0 +1,25 @@
+<label for="ht1">한 달 난방비 (원)</label>
+<input id="ht1" type="number" inputmode="numeric" placeholder="150000"/>
+<label for="ht2">낮출 온도 (℃)</label>
+<input id="ht2" type="number" inputmode="decimal" placeholder="1"/>
+<label for="ht3">난방하는 달 수</label>
+<input id="ht3" type="number" inputmode="numeric" placeholder="5"/>
+<button onclick="calc_heating_temp_saving()">절약액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">한 달 절약액 (약)</span><span class="result-value" id="htM">-</span></div>
+<div class="result-row"><span class="result-label">겨울 전체 절약액 (약)</span><span class="result-value" id="htS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">가정</span><span class="result-value" id="htN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_heating_temp_saving(){
+ var b=_v('ht1'),d=_v('ht2'),m=_v('ht3');
+ if(isNaN(b)||b<=0||isNaN(d)||d<=0) return alert('난방비와 낮출 온도를 입력해주세요.'); if(isNaN(m)||m<1)m=1;
+ var rate=Math.min(0.07*d,0.5);
+ _s('htM',_w(b*rate)); _s('htS',_w(b*rate*m)); _s('htN','1℃당 약 7% 절감 가정');
+ document.getElementById('result').classList.add('show');
+}
+</script>

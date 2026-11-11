@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하루 카페인 섭취량 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/caffeine_intake_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="하루 카페인 섭취량 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">하루 카페인 섭취량 계산기</p>
+<label for="cf1">대상</label>
+<select id="cf1"><option value="400" selected>성인 (하루 400mg 이하 권고)</option><option value="300">임산부 (하루 300mg 이하 권고)</option><option value="kid">어린이·청소년 (몸무게 kg × 2.5mg)</option></select>
+<label for="cf2">몸무게 (kg, 어린이·청소년만)</label>
+<input id="cf2" type="number" inputmode="decimal" placeholder="45"/>
+<label for="cf3">커피 잔 수</label>
+<input id="cf3" type="number" inputmode="decimal" placeholder="2"/>
+<label for="cf4">커피 1잔 카페인 (mg, 제품 표시)</label>
+<input id="cf4" type="number" inputmode="numeric" placeholder="120"/>
+<label for="cf5">그 밖의 음료 잔 수 (에너지음료·차 등)</label>
+<input id="cf5" type="number" inputmode="decimal" placeholder="1"/>
+<label for="cf6">그 음료 1잔 카페인 (mg)</label>
+<input id="cf6" type="number" inputmode="numeric" placeholder="60"/>
+<button onclick="calc_caffeine_intake()">하루 카페인 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">오늘 섭취량</span><span class="result-value" id="cfT">-</span></div>
+<div class="result-row"><span class="result-label">하루 권고 상한</span><span class="result-value" id="cfL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">상한 대비</span><span class="result-value" id="cfR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_caffeine_intake(){
+ var who=document.getElementById('cf1').value,kg=_v('cf2');
+ function z(i){var x=_v(i);return isNaN(x)?0:x;}
+ var tot=z('cf3')*z('cf4')+z('cf5')*z('cf6');
+ var lim= who==='kid' ? (isNaN(kg)||kg<=0?NaN:kg*2.5) : parseFloat(who);
+ if(isNaN(lim)) return alert('어린이·청소년은 몸무게를 입력해주세요.');
+ _s('cfT',_n(tot,0)+'mg'); _s('cfL',_n(lim,0)+'mg'); _s('cfR',_n(tot/lim*100,0)+'%'+(tot>lim?' (넘음)':''));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/caffeine_intake_calculator.html?utm_source=embed&amp;utm_campaign=caffeine_intake_calculator" target="_blank" rel="noopener">어라운드툴 하루 카페인 섭취량 계산기</a></p>
+</body>
+</html>

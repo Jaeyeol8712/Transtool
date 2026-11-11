@@ -15,6 +15,10 @@
 "d": "2026-11-03",
 "h": "b3ae0a1a71dbb701"
 },
+"apartment_fee_per_area_calculator.html": {
+"d": null,
+"h": "f95939c1f7e08628"
+},
 "bmi_calculator.html": {
 "d": "2026-11-11",
 "h": "8a1cac27fc1e3f4e"
@@ -23,6 +27,10 @@
 "d": "2026-11-03",
 "h": "18a27141b8625e95"
 },
+"body_fat_navy_calculator.html": {
+"d": null,
+"h": "d5ac40314fcbfcd1"
+},
 "bonus_net_pay_calculator.html": {
 "d": "2026-11-05",
 "h": "be0ff70d88408de3"
@@ -30,6 +38,10 @@
 "brokerage_fee_calculator.html": {
 "d": "2026-11-03",
 "h": "7ef21f0084654680"
+},
+"caffeine_intake_calculator.html": {
+"d": null,
+"h": "d43115406a982662"
 },
 "calorie_calculator.html": {
 "d": "2026-11-11",
@@ -147,6 +159,10 @@
 "d": null,
 "h": "de15114119d35d6a"
 },
+"dog_food_amount_calculator.html": {
+"d": null,
+"h": "a21128df3cd034f3"
+},
 "donation_tax_credit_calculator.html": {
 "d": "2026-11-06",
 "h": "d9dd0f5b22f3a10e"
@@ -173,11 +189,15 @@
 },
 "etc.html": {
 "d": "2026-11-11",
-"h": "9af5f55894586ec5"
+"h": "0d3171544a73a629"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
 "h": "5d12eba919888a3b"
+},
+"ev_vs_gasoline_cost_calculator.html": {
+"d": null,
+"h": "8c5111a3e8a84db5"
 },
 "exam_study_time_calculator.html": {
 "d": null,
@@ -186,6 +206,10 @@
 "exchange_rate_calculator.html": {
 "d": "2026-11-11",
 "h": "1deb71868f468c77"
+},
+"exercise_met_calorie_calculator.html": {
+"d": null,
+"h": "55c689b1fb62f044"
 },
 "food.html": {
 "d": "2026-11-11",
@@ -743,6 +767,10 @@
 "d": "2026-11-11",
 "h": "4e2c6463b6a83ba8"
 },
+"heating_temp_saving_calculator.html": {
+"d": null,
+"h": "13779790f689009d"
+},
 "holiday_leave_planner.html": {
 "d": "2026-11-03",
 "h": "cd0803ab5ede22ac"
@@ -765,7 +793,7 @@
 },
 "index.html": {
 "d": "2026-11-11",
-"h": "434501d5fc664104"
+"h": "b15442ff1aa7d5fd"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -911,9 +939,17 @@
 "d": "2026-11-11",
 "h": "561d4442fed2a156"
 },
+"kimjang_brine_salt_calculator.html": {
+"d": null,
+"h": "11d51be8ef8f11f6"
+},
 "kimjang_cost_calculator.html": {
 "d": "2026-11-03",
 "h": "34cbe31fde9ae749"
+},
+"kpass_refund_calculator.html": {
+"d": null,
+"h": "bd1023e45adeb3b2"
 },
 "loan_calculator.html": {
 "d": "2026-11-03",
@@ -951,9 +987,17 @@
 "d": "2026-11-03",
 "h": "f2ab4d459495d1e1"
 },
+"moving_cost_calculator.html": {
+"d": null,
+"h": "20135ba4081d1d65"
+},
 "overseas_travel_budget_calculator.html": {
 "d": "2026-11-11",
 "h": "7c15d9a4e6b0bcbd"
+},
+"paint_amount_calculator.html": {
+"d": null,
+"h": "c998f2a1c29bce40"
 },
 "parental_leave_calculator.html": {
 "d": "2026-11-03",
@@ -966,6 +1010,10 @@
 "pension_age_calculator.html": {
 "d": "2026-11-03",
 "h": "657e6431d3bfbcfa"
+},
+"pension_db_dc_compare_calculator.html": {
+"d": null,
+"h": "4db09623f323e5e8"
 },
 "pension_savings_tax_credit_calculator.html": {
 "d": "2026-11-06",
@@ -1011,6 +1059,10 @@
 "d": "2026-11-05",
 "h": "3c9c6317f10beeaa"
 },
+"rice_water_calculator.html": {
+"d": null,
+"h": "a29750e45b4529b3"
+},
 "salary_calculator.html": {
 "d": "2026-11-06",
 "h": "af8e8f367625a63f"
@@ -1018,6 +1070,10 @@
 "savings_calculator.html": {
 "d": "2026-11-11",
 "h": "b818ad2adef2c512"
+},
+"savings_goal_monthly_calculator.html": {
+"d": null,
+"h": "f31d44d8f59cfd33"
 },
 "season-beolgyo-kkomak.html": {
 "d": null,
@@ -1397,7 +1453,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-11",
-"h": "66c42454993b21d4"
+"h": "f112560f85f80e03"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1467,13 +1523,17 @@
 "d": "2026-11-06",
 "h": "06d25401ba801015"
 },
+"tip_calculator.html": {
+"d": null,
+"h": "c2c12914c45b1d91"
+},
 "tire_date_calculator.html": {
 "d": "2026-11-07",
 "h": "a2c1edf3b84ad6c5"
 },
 "tools.html": {
-"d": "2026-11-07",
-"h": "8f1eeb4aa94e758c"
+"d": "2026-11-11",
+"h": "38f648ef763c606b"
 },
 "travel-andong.html": {
 "d": null,
@@ -1783,9 +1843,29 @@
 "d": "2026-11-11",
 "h": "8c308c141ff0b930"
 },
+"unit_price_compare_calculator.html": {
+"d": null,
+"h": "1a487c0e6c691f2a"
+},
+"used_car_value_calculator.html": {
+"d": null,
+"h": "6ea9e02a8a2827d8"
+},
 "vat_calculator.html": {
 "d": "2026-11-03",
 "h": "8163410b271ff4d0"
+},
+"volumetric_weight_calculator.html": {
+"d": null,
+"h": "91bbcbed6526ef9f"
+},
+"wallpaper_roll_calculator.html": {
+"d": null,
+"h": "45dfbaeb4d75015b"
+},
+"water_bill_calculator.html": {
+"d": null,
+"h": "9fe99a7c8ebed9bc"
 },
 "week_number_calculator.html": {
 "d": "2026-11-03",

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단위 가격 비교 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/unit_price_compare_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbc86717">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="단위 가격 비교 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">단위 가격 비교 계산기</p>
+<label for="up1">상품 A 가격 (원)</label>
+<input id="up1" type="number" inputmode="numeric" placeholder="4980"/>
+<label for="up2">상품 A 용량 (g·ml)</label>
+<input id="up2" type="number" inputmode="decimal" placeholder="500"/>
+<label for="up3">상품 B 가격 (원)</label>
+<input id="up3" type="number" inputmode="numeric" placeholder="8900"/>
+<label for="up4">상품 B 용량 (g·ml)</label>
+<input id="up4" type="number" inputmode="decimal" placeholder="1000"/>
+<label for="up5">비교 단위</label>
+<select id="up5"><option value="100" selected>100g·100ml당</option><option value="1">1g·1ml당</option><option value="1000">1kg·1L당</option></select>
+<button onclick="calc_unit_price_compare()">단위 가격 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 싼 쪽</span><span class="result-value" id="upW">-</span></div>
+<div class="result-row"><span class="result-label">상품 A 단위 가격</span><span class="result-value" id="upA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">상품 B 단위 가격</span><span class="result-value" id="upB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">차이</span><span class="result-value" id="upD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_unit_price_compare(){
+ var pa=_v('up1'),qa=_v('up2'),pb=_v('up3'),qb=_v('up4'),u=parseFloat(document.getElementById('up5').value);
+ if([pa,qa,pb,qb].some(function(x){return isNaN(x)||x<=0;})) return alert('두 상품의 가격과 용량을 입력해주세요.');
+ var a=pa/qa*u,b=pb/qb*u;
+ _s('upW',a<b?'상품 A':(b<a?'상품 B':'같음')); _s('upA',_n(a,1)+'원'); _s('upB',_n(b,1)+'원'); _s('upD',_n(Math.abs(a-b)/Math.max(a,b)*100)+'% 저렴');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/unit_price_compare_calculator.html?utm_source=embed&amp;utm_campaign=unit_price_compare_calculator" target="_blank" rel="noopener">어라운드툴 단위 가격 비교 계산기</a></p>
+</body>
+</html>

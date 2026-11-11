@@ -1,0 +1,27 @@
+<label for="pt1">칠할 면적 (㎡)</label>
+<input id="pt1" type="number" inputmode="decimal" placeholder="30"/>
+<label for="pt2">칠 횟수</label>
+<input id="pt2" type="number" inputmode="numeric" placeholder="2"/>
+<label for="pt3">1L당 칠할 수 있는 면적 (㎡, 제품 표시)</label>
+<input id="pt3" type="number" inputmode="decimal" placeholder="10"/>
+<label for="pt4">1통 용량 (L)</label>
+<input id="pt4" type="number" inputmode="decimal" placeholder="4"/>
+<button onclick="calc_paint_amount()">필요량 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">필요한 페인트</span><span class="result-value" id="ptL">-</span></div>
+<div class="result-row"><span class="result-label">필요한 통 수</span><span class="result-value" id="ptC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="ptN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_paint_amount(){
+ var a=_v('pt1'),n=_v('pt2'),c=_v('pt3'),v=_v('pt4');
+ if(isNaN(a)||a<=0||isNaN(c)||c<=0) return alert('면적과 도포 면적을 입력해주세요.'); if(isNaN(n)||n<1)n=1; if(isNaN(v)||v<=0)v=4;
+ var L=a*n/c;
+ _s('ptL',_n(L,1)+'L'); _s('ptC',Math.ceil(L/v)+'통'); _s('ptN','벽 상태·색에 따라 더 들 수 있습니다');
+ document.getElementById('result').classList.add('show');
+}
+</script>

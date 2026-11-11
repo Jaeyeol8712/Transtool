@@ -4,9 +4,49 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 94종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 114종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>수도요금 계산기 — 사용량 × 고지서 단가로 계산</title>
+      <link>https://www.aroundtool.com/water_bill_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/water_bill_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 사용량(㎥)과 고지서의 상수도·하수도·물이용부담금 단가, 기본요금을 넣으면 예상 수도요금을 계산합니다. 단가는 지역마다 달라 고지서 값을 넣습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>도배 벽지 계산기 — 방 크기로 필요한 롤 수</title>
+      <link>https://www.aroundtool.com/wallpaper_roll_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/wallpaper_roll_calculator.html</guid>
+      <category>생활툴</category>
+      <description>벽 둘레, 천장 높이, 문·창문 면적, 벽지 규격(소폭·광폭)을 넣으면 도배 면적과 필요한 벽지 롤 수를 여유분을 더해 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부피무게 계산기 — 가로×세로×높이 ÷ 6000</title>
+      <link>https://www.aroundtool.com/volumetric_weight_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/volumetric_weight_calculator.html</guid>
+      <category>생활툴</category>
+      <description>상자 가로·세로·높이(cm)와 실제 무게, 나누는 값(6000·5000)을 넣으면 부피무게와 운임 기준 무게(둘 중 큰 값)를 계산합니다. 해외 배송·특송에 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>중고차 감가 계산기 — 몇 년 뒤 차값은 얼마</title>
+      <link>https://www.aroundtool.com/used_car_value_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/used_car_value_calculator.html</guid>
+      <category>생활툴</category>
+      <description>신차 가격, 지난 햇수, 연 감가율을 넣으면 정률 감가로 예상 잔존가치와 신차 대비 남은 비율을 계산합니다. 실제 시세는 차종·주행거리·상태에 따라 다릅니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단위 가격 계산기 — 100g당·100ml당 어느 게 쌀까</title>
+      <link>https://www.aroundtool.com/unit_price_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/unit_price_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>두 상품의 가격과 용량(g·ml)을 넣으면 100g·1g·1kg당 가격과 어느 쪽이 몇 % 더 싼지 계산합니다. 대용량·묶음 상품 비교에 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>영월 여행 코스 — 당일·1박 2일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-yeongwol.html</link>
@@ -165,6 +205,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/travel-beppu.html</guid>
       <category>여행</category>
       <description>벳푸·오이타 여행 코스. 벳푸 지옥 온천 순례, 칸나와 온천 마을, 유후인 긴린코 호수·유노쓰보 거리를 2박 3일·3박 4일로 묶고 후쿠오카·오이타에서의 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>팁 계산기 — 미국 레스토랑 15·18·20% 바로 계산</title>
+      <link>https://www.aroundtool.com/tip_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/tip_calculator.html</guid>
+      <category>생활툴</category>
+      <description>음식값, 팁 비율, 인원, 환율을 넣으면 팁 금액과 팁 포함 합계, 1인당 금액, 원화 환산을 계산합니다. 해외여행 식당·택시 팁 계산에 씁니다.</description>
       <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -328,6 +376,70 @@
       <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>적금 목표 금액 계산기 — 매달 얼마 넣어야 할까</title>
+      <link>https://www.aroundtool.com/savings_goal_monthly_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/savings_goal_monthly_calculator.html</guid>
+      <category>생활툴</category>
+      <description>목표 금액, 기간(개월), 연 이자율, 이자 과세를 넣으면 정기적금(단리)으로 목표를 채우기 위해 매달 넣어야 할 금액과 세후 이자를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>밥물 계산기 — 쌀 컵 수로 물 양 바로 계산</title>
+      <link>https://www.aroundtool.com/rice_water_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/rice_water_calculator.html</guid>
+      <category>생활툴</category>
+      <description>쌀 양(계량컵)과 쌀 종류(백미·현미·잡곡·햅쌀)를 넣으면 밥물을 컵과 ml로 계산합니다. 밥솥·불림 여부에 따라 조절하는 참고값입니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>퇴직연금 DB·DC 비교 계산기 — 임금 상승률 vs 수익률</title>
+      <link>https://www.aroundtool.com/pension_db_dc_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/pension_db_dc_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>지금 월급, 근속 기간, 임금 상승률, DC 운용 수익률을 넣으면 DB형 예상 퇴직급여와 DC형 예상 적립금을 단순 비교합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>페인트 계산기 — 면적·칠 횟수로 몇 L 필요할까</title>
+      <link>https://www.aroundtool.com/paint_amount_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/paint_amount_calculator.html</guid>
+      <category>생활툴</category>
+      <description>칠할 면적, 칠 횟수, 제품의 1L당 도포 면적, 1통 용량을 넣으면 필요한 페인트 양(L)과 통 수를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>이사 비용 계산기 — 견적 항목 더하고 잔금까지</title>
+      <link>https://www.aroundtool.com/moving_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/moving_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>이사 업체 견적의 기본 운반비, 사다리차, 에어컨 이전, 입주 청소, 추가 비용을 넣으면 총 이사 비용과 계약금을 뺀 당일 잔금을 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>K-패스 환급액 계산기 — 기본형 vs 모두의 카드</title>
+      <link>https://www.aroundtool.com/kpass_refund_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kpass_refund_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 대중교통비와 이용 횟수, 대상(일반·청년·다자녀·저소득)을 넣으면 K-패스 기본형 환급과 모두의 카드 정액형(일반형, 수도권 평시 기준) 환급을 계산해 큰 쪽을 보여 줍니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>김장 소금물 계산기 — 물 양과 농도로 소금 몇 kg</title>
+      <link>https://www.aroundtool.com/kimjang_brine_salt_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kimjang_brine_salt_calculator.html</guid>
+      <category>생활툴</category>
+      <description>절임용 소금물을 만들 물의 양(L)과 원하는 농도(%)를 넣으면 필요한 소금 양을 계산합니다. 소금 무게까지 포함한 농도 기준입니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>난방 1도 낮추면 얼마 아낄까 — 난방비 절약 계산기</title>
+      <link>https://www.aroundtool.com/heating_temp_saving_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/heating_temp_saving_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 난방비와 낮출 온도, 난방하는 달 수를 넣으면 설정 온도를 낮췄을 때 아낄 수 있는 난방비를 어림합니다(1℃당 약 7% 절감 가정).</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>연말 대청소 순서 — 위에서 아래로, 버리기부터</title>
       <link>https://www.aroundtool.com/guide-year-end-cleaning-order.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/guide-year-end-cleaning-order.html</guid>
@@ -485,6 +597,54 @@
       <guid isPermaLink="true">https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html</guid>
       <category>가이드</category>
       <description>블랙프라이데이 해외직구로 산 물건을 반품·환불할 때 판매처 반품 정책, 카드사 이의 제기, 관세 환급까지 순서대로 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>운동 칼로리 계산기 — 걷기·달리기·수영 MET로 계산</title>
+      <link>https://www.aroundtool.com/exercise_met_calorie_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/exercise_met_calorie_calculator.html</guid>
+      <category>생활툴</category>
+      <description>운동 종류(MET 값), 몸무게, 운동 시간을 넣으면 소모 칼로리를 계산합니다. 걷기, 달리기, 자전거, 수영, 등산, 근력 운동, 요가, 줄넘기를 고를 수 있습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전기차 vs 휘발유차 연료비 계산기 — 1년에 얼마 차이</title>
+      <link>https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>1년 주행거리와 휘발유차 연비·휘발유 가격, 전기차 전비·충전 단가를 넣으면 1년 연료비와 충전비, 1km당 비용, 차이를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강아지 사료 급여량 계산기 — 몸무게·상태별 하루 g</title>
+      <link>https://www.aroundtool.com/dog_food_amount_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/dog_food_amount_calculator.html</guid>
+      <category>생활툴</category>
+      <description>반려견 몸무게와 상태(강아지·성견·중성화·노령), 사료 포장의 열량(kcal/kg)을 넣으면 하루 필요 열량과 사료 그램 수를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>카페인 섭취량 계산기 — 하루 400mg 넘었을까</title>
+      <link>https://www.aroundtool.com/caffeine_intake_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/caffeine_intake_calculator.html</guid>
+      <category>생활툴</category>
+      <description>커피와 그 밖의 음료 잔 수, 1잔 카페인(제품 표시)을 넣으면 하루 섭취량을 계산하고 식약처 권고 상한(성인 400mg, 임산부 300mg, 어린이·청소년 체중 1kg당 2.5mg)과 비교합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>체지방률 계산기 — 줄자로 목·허리 둘레 재서 추정</title>
+      <link>https://www.aroundtool.com/body_fat_navy_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/body_fat_navy_calculator.html</guid>
+      <category>생활툴</category>
+      <description>성별, 키, 목둘레, 허리둘레(여성은 엉덩이둘레 추가)를 넣으면 미 해군 둘레 공식으로 체지방률을 추정합니다. 체성분 측정기 없이 집에서 잴 수 있습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>관리비 평당 계산기 — 우리 집 관리비 비교하기</title>
+      <link>https://www.aroundtool.com/apartment_fee_per_area_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/apartment_fee_per_area_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 관리비와 면적(㎡ 또는 평)을 넣으면 평당·㎡당 관리비와 1년 관리비를 계산합니다. 다른 단지·평형과 비교할 때 씁니다.</description>
       <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
