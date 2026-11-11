@@ -1,4 +1,32 @@
-== 2026-11-09T02:40:47Z schedule 52b05d3c58a871b7cf85e04d9db04ea82a1cb16a
+== 2026-11-11T02:57:50Z push 39a86f35efea1b4324f404868acfcb450f5cbb0b
+· 대상 111개
+  https://www.aroundtool.com/age_calculator.html
+  https://www.aroundtool.com/bmi_calculator.html
+  https://www.aroundtool.com/calorie_calculator.html
+  https://www.aroundtool.com/camping_gear_calculator.html
+  https://www.aroundtool.com/car_installment_calculator.html
+  https://www.aroundtool.com/card_installment_calculator.html
+  https://www.aroundtool.com/date_calculator.html
+  https://www.aroundtool.com/discount_calculator.html
+  https://www.aroundtool.com/electricity_bill_calculator.html
+  https://www.aroundtool.com/etc.html
+  https://www.aroundtool.com/exchange_rate_calculator.html
+  https://www.aroundtool.com/fuel_economy_calculator.html
+  https://www.aroundtool.com/guide-acquisition-tax-rates.html
+  https://www.aroundtool.com/guide-age-criteria-school-military-housing.html
+  https://www.aroundtool.com/guide-annual-leave-promotion.html
+  https://www.aroundtool.com/guide-annual-leave-rules.html
+  https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html
+  https://www.aroundtool.com/guide-black-ice-safe-driving.html
+  https://www.aroundtool.com/guide-bmi-normal-range.html
+  https://www.aroundtool.com/guide-boiler-away-mode-vs-off.html
+  … 외 91개
+
+  ✓ api.indexnow.org — 200 접수됨
+  ✓ www.bing.com — 200 접수됨
+  ✓ searchadvisor.naver.com — 200 접수됨
+
+· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
