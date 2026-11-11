@@ -842,3 +842,5 @@ GUIDES += GUIDES_1107
 from guides_1108 import GUIDES_1108, apply_1108  # noqa: E402  (2026-11-07 컨펌 i261107-02 가이드 5개 + 기존 3개 보강)
 apply_1108(GUIDES)
 GUIDES += GUIDES_1108
+from guides_1111a import GUIDES_1111A  # noqa: E402  (2026-11-08 컨펌 i261108-02, 11.11 적용)
+GUIDES += GUIDES_1111A
