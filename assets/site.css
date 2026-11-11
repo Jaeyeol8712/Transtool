@@ -930,3 +930,12 @@ body.b main table :is(th,td) *{white-space:normal!important;max-width:100%}
 /* 표 오른쪽 테두리가 잘리지 않게 */
 body.b main table:not(.b-stack){width:calc(100% - 1px)!important}
 body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
+
+/* 홈: 카테고리 바로 아래 K링크 배너 (2026-11-11 대표 지시) */
+.ah-klink{display:flex;align-items:center;gap:.8rem;margin:0;padding:.9rem 1rem;border-radius:16px;background:#2443E8;color:#fff;text-decoration:none}
+.ah-klink:hover{background:#1B34C4}
+.ah-klink-mark{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:#fff;color:#2443E8;display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+.ah-klink-tx{flex:1;min-width:0;display:block}
+.ah-klink-tx b{display:block;font-size:1.06rem;line-height:1.35;word-break:keep-all}
+.ah-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
+.ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}

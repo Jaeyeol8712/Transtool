@@ -2011,7 +2011,8 @@ def build_home():
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
-    content = f"""<section class="ah-hero" aria-labelledby="ah-h1">
+    content = f"""<a class="ah-klink" href="/klink/"><span class="ah-klink-mark" aria-hidden="true">K</span><span class="ah-klink-tx"><b>어딜 가나 가볍게, 여행을 엽니다.</b><span>K링크 · 지도에서 저장하면 날짜별 동선과 숙소를 짜 드려요</span></span><span class="ah-klink-go" aria-hidden="true">›</span></a>
+<section class="ah-hero" aria-labelledby="ah-h1">
   <div class="ah-main">
     <h1 id="ah-h1">필요한 계산, 3초면 끝나요</h1>
     <p class="ah-lead">가입 없이 무료 · 계산 기준과 공식을 함께 보여 드려요</p>
