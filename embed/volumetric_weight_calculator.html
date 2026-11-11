@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>택배 부피무게 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/volumetric_weight_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="택배 부피무게 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">택배 부피무게 계산기</p>
+<label for="vw1">가로 (cm)</label>
+<input id="vw1" type="number" inputmode="decimal" placeholder="50"/>
+<label for="vw2">세로 (cm)</label>
+<input id="vw2" type="number" inputmode="decimal" placeholder="40"/>
+<label for="vw3">높이 (cm)</label>
+<input id="vw3" type="number" inputmode="decimal" placeholder="30"/>
+<label for="vw4">실제 무게 (kg)</label>
+<input id="vw4" type="number" inputmode="decimal" placeholder="5"/>
+<label for="vw5">나누는 값 (운송사 기준)</label>
+<select id="vw5"><option value="6000" selected>6000 (국제 특송 다수)</option><option value="5000">5000</option></select>
+<button onclick="calc_volumetric_weight()">부피무게 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">청구 기준 무게</span><span class="result-value" id="vwC">-</span></div>
+<div class="result-row"><span class="result-label">부피무게</span><span class="result-value" id="vwV" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">실제 무게</span><span class="result-value" id="vwA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_volumetric_weight(){
+ var a=_v('vw1'),b=_v('vw2'),c=_v('vw3'),w=_v('vw4'),d=parseFloat(document.getElementById('vw5').value);
+ if([a,b,c].some(function(x){return isNaN(x)||x<=0;})) return alert('가로·세로·높이를 입력해주세요.'); if(isNaN(w))w=0;
+ var v=a*b*c/d;
+ _s('vwC',_n(Math.max(v,w),2)+'kg'+(v>w?' (부피무게)':' (실제 무게)')); _s('vwV',_n(v,2)+'kg'); _s('vwA',_n(w,2)+'kg');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/volumetric_weight_calculator.html?utm_source=embed&amp;utm_campaign=volumetric_weight_calculator" target="_blank" rel="noopener">어라운드툴 택배 부피무게 계산기</a></p>
+</body>
+</html>

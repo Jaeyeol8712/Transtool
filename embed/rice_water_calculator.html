@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>밥물 양 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/rice_water_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="밥물 양 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">밥물 양 계산기</p>
+<label for="rw1">쌀 양 (계량컵)</label>
+<input id="rw1" type="number" inputmode="decimal" placeholder="2"/>
+<label for="rw2">쌀 종류</label>
+<select id="rw2"><option value="1.2" selected>백미 (쌀의 약 1.2배)</option><option value="1.5">현미 (쌀의 약 1.5배)</option><option value="1.3">잡곡 섞은 밥 (약 1.3배)</option><option value="1.0">햅쌀 (약 1.0배)</option></select>
+<label for="rw3">계량컵 1컵 용량 (ml)</label>
+<input id="rw3" type="number" inputmode="numeric" placeholder="180"/>
+<button onclick="calc_rice_water()">밥물 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">물 (컵)</span><span class="result-value" id="rwC">-</span></div>
+<div class="result-row"><span class="result-label">물 (ml)</span><span class="result-value" id="rwM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="rwN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_rice_water(){
+ var c=_v('rw1'),k=parseFloat(document.getElementById('rw2').value),ml=_v('rw3');
+ if(isNaN(c)||c<=0) return alert('쌀 양을 입력해주세요.'); if(isNaN(ml)||ml<=0)ml=180;
+ _s('rwC',_n(c*k,1)+'컵'); _s('rwM',_n(c*k*ml,0)+'ml'); _s('rwN','밥솥·불림 여부에 따라 조절하세요');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/rice_water_calculator.html?utm_source=embed&amp;utm_campaign=rice_water_calculator" target="_blank" rel="noopener">어라운드툴 밥물 양 계산기</a></p>
+</body>
+</html>

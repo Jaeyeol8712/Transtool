@@ -1,0 +1,25 @@
+<label for="af1">한 달 관리비 (원)</label>
+<input id="af1" type="number" inputmode="numeric" placeholder="250000"/>
+<label for="af2">면적</label>
+<input id="af2" type="number" inputmode="decimal" placeholder="84"/>
+<label for="af3">면적 단위</label>
+<select id="af3"><option value="m2" selected>㎡ (전용·공급 중 고지서 기준)</option><option value="py">평</option></select>
+<button onclick="calc_apartment_fee_per_area()">평당 관리비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">평당 관리비</span><span class="result-value" id="afP">-</span></div>
+<div class="result-row"><span class="result-label">㎡당 관리비</span><span class="result-value" id="afM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1년 관리비</span><span class="result-value" id="afY" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_apartment_fee_per_area(){
+ var f=_v('af1'),a=_v('af2'),u=document.getElementById('af3').value;
+ if(isNaN(f)||f<=0||isNaN(a)||a<=0) return alert('관리비와 면적을 입력해주세요.');
+ var m2=u==='py'?a*3.305785:a, py=m2/3.305785;
+ _s('afP',_w(f/py)); _s('afM',_w(f/m2)); _s('afY',_w(f*12));
+ document.getElementById('result').classList.add('show');
+}
+</script>

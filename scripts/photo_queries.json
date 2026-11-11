@@ -347,5 +347,25 @@
   "b-yearend": [
     "tax form calculator",
     "receipts paperwork"
+  ],
+  "b-coldwave": [
+    "snowy street winter cold",
+    "frozen icicles winter"
+  ],
+  "b-snow": [
+    "heavy snowfall street",
+    "snow shovel removal"
+  ],
+  "b-gwamegi": [
+    "gwamegi",
+    "dried herring korea"
+  ],
+  "b-oyster": [
+    "grilled oysters korea",
+    "fresh oysters shucked"
+  ],
+  "b-tangerine": [
+    "tangerine orchard jeju",
+    "mandarin oranges tree"
   ]
 }

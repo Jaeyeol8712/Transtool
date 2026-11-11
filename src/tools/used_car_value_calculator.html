@@ -1,0 +1,25 @@
+<label for="uc1">신차 가격 (원)</label>
+<input id="uc1" type="number" inputmode="numeric" placeholder="35000000"/>
+<label for="uc2">지난 햇수 (년)</label>
+<input id="uc2" type="number" inputmode="decimal" placeholder="3"/>
+<label for="uc3">연 감가율 (%)</label>
+<input id="uc3" type="number" inputmode="decimal" placeholder="15"/>
+<button onclick="calc_used_car_value()">잔존가치 추정</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 잔존가치</span><span class="result-value" id="ucV">-</span></div>
+<div class="result-row"><span class="result-label">신차 대비 남은 비율</span><span class="result-value" id="ucR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">줄어든 금액</span><span class="result-value" id="ucL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_used_car_value(){
+ var p=_v('uc1'),n=_v('uc2'),r=_v('uc3');
+ if(isNaN(p)||p<=0||isNaN(n)||n<0||isNaN(r)||r<0||r>=100) return alert('신차 가격, 햇수, 감가율을 입력해주세요.');
+ var v=p*Math.pow(1-r/100,n);
+ _s('ucV',_w(v)); _s('ucR',_n(v/p*100)+'%'); _s('ucL',_w(p-v));
+ document.getElementById('result').classList.add('show');
+}
+</script>

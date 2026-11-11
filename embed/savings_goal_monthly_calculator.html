@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>적금 목표액 역산 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/savings_goal_monthly_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="적금 목표액 역산 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">적금 목표액 역산 계산기</p>
+<label for="sg1">목표 금액 (원)</label>
+<input id="sg1" type="number" inputmode="numeric" placeholder="10000000"/>
+<label for="sg2">기간 (개월)</label>
+<input id="sg2" type="number" inputmode="numeric" placeholder="24"/>
+<label for="sg3">연 이자율 (%, 세전)</label>
+<input id="sg3" type="number" inputmode="decimal" placeholder="3.5"/>
+<label for="sg4">이자 과세</label>
+<select id="sg4"><option value="0.154" selected>일반과세 15.4%</option><option value="0">비과세</option></select>
+<button onclick="calc_savings_goal_monthly()">월 납입액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">매달 넣을 돈</span><span class="result-value" id="sgM">-</span></div>
+<div class="result-row"><span class="result-label">원금 합계</span><span class="result-value" id="sgP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세후 이자</span><span class="result-value" id="sgI" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_savings_goal_monthly(){
+ var G=_v('sg1'),n=_v('sg2'),r=_v('sg3')/100,t=parseFloat(document.getElementById('sg4').value);
+ if(isNaN(G)||G<=0||isNaN(n)||n<1||isNaN(r)||r<0) return alert('목표 금액, 기간, 이자율을 입력해주세요.');
+ var k=r/12*n*(n+1)/2*(1-t), P=G/(n+k);
+ _s('sgM',_w(Math.ceil(P))); _s('sgP',_w(P*n)); _s('sgI',_w(P*k));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/savings_goal_monthly_calculator.html?utm_source=embed&amp;utm_campaign=savings_goal_monthly_calculator" target="_blank" rel="noopener">어라운드툴 적금 목표액 역산 계산기</a></p>
+</body>
+</html>

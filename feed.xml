@@ -4,9 +4,649 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 94종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
+    <description>연봉 실수령액·퇴직금·실업급여·대출 이자 등 무료 생활 계산기 114종, 대가 없이 근거를 밝힌 전국 28개 시군구 맛집 196곳 기록, 제주·부산·속초·오사카 여행 코스와 예산을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>수도요금 계산기 — 사용량 × 고지서 단가로 계산</title>
+      <link>https://www.aroundtool.com/water_bill_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/water_bill_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 사용량(㎥)과 고지서의 상수도·하수도·물이용부담금 단가, 기본요금을 넣으면 예상 수도요금을 계산합니다. 단가는 지역마다 달라 고지서 값을 넣습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>도배 벽지 계산기 — 방 크기로 필요한 롤 수</title>
+      <link>https://www.aroundtool.com/wallpaper_roll_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/wallpaper_roll_calculator.html</guid>
+      <category>생활툴</category>
+      <description>벽 둘레, 천장 높이, 문·창문 면적, 벽지 규격(소폭·광폭)을 넣으면 도배 면적과 필요한 벽지 롤 수를 여유분을 더해 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부피무게 계산기 — 가로×세로×높이 ÷ 6000</title>
+      <link>https://www.aroundtool.com/volumetric_weight_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/volumetric_weight_calculator.html</guid>
+      <category>생활툴</category>
+      <description>상자 가로·세로·높이(cm)와 실제 무게, 나누는 값(6000·5000)을 넣으면 부피무게와 운임 기준 무게(둘 중 큰 값)를 계산합니다. 해외 배송·특송에 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>중고차 감가 계산기 — 몇 년 뒤 차값은 얼마</title>
+      <link>https://www.aroundtool.com/used_car_value_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/used_car_value_calculator.html</guid>
+      <category>생활툴</category>
+      <description>신차 가격, 지난 햇수, 연 감가율을 넣으면 정률 감가로 예상 잔존가치와 신차 대비 남은 비율을 계산합니다. 실제 시세는 차종·주행거리·상태에 따라 다릅니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단위 가격 계산기 — 100g당·100ml당 어느 게 쌀까</title>
+      <link>https://www.aroundtool.com/unit_price_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/unit_price_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>두 상품의 가격과 용량(g·ml)을 넣으면 100g·1g·1kg당 가격과 어느 쪽이 몇 % 더 싼지 계산합니다. 대용량·묶음 상품 비교에 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>영월 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-yeongwol.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-yeongwol.html</guid>
+      <category>여행</category>
+      <description>영월 여행 코스. 청령포, 장릉, 한반도지형, 별마로천문대, 동강을 당일·1박 2일로 묶고 이동 시간과 천문대 관측 팁을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>영주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-yeongju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-yeongju.html</guid>
+      <category>여행</category>
+      <description>영주 여행 코스. 부석사, 소수서원·선비촌, 무섬마을 외나무다리, 풍기 인삼시장을 당일·1박 2일로 묶고 열차·차 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>다카마쓰 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-takamatsu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-takamatsu.html</guid>
+      <category>여행</category>
+      <description>다카마쓰 여행 코스. 리쓰린 공원, 사누키 우동, 나오시마 예술 섬, 고토히라궁, 쇼도시마를 2박 3일·3박 4일로 묶고 페리·전철 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>태안 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-taean.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-taean.html</guid>
+      <category>여행</category>
+      <description>태안 여행 코스. 안면도 꽃지해수욕장(할미·할아비 바위 일몰), 신두리 해안사구, 만리포·천리포, 천리포수목원을 당일·1박 2일로 묶고 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>시즈오카 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-shizuoka.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-shizuoka.html</guid>
+      <category>여행</category>
+      <description>시즈오카 여행 코스. 미호노마쓰바라, 니혼다이라 전망, 구노잔 도쇼구, 녹차밭, 시즈오카 시내를 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>사이판 여행 코스 — 3박 4일·4박 5일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-saipan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-saipan.html</guid>
+      <category>여행</category>
+      <description>사이판 여행 코스. 마나가하섬, 마이크로 비치, 그로토, 만세절벽·새섬, 가라판 시내를 3박 4일·4박 5일로 묶고 이동 시간과 입국 준비를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>포항 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-pohang.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-pohang.html</guid>
+      <category>여행</category>
+      <description>포항 여행 코스. 환호공원 스페이스워크, 영일대해수욕장, 죽도시장, 호미곶 일출, 구룡포 일본인가옥거리를 1박 2일로 묶고 KTX·차 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>남원 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-namwon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-namwon.html</guid>
+      <category>여행</category>
+      <description>남원 여행 코스. 광한루원, 춘향테마파크, 남원시립김병종미술관, 지리산 뱀사골·바래봉을 당일·1박 2일로 묶고 KTX 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>마쓰야마 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-matsuyama.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-matsuyama.html</guid>
+      <category>여행</category>
+      <description>마쓰야마 여행 코스. 도고온천 본관, 마쓰야마성, 봇짱 열차, 오카이도 상점가, 시모나다역 노을을 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>쿠알라룸푸르 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-kualalumpur.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-kualalumpur.html</guid>
+      <category>여행</category>
+      <description>쿠알라룸푸르 여행 코스. 페트로나스 트윈타워, KLCC 공원, 부킷빈탕, 메르데카 광장, 바투동굴, 말라카 당일치기를 3박 5일·4박 6일로 묶고 이동 시간과 말레이시아 입국 준비(MDAC)를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>가고시마 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-kagoshima.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-kagoshima.html</guid>
+      <category>여행</category>
+      <description>가고시마 여행 코스. 사쿠라지마, 센간엔, 시로야마 전망대, 덴몬칸 거리, 이부스키 모래찜질 온천을 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>제천 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-jecheon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-jecheon.html</guid>
+      <category>여행</category>
+      <description>제천 여행 코스. 의림지, 청풍호반케이블카, 청풍문화재단지, 옥순봉 출렁다리, 배론성지를 당일·1박 2일로 묶고 열차·차 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>호치민 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-hochiminh.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hochiminh.html</guid>
+      <category>여행</category>
+      <description>호치민 여행 코스. 벤탄시장, 사이공 중앙우체국, 통일궁, 부이비엔 거리, 메콩델타·구찌터널 투어를 3박 5일·4박 6일로 묶고 이동 시간과 날씨를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>하동 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-hadong.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hadong.html</guid>
+      <category>여행</category>
+      <description>하동 여행 코스. 화개장터, 쌍계사, 최참판댁(평사리), 섬진강, 하동 야생차밭을 1박 2일로 묶고 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>공주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-gongju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-gongju.html</guid>
+      <category>여행</category>
+      <description>공주 여행 코스. 공산성, 무령왕릉과 왕릉원, 국립공주박물관, 제민천 원도심, 마곡사를 당일·1박 2일로 묶고 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강화도 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-ganghwa.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-ganghwa.html</guid>
+      <category>여행</category>
+      <description>강화도 여행 코스. 전등사, 고려궁지, 강화풍물시장, 동막해변, 강화평화전망대, 석모도 보문사를 당일·1박 2일로 묶고 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>청주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-cheongju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-cheongju.html</guid>
+      <category>여행</category>
+      <description>청주 여행 코스. 청남대, 상당산성, 수암골 벽화마을, 국립현대미술관 청주, 성안길을 당일·1박 2일로 묶고 KTX·차 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부여 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-buyeo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-buyeo.html</guid>
+      <category>여행</category>
+      <description>부여 여행 코스. 정림사지, 국립부여박물관, 부소산성·낙화암, 궁남지, 백제문화단지를 당일·1박 2일로 묶고 서울에서의 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>보성 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-boseong.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-boseong.html</guid>
+      <category>여행</category>
+      <description>보성 여행 코스. 대한다원 녹차밭, 한국차박물관, 율포솔밭해수욕장, 벌교 꼬막 거리를 1박 2일로 묶고 이동 시간과 겨울 차밭 빛 행사 확인 방법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>벳푸 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-beppu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-beppu.html</guid>
+      <category>여행</category>
+      <description>벳푸·오이타 여행 코스. 벳푸 지옥 온천 순례, 칸나와 온천 마을, 유후인 긴린코 호수·유노쓰보 거리를 2박 3일·3박 4일로 묶고 후쿠오카·오이타에서의 이동 시간과 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>팁 계산기 — 미국 레스토랑 15·18·20% 바로 계산</title>
+      <link>https://www.aroundtool.com/tip_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/tip_calculator.html</guid>
+      <category>생활툴</category>
+      <description>음식값, 팁 비율, 인원, 환율을 넣으면 팁 금액과 팁 포함 합계, 1인당 금액, 원화 환산을 계산합니다. 해외여행 식당·택시 팁 계산에 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>여수 돌산 갓김치 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-yeosu-dolsan-gat.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-yeosu-dolsan-gat.html</guid>
+      <category>맛집</category>
+      <description>여수 돌산 갓김치 제철(늦가을~봄 (김장철 11~12월))과 전남 여수시 돌산읍 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>통영 물메기 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-tongyeong-mulmegi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-tongyeong-mulmegi.html</guid>
+      <category>맛집</category>
+      <description>통영 물메기 제철(12월~2월)과 경남 통영시 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>신안 섬초 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-sinan-seomcho.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-sinan-seomcho.html</guid>
+      <category>맛집</category>
+      <description>신안 섬초 제철(11월~3월)과 전남 신안군 (비금도 등) 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서산 감태 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-seosan-gamtae.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-seosan-gamtae.html</guid>
+      <category>맛집</category>
+      <description>서산 감태 제철(12월~3월)과 충남 서산시 (가로림만) 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서천 김 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-seocheon-gim.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-seocheon-gim.html</guid>
+      <category>맛집</category>
+      <description>서천 김 제철(11월~3월 채취)과 충남 서천군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>상주 곶감 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-sangju-gotgam.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-sangju-gotgam.html</guid>
+      <category>맛집</category>
+      <description>상주 곶감 제철(12월~2월)과 경북 상주시 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>주문진 양미리 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-jumunjin-yangmiri.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jumunjin-yangmiri.html</guid>
+      <category>맛집</category>
+      <description>주문진 양미리 제철(11월~12월)과 강원 강릉시 주문진읍 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>진도 대파 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-jindo-daepa.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jindo-daepa.html</guid>
+      <category>맛집</category>
+      <description>진도 대파 제철(12월~3월)과 전남 진도군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>제주 월동무 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-jeju-woldongmu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jeju-woldongmu.html</guid>
+      <category>맛집</category>
+      <description>제주 월동무 제철(12월~3월)과 제주 (동부 지역) 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>제주 한라봉 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-jeju-hallabong.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jeju-hallabong.html</guid>
+      <category>맛집</category>
+      <description>제주 한라봉 제철(12월~3월)과 제주 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>장흥 표고버섯 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-jangheung-pyogo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jangheung-pyogo.html</guid>
+      <category>맛집</category>
+      <description>장흥 표고버섯 제철(봄·가을 수확, 말린 것은 연중)과 전남 장흥군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>인제 용대리 황태 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-inje-yongdae-hwangtae.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-inje-yongdae-hwangtae.html</guid>
+      <category>맛집</category>
+      <description>인제 용대리 황태 제철(12월~4월 덕장 건조)과 강원 인제군 북면 용대리 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해남 겨울배추 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-haenam-winter-baechu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-haenam-winter-baechu.html</guid>
+      <category>맛집</category>
+      <description>해남 겨울배추 제철(12월~3월)과 전남 해남군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해남 고구마 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-haenam-goguma.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-haenam-goguma.html</guid>
+      <category>맛집</category>
+      <description>해남 고구마 제철(9월~10월 수확, 겨울 내내)과 전남 해남군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고성 가리비 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-goseong-garibi.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-goseong-garibi.html</guid>
+      <category>맛집</category>
+      <description>고성 가리비 제철(겨울~봄)과 경남 고성군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고흥 유자 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-goheung-yuja.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-goheung-yuja.html</guid>
+      <category>맛집</category>
+      <description>고흥 유자 제철(11월~12월 수확)과 전남 고흥군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>가평 잣 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-gapyeong-jat.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-gapyeong-jat.html</guid>
+      <category>맛집</category>
+      <description>가평 잣 제철(9월~10월 수확)과 경기 가평군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강화 순무 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-ganghwa-sunmu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-ganghwa-sunmu.html</guid>
+      <category>맛집</category>
+      <description>강화 순무 제철(10월~12월)과 인천 강화군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>청송 사과 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-cheongsong-sagwa.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-cheongsong-sagwa.html</guid>
+      <category>맛집</category>
+      <description>청송 사과 제철(10월~11월 수확)과 경북 청송군 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부안 곰소 젓갈 — 제철 시기·먹는 법·장소 안내</title>
+      <link>https://www.aroundtool.com/season-buan-gomso-jeotgal.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-buan-gomso-jeotgal.html</guid>
+      <category>맛집</category>
+      <description>부안 곰소 젓갈 제철(김장철 10~12월)과 전북 부안군 진서면 곰소항 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>적금 목표 금액 계산기 — 매달 얼마 넣어야 할까</title>
+      <link>https://www.aroundtool.com/savings_goal_monthly_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/savings_goal_monthly_calculator.html</guid>
+      <category>생활툴</category>
+      <description>목표 금액, 기간(개월), 연 이자율, 이자 과세를 넣으면 정기적금(단리)으로 목표를 채우기 위해 매달 넣어야 할 금액과 세후 이자를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>밥물 계산기 — 쌀 컵 수로 물 양 바로 계산</title>
+      <link>https://www.aroundtool.com/rice_water_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/rice_water_calculator.html</guid>
+      <category>생활툴</category>
+      <description>쌀 양(계량컵)과 쌀 종류(백미·현미·잡곡·햅쌀)를 넣으면 밥물을 컵과 ml로 계산합니다. 밥솥·불림 여부에 따라 조절하는 참고값입니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>퇴직연금 DB·DC 비교 계산기 — 임금 상승률 vs 수익률</title>
+      <link>https://www.aroundtool.com/pension_db_dc_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/pension_db_dc_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>지금 월급, 근속 기간, 임금 상승률, DC 운용 수익률을 넣으면 DB형 예상 퇴직급여와 DC형 예상 적립금을 단순 비교합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>페인트 계산기 — 면적·칠 횟수로 몇 L 필요할까</title>
+      <link>https://www.aroundtool.com/paint_amount_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/paint_amount_calculator.html</guid>
+      <category>생활툴</category>
+      <description>칠할 면적, 칠 횟수, 제품의 1L당 도포 면적, 1통 용량을 넣으면 필요한 페인트 양(L)과 통 수를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>이사 비용 계산기 — 견적 항목 더하고 잔금까지</title>
+      <link>https://www.aroundtool.com/moving_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/moving_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>이사 업체 견적의 기본 운반비, 사다리차, 에어컨 이전, 입주 청소, 추가 비용을 넣으면 총 이사 비용과 계약금을 뺀 당일 잔금을 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>K-패스 환급액 계산기 — 기본형 vs 모두의 카드</title>
+      <link>https://www.aroundtool.com/kpass_refund_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kpass_refund_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 대중교통비와 이용 횟수, 대상(일반·청년·다자녀·저소득)을 넣으면 K-패스 기본형 환급과 모두의 카드 정액형(일반형, 수도권 평시 기준) 환급을 계산해 큰 쪽을 보여 줍니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>김장 소금물 계산기 — 물 양과 농도로 소금 몇 kg</title>
+      <link>https://www.aroundtool.com/kimjang_brine_salt_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/kimjang_brine_salt_calculator.html</guid>
+      <category>생활툴</category>
+      <description>절임용 소금물을 만들 물의 양(L)과 원하는 농도(%)를 넣으면 필요한 소금 양을 계산합니다. 소금 무게까지 포함한 농도 기준입니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>난방 1도 낮추면 얼마 아낄까 — 난방비 절약 계산기</title>
+      <link>https://www.aroundtool.com/heating_temp_saving_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/heating_temp_saving_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 난방비와 낮출 온도, 난방하는 달 수를 넣으면 설정 온도를 낮췄을 때 아낄 수 있는 난방비를 어림합니다(1℃당 약 7% 절감 가정).</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>연말 대청소 순서 — 위에서 아래로, 버리기부터</title>
+      <link>https://www.aroundtool.com/guide-year-end-cleaning-order.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-year-end-cleaning-order.html</guid>
+      <category>가이드</category>
+      <description>연말 대청소를 하루에 끝내는 순서(버리기 → 위에서 아래 → 마른 청소 → 물청소)와 놓치기 쉬운 곳, 대형 폐기물 버리는 방법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>연말연시 은행 영업일 — 12월 31일·1월 첫 주 확인</title>
+      <link>https://www.aroundtool.com/guide-year-end-bank-business-days.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-year-end-bank-business-days.html</guid>
+      <category>가이드</category>
+      <description>연말연시 은행·증시 휴무일과 새해 첫 영업일, 2027년 은행 개점 시간 변경 소식, 급한 금융 업무를 미리 처리하는 요령을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>겨울 와이퍼·워셔액 — 교체 신호와 사계절용 고르는 법</title>
+      <link>https://www.aroundtool.com/guide-winter-wiper-washer-fluid.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-winter-wiper-washer-fluid.html</guid>
+      <category>가이드</category>
+      <description>겨울 전에 와이퍼를 바꿔야 하는 신호와 얼지 않는 워셔액 고르는 법, 눈 온 날 와이퍼 다루는 요령을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>겨울 정전기 줄이는 법 — 습도·보습·옷 소재</title>
+      <link>https://www.aroundtool.com/guide-winter-static-electricity.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-winter-static-electricity.html</guid>
+      <category>가이드</category>
+      <description>겨울철 정전기가 잘 생기는 이유와 실내 습도, 피부 보습, 옷 소재, 손잡이를 만질 때 요령으로 정전기를 줄이는 방법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>겨울 손 트임 — 씻고 바로 보습, 미지근한 물</title>
+      <link>https://www.aroundtool.com/guide-winter-dry-cracked-hands.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-winter-dry-cracked-hands.html</guid>
+      <category>가이드</category>
+      <description>겨울철 손이 트고 갈라질 때 씻는 물 온도, 보습제 바르는 때, 장갑 쓰는 법과 병원에 가야 하는 경우를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>겨울 반려견 산책 — 염화칼슘·추위 주의할 것</title>
+      <link>https://www.aroundtool.com/guide-winter-dog-walking-safety.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-winter-dog-walking-safety.html</guid>
+      <category>가이드</category>
+      <description>겨울철 반려견 산책 때 조심할 제설제(염화칼슘)와 발바닥 관리, 추위에 약한 개, 저체온 신호, 부동액 같은 위험 물질을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>겨울 캠핑 장비 체크리스트 — 난방보다 환기 먼저</title>
+      <link>https://www.aroundtool.com/guide-winter-camping-checklist.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-winter-camping-checklist.html</guid>
+      <category>가이드</category>
+      <description>겨울 캠핑에 챙길 장비와 텐트 안 난방 기구를 쓸 때 꼭 지킬 안전 수칙(환기·일산화탄소 경보기)을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>귤 보관법 — 한 박스 끝까지 맛있게</title>
+      <link>https://www.aroundtool.com/guide-tangerine-storage.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-tangerine-storage.html</guid>
+      <category>가이드</category>
+      <description>귤 한 박스를 사 왔을 때 무르지 않게 보관하는 순서(골라내기·씻지 않기·꼭지 아래로)와 냉장 보관 요령을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고구마 보관법 — 냉장고 말고 서늘한 실온에</title>
+      <link>https://www.aroundtool.com/guide-sweet-potato-storage.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-sweet-potato-storage.html</guid>
+      <category>가이드</category>
+      <description>고구마를 오래 두고 먹는 보관 온도와 방법, 냉장 보관을 피해야 하는 이유, 상한 고구마 구별법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수능 끝나고 수험표 할인 — 받기 전 확인할 3가지</title>
+      <link>https://www.aroundtool.com/guide-suneung-ticket-discount-check.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-suneung-ticket-discount-check.html</guid>
+      <category>가이드</category>
+      <description>수능이 끝난 뒤 수험표로 받을 수 있는 할인을 찾는 방법과 받기 전 확인할 점(기간·본인 확인·조건), 수험표 관련 사기 주의 사항을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수능 준비물·반입 금지 물품 — 11월 19일 전날 챙길 것</title>
+      <link>https://www.aroundtool.com/guide-suneung-checklist-banned-items.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-suneung-checklist-banned-items.html</guid>
+      <category>가이드</category>
+      <description>2027학년도 수능(2026년 11월 19일) 전날 챙길 준비물과 시험장에 가져가면 안 되는 물품, 시계 기준, 휴대전화 제출 방법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>스노체인 사용법 — 구동 바퀴에, 미리 한 번 연습</title>
+      <link>https://www.aroundtool.com/guide-snow-chain-how-to.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-snow-chain-how-to.html</guid>
+      <category>가이드</category>
+      <description>스노체인을 어느 바퀴에 다는지, 달기 전에 할 일, 달고 달릴 때 주의할 점과 마른 도로에서 빼야 하는 이유를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>택배 분실·파손 보상 — 사진 찍고 14일 안에 알리기</title>
+      <link>https://www.aroundtool.com/guide-parcel-loss-damage-compensation.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-parcel-loss-damage-compensation.html</guid>
+      <category>가이드</category>
+      <description>택배가 사라지거나 부서져 왔을 때 보상을 받는 순서(사진·운송장 보관 → 택배사 접수 → 소비자 상담)와 택배 표준약관의 기준을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해외여행 출국 전 체크리스트 — 여권·입국 허가·보험</title>
+      <link>https://www.aroundtool.com/guide-overseas-trip-departure-checklist.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-overseas-trip-departure-checklist.html</guid>
+      <category>가이드</category>
+      <description>해외여행 출발 전에 확인할 여권 유효기간, 나라별 전자 입국 허가, 여행자보험, 환전·로밍, 공항 도착 시각을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>김장김치 보관 — 0℃ 안팎, 공기 막고 나눠 담기</title>
+      <link>https://www.aroundtool.com/guide-kimjang-kimchi-storage.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-kimjang-kimchi-storage.html</guid>
+      <category>가이드</category>
+      <description>김장김치를 오래 맛있게 두는 보관 온도와 통에 담는 요령, 익힘 정도에 따라 꺼내 먹는 순서를 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>카드 포인트 소멸 확인 — 한 번에 조회하고 현금으로</title>
+      <link>https://www.aroundtool.com/guide-card-point-expiry-check.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-card-point-expiry-check.html</guid>
+      <category>가이드</category>
+      <description>흩어진 카드 포인트를 한 번에 조회하고, 소멸 전에 현금으로 바꾸는 방법(카드포인트 통합조회·어카운트인포)을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>자동차보험 갱신 — 할인 특약 6가지 체크</title>
+      <link>https://www.aroundtool.com/guide-car-insurance-renewal-discount.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-car-insurance-renewal-discount.html</guid>
+      <category>가이드</category>
+      <description>자동차보험을 갱신할 때 챙길 수 있는 마일리지·블랙박스·자녀·안전운전 등 할인 특약과 비교 견적 보는 법을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>자동차 에어컨 필터 교체 — 겨울 히터 냄새 잡기</title>
+      <link>https://www.aroundtool.com/guide-car-cabin-filter-replacement.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-car-cabin-filter-replacement.html</guid>
+      <category>가이드</category>
+      <description>겨울에 히터를 켤 때 나는 냄새와 약한 바람의 원인인 에어컨(실내) 필터를 언제, 어떻게 바꾸는지 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>보일러 배관 청소 — 이런 증상이면 할 때</title>
+      <link>https://www.aroundtool.com/guide-boiler-pipe-cleaning.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-boiler-pipe-cleaning.html</guid>
+      <category>가이드</category>
+      <description>난방이 늦게 데워지거나 방마다 온도 차가 날 때 확인할 보일러 배관 청소 신호와, 업체에 맡기기 전에 직접 해 볼 점검을 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>블프 해외직구 반품·환불 — 판매처·카드·관세 순서로</title>
+      <link>https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html</guid>
+      <category>가이드</category>
+      <description>블랙프라이데이 해외직구로 산 물건을 반품·환불할 때 판매처 반품 정책, 카드사 이의 제기, 관세 환급까지 순서대로 정리했습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>운동 칼로리 계산기 — 걷기·달리기·수영 MET로 계산</title>
+      <link>https://www.aroundtool.com/exercise_met_calorie_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/exercise_met_calorie_calculator.html</guid>
+      <category>생활툴</category>
+      <description>운동 종류(MET 값), 몸무게, 운동 시간을 넣으면 소모 칼로리를 계산합니다. 걷기, 달리기, 자전거, 수영, 등산, 근력 운동, 요가, 줄넘기를 고를 수 있습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전기차 vs 휘발유차 연료비 계산기 — 1년에 얼마 차이</title>
+      <link>https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>1년 주행거리와 휘발유차 연비·휘발유 가격, 전기차 전비·충전 단가를 넣으면 1년 연료비와 충전비, 1km당 비용, 차이를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>강아지 사료 급여량 계산기 — 몸무게·상태별 하루 g</title>
+      <link>https://www.aroundtool.com/dog_food_amount_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/dog_food_amount_calculator.html</guid>
+      <category>생활툴</category>
+      <description>반려견 몸무게와 상태(강아지·성견·중성화·노령), 사료 포장의 열량(kcal/kg)을 넣으면 하루 필요 열량과 사료 그램 수를 계산합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>카페인 섭취량 계산기 — 하루 400mg 넘었을까</title>
+      <link>https://www.aroundtool.com/caffeine_intake_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/caffeine_intake_calculator.html</guid>
+      <category>생활툴</category>
+      <description>커피와 그 밖의 음료 잔 수, 1잔 카페인(제품 표시)을 넣으면 하루 섭취량을 계산하고 식약처 권고 상한(성인 400mg, 임산부 300mg, 어린이·청소년 체중 1kg당 2.5mg)과 비교합니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>체지방률 계산기 — 줄자로 목·허리 둘레 재서 추정</title>
+      <link>https://www.aroundtool.com/body_fat_navy_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/body_fat_navy_calculator.html</guid>
+      <category>생활툴</category>
+      <description>성별, 키, 목둘레, 허리둘레(여성은 엉덩이둘레 추가)를 넣으면 미 해군 둘레 공식으로 체지방률을 추정합니다. 체성분 측정기 없이 집에서 잴 수 있습니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>관리비 평당 계산기 — 우리 집 관리비 비교하기</title>
+      <link>https://www.aroundtool.com/apartment_fee_per_area_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/apartment_fee_per_area_calculator.html</guid>
+      <category>생활툴</category>
+      <description>한 달 관리비와 면적(㎡ 또는 평)을 넣으면 평당·㎡당 관리비와 1년 관리비를 계산합니다. 다른 단지·평형과 비교할 때 씁니다.</description>
+      <pubDate>Wed, 11 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>타이중 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
       <link>https://www.aroundtool.com/travel-taichung.html</link>

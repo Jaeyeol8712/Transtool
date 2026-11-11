@@ -183,18 +183,18 @@ TOOL_GROUPS = [
                               "increase_decrease_calculator", "pension_age_calculator",
                               "prepayment_penalty_calculator", "interior_calculator",
                               "vat_calculator", "deposit_interest_calculator", "jeonwolse_conversion_calculator",
-                              "card_installment_calculator"]),
+                              "card_installment_calculator", "pension_db_dc_compare_calculator", "savings_goal_monthly_calculator", "used_car_value_calculator", "kpass_refund_calculator"]),
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["step_distance_calorie_calculator", "coffee_spending_calculator", "subscription_total_calculator", "taxi_vs_car_cost_calculator", "christmas_gift_budget_calculator", "party_drink_calculator", "heart_rate_zone_calculator", "exam_study_time_calculator", "ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["ev_vs_gasoline_cost_calculator", "apartment_fee_per_area_calculator", "moving_cost_calculator", "dog_food_amount_calculator", "body_fat_navy_calculator", "unit_price_compare_calculator", "exercise_met_calorie_calculator", "caffeine_intake_calculator", "heating_temp_saving_calculator", "rice_water_calculator", "wallpaper_roll_calculator", "paint_amount_calculator", "kimjang_brine_salt_calculator", "water_bill_calculator", "step_distance_calorie_calculator", "coffee_spending_calculator", "subscription_total_calculator", "taxi_vs_car_cost_calculator", "christmas_gift_budget_calculator", "party_drink_calculator", "heart_rate_zone_calculator", "exam_study_time_calculator", "ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
     ("trip", "여행", ["overseas_travel_budget_calculator", "time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
-                     "camping_gear_calculator"]),
+                     "camping_gear_calculator", "tip_calculator", "volumetric_weight_calculator"]),
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -220,10 +220,13 @@ from trips_1107 import TRIP_PAGES_1107  # noqa: E402  (2026-11-06 컨펌 i261106
 TRIP_PAGES += TRIP_PAGES_1107
 from trips_1108 import TRIP_PAGES_1108  # noqa: E402  (2026-11-07 컨펌 i261107-03 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1108
+from trips_1111 import TRIP_PAGES_1111  # noqa: E402  (2026-11-08·09 컨펌 i261108-03·i261109-03 여행 20곳, 11.11 중간 크기)
+TRIP_PAGES += TRIP_PAGES_1111
 PAGE_DATES = {s + ".html": "2026-11-03" for s, _, _ in TRIP_PAGES_1103 + TRIP_PAGES_1105}  # 처음 올린 날
 PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
 PAGE_DATES.update({s + ".html": "2026-11-06" for s, _, _ in TRIP_PAGES_1107})
 PAGE_DATES.update({s + ".html": "2026-11-07" for s, _, _ in TRIP_PAGES_1108})
+PAGE_DATES.update({s + ".html": "2026-11-11" for s, _, _ in TRIP_PAGES_1111})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -234,6 +237,8 @@ from food_1108 import PAGES_1108 as _FOOD_1108  # noqa: E402  (2026-11-07 컨펌
 PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108})
 from food_1108b import PAGES_1108B as _FOOD_1108B  # noqa: E402  (2026-11-07 컨펌 i261107-04 제철·시장 안내 9곳, 구룡포 과메기는 포항 과메기와 겹쳐 뺌)
 PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108B})
+from food_1111 import PAGES_1111 as _FOOD_1111  # noqa: E402  (2026-11-08·09 컨펌 i261108-04·i261109-04 제철·시장 20곳, 11.11 중간 크기)
+PAGE_DATES.update({x["file"]: "2026-11-11" for x in _FOOD_1111})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -649,7 +654,7 @@ def header_html(p):
         items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{label}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
 <header class="at-header"><div class="at-in">
-  <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
+  <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span class="at-logo-tx"><span>어라운드<b>툴</b></span><small class="at-slogan">어딜 가나 가볍게, 여행을 엽니다.</small></span></a>
   <nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
@@ -2006,7 +2011,8 @@ def build_home():
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in FAQ_HOME)
-    content = f"""<section class="ah-hero" aria-labelledby="ah-h1">
+    content = f"""<a class="ah-klink" href="/klink/"><span class="ah-klink-mark"><svg class="ah-klink-k" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12v42M21 33l25-15M21 33l26 15"/></g><g fill="#2443E8" stroke="#fff" stroke-width="3.5"><circle cx="21" cy="12" r="5"/><circle cx="21" cy="33" r="5"/><circle cx="46" cy="18" r="5"/><circle cx="47" cy="48" r="5"/></g></svg></span><span class="ah-klink-tx"><b>K링크 <em>여행 동선 짜기</em></b><span>지도에서 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 드려요</span></span><span class="ah-klink-go" aria-hidden="true">›</span></a>
+<section class="ah-hero" aria-labelledby="ah-h1">
   <div class="ah-main">
     <h1 id="ah-h1">필요한 계산, 3초면 끝나요</h1>
     <p class="ah-lead">가입 없이 무료 · 계산 기준과 공식을 함께 보여 드려요</p>

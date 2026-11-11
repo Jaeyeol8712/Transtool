@@ -1,0 +1,31 @@
+<label for="dd1">지금 월급 (세전, 원)</label>
+<input id="dd1" type="number" inputmode="numeric" placeholder="4000000"/>
+<label for="dd2">지금까지 근속 (년)</label>
+<input id="dd2" type="number" inputmode="decimal" placeholder="5"/>
+<label for="dd3">앞으로 근속 (년)</label>
+<input id="dd3" type="number" inputmode="decimal" placeholder="15"/>
+<label for="dd4">연 임금 상승률 (%)</label>
+<input id="dd4" type="number" inputmode="decimal" placeholder="3"/>
+<label for="dd5">DC 연 운용 수익률 (%)</label>
+<input id="dd5" type="number" inputmode="decimal" placeholder="4"/>
+<button onclick="calc_pension_db_dc_compare()">DB·DC 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 많은 쪽 (단순 비교)</span><span class="result-value" id="ddW">-</span></div>
+<div class="result-row"><span class="result-label">DB형 예상 퇴직급여</span><span class="result-value" id="ddB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">DC형 예상 적립금</span><span class="result-value" id="ddC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">판단 기준</span><span class="result-value" id="ddN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_pension_db_dc_compare(){
+ var w=_v('dd1'),p=_v('dd2'),n=_v('dd3'),g=_v('dd4')/100,r=_v('dd5')/100;
+ if([w,p,n].some(function(x){return isNaN(x)||x<0;})||isNaN(g)||isNaN(r)||w<=0||n<1) return alert('다섯 칸을 모두 입력해주세요.');
+ var fin=w*Math.pow(1+g,n), db=fin*(p+n);
+ var dc=w*p*Math.pow(1+r,n); for(var t2=0;t2<n;t2++){dc+=w*Math.pow(1+g,t2)*Math.pow(1+r,n-t2);}
+ _s('ddW',db>=dc?'DB형':'DC형'); _s('ddB',_w(db)); _s('ddC',_w(dc)); _s('ddN','수익률 '+_n(r*100)+'% vs 임금 상승률 '+_n(g*100)+'%');
+ document.getElementById('result').classList.add('show');
+}
+</script>

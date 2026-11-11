@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 94종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 114종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -54,6 +54,10 @@
 - [예금 이자](https://www.aroundtool.com/deposit_interest_calculator.html): 예금 금액, 연 이자율, 기간을 넣으면 단리·월복리 세전 이자와 일반과세 15.4%·세금우대·비과세별 세후 이자, 만기 수령액을 계산합니다. 정기예금 금리 비교에 쓰세요.
 - [전월세 전환](https://www.aroundtool.com/jeonwolse_conversion_calculator.html): 보증금 일부를 월세로 바꾸거나 월세를 보증금으로 바꿀 때 전환율로 월세·보증금을 계산합니다. 주택임대차보호법상 전환율 상한(연 10%와 기준금리 + 2%p 중 낮은 비율)도 함께 설명합니다.
 - [카드 할부 수수료](https://www.aroundtool.com/card_installment_calculator.html): 결제 금액, 할부 개월, 카드사 할부 수수료율을 넣으면 회차별 원금·수수료·결제액과 총 할부 수수료를 계산합니다. 남은 원금에 수수료가 붙는 방식으로 계산해 무이자 할부와 비교할 수 있습니다.
+- [퇴직연금 DB·DC 비교](https://www.aroundtool.com/pension_db_dc_compare_calculator.html): 지금 월급, 근속 기간, 임금 상승률, DC 운용 수익률을 넣으면 DB형 예상 퇴직급여와 DC형 예상 적립금을 단순 비교합니다.
+- [적금 목표액 역산](https://www.aroundtool.com/savings_goal_monthly_calculator.html): 목표 금액, 기간(개월), 연 이자율, 이자 과세를 넣으면 정기적금(단리)으로 목표를 채우기 위해 매달 넣어야 할 금액과 세후 이자를 계산합니다.
+- [중고차 잔존가치](https://www.aroundtool.com/used_car_value_calculator.html): 신차 가격, 지난 햇수, 연 감가율을 넣으면 정률 감가로 예상 잔존가치와 신차 대비 남은 비율을 계산합니다. 실제 시세는 차종·주행거리·상태에 따라 다릅니다.
+- [K-패스 환급액](https://www.aroundtool.com/kpass_refund_calculator.html): 한 달 대중교통비와 이용 횟수, 대상(일반·청년·다자녀·저소득)을 넣으면 K-패스 기본형 환급과 모두의 카드 정액형(일반형, 수도권 평시 기준) 환급을 계산해 큰 쪽을 보여 줍니다.
 
 ### 노동·구직
 - [2027 연휴 계산기](https://www.aroundtool.com/holiday_leave_planner.html): 쓸 수 있는 연차 일수를 고르면 2027년 공휴일·대체공휴일과 주말을 붙여 가장 길게 쉴 수 있는 기간과 연차 쓸 날짜를 찾아 줍니다. 한국천문연구원 2027년 월력요항 기준.
@@ -68,6 +72,20 @@
 - [근무시간](https://www.aroundtool.com/work_time_calculator.html): 출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.
 
 ### 생활·건강
+- [전기차 vs 휘발유차 연료비](https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html): 1년 주행거리와 휘발유차 연비·휘발유 가격, 전기차 전비·충전 단가를 넣으면 1년 연료비와 충전비, 1km당 비용, 차이를 계산합니다.
+- [관리비 평당·㎡당](https://www.aroundtool.com/apartment_fee_per_area_calculator.html): 한 달 관리비와 면적(㎡ 또는 평)을 넣으면 평당·㎡당 관리비와 1년 관리비를 계산합니다. 다른 단지·평형과 비교할 때 씁니다.
+- [이사 비용 합계](https://www.aroundtool.com/moving_cost_calculator.html): 이사 업체 견적의 기본 운반비, 사다리차, 에어컨 이전, 입주 청소, 추가 비용을 넣으면 총 이사 비용과 계약금을 뺀 당일 잔금을 계산합니다.
+- [반려견 사료 급여량](https://www.aroundtool.com/dog_food_amount_calculator.html): 반려견 몸무게와 상태(강아지·성견·중성화·노령), 사료 포장의 열량(kcal/kg)을 넣으면 하루 필요 열량과 사료 그램 수를 계산합니다.
+- [체지방률 (둘레 측정)](https://www.aroundtool.com/body_fat_navy_calculator.html): 성별, 키, 목둘레, 허리둘레(여성은 엉덩이둘레 추가)를 넣으면 미 해군 둘레 공식으로 체지방률을 추정합니다. 체성분 측정기 없이 집에서 잴 수 있습니다.
+- [단위 가격 비교](https://www.aroundtool.com/unit_price_compare_calculator.html): 두 상품의 가격과 용량(g·ml)을 넣으면 100g·1g·1kg당 가격과 어느 쪽이 몇 % 더 싼지 계산합니다. 대용량·묶음 상품 비교에 씁니다.
+- [운동 소모 칼로리 (MET)](https://www.aroundtool.com/exercise_met_calorie_calculator.html): 운동 종류(MET 값), 몸무게, 운동 시간을 넣으면 소모 칼로리를 계산합니다. 걷기, 달리기, 자전거, 수영, 등산, 근력 운동, 요가, 줄넘기를 고를 수 있습니다.
+- [하루 카페인 섭취량](https://www.aroundtool.com/caffeine_intake_calculator.html): 커피와 그 밖의 음료 잔 수, 1잔 카페인(제품 표시)을 넣으면 하루 섭취량을 계산하고 식약처 권고 상한(성인 400mg, 임산부 300mg, 어린이·청소년 체중 1kg당 2.5mg)과 비교합니다.
+- [난방 온도 1도 절약액](https://www.aroundtool.com/heating_temp_saving_calculator.html): 한 달 난방비와 낮출 온도, 난방하는 달 수를 넣으면 설정 온도를 낮췄을 때 아낄 수 있는 난방비를 어림합니다(1℃당 약 7% 절감 가정).
+- [밥물 양](https://www.aroundtool.com/rice_water_calculator.html): 쌀 양(계량컵)과 쌀 종류(백미·현미·잡곡·햅쌀)를 넣으면 밥물을 컵과 ml로 계산합니다. 밥솥·불림 여부에 따라 조절하는 참고값입니다.
+- [도배 벽지 롤 수](https://www.aroundtool.com/wallpaper_roll_calculator.html): 벽 둘레, 천장 높이, 문·창문 면적, 벽지 규격(소폭·광폭)을 넣으면 도배 면적과 필요한 벽지 롤 수를 여유분을 더해 계산합니다.
+- [페인트 필요량](https://www.aroundtool.com/paint_amount_calculator.html): 칠할 면적, 칠 횟수, 제품의 1L당 도포 면적, 1통 용량을 넣으면 필요한 페인트 양(L)과 통 수를 계산합니다.
+- [김장 소금물 소금 양](https://www.aroundtool.com/kimjang_brine_salt_calculator.html): 절임용 소금물을 만들 물의 양(L)과 원하는 농도(%)를 넣으면 필요한 소금 양을 계산합니다. 소금 무게까지 포함한 농도 기준입니다.
+- [수도요금](https://www.aroundtool.com/water_bill_calculator.html): 한 달 사용량(㎥)과 고지서의 상수도·하수도·물이용부담금 단가, 기본요금을 넣으면 예상 수도요금을 계산합니다. 단가는 지역마다 달라 고지서 값을 넣습니다.
 - [걸음 수 거리·칼로리](https://www.aroundtool.com/step_distance_calorie_calculator.html): 걸음 수와 보폭, 몸무게, 걷는 속도를 넣으면 걸은 거리와 걸린 시간, 소비 칼로리를 계산합니다. 칼로리는 2024 성인 신체활동 열량표(Compendium)의 걷기 MET 값을 썼습니다.
 - [커피값 연간 지출](https://www.aroundtool.com/coffee_spending_calculator.html): 한 잔 가격과 하루 잔 수, 일주일에 마시는 날을 넣으면 커피값 한 달·1년·10년 지출을 계산합니다. 집에서 내린 커피처럼 더 싼 가격으로 바꾸면 1년에 얼마를 아끼는지도 보여 줍니다.
 - [구독료 합계](https://www.aroundtool.com/subscription_total_calculator.html): 쓰고 있는 구독 서비스의 요금과 결제 주기(월·연)를 넣으면 한 달 합계와 1년 합계, 월 환산으로 가장 비싼 구독을 계산합니다. 연 결제 구독은 12로 나눠 월 금액으로 바꿉니다.
@@ -116,6 +134,8 @@
 - [환율](https://www.aroundtool.com/exchange_rate_calculator.html): 환율 계산·환전 금액을 바로 확인합니다. 미국 달러, 일본 엔(100엔), 유로, 중국 위안, 영국 파운드, 대만 달러, 태국 바트, 베트남 동을 원화로, 원화를 외화로 환산합니다. 공개 환율 API의 최신 기준 환율을 불러오고 직접 수정할 수도 있습니다.
 - [일본 여행 경비](https://www.aroundtool.com/japan_travel_calculator.html): 일본 여행 비용이 얼마나 드는지 도쿄·오사카·후쿠오카·삿포로·오키나와·나고야 등 도시와 기간, 여행 스타일로 계산합니다. 항공권·숙박·식비·교통비 내역과 일자별 코스를 함께 보여 줍니다.
 - [캠핑 장비 견적](https://www.aroundtool.com/camping_gear_calculator.html): 2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.
+- [해외 팁](https://www.aroundtool.com/tip_calculator.html): 음식값, 팁 비율, 인원, 환율을 넣으면 팁 금액과 팁 포함 합계, 1인당 금액, 원화 환산을 계산합니다. 해외여행 식당·택시 팁 계산에 씁니다.
+- [택배 부피무게](https://www.aroundtool.com/volumetric_weight_calculator.html): 상자 가로·세로·높이(cm)와 실제 무게, 나누는 값(6000·5000)을 넣으면 부피무게와 운임 기준 무게(둘 중 큰 값)를 계산합니다. 해외 배송·특송에 씁니다.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.
@@ -152,7 +172,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [제철 음식·시장 안내 21가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [제철 음식·시장 안내 41가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -261,12 +281,26 @@
 
 ### 전국 제철 음식
 - [제철 제철 음식·시장 벌교 꼬막](https://www.aroundtool.com/season-beolgyo-kkomak.html)
+- [제철 제철 음식·시장 부안 곰소 젓갈](https://www.aroundtool.com/season-buan-gomso-jeotgal.html)
 - [제철 제철 음식·시장 보령 천북 굴](https://www.aroundtool.com/season-cheonbuk-gul.html)
+- [제철 제철 음식·시장 청송 사과](https://www.aroundtool.com/season-cheongsong-sagwa.html)
 - [제철 제철 음식·시장 대부도 바지락칼국수](https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html)
+- [제철 제철 음식·시장 강화 순무](https://www.aroundtool.com/season-ganghwa-sunmu.html)
+- [제철 제철 음식·시장 가평 잣](https://www.aroundtool.com/season-gapyeong-jat.html)
 - [제철 제철 음식·시장 거제 외포 대구](https://www.aroundtool.com/season-geoje-oepo-daegu.html)
+- [제철 제철 음식·시장 고흥 유자](https://www.aroundtool.com/season-goheung-yuja.html)
+- [제철 제철 음식·시장 고성 가리비](https://www.aroundtool.com/season-goseong-garibi.html)
 - [제철 제철 음식·시장 광천 토굴 새우젓](https://www.aroundtool.com/season-gwangcheon-saeujeot.html)
+- [제철 제철 음식·시장 해남 고구마](https://www.aroundtool.com/season-haenam-goguma.html)
+- [제철 제철 음식·시장 해남 겨울배추](https://www.aroundtool.com/season-haenam-winter-baechu.html)
+- [제철 제철 음식·시장 인제 용대리 황태](https://www.aroundtool.com/season-inje-yongdae-hwangtae.html)
 - [제철 제철 음식·시장 장흥 매생이](https://www.aroundtool.com/season-jangheung-maesaengi.html)
+- [제철 제철 음식·시장 장흥 표고버섯](https://www.aroundtool.com/season-jangheung-pyogo.html)
 - [제철 제철 음식·시장 제주 감귤](https://www.aroundtool.com/season-jeju-gamgyul.html)
+- [제철 제철 음식·시장 제주 한라봉](https://www.aroundtool.com/season-jeju-hallabong.html)
+- [제철 제철 음식·시장 제주 월동무](https://www.aroundtool.com/season-jeju-woldongmu.html)
+- [제철 제철 음식·시장 진도 대파](https://www.aroundtool.com/season-jindo-daepa.html)
+- [제철 제철 음식·시장 주문진 양미리](https://www.aroundtool.com/season-jumunjin-yangmiri.html)
 - [제철 제철 음식·시장 마산 아귀찜 거리](https://www.aroundtool.com/season-masan-agujjim.html)
 - [제철 제철 음식·시장 목포 홍어·세발낙지](https://www.aroundtool.com/season-mokpo-hongeo-nakji.html)
 - [제철 제철 음식·시장 모슬포 방어](https://www.aroundtool.com/season-moseulpo-bangeo.html)
@@ -275,12 +309,18 @@
 - [제철 제철 음식·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
 - [제철 제철 음식·시장 포항 과메기](https://www.aroundtool.com/season-pohang-gwamegi.html)
 - [제철 제철 음식·시장 삼척 곰치국](https://www.aroundtool.com/season-samcheok-gomchiguk.html)
+- [제철 제철 음식·시장 상주 곶감](https://www.aroundtool.com/season-sangju-gotgam.html)
+- [제철 제철 음식·시장 서천 김](https://www.aroundtool.com/season-seocheon-gim.html)
+- [제철 제철 음식·시장 서산 감태](https://www.aroundtool.com/season-seosan-gamtae.html)
+- [제철 제철 음식·시장 신안 섬초](https://www.aroundtool.com/season-sinan-seomcho.html)
 - [제철 제철 음식·시장 도루묵](https://www.aroundtool.com/season-sokcho-dorumuk.html)
 - [제철 제철 음식·시장 소래포구 김장 젓갈](https://www.aroundtool.com/season-sorae-jeotgal.html)
 - [제철 제철 음식·시장 통영 굴](https://www.aroundtool.com/season-tongyeong-gul.html)
+- [제철 제철 음식·시장 통영 물메기](https://www.aroundtool.com/season-tongyeong-mulmegi.html)
 - [제철 제철 음식·시장 완도 전복](https://www.aroundtool.com/season-wando-jeonbok.html)
 - [제철 제철 음식·시장 영덕 대게](https://www.aroundtool.com/season-yeongdeok-daege.html)
 - [제철 제철 음식·시장 영광 굴비](https://www.aroundtool.com/season-yeonggwang-gulbi.html)
+- [제철 제철 음식·시장 여수 돌산 갓김치](https://www.aroundtool.com/season-yeosu-dolsan-gat.html)
 
 ## 여행
 
@@ -338,6 +378,26 @@
 - [코타키나발루 여행](https://www.aroundtool.com/travel-kotakinabalu.html): 코타키나발루 여행 코스. 탄중아루 해변 노을, 사피·마누칸 섬 호핑, 반딧불 투어, 키나발루 국립공원, 필리피노 야시장을 3박 5일·4박 6일로 묶고 이동 시간과 말레이시아 입국 준비(MDAC)를 정리했습니다.
 - [타이중 여행](https://www.aroundtool.com/travel-taichung.html): 타이중 여행 코스. 펑자 야시장, 무지개마을, 궁원안과, 국립대만미술관, 가오메이 습지, 일월담 당일치기를 2박 3일·3박 4일로 묶고 직항·고속철·버스 이동 시간을 정리했습니다.
 - [하코다테 여행](https://www.aroundtool.com/travel-hakodate.html): 하코다테 여행 코스. 하코다테산 야경, 아침시장, 고료카쿠, 가네모리 붉은벽돌창고, 모토마치 언덕, 유노카와 온천을 2박 3일·3박 4일로 묶고 신치토세에서의 이동 시간과 면세 환급 방식을 정리했습니다.
+- [부여 여행](https://www.aroundtool.com/travel-buyeo.html): 부여 여행 코스. 정림사지, 국립부여박물관, 부소산성·낙화암, 궁남지, 백제문화단지를 당일·1박 2일로 묶고 서울에서의 이동 시간을 정리했습니다.
+- [강화도 여행](https://www.aroundtool.com/travel-ganghwa.html): 강화도 여행 코스. 전등사, 고려궁지, 강화풍물시장, 동막해변, 강화평화전망대, 석모도 보문사를 당일·1박 2일로 묶고 이동 시간을 정리했습니다.
+- [제천 여행](https://www.aroundtool.com/travel-jecheon.html): 제천 여행 코스. 의림지, 청풍호반케이블카, 청풍문화재단지, 옥순봉 출렁다리, 배론성지를 당일·1박 2일로 묶고 열차·차 이동 시간을 정리했습니다.
+- [영월 여행](https://www.aroundtool.com/travel-yeongwol.html): 영월 여행 코스. 청령포, 장릉, 한반도지형, 별마로천문대, 동강을 당일·1박 2일로 묶고 이동 시간과 천문대 관측 팁을 정리했습니다.
+- [남원 여행](https://www.aroundtool.com/travel-namwon.html): 남원 여행 코스. 광한루원, 춘향테마파크, 남원시립김병종미술관, 지리산 뱀사골·바래봉을 당일·1박 2일로 묶고 KTX 이동 시간을 정리했습니다.
+- [포항 여행](https://www.aroundtool.com/travel-pohang.html): 포항 여행 코스. 환호공원 스페이스워크, 영일대해수욕장, 죽도시장, 호미곶 일출, 구룡포 일본인가옥거리를 1박 2일로 묶고 KTX·차 이동 시간을 정리했습니다.
+- [호치민 여행](https://www.aroundtool.com/travel-hochiminh.html): 호치민 여행 코스. 벤탄시장, 사이공 중앙우체국, 통일궁, 부이비엔 거리, 메콩델타·구찌터널 투어를 3박 5일·4박 6일로 묶고 이동 시간과 날씨를 정리했습니다.
+- [쿠알라룸푸르 여행](https://www.aroundtool.com/travel-kualalumpur.html): 쿠알라룸푸르 여행 코스. 페트로나스 트윈타워, KLCC 공원, 부킷빈탕, 메르데카 광장, 바투동굴, 말라카 당일치기를 3박 5일·4박 6일로 묶고 이동 시간과 말레이시아 입국 준비(MDAC)를 정리했습니다.
+- [벳푸 여행](https://www.aroundtool.com/travel-beppu.html): 벳푸·오이타 여행 코스. 벳푸 지옥 온천 순례, 칸나와 온천 마을, 유후인 긴린코 호수·유노쓰보 거리를 2박 3일·3박 4일로 묶고 후쿠오카·오이타에서의 이동 시간과 일본 면세 방식을 정리했습니다.
+- [사이판 여행](https://www.aroundtool.com/travel-saipan.html): 사이판 여행 코스. 마나가하섬, 마이크로 비치, 그로토, 만세절벽·새섬, 가라판 시내를 3박 4일·4박 5일로 묶고 이동 시간과 입국 준비를 정리했습니다.
+- [공주 여행](https://www.aroundtool.com/travel-gongju.html): 공주 여행 코스. 공산성, 무령왕릉과 왕릉원, 국립공주박물관, 제민천 원도심, 마곡사를 당일·1박 2일로 묶고 이동 시간을 정리했습니다.
+- [보성 여행](https://www.aroundtool.com/travel-boseong.html): 보성 여행 코스. 대한다원 녹차밭, 한국차박물관, 율포솔밭해수욕장, 벌교 꼬막 거리를 1박 2일로 묶고 이동 시간과 겨울 차밭 빛 행사 확인 방법을 정리했습니다.
+- [태안 여행](https://www.aroundtool.com/travel-taean.html): 태안 여행 코스. 안면도 꽃지해수욕장(할미·할아비 바위 일몰), 신두리 해안사구, 만리포·천리포, 천리포수목원을 당일·1박 2일로 묶고 이동 시간을 정리했습니다.
+- [하동 여행](https://www.aroundtool.com/travel-hadong.html): 하동 여행 코스. 화개장터, 쌍계사, 최참판댁(평사리), 섬진강, 하동 야생차밭을 1박 2일로 묶고 이동 시간을 정리했습니다.
+- [청주 여행](https://www.aroundtool.com/travel-cheongju.html): 청주 여행 코스. 청남대, 상당산성, 수암골 벽화마을, 국립현대미술관 청주, 성안길을 당일·1박 2일로 묶고 KTX·차 이동 시간을 정리했습니다.
+- [영주 여행](https://www.aroundtool.com/travel-yeongju.html): 영주 여행 코스. 부석사, 소수서원·선비촌, 무섬마을 외나무다리, 풍기 인삼시장을 당일·1박 2일로 묶고 열차·차 이동 시간을 정리했습니다.
+- [마쓰야마 여행](https://www.aroundtool.com/travel-matsuyama.html): 마쓰야마 여행 코스. 도고온천 본관, 마쓰야마성, 봇짱 열차, 오카이도 상점가, 시모나다역 노을을 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.
+- [가고시마 여행](https://www.aroundtool.com/travel-kagoshima.html): 가고시마 여행 코스. 사쿠라지마, 센간엔, 시로야마 전망대, 덴몬칸 거리, 이부스키 모래찜질 온천을 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.
+- [시즈오카 여행](https://www.aroundtool.com/travel-shizuoka.html): 시즈오카 여행 코스. 미호노마쓰바라, 니혼다이라 전망, 구노잔 도쇼구, 녹차밭, 시즈오카 시내를 2박 3일·3박 4일로 묶고 이동 시간과 일본 면세 방식을 정리했습니다.
+- [다카마쓰 여행](https://www.aroundtool.com/travel-takamatsu.html): 다카마쓰 여행 코스. 리쓰린 공원, 사누키 우동, 나오시마 예술 섬, 고토히라궁, 쇼도시마를 2박 3일·3박 4일로 묶고 페리·전철 이동 시간과 일본 면세 방식을 정리했습니다.
 
 ## 가이드
 
@@ -424,6 +484,26 @@
 - [대설 행동요령 — 대설특보 기준, 집 앞 눈 치우기·차량 고립 대처](https://www.aroundtool.com/guide-heavy-snow-action-guide.html)
 - [겨울철 일산화탄소 중독 예방 — 보일러 배기통·경보기·텐트 화로 금지](https://www.aroundtool.com/guide-carbon-monoxide-poisoning-prevention.html)
 - [겨울 전기·가스 안전 점검 — 멀티탭·누전차단기·비눗물 누설 확인](https://www.aroundtool.com/guide-winter-electric-gas-safety-check.html)
+- [수능 준비물·반입 금지 물품 — 11월 19일 전날 챙길 것](https://www.aroundtool.com/guide-suneung-checklist-banned-items.html)
+- [블프 해외직구 반품·환불 — 판매처·카드·관세 순서로](https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html)
+- [겨울 와이퍼·워셔액 — 교체 신호와 사계절용 고르는 법](https://www.aroundtool.com/guide-winter-wiper-washer-fluid.html)
+- [자동차보험 갱신 — 할인 특약 6가지 체크](https://www.aroundtool.com/guide-car-insurance-renewal-discount.html)
+- [겨울 캠핑 장비 체크리스트 — 난방보다 환기 먼저](https://www.aroundtool.com/guide-winter-camping-checklist.html)
+- [고구마 보관법 — 냉장고 말고 서늘한 실온에](https://www.aroundtool.com/guide-sweet-potato-storage.html)
+- [귤 보관법 — 한 박스 끝까지 맛있게](https://www.aroundtool.com/guide-tangerine-storage.html)
+- [카드 포인트 소멸 확인 — 한 번에 조회하고 현금으로](https://www.aroundtool.com/guide-card-point-expiry-check.html)
+- [연말연시 은행 영업일 — 12월 31일·1월 첫 주 확인](https://www.aroundtool.com/guide-year-end-bank-business-days.html)
+- [겨울 정전기 줄이는 법 — 습도·보습·옷 소재](https://www.aroundtool.com/guide-winter-static-electricity.html)
+- [자동차 에어컨 필터 교체 — 겨울 히터 냄새 잡기](https://www.aroundtool.com/guide-car-cabin-filter-replacement.html)
+- [스노체인 사용법 — 구동 바퀴에, 미리 한 번 연습](https://www.aroundtool.com/guide-snow-chain-how-to.html)
+- [김장김치 보관 — 0℃ 안팎, 공기 막고 나눠 담기](https://www.aroundtool.com/guide-kimjang-kimchi-storage.html)
+- [해외여행 출국 전 체크리스트 — 여권·입국 허가·보험](https://www.aroundtool.com/guide-overseas-trip-departure-checklist.html)
+- [수능 끝나고 수험표 할인 — 받기 전 확인할 3가지](https://www.aroundtool.com/guide-suneung-ticket-discount-check.html)
+- [보일러 배관 청소 — 이런 증상이면 할 때](https://www.aroundtool.com/guide-boiler-pipe-cleaning.html)
+- [연말 대청소 순서 — 위에서 아래로, 버리기부터](https://www.aroundtool.com/guide-year-end-cleaning-order.html)
+- [겨울 반려견 산책 — 염화칼슘·추위 주의할 것](https://www.aroundtool.com/guide-winter-dog-walking-safety.html)
+- [택배 분실·파손 보상 — 사진 찍고 14일 안에 알리기](https://www.aroundtool.com/guide-parcel-loss-damage-compensation.html)
+- [겨울 손 트임 — 씻고 바로 보습, 미지근한 물](https://www.aroundtool.com/guide-winter-dry-cracked-hands.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 

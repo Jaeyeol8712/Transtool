@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전기차 vs 휘발유차 연료비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="전기차 vs 휘발유차 연료비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">전기차 vs 휘발유차 연료비 계산기</p>
+<label for="eg1">1년 주행거리 (km)</label>
+<input id="eg1" type="number" inputmode="numeric" placeholder="15000"/>
+<label for="eg2">휘발유차 연비 (km/L)</label>
+<input id="eg2" type="number" inputmode="decimal" placeholder="12"/>
+<label for="eg3">휘발유 가격 (원/L)</label>
+<input id="eg3" type="number" inputmode="numeric" placeholder="1650"/>
+<label for="eg4">전기차 전비 (km/kWh)</label>
+<input id="eg4" type="number" inputmode="decimal" placeholder="5"/>
+<label for="eg5">충전 단가 (원/kWh)</label>
+<input id="eg5" type="number" inputmode="numeric" placeholder="300"/>
+<button onclick="calc_ev_vs_gasoline_cost()">연간 연료비 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">1년에 아끼는 돈 (전기차 기준)</span><span class="result-value" id="egD">-</span></div>
+<div class="result-row"><span class="result-label">휘발유차 1년 연료비</span><span class="result-value" id="egG" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">전기차 1년 충전비</span><span class="result-value" id="egE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1km당 비용 (휘발유 / 전기)</span><span class="result-value" id="egK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_ev_vs_gasoline_cost(){
+ var d=_v('eg1'),f=_v('eg2'),p=_v('eg3'),e=_v('eg4'),c=_v('eg5');
+ if([d,f,p,e,c].some(function(x){return isNaN(x)||x<=0;})) return alert('다섯 칸을 모두 입력해주세요.');
+ var g=d/f*p, ev=d/e*c;
+ _s('egD',_w(g-ev)); _s('egG',_w(g)); _s('egE',_w(ev)); _s('egK',_n(p/f,0)+'원 / '+_n(c/e,0)+'원');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html?utm_source=embed&amp;utm_campaign=ev_vs_gasoline_cost_calculator" target="_blank" rel="noopener">어라운드툴 전기차 vs 휘발유차 연료비 계산기</a></p>
+</body>
+</html>

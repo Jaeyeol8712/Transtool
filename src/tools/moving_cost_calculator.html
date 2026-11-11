@@ -1,0 +1,31 @@
+<label for="mv1">기본 운반비 (견적, 원)</label>
+<input id="mv1" type="number" inputmode="numeric" placeholder=""/>
+<label for="mv2">사다리차·엘리베이터 (원)</label>
+<input id="mv2" type="number" inputmode="numeric" placeholder=""/>
+<label for="mv3">에어컨 이전 설치 (원)</label>
+<input id="mv3" type="number" inputmode="numeric" placeholder=""/>
+<label for="mv4">입주 청소 (원)</label>
+<input id="mv4" type="number" inputmode="numeric" placeholder=""/>
+<label for="mv5">추가 인력·기타 (원)</label>
+<input id="mv5" type="number" inputmode="numeric" placeholder=""/>
+<label for="mv6">계약금 (원, 이미 낸 돈)</label>
+<input id="mv6" type="number" inputmode="numeric" placeholder=""/>
+<button onclick="calc_moving_cost()">이사 비용 합계</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 이사 비용</span><span class="result-value" id="mvT">-</span></div>
+<div class="result-row"><span class="result-label">이사 당일 낼 잔금</span><span class="result-value" id="mvR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">운반비 외 추가 비용</span><span class="result-value" id="mvB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_moving_cost(){
+ var a=['mv1','mv2','mv3','mv4','mv5'].map(function(i){var x=_v(i);return isNaN(x)?0:x;}), dep=_v('mv6'); if(isNaN(dep))dep=0;
+ var t=a.reduce(function(s,x){return s+x;},0);
+ if(t<=0) return alert('견적 금액을 하나 이상 입력해주세요.');
+ _s('mvT',_w(t)); _s('mvR',_w(Math.max(0,t-dep))); _s('mvB',_w(t-a[0]));
+ document.getElementById('result').classList.add('show');
+}
+</script>

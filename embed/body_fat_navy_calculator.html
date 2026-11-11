@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>체지방률 계산기 (둘레 측정) | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/body_fat_navy_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="체지방률 계산기 (둘레 측정)">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">체지방률 계산기 (둘레 측정)</p>
+<label for="bf1">성별</label>
+<select id="bf1"><option value="m" selected>남성</option><option value="f">여성</option></select>
+<label for="bf2">키 (cm)</label>
+<input id="bf2" type="number" inputmode="decimal" placeholder="170"/>
+<label for="bf3">목둘레 (cm)</label>
+<input id="bf3" type="number" inputmode="decimal" placeholder="37"/>
+<label for="bf4">허리둘레 (cm, 남성은 배꼽 높이)</label>
+<input id="bf4" type="number" inputmode="decimal" placeholder="85"/>
+<label for="bf5">엉덩이둘레 (cm, 여성만)</label>
+<input id="bf5" type="number" inputmode="decimal" placeholder="95"/>
+<button onclick="calc_body_fat_navy()">체지방률 추정</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">추정 체지방률</span><span class="result-value" id="bfP">-</span></div>
+<div class="result-row"><span class="result-label">체지방량 (몸무게 입력 시)</span><span class="result-value" id="bfF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="bfN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_body_fat_navy(){
+ var s=document.getElementById('bf1').value,h=_v('bf2'),n=_v('bf3'),w=_v('bf4'),hp=_v('bf5');
+ if(isNaN(h)||isNaN(n)||isNaN(w)||h<=0||w<=n) return alert('키·목·허리 둘레를 확인해주세요.');
+ var p;
+ if(s==='m'){p=495/(1.0324-0.19077*Math.log10(w-n)+0.15456*Math.log10(h))-450;}
+ else{ if(isNaN(hp)||hp<=0) return alert('여성은 엉덩이둘레도 입력해주세요.'); p=495/(1.29579-0.35004*Math.log10(w+hp-n)+0.22100*Math.log10(h))-450;}
+ _s('bfP',_n(p)+'%'); _s('bfF','몸무게 × '+_n(p)+'%'); _s('bfN','둘레로 추정한 값이라 체성분 측정과 다를 수 있습니다');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/body_fat_navy_calculator.html?utm_source=embed&amp;utm_campaign=body_fat_navy_calculator" target="_blank" rel="noopener">어라운드툴 체지방률 계산기 (둘레 측정)</a></p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<label for="wb1">한 달 사용량 (㎥, 고지서)</label>
+<input id="wb1" type="number" inputmode="decimal" placeholder="15"/>
+<label for="wb2">상수도 단가 (원/㎥, 고지서)</label>
+<input id="wb2" type="number" inputmode="numeric" placeholder=""/>
+<label for="wb3">하수도 단가 (원/㎥, 고지서)</label>
+<input id="wb3" type="number" inputmode="numeric" placeholder=""/>
+<label for="wb4">물이용부담금 단가 (원/㎥, 해당 지역만)</label>
+<input id="wb4" type="number" inputmode="numeric" placeholder=""/>
+<label for="wb5">기본요금 (원, 있으면)</label>
+<input id="wb5" type="number" inputmode="numeric" placeholder=""/>
+<button onclick="calc_water_bill()">수도요금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 수도요금</span><span class="result-value" id="wbT">-</span></div>
+<div class="result-row"><span class="result-label">상수도</span><span class="result-value" id="wbS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">하수도</span><span class="result-value" id="wbH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">물이용부담금</span><span class="result-value" id="wbE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_water_bill(){
+ var q=_v('wb1'); function z(i){var x=_v(i);return isNaN(x)?0:x;}
+ if(isNaN(q)||q<0) return alert('사용량을 입력해주세요.'); if(z('wb2')<=0) return alert('고지서의 상수도 단가를 입력해주세요.');
+ var s=q*z('wb2')+z('wb5'),h=q*z('wb3'),e=q*z('wb4');
+ _s('wbT',_w(s+h+e)); _s('wbS',_w(s)); _s('wbH',_w(h)); _s('wbE',_w(e));
+ document.getElementById('result').classList.add('show');
+}
+</script>

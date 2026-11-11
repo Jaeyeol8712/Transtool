@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도배 벽지 롤 수 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/wallpaper_roll_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=bbadff28">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="도배 벽지 롤 수 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">도배 벽지 롤 수 계산기</p>
+<label for="wp1">벽 둘레 합계 (m)</label>
+<input id="wp1" type="number" inputmode="decimal" placeholder="14"/>
+<label for="wp2">천장 높이 (m)</label>
+<input id="wp2" type="number" inputmode="decimal" placeholder="2.3"/>
+<label for="wp3">문·창문 면적 합계 (㎡)</label>
+<input id="wp3" type="number" inputmode="decimal" placeholder="3"/>
+<label for="wp4">벽지 규격</label>
+<select id="wp4"><option value="0.53x12.5" selected>소폭 0.53m × 12.5m</option><option value="1.06x15.6">광폭 1.06m × 15.6m</option></select>
+<label for="wp5">여유분 (%)</label>
+<input id="wp5" type="number" inputmode="decimal" placeholder="10"/>
+<button onclick="calc_wallpaper_roll()">필요 롤 수 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">필요한 롤 수</span><span class="result-value" id="wpR">-</span></div>
+<div class="result-row"><span class="result-label">도배 면적</span><span class="result-value" id="wpA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1롤 면적</span><span class="result-value" id="wpS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_wallpaper_roll(){
+ var p=_v('wp1'),h=_v('wp2'),o=_v('wp3'),s=document.getElementById('wp4').value.split('x'),e=_v('wp5');
+ if(isNaN(p)||p<=0||isNaN(h)||h<=0) return alert('벽 둘레와 천장 높이를 입력해주세요.'); if(isNaN(o))o=0; if(isNaN(e))e=10;
+ var a=Math.max(0,p*h-o), r=parseFloat(s[0])*parseFloat(s[1]);
+ _s('wpR',Math.ceil(a*(1+e/100)/r)+'롤'); _s('wpA',_n(a)+'㎡'); _s('wpS',_n(r,2)+'㎡');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/wallpaper_roll_calculator.html?utm_source=embed&amp;utm_campaign=wallpaper_roll_calculator" target="_blank" rel="noopener">어라운드툴 도배 벽지 롤 수 계산기</a></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<label for="ks1">소금물 만들 물 (L)</label>
+<input id="ks1" type="number" inputmode="decimal" placeholder="20"/>
+<label for="ks2">소금물 농도 (%)</label>
+<input id="ks2" type="number" inputmode="decimal" placeholder="10"/>
+<button onclick="calc_kimjang_brine_salt()">소금 양 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">필요한 소금</span><span class="result-value" id="ksG">-</span></div>
+<div class="result-row"><span class="result-label">소금물 전체 무게</span><span class="result-value" id="ksT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="ksN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_kimjang_brine_salt(){
+ var w=_v('ks1'),c=_v('ks2');
+ if(isNaN(w)||w<=0||isNaN(c)||c<=0||c>=30) return alert('물 양과 농도(30% 미만)를 입력해주세요.');
+ var s=w*1000*c/(100-c);
+ _s('ksG',_n(s/1000,2)+'kg ('+_n(s,0)+'g)'); _s('ksT',_n((w*1000+s)/1000,1)+'kg'); _s('ksN','배추 크기·날씨에 따라 절이는 시간을 조절하세요');
+ document.getElementById('result').classList.add('show');
+}
+</script>

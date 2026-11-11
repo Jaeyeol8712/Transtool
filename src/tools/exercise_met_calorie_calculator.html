@@ -1,0 +1,24 @@
+<label for="mt1">운동</label>
+<select id="mt1"><option value="3.0">천천히 걷기 (약 4km/h) · MET 3.0</option><option value="4.3" selected>빠르게 걷기 (약 5.6km/h) · MET 4.3</option><option value="8.3">달리기 (약 8km/h) · MET 8.3</option><option value="8.0">자전거 (약 19~22km/h) · MET 8.0</option><option value="5.8">수영 (자유형, 보통) · MET 5.8</option><option value="6.0">등산 · MET 6.0</option><option value="6.0">근력 운동 (강하게) · MET 6.0</option><option value="2.5">요가 · MET 2.5</option><option value="11.8">줄넘기 (보통) · MET 11.8</option></select>
+<label for="mt2">몸무게 (kg)</label>
+<input id="mt2" type="number" inputmode="decimal" placeholder="65"/>
+<label for="mt3">운동 시간 (분)</label>
+<input id="mt3" type="number" inputmode="numeric" placeholder="30"/>
+<button onclick="calc_exercise_met_calorie()">소모 칼로리 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">소모 칼로리 (약)</span><span class="result-value" id="mtK">-</span></div>
+<div class="result-row"><span class="result-label">1시간 기준</span><span class="result-value" id="mtH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">선택한 MET</span><span class="result-value" id="mtM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_exercise_met_calorie(){
+ var m=parseFloat(document.getElementById('mt1').value),w=_v('mt2'),t=_v('mt3');
+ if(isNaN(w)||w<=0||isNaN(t)||t<=0) return alert('몸무게와 운동 시간을 입력해주세요.');
+ _s('mtK',_n(m*w*t/60,0)+'kcal'); _s('mtH',_n(m*w,0)+'kcal'); _s('mtM',m);
+ document.getElementById('result').classList.add('show');
+}
+</script>
