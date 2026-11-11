@@ -61,7 +61,7 @@ body{margin:0!important;padding:0!important;display:block!important;min-height:1
   font-size:.875rem;font-weight:700;padding:0 1rem!important;margin:0!important;cursor:pointer;width:auto!important;border-radius:10px!important;min-height:40px}
 .at-search button:hover{background:var(--at-brand-ink)!important}
 .at-gnb{grid-area:nav}
-.at-gnb ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.at-gnb ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
 .at-gnb li{margin:0;padding:0}
 .at-gnb a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 .5rem;border-radius:10px;background:#E7EFEC;
   font-size:.9375rem;font-weight:600;color:var(--at-ink);text-decoration:none;white-space:nowrap;box-sizing:border-box}
@@ -934,6 +934,54 @@ body.b main table:not(.b-stack){width:calc(100% - 1px)!important}
 body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 
 /* 홈: 카테고리 바로 아래 K링크 배너 (2026-11-11 대표 지시) */
+/* 2026-11-12 여행 중심 개편: K링크 메뉴·홈 히어로 */
+.at-gnb a.g-klink{background:#2443E8;color:#fff;font-weight:800}
+.at-gnb a.g-klink:hover{background:#1B34C4}
+@media (max-width:719px){.at-gnb a{padding:0 .2rem;font-size:.9rem;letter-spacing:-.03em}}
+.ah-khero{display:grid;gap:1.1rem;padding:1.35rem 1.1rem 1.2rem;border-radius:22px;background:#2443E8;color:#fff;grid-template-columns:minmax(0,1fr)}
+.ah-khero-eb{display:flex;align-items:center;gap:.6rem;margin:0 0 .7rem;font-size:.92rem;font-weight:600;color:#DDE3FF}
+.ah-khero-eb b{color:#fff;font-weight:800;margin-right:.15rem}
+.ah-khero .ah-klink-mark{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.16)}
+.ah-khero .ah-klink-k{width:30px;height:30px}
+.ah-khero .ah-klink-k g:last-child{fill:#2443E8}
+.ah-khero h1{margin:0 0 .55rem;font-size:1.62rem;line-height:1.28;letter-spacing:-.03em;color:#fff;word-break:keep-all}
+.ah-khero-lead{margin:0 0 1rem;font-size:.95rem;line-height:1.55;color:#E3E8FF;word-break:keep-all}
+.ah-khero-cta{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;min-height:50px;padding:0 1.5rem;border-radius:14px;background:#fff;color:#2443E8!important;font-weight:800;font-size:1.02rem;text-decoration:none!important}
+.ah-khero-cta:hover{background:#EEF1FF}
+.ah-khero-cta span{font-size:1.3rem;line-height:1}
+.ah-khero-dest{background:rgba(255,255,255,.1);border-radius:16px;padding:.85rem .85rem .9rem}
+.ah-khero-dest p{margin:0 0 .45rem;font-size:.82rem;font-weight:800;color:#fff}
+.ah-khero-dest p span{font-weight:500;color:#C9D2FF;margin-left:.3rem}
+.ah-khero-dest ul+p{margin-top:.8rem}
+.ah-khero-dest ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ah-khero-dest li{margin:0}
+.ah-khero-dest a{display:inline-flex;align-items:center;min-height:40px;padding:0 .8rem;border-radius:999px;background:rgba(255,255,255,.16);color:#fff!important;font-size:.9rem;font-weight:600;text-decoration:none!important}
+.ah-khero-dest a:hover{background:rgba(255,255,255,.3)}
+.ah-khero-dest a.is-all{background:#fff;color:#2443E8!important;font-weight:800}
+.ah-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.1rem}
+.ah-two h3{margin:0 0 .15rem;font-size:.9rem;color:var(--at-brand)}
+.ah-two h3 span{font-weight:500;color:var(--at-sub);font-size:.8rem;margin-left:.2rem}
+.ah-two .ah-links a{font-size:.92rem}
+.ah-prep{margin:0}
+.ah-prep-guides{margin-top:.75rem;padding-top:.5rem;border-top:1px solid #EEF2F0;display:grid;grid-template-columns:minmax(0,1fr)}
+.ah-h2{margin:0 0 .25rem;font-size:1.25rem;line-height:1.3}
+.at-side-klink{display:flex;align-items:center;gap:.75rem;padding:.85rem .9rem;border-radius:14px;background:#2443E8;color:#fff!important;text-decoration:none!important}
+.at-side-klink:hover{background:#1B34C4}
+.at-side-klink .ah-klink-mark{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.16)}
+.at-side-klink .ah-klink-k{width:30px;height:30px}
+.at-side-klink .tx{display:block;min-width:0}
+.at-side-klink .tx b{display:block;font-size:.98rem;line-height:1.3}
+.at-side-klink .tx span{display:block;font-size:.8rem;line-height:1.4;opacity:.88;margin-top:.1rem;word-break:keep-all}
+@media (min-width:720px){
+  .ah-khero{padding:1.75rem}
+  .ah-prep-guides{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.5rem}
+}
+@media (min-width:1024px){
+  .ah-khero{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2rem;padding:2.25rem;align-items:center}
+  .ah-khero h1{font-size:2.3rem}
+  .ah-khero-lead{font-size:1.02rem;max-width:30rem}
+  .ah-khero-dest{padding:1.1rem 1.1rem 1.2rem}
+}
 .ah-klink{display:flex;align-items:center;gap:.9rem;margin:0;padding:.85rem 1rem;border-radius:16px;background:var(--at-surface);color:var(--at-ink);text-decoration:none;border:1px solid #E3EAE7}
 .ah-klink:hover{border-color:#2443E8}
 .ah-klink-mark{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:#2443E8;display:grid;place-items:center}
@@ -943,3 +991,12 @@ body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 .ah-klink-tx b em{font-style:normal;white-space:nowrap;color:var(--at-ink);font-weight:700;margin-left:.2rem}
 .ah-klink-tx span{display:block;font-size:.86rem;line-height:1.45;color:var(--at-muted,#5B6B66);margin-top:.15rem;word-break:keep-all}
 .ah-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;color:#2443E8}
+
+/* 여행·맛집 글 아래 K링크 연결 배너 */
+.at-klink{display:flex;align-items:center;gap:.8rem;margin:1.5rem 0 1.25rem;padding:.9rem 1rem;border-radius:16px;background:#2443E8;color:#fff!important;text-decoration:none!important}
+.at-klink:hover{background:#1B34C4}
+.at-klink-mark{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:#fff;color:#2443E8;display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+.at-klink-tx{flex:1;min-width:0;display:block}
+.at-klink-tx b{display:block;font-size:1.02rem;line-height:1.35;word-break:keep-all}
+.at-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
+.at-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}
