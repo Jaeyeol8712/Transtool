@@ -666,16 +666,17 @@ def header_html(p):
     for f, label, cls, k in GNB:
         on = k == key
         cur = ' aria-current="page"' if p["file"] == f else ""
-        items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{label}</a></li>')
+        # i261112-17: 바탕 없는 글자 탭. K링크는 맨 앞 글자 'K'만 행동색으로 표시
+        tx = '<b class="at-gnb-k">K</b>링크' if k == "klink" else label
+        items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{tx}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
 <header class="at-header"><div class="at-in">
   <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span class="at-logo-tx"><span>어라운드<b>툴</b></span><small class="at-slogan">어딜 가나 가볍게, 여행을 엽니다.</small></span></a>
   <nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
-    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
     <input id="at-q" type="search" name="q" placeholder="오사카 여행, 해운대 맛집, 환율…" autocomplete="off">
-    <button type="submit">검색</button>
+    <button type="submit" aria-label="검색"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
   </form>
 </div></header>"""
 
