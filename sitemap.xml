@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 491 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 492 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
     <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/klink/</loc>
+    <lastmod>2026-10-24</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>

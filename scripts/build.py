@@ -2800,6 +2800,9 @@ def build_sitemap_xml():
     for q in all_index_pages():
         lm = max(filter(None, [body_date(q["file"]), q["date"]]))
         urls.append(f"  <url>\n    <loc>{url_of(q['file'])}</loc>\n    <lastmod>{lm}</lastmod>\n{sitemap_images(q['file'])}  </url>")
+    # K링크(여행 일정 플래너, 2026-11-12부터 색인 대상): 별도 빌드 파일이라 PAGES 밖에 있다
+    if os.path.exists("klink/index.html"):
+        urls.insert(1, f"  <url>\n    <loc>{SITE}/klink/</loc>\n    <lastmod>{TODAY}</lastmod>\n  </url>")
     try:
         json.dump(globals().get("_BH", {}), open(_BH_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=0, sort_keys=True)
     except Exception:

@@ -19,7 +19,8 @@ const F = {
 };
 function setLang(l) {
   S.lang = l; T = I18N[l]; document.documentElement.lang = HTML_LANG[l]; loadFonts(); persist();
-  document.title = T.brand;
+  if (!setLang.t0) setLang.t0 = document.title;
+  document.title = l === 'ko' ? setLang.t0 : T.brand;   // 한국어는 검색용 제목 유지
 }
 function loadFonts() {
   const want = { zh: 'Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900', ja: 'Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700;900' }[S.lang];
