@@ -812,5 +812,25 @@
  "k-tk-hakone": [
   "Lake Ashi Hakone",
   "Hakone Owakudani"
+ ],
+ "b-airport-parking": [
+  "Incheon International Airport parking",
+  "airport parking lot cars"
+ ],
+ "b-dutyfree": [
+  "Incheon Airport duty free shop",
+  "airport duty free store"
+ ],
+ "b-bubblewrap": [
+  "bubble wrap",
+  "bubble wrap window insulation"
+ ],
+ "b-cardpay": [
+  "credit card payment terminal",
+  "contactless card payment"
+ ],
+ "b-humidifier": [
+  "ultrasonic humidifier",
+  "humidifier mist"
  ]
 }
