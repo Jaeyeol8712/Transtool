@@ -581,3 +581,18 @@ p{text-wrap:pretty}
 .intro .kindbtn small{font-size:12px}
 @media (max-height:620px){.intro-map{display:none}.intro p{display:none}}
 .intro .kinds{margin-top:auto;padding-top:14px}
+/* 시작 화면 2차 (2026-11-12): 빈 공간 없이 가운데로 모은다 */
+.intro-in{justify-content:center;gap:0}
+.intro-map{flex:0 1 170px;max-height:170px;margin:18px -24px 6px}
+.intro .kinds{margin-top:8px;padding-top:0}
+@media (min-width:900px){.intro-in{max-width:880px;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto auto auto auto;column-gap:56px;align-content:center;height:100%}.intro .langs{justify-self:start}
+  .intro .langs,.intro h1,.intro p,.intro-map{grid-column:1}.intro .kinds{grid-column:2;grid-row:1 / span 4;align-self:center;margin:0}
+  .intro-map{margin:18px 0 0}}
+/* 시작 화면: 1 언어 → 2 여행 유형 */
+.intro .kinds>b{display:flex;align-items:center;gap:8px}
+.intro .kinds>b:not(:first-child){margin-top:10px}
+.intro .stp{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--cobalt);font-size:12px;font-weight:800;display:grid;place-items:center;flex-shrink:0}
+.intro .langseg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.intro .langseg button{height:42px;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;font-size:14px;font-weight:700;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.intro .langseg button.on{background:#fff;color:var(--cobalt);box-shadow:none}
+@media (min-width:900px){.intro .kinds{grid-row:1 / span 3}}

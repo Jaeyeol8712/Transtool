@@ -37,13 +37,27 @@ const MapGL = (() => {
     m.addLayer({ id: 'route-case', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#fff', 'line-width': 8, 'line-opacity': 0.9 } });
     m.addLayer({ id: 'route-line', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'c'], 'line-width': 4.5 } });
   }
+  // 지도 글자: 고른 언어 이름이 있는 것만 보여 준다(외국어 글자가 잔뜩 깔리지 않게).
+  // 한국 지도를 한국어로 볼 때는 원래 이름(한글)을 쓰고, 영어는 로마자 이름으로 채운다. 나라·도시 이름만 예외로 로마자를 보탠다.
   function setLabels(inst) {
-    if (inst.lang === S.lang) return; inst.lang = S.lang;
-    const L = S.lang, m = inst.map;
+    const L = S.lang, kr = mode === 'korea' || (ctx.r && REGIONS[ctx.r] && !isOv(ctx.r));
+    const key = L + (kr ? ':kr' : ':ov'); if (inst.lang === key) return; inst.lang = key;
+    const m = inst.map, nm = ['get', 'name:' + L], loose = L === 'en' || (L === 'ko' && kr);
+    inst.filt = inst.filt || {};
     for (const l of m.getStyle().layers) {
       if (l.type !== 'symbol' || !l.layout || !l.layout['text-field']) continue;
       if (!JSON.stringify(l.layout['text-field']).includes('name')) continue;
-      try { m.setLayoutProperty(l.id, 'text-field', ['coalesce', ['get', 'name:' + L], ['get', 'name:' + (L === 'zh' ? 'zh-Hans' : L)], ['get', 'name']]); } catch (e) {}
+      const city = /country|state|city|capital|continent|town/.test(l.id), poi = /poi|transit|airport|aerialway/.test(l.id);
+      let tf;
+      if (L === 'en') tf = ['coalesce', nm, ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+      else if (loose) tf = ['coalesce', nm, ['get', 'name']];
+      else tf = city ? ['coalesce', nm, ['get', 'name:latin'], ['get', 'name']] : ['coalesce', nm, ''];
+      try { m.setLayoutProperty(l.id, 'text-field', tf); } catch (e) {}
+      if (poi) {   // 고른 언어 이름이 없는 가게·정류장은 아이콘째 숨긴다
+        if (!(l.id in inst.filt)) inst.filt[l.id] = m.getFilter(l.id) || null;
+        const base = inst.filt[l.id];
+        try { m.setFilter(l.id, loose ? base : (base ? ['all', base, ['has', 'name:' + L]] : ['has', 'name:' + L])); } catch (e) {}
+      }
     }
   }
   function glOK() {
@@ -125,7 +139,7 @@ const MapGL = (() => {
 
   /* ---------- 날짜별 동선 ---------- */
   function showRoute(plan, i, opts) {
-    ctx = Object.assign({ noSheet: true }, opts || {}); mode = 'route';
+    ctx = Object.assign({ noSheet: true }, opts || {}, { r: plan.days[i].r }); mode = 'route';
     run(inst => { clear(inst);
       const day = plan.days[i], r = day.r, sc = scheduleDay(plan, i), stay = STAY_BY[plan.stays[r]], col = LINE[i % LINE.length];
       const pts = [{ k: 'stay', lat: stay.lat, lng: stay.lng }];
