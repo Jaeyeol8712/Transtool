@@ -399,5 +399,113 @@
   "k-gj-bomun": [
     "Bomun Lake",
     "Bomun lake Gyeongju"
+  ],
+  "k-ok-kokusai": [
+    "Kokusai-dori Naha",
+    "Kokusai Street Naha"
+  ],
+  "k-ok-shuri": [
+    "Shuri Castle",
+    "Shurijo Park"
+  ],
+  "k-ok-american": [
+    "American Village Chatan",
+    "Mihama American Village"
+  ],
+  "k-ok-manzamo": [
+    "Cape Manzamo",
+    "Manzamo Onna"
+  ],
+  "k-ok-churaumi": [
+    "Okinawa Churaumi Aquarium",
+    "Churaumi Aquarium Kuroshio"
+  ],
+  "k-ok-kouri": [
+    "Kouri Bridge",
+    "Kouri Ohashi"
+  ],
+  "k-ng-noritake": [
+    "Noritake Garden Nagoya",
+    "Noritake no Mori"
+  ],
+  "k-ng-sakae": [
+    "Sakae Nagoya",
+    "Oasis 21 Nagoya"
+  ],
+  "k-ng-osu": [
+    "Osu shopping street Nagoya",
+    "Osu Kannon"
+  ],
+  "k-ng-castle": [
+    "Nagoya Castle",
+    "Nagoya Castle Honmaru Palace"
+  ],
+  "k-ng-nabana": [
+    "Nabana no Sato",
+    "Nabana no Sato illumination"
+  ],
+  "k-hd-asaichi": [
+    "Hakodate Morning Market",
+    "Hakodate Asaichi"
+  ],
+  "k-hd-brick": [
+    "Kanemori Red Brick Warehouse",
+    "Hakodate red brick warehouses"
+  ],
+  "k-hd-motomachi": [
+    "Motomachi Hakodate",
+    "Hachiman-zaka Hakodate"
+  ],
+  "k-hd-ropeway": [
+    "Mount Hakodate night view",
+    "Mount Hakodate Ropeway"
+  ],
+  "k-hd-goryokaku": [
+    "Goryokaku",
+    "Goryokaku Tower"
+  ],
+  "k-hd-yunokawa": [
+    "Yunokawa Onsen Hakodate",
+    "Yunokawa Hakodate"
+  ],
+  "k-bp-jigoku": [
+    "Umi Jigoku Beppu",
+    "Beppu hells"
+  ],
+  "k-bp-kannawa": [
+    "Kannawa Onsen",
+    "Kannawa Beppu steam"
+  ],
+  "k-bp-takegawara": [
+    "Takegawara Onsen",
+    "Beppu station street"
+  ],
+  "k-bp-kinrin": [
+    "Lake Kinrin Yufuin",
+    "Kinrinko Yufuin"
+  ],
+  "k-bp-yunotsubo": [
+    "Yunotsubo street Yufuin",
+    "Yufuin street"
+  ],
+  "k-my-dogo": [
+    "Dogo Onsen Honkan",
+    "Dogo Onsen"
+  ],
+  "k-my-haikara": [
+    "Dogo Haikara Street",
+    "Dogo shopping arcade"
+  ],
+  "k-my-castle": [
+    "Matsuyama Castle",
+    "Matsuyama Castle Iyo"
+  ],
+  "k-my-okaido": [
+    "Okaido Matsuyama",
+    "Matsuyama Okaido arcade"
+  ],
+  "k-my-shimonada": [
+    "Shimonada Station",
+    "Shimonada"
   ]
 }
