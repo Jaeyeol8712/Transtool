@@ -188,14 +188,16 @@ TOOL_GROUPS = [
     ("labor", "노동·구직", ["holiday_leave_planner", "severance_calculator", "unemployment_benefit_calculator", "pto_calculator",
                            "holiday_pay_calculator", "parental_leave_calculator", "service_years_calculator",
                            "hourly_monthly_wage_calculator", "four_insurance_calculator", "work_time_calculator"]),
-    ("life", "생활·건강", ["ev_vs_gasoline_cost_calculator", "apartment_fee_per_area_calculator", "moving_cost_calculator", "dog_food_amount_calculator", "body_fat_navy_calculator", "unit_price_compare_calculator", "exercise_met_calorie_calculator", "caffeine_intake_calculator", "heating_temp_saving_calculator", "rice_water_calculator", "wallpaper_roll_calculator", "paint_amount_calculator", "kimjang_brine_salt_calculator", "water_bill_calculator", "step_distance_calorie_calculator", "coffee_spending_calculator", "subscription_total_calculator", "taxi_vs_car_cost_calculator", "christmas_gift_budget_calculator", "party_drink_calculator", "heart_rate_zone_calculator", "exam_study_time_calculator", "ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
+    ("life", "생활·건강", ["humidifier_electricity_cost_calculator", "dew_point_calculator", "cat_food_amount_calculator", "window_bubble_wrap_calculator", "ev_vs_gasoline_cost_calculator", "apartment_fee_per_area_calculator", "moving_cost_calculator", "dog_food_amount_calculator", "body_fat_navy_calculator", "unit_price_compare_calculator", "exercise_met_calorie_calculator", "caffeine_intake_calculator", "heating_temp_saving_calculator", "rice_water_calculator", "wallpaper_roll_calculator", "paint_amount_calculator", "kimjang_brine_salt_calculator", "water_bill_calculator", "step_distance_calorie_calculator", "coffee_spending_calculator", "subscription_total_calculator", "taxi_vs_car_cost_calculator", "christmas_gift_budget_calculator", "party_drink_calculator", "heart_rate_zone_calculator", "exam_study_time_calculator", "ev_charging_cost_calculator", "pet_age_calculator", "period_ovulation_calculator", "speed_distance_time_calculator", "kerosene_heating_cost_calculator", "heater_electricity_cost_calculator", "kimjang_cost_calculator", "alcohol_calorie_calculator", "wind_chill_calculator", "discount_calculator", "discount_rate_calculator", "percent_calculator",
                           "dutch_pay_calculator", "electricity_bill_calculator", "gas_bill_calculator",
                           "car_tax_calculator", "pyeong_calculator", "age_calculator", "date_calculator", "due_date_calculator",
                           "bmi_calculator", "bmr_calculator", "calorie_calculator", "tire_date_calculator",
                           "grave_weeding_calculator", "qr_generator", "lotto_generator", "job_fortune_teller",
                           "sleep_calculator", "unit_converter", "gpa_calculator", "week_number_calculator"]),
     ("trip", "여행", ["overseas_travel_budget_calculator", "time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
-                     "camping_gear_calculator", "tip_calculator", "volumetric_weight_calculator"]),
+                     "camping_gear_calculator", "tip_calculator", "volumetric_weight_calculator",
+                     "excess_baggage_fee_calculator", "duty_free_limit_calculator", "overseas_card_fee_calculator",
+                     "incheon_airport_parking_calculator", "roaming_esim_compare_calculator", "rental_car_total_cost_calculator"]),  # 11-12 i261112-04
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -1171,7 +1173,9 @@ def top_block(p, board=True):
 TRIP_TOOL_SLUGS = next(xs for gid, _, xs in TOOL_GROUPS if gid == "trip")
 TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "kr", "camping_gear_calculator": "kr",  # K링크 준비 탭: 어느 여행에 보여 줄지
                   "overseas_travel_budget_calculator": "ov", "time_difference_calculator": "ov", "exchange_rate_calculator": "ov",
-                  "tip_calculator": "ov", "volumetric_weight_calculator": "ov"}
+                  "tip_calculator": "ov", "volumetric_weight_calculator": "ov",
+                  "excess_baggage_fee_calculator": "ov", "duty_free_limit_calculator": "ov", "overseas_card_fee_calculator": "ov",
+                  "incheon_airport_parking_calculator": "ov", "roaming_esim_compare_calculator": "ov", "rental_car_total_cost_calculator": "all"}
 TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
 TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr"}
 

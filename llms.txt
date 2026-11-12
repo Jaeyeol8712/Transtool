@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 114종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 124종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -72,6 +72,10 @@
 - [근무시간](https://www.aroundtool.com/work_time_calculator.html): 출근·퇴근 시각과 휴게 시간을 넣으면 하루 실근무시간과 한 주 근무시간을 계산합니다. 밤샘 근무처럼 자정을 넘기는 경우와 시급을 넣은 일급 계산도 지원합니다.
 
 ### 생활·건강
+- [가습기 전기요금](https://www.aroundtool.com/humidifier_electricity_cost_calculator.html): 가습기 소비전력(W), 하루 사용 시간, 사용 일수, 고지서의 kWh당 단가를 넣으면 전력 사용량과 사용 기간 전기요금, 하루 요금을 계산합니다.
+- [이슬점·결로 온도](https://www.aroundtool.com/dew_point_calculator.html): 실내 온도와 상대습도를 넣으면 Magnus 식으로 이슬점(결로가 시작되는 온도)을 계산하고, 창문·벽 표면 온도를 넣으면 결로 여부와 결로 없는 최대 습도를 알려 줍니다.
+- [고양이 사료 급여량](https://www.aroundtool.com/cat_food_amount_calculator.html): 고양이 몸무게와 상태(새끼·중성화·감량 등), 사료 포장의 열량(kcal/kg), 간식 열량을 넣으면 하루 필요 열량(RER 공식)과 사료 그램 수를 계산합니다.
+- [창문 뽁뽁이 필요량](https://www.aroundtool.com/window_bubble_wrap_calculator.html): 창문 개수와 유리 가로·세로, 단열 뽁뽁이(에어캡) 롤의 폭·길이, 여유분을 넣으면 필요한 길이와 롤 수, 창문 1개당 붙일 장수를 계산합니다.
 - [전기차 vs 휘발유차 연료비](https://www.aroundtool.com/ev_vs_gasoline_cost_calculator.html): 1년 주행거리와 휘발유차 연비·휘발유 가격, 전기차 전비·충전 단가를 넣으면 1년 연료비와 충전비, 1km당 비용, 차이를 계산합니다.
 - [관리비 평당·㎡당](https://www.aroundtool.com/apartment_fee_per_area_calculator.html): 한 달 관리비와 면적(㎡ 또는 평)을 넣으면 평당·㎡당 관리비와 1년 관리비를 계산합니다. 다른 단지·평형과 비교할 때 씁니다.
 - [이사 비용 합계](https://www.aroundtool.com/moving_cost_calculator.html): 이사 업체 견적의 기본 운반비, 사다리차, 에어컨 이전, 입주 청소, 추가 비용을 넣으면 총 이사 비용과 계약금을 뺀 당일 잔금을 계산합니다.
@@ -136,6 +140,12 @@
 - [캠핑 장비 견적](https://www.aroundtool.com/camping_gear_calculator.html): 2026년 시세 기준 캠핑 장비 견적 계산기. 텐트 캠핑과 차박을 구분해 필요한 품목만 보여주고, 입문·중급·프리미엄 등급별 예상 금액과 대여 대비 손익분기점까지 계산합니다. 공통 14 + 텐트 8 + 차박 10, 총 32개 품목.
 - [해외 팁](https://www.aroundtool.com/tip_calculator.html): 음식값, 팁 비율, 인원, 환율을 넣으면 팁 금액과 팁 포함 합계, 1인당 금액, 원화 환산을 계산합니다. 해외여행 식당·택시 팁 계산에 씁니다.
 - [택배 부피무게](https://www.aroundtool.com/volumetric_weight_calculator.html): 상자 가로·세로·높이(cm)와 실제 무게, 나누는 값(6000·5000)을 넣으면 부피무게와 운임 기준 무게(둘 중 큰 값)를 계산합니다. 해외 배송·특송에 씁니다.
+- [항공 수하물 초과 요금](https://www.aroundtool.com/excess_baggage_fee_calculator.html): 무료 수하물 개수, 맡길 짐 개수, 항공사 요금표의 추가 1개당 요금과 무게 초과 요금을 넣으면 공항에서 낼 초과 요금 합계와 원화 환산액을 계산합니다.
+- [입국 면세 한도·세금](https://www.aroundtool.com/duty_free_limit_calculator.html): 해외·면세점 구입 합계(달러), 환율, 품목 세율을 넣으면 1인 면세 한도 800달러를 넘은 금액과 예상 세금, 자진신고 감면(30%, 최대 20만 원)과 미신고 가산세(40%)를 계산합니다.
+- [해외 카드 결제 수수료](https://www.aroundtool.com/overseas_card_fee_calculator.html): 해외 결제 금액과 환율, 카드 상품설명서의 국제 브랜드 수수료·해외이용 수수료, 원화결제(DCC) 수수료를 넣으면 예상 청구 금액과 수수료 합계를 계산합니다.
+- [인천공항 주차 요금](https://www.aroundtool.com/incheon_airport_parking_calculator.html): 인천국제공항 장기·단기주차장(소형차) 공식 요금으로 주차 일수와 시간을 넣으면 예상 주차 요금을 계산하고 두 주차장을 비교합니다.
+- [로밍·eSIM·유심 비용 비교](https://www.aroundtool.com/roaming_esim_compare_calculator.html): 여행 일수와 통신사 로밍 요금(하루·기간), eSIM 가격, 유심 가격과 배송비를 넣으면 세 방법의 총비용과 하루 비용을 비교하고 가장 싼 방법을 알려 줍니다.
+- [여행 렌터카 총비용](https://www.aroundtool.com/rental_car_total_cost_calculator.html): 대여 일수, 하루 대여료·보험료, 예상 주행거리와 연비·연료 가격, 기타 비용과 인원을 넣으면 렌터카 총비용과 연료비, 1인당·하루당 비용을 계산합니다.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.

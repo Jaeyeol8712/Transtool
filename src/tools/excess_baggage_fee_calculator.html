@@ -1,0 +1,37 @@
+<label for="bg1">무료로 맡길 수 있는 짐 (개)</label>
+<input id="bg1" type="number" inputmode="numeric" placeholder="1"/>
+<label for="bg2">맡길 짐 (개)</label>
+<input id="bg2" type="number" inputmode="numeric" placeholder="2"/>
+<label for="bg3">추가 1개당 요금 (항공사 요금표)</label>
+<input id="bg3" type="number" inputmode="decimal" placeholder="요금표 금액"/>
+<label for="bg4">무게 초과 짐 (개)</label>
+<input id="bg4" type="number" inputmode="numeric" placeholder="0"/>
+<label for="bg5">무게 초과 1개당 요금</label>
+<input id="bg5" type="number" inputmode="decimal" placeholder="없으면 비워 두기"/>
+<label for="bg6">요금 단위</label>
+<select id="bg6"><option value="krw" selected>원</option><option value="usd">달러 (USD)</option></select>
+<label for="bg7">환율 (달러일 때, 원/달러)</label>
+<input id="bg7" type="number" inputmode="decimal" placeholder="달러 요금일 때만"/>
+<button onclick="calc_excess_baggage_fee()">초과 요금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">초과 요금 합계</span><span class="result-value" id="bgT">-</span></div>
+<div class="result-row"><span class="result-label">추가 개수 요금</span><span class="result-value" id="bgE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">무게 초과 요금</span><span class="result-value" id="bgO" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">원화 환산</span><span class="result-value" id="bgK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_excess_baggage_fee(){
+ var f=_v('bg1'),b=_v('bg2'),p=_v('bg3'),o=_v('bg4'),q=_v('bg5'),u=document.getElementById('bg6').value,r=_v('bg7');
+ if(isNaN(f)||f<0||isNaN(b)||b<0) return alert('무료 짐 개수와 맡길 짐 개수를 입력해주세요.');
+ if(isNaN(p))p=0; if(isNaN(o))o=0; if(isNaN(q))q=0;
+ var ex=Math.max(0,b-f), e=ex*p, ov=o*q, t=e+ov;
+ function fm(x){return u==='usd'?'$'+_n(x,2):_w(x);}
+ _s('bgT',fm(t)); _s('bgE',ex+'개 × '+fm(p)+' = '+fm(e)); _s('bgO',o+'개 × '+fm(q)+' = '+fm(ov));
+ _s('bgK',u==='usd'?(isNaN(r)||r<=0?'환율을 넣으면 나옵니다':_w(t*r)):_w(t));
+ document.getElementById('result').classList.add('show');
+}
+</script>

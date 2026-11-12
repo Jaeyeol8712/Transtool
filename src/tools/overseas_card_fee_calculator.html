@@ -1,0 +1,31 @@
+<label for="cf1">결제 금액 (현지 통화)</label>
+<input id="cf1" type="number" inputmode="decimal" placeholder="100"/>
+<label for="cf2">환율 (현지 통화 1단위당 원)</label>
+<input id="cf2" type="number" inputmode="decimal" placeholder="1400"/>
+<label for="cf3">국제 브랜드 수수료 (%, 카드 상품설명서)</label>
+<input id="cf3" type="number" inputmode="decimal" placeholder="1"/>
+<label for="cf4">카드사 해외이용 수수료 (%, 카드 상품설명서)</label>
+<input id="cf4" type="number" inputmode="decimal" placeholder="0.25"/>
+<label for="cf5">원화결제(DCC) 추가 수수료 (%, 원화로 결제했을 때만)</label>
+<input id="cf5" type="number" inputmode="decimal" placeholder="현지 통화 결제면 비워 두기"/>
+<button onclick="calc_overseas_card_fee()">청구 금액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 청구 금액</span><span class="result-value" id="cfT">-</span></div>
+<div class="result-row"><span class="result-label">환산 금액 (수수료 전)</span><span class="result-value" id="cfB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">수수료 합계</span><span class="result-value" id="cfF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">결제 금액 대비</span><span class="result-value" id="cfP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_overseas_card_fee(){
+ var a=_v('cf1'),r=_v('cf2'),b=_v('cf3'),c=_v('cf4'),d=_v('cf5');
+ if(isNaN(a)||a<=0||isNaN(r)||r<=0) return alert('결제 금액과 환율을 입력해주세요.');
+ if(isNaN(b))b=0; if(isNaN(c))c=0; if(isNaN(d))d=0;
+ var base=a*r, dcc=base*d/100, brand=(base+dcc)*b/100, card=(base+dcc)*c/100, f=dcc+brand+card;
+ _s('cfT',_w(base+f)); _s('cfB',_w(base)); _s('cfF',_w(f)+(d>0?' (원화결제 '+_w(dcc)+' 포함)':'')); _s('cfP',_n(f/base*100,2)+'%');
+ document.getElementById('result').classList.add('show');
+}
+</script>

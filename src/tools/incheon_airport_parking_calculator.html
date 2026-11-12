@@ -1,0 +1,30 @@
+<label for="pk1">주차장</label>
+<select id="pk1"><option value="long" selected>장기주차장 (소형)</option><option value="short">단기주차장 (소형)</option></select>
+<label for="pk2">주차 기간 (일)</label>
+<input id="pk2" type="number" inputmode="numeric" placeholder="4"/>
+<label for="pk3">더 머무는 시간 (시간)</label>
+<input id="pk3" type="number" inputmode="decimal" placeholder="0"/>
+<button onclick="calc_incheon_airport_parking()">주차 요금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 주차 요금</span><span class="result-value" id="pkT">-</span></div>
+<div class="result-row"><span class="result-label">장기주차장이면</span><span class="result-value" id="pkL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">단기주차장이면</span><span class="result-value" id="pkS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function _pkFee(kind,min){
+ var cap=kind==='long'?9000:24000, d=Math.floor(min/1440), m=min-d*1440, x=0;
+ if(m>0){ if(kind==='long'){x=Math.ceil(m/60)*1000;} else {x=1200+(m>30?Math.ceil((m-30)/15)*600:0);} x=Math.min(x,cap); }
+ return d*cap+x;
+}
+function calc_incheon_airport_parking(){
+ var k=document.getElementById('pk1').value,d=_v('pk2'),h=_v('pk3');
+ if(isNaN(d))d=0; if(isNaN(h))h=0; if(d<0||h<0||d+h<=0) return alert('주차 기간을 입력해주세요.');
+ var min=Math.round(d*1440+h*60), L=_pkFee('long',min), S=_pkFee('short',min);
+ _s('pkT',_w(k==='long'?L:S)); _s('pkL',_w(L)); _s('pkS',_w(S));
+ document.getElementById('result').classList.add('show');
+}
+</script>

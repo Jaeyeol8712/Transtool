@@ -4,9 +4,17 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 74곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 114종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 74곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 124종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>뽁뽁이 필요량 계산기 — 창문 크기로 몇 롤 살까</title>
+      <link>https://www.aroundtool.com/window_bubble_wrap_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/window_bubble_wrap_calculator.html</guid>
+      <category>생활툴</category>
+      <description>창문 개수와 유리 가로·세로, 단열 뽁뽁이(에어캡) 롤의 폭·길이, 여유분을 넣으면 필요한 길이와 롤 수, 창문 1개당 붙일 장수를 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>제주 겨울 생선 시장 — 제철 시기·먹는 법·장소 안내</title>
       <link>https://www.aroundtool.com/season-jeju-winter-fish-market.html</link>
@@ -29,6 +37,78 @@
       <guid isPermaLink="true">https://www.aroundtool.com/season-busan-winter-gukmul.html</guid>
       <category>맛집</category>
       <description>부산 겨울 국물 음식 제철(겨울 (11월~2월))과 부산 (해운대 · 서면 · 하단 일대) 가는 법, 먹는 법, 고르는 법을 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>로밍 eSIM 유심 비교 계산기 — 여행 일수별 가장 싼 방법</title>
+      <link>https://www.aroundtool.com/roaming_esim_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/roaming_esim_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>여행 일수와 통신사 로밍 요금(하루·기간), eSIM 가격, 유심 가격과 배송비를 넣으면 세 방법의 총비용과 하루 비용을 비교하고 가장 싼 방법을 알려 줍니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>렌터카 총비용 계산기 — 대여료·보험·기름값 합계</title>
+      <link>https://www.aroundtool.com/rental_car_total_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/rental_car_total_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>대여 일수, 하루 대여료·보험료, 예상 주행거리와 연비·연료 가격, 기타 비용과 인원을 넣으면 렌터카 총비용과 연료비, 1인당·하루당 비용을 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해외 카드 수수료 계산기 — 결제하면 실제 청구는 얼마</title>
+      <link>https://www.aroundtool.com/overseas_card_fee_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/overseas_card_fee_calculator.html</guid>
+      <category>생활툴</category>
+      <description>해외 결제 금액과 환율, 카드 상품설명서의 국제 브랜드 수수료·해외이용 수수료, 원화결제(DCC) 수수료를 넣으면 예상 청구 금액과 수수료 합계를 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>인천공항 주차 요금 계산기 — 장기·단기 며칠이면 얼마</title>
+      <link>https://www.aroundtool.com/incheon_airport_parking_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/incheon_airport_parking_calculator.html</guid>
+      <category>생활툴</category>
+      <description>인천국제공항 장기·단기주차장(소형차) 공식 요금으로 주차 일수와 시간을 넣으면 예상 주차 요금을 계산하고 두 주차장을 비교합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>가습기 전기요금 계산기 — 하루 8시간 한 달이면 얼마</title>
+      <link>https://www.aroundtool.com/humidifier_electricity_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/humidifier_electricity_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>가습기 소비전력(W), 하루 사용 시간, 사용 일수, 고지서의 kWh당 단가를 넣으면 전력 사용량과 사용 기간 전기요금, 하루 요금을 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수하물 초과 요금 계산기 — 짐 1개 더 맡기면 얼마</title>
+      <link>https://www.aroundtool.com/excess_baggage_fee_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/excess_baggage_fee_calculator.html</guid>
+      <category>생활툴</category>
+      <description>무료 수하물 개수, 맡길 짐 개수, 항공사 요금표의 추가 1개당 요금과 무게 초과 요금을 넣으면 공항에서 낼 초과 요금 합계와 원화 환산액을 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>입국 면세 한도 계산기 — 800달러 넘으면 세금 얼마</title>
+      <link>https://www.aroundtool.com/duty_free_limit_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/duty_free_limit_calculator.html</guid>
+      <category>생활툴</category>
+      <description>해외·면세점 구입 합계(달러), 환율, 품목 세율을 넣으면 1인 면세 한도 800달러를 넘은 금액과 예상 세금, 자진신고 감면(30%, 최대 20만 원)과 미신고 가산세(40%)를 계산합니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>이슬점 계산기 — 창문 결로 생기는 온도·습도</title>
+      <link>https://www.aroundtool.com/dew_point_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/dew_point_calculator.html</guid>
+      <category>생활툴</category>
+      <description>실내 온도와 상대습도를 넣으면 Magnus 식으로 이슬점(결로가 시작되는 온도)을 계산하고, 창문·벽 표면 온도를 넣으면 결로 여부와 결로 없는 최대 습도를 알려 줍니다.</description>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고양이 사료 급여량 계산기 — 몸무게·상태별 하루 g</title>
+      <link>https://www.aroundtool.com/cat_food_amount_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/cat_food_amount_calculator.html</guid>
+      <category>생활툴</category>
+      <description>고양이 몸무게와 상태(새끼·중성화·감량 등), 사료 포장의 열량(kcal/kg), 간식 열량을 넣으면 하루 필요 열량(RER 공식)과 사료 그램 수를 계산합니다.</description>
       <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

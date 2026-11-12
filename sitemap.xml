@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 492 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 502 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -19,11 +19,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/about.html</loc>
@@ -98,6 +98,10 @@
   <url>
     <loc>https://www.aroundtool.com/card_installment_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/cat_food_amount_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/character_counter.html</loc>
@@ -192,6 +196,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/dew_point_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/discount_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-sale-1.jpg</image:loc></image:image>
@@ -229,6 +237,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-bapjip-2.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/duty_free_limit_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/editorial.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -248,6 +260,10 @@
   <url>
     <loc>https://www.aroundtool.com/exam_study_time_calculator.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/excess_baggage_fee_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/exchange_rate_calculator.html</loc>
@@ -859,6 +875,14 @@
     <lastmod>2026-11-05</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/humidifier_electricity_cost_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/incheon_airport_parking_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/increase_decrease_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-calculator-3.jpg</image:loc></image:image>
@@ -1090,6 +1114,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/overseas_card_fee_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/overseas_travel_budget_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -1158,12 +1186,20 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/rental_car_total_cost_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/retirement_income_tax_calculator.html</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/rice_water_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/roaming_esim_compare_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/salary_calculator.html</loc>
@@ -2163,6 +2199,10 @@
   <url>
     <loc>https://www.aroundtool.com/wind_chill_calculator.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/window_bubble_wrap_calculator.html</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/work_time_calculator.html</loc>
