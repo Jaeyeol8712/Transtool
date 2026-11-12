@@ -1,39 +1,34 @@
 {
- "date": "2026-11-12",
+ "date": "2026-11-13",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-11.html",
-   "title": "일간 보고서 · 2026-11-11(수)",
+   "file": "reports/daily-2026-11-12.html",
+   "title": "일간 보고서 · 2026-11-12(목)",
    "kpi": {
+    "views": 8,
+    "viewers": 3,
+    "clicks": 7,
+    "clickers": 3
+   },
+   "prev": {
     "views": 1,
     "viewers": 1,
     "clicks": 0,
     "clickers": 0
    },
-   "prev": {
-    "views": 1,
-    "viewers": 1,
-    "clicks": 1,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 3,
-    "users": 3,
+    "sessions": 4,
+    "users": 4,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 3,
-      "users": 3
+      "sessions": 4,
+      "users": 4
      }
     ]
    },
    "site": {
-    "20261105": {
-     "views": 32,
-     "users": 16,
-     "sessions": 20
-    },
     "20261106": {
      "views": 52,
      "users": 27,
@@ -63,18 +58,14 @@
      "views": 94,
      "users": 19,
      "sessions": 25
+    },
+    "20261112": {
+     "views": 135,
+     "users": 26,
+     "sessions": 34
     }
    },
    "days7": [
-    {
-     "key": "20261105",
-     "label": "11.5(목)",
-     "views": 1,
-     "viewers": 1,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 32
-    },
     {
      "key": "20261106",
      "label": "11.6(금)",
@@ -128,6 +119,15 @@
      "clicks": 0,
      "clickers": 0,
      "site": 94
+    },
+    {
+     "key": "20261112",
+     "label": "11.12(목)",
+     "views": 8,
+     "viewers": 3,
+     "clicks": 7,
+     "clickers": 3,
+     "site": 135
     }
    ],
    "weeks8": [
@@ -205,16 +205,21 @@
      "key": "202646",
      "label": "11.9~(진행 중)",
      "done": false,
-     "views": 4,
-     "viewers": 3,
-     "clicks": 2,
-     "clickers": 2,
-     "site": 168
+     "views": 12,
+     "viewers": 6,
+     "clicks": 9,
+     "clickers": 5,
+     "site": 303
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
+     "keyword": "(검색어 미전달)",
+     "clicks": 7
+    },
+    {
+     "channel": "Cross-network",
      "keyword": "(검색어 미전달)",
      "clicks": 4
     },
@@ -222,31 +227,31 @@
      "channel": "AI Assistant",
      "keyword": "(직접·내부)",
      "clicks": 1
-    },
-    {
-     "channel": "Unassigned",
-     "keyword": "(검색어 미전달)",
-     "clicks": 1
     }
    ],
    "topPosts": [
     {
+     "post": "경동나비엔 온수매트 추천 가격 고르는 법",
+     "views": 9,
+     "clicks": 6
+    },
+    {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 5,
-     "clicks": 4
+     "views": 6,
+     "clicks": 5
     },
     {
      "post": "거북목 교정기 목견인기 추천 가격 비교",
      "views": 2,
      "clicks": 1
-    },
-    {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 1,
-     "clicks": 1
     }
    ],
    "sources": [
+    {
+     "name": "m.search.naver.com / referral",
+     "sessions": 4,
+     "users": 4
+    },
     {
      "name": "daum / organic",
      "sessions": 3,
@@ -254,26 +259,33 @@
     },
     {
      "name": "naver_cafe / cafe",
-     "sessions": 3,
-     "users": 3
-    },
-    {
-     "name": "m.search.naver.com / referral",
      "sessions": 2,
      "users": 2
+    },
+    {
+     "name": "(data not available)",
+     "sessions": 1,
+     "users": 1
     },
     {
      "name": "chatgpt.com / ai-assistant",
      "sessions": 1,
      "users": 1
-    },
-    {
-     "name": "google / organic",
-     "sessions": 1,
-     "users": 1
     }
    ],
    "keywords": [
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "navien-water-mat",
+     "sessions": 2
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "queens-collagen-rg3",
+     "sessions": 2
+    },
     {
      "engine": "다음",
      "query": "(검색어 미전달)",
@@ -309,12 +321,6 @@
      "query": "(검색어 미전달)",
      "post": "neck-traction",
      "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "queens-collagen-rg3",
-     "sessions": 1
     }
    ],
    "google": [
@@ -322,15 +328,8 @@
      "query": "무선 게이밍 키보드 추천",
      "post": "wireless-gaming-keyboard",
      "clicks": 0,
-     "impressions": 5,
+     "impressions": 3,
      "position": 7
-    },
-    {
-     "query": "폴드8 256 출고가",
-     "post": "galaxy-z-fold8-256",
-     "clicks": 0,
-     "impressions": 2,
-     "position": 9
     },
     {
      "query": "jbl 어센틱 200",
@@ -354,13 +353,6 @@
      "position": 50
     },
     {
-     "query": "대학생 노트북",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 37
-    },
-    {
      "query": "대학생 인강용 노트북 추천",
      "post": "student-office-laptop",
      "clicks": 0,
@@ -373,6 +365,20 @@
      "clicks": 0,
      "impressions": 1,
      "position": 56
+    },
+    {
+     "query": "시드니여행코스",
+     "post": "sydney-7days-full",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 57
+    },
+    {
+     "query": "인강용 노트북 추천",
+     "post": "student-office-laptop",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 8
     }
    ]
   }

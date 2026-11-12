@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-12",
+  "users": 26,
+  "sessions": 34,
+  "views": 135,
+  "organic": 17
+ },
+ "yday0": {
   "date": "2026-11-11",
   "users": 19,
   "sessions": 25,
   "views": 94,
   "organic": 16
- },
- "yday0": {
-  "date": "2026-11-10",
-  "users": 36,
-  "sessions": 37,
-  "views": 45,
-  "organic": 20
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "done": false,
-   "users": 79,
-   "sessions": 90,
-   "views": 168,
-   "organic": 58
+   "users": 104,
+   "sessions": 124,
+   "views": 303,
+   "organic": 75
   }
  ],
  "lastWeek": {
@@ -228,52 +228,49 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "complete": false,
-   "clicks": 6,
-   "impressions": 722,
-   "position": 9.5
+   "clicks": 15,
+   "impressions": 1435,
+   "position": 10.2
   }
  ],
- "made": "2026-11-12T03:48:34.934Z",
- "range": "2026-11-05 ~ 2026-11-11",
- "prevRange": "2026-10-29 ~ 2026-11-04",
+ "made": "2026-11-12T23:27:11.200Z",
+ "range": "2026-11-06 ~ 2026-11-12",
+ "prevRange": "2026-10-30 ~ 2026-11-05",
  "cur": {
-  "users": 147,
-  "sessions": 185,
-  "views": 297
+  "users": 158,
+  "sessions": 199,
+  "views": 400
  },
  "prev": {
   "users": 98,
-  "sessions": 122,
-  "views": 439
+  "sessions": 118,
+  "views": 405
  },
  "organic": {
-  "cur": 125,
-  "prev": 62
+  "cur": 132,
+  "prev": 61
  },
  "channels": {
   "cur": {
-   "Organic Search": 125,
-   "Direct": 46,
-   "Unassigned": 12,
-   "Organic Social": 5,
-   "AI Assistant": 3
+   "Organic Search": 132,
+   "Direct": 53,
+   "Unassigned": 7,
+   "AI Assistant": 4,
+   "Organic Social": 3,
+   "Cross-network": 1,
+   "Referral": 1
   },
   "prev": {
-   "Organic Search": 62,
-   "Direct": 43,
-   "Unassigned": 9,
+   "Organic Search": 61,
+   "Direct": 36,
+   "Unassigned": 10,
    "AI Assistant": 6,
-   "Organic Social": 1,
+   "Organic Social": 3,
    "Paid Search": 1,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261015",
-   "users": 6,
-   "sessions": 8
-  },
   {
    "date": "20261016",
    "users": 2,
@@ -408,12 +405,17 @@
    "date": "20261111",
    "users": 19,
    "sessions": 25
+  },
+  {
+   "date": "20261112",
+   "users": 26,
+   "sessions": 34
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 35
+   "sessions": 40
   },
   {
    "page": "/jeju-seogwipo-galchi.html",
@@ -424,56 +426,56 @@
    "sessions": 7
   },
   {
+   "page": "/yeonsu.html",
+   "sessions": 7
+  },
+  {
    "page": "/interior_calculator.html",
    "sessions": 6
   },
   {
-   "page": "/yeonsu.html",
-   "sessions": 6
-  },
-  {
-   "page": "",
-   "sessions": 5
-  },
-  {
    "page": "/haeundae-gukmul-myeon.html",
-   "sessions": 4
+   "sessions": 5
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
    "sessions": 4
   },
   {
-   "page": "/connect.html",
+   "page": "/shop-queens-collagen-rg3.html",
+   "sessions": 4
+  },
+  {
+   "page": "/guide-kimjang-timing-2026.html",
    "sessions": 3
   },
   {
-   "page": "/daejeon-donggu-station.html",
+   "page": "/japan_travel_calculator.html",
    "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-11-03 ~ 2026-11-09",
+  "range": "2026-11-04 ~ 2026-11-10",
   "cur": {
-   "clicks": 19,
-   "impressions": 3354,
-   "position": 9.741502683363148
+   "clicks": 25,
+   "impressions": 3590,
+   "position": 10.103899721448467
   },
   "prev": {
-   "clicks": 6,
-   "impressions": 2332,
-   "position": 9.074185248713551
+   "clicks": 9,
+   "impressions": 2498,
+   "position": 8.870296236989592
   }
  },
  "ai": {
   "cur": {
-   "sessions": 3,
-   "users": 3,
+   "sessions": 4,
+   "users": 4,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 3,
-     "users": 3
+     "sessions": 4,
+     "users": 4
     }
    ]
   },
@@ -488,5 +490,34 @@
     }
    ]
   }
+ },
+ "klink": {
+  "cur": {
+   "views": 28,
+   "users": 4,
+   "fromSite": 20,
+   "fromTravel": 0,
+   "events": {
+    "klink_save": 9,
+    "klink_course": 2,
+    "klink_plan": 1,
+    "klink_prep": 8,
+    "klink_out": 3
+   }
+  },
+  "prev": {
+   "views": 0,
+   "users": 0,
+   "fromSite": 0,
+   "fromTravel": 0,
+   "events": {
+    "klink_save": 0,
+    "klink_course": 0,
+    "klink_plan": 0,
+    "klink_prep": 0,
+    "klink_out": 0
+   }
+  },
+  "note": "fromSite/fromTravel = 사이트 글(여행 글)에서 넘어온 /klink/ 조회(이전 페이지 기준)"
  }
 }
