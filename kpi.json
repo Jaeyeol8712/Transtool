@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-11",
+  "users": 19,
+  "sessions": 25,
+  "views": 94,
+  "organic": 16
+ },
+ "yday0": {
   "date": "2026-11-10",
   "users": 36,
   "sessions": 37,
   "views": 45,
   "organic": 20
- },
- "yday0": {
-  "date": "2026-11-09",
-  "users": 25,
-  "sessions": 28,
-  "views": 29,
-  "organic": 22
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "done": false,
-   "users": 61,
-   "sessions": 65,
-   "views": 74,
-   "organic": 42
+   "users": 79,
+   "sessions": 90,
+   "views": 168,
+   "organic": 58
   }
  ],
  "lastWeek": {
@@ -228,52 +228,47 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "complete": false,
-   "clicks": 0,
-   "impressions": 0,
-   "position": null
+   "clicks": 6,
+   "impressions": 722,
+   "position": 9.5
   }
  ],
- "made": "2026-11-11T02:47:07.446Z",
- "range": "2026-11-04 ~ 2026-11-10",
- "prevRange": "2026-10-28 ~ 2026-11-03",
+ "made": "2026-11-12T03:48:30.753Z",
+ "range": "2026-11-05 ~ 2026-11-11",
+ "prevRange": "2026-10-29 ~ 2026-11-04",
  "cur": {
-  "users": 152,
+  "users": 147,
   "sessions": 185,
-  "views": 289
+  "views": 297
  },
  "prev": {
-  "users": 103,
-  "sessions": 134,
-  "views": 426
+  "users": 98,
+  "sessions": 122,
+  "views": 439
  },
  "organic": {
   "cur": 125,
-  "prev": 58
+  "prev": 62
  },
  "channels": {
   "cur": {
    "Organic Search": 125,
-   "Direct": 47,
-   "Unassigned": 6,
-   "Organic Social": 4,
+   "Direct": 46,
+   "Unassigned": 12,
+   "Organic Social": 5,
    "AI Assistant": 3
   },
   "prev": {
-   "Organic Search": 58,
-   "Direct": 53,
+   "Organic Search": 62,
+   "Direct": 43,
    "Unassigned": 9,
-   "Organic Social": 7,
    "AI Assistant": 6,
+   "Organic Social": 1,
    "Paid Search": 1,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261014",
-   "users": 1,
-   "sessions": 1
-  },
   {
    "date": "20261015",
    "users": 6,
@@ -408,39 +403,40 @@
    "date": "20261110",
    "users": 36,
    "sessions": 37
+  },
+  {
+   "date": "20261111",
+   "users": 19,
+   "sessions": 25
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 30
-  },
-  {
-   "page": "(not set)",
-   "sessions": 9
+   "sessions": 35
   },
   {
    "page": "/jeju-seogwipo-galchi.html",
    "sessions": 9
   },
   {
+   "page": "(not set)",
+   "sessions": 7
+  },
+  {
+   "page": "/interior_calculator.html",
+   "sessions": 6
+  },
+  {
    "page": "/yeonsu.html",
    "sessions": 6
   },
   {
+   "page": "",
+   "sessions": 5
+  },
+  {
    "page": "/haeundae-gukmul-myeon.html",
-   "sessions": 5
-  },
-  {
-   "page": "/yeonsu-bapjip.html",
-   "sessions": 5
-  },
-  {
-   "page": "/interior_calculator.html",
-   "sessions": 4
-  },
-  {
-   "page": "/job_fortune_teller",
    "sessions": 4
   },
   {
@@ -448,21 +444,25 @@
    "sessions": 4
   },
   {
-   "page": "/shop-queens-collagen-rg3.html",
-   "sessions": 4
+   "page": "/connect.html",
+   "sessions": 3
+  },
+  {
+   "page": "/daejeon-donggu-station.html",
+   "sessions": 3
   }
  ],
  "google": {
-  "range": "2026-11-02 ~ 2026-11-08",
+  "range": "2026-11-03 ~ 2026-11-09",
   "cur": {
-   "clicks": 17,
-   "impressions": 3027,
-   "position": 9.764453254046911
+   "clicks": 19,
+   "impressions": 3354,
+   "position": 9.741502683363148
   },
   "prev": {
-   "clicks": 2,
-   "impressions": 2126,
-   "position": 8.924741298212606
+   "clicks": 6,
+   "impressions": 2332,
+   "position": 9.074185248713551
   }
  },
  "ai": {

@@ -1,18 +1,18 @@
 {
- "date": "2026-11-11",
+ "date": "2026-11-12",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-10.html",
-   "title": "일간 보고서 · 2026-11-10(화)",
+   "file": "reports/daily-2026-11-11.html",
+   "title": "일간 보고서 · 2026-11-11(수)",
    "kpi": {
     "views": 1,
     "viewers": 1,
-    "clicks": 1,
-    "clickers": 1
+    "clicks": 0,
+    "clickers": 0
    },
    "prev": {
-    "views": 2,
+    "views": 1,
     "viewers": 1,
     "clicks": 1,
     "clickers": 1
@@ -29,11 +29,6 @@
     ]
    },
    "site": {
-    "20261104": {
-     "views": 86,
-     "users": 22,
-     "sessions": 25
-    },
     "20261105": {
      "views": 32,
      "users": 16,
@@ -63,18 +58,14 @@
      "views": 45,
      "users": 36,
      "sessions": 37
+    },
+    "20261111": {
+     "views": 94,
+     "users": 19,
+     "sessions": 25
     }
    },
    "days7": [
-    {
-     "key": "20261104",
-     "label": "11.4(수)",
-     "views": 14,
-     "viewers": 5,
-     "clicks": 3,
-     "clickers": 2,
-     "site": 86
-    },
     {
      "key": "20261105",
      "label": "11.5(목)",
@@ -128,6 +119,15 @@
      "clicks": 1,
      "clickers": 1,
      "site": 45
+    },
+    {
+     "key": "20261111",
+     "label": "11.11(수)",
+     "views": 1,
+     "viewers": 1,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 94
     }
    ],
    "weeks8": [
@@ -205,27 +205,22 @@
      "key": "202646",
      "label": "11.9~(진행 중)",
      "done": false,
-     "views": 3,
-     "viewers": 2,
+     "views": 4,
+     "viewers": 3,
      "clicks": 2,
      "clickers": 2,
-     "site": 74
+     "site": 168
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 6
+     "clicks": 4
     },
     {
      "channel": "AI Assistant",
      "keyword": "(직접·내부)",
-     "clicks": 1
-    },
-    {
-     "channel": "Organic Social",
-     "keyword": "(검색어 미전달)",
      "clicks": 1
     },
     {
@@ -237,8 +232,8 @@
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 7,
-     "clicks": 6
+     "views": 5,
+     "clicks": 4
     },
     {
      "post": "거북목 교정기 목견인기 추천 가격 비교",
@@ -246,7 +241,7 @@
      "clicks": 1
     },
     {
-     "post": "C타입 고속 충전기 65W 일체형 가격 추천",
+     "post": "동유럽 3개국 여행 코스 추천 정리",
      "views": 1,
      "clicks": 1
     }
@@ -258,14 +253,14 @@
      "users": 3
     },
     {
-     "name": "m.search.naver.com / referral",
+     "name": "naver_cafe / cafe",
      "sessions": 3,
      "users": 3
     },
     {
-     "name": "naver_cafe / cafe",
-     "sessions": 3,
-     "users": 3
+     "name": "m.search.naver.com / referral",
+     "sessions": 2,
+     "users": 2
     },
     {
      "name": "chatgpt.com / ai-assistant",
@@ -279,12 +274,6 @@
     }
    ],
    "keywords": [
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "queens-collagen-rg3",
-     "sessions": 2
-    },
     {
      "engine": "다음",
      "query": "(검색어 미전달)",
@@ -324,7 +313,7 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "mesh-office-chair",
+     "post": "queens-collagen-rg3",
      "sessions": 1
     }
    ],
@@ -372,181 +361,11 @@
      "position": 37
     },
     {
-     "query": "쉐이빙폼 추천",
-     "post": "shaving-foam-cream",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 56
-    },
-    {
-     "query": "인강용 노트북 추천",
+     "query": "대학생 인강용 노트북 추천",
      "post": "student-office-laptop",
      "clicks": 0,
      "impressions": 1,
-     "position": 8
-    }
-   ]
-  },
-  {
-   "type": "weekly",
-   "file": "reports/weekly-2026-11-02.html",
-   "title": "주간 보고서 · 11.2(월) ~ 11.8(일)",
-   "kpi": {
-    "views": 63,
-    "viewers": 23,
-    "clicks": 9,
-    "clickers": 7
-   },
-   "prev": {
-    "views": 70,
-    "viewers": 24,
-    "clicks": 3,
-    "clickers": 3
-   },
-   "site": null,
-   "topPosts": [
-    {
-     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 7,
-     "clicks": 5
-    },
-    {
-     "post": "동유럽 3개국 여행 코스 추천 정리",
-     "views": 5,
-     "clicks": 1
-    },
-    {
-     "post": "설화수 탄력 3종 기획세트 고르는 법",
-     "views": 3,
-     "clicks": 1
-    }
-   ],
-   "sources": [
-    {
-     "name": "naver_cafe / cafe",
-     "sessions": 8,
-     "users": 8
-    },
-    {
-     "name": "daum / organic",
-     "sessions": 3,
-     "users": 3
-    },
-    {
-     "name": "(direct) / (none)",
-     "sessions": 2,
-     "users": 2
-    },
-    {
-     "name": "m.search.naver.com / referral",
-     "sessions": 2,
-     "users": 2
-    },
-    {
-     "name": "chatgpt.com / ai-assistant",
-     "sessions": 1,
-     "users": 1
-    }
-   ],
-   "keywords": [
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "queens-collagen-rg3",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "east-europe-3countries",
-     "sessions": 2
-    },
-    {
-     "engine": "다음",
-     "query": "(검색어 미전달)",
-     "post": "car-vacuum-air-duster",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "홍콩 3박",
-     "post": "hongkong-deal-travel",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "경동나비엔 온수매트",
-     "post": "navien-water-mat",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "목 어깨",
-     "post": "pulio-neck-shoulder-tapping",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "차량용",
-     "post": "car-vacuum-air-duster",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "mesh-office-chair",
-     "sessions": 1
-    }
-   ],
-   "google": [
-    {
-     "query": "무선 게이밍 키보드 추천",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 5,
-     "position": 7
-    },
-    {
-     "query": "폴드8 256 출고가",
-     "post": "galaxy-z-fold8-256",
-     "clicks": 0,
-     "impressions": 2,
-     "position": 9
-    },
-    {
-     "query": "jbl 어센틱 200",
-     "post": "jbl-authentics-200",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 27
-    },
-    {
-     "query": "가격",
-     "post": "queens-collagen-rg3",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 2
-    },
-    {
-     "query": "갤탭 12 울트라",
-     "post": "galaxy-tab-s12-ultra",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 50
-    },
-    {
-     "query": "대학생 노트북",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 37
-    },
-    {
-     "query": "비스포크 4도어",
-     "post": "bespoke-ai-fridge-4door",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 13
+     "position": 10
     },
     {
      "query": "쉐이빙폼 추천",
