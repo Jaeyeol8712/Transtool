@@ -518,3 +518,43 @@ p{text-wrap:pretty}
 .crs-d em{font-style:normal;color:var(--mute)}
 .crs-a{display:flex;gap:8px}
 .crs-a .btn{flex:1;text-decoration:none}
+/* ---------- 실제 지도 (MapLibre + OpenFreeMap, i261112-15) ---------- */
+.glmap,.glmap.maplibregl-map{position:absolute;inset:0;width:100%;height:100%}
+.glmap .maplibregl-canvas{outline:none}
+.glmap .maplibregl-ctrl-attrib{font-size:10px}
+@media (max-width:979px){.app.t-map #mapbox .maplibregl-ctrl-bottom-left{bottom:calc(var(--sheet-h,38%) - 2px);transition:bottom .32s cubic-bezier(.3,.7,.2,1)}}
+.glpin,.glreg,.glstay,.glnum{appearance:none;border:0;background:none;padding:0;margin:0;cursor:pointer;font:inherit;color:var(--ink)}
+.glpin{width:28px;height:28px;position:relative}
+.glpin .dot{width:28px;height:28px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(20,26,46,.32);transition:transform .15s}
+.glpin .dot svg{width:15px;height:15px;color:#fff}
+.glpin.sel{z-index:4}.glpin.saved{z-index:3}
+.glpin.sel .dot{transform:scale(1.3);box-shadow:0 0 0 6px rgba(36,67,232,.22),0 2px 6px rgba(20,26,46,.32)}
+.glpin .hb{position:absolute;right:-7px;top:-7px;width:17px;height:17px;border-radius:50%;background:var(--blossom);color:#fff;font-size:9px;line-height:1;display:grid;place-items:center;border:2px solid #fff}
+.glpin .lb,.glstay .lb,.glnum .lb{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,.96);border-radius:8px;padding:2px 7px;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(20,26,46,.18);color:var(--ink);pointer-events:none;line-height:1.35}
+.glpin.sel .lb{background:var(--ink);color:#fff;top:calc(100% + 8px)}
+.gl-lbl-off .glpin:not(.keep):not(.sel) .lb{display:none}
+.glreg{display:flex;flex-direction:column;align-items:center}
+.glreg .m-label{position:static;transform:none;display:block}
+.glreg .rdot{width:16px;height:16px;border-radius:50%;background:var(--cobalt);border:3px solid #fff;box-shadow:0 0 0 7px rgba(36,67,232,.16);margin-top:6px}
+.gl-world .glreg .m-label{font-size:12.5px;padding:4px 9px}
+.gl-world .glreg .rdot{width:13px;height:13px;border-width:2.5px;box-shadow:0 0 0 5px rgba(36,67,232,.16)}
+.gl-minor-off .glreg.minor .m-label{display:none}
+.m-label.gldist{position:static;transform:none;opacity:.94}
+.gl-region .m-label.gldist{z-index:1}
+.glstay{width:30px;height:30px;border-radius:50%;background:var(--ink);border:2.5px solid #fff;display:grid;place-items:center;position:relative;box-shadow:0 2px 6px rgba(20,26,46,.3)}
+.glstay svg{width:16px;height:16px;color:#fff}
+.glnum{width:26px;height:26px;border-radius:50%;background:#fff;border:3.5px solid var(--lc0,var(--cobalt));font-size:11.5px;font-weight:800;line-height:19px;text-align:center;position:relative;box-shadow:0 2px 5px rgba(20,26,46,.25)}
+.glnum.meal{border-color:#EF7C1C}
+/* 여행 유형 고르기 (시작 화면·여행 설정) */
+.intro .types{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.intro .types button{appearance:none;border:0;cursor:pointer;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;font:inherit;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.intro .types button i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--cobalt-soft);color:var(--cobalt);display:grid;place-items:center;flex-shrink:0}
+.intro .types button i svg{width:22px;height:22px}
+.intro .types button b{display:block;font-size:16.5px;font-weight:800}
+.intro .types button small{display:block;font-size:13px;color:var(--mute);margin-top:2px;line-height:1.4}
+.intro .types button>svg{width:18px;height:18px;margin-left:auto;color:var(--mute);flex-shrink:0}
+.intro .later{appearance:none;border:0;background:none;color:rgba(255,255,255,.85);font:inherit;font-size:13.5px;text-decoration:underline;margin-top:14px;cursor:pointer;align-self:center;padding:8px}
+.ttype{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ttype button{appearance:none;border:1.5px solid var(--line);background:var(--white);border-radius:12px;padding:9px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.25}
+.ttype button small{display:block;font-size:11px;font-weight:500;color:var(--mute);margin-top:2px}
+.ttype button.on{border-color:var(--cobalt);background:var(--cobalt-soft);color:var(--cobalt)}

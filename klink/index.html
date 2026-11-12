@@ -534,11 +534,53 @@ p{text-wrap:pretty}
 .crs-d em{font-style:normal;color:var(--mute)}
 .crs-a{display:flex;gap:8px}
 .crs-a .btn{flex:1;text-decoration:none}
+/* ---------- 실제 지도 (MapLibre + OpenFreeMap, i261112-15) ---------- */
+.glmap,.glmap.maplibregl-map{position:absolute;inset:0;width:100%;height:100%}
+.glmap .maplibregl-canvas{outline:none}
+.glmap .maplibregl-ctrl-attrib{font-size:10px}
+@media (max-width:979px){.app.t-map #mapbox .maplibregl-ctrl-bottom-left{bottom:calc(var(--sheet-h,38%) - 2px);transition:bottom .32s cubic-bezier(.3,.7,.2,1)}}
+.glpin,.glreg,.glstay,.glnum{appearance:none;border:0;background:none;padding:0;margin:0;cursor:pointer;font:inherit;color:var(--ink)}
+.glpin{width:28px;height:28px;position:relative}
+.glpin .dot{width:28px;height:28px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(20,26,46,.32);transition:transform .15s}
+.glpin .dot svg{width:15px;height:15px;color:#fff}
+.glpin.sel{z-index:4}.glpin.saved{z-index:3}
+.glpin.sel .dot{transform:scale(1.3);box-shadow:0 0 0 6px rgba(36,67,232,.22),0 2px 6px rgba(20,26,46,.32)}
+.glpin .hb{position:absolute;right:-7px;top:-7px;width:17px;height:17px;border-radius:50%;background:var(--blossom);color:#fff;font-size:9px;line-height:1;display:grid;place-items:center;border:2px solid #fff}
+.glpin .lb,.glstay .lb,.glnum .lb{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,.96);border-radius:8px;padding:2px 7px;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(20,26,46,.18);color:var(--ink);pointer-events:none;line-height:1.35}
+.glpin.sel .lb{background:var(--ink);color:#fff;top:calc(100% + 8px)}
+.gl-lbl-off .glpin:not(.keep):not(.sel) .lb{display:none}
+.glreg{display:flex;flex-direction:column;align-items:center}
+.glreg .m-label{position:static;transform:none;display:block}
+.glreg .rdot{width:16px;height:16px;border-radius:50%;background:var(--cobalt);border:3px solid #fff;box-shadow:0 0 0 7px rgba(36,67,232,.16);margin-top:6px}
+.gl-world .glreg .m-label{font-size:12.5px;padding:4px 9px}
+.gl-world .glreg .rdot{width:13px;height:13px;border-width:2.5px;box-shadow:0 0 0 5px rgba(36,67,232,.16)}
+.gl-minor-off .glreg.minor .m-label{display:none}
+.m-label.gldist{position:static;transform:none;opacity:.94}
+.gl-region .m-label.gldist{z-index:1}
+.glstay{width:30px;height:30px;border-radius:50%;background:var(--ink);border:2.5px solid #fff;display:grid;place-items:center;position:relative;box-shadow:0 2px 6px rgba(20,26,46,.3)}
+.glstay svg{width:16px;height:16px;color:#fff}
+.glnum{width:26px;height:26px;border-radius:50%;background:#fff;border:3.5px solid var(--lc0,var(--cobalt));font-size:11.5px;font-weight:800;line-height:19px;text-align:center;position:relative;box-shadow:0 2px 5px rgba(20,26,46,.25)}
+.glnum.meal{border-color:#EF7C1C}
+/* 여행 유형 고르기 (시작 화면·여행 설정) */
+.intro .types{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.intro .types button{appearance:none;border:0;cursor:pointer;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;font:inherit;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.intro .types button i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--cobalt-soft);color:var(--cobalt);display:grid;place-items:center;flex-shrink:0}
+.intro .types button i svg{width:22px;height:22px}
+.intro .types button b{display:block;font-size:16.5px;font-weight:800}
+.intro .types button small{display:block;font-size:13px;color:var(--mute);margin-top:2px;line-height:1.4}
+.intro .types button>svg{width:18px;height:18px;margin-left:auto;color:var(--mute);flex-shrink:0}
+.intro .later{appearance:none;border:0;background:none;color:rgba(255,255,255,.85);font:inherit;font-size:13.5px;text-decoration:underline;margin-top:14px;cursor:pointer;align-self:center;padding:8px}
+.ttype{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ttype button{appearance:none;border:1.5px solid var(--line);background:var(--white);border-radius:12px;padding:9px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.25}
+.ttype button small{display:block;font-size:11px;font-weight:500;color:var(--mute);margin-top:2px}
+.ttype button.on{border-color:var(--cobalt);background:var(--cobalt-soft);color:var(--cobalt)}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
 <main id="seo"><h1>K링크 — 여행 일정 플래너</h1><p>지도에서 가고 싶은 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천합니다. 국내 7곳은 3D 거리, 해외 34개 도시는 지도로 고릅니다. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 옵니다.</p><h2>여행지</h2><ul><li><a href="#seoul">서울</a> — 경복궁 · 북촌 한옥마을 · 창덕궁 후원 · 인사동 쌈지길 · 국립중앙박물관 · 광장시장 먹거리</li><li><a href="#busan">부산</a> — 해운대 해수욕장 · 감천문화마을 · 자갈치시장 회센터 · 광안대교 야경 · 서면 돼지국밥 골목 · 해동용궁사</li><li><a href="#jeju">제주</a> — 성산일출봉 · 한라산 영실 코스 · 제주 흑돼지 거리 · 동문시장 야시장 · 애월 해안 카페 거리 · 중문 주상절리</li><li><a href="#gyeongju">경주</a> — 불국사 · 대릉원·첨성대 · 황리단길 한옥 카페 · 동궁과 월지 야경 · 경주 쌈밥 거리 · 보문호수 산책</li><li><a href="#gangneung">강릉</a> — 안목 커피거리 · 경포해변·경포대 · 주문진 수산시장 · 초당 순두부 마을 · 오죽헌 · BTS 버스정류장 촬영지</li><li><a href="#jeonju">전주</a> — 전주 한옥마을 · 남부시장 야시장 · 경기전 · 한옥마을 전통 찻집 · 전동성당</li><li><a href="#yeosu">여수</a> — 여수 해상케이블카 · 여수 밤바다 낭만포차 · 오동도 · 향일암 · 아쿠아플라넷 여수 · 돌산공원 야경</li><li><a href="#tokyo">도쿄</a> — 센소지 · 나카미세 거리 · 우에노 공원 · 시부야 스크램블 교차로 · 메이지 신궁 · 다케시타 거리</li><li><a href="#osaka">오사카</a> — 도톤보리 · 신사이바시 · 구로몬 시장 · 신세카이·츠텐카쿠 · 오사카성 · 우메다 공중정원</li><li><a href="#kyoto">교토</a> — 기요미즈데라 · 기온 · 후시미 이나리 신사 · 아라시야마 대나무숲 · 도게츠교 · 금각사</li><li><a href="#fukuoka">후쿠오카</a> — 하카타역 · 캐널시티 하카타 · 텐진 지하상가 · 나카스 야타이 · 다자이후 텐만구 · 유후인 긴린코</li><li><a href="#sapporo">삿포로</a> — 오도리 공원 · 삿포로 TV타워 · 삿포로 시계탑 · 스스키노·라멘 골목 · 모이와산 로프웨이 · 오타루 운하</li><li><a href="#okinawa">오키나와</a> — 국제거리 · 슈리성 공원 · 아메리칸 빌리지 · 만좌모 · 츄라우미 수족관 · 고우리 대교</li><li><a href="#nagoya">나고야</a> — 노리타케의 숲 · 사카에 · 오스 상점가 · 나고야성 · 나바나노사토</li><li><a href="#hakodate">하코다테</a> — 하코다테 아침시장 · 가네모리 붉은벽돌창고 · 모토마치 · 하코다테산 로프웨이 · 고료카쿠 공원·타워 · 유노카와 온천</li><li><a href="#beppu">벳푸</a> — 벳푸 지옥 온천 순례 · 칸나와 온천 마을 · 벳푸역 앞 온천·상점가 · 긴린코 호수 · 유노쓰보 거리</li><li><a href="#matsuyama">마쓰야마</a> — 도고온천 본관 · 도고 상점가 · 마쓰야마성 · 오카이도 · 시모나다역</li><li><a href="#kagoshima">가고시마</a> — 덴몬칸 · 시로야마 전망대 · 센간엔 · 사쿠라지마 · 이부스키 모래찜질 온천</li><li><a href="#shizuoka">시즈오카</a> — 시즈오카역 주변·슨푸성 공원 · 니혼다이라 · 미호노마쓰바라 · 시미즈 항</li><li><a href="#takamatsu">다카마쓰</a> — 리쓰린 공원 · 다카마쓰 상점가 · 나오시마 · 고토히라궁 · 쇼도시마</li><li><a href="#taipei">타이베이</a> — 타이베이 101 · 샹산 전망 · 스린 야시장 · 국립고궁박물원 · 시먼딩 · 단수이</li><li><a href="#kaohsiung">가오슝</a> — 메이리다오역 빛의 돔 · 리우허 야시장 · 보얼예술특구 · 아이허(러브 리버) · 치진섬 · 연지담 용호탑</li><li><a href="#taichung">타이중</a> — 궁원안과 · 국립대만미술관 · 펑자 야시장 · 무지개마을 · 가오메이 습지 · 일월담</li><li><a href="#hongkong">홍콩</a> — 스타의 거리·심포니 오브 라이트 · 스타페리 · 피크트램·빅토리아 피크 · 센트럴 · 몽콕 야시장 · 옹핑 케이블카·빅부다</li><li><a href="#macau">마카오</a> — 세나도 광장 · 성 바울 성당 유적 · 타이파 빌리지 · 코타이 리조트 · 마카오 타워</li><li><a href="#shanghai">상하이</a> — 와이탄 · 난징루 · 동방명주 · 예원·위위안 상가 · 주자자오 수향</li><li><a href="#danang">다낭</a> — 미케 해변 · 한 시장 · 용다리 · 오행산 · 바나힐·골든브리지 · 호이안 구시가지</li><li><a href="#nhatrang">나트랑</a> — 나트랑 해변 · 나트랑 야시장 · 포나가르 탑 · 머드 온천(탑바) · 빈원더스(혼째섬) · 호핑투어(혼문섬)</li><li><a href="#hanoi">하노이</a> — 호안끼엠 호수 · 36거리 · 문묘 · 호찌민 묘소 · 닌빈 짱안 · 하롱베이</li><li><a href="#hochiminh">호치민</a> — 벤탄 시장 · 중앙우체국 · 통일궁 · 부이비엔 거리 · 구찌 터널 · 메콩델타 보트 투어</li><li><a href="#phuquoc">푸꾸옥</a> — 즈엉동 야시장 · 혼텀 케이블카 · 선셋타운 · 사오 해변 · 빈원더스·사파리</li><li><a href="#bangkok">방콕</a> — 왕궁·왓 프라깨우 · 왓 포 · 왓 아룬 · 카오산 로드 · 시암 쇼핑몰 · 짜뚜짝 주말시장</li><li><a href="#chiangmai">치앙마이</a> — 왓 프라싱 · 왓 체디루앙 · 일요 워킹스트리트 · 님만해민 · 왓 프라탓 도이수텝</li><li><a href="#cebu">세부</a> — 막탄 호핑 투어 · 산토니뇨 성당 · 모알보알</li><li><a href="#bohol">보홀</a> — 알로나 해변 · 발리카삭 호핑 · 로복강 · 안경원숭이 보호구역 · 초콜릿 힐</li><li><a href="#clark">클락</a> — 클락 프리포트 · 앙헬레스 시내 · 피나투보 화산 · 수빅</li><li><a href="#singapore">싱가포르</a> — 마리나베이샌즈 · 멀라이언 공원 · 가든스 바이 더 베이 · 차이나타운 · 리틀인디아 · 오차드 로드</li><li><a href="#kualalumpur">쿠알라룸푸르</a> — 페트로나스 트윈타워·KLCC 공원 · 부킷빈탕 · 잘란알로 야시장 · 메르데카 광장 · 차이나타운 · 바투동굴</li><li><a href="#kotakinabalu">코타키나발루</a> — 워터프런트·야시장 · 탄중아루 해변 · 사피섬 · 마누칸섬 · 키나발루 국립공원</li><li><a href="#guam">괌</a> — 투몬 비치 · 투몬 쇼핑몰 · 사랑의 절벽 · 차모로 빌리지 야시장 · 이나라한 자연 풀</li><li><a href="#saipan">사이판</a> — 마이크로 비치 · 가라판 시내 · 마나가하섬 · 북부(만세절벽·새섬·그로토)</li></ul><p><a href="/travel.html">어라운드툴 여행 가이드 전체</a></p></main>
@@ -924,6 +966,47 @@ Object.assign(I18N.ja, {
   courseLoaded: n => `コースの${n}か所を入れて日程を作りました`, courseStops: n => `${n}か所`,
   tripsTitle: 'この場所が出てくる旅行記事', foodTitle: 'AroundTool グルメ記録', foodSub: 'この周辺を扱った記事'
 });
+/* 여행 유형·국내 출발지 문구 (2026-11-12, 컨펌 i261112-15) */
+Object.assign(I18N.ko, {
+  introAsk: '어떤 여행인가요?', introLater: '그냥 지도부터 볼게요',
+  ttKr: '국내 여행', ttKrSub: '출발지부터', ttKrLong: '서울역·자가용 등 내 출발지에서 떠나 돌아오는 일정',
+  ttOv: '해외 여행', ttOvSub: n => `${n}개 도시`, ttOvLong: n => `일본·동남아 등 ${n}개 도시를 지도에서 골라요`,
+  ttVisit: '한국 방문', ttVisitSub: '외국인 · 공항 도착', ttVisitLong: '외국인 여행자용 · 인천공항 도착부터 일정',
+  typeLb: '여행 유형', tripLeadDom: '날짜와 출발지를 알려 주시면 출발·돌아오는 시각에 맞춰 일정을 짜요.',
+  originH: '출발지', originHSub: '출발 시각 · 돌아오는 시각', fromPl: '출발지', fromT: '출발 시각', backPl: '돌아올 곳', backT: '돌아오는 시각',
+  gRail: '기차역', gAir: '공항', gCar: '자가용', originSub: '출발지까지', pickCityFirst: '해외 도시를 먼저 고르면 그 나라 공항 도착·출국 시각을 넣을 수 있어요.',
+  eFrom: s => `${s}에서 출발`, eBack: s => `${s} 도착`, domNote: '출발지에서 오가는 시간은 거리로 어림한 예상치예요. 기차·항공 시간표는 코레일·SR·항공사에서 확인하세요.'
+});
+Object.assign(I18N.zh, {
+  introAsk: '这是什么样的旅行？', introLater: '先看看地图',
+  ttKr: '韩国国内游', ttKrSub: '从出发地', ttKrLong: '从首尔站、自驾等出发地出发并返回',
+  ttOv: '出境游', ttOvSub: n => `${n} 个城市`, ttOvLong: n => `在地图上选择日本、东南亚等 ${n} 个城市`,
+  ttVisit: '访问韩国', ttVisitSub: '外国游客 · 机场到达', ttVisitLong: '外国游客：从仁川机场到达开始安排',
+  typeLb: '旅行类型', tripLeadDom: '告诉我们日期和出发地，我们会按出发和返回时间安排行程。',
+  originH: '出发地', originHSub: '出发时间 · 返回时间', fromPl: '出发地', fromT: '出发时间', backPl: '返回地点', backT: '返回时间',
+  gRail: '火车站', gAir: '机场', gCar: '自驾', originSub: '到出发地', pickCityFirst: '先选择海外城市，就可以填写当地机场的到达和离境时间。',
+  eFrom: s => `从${s}出发`, eBack: s => `抵达${s}`, domNote: '往返出发地的时间是按距离估算的。火车、航班时刻请向铁路公司和航空公司确认。'
+});
+Object.assign(I18N.en, {
+  introAsk: 'What kind of trip?', introLater: 'Just show me the map',
+  ttKr: 'Trip within Korea', ttKrSub: 'From your start', ttKrLong: 'Leave from Seoul Station, by car or elsewhere and come back',
+  ttOv: 'Trip abroad', ttOvSub: n => `${n} cities`, ttOvLong: n => `Pick from ${n} cities in Japan, Southeast Asia and more`,
+  ttVisit: 'Visiting Korea', ttVisitSub: 'Arriving by air', ttVisitLong: 'For visitors · plans start when you land at Incheon or another airport',
+  typeLb: 'Trip type', tripLeadDom: 'Tell us your dates and where you leave from, and we will plan around your departure and return.',
+  originH: 'Starting point', originHSub: 'Leave · come back', fromPl: 'Leave from', fromT: 'Leave at', backPl: 'Return to', backT: 'Back by',
+  gRail: 'Train stations', gAir: 'Airports', gCar: 'By car', originSub: 'to your starting point', pickCityFirst: 'Pick an overseas city first, then you can set the local airport arrival and departure times.',
+  eFrom: s => `Leave from ${s}`, eBack: s => `Back at ${s}`, domNote: 'Travel times to and from your starting point are estimates based on distance. Check train and flight timetables with the operators.'
+});
+Object.assign(I18N.ja, {
+  introAsk: 'どんな旅ですか？', introLater: 'まず地図を見る',
+  ttKr: '韓国国内旅行', ttKrSub: '出発地から', ttKrLong: 'ソウル駅・車などの出発地から出て戻る日程',
+  ttOv: '海外旅行', ttOvSub: n => `${n}都市`, ttOvLong: n => `日本・東南アジアなど${n}都市から地図で選ぶ`,
+  ttVisit: '韓国を訪れる', ttVisitSub: '外国人・空港到着', ttVisitLong: '外国人旅行者向け・仁川空港到着から日程',
+  typeLb: '旅のタイプ', tripLeadDom: '日程と出発地を教えていただければ、出発・帰りの時刻に合わせて計画します。',
+  originH: '出発地', originHSub: '出発時刻・帰りの時刻', fromPl: '出発地', fromT: '出発時刻', backPl: '帰る場所', backT: '帰りの到着時刻',
+  gRail: '駅', gAir: '空港', gCar: '車', originSub: '出発地まで', pickCityFirst: '海外の都市を先に選ぶと、現地空港の到着・出国時刻を入力できます。',
+  eFrom: s => `${s}を出発`, eBack: s => `${s}に到着`, domNote: '出発地との往復時間は距離からの目安です。列車・航空便の時刻は各社でご確認ください。'
+});
 
 </script>
 <script>
@@ -1041,7 +1124,7 @@ const pd = id => { const p = PBY[id]; return p ? (p.d[S.lang] || (S.lang !== 'ko
 const rn = r => REGIONS[r] ? tr4(REGIONS[r].t) : r;
 const dn = id => DISTRICTS[id] ? tr4(DISTRICTS[id].n) : '';
 const sn = id => STAY_BY[id] ? tr4(STAY_BY[id].t) : '';
-const an = code => AIRPORTS[code] ? tr4(AIRPORTS[code].t) : code;
+const an = code => AIRPORTS[code] ? tr4(AIRPORTS[code].t) : ORIGINS[code] ? tr4(ORIGINS[code].t) : code;
 function hav(a, b) { const R = 6371, t = Math.PI / 180; const dLa = (b.lat - a.lat) * t, dLo = (b.lng - a.lng) * t;
   const x = Math.sin(dLa / 2) ** 2 + Math.cos(a.lat * t) * Math.cos(b.lat * t) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); }
 const hm = v => { v = ((v % 24) + 24) % 24; const h = Math.floor(v + 1e-6), m = Math.round((v - h) * 60); return `${String(h + (m === 60 ? 1 : 0)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
@@ -1100,22 +1183,64 @@ function airportLeg(code, pt, r) {
   const hub = REGIONS[ap.r], first = airportLeg(code, hub, ap.r), mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r);
   return { mode: mid.mode, min: first.min + mid.min + last.min, km: 0, cost: first.cost + mid.cost, via: true };
 }
+/* ---------- 국내 여행 출발지 (컨펌 i261112-15) ---------- */
+// 국내 여행은 인천공항 도착 대신 출발지(기차역·공항·자가용)에서 시작해 그곳으로 돌아온다. 시간은 거리로 어림한 예상치.
+const ORIGINS = {
+  'st-seoul':  { g: 'rail', r: 'seoul', lat: 37.5547, lng: 126.9707, t: ['서울역', '首尔站', 'Seoul Station', 'ソウル駅'] },
+  'st-yongsan': { g: 'rail', r: 'seoul', lat: 37.5299, lng: 126.9648, t: ['용산역', '龙山站', 'Yongsan Station', '龍山駅'] },
+  'st-suseo':  { g: 'rail', r: 'seoul', lat: 37.4873, lng: 127.1018, t: ['수서역 (SRT)', '水西站 (SRT)', 'Suseo Station (SRT)', '水西駅 (SRT)'] },
+  'st-cheongnyangni': { g: 'rail', r: 'seoul', lat: 37.5803, lng: 127.0469, t: ['청량리역', '清凉里站', 'Cheongnyangni Station', '清凉里駅'] },
+  'st-daejeon': { g: 'rail', lat: 36.3323, lng: 127.4342, t: ['대전역', '大田站', 'Daejeon Station', '大田駅'] },
+  'st-dongdaegu': { g: 'rail', lat: 35.8797, lng: 128.6286, t: ['동대구역', '东大邱站', 'Dongdaegu Station', '東大邱駅'] },
+  'st-gwangju': { g: 'rail', lat: 35.1378, lng: 126.7913, t: ['광주송정역', '光州松汀站', 'Gwangju-Songjeong Station', '光州松汀駅'] },
+  'st-busan':  { g: 'rail', r: 'busan', lat: 35.1151, lng: 129.0422, t: ['부산역', '釜山站', 'Busan Station', '釜山駅'] },
+  'ap-gmp':    { g: 'air', ap: 'GMP', r: 'seoul', lat: 37.5583, lng: 126.7906, t: ['김포공항', '金浦机场', 'Gimpo Airport', '金浦空港'] },
+  'ap-pus':    { g: 'air', ap: 'PUS', r: 'busan', lat: 35.1796, lng: 128.9382, t: ['김해공항', '金海机场', 'Gimhae Airport', '金海空港'] },
+  'car-seoul': { g: 'car', r: 'seoul', lat: 37.5665, lng: 126.9780, t: ['자가용 · 서울', '自驾 · 首尔', 'Car · Seoul', '車 · ソウル'] },
+  'car-daejeon': { g: 'car', lat: 36.3504, lng: 127.3845, t: ['자가용 · 대전', '自驾 · 大田', 'Car · Daejeon', '車 · 大田'] },
+  'car-daegu': { g: 'car', lat: 35.8714, lng: 128.6014, t: ['자가용 · 대구', '自驾 · 大邱', 'Car · Daegu', '車 · 大邱'] },
+  'car-gwangju': { g: 'car', lat: 35.1595, lng: 126.8526, t: ['자가용 · 광주', '自驾 · 光州', 'Car · Gwangju', '車 · 光州'] },
+  'car-busan': { g: 'car', r: 'busan', lat: 35.1796, lng: 129.0756, t: ['자가용 · 부산', '自驾 · 釜山', 'Car · Busan', '車 · 釜山'] }
+};
+const GATE = code => AIRPORTS[code] || ORIGINS[code];
+const gateR = code => { const g = GATE(code); return g.r || regionOfPoint(g); };
+// 공항은 도착 뒤 입국 1시간·출국 2.5시간 전 도착. 출발지는 바로 출발·바로 도착.
+const gateBuf = (code, k) => ORIGINS[code] ? 0 : (k === 'arr' ? 1 : 2.5);
+const gateLeg = (code, pt, r) => ORIGINS[code] ? originLeg(code, pt, r) : airportLeg(code, pt, r);
+function originLeg(code, pt, r) {
+  const o = ORIGINS[code], dom = true;
+  if (isOv(r)) return airportLeg('ICN', pt, r);
+  if (o.r === r) { const L = legRaw(o, pt, r); return { ...L, cost: 0, dom }; }
+  const toJeju = REGIONS[r].fly;
+  if (o.g === 'air' && toJeju) return { mode: 'flight', min: 65 + 20 + airportLeg('CJU', pt, r).min, km: 0, cost: 0, via: true, dom };
+  if (o.g === 'air' && REGIONS[r].air === 'PUS' && o.ap !== 'PUS') return { mode: 'flight', min: 60 + 20 + airportLeg('PUS', pt, r).min, km: 0, cost: 0, via: true, dom };
+  if (toJeju) return { mode: 'flight', min: 50 + 60 + 65 + 20 + airportLeg('CJU', pt, r).min, km: 0, cost: 0, via: true, dom };   // 가까운 공항까지 + 탑승 수속 + 비행
+  if (o.g === 'car') { const km = hav(o, pt) * 1.3; return { mode: 'car', min: Math.round((15 + km / 80 * 60) / 5) * 5, km, cost: 0, via: true, dom }; }
+  const base = o.r === 'seoul' ? REGIONS[r].fromSeoul : Math.round((hav(o, REGIONS[r]) * 0.6 + 25) / 5) * 5;
+  return { mode: 'rail', min: base + 10 + legBetween(REGIONS[r], pt, r).min, km: 0, cost: 0, via: true, dom };
+}
+/* 여행 유형: kr 국내 여행(출발지에서) · ov 해외 여행 · visit 한국 방문(외국인, 공항 도착) */
+const tripType = (t = S.trip) => t.type || (S.lang === 'ko' ? (S.ui.scope === 'ov' ? 'ov' : 'kr') : 'visit');
 /* ---------- 여행 나라와 공항 ---------- */
 // 저장한 곳이 가장 많은 나라가 이번 여행 나라. 공항은 그 나라 공항 중에서 고른 것, 없으면 저장이 가장 많은 도시의 공항.
 let _taKey = null, _ta = null;
-function tripAir() {
-  const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '');
-  if (key === _taKey) return _ta;
+function airFor(t) {
   const cnt = {}, rc = {};
   for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
   const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
-  const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc;
-  let def = 'ICN';
+  const dom = cc === 'kr' && tripType(t) === 'kr';   // 국내 여행: 공항 대신 출발지
+  const ok = c => dom ? !!ORIGINS[c] : (AIRPORTS[c] && AIRPORTS[c].cc === cc);
+  let def = dom ? 'st-seoul' : 'ICN';
   if (cc !== 'kr') {
     const top = Object.keys(rc).filter(r => REGIONS[r].cc === cc).sort((a, b) => rc[b] - rc[a])[0] || (S.ui.r && REGIONS[S.ui.r] && REGIONS[S.ui.r].cc === cc ? S.ui.r : OV_IDS.find(r => REGIONS[r].cc === cc));
     def = REGIONS[top].air;
   }
-  _taKey = key; _ta = { cc, ov: cc !== 'kr', arr: ok(S.trip.arr) ? S.trip.arr : def, dep: ok(S.trip.dep) ? S.trip.dep : def };
+  return { cc, ov: cc !== 'kr', dom, arr: ok(t.arr) ? t.arr : def, dep: ok(t.dep) ? t.dep : (ok(t.arr) && dom ? t.arr : def) };
+}
+function tripAir() {
+  const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '') + '|' + tripType() + '|' + S.lang;
+  if (key === _taKey) return _ta;
+  _taKey = key; _ta = airFor(S.trip);
   return _ta;
 }
 function regionOfPoint(pt) { let best = 'seoul', bd = 1e9; for (const r of REGION_IDS) { const d = hav(REGIONS[r], pt); if (d < bd) { bd = d; best = r; } } return best; }
@@ -1125,7 +1250,7 @@ const KEY = 'klink-v2';
 const DEFAULT = () => ({
   v: 2, lang: null, seenIntro: false,
   trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'],
-          arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19 },
+          arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19, type: null },
   saved: [], order: [], plan: null, stayOv: {},
   ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: true }
 });
@@ -1151,7 +1276,7 @@ function toggleSave(id) {
   return i < 0;
 }
 const isSaved = id => S.saved.includes(id);
-function planSig() { const a = tripAir(); return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, a.arr, S.trip.arrT, a.dep, S.trip.depT, S.stayOv]); }
+function planSig() { const a = tripAir(); return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, a.arr, S.trip.arrT, a.dep, S.trip.depT, S.stayOv, a.dom]); }
 
 </script>
 <script>
@@ -1186,9 +1311,9 @@ function bestStay(r, ids, isFirst, isLast) {
   let best = cands[0], bs = Infinity;
   for (const s of cands) {
     let sc = stayScore(s, r, ids).score;
-    const ta = tripAir(), mine = c => AIRPORTS[c].r === r || (AIRPORTS[c].to && AIRPORTS[c].to[r] != null);
-    if (isFirst && mine(ta.arr)) sc += 0.35 * airportLeg(ta.arr, s, r).min;
-    if (isLast && mine(ta.dep)) sc += 0.35 * airportLeg(ta.dep, s, r).min;
+    const ta = tripAir(), mine = c => GATE(c).r === r || (GATE(c).to && GATE(c).to[r] != null);
+    if (isFirst && mine(ta.arr)) sc += 0.35 * gateLeg(ta.arr, s, r).min;
+    if (isLast && mine(ta.dep)) sc += 0.35 * gateLeg(ta.dep, s, r).min;
     if (sc < bs) { bs = sc; best = s; }
   }
   return best.id;
@@ -1252,9 +1377,9 @@ function dayWindow(plan, i) {
   const day = plan.days[i], pace = PACE[S.trip.pace], stay = STAY_BY[plan.stays[day.r]];
   let start = pace.start, end = pace.end;
   const ta = tripAir();
-  if (day.first) start = Math.max(start, S.trip.arrT + 1 + airportLeg(ta.arr, stay, day.r).min / 60 + 0.35);
+  if (day.first) start = Math.max(start, S.trip.arrT + gateBuf(ta.arr, 'arr') + gateLeg(ta.arr, stay, day.r).min / 60 + 0.35);
   else if (day.transfer) start = Math.max(start, 9 + interRegion(plan.days[i - 1].r, day.r).min / 60 + 0.6);
-  if (day.last) end = Math.min(end, S.trip.depT - 2.5 - airportLeg(ta.dep, stay, day.r).min / 60 - 0.35);
+  if (day.last) end = Math.min(end, S.trip.depT - gateBuf(ta.dep, 'dep') - gateLeg(ta.dep, stay, day.r).min / 60 - 0.35);
   end = Math.max(end, start + 0.5);
   const meals = (start <= 13 && end >= 12.5 ? 60 : 0) + (start <= 18.5 && end >= 19 ? 75 : 0);
   return { start, end, cap: Math.max(30, (end - start) * 60 - meals) };
@@ -1359,10 +1484,10 @@ function insertMeals(plan, idxs, foods, used) {
 function autoOrder(rs) {
   if (rs.length <= 1) return rs.slice();
   const near = (list, pt) => list.slice().sort((a, b) => hav(REGIONS[a], pt) - hav(REGIONS[b], pt))[0];
-  const ta = tripAir(), arrR = AIRPORTS[ta.arr].r, depR = AIRPORTS[ta.dep].r;
-  const first = rs.includes(arrR) ? arrR : near(rs, AIRPORTS[ta.arr]);
+  const ta = tripAir(), arrR = gateR(ta.arr), depR = gateR(ta.dep);
+  const first = rs.includes(arrR) ? arrR : near(rs, GATE(ta.arr));
   let rest = rs.filter(r => r !== first);
-  const last = rest.includes(depR) ? depR : near(rest, AIRPORTS[ta.dep]);
+  const last = rest.includes(depR) ? depR : near(rest, GATE(ta.dep));
   rest = rest.filter(r => r !== last);
   const seq = [first]; let cur = first;
   while (rest.length) { const nx = rest.slice().sort((a, b) => hav(REGIONS[cur], REGIONS[a]) - hav(REGIONS[cur], REGIONS[b]))[0]; seq.push(nx); rest = rest.filter(r => r !== nx); cur = nx; }
@@ -1379,8 +1504,8 @@ function generatePlan() {
   let R = regsAll.slice();
   const ta = tripAir();
   const need = r => { const k = R.indexOf(r), pc = PACE[S.trip.pace], hub = REGIONS[r];
-    let loss = k <= 0 ? Math.max(0, S.trip.arrT + 1.35 + airportLeg(ta.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
-    if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - 2.85 - airportLeg(ta.dep, hub, r).min / 60)) * 60;
+    let loss = k <= 0 ? Math.max(0, S.trip.arrT + gateBuf(ta.arr, 'arr') + 0.35 + gateLeg(ta.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
+    if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - gateBuf(ta.dep, 'dep') - 0.35 - gateLeg(ta.dep, hub, r).min / 60)) * 60;
     return S.saved.map(id => PBY[id]).filter(p => p.r === r && !isFood(p)).reduce((a, p) => a + loadOf(p), 0) + loss; };
   if (R.length > n) { const keep = R.slice().sort((a, b) => need(b) - need(a)).slice(0, n); R = R.filter(r => keep.includes(r));
     S.saved.forEach(id => { if (!R.includes(PBY[id].r)) unsched.push({ id, why: 'nodays' }); }); }
@@ -1449,15 +1574,15 @@ function generatePlan() {
   }
   const inPlan = new Set(plan.days.flatMap(d => d.stops.map(x => x.id)).filter(Boolean)), seen = new Set();
   plan.unsched = unsched.filter(u => !inPlan.has(u.id) && !seen.has(u.id) && seen.add(u.id));
-  const lastR = plan.days[n - 1].r, depLeg = airportLeg(ta.dep, STAY_BY[plan.stays[lastR]], lastR);
-  plan.warn = depLeg.min > 150 ? { k: 'farDep', min: depLeg.min, r: lastR } : null;
+  const lastR = plan.days[n - 1].r, depLeg = gateLeg(ta.dep, STAY_BY[plan.stays[lastR]], lastR);
+  plan.warn = !ta.dom && depLeg.min > 150 ? { k: 'farDep', min: depLeg.min, r: lastR } : null;
   return plan;
 }
 
 function dayOver(plan, i) {
   const sc = scheduleDay(plan, i), w = dayWindow(plan, i), last = sc.rows[sc.rows.length - 1];
   const late = sc.rows.filter(o => (o.e.k === 'place' || o.e.k === 'meal') && o.flags.some(f => f[0] === 'late' || f[0] === 'shut' || f[0] === 'closed'));
-  const over = plan.days[i].last ? last.start > S.trip.depT - 2.5 + 0.05 : last.start > w.end + 0.75;
+  const over = plan.days[i].last ? last.start > S.trip.depT - gateBuf(tripAir().dep, 'dep') + 0.05 : last.start > w.end + 0.75;
   return { over, late, sc };
 }
 function fitRegion(plan, idx, unsched) {
@@ -1504,16 +1629,16 @@ function scheduleDay(plan, i) {
   for (let k = 0; k < L.length; k++) {
     const e = L[k], o = { e, flags: [] };
     if (k === 0) {
-      if (e.k === 'arrive') { t = S.trip.arrT; o.start = t; o.end = t + 1; pos = AIRPORTS[e.ap]; }
+      if (e.k === 'arrive') { t = S.trip.arrT; o.start = t; o.end = t + gateBuf(e.ap, 'arr'); pos = GATE(e.ap); }
       else if (e.k === 'checkout') { t = 9; o.start = t; o.end = t; pos = e.stay; }
       else { t = pace.start; o.start = t; o.end = t; pos = e.stay; }
       t = o.end; out.push(o); continue;
     }
     let leg = null;
-    if (e.k === 'stay' && L[k - 1].k === 'arrive') leg = airportLeg(L[k - 1].ap, e.stay, r);
+    if (e.k === 'stay' && L[k - 1].k === 'arrive') leg = gateLeg(L[k - 1].ap, e.stay, r);
     else if (e.k === 'transfer') leg = interRegion(e.from, e.to);
     else if (e.k === 'stay' && L[k - 1].k === 'transfer') leg = { mode: REGIONS[r].sub ? 'subway' : 'taxi', min: 15, cost: isOv(r) ? 0 : REGIONS[r].sub ? 1500 : 6000, group: !REGIONS[r].sub, ov: isOv(r) };
-    else if (e.k === 'depart') leg = airportLeg(e.ap, pos, r);
+    else if (e.k === 'depart') leg = gateLeg(e.ap, pos, r);
     else { const tgt = e.id ? PBY[e.id] : (e.stay || null); leg = tgt ? legBetween(pos, tgt, r) : null; }
     if (leg && leg.min) { o.leg = leg; moveMin += leg.min; cost += leg.group ? leg.cost / people : leg.cost; }
     const a = t + (leg ? leg.min / 60 : 0);
@@ -1537,7 +1662,7 @@ function scheduleDay(plan, i) {
       o.start = b; o.end = b + dur; o.num = ++n;
     } else if (e.k === 'stay') { o.start = a; o.end = a + (e.drop ? 0.35 : 0.25); pos = e.stay; }
     else if (e.k === 'transfer') { o.start = t; o.end = a; pos = REGIONS[e.to]; }
-    else if (e.k === 'depart') { o.start = a; o.end = a; if (a > S.trip.depT - 2.4) o.flags.push(['depLate']); }
+    else if (e.k === 'depart') { o.start = a; o.end = a; if (a > S.trip.depT - gateBuf(e.ap, 'dep') + 0.1) o.flags.push(['depLate']); }
     else { o.start = a; o.end = a; pos = e.stay; }
     t = o.end; out.push(o);
   }
@@ -1587,7 +1712,7 @@ const Plan = {
    2D maps (d3): Korea overview, region/district map with pins, day route map
    Planar projection: x = lng*cos(lat0), y = lat (no spherical winding issues)
    ========================================================= */
-const Map2D = (() => {
+const Map2DSvg = (() => {
   let host = null, svg, gW, gPins, layer, zoom, proj, lat0 = 36, mode = null, ctx = {}, T0 = null, pinData = [], labData = [];
   const K = () => Math.cos(lat0 * Math.PI / 180);
   const P = (lng, lat) => proj([lng * K(), lat]);
@@ -1819,6 +1944,215 @@ const Map2D = (() => {
   }
   return { thumb, mount, showKorea, showWorld, showRegion, showRoute, refresh, focusOn, zoomBy, onResize, get mode() { return mode; }, get host() { return host; } };
 })();
+
+</script>
+<script>
+'use strict';
+/* =========================================================
+   실제 지도 (MapLibre + OpenFreeMap) — 컨펌 i261112-15
+   Map2DSvg(d3 그림 지도)와 같은 API를 낸다. 지도 라이브러리·WebGL을 못 쓰거나
+   지도 스타일이 12초 안에 안 오면 Map2DSvg로 대신 그린다.
+   국내 구역의 3D 거리(World3D)는 그대로 둔다(해외는 이 지도만).
+   ========================================================= */
+const MapGL = (() => {
+  const STYLE = 'https://tiles.openfreemap.org/styles/liberty';
+  const KR_BOX = [[124.6, 33.1], [130.95, 38.62]];
+  let map = null, host = null, mode = null, ctx = {}, ready = false, queue = [], marks = [], pins = [], lang = null, gen = 0, minorZ = 0;
+  const glOK = () => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; } };
+  const ok = !!window.maplibregl && glOK();
+
+  /* ---------- 지도 만들기 ---------- */
+  function mount(el) {
+    if (host === el && map && el.contains(map.getContainer())) return;
+    if (map) { try { map.remove(); } catch (e) {} }
+    host = el; el.innerHTML = ''; ready = false; queue = []; marks = []; pins = []; mode = null; lang = null;
+    const div = document.createElement('div'); div.className = 'glmap'; el.appendChild(div);
+    map = new maplibregl.Map({
+      container: div, style: STYLE, center: [127.8, 36.2], zoom: 5.5, attributionControl: false,
+      dragRotate: false, pitchWithRotate: false, touchPitch: false, maxPitch: 0, renderWorldCopies: false, fadeDuration: 0,
+      localIdeographFontFamily: '"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans CJK KR","Noto Sans SC","Noto Sans JP",sans-serif'
+    });
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
+    const me = map;
+    map.on('style.load', () => { if (me !== map) return; ready = true; layers(); setLabels(); const q = queue; queue = []; q.forEach(f => f()); });
+    map.on('zoom', zoomClass);
+    map.on('click', ev => {
+      if (mode !== 'region') return;
+      const f = map.getLayer('kl-area-fill') ? map.queryRenderedFeatures(ev.point, { layers: ['kl-area-fill'] }) : [];
+      if (f.length && ctx.onDistrict && f[0].properties.id !== ctx.district) ctx.onDistrict(f[0].properties.id);
+      else ctx.onBg && ctx.onBg();
+    });
+    setTimeout(() => { if (me === map && !ready) fallback(); }, 12000);
+  }
+  // 지도 스타일이 안 오면 그림 지도로 바꾼다
+  function fallback() {
+    if (Map2D !== MapGL) return;
+    try { map && map.remove(); } catch (e) {}
+    map = null; host = null; Map2D = Map2DSvg;
+    try { renderPanel(); safeStage(); } catch (e) { console.error(e); }
+  }
+  const whenReady = f => { const g = gen; const run = () => { if (g === gen) f(); }; if (ready) run(); else queue.push(run); };
+  function layers() {
+    const empty = { type: 'FeatureCollection', features: [] };
+    map.addSource('kl-area', { type: 'geojson', data: empty });
+    map.addSource('kl-route', { type: 'geojson', data: empty });
+    const before = map.getStyle().layers.find(l => l.type === 'symbol');   // 지명 글씨 아래에 깐다
+    const b = before ? before.id : undefined;
+    map.addLayer({ id: 'kl-area-fill', type: 'fill', source: 'kl-area', paint: { 'fill-color': ['case', ['get', 'on'], '#2443E8', ['get', 'saved'], '#FF4F7B', '#2443E8'], 'fill-opacity': ['case', ['get', 'on'], 0.12, ['get', 'saved'], 0.08, 0.05] } }, b);
+    map.addLayer({ id: 'kl-area-line', type: 'line', source: 'kl-area', paint: { 'line-color': ['case', ['get', 'on'], '#2443E8', '#7F93EE'], 'line-width': ['case', ['get', 'on'], 2.2, 1.3], 'line-opacity': 0.8, 'line-dasharray': [3, 2] } }, b);
+    map.addLayer({ id: 'kl-route-case', type: 'line', source: 'kl-route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#fff', 'line-width': 8, 'line-opacity': 0.9 } });
+    map.addLayer({ id: 'kl-route', type: 'line', source: 'kl-route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#2443E8', 'line-width': 4.5 } });
+  }
+  function setLabels() {
+    if (!ready || lang === S.lang) return; lang = S.lang;
+    for (const l of map.getStyle().layers) {
+      if (l.type !== 'symbol' || !l.layout || !l.layout['text-field']) continue;
+      if (!JSON.stringify(l.layout['text-field']).includes('name')) continue;
+      map.setLayoutProperty(l.id, 'text-field', ['coalesce', ['get', 'name:' + S.lang], ['get', 'name']]);
+    }
+  }
+  const setData = (id, fc) => { const s = map.getSource(id); if (s) s.setData(fc); };
+  const fcOf = feats => ({ type: 'FeatureCollection', features: feats });
+
+  /* ---------- 화면 여백 (모바일은 아래 시트, PC는 왼쪽 목록) ---------- */
+  function pads() {
+    const r = host.getBoundingClientRect(), w = Math.max(200, r.width), h = Math.max(160, r.height), desk = window.innerWidth >= 980;
+    const app = document.getElementById('app');
+    const sheet = desk || ctx.noSheet ? 0 : (parseFloat(app ? getComputedStyle(app).getPropertyValue('--sheet-px') : 0) || h * 0.38);
+    let t = ctx.noSheet ? (ctx.top || 20) + 16 : desk ? 90 : 116, b = (ctx.noSheet ? 20 : sheet + 20), l = 24, rr = desk && !ctx.noSheet ? 76 : ctx.noSheet ? 24 : 64;
+    if (t + b > h - 80) { const k = (h - 80) / (t + b); t = Math.round(t * k); b = Math.round(b * k); }
+    if (l + rr > w - 80) { l = 12; rr = 12; }
+    return { top: t, bottom: b, left: l, right: rr, w, h };
+  }
+  function fit(box, maxZoom, extra = 0) {
+    map.resize();
+    const p = pads();
+    try { map.fitBounds(box, { padding: { top: p.top + extra, bottom: p.bottom + extra, left: p.left + extra, right: p.right + extra }, maxZoom: maxZoom || 15, animate: false }); }
+    catch (e) { map.fitBounds(box, { padding: 10, maxZoom: maxZoom || 15, animate: false }); }
+  }
+  function bbox(pts, minSpan = 0.01) {
+    let a0 = 90, a1 = -90, o0 = 180, o1 = -180;
+    for (const [lng, lat] of pts) { if (lat < a0) a0 = lat; if (lat > a1) a1 = lat; if (lng < o0) o0 = lng; if (lng > o1) o1 = lng; }
+    if (a1 - a0 < minSpan) { const m = (a0 + a1) / 2; a0 = m - minSpan / 2; a1 = m + minSpan / 2; }
+    if (o1 - o0 < minSpan) { const m = (o0 + o1) / 2; o0 = m - minSpan / 2; o1 = m + minSpan / 2; }
+    return [[o0, a0], [o1, a1]];
+  }
+  const polysPts = polys => polys.flatMap(poly => poly[0] || []);
+  function centroid(polys) {   // 가장 큰 고리의 면적 중심
+    let best = null, ba = -1;
+    for (const poly of polys) { const ring = poly[0]; if (!ring || ring.length < 3) continue; let a = 0, cx = 0, cy = 0;
+      for (let k = 0, j = ring.length - 1; k < ring.length; j = k++) { const f = ring[j][0] * ring[k][1] - ring[k][0] * ring[j][1]; a += f; cx += (ring[j][0] + ring[k][0]) * f; cy += (ring[j][1] + ring[k][1]) * f; }
+      if (Math.abs(a) > ba) { ba = Math.abs(a); best = a ? [cx / (3 * a), cy / (3 * a)] : ring[0]; } }
+    return best;
+  }
+
+  /* ---------- 표시물 ---------- */
+  function clear() { marks.forEach(m => m.remove()); marks = []; pins.forEach(m => m.remove()); pins = []; host.classList.remove('gl-world', 'gl-region', 'gl-route', 'gl-korea'); }
+  function mk(lnglat, el, anchor = 'center', offset = [0, 0], list = marks) { const m = new maplibregl.Marker({ element: el, anchor, offset }).setLngLat(lnglat).addTo(map); list.push(m); return m; }
+  function btn(cls, html, onClick) { const el = document.createElement('button'); el.type = 'button'; el.className = cls; el.innerHTML = html;
+    el.addEventListener('click', ev => { ev.stopPropagation(); onClick && onClick(); }); return el; }
+  function zoomClass() {
+    if (!host || !map) return; const z = map.getZoom();
+    host.classList.toggle('gl-lbl-off', mode === 'region' && !ctx.district && z < 12.6);
+    host.classList.toggle('gl-minor-off', mode === 'world' && z < minorZ);
+  }
+  function regionBadge(r, html, minor, onClick) {
+    const el = btn('glreg' + (minor ? ' minor' : ''), `<span class="m-label region">${html}</span><i class="rdot"></i>`, onClick);
+    mk([REGIONS[r].lng, REGIONS[r].lat], el, 'bottom', [0, 9]);
+  }
+  function begin(m, opts, extra) { gen++; ctx = Object.assign({}, opts || {}, extra || {}); mode = m; clear(); host.classList.add('gl-' + m); setLabels(); }
+
+  /* ---------- 한국 전체 ---------- */
+  function showKorea(opts) {
+    begin('korea', opts);
+    for (const r of KR_IDS) {
+      const n = PLACES.filter(x => x.r === r).length, f = S.saved.filter(id => PBY[id].r === r).length;
+      regionBadge(r, `${esc(rn(r))}<small>${T.spots(n)}${f ? ` · <span class="hrt">♥${f}</span>` : ''}</small>`, false, () => ctx.onRegion(r));
+    }
+    whenReady(() => { setData('kl-area', fcOf([])); setData('kl-route', fcOf([])); });
+    fit(KR_BOX, 8, 4); zoomClass();
+  }
+
+  /* ---------- 해외 전체 ---------- */
+  const OV_TOP = new Set(['tokyo', 'osaka', 'fukuoka', 'sapporo', 'okinawa', 'taipei', 'hongkong', 'shanghai', 'hanoi', 'danang', 'hochiminh', 'bangkok', 'singapore', 'kualalumpur', 'cebu', 'guam']);
+  function showWorld(opts) {
+    begin('world', opts);
+    for (const r of OV_IDS) {
+      const f = S.saved.filter(id => PBY[id].r === r).length;
+      regionBadge(r, `${esc(rn(r))}${f ? `<small><span class="hrt">♥${f}</span></small>` : ''}`, !OV_TOP.has(r) && !f, () => ctx.onRegion(r));
+    }
+    whenReady(() => { setData('kl-area', fcOf([])); setData('kl-route', fcOf([])); });
+    fit(bbox(OV_IDS.map(r => [REGIONS[r].lng, REGIONS[r].lat])), 6, 6);
+    minorZ = map.getZoom() + 0.7; zoomClass();
+  }
+
+  /* ---------- 지역 (구역 + 장소 핀) ---------- */
+  function showRegion(r, opts) {
+    begin('region', opts, { r });
+    const reg = GEO.regions[r];
+    let rp = PLACES.filter(p => p.r === r && !p.far); if (!rp.length) rp = PLACES.filter(p => p.r === r);
+    const focus = ctx.district && reg.districts.find(d => d.id === ctx.district);
+    // 구역 이름
+    for (const d of reg.districts) {
+      const c = centroid(d.g); if (!c || !isFinite(c[0])) continue; const sv2 = d.ids.filter(isSaved).length;
+      mk(c, btn('m-label district gldist' + (d.id === ctx.district ? ' on' : ''), `${esc(tr4(d.n))}<small>${T.spots(d.ids.length)}${sv2 ? ` · <span class="hrt">♥${sv2}</span>` : ''}</small>`, () => ctx.onDistrict && ctx.onDistrict(d.id)), 'center');
+    }
+    drawPins();
+    whenReady(() => { area(); setData('kl-route', fcOf([])); });
+    if (focus) fit(bbox(polysPts(focus.g)), 16, 10);
+    else fit(bbox(rp.map(p => [p.lng, p.lat]), 0.02), 14.5, 4);
+    if (ctx.sel && PBY[ctx.sel]) { const p = PBY[ctx.sel]; if (!map.getBounds().contains([p.lng, p.lat])) focusOn(p.lat, p.lng); }
+    zoomClass();
+  }
+  function area() {
+    if (mode !== 'region') return;
+    const reg = GEO.regions[ctx.r];
+    setData('kl-area', fcOf(reg.districts.map(d => ({ type: 'Feature', properties: { id: d.id, on: d.id === ctx.district, saved: d.ids.some(isSaved) }, geometry: { type: 'MultiPolygon', coordinates: d.g } }))));
+  }
+  function drawPins() {
+    pins.forEach(m => m.remove()); pins = [];
+    const r = ctx.r, fl = ctx.filter && ctx.filter !== 'all' ? ctx.filter : null;
+    const list = PLACES.filter(p => p.r === r && (!fl || p.c === fl) && (!ctx.district || p.dist === ctx.district || isSaved(p.id) || p.id === ctx.sel))
+      .sort((a, b) => ((a.id === ctx.sel) - (b.id === ctx.sel)) || (isSaved(a.id) - isSaved(b.id)));
+    for (const p of list) {
+      const sel = p.id === ctx.sel, sv = isSaved(p.id);
+      const el = btn('glpin' + (sel ? ' sel' : '') + (sv ? ' saved keep' : '') + (ctx.district ? ' keep' : ''),
+        `<span class="dot" style="background:${CATS[p.c].col}">${catIcon(p.c)}</span>${sv ? '<span class="hb">♥</span>' : ''}<span class="lb">${esc(pn(p.id))}</span>`,
+        () => ctx.onPlace && ctx.onPlace(p.id));
+      el.setAttribute('aria-label', pn(p.id));
+      mk([p.lng, p.lat], el, 'center', [0, 0], pins);
+    }
+  }
+  function refresh(opts) { Object.assign(ctx, opts || {}); if (mode === 'region') { drawPins(); whenReady(area); zoomClass(); } }
+
+  /* ---------- 하루 동선 ---------- */
+  function showRoute(plan, i, opts) {
+    begin('route', Object.assign({ noSheet: true }, opts || {}));
+    const day = plan.days[i], r = day.r, sc = scheduleDay(plan, i), stay = STAY_BY[plan.stays[r]], col = LINE[i % LINE.length];
+    const pts = [{ k: 'stay', lat: stay.lat, lng: stay.lng }];
+    sc.rows.forEach(o => { const id = o.e.id; if (id && PBY[id].r === r) pts.push({ k: o.e.k, id, n: o.num, lat: PBY[id].lat, lng: PBY[id].lng }); });
+    const line = [...pts.map(p => [p.lng, p.lat]), [stay.lng, stay.lat]];
+    const wide = host.getBoundingClientRect().width >= 520;
+    mk([stay.lng, stay.lat], btn('glstay', ICONS.house + (wide ? `<span class="lb">${esc(sn(stay.id))}</span>` : '')), 'center');
+    pts.slice(1).forEach(p => { const el = btn('glnum' + (p.k === 'meal' ? ' meal' : ''), `${p.n || ''}${wide ? `<span class="lb">${esc(pn(p.id))}</span>` : ''}`, () => ctx.onPlace && ctx.onPlace(p.id));
+      el.style.setProperty('--lc0', col); mk([p.lng, p.lat], el, 'center'); });
+    whenReady(() => { setData('kl-area', fcOf([])); setData('kl-route', { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: line } }); map.setPaintProperty('kl-route', 'line-color', col); });
+    fit(bbox(line, 0.012), 15, 8);
+  }
+
+  /* ---------- 카메라 ---------- */
+  function focusOn(lat, lng, k) {
+    if (!map) return; const p = pads();
+    map.easeTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), k ? 14.2 : 13.6), offset: [(p.left - p.right) / 2, (p.top - p.bottom) / 2], duration: 600 });
+  }
+  function zoomBy(f) { if (map) map.easeTo({ zoom: map.getZoom() + Math.log2(f), duration: 250 }); }
+  function onResize() { if (map) map.resize(); }
+  return { ok, thumb: r => Map2DSvg.thumb(r), mount, showKorea, showWorld, showRegion, showRoute, refresh, focusOn, zoomBy, onResize,
+    get mode() { return mode; }, get host() { return host; }, get map() { return map; } };
+})();
+// 실제 지도를 쓸 수 있으면 MapGL, 아니면 그림 지도
+let Map2D = MapGL.ok ? MapGL : Map2DSvg;
 
 </script>
 <script>
@@ -2418,21 +2752,27 @@ function openTaxi(id) {
 
 /* ---------- trip settings ---------- */
 function openTrip() {
-  const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
-  t.arr = ta.arr; t.dep = ta.dep;   // 이번 여행 나라의 공항으로 맞춘다
+  const t = JSON.parse(JSON.stringify(S.trip)); t.type = tripType(t);
+  let ta = airFor(t); t.arr = ta.arr; t.dep = ta.dep;   // 이번 여행 나라의 공항(국내 여행은 출발지)으로 맞춘다
   const draw = m => {
+    ta = airFor(t);
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
-    const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const apOpts = (v) => ta.dom
+      ? [['rail', T.gRail], ['air', T.gAir], ['car', T.gCar]].map(([g, lb]) => `<optgroup label="${esc(lb)}">${Object.keys(ORIGINS).filter(c => ORIGINS[c].g === g).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('')}</optgroup>`).join('')
+      : Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const tt = [['kr', T.ttKr, T.ttKrSub], ['ov', T.ttOv, T.ttOvSub(OV_IDS.length)], ['visit', T.ttVisit, T.ttVisitSub]];
+    const noAp = t.type === 'ov' && !ta.ov;
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : T.tripLead}</p>
+    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : ta.dom ? T.tripLeadDom : T.tripLead}</p>
+      <div class="fld"><div class="lb">${T.typeLb}</div><div class="ttype">${tt.map(([k, a, b]) => `<button class="${t.type === k ? 'on' : ''}" data-tt="${k}">${a}<small>${b}</small></button>`).join('')}</div></div>
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
         <label class="dbox"><small>${T.last}</small><b>${T.mdShort(toDate(t.end))}</b><span>${T.wdL[toDate(t.end).getDay()]}</span><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
         ${n >= 14 ? `<p class="note">${T.max14}</p>` : ''}</div>
-      <div class="fld"><div class="lb">${T.flights}<small>${T.flightsSub}</small></div>
-        <div class="ftrow"><div class="sel"><small>${T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
-        <div class="sel"><small>${T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
+      ${noAp ? `<div class="fld"><div class="lb">${T.flights}</div><p class="note">${T.pickCityFirst}</p></div>` : `<div class="fld"><div class="lb">${ta.dom ? T.originH : T.flights}<small>${ta.dom ? T.originHSub : T.flightsSub}</small></div>
+        <div class="ftrow"><div class="sel"><small>${ta.dom ? T.fromPl : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${ta.dom ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
+        <div class="sel"><small>${ta.dom ? T.backPl : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${ta.dom ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div>${ta.dom ? `<p class="note">${T.domNote}</p>` : ''}</div>`}
       <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
         <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
@@ -2442,30 +2782,43 @@ function openTrip() {
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $('#t-e', m).onchange = e => { t.end = e.target.value || t.end; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $$('.dbox', m).forEach(b => b.onclick = e => { const i = b.querySelector('input'); if (e.target !== i) { try { i.showPicker(); } catch (er) { i.focus(); } } });
-    $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
-    $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
+    $$('[data-tt]', m).forEach(b => b.onclick = () => { if (t.type === b.dataset.tt) return; t.type = b.dataset.tt; const a = airFor(t); t.arr = a.arr; t.dep = a.dep;
+      if (t.type === 'kr') { t.arrT = 8; t.depT = 21; } else { t.arrT = 10; t.depT = 19; } re(); });
+    if (!noAp) { $('#t-aa', m).onchange = e => { const was = t.arr; t.arr = e.target.value; if (ta.dom && t.dep === was) { t.dep = t.arr; re(); } }; $('#t-da', m).onchange = e => t.dep = e.target.value;
+      $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value; }
     $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
     $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
     $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
-    $('#t-ok', m).onclick = () => { S.trip = t; persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
+    $('#t-ok', m).onclick = () => { const scopeWas = S.ui.scope; S.trip = t; if (S.ui.lvl === 'korea') S.ui.scope = t.type === 'ov' ? 'ov' : 'kr'; persist(); closeModal(); toast(T.tripSaved);
+      if (S.ui.scope !== scopeWas) { renderAll(); return; } renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
   };
   openModal('', m => draw(m));
 }
 
-/* ---------- intro ---------- */
+/* ---------- intro: 여행 유형 고르기 (컨펌 i261112-15) ---------- */
+function startType(k) {
+  S.trip.type = k; S.seenIntro = true;
+  const a = airFor(S.trip); S.trip.arr = a.arr; S.trip.dep = a.dep;
+  if (k === 'kr') { S.trip.arrT = 8; S.trip.depT = 21; }
+  S.ui.scope = k === 'ov' ? 'ov' : 'kr'; S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; S.ui.tab = 'map'; persist();
+  renderAll();
+  if (k !== 'ov') openTrip();   // 국내 여행은 출발지, 한국 방문은 도착 공항부터 정한다. 해외는 도시부터 고른다.
+}
 function showIntro() {
   const el = document.createElement('div'); el.className = 'intro';
   const draw = () => {
+    const tt = [['kr', 'rail', T.ttKr, T.ttKrLong], ['ov', 'globe', T.ttOv, T.ttOvLong(OV_IDS.length)], ['visit', 'plane', T.ttVisit, T.ttVisitLong]];
+    if (S.lang !== 'ko') tt.push(tt.shift(), tt.shift());   // 외국어 화면은 '한국 방문'을 맨 위로
     el.innerHTML = `<div class="intro-in"><div class="langs">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}">${n}</button>`).join('')}</div>
       <h1>${T.introH}</h1><p>${T.introP}</p>
-      <div class="intro-map" aria-hidden="true"><svg viewBox="0 0 400 180"><path d="M128 14 V90 L286 14 M128 90 L292 166 M128 90 V166" class="pth"/>
-        ${[[128, 14, .35, 112, 19, 'end'], [128, 90, .9, 112, 95, 'end'], [286, 14, 1.5, 302, 19, 'start'], [292, 166, 2.2, 308, 171, 'start']].map(([x, y, d, lx, ly, an], k) => `<g class="st" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="9" fill="#2443E8" stroke="#fff" stroke-width="5"/><text x="${lx}" y="${ly}" fill="#fff" font-size="14" font-weight="700" text-anchor="${an}">${esc(T.introStops[k])}</text></g>`).join('')}</svg></div>
-      <div class="steps">${T.introSteps.map((s, k) => `<div><i>${[ICONS.map, ICONS.heart, ICONS.magic, ICONS.ticket][k]}</i><span>${s}</span></div>`).join('')}</div>
-      <div class="sp"></div><button class="btn block" id="intro-go">${T.introGo}</button></div>`;
+      <h2 style="font-size:19px;font-weight:800;margin-top:26px">${T.introAsk}</h2>
+      <div class="types">${tt.map(([k, ic, a, b]) => `<button data-tt="${k}"><i>${ICONS[ic]}</i><span><b>${a}</b><small>${b}</small></span>${ICONS.right}</button>`).join('')}</div>
+      <div class="sp"></div><button class="later" id="intro-later">${T.introLater}</button></div>`;
     $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
-    $('#intro-go', el).onclick = () => { S.seenIntro = true; persist(); el.remove(); openTrip(); };
+    $$('[data-tt]', el).forEach(b => b.onclick = () => { el.remove(); startType(b.dataset.tt); });
+    $('#intro-later', el).onclick = () => { S.seenIntro = true; persist(); el.remove(); };
   };
   draw(); document.body.appendChild(el);
 }
@@ -2527,13 +2880,13 @@ function modeLabel(leg) { const k = { walk: 'mWalk', subway: 'mSubway', taxi: 'm
 function entryName(o) {
   const e = o.e;
   switch (e.k) {
-    case 'arrive': return T.eArrive(an(e.ap));
+    case 'arrive': return ORIGINS[e.ap] ? T.eFrom(an(e.ap)) : T.eArrive(an(e.ap));
     case 'checkout': return T.eCheckout(sn(e.stay.id));
     case 'transfer': return T.eTransfer(rn(e.to));
     case 'stay': return e.drop ? T.eDrop(sn(e.stay.id)) : T.ePickup(sn(e.stay.id));
     case 'start': return T.eStart(sn(e.stay.id));
     case 'end': return T.eEnd(sn(e.stay.id));
-    case 'depart': return T.eDepart(an(e.ap));
+    case 'depart': return ORIGINS[e.ap] ? T.eBack(an(e.ap)) : T.eDepart(an(e.ap));
     case 'meal': return e.id ? pn(e.id) : (e.slot === 'dinner' ? T.genericDinner : T.genericLunch);
     default: return pn(e.id);
   }
@@ -2557,12 +2910,12 @@ function panelPlan() {
   const totals = ds.map((_, k) => scheduleDay(P, k)).reduce((a, s) => ({ cost: a.cost + s.cost, move: a.move + s.moveMin, places: a.places + s.places }), { cost: 0, move: 0, places: 0 });
   const stays = R.map(r => { const st = STAY_BY[P.stays[r]], sc2 = stayScore(st, r, S.saved), nights = ds.filter((d, k) => d.r === r && k < n - 1).length;
     const dIdx = ds.map((d, k) => d.r === r ? k + 1 : 0).filter(Boolean); 
-    const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r ? ta.dep : (REGIONS[r].air));
-    const apMin = airportLeg(apCode, st, r).min;
+    const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r || ta.dom ? ta.dep : (REGIONS[r].air));
+    const apMin = gateLeg(apCode, st, r).min;
     return `<div class="stay"><div class="stay-top"><span class="hic">${ICONS.house}</span><div class="tx"><small>${T.stayFor(esc(rn(r)), T.dayRange(dIdx[0], dIdx[dIdx.length - 1]), nights)}</small><b>${esc(sn(st.id))}</b></div>
       <label class="stsel"><span class="vh">${T.changeStay}</span><select data-stay="${r}">${STAYS.filter(s => s.r === r).map(s => `<option value="${s.id}" ${s.id === st.id ? 'selected' : ''}>${esc(sn(s.id))}</option>`).join('')}</select></label></div>
       <div class="stay-why"><div><b>${sc2.total ? T.avgMin(sc2.avg) : '—'}</b>${T.avgMinSub}</div><div><b>${T.nearN(sc2.near, sc2.total)}</b>${T.nearSub}</div>
-        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${T.apSub}</div>
+        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${ORIGINS[apCode] ? T.originSub : T.apSub}</div>
         <div style="grid-column:1/-1"><b>${T.localCheck}</b>${T.priceLocal}</div></div>
       ${S.stayOv[r] ? `<p class="note">${T.stayManual} <button class="btn sm ghost" data-act="stayAuto" data-v="${r}" style="margin-left:6px">${T.stayAuto}</button></p>` : ''}</div>`; }).join('');
   const rows = sc.rows, last = rows.length - 1;
@@ -2572,7 +2925,8 @@ function panelPlan() {
     const e = o.e, sp = !['place', 'meal'].includes(e.k), p = e.id ? PBY[e.id] : null;
     const tags = (o.flags || []).map(flagPill).join('') + (e.k === 'meal' ? `<span class="pill" style="background:#FFF1E3;color:#B5560F">${e.slot === 'dinner' ? T.dinner : T.lunch}</span>` : '');
     const sub = p ? `${esc(T.cats[p.c])} · ${F.dur(p.h * 60)}` : (e.k === 'transfer' ? `${T.mRail === modeLabel(o.leg || {}) ? '' : ''}${esc(rn(e.from))} → ${esc(rn(e.to))}` : '');
-    const icon = sp ? ({ arrive: 'plane', depart: 'plane', transfer: (o.leg && o.leg.mode === 'flight') ? 'plane' : 'rail', checkout: 'house', stay: 'house', start: 'house', end: 'house' }[e.k]) : null;
+    const gi = e.ap && ORIGINS[e.ap] ? { rail: 'rail', car: 'taxi', air: 'plane' }[ORIGINS[e.ap].g] : 'plane';
+    const icon = sp ? ({ arrive: gi, depart: gi, transfer: (o.leg && o.leg.mode === 'flight') ? 'plane' : 'rail', checkout: 'house', stay: 'house', start: 'house', end: 'house' }[e.k]) : null;
     tl += `<div class="ent ${sp ? 'sp' : ''} ${e.k === 'meal' ? 'meal' : ''} ${k === 0 ? 'first' : ''} ${k === last ? 'last' : ''}">
       <div class="tm">${slotLbl(o, rows[k - 1])}</div><div class="rl"><i>${sp ? ICONS[icon] : (o.num || '')}</i></div>
       <div class="bx">${p ? `<button class="tx" style="text-align:left" data-act="openPlace" data-v="${p.id}">` : '<div class="tx">'}<div class="nm">${esc(entryName(o))}</div>${sub ? `<div class="sub">${sub}</div>` : ''}${tags ? `<div class="tags">${tags}</div>` : ''}${p ? '</button>' : '</div>'}

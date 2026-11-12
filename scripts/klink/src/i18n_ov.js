@@ -116,3 +116,44 @@ Object.assign(I18N.ja, {
   courseLoaded: n => `コースの${n}か所を入れて日程を作りました`, courseStops: n => `${n}か所`,
   tripsTitle: 'この場所が出てくる旅行記事', foodTitle: 'AroundTool グルメ記録', foodSub: 'この周辺を扱った記事'
 });
+/* 여행 유형·국내 출발지 문구 (2026-11-12, 컨펌 i261112-15) */
+Object.assign(I18N.ko, {
+  introAsk: '어떤 여행인가요?', introLater: '그냥 지도부터 볼게요',
+  ttKr: '국내 여행', ttKrSub: '출발지부터', ttKrLong: '서울역·자가용 등 내 출발지에서 떠나 돌아오는 일정',
+  ttOv: '해외 여행', ttOvSub: n => `${n}개 도시`, ttOvLong: n => `일본·동남아 등 ${n}개 도시를 지도에서 골라요`,
+  ttVisit: '한국 방문', ttVisitSub: '외국인 · 공항 도착', ttVisitLong: '외국인 여행자용 · 인천공항 도착부터 일정',
+  typeLb: '여행 유형', tripLeadDom: '날짜와 출발지를 알려 주시면 출발·돌아오는 시각에 맞춰 일정을 짜요.',
+  originH: '출발지', originHSub: '출발 시각 · 돌아오는 시각', fromPl: '출발지', fromT: '출발 시각', backPl: '돌아올 곳', backT: '돌아오는 시각',
+  gRail: '기차역', gAir: '공항', gCar: '자가용', originSub: '출발지까지', pickCityFirst: '해외 도시를 먼저 고르면 그 나라 공항 도착·출국 시각을 넣을 수 있어요.',
+  eFrom: s => `${s}에서 출발`, eBack: s => `${s} 도착`, domNote: '출발지에서 오가는 시간은 거리로 어림한 예상치예요. 기차·항공 시간표는 코레일·SR·항공사에서 확인하세요.'
+});
+Object.assign(I18N.zh, {
+  introAsk: '这是什么样的旅行？', introLater: '先看看地图',
+  ttKr: '韩国国内游', ttKrSub: '从出发地', ttKrLong: '从首尔站、自驾等出发地出发并返回',
+  ttOv: '出境游', ttOvSub: n => `${n} 个城市`, ttOvLong: n => `在地图上选择日本、东南亚等 ${n} 个城市`,
+  ttVisit: '访问韩国', ttVisitSub: '外国游客 · 机场到达', ttVisitLong: '外国游客：从仁川机场到达开始安排',
+  typeLb: '旅行类型', tripLeadDom: '告诉我们日期和出发地，我们会按出发和返回时间安排行程。',
+  originH: '出发地', originHSub: '出发时间 · 返回时间', fromPl: '出发地', fromT: '出发时间', backPl: '返回地点', backT: '返回时间',
+  gRail: '火车站', gAir: '机场', gCar: '自驾', originSub: '到出发地', pickCityFirst: '先选择海外城市，就可以填写当地机场的到达和离境时间。',
+  eFrom: s => `从${s}出发`, eBack: s => `抵达${s}`, domNote: '往返出发地的时间是按距离估算的。火车、航班时刻请向铁路公司和航空公司确认。'
+});
+Object.assign(I18N.en, {
+  introAsk: 'What kind of trip?', introLater: 'Just show me the map',
+  ttKr: 'Trip within Korea', ttKrSub: 'From your start', ttKrLong: 'Leave from Seoul Station, by car or elsewhere and come back',
+  ttOv: 'Trip abroad', ttOvSub: n => `${n} cities`, ttOvLong: n => `Pick from ${n} cities in Japan, Southeast Asia and more`,
+  ttVisit: 'Visiting Korea', ttVisitSub: 'Arriving by air', ttVisitLong: 'For visitors · plans start when you land at Incheon or another airport',
+  typeLb: 'Trip type', tripLeadDom: 'Tell us your dates and where you leave from, and we will plan around your departure and return.',
+  originH: 'Starting point', originHSub: 'Leave · come back', fromPl: 'Leave from', fromT: 'Leave at', backPl: 'Return to', backT: 'Back by',
+  gRail: 'Train stations', gAir: 'Airports', gCar: 'By car', originSub: 'to your starting point', pickCityFirst: 'Pick an overseas city first, then you can set the local airport arrival and departure times.',
+  eFrom: s => `Leave from ${s}`, eBack: s => `Back at ${s}`, domNote: 'Travel times to and from your starting point are estimates based on distance. Check train and flight timetables with the operators.'
+});
+Object.assign(I18N.ja, {
+  introAsk: 'どんな旅ですか？', introLater: 'まず地図を見る',
+  ttKr: '韓国国内旅行', ttKrSub: '出発地から', ttKrLong: 'ソウル駅・車などの出発地から出て戻る日程',
+  ttOv: '海外旅行', ttOvSub: n => `${n}都市`, ttOvLong: n => `日本・東南アジアなど${n}都市から地図で選ぶ`,
+  ttVisit: '韓国を訪れる', ttVisitSub: '外国人・空港到着', ttVisitLong: '外国人旅行者向け・仁川空港到着から日程',
+  typeLb: '旅のタイプ', tripLeadDom: '日程と出発地を教えていただければ、出発・帰りの時刻に合わせて計画します。',
+  originH: '出発地', originHSub: '出発時刻・帰りの時刻', fromPl: '出発地', fromT: '出発時刻', backPl: '帰る場所', backT: '帰りの到着時刻',
+  gRail: '駅', gAir: '空港', gCar: '車', originSub: '出発地まで', pickCityFirst: '海外の都市を先に選ぶと、現地空港の到着・出国時刻を入力できます。',
+  eFrom: s => `${s}を出発`, eBack: s => `${s}に到着`, domNote: '出発地との往復時間は距離からの目安です。列車・航空便の時刻は各社でご確認ください。'
+});

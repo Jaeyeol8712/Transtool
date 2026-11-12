@@ -3,7 +3,7 @@
    2D maps (d3): Korea overview, region/district map with pins, day route map
    Planar projection: x = lng*cos(lat0), y = lat (no spherical winding issues)
    ========================================================= */
-const Map2D = (() => {
+const Map2DSvg = (() => {
   let host = null, svg, gW, gPins, layer, zoom, proj, lat0 = 36, mode = null, ctx = {}, T0 = null, pinData = [], labData = [];
   const K = () => Math.cos(lat0 * Math.PI / 180);
   const P = (lng, lat) => proj([lng * K(), lat]);
