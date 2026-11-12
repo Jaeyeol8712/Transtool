@@ -56,7 +56,7 @@ function afterSaveChange(id) {
   else renderPanel();
   if (isDesk() && S.ui.tab !== 'map') renderStage();
 }
-const TABS = [['map', 'map'], ['saved', 'heart'], ['plan', 'cal'], ['book', 'ticket']];
+const TABS = [['map', 'map'], ['saved', 'heart'], ['plan', 'cal'], ['prep', 'ticket']];
 function renderChrome() {
   $('#brandt').textContent = T.brand;
   const ds = tripDates();
@@ -64,7 +64,7 @@ function renderChrome() {
   $('#langs').innerHTML = LANGS.map(([k, , s]) => `<button role="radio" aria-checked="${k === S.lang}" class="${k === S.lang ? 'on' : ''}" data-lang="${k}" lang="${HTML_LANG[k]}">${s}</button>`).join('');
   $$('#langs [data-lang]').forEach(b => b.onclick = () => { if (b.dataset.lang !== S.lang) { setLang(b.dataset.lang); renderAll(true); } });
   const badge = n => n ? `<span class="badge">${n}</span>` : '';
-  const items = TABS.map(([k, ic]) => ({ k, ic, label: k === 'book' && tripAir().ov ? T.tab_prep : T['tab_' + k], b: k === 'saved' ? badge(S.saved.length) : '' }));
+  const items = TABS.map(([k, ic]) => ({ k, ic, label: T['tab_' + k], b: k === 'saved' ? badge(S.saved.length) : '' }));
   $('#tabbar').innerHTML = items.map(t => `<button class="${S.ui.tab === t.k ? 'on' : ''}" data-tab="${t.k}">${ICONS[t.ic]}<span>${t.label}</span>${t.b}</button>`).join('');
   $('#tabtop').innerHTML = items.map(t => `<button class="${S.ui.tab === t.k ? 'on' : ''}" data-tab="${t.k}">${ICONS[t.ic]}<span>${t.label}</span>${t.b}</button>`).join('');
   $$('[data-tab]').forEach(b => b.onclick = () => go(b.dataset.tab));
@@ -77,7 +77,7 @@ function go(tab) {
 }
 function renderAll(keepStage) { renderChrome(); renderPanel(); renderStage(!keepStage ? false : true); }
 function renderPanel() {
-  const fn = { map: panelMap, saved: panelSaved, plan: panelPlan, book: panelBook }[S.ui.tab];
+  const fn = { map: panelMap, saved: panelSaved, plan: panelPlan, prep: panelPrep }[S.ui.tab];
   pin.innerHTML = fn(); bindPanel();
 }
 function bindPanel() {
@@ -127,7 +127,7 @@ function renderStage(force) {
     World3D.leave(); worldbox.style.display = 'none'; mapbox.style.display = 'block'; ovl.innerHTML = '';
     if (!isDesk()) { stageKey = ''; return; }
     Map2D.mount(mapbox);
-    if ((S.ui.tab === 'plan' || S.ui.tab === 'book') && S.plan) { const i = clamp(S.ui.day, 0, S.plan.days.length - 1); Map2D.showRoute(S.plan, i, { top: 30 }); stageKey = 'route' + i; }
+    if ((S.ui.tab === 'plan' || S.ui.tab === 'prep') && S.plan) { const i = clamp(S.ui.day, 0, S.plan.days.length - 1); Map2D.showRoute(S.plan, i, { top: 30 }); stageKey = 'route' + i; }
     else if (S.ui.tab === 'saved' && S.saved.length) { const r = tripOrder()[0]; Map2D.showRegion(r, { onPlace: id => selectPlace(id), onDistrict: openDistrict, onBg() {} }); stageKey = 'saved'; }
     else if (tripAir().ov || S.ui.scope === 'ov') { Map2D.showWorld({ onRegion: r => { go('map'); openRegion(r); } }); stageKey = 'world'; }
     else { Map2D.showKorea({ onRegion: r => { go('map'); openRegion(r); } }); stageKey = 'korea'; }
@@ -210,7 +210,7 @@ function panelMap() {
     : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${isOv(r) ? T.regionLeadOv : T.regionLead}</p>
        <div class="sec"><h3>${T.pickDistrict}</h3><small>${isOv(r) ? `<span class="pill sug">${T.soon3dShort}</span>` : T.pickDistrictSub}</small></div>
        <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${(isOv(r) ? ICONS.pin : ICONS.cube).replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
-  return `${head}
+  return `${head}${inD ? '' : courseCards(r)}
     <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${T.spots(list.length)}</small></div>
     <div class="chips scroll" style="margin-bottom:12px"><button class="chip ${S.ui.filter === 'all' ? 'on' : ''}" data-act="filter" data-v="all">${T.all}</button>${cats.map(c => `<button class="chip ${S.ui.filter === c ? 'on' : ''}" data-act="filter" data-v="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div>
     <div class="list">${list.map(p => placeRow(p)).join('') || `<div class="empty">${T.noneFilter}</div>`}</div>
@@ -243,7 +243,6 @@ function aroundMore() {
 }
 function placeRow(p, opts = {}) {
   const tags = [];
-  if (p.rsv) tags.push(`<span class="pill rsv">${T.needRsv}</span>`);
   if (p.best === 'night') tags.push(`<span class="pill info">${T.bestNight}</span>`); else if (p.best === 'am') tags.push(`<span class="pill info">${T.bestAm}</span>`);
   if (p.far) tags.push(`<span class="pill sug">${T.far}</span>`);
   return `<div class="prow ${S.ui.sel === p.id ? 'sel' : ''}"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${p.id}">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(p.id))}</span>
@@ -263,8 +262,7 @@ function placeDetail(id) {
       .filter(x => x[2]).map(([i, k, v, w]) => [i, k, `<span${ko}>${esc(v)}</span>`, w])
     : p.est ? [['clock', T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<small>${F.closed(p)}</small>` : ''}`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['ticket', T.fFee, T.localCheck], ['pin', T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]]
-    : [['clock', T.fHours, `${F.hours(p)}<small>${F.closed(p)}</small>`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
-        ['ticket', T.fFee, p.cost ? T.perPerson(F.money(p.cost)) : T.free], ['check', T.fRsv, p.rsv ? T.needRsv : T.noRsv],
+    : [['clock', T.fHours, `${T.localCheck}<small>${T.checkBefore}</small>`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['pin', T.fWhere, `${esc(stationOf(p))}${S.lang !== 'ko' ? `<small lang="ko">${esc(p.st)}</small>` : ''}`, 1]];
   if (!F_ && best) facts.splice(2, 0, ['sun', T.fWhen, best]);
   if (p.season) facts.splice(1, 0, ['cal', T.fSeason, T.season(p.season[0], p.season[1]), 1]);
@@ -274,7 +272,7 @@ function placeDetail(id) {
     : `<div class="pdx-cover" style="--c:${col}"><span class="big">${catIcon(p.c).replace('<svg ', '<svg width="40" height="40" ')}</span><span class="tx">${esc(rn(p.r))}<b>${esc(dn(p.dist))}</b></span></div>`;
   const chips = [`<span class="pdx-cat" style="background:${col}">${catIcon(p.c).replace('<svg ', '<svg width="14" height="14" ')}${esc(T.cats[p.c])}</span>`,
     p.best === 'night' && p.c !== 'night' ? `<span class="pdx-chip">${T.bestNight}</span>` : p.best === 'am' ? `<span class="pdx-chip">${T.bestAm}</span>` : '',
-    p.rsv ? `<span class="pdx-chip rsv">${T.needRsv}</span>` : '', p.far ? `<span class="pdx-chip">${T.far}</span>` : ''].join('');
+    p.far ? `<span class="pdx-chip">${T.far}</span>` : ''].join('');
   const sec = (title, body, extra = '') => `<section class="pdx-sec"><h3>${title}${extra}</h3>${body}</section>`;
   const see = sp && sp.see && sp.see.length ? sec(T.seeTitle, `<ol class="pdx-see"${ko}>${sp.see.map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('')}</ol>`, koOnly()) : '';
   const tips = sp && sp.tips && sp.tips.length ? `<div class="pdx-tips"${ko}><h3>${T.tipsTitle}</h3><ul>${sp.tips.map(t => `<li>${ic('check', 16)}<span>${esc(t)}</span></li>`).join('')}</ul></div>` : '';
@@ -282,6 +280,11 @@ function placeDetail(id) {
       ${(g.days || []).map(d => `<div class="pdx-day"${ko}><div class="lbl"><span>${esc(d[0].replace(/\s*—.*$/, ''))}</span><em>${esc(d[1])}</em>${d[2] ? `<b>${esc(d[2])}</b>` : ''}</div><p>${hiRoute(d[3], g.keys)}</p></div>`).join('')}`, koOnly()) : '';
   const moves = g && g.moves ? sec(T.movesTitle, `<div class="pdx-moves"${ko}>${g.moves.map(m => `<div><span>${esc(m[0])}</span><em>${esc(m[1])}</em><b>${esc(m[2])}</b></div>`).join('')}</div>`) : '';
   const faq = g && g.faq ? sec(T.faqTitle, `<div class="pdx-faq"${ko}>${g.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`) : '';
+  const lk = spotOf(id), linkRow = (url, icn, b, sm) => ext(url, `<span class="cicon sm" style="background:var(--at)">${ICONS[icn]}</span><span class="tx"><b lang="ko">${esc(b)}</b>${sm ? `<small lang="ko">${esc(sm)}</small>` : ''}</span>${ICONS.right}`, 'arow');
+  const foodRows = [lk.gu ? linkRow(lk.gu.url, 'food2', T.atFood(S.lang === 'ko' ? lk.gu.gu : `${rn(p.r)} ${lk.gu.gu}`, lk.gu.count), lk.gu.cats.map(c => c.cat).join(' · ')) : '',
+    ...(lk.f || []).map(x => linkRow(x.url, 'food2', x.name, x.desc))].join('');
+  const food = foodRows ? sec(T.foodTitle, `<div class="around">${foodRows}</div>`, koOnly()) : '';
+  const trips = lk.t && lk.t.length ? sec(T.tripsTitle, `<div class="around">${lk.t.map(x => linkRow(x.url, 'map', x.name)).join('')}</div>`, koOnly()) : '';
   const near = PLACES.filter(q => q.r === p.r && q.id !== id).map(q => [hav(p, q), q]).sort((a, b) => a[0] - b[0]).slice(0, 3)
     .map(([, q]) => { const L = legBetween(p, q, p.r); return `<div class="prow"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${q.id}">${cicon(q.c, 'sm')}<span class="tx"><span class="nm">${esc(pn(q.id))}</span><span class="ds">${modeLabel(L)} ${F.dur(L.min)}</span></span></button>${heartBtn(q.id)}</div>`; }).join('');
   const srcRow = sp ? `<div class="pdx-src"><div class="who">${ic('check', 16)}<span>${T.spotFrom}<small>${T.checkedOn(sp.checked)} · ${T.checkBefore}</small></span></div>
@@ -299,7 +302,7 @@ function placeDetail(id) {
       ${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn ghost" data-act="addToPlan" data-v="${id}">${ICONS.plus}${T.addToPlan}</button>` : ''}
       <button class="btn ghost" data-act="taxi" data-v="${id}" style="flex:0 0 auto">${ICONS.taxi}<span class="vh">${T.taxiCard}</span></button></div>
     ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}${sp ? '' : `<p class="note">${T.estNote}</p>`}` : ''}
-    ${see}${tips}${course}${moves}${faq}
+    ${see}${tips}${course}${food}${moves}${faq}${trips}
     ${near ? sec(T.nearTitle, `<div class="list">${near}</div>`) : ''}
     ${srcRow}
     ${aroundCard(p.r, p.dist, true)}`;
@@ -369,10 +372,8 @@ function openTrip() {
         <div class="sel"><small>${T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
       <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
         <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
-      ${ta.ov ? '' : `<div class="fld"><div class="lb">${T.budget}<small>${T.budgetSub}</small></div><div class="tiles">${T.budgets.map((b, i) => `<button class="tile ${t.budget === i ? 'on' : ''}" data-b="${i}"><small>${b[0]}</small><b>${b[1]}</b></button>`).join('')}</div></div>`}
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
       <div class="fld" ${ta.ov ? 'hidden' : ''}><div class="lb">${T.interests}<small>${T.multi}</small></div><div class="chips">${CAT_ORDER.map(c => `<button class="chip ${t.interests.includes(c) ? 'on' : ''}" data-int="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div></div>
-      <div class="fld"><label for="t-n">${T.name}<small>${T.nameSub}</small></label><input class="txtin" id="t-n" maxlength="20" value="${esc(t.name)}" placeholder="${esc(T.guest)}"></div>
       <div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost" data-close style="flex:.6">${T.cancel}</button><button class="btn" id="t-ok" style="flex:1">${T.saveTrip}</button></div>`;
     const re = () => { const y = m.scrollTop; draw(m); m.scrollTop = y; };
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
@@ -382,10 +383,8 @@ function openTrip() {
     $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
     $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
     $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
-    $$('[data-b]', m).forEach(b => b.onclick = () => { t.budget = +b.dataset.b; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
     $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
-    $('#t-n', m).oninput = e => t.name = e.target.value;
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
     $('#t-ok', m).onclick = () => { S.trip = t; persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
   };
