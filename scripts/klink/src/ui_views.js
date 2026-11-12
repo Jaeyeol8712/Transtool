@@ -30,7 +30,8 @@ function panelSaved() {
 }
 
 /* ---------- Plan ---------- */
-function modeLabel(leg) { const k = { walk: 'mWalk', subway: 'mSubway', taxi: 'mTaxi', car: 'mCar', rail: 'mRail', flight: 'mFlight', airport: 'mAirport' }[leg.mode]; return T[k]; }
+function modeLabel(leg) { const k = { walk: 'mWalk', subway: 'mSubway', taxi: 'mTaxi', car: 'mCar', rail: 'mRail', flight: 'mFlight', airport: 'mAirport' }[leg.mode];
+  return leg.ov && T[k + 'Ov'] ? T[k + 'Ov'] : T[k]; }
 function entryName(o) {
   const e = o.e;
   switch (e.k) {
@@ -63,14 +64,14 @@ function panelPlan() {
   const stale = P.sig !== planSig();
   const totals = ds.map((_, k) => scheduleDay(P, k)).reduce((a, s) => ({ cost: a.cost + s.cost, move: a.move + s.moveMin, places: a.places + s.places }), { cost: 0, move: 0, places: 0 });
   const stays = R.map(r => { const st = STAY_BY[P.stays[r]], sc2 = stayScore(st, r, S.saved), nights = ds.filter((d, k) => d.r === r && k < n - 1).length;
-    const dIdx = ds.map((d, k) => d.r === r ? k + 1 : 0).filter(Boolean); const band = (PRICE[r] || PRICE.other)[S.trip.budget];
-    const apCode = (R[0] === r && AIRPORTS[S.trip.arr].r === r) ? S.trip.arr : (R[R.length - 1] === r ? S.trip.dep : (REGIONS[r].air));
+    const dIdx = ds.map((d, k) => d.r === r ? k + 1 : 0).filter(Boolean); const band = isOv(r) ? null : (PRICE[r] || PRICE.other)[S.trip.budget];
+    const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r ? ta.dep : (REGIONS[r].air));
     const apMin = airportLeg(apCode, st, r).min;
     return `<div class="stay"><div class="stay-top"><span class="hic">${ICONS.house}</span><div class="tx"><small>${T.stayFor(esc(rn(r)), T.dayRange(dIdx[0], dIdx[dIdx.length - 1]), nights)}</small><b>${esc(sn(st.id))}</b></div>
       <label class="stsel"><span class="vh">${T.changeStay}</span><select data-stay="${r}">${STAYS.filter(s => s.r === r).map(s => `<option value="${s.id}" ${s.id === st.id ? 'selected' : ''}>${esc(sn(s.id))}</option>`).join('')}</select></label></div>
       <div class="stay-why"><div><b>${sc2.total ? T.avgMin(sc2.avg) : '—'}</b>${T.avgMinSub}</div><div><b>${T.nearN(sc2.near, sc2.total)}</b>${T.nearSub}</div>
         <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${T.apSub}</div>
-        <div style="grid-column:1/-1"><b>${T.priceBand(band[0], band[1])}</b>${T.priceSub(T.budgets[S.trip.budget][0])}</div></div>
+        <div style="grid-column:1/-1">${band ? `<b>${T.priceBand(band[0], band[1])}</b>${T.priceSub(T.budgets[S.trip.budget][0])}` : `<b>${T.localCheck}</b>${T.priceLocal}`}</div></div>
       ${S.stayOv[r] ? `<p class="note">${T.stayManual} <button class="btn sm ghost" data-act="stayAuto" data-v="${r}" style="margin-left:6px">${T.stayAuto}</button></p>` : ''}</div>`; }).join('');
   const rows = sc.rows, last = rows.length - 1;
   let tl = '';
@@ -94,16 +95,39 @@ function panelPlan() {
     <div class="sec"><h3>${T.staysTitle}</h3><small>${T.staysSub}</small></div><div class="stays">${stays}</div>
     <div class="sec"><h3>${T.byDay}</h3><small>${T.byDaySub}</small></div>
     <div class="days">${ds.map((d, k) => `<button class="dchip ${k === i ? 'on' : ''}" style="--c:${LINE[k % LINE.length]}" data-act="day" data-v="${k}"><span class="n">${k + 1}</span><span class="d"><b>${F.date(d.date)}</b><small>${esc(rn(d.r))}</small></span></button>`).join('')}</div>
-    <div class="dhead"><div><h2>${T.day(i + 1)} · ${esc(rn(day.r))}</h2><small>${F.date(day.date, true)} · ${T.daySum(sc.places, F.dur(sc.moveMin), F.money(sc.cost))}</small></div></div>
+    <div class="dhead"><div><h2>${T.day(i + 1)} · ${esc(rn(day.r))}</h2><small>${F.date(day.date, true)} · ${isOv(day.r) ? T.daySumOv(sc.places, F.dur(sc.moveMin)) : T.daySum(sc.places, F.dur(sc.moveMin), F.money(sc.cost))}</small></div></div>
     <div class="routebox inline" id="rbox"></div>
     <div class="tl">${tl}</div>
     <div class="dayacts"><button class="btn sm ghost" data-act="optDay" data-v="${i}">${ICONS.magic}${T.optimize}</button><button class="btn sm ghost" data-act="addStop" data-v="${i}">${ICONS.plus}${T.addStop}</button></div>
     ${uns.length ? `<div class="sec"><h3>${T.unsched}</h3><small>${T.unschedSub}</small></div><div class="list">${uns.map(u => { const p = PBY[u.id]; const can = ds.some(d => d.r === p.r);
       return `<div class="prow">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(u.id))}</span><span class="ds">${esc(rn(p.r))} · ${T.why[u.why] || ''}</span></span>${can ? `<button class="btn sm soft" data-act="placeUns" data-v="${u.id}">${T.putIn}</button>` : ''}</div>`; }).join('')}</div>` : ''}
-    <div class="tot"><div><small>${T.totalPP}</small><b>${F.money(totals.cost)}</b></div><div><small>${T.totalMove}</small><b>${F.dur(totals.move)}</b></div></div>
-    <p class="note">${T.planNote}</p>
+    <div class="tot"><div><small>${T.totalPP}</small><b>${ds.every(d => isOv(d.r)) ? T.localCheck : F.money(totals.cost)}</b></div><div><small>${T.totalMove}</small><b>${F.dur(totals.move)}</b></div></div>
+    <p class="note">${ds.some(d => isOv(d.r)) ? T.planNoteOv : T.planNote}</p>
+    ${prepCard(4)}
     ${(rows => rows ? `<div class="sec"><h3>${T.atTitle}</h3><small>${koOnly()}</small></div><div class="around">${rows}</div>` : '')(R.map(r => aroundCard(r, null, 'rows')).join(''))}
-    <div class="stickycta"><button class="btn block" data-act="toBook">${ICONS.ticket}${T.toBook}</button></div>`;
+    <div class="stickycta"><button class="btn block" data-act="toBook">${ICONS.ticket}${tripAir().ov ? T.toPrep : T.toBook}</button></div>`;
+}
+/* ---------- 여행 준비: 어라운드툴 계산기·가이드가 정보를 댄다 ---------- */
+function prepItems() {
+  const pr = AROUND && AROUND.prep; if (!pr) return { tools: [], guides: [] };
+  const ta = tripAir(), fit = x => x.when === 'all' || x.when === ta.cc || (x.when === 'ov' && ta.ov);
+  const rank = x => x.when === ta.cc ? 0 : x.when === 'all' ? 2 : 1;
+  return { tools: pr.tools.filter(fit).sort((a, b) => rank(a) - rank(b)), guides: pr.guides.filter(fit).sort((a, b) => rank(a) - rank(b)) };
+}
+const prepRow = (x, ic) => ext(x.url, `<span class="cicon sm" style="background:var(--at)">${ICONS[ic]}</span><span class="tx"><b lang="ko">${esc(x.name)}</b>${x.desc ? `<small lang="ko">${esc(x.desc.length > 46 ? x.desc.slice(0, 45) + '…' : x.desc)}</small>` : ''}</span>${ICONS.right}`, 'arow');
+function prepCard(max) {
+  const it = prepItems(), rows = [...it.tools.map(x => prepRow(x, 'ticket')), ...it.guides.map(x => prepRow(x, 'info'))].slice(0, max || 99);
+  return rows.length ? `<div class="sec"><h3>${T.prepTitle}</h3><small>${koOnly()}</small></div><div class="around">${rows.join('')}</div>` : '';
+}
+function panelPrep() {
+  const it = prepItems(), P = S.plan, R = P ? [...new Set(P.days.map(d => d.r))] : savedRegions();
+  const trips = R.map(r => aroundCard(r, null, 'rows')).join('');
+  return `<h1 class="h1">${T.prepTitle}</h1><p class="lead">${T.prepLead}</p>
+    ${trips ? `<div class="sec"><h3>${T.prepTrip}</h3><small>${koOnly()}</small></div><div class="around">${trips}</div>` : ''}
+    ${it.tools.length ? `<div class="sec"><h3>${T.prepTools}</h3><small>${koOnly()}</small></div><div class="around">${it.tools.map(x => prepRow(x, 'ticket')).join('')}</div>` : ''}
+    ${it.guides.length ? `<div class="sec"><h3>${T.prepGuides}</h3><small>${koOnly()}</small></div><div class="around">${it.guides.map(x => prepRow(x, 'info')).join('')}</div>` : ''}
+    ${P ? `<div style="margin-top:18px"><button class="btn ghost block" data-act="copyTxt">${ICONS.copy}${T.copyTxt}</button></div>` : ''}
+    <p class="note">${T.atBy}</p>`;
 }
 function afterPlanRender() {
   $$('[data-stay]', pin).forEach(s => s.onchange = () => { S.stayOv[s.dataset.stay] = s.value; regenerate(true); });
@@ -131,6 +155,7 @@ function bookTotal() { const b = bookItems(); let sum = 0, cnt = 0;
   Object.values(S.book.guide).forEach(g => { if (GUIDE[g]) { sum += GUIDE[g]; cnt++; } });
   return { sum, cnt }; }
 function panelBook() {
+  if (tripAir().ov) return panelPrep();   // 해외여행은 예약 대행 대신 '여행 준비'(계산기·가이드)
   if (!S.plan) return `<h1 class="h1">${T.bookTitle}</h1><div class="empty" style="margin-top:20px">${emptyArt('ticket')}<b>${T.bookEmptyH}</b>${T.bookEmpty}<div style="margin-top:16px"><button class="btn" data-act="toPlanTab">${ICONS.cal}${T.planTitle}</button></div></div>`;
   if (S.paid) return paidView();
   const b = bookItems(), tot = bookTotal();

@@ -421,3 +421,13 @@ p{text-wrap:pretty}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes popin{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.intro-map .pth{stroke-dashoffset:0}.intro-map .st{opacity:1}}
+
+/* ---------- 해외 확장 (2026-11-12) ---------- */
+.segc.scope{margin-top:14px;padding:4px;border-radius:14px}
+.segc.scope button{flex:1;padding:9px 10px;border-radius:10px;font-size:14.5px;font-weight:600;display:flex;align-items:baseline;justify-content:center;gap:6px}
+.segc.scope button small{font-size:11.5px;font-weight:500;color:var(--faint)}
+.segc.scope button.on{color:var(--cobalt)}
+.segc.scope button.on small{color:var(--mute)}
+.rcard .rmap .cc{font-family:var(--sans);font-size:15px;font-weight:800;letter-spacing:.5px;color:var(--cobalt);display:block}
+.btn.maplink{margin-top:10px;text-decoration:none}
+.btn.maplink svg{width:18px;height:18px}

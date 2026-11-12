@@ -12,7 +12,7 @@ const F = {
   date(s, long) { const d = toDate(s); return long ? T.dateLong(d) : T.dateShort(d); },
   wd(s) { return T.wd[toDate(s).getDay()]; },
   dur(min) { min = Math.round(min); const h = Math.floor(min / 60), m = min % 60; return T.dur(h, m); },
-  hours(p) { if (p.o[0] === 0 && p.o[1] >= 24) return T.always; return `${hm(p.o[0])}–${p.o[1] > 24 ? hm(p.o[1] - 24) + T.nextDay : hm(p.o[1])}`; },
+  hours(p) { if (p.est) return T.localCheck; if (p.o[0] === 0 && p.o[1] >= 24) return T.always; return `${hm(p.o[0])}–${p.o[1] > 24 ? hm(p.o[1] - 24) + T.nextDay : hm(p.o[1])}`; },
   closed(p) { return p.closed && p.closed.length ? T.closedOn(p.closed.map(d => T.wd[d]).join(T.listSep)) : T.openDaily; },
   money: n => T.won(Math.round(n)), full: n => T.full(Math.round(n)),
   nights(n) { return T.nights(n); }
@@ -63,7 +63,7 @@ function renderChrome() {
   $('#langs').innerHTML = LANGS.map(([k, , s]) => `<button role="radio" aria-checked="${k === S.lang}" class="${k === S.lang ? 'on' : ''}" data-lang="${k}" lang="${HTML_LANG[k]}">${s}</button>`).join('');
   $$('#langs [data-lang]').forEach(b => b.onclick = () => { if (b.dataset.lang !== S.lang) { setLang(b.dataset.lang); renderAll(true); } });
   const badge = n => n ? `<span class="badge">${n}</span>` : '';
-  const items = TABS.map(([k, ic]) => ({ k, ic, label: T['tab_' + k], b: k === 'saved' ? badge(S.saved.length) : '' }));
+  const items = TABS.map(([k, ic]) => ({ k, ic, label: k === 'book' && tripAir().ov ? T.tab_prep : T['tab_' + k], b: k === 'saved' ? badge(S.saved.length) : '' }));
   $('#tabbar').innerHTML = items.map(t => `<button class="${S.ui.tab === t.k ? 'on' : ''}" data-tab="${t.k}">${ICONS[t.ic]}<span>${t.label}</span>${t.b}</button>`).join('');
   $('#tabtop').innerHTML = items.map(t => `<button class="${S.ui.tab === t.k ? 'on' : ''}" data-tab="${t.k}">${ICONS[t.ic]}<span>${t.label}</span>${t.b}</button>`).join('');
   $$('[data-tab]').forEach(b => b.onclick = () => go(b.dataset.tab));
@@ -103,13 +103,13 @@ function setupSheet() {
 }
 
 /* ---------- map tab: navigation ---------- */
-function openKorea() { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; persist(); World3D.leave(); setSheet('half'); renderPanel(); renderStage(); }
-function openRegion(r, keepSel) { S.ui.lvl = 'region'; S.ui.r = r; S.ui.d = null; if (!keepSel) S.ui.sel = null; S.ui.filter = 'all'; persist(); World3D.leave(); if (S.ui.sheet === 'full') setSheet('half', true); renderPanel(); renderStage(); }
-function openDistrict(did) { const d = DISTRICTS[did]; S.ui.lvl = 'district'; S.ui.r = d.r; S.ui.d = did; S.ui.sel = null; S.ui.mode3d = true; persist(); setSheet('peek', true); renderPanel(); renderStage(); }
+function openKorea(scope) { S.ui.scope = scope || (S.ui.r && isOv(S.ui.r) ? 'ov' : S.ui.r ? 'kr' : (S.ui.scope || 'kr')); S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; persist(); World3D.leave(); setSheet('half'); renderChrome(); renderPanel(); renderStage(); }
+function openRegion(r, keepSel) { S.ui.lvl = 'region'; S.ui.r = r; S.ui.scope = isOv(r) ? 'ov' : 'kr'; S.ui.d = null; if (!keepSel) S.ui.sel = null; S.ui.filter = 'all'; persist(); World3D.leave(); if (S.ui.sheet === 'full') setSheet('half', true); renderChrome(); renderPanel(); renderStage(); }
+function openDistrict(did) { const d = DISTRICTS[did], ov = isOv(d.r); S.ui.lvl = 'district'; S.ui.r = d.r; S.ui.d = did; S.ui.sel = null; S.ui.mode3d = !ov; persist(); setSheet(ov ? 'half' : 'peek', true); renderPanel(); renderStage(); }   // 해외는 3D 거리 준비 중 → 2D 지도
 function selectPlace(id, opt = {}) {
   const p = PBY[id]; if (!p) return;
   if (S.ui.tab !== 'map') { S.ui.tab = 'map'; renderChrome(); }
-  if (S.ui.lvl === 'korea' || S.ui.r !== p.r) { S.ui.lvl = 'region'; S.ui.r = p.r; S.ui.d = null; World3D.leave(); }
+  if (S.ui.lvl === 'korea' || S.ui.r !== p.r) { S.ui.lvl = 'region'; S.ui.r = p.r; S.ui.scope = isOv(p.r) ? 'ov' : 'kr'; S.ui.d = null; World3D.leave(); }
   S.ui.sel = id; persist();
   if (!isDesk() && S.ui.sheet !== 'full') setSheet('half', true);
   renderPanel(); (pin.closest('.panel-in') || pin).scrollTop = 0; pin.scrollTop = 0;
@@ -128,6 +128,7 @@ function renderStage(force) {
     Map2D.mount(mapbox);
     if ((S.ui.tab === 'plan' || S.ui.tab === 'book') && S.plan) { const i = clamp(S.ui.day, 0, S.plan.days.length - 1); Map2D.showRoute(S.plan, i, { top: 30 }); stageKey = 'route' + i; }
     else if (S.ui.tab === 'saved' && S.saved.length) { const r = tripOrder()[0]; Map2D.showRegion(r, { onPlace: id => selectPlace(id), onDistrict: openDistrict, onBg() {} }); stageKey = 'saved'; }
+    else if (tripAir().ov || S.ui.scope === 'ov') { Map2D.showWorld({ onRegion: r => { go('map'); openRegion(r); } }); stageKey = 'world'; }
     else { Map2D.showKorea({ onRegion: r => { go('map'); openRegion(r); } }); stageKey = 'korea'; }
     return;
   }
@@ -147,14 +148,14 @@ function renderStage(force) {
   }
   World3D.leave(); worldbox.style.display = 'none'; worldbox.innerHTML = ''; mapbox.style.display = 'block';
   Map2D.mount(mapbox);
-  if (lvl === 'korea') Map2D.showKorea({ onRegion: openRegion });
+  if (lvl === 'korea') (S.ui.scope === 'ov' ? Map2D.showWorld : Map2D.showKorea)({ onRegion: openRegion });
   else Map2D.showRegion(S.ui.r, { district: lvl === 'district' ? S.ui.d : null, sel: S.ui.sel, filter: S.ui.filter, onPlace: id => selectPlace(id), onDistrict: openDistrict, onBg: () => { if (S.ui.sel) clearSel(); } });
   ovl.innerHTML = overlayHtml(); bindOverlay();
 }
 function overlayHtml() {
   const lvl = S.ui.lvl, in3d = lvl === 'district' && S.ui.mode3d && World3D.webglOK();
   const crumbs = [];
-  if (lvl !== 'korea') crumbs.push(`<button data-o="korea">${ICONS.left}${esc(T.korea)}</button>`);
+  if (lvl !== 'korea') crumbs.push(`<button data-o="korea">${ICONS.left}${esc(isOv(S.ui.r) ? T.scopeOv : T.korea)}</button>`);
   if (lvl === 'district') crumbs.push(`<button data-o="region">${esc(rn(S.ui.r))}</button>`, `<span>${esc(dn(S.ui.d))}</span>`);
   else if (lvl === 'region') crumbs.push(`<span>${esc(rn(S.ui.r))}</span>`);
   const ctrl = lvl === 'district'
@@ -169,7 +170,7 @@ function bindOverlay() {
     if (o === 'korea') openKorea(); else if (o === 'region') openRegion(S.ui.r);
     else if (o === 'zin') (World3D.cur ? World3D.cur.zoomBy(1.5) : Map2D.zoomBy(1.6)); else if (o === 'zout') (World3D.cur ? World3D.cur.zoomBy(1 / 1.5) : Map2D.zoomBy(1 / 1.6));
     else if (o === 'home' && World3D.cur) World3D.cur.home();
-    else if (o === 'mode') { S.ui.mode3d = !S.ui.mode3d; persist(); renderStage(); }
+    else if (o === 'mode') { if (isOv(S.ui.r)) { toast(T.soon3d); return; } S.ui.mode3d = !S.ui.mode3d; persist(); renderStage(); }
     else if (o === 'clr') { S.ui.q = ''; $('#q').value = ''; showSearch(''); } });
   const q = $('#q'); if (q) { q.oninput = () => { S.ui.q = q.value; showSearch(q.value); }; q.onfocus = () => showSearch(q.value); q.onkeydown = e => { if (e.key === 'Escape') { q.blur(); showSearch(''); } }; }
 }
@@ -177,7 +178,7 @@ const norm = s => String(s).toLowerCase().replace(/[\s·・\-'’]/g, '');
 function showSearch(v) {
   const box = $('#sres'), clr = $('[data-o="clr"]'); if (clr) clr.hidden = !v; if (!box) return;
   const q = norm(v.trim()); if (!q) { box.hidden = true; box.innerHTML = ''; return; }
-  const hits = PLACES.map(p => { const hay = norm([...Object.values(p.n), ...REGIONS[p.r].t, DISTRICTS[p.dist] ? DISTRICTS[p.dist].n.join('') : '', ...Object.values(I18N).map(L => L.cats[p.c])].join('|'));
+  const hits = PLACES.map(p => { const hay = norm([...Object.values(p.n), ...REGIONS[p.r].t, ...(OVD.countries[REGIONS[p.r].cc] || []), DISTRICTS[p.dist] ? DISTRICTS[p.dist].n.join('') : '', ...Object.values(I18N).map(L => L.cats[p.c])].join('|'));
     const nm = norm(Object.values(p.n).join('|')); return { p, s: nm.includes(q) ? 2 : hay.includes(q) ? 1 : 0 }; }).filter(x => x.s).sort((a, b) => b.s - a.s).slice(0, 8);
   box.hidden = false;
   box.innerHTML = hits.length ? hits.map(({ p }) => `<button class="prow" data-hit="${p.id}">${cicon(p.c, 'sm')}<span class="tx"><span class="nm">${esc(pn(p.id))}</span><span class="ds">${esc(rn(p.r))} · ${esc(dn(p.dist))}</span></span></button>`).join('') : `<div class="empty" style="padding:16px">${esc(T.noResult(v.trim()))}</div>`;
@@ -189,19 +190,25 @@ function panelMap() {
   if (S.ui.sel) return placeDetail(S.ui.sel);
   const lvl = S.ui.lvl;
   if (lvl === 'korea') {
-    return `<h1 class="h1">${T.where}</h1><p class="lead">${T.whereLead}</p>
-      <div class="rgrid" style="margin-top:16px">${REGION_IDS.map(r => { const L = PLACES.filter(p => p.r === r), f = L.filter(p => isSaved(p.id)).length;
-        return `<button class="rcard" data-act="region" data-v="${r}"><span class="rmap">${Map2D.thumb(r)}</span><span class="tx"><b>${esc(rn(r))}</b><span>${esc(tr4(REGION_TAG[r]))}</span>
-          <span class="cnt"><span>${T.spots(L.length)}</span><span>${T.districtsN(GEO.regions[r].districts.length)}</span>${f ? `<span class="hrt">♥ ${f}</span>` : ''}</span></span>${ICONS.right}</button>`; }).join('')}</div>${aroundMore()}`;
+    const ov = S.ui.scope === 'ov';
+    const card = r => { const L = PLACES.filter(p => p.r === r), f = L.filter(p => isSaved(p.id)).length;
+      return `<button class="rcard" data-act="region" data-v="${r}"><span class="rmap">${Map2D.thumb(r)}</span><span class="tx"><b>${esc(rn(r))}</b><span>${esc(tr4(REGION_TAG[r]))}</span>
+        <span class="cnt"><span>${T.spots(L.length)}</span><span>${T.districtsN(GEO.regions[r].districts.length)}</span>${f ? `<span class="hrt">♥ ${f}</span>` : ''}</span></span>${ICONS.right}</button>`; };
+    const seg = `<div class="segc scope" role="tablist"><button role="tab" class="${ov ? '' : 'on'}" data-act="scope" data-v="kr">${T.scopeKr}<small>${T.scopeKrSub}</small></button><button role="tab" class="${ov ? 'on' : ''}" data-act="scope" data-v="ov">${T.scopeOv}<small>${T.scopeOvSub(OV_IDS.length)}</small></button></div>`;
+    if (!ov) return `<h1 class="h1">${T.where}</h1><p class="lead">${T.whereLead}</p>${seg}
+      <div class="rgrid" style="margin-top:14px">${KR_IDS.map(card).join('')}</div>${aroundMore()}`;
+    return `<h1 class="h1">${T.where}</h1><p class="lead">${T.whereLeadOv}</p>${seg}
+      ${OVD.order.map(cc => { const rs = OV_IDS.filter(r => REGIONS[r].cc === cc); return rs.length ? `<div class="sec"><h3>${esc(countryName(cc))}</h3><small>${T.citiesN(rs.length)}</small></div><div class="rgrid">${rs.map(card).join('')}</div>` : ''; }).join('')}
+      <p class="note">${T.ovNote}</p>${aroundMore()}`;
   }
   const r = S.ui.r, inD = lvl === 'district', ds = GEO.regions[r].districts;
   const list = PLACES.filter(p => p.r === r && (!inD || p.dist === S.ui.d) && (S.ui.filter === 'all' || p.c === S.ui.filter));
   const cats = CAT_ORDER.filter(c => PLACES.some(p => p.r === r && (!inD || p.dist === S.ui.d) && p.c === c));
   const head = inD
     ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1><p class="lead">${S.ui.mode3d ? T.distLead3d : T.distLead2d}</p>`
-    : `<div class="eyebrow"><button data-act="korea">${esc(T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${T.regionLead}</p>
-       <div class="sec"><h3>${T.pickDistrict}</h3><small>${T.pickDistrictSub}</small></div>
-       <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${ICONS.cube.replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
+    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${isOv(r) ? T.regionLeadOv : T.regionLead}</p>
+       <div class="sec"><h3>${T.pickDistrict}</h3><small>${isOv(r) ? `<span class="pill sug">${T.soon3dShort}</span>` : T.pickDistrictSub}</small></div>
+       <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${(isOv(r) ? ICONS.pin : ICONS.cube).replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
   return `${head}
     <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${T.spots(list.length)}</small></div>
     <div class="chips scroll" style="margin-bottom:12px"><button class="chip ${S.ui.filter === 'all' ? 'on' : ''}" data-act="filter" data-v="all">${T.all}</button>${cats.map(c => `<button class="chip ${S.ui.filter === c ? 'on' : ''}" data-act="filter" data-v="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div>
@@ -237,13 +244,19 @@ function placeRow(p, opts = {}) {
   const tags = [];
   if (p.rsv) tags.push(`<span class="pill rsv">${T.needRsv}</span>`);
   if (p.best === 'night') tags.push(`<span class="pill info">${T.bestNight}</span>`); else if (p.best === 'am') tags.push(`<span class="pill info">${T.bestAm}</span>`);
+  if (p.far) tags.push(`<span class="pill sug">${T.far}</span>`);
   return `<div class="prow ${S.ui.sel === p.id ? 'sel' : ''}"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${p.id}">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(p.id))}</span>
     <span class="ds">${opts.sub || esc(pd(p.id))}</span>${tags.length ? `<span class="mt">${tags.join('')}</span>` : ''}</span></button>${heartBtn(p.id)}</div>`;
 }
 function placeInPlan(id) { if (!S.plan) return -1; return S.plan.days.findIndex(d => d.stops.some(s => s.id === id)); }
 function placeDetail(id) {
   const p = PBY[id], di = placeInPlan(id);
-  const facts = [
+  const facts = p.est ? [   // 해외: 운영 시간·요금은 확인된 값이 아니라서 '현지 확인'으로 보여 준다
+    [T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<br><span class="muted" style="font-weight:500">${F.closed(p)}</span>` : ''}`],
+    [T.fStay, T.usually(F.dur(p.h * 60))],
+    [T.fPrice, T.localCheck],
+    [T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]
+  ] : [
     [T.fHours, `${F.hours(p)}<br><span class="muted" style="font-weight:500">${F.closed(p)}</span>`],
     [T.fStay, T.usually(F.dur(p.h * 60))],
     [T.fPrice, p.cost ? T.perPerson(F.money(p.cost)) : T.free],
@@ -262,9 +275,14 @@ function placeDetail(id) {
     <div class="pd-acts"><button class="btn ${isSaved(id) ? 'ghost' : ''}" data-save="${id}">${isSaved(id) ? ICONS.heartF : ICONS.heart}${isSaved(id) ? T.savedBtn : T.saveBtn}</button>
       ${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn ghost" data-act="addToPlan" data-v="${id}">${ICONS.plus}${T.addToPlan}</button>` : ''}
       <button class="btn ghost" data-act="taxi" data-v="${id}" style="flex:0 0 auto">${ICONS.taxi}<span class="vh">${T.taxiCard}</span></button></div>
+    ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}<p class="note">${T.estNote}</p>` : ''}
     ${aroundCard(p.r, p.dist, true)}`;
 }
 function stationOf(p) { return /역/.test(p.st) ? stationTr(p.st) : `${rn(p.r)} ${dn(p.dist)}`; }
+const mapUrl = p => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.n.en} ${REGIONS[p.r].t[2]}`)}`;
+// 해외에서 기사님께 보여 줄 현지어 이름과 한마디
+const LOCAL_LANG = { jp: 'ja', tw: 'zh', hk: 'zh', mo: 'zh', cn: 'zh' };
+const LOCAL_SAY = { ja: n => `${n}までお願いします。`, zh: n => `请到${n}。`, en: n => `Please take me to ${n}.` };
 const ST_NAMES = { '경복궁': ['景福宫', 'Gyeongbokgung', '景福宮'], '안국': ['安国', 'Anguk', '安国'], '이촌': ['二村', 'Ichon', '二村'], '종로5가': ['钟路5街', 'Jongno 5-ga', '鍾路5街'], '을지로3가': ['乙支路3街', 'Euljiro 3-ga', '乙支路3街'],
   '신사': ['新沙', 'Sinsa', '新沙'], '명동': ['明洞', 'Myeong-dong', '明洞'], '홍대입구': ['弘大入口', 'Hongik Univ.', '弘大入口'], '서울숲': ['首尔林', 'Seoul Forest', 'ソウルの森'], '압구정로데오': ['狎鸥亭罗德奥', 'Apgujeong Rodeo', '狎鴎亭ロデオ'],
   '신논현': ['新论岘', 'Sinnonhyeon', '新論峴'], '성수': ['圣水', 'Seongsu', '聖水'], '동대문역사문화공원': ['东大门历史文化公园', 'DDP', '東大門歴史文化公園'], '여의나루': ['汝矣渡口', 'Yeouinaru', '汝矣ナル'], '종로3가': ['钟路3街', 'Jongno 3-ga', '鍾路3街'],
@@ -292,6 +310,14 @@ function openMenu(anchor, items) {
 }
 function openTaxi(id) {
   const p = PBY[id];
+  if (isOv(p.r)) {
+    const ll = LOCAL_LANG[REGIONS[p.r].cc] || 'en', nm = p.n[ll] || p.n.en;
+    openModal(`<h3>${T.taxiCard}</h3><p class="lead">${T.taxiLead}</p>
+      <div class="taxi"><div class="ko" lang="${HTML_LANG[ll]}">${esc(nm)}</div>${nm !== p.n.en ? `<div class="ad" lang="en">${esc(p.n.en)}</div>` : ''}<small>${esc(pn(id))} · ${esc(rn(p.r))}</small></div>
+      <div class="taxi" style="background:var(--cobalt-soft)"><div class="ad" lang="${HTML_LANG[ll]}">${esc(LOCAL_SAY[ll](nm))}</div><small>${T.taxiSay}</small></div>
+      <button class="btn block ink" style="margin-top:16px" data-close>${T.close}</button>`);
+    return;
+  }
   openModal(`<h3>${T.taxiCard}</h3><p class="lead">${T.taxiLead}</p>
     <div class="taxi"><div class="ko" lang="ko">${esc(p.n.ko)}</div><div class="ad" lang="ko">${esc(p.st)}</div>${S.lang !== 'ko' ? `<small>${esc(pn(id))} · ${esc(stationOf(p))}</small>` : ''}</div>
     <div class="taxi" style="background:var(--cobalt-soft)"><div class="ad" lang="ko">${esc(`${p.n.ko}${koRo(p.n.ko)} 가 주세요.`)}</div><small>${T.taxiSay}</small></div>
@@ -300,13 +326,14 @@ function openTaxi(id) {
 
 /* ---------- trip settings ---------- */
 function openTrip() {
-  const t = JSON.parse(JSON.stringify(S.trip));
+  const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
+  t.arr = ta.arr; t.dep = ta.dep;   // 이번 여행 나라의 공항으로 맞춘다
   const draw = m => {
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
-    const apOpts = (v) => Object.keys(AIRPORTS).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${T.tripLead}</p>
+    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : T.tripLead}</p>
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
         <label class="dbox"><small>${T.last}</small><b>${T.mdShort(toDate(t.end))}</b><span>${T.wdL[toDate(t.end).getDay()]}</span><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
@@ -316,9 +343,9 @@ function openTrip() {
         <div class="sel"><small>${T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
       <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
         <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
-      <div class="fld"><div class="lb">${T.budget}<small>${T.budgetSub}</small></div><div class="tiles">${T.budgets.map((b, i) => `<button class="tile ${t.budget === i ? 'on' : ''}" data-b="${i}"><small>${b[0]}</small><b>${b[1]}</b></button>`).join('')}</div></div>
+      ${ta.ov ? '' : `<div class="fld"><div class="lb">${T.budget}<small>${T.budgetSub}</small></div><div class="tiles">${T.budgets.map((b, i) => `<button class="tile ${t.budget === i ? 'on' : ''}" data-b="${i}"><small>${b[0]}</small><b>${b[1]}</b></button>`).join('')}</div></div>`}
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
-      <div class="fld"><div class="lb">${T.interests}<small>${T.multi}</small></div><div class="chips">${CAT_ORDER.map(c => `<button class="chip ${t.interests.includes(c) ? 'on' : ''}" data-int="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div></div>
+      <div class="fld" ${ta.ov ? 'hidden' : ''}><div class="lb">${T.interests}<small>${T.multi}</small></div><div class="chips">${CAT_ORDER.map(c => `<button class="chip ${t.interests.includes(c) ? 'on' : ''}" data-int="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div></div>
       <div class="fld"><label for="t-n">${T.name}<small>${T.nameSub}</small></label><input class="txtin" id="t-n" maxlength="20" value="${esc(t.name)}" placeholder="${esc(T.guest)}"></div>
       <div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost" data-close style="flex:.6">${T.cancel}</button><button class="btn" id="t-ok" style="flex:1">${T.saveTrip}</button></div>`;
     const re = () => { const y = m.scrollTop; draw(m); m.scrollTop = y; };
@@ -357,7 +384,7 @@ function showIntro() {
 
 /* ---------- actions ---------- */
 const ACT = {
-  region: v => openRegion(v), korea: () => openKorea(), district: v => openDistrict(v),
+  region: v => openRegion(v), korea: () => openKorea(), district: v => openDistrict(v), scope: v => openKorea(v),
   filter: v => { S.ui.filter = v; persist(); renderPanel(); if (!World3D.cur) Map2D.refresh({ filter: v }); },
   place: v => selectPlace(v), unsel: () => clearSel(),
   taxi: v => openTaxi(v),
