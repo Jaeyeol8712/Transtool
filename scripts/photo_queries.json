@@ -399,5 +399,262 @@
   "k-gj-bomun": [
     "Bomun Lake",
     "Bomun lake Gyeongju"
+  ],
+  "k-ok-kokusai": [
+    "Kokusai-dori Naha",
+    "Kokusai Street Naha"
+  ],
+  "k-ok-shuri": [
+    "Shuri Castle",
+    "Shurijo Park"
+  ],
+  "k-ok-american": [
+    "American Village Chatan",
+    "Mihama American Village"
+  ],
+  "k-ok-manzamo": [
+    "Cape Manzamo",
+    "Manzamo Onna"
+  ],
+  "k-ok-churaumi": [
+    "Okinawa Churaumi Aquarium",
+    "Churaumi Aquarium Kuroshio"
+  ],
+  "k-ok-kouri": [
+    "Kouri Bridge",
+    "Kouri Ohashi"
+  ],
+  "k-ng-noritake": [
+    "Noritake Garden Nagoya",
+    "Noritake no Mori"
+  ],
+  "k-ng-sakae": [
+    "Sakae Nagoya",
+    "Oasis 21 Nagoya"
+  ],
+  "k-ng-osu": [
+    "Osu shopping street Nagoya",
+    "Osu Kannon"
+  ],
+  "k-ng-castle": [
+    "Nagoya Castle",
+    "Nagoya Castle Honmaru Palace"
+  ],
+  "k-ng-nabana": [
+    "Nabana no Sato",
+    "Nabana no Sato illumination"
+  ],
+  "k-hd-asaichi": [
+    "Hakodate Morning Market",
+    "Hakodate Asaichi"
+  ],
+  "k-hd-brick": [
+    "Kanemori Red Brick Warehouse",
+    "Hakodate red brick warehouses"
+  ],
+  "k-hd-motomachi": [
+    "Motomachi Hakodate",
+    "Hachiman-zaka Hakodate"
+  ],
+  "k-hd-ropeway": [
+    "Mount Hakodate night view",
+    "Mount Hakodate Ropeway"
+  ],
+  "k-hd-goryokaku": [
+    "Goryokaku",
+    "Goryokaku Tower"
+  ],
+  "k-hd-yunokawa": [
+    "Yunokawa Onsen Hakodate",
+    "Yunokawa Hakodate"
+  ],
+  "k-bp-jigoku": [
+    "Umi Jigoku Beppu",
+    "Beppu hells"
+  ],
+  "k-bp-kannawa": [
+    "Kannawa Onsen",
+    "Kannawa Beppu steam"
+  ],
+  "k-bp-takegawara": [
+    "Takegawara Onsen",
+    "Beppu station street"
+  ],
+  "k-bp-kinrin": [
+    "Lake Kinrin Yufuin",
+    "Kinrinko Yufuin"
+  ],
+  "k-bp-yunotsubo": [
+    "Yunotsubo street Yufuin",
+    "Yufuin street"
+  ],
+  "k-my-dogo": [
+    "Dogo Onsen Honkan",
+    "Dogo Onsen"
+  ],
+  "k-my-haikara": [
+    "Dogo Haikara Street",
+    "Dogo shopping arcade"
+  ],
+  "k-my-castle": [
+    "Matsuyama Castle",
+    "Matsuyama Castle Iyo"
+  ],
+  "k-my-okaido": [
+    "Okaido Matsuyama",
+    "Matsuyama Okaido arcade"
+  ],
+  "k-my-shimonada": [
+    "Shimonada Station",
+    "Shimonada"
+  ],
+  "k-bs-haeundae": [
+    "Haeundae Beach",
+    "Haeundae beach Busan"
+  ],
+  "k-bs-gamcheon": [
+    "Gamcheon Culture Village"
+  ],
+  "k-bs-jagalchi": [
+    "Jagalchi Market",
+    "Jagalchi fish market Busan"
+  ],
+  "k-bs-gwangan": [
+    "Gwangan Bridge night",
+    "Gwangalli beach bridge"
+  ],
+  "k-bs-yonggung": [
+    "Haedong Yonggungsa"
+  ],
+  "k-bs-huinyeoul": [
+    "Huinnyeoul Culture Village",
+    "Yeongdo Busan coast"
+  ],
+  "k-bs-centum": [
+    "Shinsegae Centum City"
+  ],
+  "k-bs-blueline": [
+    "Haeundae Blueline Park",
+    "Cheongsapo sky capsule",
+    "Haeundae Beach Train"
+  ],
+  "k-bs-taejongdae": [
+    "Taejongdae"
+  ],
+  "k-bs-gukje": [
+    "Gukje Market",
+    "BIFF Square Busan"
+  ],
+  "k-bs-songdo": [
+    "Songdo Marine Cable Car",
+    "Songdo beach Busan"
+  ],
+  "k-sg-mbs": [
+    "Marina Bay Sands",
+    "Marina Bay Sands Singapore"
+  ],
+  "k-sg-merlion": [
+    "Merlion Park Singapore",
+    "Merlion statue"
+  ],
+  "k-sg-gardens": [
+    "Gardens by the Bay Supertree",
+    "Gardens by the Bay"
+  ],
+  "k-sg-chinatown": [
+    "Chinatown Singapore",
+    "Singapore Chinatown street"
+  ],
+  "k-sg-india": [
+    "Little India Singapore",
+    "Serangoon Road Little India"
+  ],
+  "k-sg-orchard": [
+    "Orchard Road Singapore",
+    "Orchard Road"
+  ],
+  "k-sg-sentosa": [
+    "Sentosa island",
+    "Sentosa beach Singapore"
+  ],
+  "k-kl-twin": [
+    "Petronas Twin Towers",
+    "KLCC Park Petronas"
+  ],
+  "k-kl-bintang": [
+    "Bukit Bintang Kuala Lumpur",
+    "Bukit Bintang"
+  ],
+  "k-kl-alor": [
+    "Jalan Alor Kuala Lumpur",
+    "Jalan Alor food street"
+  ],
+  "k-kl-merdeka": [
+    "Merdeka Square Kuala Lumpur",
+    "Sultan Abdul Samad Building"
+  ],
+  "k-kl-chinatown": [
+    "Petaling Street Kuala Lumpur",
+    "Petaling Street"
+  ],
+  "k-kl-batu": [
+    "Batu Caves",
+    "Batu Caves stairs"
+  ],
+  "k-kk-waterfront": [
+    "Kota Kinabalu waterfront",
+    "Kota Kinabalu night market"
+  ],
+  "k-kk-aru": [
+    "Tanjung Aru beach sunset",
+    "Tanjung Aru Kota Kinabalu"
+  ],
+  "k-kk-sapi": [
+    "Sapi Island Sabah",
+    "Pulau Sapi"
+  ],
+  "k-kk-manukan": [
+    "Manukan Island",
+    "Pulau Manukan"
+  ],
+  "k-kk-kinabalu": [
+    "Kinabalu Park",
+    "Mount Kinabalu"
+  ],
+  "k-gm-beach": [
+    "Tumon Bay Guam",
+    "Tumon Beach"
+  ],
+  "k-gm-shop": [
+    "Tumon Guam shopping",
+    "Tumon Guam Pale San Vitores Road"
+  ],
+  "k-gm-lovers": [
+    "Two Lovers Point Guam",
+    "Puntan Dos Amantes"
+  ],
+  "k-gm-chamorro": [
+    "Chamorro Village Hagatna",
+    "Chamorro Village Guam"
+  ],
+  "k-gm-inarajan": [
+    "Inarajan natural pool",
+    "Inarajan pools Guam"
+  ],
+  "k-sn-micro": [
+    "Micro Beach Saipan",
+    "Saipan Micro Beach"
+  ],
+  "k-sn-garapan": [
+    "Garapan Saipan",
+    "Garapan"
+  ],
+  "k-sn-managaha": [
+    "Managaha Island",
+    "Managaha Saipan"
+  ],
+  "k-sn-north": [
+    "Banzai Cliff Saipan",
+    "Bird Island Saipan"
   ]
 }
