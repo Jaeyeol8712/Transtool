@@ -1,17 +1,6 @@
-== 2026-11-12T14:09:43Z push f782dd7096074e3df8e9801bb56fa867de985cd8
-· 대상 12개
-  https://www.aroundtool.com/travel-beppu.html
-  https://www.aroundtool.com/travel-cebu.html
-  https://www.aroundtool.com/travel-chiangmai.html
-  https://www.aroundtool.com/travel-clark.html
-  https://www.aroundtool.com/travel-gangneung.html
-  https://www.aroundtool.com/travel-gyeongju.html
-  https://www.aroundtool.com/travel-jeju.html
-  https://www.aroundtool.com/travel-jeonju.html
-  https://www.aroundtool.com/travel-shanghai.html
-  https://www.aroundtool.com/travel-shizuoka.html
-  https://www.aroundtool.com/travel-takamatsu.html
-  https://www.aroundtool.com/travel-yeosu.html
+== 2026-11-12T21:18:59Z push 415514b0f6f4046c14f6b01df6a62ac3e2053237
+· 대상 1개
+  https://www.aroundtool.com/travel-busan.html
 
   ✓ api.indexnow.org — 200 접수됨
   ✓ www.bing.com — 200 접수됨
@@ -22,8 +11,9 @@
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
-  ✓ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 제출됨
-  ✓ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 제출됨
+  ✗ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
+  ✗ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
+  · 사이트가 Bing 웹마스터 도구에 등록·인증돼 있는지, siteUrl 이 등록한 주소와 같은지 확인하세요.
 
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
