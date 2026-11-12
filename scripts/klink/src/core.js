@@ -194,7 +194,9 @@ function tripAir() {
   if (key === _taKey) return _ta;
   const cnt = {}, rc = {};
   for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
-  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
+  const pick = AIRPORTS[S.trip.arr];   // 해외 여행인데 아직 도시를 안 골랐으면 고른 공항의 나라
+  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : null)
+    || (tripKind() === 'ov' && pick && pick.cc !== 'kr' ? pick.cc : 'kr');
   const home = cc === 'kr' && tripKind() === 'kr';   // 국내 여행: 역에서 출발
   const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc && !!AIRPORTS[c].home === home;
   let def = home ? 'SEL' : 'ICN';

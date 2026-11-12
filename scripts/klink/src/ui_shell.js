@@ -61,7 +61,7 @@ const TABS = [['map', 'map'], ['saved', 'heart'], ['plan', 'cal'], ['prep', 'tic
 function renderChrome() {
   $('#brandt').textContent = T.brand;
   const ds = tripDates();
-  $('#tript').innerHTML = `${esc(T.mdShort(toDate(ds[0])))}–${esc(T.mdShort(toDate(ds[ds.length - 1])))}<span class="pp"> · ${esc(T.ppl(S.trip.people))}</span>`;
+  $('#tript').innerHTML = `${esc(T.mdShort(toDate(ds[0])))}–${esc(T.mdShort(toDate(ds[ds.length - 1])))}`;
   $('#langs').innerHTML = LANGS.map(([k, , s]) => `<button role="radio" aria-checked="${k === S.lang}" class="${k === S.lang ? 'on' : ''}" data-lang="${k}" lang="${HTML_LANG[k]}">${s}</button>`).join('');
   $$('#langs [data-lang]').forEach(b => b.onclick = () => { if (b.dataset.lang !== S.lang) { setLang(b.dataset.lang); renderAll(true); } });
   const badge = n => n ? `<span class="badge">${n}</span>` : '';
@@ -152,14 +152,21 @@ function overlayHtml() {
   const ctrl = `<button class="iconbtn" data-o="zin" aria-label="+">${ICONS.plus}</button><button class="iconbtn" data-o="zout" aria-label="−">${ICONS.minus}</button>`
     + (lvl !== 'korea' && Map2D.gl ? `<button class="iconbtn t3d ${in3d ? 'on' : ''}" data-o="mode" aria-label="${in3d ? T.view2d : T.view3d}" aria-pressed="${in3d}"><span>3D</span></button>` : '');
   return `<div class="ov-top"><label class="search">${ICONS.search}<input id="q" placeholder="${esc(T.searchPh)}" autocomplete="off" value="${esc(S.ui.q || '')}"><button class="clr" data-o="clr" aria-label="${T.close}" ${S.ui.q ? '' : 'hidden'}>${ICONS.x}</button></label>
-    <div class="searchres" id="sres" hidden></div>${crumbs.length ? `<div class="crumbs">${crumbs.join('')}</div>` : ''}</div>
+    <div class="searchres" id="sres" hidden></div>${crumbs.length ? `<div class="crumbs">${crumbs.join('')}</div>` : ''}${legendHtml()}</div>
     <div class="ov-ctrl">${ctrl}</div>`;
+}
+// 지도 아이콘 설명: 이 지역에 있는 분류만 작은 글씨로. 누르면 그 분류만 보기(다시 누르면 전체)
+function legendHtml() {
+  if (S.ui.lvl === 'korea' || !S.ui.r) return '';
+  const cs = CAT_ORDER.filter(c => PLACES.some(p => p.r === S.ui.r && p.c === c));
+  return `<div class="legend" role="group" aria-label="${esc(T.legend)}">${cs.map(c => `<button class="${S.ui.filter === c ? 'on' : ''}" data-o="flt" data-c="${c}"><i style="background:${CATS[c].col}">${catIcon(c)}</i>${esc(T.cats[c])}</button>`).join('')}</div>`;
 }
 function bindOverlay() {
   $$('#ovl [data-o]').forEach(b => b.onclick = e => { e.stopPropagation(); const o = b.dataset.o;
     if (o === 'korea') openKorea(); else if (o === 'region') openRegion(S.ui.r);
     else if (o === 'zin') Map2D.zoomBy(1.6); else if (o === 'zout') Map2D.zoomBy(1 / 1.6);
     else if (o === 'mode') { S.ui.mode3d = !S.ui.mode3d; persist(); Map2D.set3d(S.ui.mode3d); b.classList.toggle('on', S.ui.mode3d); b.setAttribute('aria-pressed', S.ui.mode3d); }
+    else if (o === 'flt') { const c = b.dataset.c; ACT.filter(S.ui.filter === c ? 'all' : c); }
     else if (o === 'clr') { S.ui.q = ''; $('#q').value = ''; showSearch(''); } });
   const q = $('#q'); if (q) { q.oninput = () => { S.ui.q = q.value; showSearch(q.value); }; q.onfocus = () => showSearch(q.value); q.onkeydown = e => { if (e.key === 'Escape') { q.blur(); showSearch(''); } }; }
 }
@@ -345,16 +352,20 @@ function openTrip() {
   const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
   t.arr = ta.arr; t.dep = ta.dep; t.kind = tripKind();   // 이번 여행 나라의 공항(국내 여행은 역)으로 맞춘다
   const homeNow = () => ta.cc === 'kr' && t.kind === 'kr';
-  const fix = () => { const L = Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === homeNow());
-    if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
+  // 고를 수 있는 공항·역: 국내 여행=역, 해외 여행(아직 도시 안 고름)=해외 공항 전체, 그 밖=여행 나라 공항
+  const apMode = () => homeNow() ? 'home' : (t.kind === 'ov' && !ta.ov) ? 'ovany' : 'cc';
+  const codes = () => { const md = apMode(); return Object.keys(AIRPORTS).filter(c => { const a = AIRPORTS[c]; return md === 'home' ? a.home : md === 'ovany' ? a.cc !== 'kr' : (a.cc === ta.cc && !a.home); }); };
+  const fix = () => { const L = codes(); if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
   fix();
   const draw = m => {
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
     const H = homeNow();
-    const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === H).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const opt = (c, v) => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`;
+    const apOpts = v => { const L = codes(); if (apMode() !== 'ovany') return L.map(c => opt(c, v)).join('');
+      return [...new Set(L.map(c => AIRPORTS[c].cc))].map(cc => `<optgroup label="${esc(countryName(cc))}">${L.filter(c => AIRPORTS[c].cc === cc).map(c => opt(c, v)).join('')}</optgroup>`).join(''); };
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : T.tripLead}</p>
+    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : t.kind === 'ov' ? T.tripLeadOvAny : T.tripLead}</p>
       <div class="fld"><div class="lb">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
@@ -363,10 +374,7 @@ function openTrip() {
       <div class="fld"><div class="lb">${H ? T.flightsHome : T.flights}<small>${H ? T.flightsHomeSub : T.flightsSub}</small></div>
         <div class="ftrow"><div class="sel"><small>${H ? T.fromSt : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${H ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
         <div class="sel"><small>${H ? T.backSt : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${H ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
-      <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
-        <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
-      <div class="fld" ${ta.ov ? 'hidden' : ''}><div class="lb">${T.interests}<small>${T.multi}</small></div><div class="chips">${CAT_ORDER.map(c => `<button class="chip ${t.interests.includes(c) ? 'on' : ''}" data-int="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div></div>
       <div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost" data-close style="flex:.6">${T.cancel}</button><button class="btn" id="t-ok" style="flex:1">${T.saveTrip}</button></div>`;
     const re = () => { const y = m.scrollTop; draw(m); m.scrollTop = y; };
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
@@ -375,10 +383,7 @@ function openTrip() {
     $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
     $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
     $$('[data-kind]', m).forEach(b => b.onclick = () => { t.kind = b.dataset.kind; setKindTimes(t, t.kind); fix(); re(); });
-    $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
-    $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
-    $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
     $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
   };
@@ -406,7 +411,7 @@ function showIntro() {
 /* ---------- actions ---------- */
 const ACT = {
   region: v => openRegion(v), korea: () => openKorea(), district: v => openDistrict(v), scope: v => openKorea(v),
-  filter: v => { S.ui.filter = v; persist(); renderPanel(); Map2D.refresh({ filter: v }); },
+  filter: v => { S.ui.filter = v; persist(); renderPanel(); Map2D.refresh({ filter: v }); $$('#ovl .legend button').forEach(b => b.classList.toggle('on', b.dataset.c === v)); },
   place: v => selectPlace(v), unsel: () => clearSel(),
   taxi: v => openTaxi(v),
   gotoDay: v => { S.ui.day = +v; go('plan'); },

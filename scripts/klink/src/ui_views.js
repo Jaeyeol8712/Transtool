@@ -94,7 +94,7 @@ function panelPlan() {
       ${!sp ? `<button class="more" data-act="stopMenu" data-v="${e.si}" aria-label="${T.more}">${ICONS.more}</button>` : ''}</div></div>`;
   });
   const uns = P.unsched.filter(u => PBY[u.id]);
-  return `<div class="eyebrow">${F.date(ds[0].date)} – ${F.date(ds[n - 1].date)} · ${F.nights(n)} · ${T.ppl(S.trip.people)}</div>
+  return `<div class="eyebrow">${F.date(ds[0].date)} – ${F.date(ds[n - 1].date)} · ${F.nights(n)}</div>
     <div class="row" style="justify-content:space-between;align-items:flex-start"><h1 class="h1">${T.planTitle}</h1><button class="btn sm ghost" data-act="genPlan">${ICONS.magic}${T.replanShort}</button></div>
     <div class="route">${route}</div>
     ${stale ? `<div class="banner">${ICONS.info.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.stale}</span><button class="btn sm" data-act="genPlan">${T.replanShort}</button></div>` : ''}
