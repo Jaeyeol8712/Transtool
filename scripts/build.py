@@ -2303,7 +2303,8 @@ def build_home():
     sits = "".join(f'<div class="ah-sit"><p>{esc(t)}</p><ul>' +
                    "".join(f'<li><a href="/{x}.html">{esc(tool_name(x))}</a></li>' for x in xs if x + ".html" in PAGES) + "</ul></div>"
                    for t, xs in HOME_SITUATIONS)
-    picks = "".join(shop_card_a(q) for q in SHOP_LIVE[:6])
+    trav = [q for q in SHOP_LIVE if kind_of(q) == "travel"]  # 2026-11-12 대표 지시: 홈 추천 칸은 여행 추천만
+    picks = "".join(shop_card_a(q) for q in (trav or SHOP_LIVE)[:6])
     regions = []
     for rid, rname, rshort, gus in FOOD_AREAS:
         pre, gu = gus[0]
@@ -2393,7 +2394,7 @@ def build_home():
   </div>
 </section>
 <section class="ah-sec" aria-labelledby="ah-picks">
-  <div class="ah-head"><h2 id="ah-picks">고르기 전에 읽어 보세요</h2><a href="/connect.html">추천 모음 전체 {len(SHOP_LIVE)}개</a></div>
+  <div class="ah-head"><h2 id="ah-picks">여행 추천</h2><a href="/connect.html">추천 모음 전체 {len(SHOP_LIVE)}개</a></div>
   <ul class="ah-picks">{picks}</ul>
 </section>
 <div class="ah-row">
