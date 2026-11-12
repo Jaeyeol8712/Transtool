@@ -174,6 +174,7 @@ KPI는 주 목표 '사이트 유입 증대'와 연결한다. 기준값이 없는
 | 보조: 월 AI 비용 | 유료 API 사용액(목표: 대표가 정한 상한 이하, 기본 0원) | 공급자 결제 화면(대표 확인) |
 
 ## 6. 최신 동향 (날짜순, 새 소식은 위에 추가)
+- 2026-11-13 확인: 구글 블로그 'New opportunities, control and insights for website owners' — 사이트 주인이 AI 검색 기능 노출을 제어(빠지기 선택)하고 인사이트를 보는 기능 발표(게시일 원문 확인 필요) [10]. 우리에게 의미: 빠지지 않고 유지, K링크 장소 페이지가 AI 답변에 인용되도록.
 - 2026-10-01: 구글, 생성형 AI 콘텐츠 안내에 "게시 전 모든 AI 생성 콘텐츠를 사람이 사실 확인·검토하는 것이 결정적" 문장 추가, 검토 범위에 title·메타 설명·구조화 데이터·alt 명시 [1]. 우리에게 의미: AI 보조 결과물 전수 검토와 기록을 기본 절차로.
 - 2026-07-02: llms.txt 채택 8.8배 증가(36,120곳)지만 97%는 요청 0건, 구글은 2026-06-15 "검색에 필요 없음" 명시 [2]. 우리에게 의미: 자동 생성만 유지, 추가 투자 없음.
 - 2026-06-25 / 2026-07-21: 네이버 AI탭 정식 출시, AI 브리핑에 광고 도입 [5]. 우리에게 의미: 네이버 AI 노출은 카페 글(UGC) 경로로 접근.
@@ -181,6 +182,7 @@ KPI는 주 목표 '사이트 유입 증대'와 연결한다. 기준값이 없는
 - 2026-01-22: AI 기본법 시행 — 표시 의무는 AI 사업자, 일반 이용자는 대상 아님, 최소 1년 계도 [3]. 우리에게 의미: 지금 구조는 대상 아닐 가능성이 크나, 챗봇 등 AI 기능을 직접 제공하면 재검토.
 
 ## 7. 학습 기록 (매일 아침 추가)
+- 2026-11-13: (순번) 구글 사이트 주인용 AI 검색 제어 발표 확인. K링크 몫 점검 — 글 연결 장소 39/280, 명소 안내 62곳 대비 낮음 → 별칭 매칭 안건 i261113-02.
 - 2026-10-28: 입사. 초기 지식 적립. 사이트는 AI API 키 0, 외부 AI 호출 0, `llms.txt` 자동 생성, AI 크롤러 전부 허용 상태. AI 유입을 따로 재는 장치가 없어 측정 체계가 첫 과제. 구글 2026-10-01 지침 보강(사람 사실 확인·메타데이터 검토)을 검수 절차에 반영할 것.
 
 ## 출처
@@ -196,3 +198,5 @@ KPI는 주 목표 '사이트 유입 증대'와 연결한다. 기준값이 없는
 [10] 역할/법무팀.md 2-5 재인용 — 법무법인 세종, 추천·보증 심사지침 개정안(AI 가상인물)(2026-04-23) — https://www.shinkim.com/kor/media/newsletter/pdf/3242
 [11] 저장소 직접 확인 — `robots.txt`, `llms.txt`, `scripts/build.py`(`build_llms`), `assets/site.js`, `assets/search-index.json`, `search.html`, `.github/workflows/*.yml`(6개), `ops/할일.md` 예약 작업 목록 (2026-10-28)
 확인 필요: 구글 문서 원문(AI features and your website — https://developers.google.com/search/docs/appearance/ai-features 열람 실패, 생성형 AI 콘텐츠 안내 원문), GA4 'AI Assistants' 기본 채널 공식 공지, Cloudflare Workers 무료 한도, Gemini·Claude·OpenAI 공식 가격표, 공정위 개정 지침 원문, AI 기본법 제31조 'AI 사업자' 범위(챗봇 제공 시).
+
+[10] Google 블로그 — New opportunities, control and insights for website owners — https://blog.google/products-and-platforms/products/search/new-opportunities-control-and-insights-for-website-owners/ (2026-11-13 검색 결과로 확인, 원문 미열람)
