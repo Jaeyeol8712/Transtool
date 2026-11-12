@@ -1,0 +1,30 @@
+<label for="dt1">해외·면세점 구입 합계 (달러)</label>
+<input id="dt1" type="number" inputmode="decimal" placeholder="1200"/>
+<label for="dt2">환율 (원/달러, 관세청 고시 환율)</label>
+<input id="dt2" type="number" inputmode="decimal" placeholder="1400"/>
+<label for="dt3">적용 세율 (%, 품목별로 확인)</label>
+<input id="dt3" type="number" inputmode="decimal" placeholder="20"/>
+<label for="dt4">자진신고</label>
+<select id="dt4"><option value="y" selected>자진신고함</option><option value="n">신고 안 하고 적발</option></select>
+<button onclick="calc_duty_free_limit()">예상 세금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 세금</span><span class="result-value" id="dtT">-</span></div>
+<div class="result-row"><span class="result-label">면세 한도 초과액</span><span class="result-value" id="dtO" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">감면·가산 전 세금</span><span class="result-value" id="dtB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">자진신고 감면 / 가산세</span><span class="result-value" id="dtD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_duty_free_limit(){
+ var a=_v('dt1'),r=_v('dt2'),t=_v('dt3'),s=document.getElementById('dt4').value;
+ if(isNaN(a)||a<0||isNaN(r)||r<=0||isNaN(t)||t<0) return alert('구입 합계, 환율, 세율을 입력해주세요.');
+ var o=Math.max(0,a-800), base=o*r*t/100, d, tot;
+ if(s==='y'){d=Math.min(base*0.3,200000); tot=base-d; _s('dtD','감면 −'+_w(d)+' (30%, 최대 20만 원)');}
+ else{d=base*0.4; tot=base+d; _s('dtD','가산세 +'+_w(d)+' (40%)');}
+ _s('dtT',o===0?'0원 (면세 범위 안)':_w(tot)); _s('dtO','$'+_n(o,2)+' ('+_w(o*r)+')'); _s('dtB',_w(base));
+ document.getElementById('result').classList.add('show');
+}
+</script>

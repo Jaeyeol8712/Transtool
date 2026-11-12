@@ -1,0 +1,27 @@
+<label for="ct1">고양이 몸무게 (kg)</label>
+<input id="ct1" type="number" inputmode="decimal" placeholder="4"/>
+<label for="ct2">상태</label>
+<select id="ct2"><option value="2.5">1살 미만 새끼 고양이</option><option selected value="1.2">중성화한 성묘</option><option value="1.4">중성화 안 한 성묘</option><option value="1.0">살찌기 쉬운 성묘</option><option value="0.8">체중 감량 중</option></select>
+<label for="ct3">사료 열량 (kcal/kg, 포장 표기)</label>
+<input id="ct3" type="number" inputmode="numeric" placeholder="3800"/>
+<label for="ct4">하루 간식 열량 (kcal, 없으면 비워 두기)</label>
+<input id="ct4" type="number" inputmode="decimal" placeholder="0"/>
+<button onclick="calc_cat_food_amount()">하루 급여량 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">하루 사료량</span><span class="result-value" id="ctG">-</span></div>
+<div class="result-row"><span class="result-label">하루 필요 열량</span><span class="result-value" id="ctK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">휴식 에너지(RER)</span><span class="result-value" id="ctR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_cat_food_amount(){
+ var w=_v('ct1'),f=parseFloat(document.getElementById('ct2').value),k=_v('ct3'),s=_v('ct4');
+ if(isNaN(w)||w<=0||isNaN(k)||k<=0) return alert('몸무게와 사료 열량을 입력해주세요.'); if(isNaN(s)||s<0)s=0;
+ var rer=70*Math.pow(w,0.75), der=rer*f, food=Math.max(0,der-s);
+ _s('ctG',_n(food/k*1000,0)+'g'+(s>0?' (간식 '+_n(s,0)+'kcal 뺌)':'')); _s('ctK',_n(der,0)+'kcal'); _s('ctR',_n(rer,0)+'kcal');
+ document.getElementById('result').classList.add('show');
+}
+</script>

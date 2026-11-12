@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이슬점·결로 온도 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/dew_point_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=686f0e48">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="이슬점·결로 온도 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">이슬점·결로 온도 계산기</p>
+<label for="dp1">실내 온도 (℃)</label>
+<input id="dp1" type="number" inputmode="decimal" placeholder="22"/>
+<label for="dp2">실내 상대습도 (%)</label>
+<input id="dp2" type="number" inputmode="decimal" placeholder="50"/>
+<label for="dp3">창문·벽 표면 온도 (℃, 모르면 비워 두기)</label>
+<input id="dp3" type="number" inputmode="decimal" placeholder="10"/>
+<button onclick="calc_dew_point()">이슬점 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">이슬점 (결로 시작 온도)</span><span class="result-value" id="dpT">-</span></div>
+<div class="result-row"><span class="result-label">표면 결로 여부</span><span class="result-value" id="dpC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">이 표면에서 결로 없는 최대 습도</span><span class="result-value" id="dpM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_dew_point(){
+ var t=_v('dp1'),rh=_v('dp2'),s=_v('dp3'),b=17.62,c=243.12;
+ if(isNaN(t)||isNaN(rh)||rh<=0||rh>100) return alert('온도와 습도(1~100%)를 입력해주세요.');
+ var g=Math.log(rh/100)+b*t/(c+t), td=c*g/(b-g);
+ _s('dpT',_n(td,1)+'℃');
+ if(isNaN(s)){_s('dpC','표면 온도를 넣으면 나옵니다');_s('dpM','-');}
+ else{ _s('dpC',s<=td?'결로가 생길 수 있습니다 (표면 '+_n(s,1)+'℃ ≤ 이슬점)':'결로 걱정이 적습니다 (표면이 이슬점보다 '+_n(s-td,1)+'℃ 높음)');
+  var m=100*Math.exp(b*s/(c+s)-b*t/(c+t)); _s('dpM',m>=100?'100% (결로 안 생김)':_n(m,0)+'%'); }
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/dew_point_calculator.html?utm_source=embed&amp;utm_campaign=dew_point_calculator" target="_blank" rel="noopener">어라운드툴 이슬점·결로 온도 계산기</a></p>
+</body>
+</html>

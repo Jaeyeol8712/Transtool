@@ -67,6 +67,10 @@
 "d": "2026-11-11",
 "h": "b5916ef2e99645ad"
 },
+"cat_food_amount_calculator.html": {
+"d": null,
+"h": "329bf918b2db97c0"
+},
 "character_counter.html": {
 "d": "2026-11-03",
 "h": "2f810907a7b1f0b1"
@@ -147,6 +151,10 @@
 "d": "2026-11-03",
 "h": "24fc46cc0f07cd39"
 },
+"dew_point_calculator.html": {
+"d": null,
+"h": "86c69001002671bf"
+},
 "discount_calculator.html": {
 "d": "2026-11-11",
 "h": "970ce82fa5814ef3"
@@ -179,6 +187,10 @@
 "d": "2026-11-03",
 "h": "308d719d291821bb"
 },
+"duty_free_limit_calculator.html": {
+"d": null,
+"h": "339e49411049fd88"
+},
 "editorial.html": {
 "d": "2026-11-03",
 "h": "9a85d9e5d20c4812"
@@ -188,8 +200,8 @@
 "h": "cef1c5123f7029f1"
 },
 "etc.html": {
-"d": "2026-11-11",
-"h": "0d3171544a73a629"
+"d": "2026-11-12",
+"h": "335621f2dcf6e331"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -202,6 +214,10 @@
 "exam_study_time_calculator.html": {
 "d": null,
 "h": "74d7240d4b1eba8b"
+},
+"excess_baggage_fee_calculator.html": {
+"d": null,
+"h": "b69a086d6272afdb"
 },
 "exchange_rate_calculator.html": {
 "d": "2026-11-11",
@@ -787,13 +803,21 @@
 "d": "2026-11-05",
 "h": "1a7b439cd48fc04f"
 },
+"humidifier_electricity_cost_calculator.html": {
+"d": null,
+"h": "d5b74e44f5e3804b"
+},
+"incheon_airport_parking_calculator.html": {
+"d": null,
+"h": "1f5b60845edbf923"
+},
 "increase_decrease_calculator.html": {
 "d": "2026-11-03",
 "h": "fb5ecea9c8780245"
 },
 "index.html": {
 "d": "2026-11-12",
-"h": "51ded59541a788e9"
+"h": "4b53f07590da6c88"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -991,6 +1015,10 @@
 "d": null,
 "h": "20135ba4081d1d65"
 },
+"overseas_card_fee_calculator.html": {
+"d": null,
+"h": "a28510bd671223f4"
+},
 "overseas_travel_budget_calculator.html": {
 "d": "2026-11-11",
 "h": "7c15d9a4e6b0bcbd"
@@ -1055,6 +1083,10 @@
 "d": "2026-11-03",
 "h": "4a6fb121ae1ba627"
 },
+"rental_car_total_cost_calculator.html": {
+"d": null,
+"h": "b56c4a1f962824fb"
+},
 "retirement_income_tax_calculator.html": {
 "d": "2026-11-05",
 "h": "3c9c6317f10beeaa"
@@ -1062,6 +1094,10 @@
 "rice_water_calculator.html": {
 "d": null,
 "h": "a29750e45b4529b3"
+},
+"roaming_esim_compare_calculator.html": {
+"d": null,
+"h": "3434e0dc9e211840"
 },
 "salary_calculator.html": {
 "d": "2026-11-06",
@@ -1465,7 +1501,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-12",
-"h": "812ab04fe10a5d41"
+"h": "c1fc4e2ef392124f"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1544,8 +1580,8 @@
 "h": "a2c1edf3b84ad6c5"
 },
 "tools.html": {
-"d": "2026-11-11",
-"h": "38f648ef763c606b"
+"d": "2026-11-12",
+"h": "d8f8acc020e66b51"
 },
 "travel-andong.html": {
 "d": null,
@@ -1886,6 +1922,10 @@
 "wind_chill_calculator.html": {
 "d": "2026-11-07",
 "h": "1c3facf70df04708"
+},
+"window_bubble_wrap_calculator.html": {
+"d": null,
+"h": "6b90475ef12f3bbb"
 },
 "work_time_calculator.html": {
 "d": "2026-11-03",

@@ -1,0 +1,32 @@
+<label for="bw1">창문 개수 (같은 크기)</label>
+<input id="bw1" type="number" inputmode="numeric" placeholder="3"/>
+<label for="bw2">유리 가로 (cm)</label>
+<input id="bw2" type="number" inputmode="decimal" placeholder="90"/>
+<label for="bw3">유리 세로 (cm)</label>
+<input id="bw3" type="number" inputmode="decimal" placeholder="120"/>
+<label for="bw4">롤 폭 (cm, 제품 표시)</label>
+<input id="bw4" type="number" inputmode="decimal" placeholder="100"/>
+<label for="bw5">롤 길이 (m, 제품 표시)</label>
+<input id="bw5" type="number" inputmode="decimal" placeholder="10"/>
+<label for="bw6">여유분 (%)</label>
+<input id="bw6" type="number" inputmode="decimal" placeholder="10"/>
+<button onclick="calc_window_bubble_wrap()">필요량 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">필요한 롤</span><span class="result-value" id="bwR">-</span></div>
+<div class="result-row"><span class="result-label">필요한 길이</span><span class="result-value" id="bwL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">창문 1개당 장수</span><span class="result-value" id="bwS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">붙일 유리 면적</span><span class="result-value" id="bwA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_window_bubble_wrap(){
+ var n=_v('bw1'),w=_v('bw2'),h=_v('bw3'),rw=_v('bw4'),rl=_v('bw5'),m=_v('bw6');
+ if([n,w,h,rw,rl].some(function(x){return isNaN(x)||x<=0;})) return alert('창문 개수·크기와 롤 폭·길이를 입력해주세요.'); if(isNaN(m)||m<0)m=0;
+ var s=Math.ceil(w/rw), len=n*s*h/100*(1+m/100);
+ _s('bwR',Math.ceil(len/rl)+'롤'); _s('bwL',_n(len,1)+'m'); _s('bwS',s+'장 (세로 '+_n(h,0)+'cm짜리)'); _s('bwA',_n(n*w*h/10000,2)+'㎡');
+ document.getElementById('result').classList.add('show');
+}
+</script>

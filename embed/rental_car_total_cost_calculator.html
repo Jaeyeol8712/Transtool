@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여행 렌터카 총비용 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/rental_car_total_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=686f0e48">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="여행 렌터카 총비용 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">여행 렌터카 총비용 계산기</p>
+<label for="rc1">대여 기간 (일)</label>
+<input id="rc1" type="number" inputmode="numeric" placeholder="3"/>
+<label for="rc2">하루 대여료 (원)</label>
+<input id="rc2" type="number" inputmode="decimal" placeholder="예약 화면 금액"/>
+<label for="rc3">보험(자차) 하루 요금 (원)</label>
+<input id="rc3" type="number" inputmode="decimal" placeholder="예약 화면 금액"/>
+<label for="rc4">예상 주행거리 (km)</label>
+<input id="rc4" type="number" inputmode="decimal" placeholder="250"/>
+<label for="rc5">연비 (km/L)</label>
+<input id="rc5" type="number" inputmode="decimal" placeholder="12"/>
+<label for="rc6">연료 가격 (원/L)</label>
+<input id="rc6" type="number" inputmode="decimal" placeholder="오피넷 가격"/>
+<label for="rc7">기타 비용 (카시트·통행료·주차 등, 원)</label>
+<input id="rc7" type="number" inputmode="decimal" placeholder="0"/>
+<label for="rc8">인원 (명)</label>
+<input id="rc8" type="number" inputmode="numeric" placeholder="2"/>
+<button onclick="calc_rental_car_total_cost()">총비용 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">렌터카 총비용</span><span class="result-value" id="rcT">-</span></div>
+<div class="result-row"><span class="result-label">대여료 + 보험</span><span class="result-value" id="rcR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">연료비</span><span class="result-value" id="rcF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당 / 하루당</span><span class="result-value" id="rcP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_rental_car_total_cost(){
+ var d=_v('rc1'),a=_v('rc2'),i=_v('rc3'),k=_v('rc4'),e=_v('rc5'),p=_v('rc6'),o=_v('rc7'),n=_v('rc8');
+ if(isNaN(d)||d<=0||isNaN(a)||a<0) return alert('대여 기간과 하루 대여료를 입력해주세요.');
+ if(isNaN(i))i=0; if(isNaN(o))o=0; if(isNaN(n)||n<1)n=1;
+ var f=(!isNaN(k)&&k>0&&!isNaN(e)&&e>0&&!isNaN(p)&&p>0)?k/e*p:0, r=(a+i)*d, t=r+f+o;
+ _s('rcT',_w(t)); _s('rcR',_w(r)); _s('rcF',f>0?_w(f)+' ('+_n(k/e,1)+'L)':'거리·연비·가격을 넣으면 나옵니다');
+ _s('rcP',_w(t/n)+' / '+_w(t/d));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/rental_car_total_cost_calculator.html?utm_source=embed&amp;utm_campaign=rental_car_total_cost_calculator" target="_blank" rel="noopener">어라운드툴 여행 렌터카 총비용 계산기</a></p>
+</body>
+</html>

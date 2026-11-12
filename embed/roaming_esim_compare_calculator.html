@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로밍·eSIM·유심 비용 비교 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/roaming_esim_compare_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=686f0e48">
+<style>body{background:#fff!important}.at-tool{margin:0;max-width:none;border-radius:8px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="로밍·eSIM·유심 비용 비교 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">로밍·eSIM·유심 비용 비교 계산기</p>
+<label for="rm1">여행 일수 (일)</label>
+<input id="rm1" type="number" inputmode="numeric" placeholder="5"/>
+<label for="rm2">로밍 요금 (원, 하루 요금이면 아래에서 고르기)</label>
+<input id="rm2" type="number" inputmode="decimal" placeholder="통신사 요금"/>
+<label for="rm3">로밍 요금 방식</label>
+<select id="rm3"><option value="day" selected>하루 요금</option><option value="total">기간 전체 요금</option></select>
+<label for="rm4">eSIM 상품 가격 (원)</label>
+<input id="rm4" type="number" inputmode="decimal" placeholder="판매가"/>
+<label for="rm5">유심 가격 + 배송·수령 비용 (원)</label>
+<input id="rm5" type="number" inputmode="decimal" placeholder="판매가 + 배송비"/>
+<button onclick="calc_roaming_esim_compare()">비용 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">가장 싼 방법</span><span class="result-value" id="rmT">-</span></div>
+<div class="result-row"><span class="result-label">로밍</span><span class="result-value" id="rmR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">eSIM</span><span class="result-value" id="rmE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">유심</span><span class="result-value" id="rmU" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?1:d)).toLocaleString('ko-KR');}
+function calc_roaming_esim_compare(){
+ var d=_v('rm1'),r=_v('rm2'),m=document.getElementById('rm3').value,e=_v('rm4'),u=_v('rm5');
+ if(isNaN(d)||d<=0) return alert('여행 일수를 입력해주세요.');
+ var c=[]; if(!isNaN(r)&&r>=0){r=m==='day'?r*d:r; c.push(['로밍',r]);} if(!isNaN(e)&&e>=0)c.push(['eSIM',e]); if(!isNaN(u)&&u>=0)c.push(['유심',u]);
+ if(c.length<2) return alert('비교할 요금을 두 가지 이상 입력해주세요.');
+ function line(x){return isNaN(x)||x<0?'입력 안 함':_w(x)+' (하루 '+_w(x/d)+')';}
+ _s('rmR',line(isNaN(r)?NaN:r)); _s('rmE',line(e)); _s('rmU',line(u));
+ c.sort(function(a,b){return a[1]-b[1];}); _s('rmT',c[0][0]+' '+_w(c[0][1])+' ('+c[1][0]+'보다 '+_w(c[1][1]-c[0][1])+' 적음)');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/roaming_esim_compare_calculator.html?utm_source=embed&amp;utm_campaign=roaming_esim_compare_calculator" target="_blank" rel="noopener">어라운드툴 로밍·eSIM·유심 비용 비교 계산기</a></p>
+</body>
+</html>
