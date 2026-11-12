@@ -343,50 +343,27 @@ function openTaxi(id) {
 
 /* ---------- trip settings ---------- */
 function openTrip() {
-<<<<<<< HEAD
-  const t = JSON.parse(JSON.stringify(S.trip)); t.type = tripType(t);
-  let ta = airFor(t); t.arr = ta.arr; t.dep = ta.dep;   // 이번 여행 나라의 공항(국내 여행은 출발지)으로 맞춘다
-=======
   const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
   t.arr = ta.arr; t.dep = ta.dep; t.kind = tripKind();   // 이번 여행 나라의 공항(국내 여행은 역)으로 맞춘다
   const homeNow = () => ta.cc === 'kr' && t.kind === 'kr';
   const fix = () => { const L = Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === homeNow());
     if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
   fix();
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   const draw = m => {
-    ta = airFor(t);
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
-<<<<<<< HEAD
-    const apOpts = (v) => ta.dom
-      ? [['rail', T.gRail], ['air', T.gAir], ['car', T.gCar]].map(([g, lb]) => `<optgroup label="${esc(lb)}">${Object.keys(ORIGINS).filter(c => ORIGINS[c].g === g).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('')}</optgroup>`).join('')
-      : Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
-    const tt = [['kr', T.ttKr, T.ttKrSub], ['ov', T.ttOv, T.ttOvSub(OV_IDS.length)], ['visit', T.ttVisit, T.ttVisitSub]];
-    const noAp = t.type === 'ov' && !ta.ov;
-    const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : ta.dom ? T.tripLeadDom : T.tripLead}</p>
-      <div class="fld"><div class="lb">${T.typeLb}</div><div class="ttype">${tt.map(([k, a, b]) => `<button class="${t.type === k ? 'on' : ''}" data-tt="${k}">${a}<small>${b}</small></button>`).join('')}</div></div>
-=======
     const H = homeNow();
     const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === H).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
     m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : T.tripLead}</p>
       <div class="fld"><div class="lb">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
         <label class="dbox"><small>${T.last}</small><b>${T.mdShort(toDate(t.end))}</b><span>${T.wdL[toDate(t.end).getDay()]}</span><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
         ${n >= 14 ? `<p class="note">${T.max14}</p>` : ''}</div>
-<<<<<<< HEAD
-      ${noAp ? `<div class="fld"><div class="lb">${T.flights}</div><p class="note">${T.pickCityFirst}</p></div>` : `<div class="fld"><div class="lb">${ta.dom ? T.originH : T.flights}<small>${ta.dom ? T.originHSub : T.flightsSub}</small></div>
-        <div class="ftrow"><div class="sel"><small>${ta.dom ? T.fromPl : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${ta.dom ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
-        <div class="sel"><small>${ta.dom ? T.backPl : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${ta.dom ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div>${ta.dom ? `<p class="note">${T.domNote}</p>` : ''}</div>`}
-=======
       <div class="fld"><div class="lb">${H ? T.flightsHome : T.flights}<small>${H ? T.flightsHomeSub : T.flightsSub}</small></div>
         <div class="ftrow"><div class="sel"><small>${H ? T.fromSt : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${H ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
         <div class="sel"><small>${H ? T.backSt : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${H ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
       <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
         <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
@@ -396,62 +373,31 @@ function openTrip() {
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $('#t-e', m).onchange = e => { t.end = e.target.value || t.end; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $$('.dbox', m).forEach(b => b.onclick = e => { const i = b.querySelector('input'); if (e.target !== i) { try { i.showPicker(); } catch (er) { i.focus(); } } });
-<<<<<<< HEAD
-    $$('[data-tt]', m).forEach(b => b.onclick = () => { if (t.type === b.dataset.tt) return; t.type = b.dataset.tt; const a = airFor(t); t.arr = a.arr; t.dep = a.dep;
-      if (t.type === 'kr') { t.arrT = 8; t.depT = 21; } else { t.arrT = 10; t.depT = 19; } re(); });
-    if (!noAp) { $('#t-aa', m).onchange = e => { const was = t.arr; t.arr = e.target.value; if (ta.dom && t.dep === was) { t.dep = t.arr; re(); } }; $('#t-da', m).onchange = e => t.dep = e.target.value;
-      $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value; }
-=======
     $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
     $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
     $$('[data-kind]', m).forEach(b => b.onclick = () => { t.kind = b.dataset.kind; setKindTimes(t, t.kind); fix(); re(); });
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
     $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
     $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
-<<<<<<< HEAD
-    $('#t-ok', m).onclick = () => { const scopeWas = S.ui.scope; S.trip = t; if (S.ui.lvl === 'korea') S.ui.scope = t.type === 'ov' ? 'ov' : 'kr'; persist(); closeModal(); toast(T.tripSaved);
-      if (S.ui.scope !== scopeWas) { renderAll(); return; } renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
-=======
     $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   };
   openModal('', m => draw(m));
 }
 
-/* ---------- intro: 여행 유형 고르기 (컨펌 i261112-15) ---------- */
-function startType(k) {
-  S.trip.type = k; S.seenIntro = true;
-  const a = airFor(S.trip); S.trip.arr = a.arr; S.trip.dep = a.dep;
-  if (k === 'kr') { S.trip.arrT = 8; S.trip.depT = 21; }
-  S.ui.scope = k === 'ov' ? 'ov' : 'kr'; S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; S.ui.tab = 'map'; persist();
-  renderAll();
-  if (k !== 'ov') openTrip();   // 국내 여행은 출발지, 한국 방문은 도착 공항부터 정한다. 해외는 도시부터 고른다.
-}
+/* ---------- intro ---------- */
 function showIntro() {
   const el = document.createElement('div'); el.className = 'intro';
   const draw = () => {
-    const tt = [['kr', 'rail', T.ttKr, T.ttKrLong], ['ov', 'globe', T.ttOv, T.ttOvLong(OV_IDS.length)], ['visit', 'plane', T.ttVisit, T.ttVisitLong]];
-    if (S.lang !== 'ko') tt.push(tt.shift(), tt.shift());   // 외국어 화면은 '한국 방문'을 맨 위로
     el.innerHTML = `<div class="intro-in"><div class="langs">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}">${n}</button>`).join('')}</div>
       <h1>${T.introH}</h1><p>${T.introP}</p>
-<<<<<<< HEAD
-      <h2 style="font-size:19px;font-weight:800;margin-top:26px">${T.introAsk}</h2>
-      <div class="types">${tt.map(([k, ic, a, b]) => `<button data-tt="${k}"><i>${ICONS[ic]}</i><span><b>${a}</b><small>${b}</small></span>${ICONS.right}</button>`).join('')}</div>
-      <div class="sp"></div><button class="later" id="intro-later">${T.introLater}</button></div>`;
-    $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
-    $$('[data-tt]', el).forEach(b => b.onclick = () => { el.remove(); startType(b.dataset.tt); });
-    $('#intro-later', el).onclick = () => { S.seenIntro = true; persist(); el.remove(); };
-=======
       <div class="intro-map" aria-hidden="true"><svg viewBox="0 0 400 180"><path d="M128 14 V90 L286 14 M128 90 L292 166 M128 90 V166" class="pth"/>
         ${[[128, 14, .35, 112, 19, 'end'], [128, 90, .9, 112, 95, 'end'], [286, 14, 1.5, 302, 19, 'start'], [292, 166, 2.2, 308, 171, 'start']].map(([x, y, d, lx, ly, an], k) => `<g class="st" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="9" fill="#2443E8" stroke="#fff" stroke-width="5"/><text x="${lx}" y="${ly}" fill="#fff" font-size="14" font-weight="700" text-anchor="${an}">${esc(T.introStops[k])}</text></g>`).join('')}</svg></div>
       <div class="sp"></div><div class="kinds"><b>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
     $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
     $$('[data-k]', el).forEach(b => b.onclick = () => { const k = b.dataset.k; S.trip.kind = k; setKindTimes(S.trip, k); S.seenIntro = true;
       if (S.ui.lvl === 'korea') S.ui.scope = k === 'ov' ? 'ov' : 'kr'; persist(); el.remove(); renderAll(); openTrip(); });
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   };
   draw(); document.body.appendChild(el);
 }
