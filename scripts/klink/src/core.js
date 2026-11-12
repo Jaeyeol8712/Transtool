@@ -3,6 +3,8 @@
    K-Link core: data, geography helpers, state, persistence
    ========================================================= */
 const PLACES = window.__PLACES__, GEO = window.__GEO__;
+// 해외 도시(어라운드툴 해외 여행 가이드에서 온 지역·공항·숙소 권역). tools/build_overseas.py 가 만든다.
+const OVD = window.__OV__ || { countries: {}, order: [], regions: {}, airports: {}, stays: [] };
 const PBY = Object.fromEntries(PLACES.map(p => [p.id, p]));
 const LANG_IDX = { ko: 0, zh: 1, en: 2, ja: 3 };
 const LANGS = [['ko', '한국어', 'KO'], ['zh', '中文', '中'], ['en', 'English', 'EN'], ['ja', '日本語', '日']];
@@ -24,13 +26,20 @@ const REGIONS = {
   jeonju:    { lat: 35.8150, lng: 127.1500, sub: false, air: 'ICN', fromSeoul: 105, t: ['전주', '全州', 'Jeonju', '全州'] },
   yeosu:     { lat: 34.7300, lng: 127.7400, sub: false, air: 'ICN', fromSeoul: 180, t: ['여수', '丽水', 'Yeosu', '麗水'] }
 };
+const KR_IDS = Object.keys(REGIONS);
+for (const r of KR_IDS) REGIONS[r].cc = 'kr';
+for (const [id, v] of Object.entries(OVD.regions)) REGIONS[id] = v;
 const REGION_IDS = Object.keys(REGIONS);
+const OV_IDS = REGION_IDS.filter(r => REGIONS[r].cc !== 'kr');
+const isOv = r => !!(REGIONS[r] && REGIONS[r].cc !== 'kr');
 const AIRPORTS = {
   ICN: { lat: 37.4602, lng: 126.4407, r: 'seoul', t: ['인천공항', '仁川机场', 'Incheon (ICN)', '仁川空港'] },
   GMP: { lat: 37.5583, lng: 126.7906, r: 'seoul', t: ['김포공항', '金浦机场', 'Gimpo (GMP)', '金浦空港'] },
   PUS: { lat: 35.1796, lng: 128.9382, r: 'busan', t: ['김해공항', '金海机场', 'Gimhae (PUS)', '金海空港'] },
   CJU: { lat: 33.5104, lng: 126.4914, r: 'jeju', t: ['제주공항', '济州机场', 'Jeju (CJU)', '済州空港'] }
 };
+for (const c of Object.keys(AIRPORTS)) AIRPORTS[c].cc = 'kr';
+for (const [c, v] of Object.entries(OVD.airports)) AIRPORTS[c] = v;   // 해외 공항: to = { 지역: 공항→도심 분 }
 // Where to stay: candidate neighbourhoods per region with station / access notes.
 const STAYS = [
   ['myeongdong', 'seoul', 37.5609, 126.9863, ['명동', '明洞', 'Myeongdong', '明洞'], ['명동역 · 4호선', '明洞站 · 4号线', 'Myeong-dong Stn · Line 4', '明洞駅 · 4号線']],
@@ -57,7 +66,7 @@ const STAYS = [
   ['jn_hanok', 'jeonju', 35.8150, 127.1530, ['한옥마을', '韩屋村', 'Hanok Village', '韓屋村'], ['한옥 스테이 · 전주역 택시 15분', '韩屋民宿 · 全州站打车 15 分钟', 'Hanok stays · 15 min taxi from station', '韓屋ステイ · 全州駅からタクシー15分']],
   ['ys_expo', 'yeosu', 34.7530, 127.7470, ['여수엑스포역', '丽水世博站', 'Yeosu Expo Stn', '麗水エキスポ駅'], ['KTX 종착역 · 오동도 도보', 'KTX 终点站 · 步行到梧桐岛', 'KTX terminus · walk to Odongdo', 'KTX終点駅 · 梧桐島へ徒歩']],
   ['ys_dolsan', 'yeosu', 34.7280, 127.7430, ['돌산', '突山', 'Dolsan', '突山'], ['오션뷰 호텔 · 케이블카 근처', '海景酒店 · 近缆车', 'Sea-view hotels · near cable car', 'オーシャンビュー · ケーブルカー近く']]
-].map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
+].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const PRICE = { seoul: [[6, 10], [12, 20], [30, 0]], busan: [[5, 9], [10, 18], [25, 0]], jeju: [[6, 10], [12, 20], [25, 0]], other: [[5, 8], [9, 15], [20, 0]] };
 const REGION_TAG = {
@@ -69,6 +78,9 @@ const REGION_TAG = {
   jeonju: ['한옥마을과 비빔밥', '韩屋村与拌饭', 'Hanok village and bibimbap', '韓屋村とビビンバ'],
   yeosu: ['밤바다와 섬 풍경', '夜海与海岛风光', 'Night sea and island views', '夜の海と島の風景']
 };
+
+for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;
+const countryName = cc => OVD.countries[cc] ? tr4(OVD.countries[cc]) : T.korea;
 
 /* district lookup from geometry */
 const DISTRICTS = {};
@@ -97,7 +109,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const tr4 = arr => arr[LANG_IDX[S.lang]] ?? arr[0];
 const pn = id => { const p = PBY[id]; return p ? (p.n[S.lang] || p.n.ko) : ''; };
-const pd = id => { const p = PBY[id]; return p ? (p.d[S.lang] || p.d.ko) : ''; };
+const pd = id => { const p = PBY[id]; return p ? (p.d[S.lang] || (S.lang !== 'ko' && p.d.en) || p.d.ko) : ''; };
 const rn = r => REGIONS[r] ? tr4(REGIONS[r].t) : r;
 const dn = id => DISTRICTS[id] ? tr4(DISTRICTS[id].n) : '';
 const sn = id => STAY_BY[id] ? tr4(STAY_BY[id].t) : '';
@@ -114,6 +126,11 @@ function catIcon(c) { return ICONS['c_' + c] || ICONS.c_palace; }
 /* ---------- travel model ---------- */
 // mode: walk | subway | taxi | car | rail | flight | airport
 function legBetween(a, b, r) {
+  const L = legRaw(a, b, r);
+  if (isOv(r)) { L.cost = 0; L.ov = true; }   // 해외 교통비는 계산하지 않는다 (현지 요금 확인)
+  return L;
+}
+function legRaw(a, b, r) {
   const km = hav(a, b);
   if (km < 0.05) return { mode: 'walk', min: 0, km: 0, cost: 0 };
   if (km <= 0.9) return { mode: 'walk', min: Math.max(4, Math.round(km * 1.25 / 4.5 * 60)), km, cost: 0 };
@@ -124,6 +141,12 @@ function legBetween(a, b, r) {
 function interRegion(a, b) {
   if (a === b) return null;
   const A = REGIONS[a], B = REGIONS[b];
+  if (isOv(a) || isOv(b)) {   // 해외: 같은 나라 가까운 도시는 기차·버스, 멀거나 나라가 다르면 항공편 (시간만 어림, 요금은 계산 안 함)
+    const km = hav(A, B);
+    if (A.cc === B.cc && km < 320) { const ride = Math.round((km * 0.75 + 20) / 5) * 5; return { mode: 'rail', min: ride + 40, ride, cost: 0, ov: true }; }
+    const ride = Math.round((km / 780 * 60 + 35) / 5) * 5;
+    return { mode: 'flight', min: ride + (A.cc === B.cc ? 110 : 190), ride, cost: 0, ov: true };
+  }
   if (A.fly || B.fly) return { mode: 'flight', min: 70 + 100, ride: 70, cost: 70000 };
   let ride;
   if (a === 'seoul') ride = B.fromSeoul; else if (b === 'seoul') ride = A.fromSeoul;
@@ -133,6 +156,12 @@ function interRegion(a, b) {
 // airport <-> a point inside region r
 function airportLeg(code, pt, r) {
   const ap = AIRPORTS[code];
+  if (ap.to) {   // 해외 공항: 여행 가이드의 '공항 → 시내' 시간에 도심에서 떨어진 만큼 더한다
+    if (ap.to[r] != null) return { mode: 'airport', min: Math.round(ap.to[r] + hav(REGIONS[r], pt) * 2.2), km: 0, cost: 0, ov: true };
+    const mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r);
+    return { mode: mid.mode, min: ap.to[ap.r] + mid.min + last.min, km: 0, cost: 0, via: true, ov: true };
+  }
+  if (isOv(r)) { const mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r); return { mode: 'flight', min: 60 + mid.min + last.min, km: 0, cost: 0, via: true, ov: true }; }
   if (ap.r === r) {
     const km = hav(ap, pt);
     if (code === 'ICN') return { mode: 'airport', min: Math.round(18 + km * 1.05), km, cost: 12000 };
@@ -143,6 +172,24 @@ function airportLeg(code, pt, r) {
   const hub = REGIONS[ap.r], first = airportLeg(code, hub, ap.r), mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r);
   return { mode: mid.mode, min: first.min + mid.min + last.min, km: 0, cost: first.cost + mid.cost, via: true };
 }
+/* ---------- 여행 나라와 공항 ---------- */
+// 저장한 곳이 가장 많은 나라가 이번 여행 나라. 공항은 그 나라 공항 중에서 고른 것, 없으면 저장이 가장 많은 도시의 공항.
+let _taKey = null, _ta = null;
+function tripAir() {
+  const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '');
+  if (key === _taKey) return _ta;
+  const cnt = {}, rc = {};
+  for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
+  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
+  const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc;
+  let def = 'ICN';
+  if (cc !== 'kr') {
+    const top = Object.keys(rc).filter(r => REGIONS[r].cc === cc).sort((a, b) => rc[b] - rc[a])[0] || (S.ui.r && REGIONS[S.ui.r] && REGIONS[S.ui.r].cc === cc ? S.ui.r : OV_IDS.find(r => REGIONS[r].cc === cc));
+    def = REGIONS[top].air;
+  }
+  _taKey = key; _ta = { cc, ov: cc !== 'kr', arr: ok(S.trip.arr) ? S.trip.arr : def, dep: ok(S.trip.dep) ? S.trip.dep : def };
+  return _ta;
+}
 function regionOfPoint(pt) { let best = 'seoul', bd = 1e9; for (const r of REGION_IDS) { const d = hav(REGIONS[r], pt); if (d < bd) { bd = d; best = r; } } return best; }
 
 /* ---------- state & persistence ---------- */
@@ -152,7 +199,7 @@ const DEFAULT = () => ({
   trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['skin', 'food', 'shop'], name: '',
           arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19 },
   saved: [], order: [], plan: null, stayOv: {}, book: { rsv: {}, stay: {}, guide: {} }, paid: false, chat: [],
-  ui: { tab: 'map', lvl: 'korea', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: true }
+  ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: true }
 });
 let S = DEFAULT();
 // Browser storage is off: state lives only in memory and resets on reload. Remove anything an earlier version stored.
@@ -174,4 +221,4 @@ function toggleSave(id) {
   return i < 0;
 }
 const isSaved = id => S.saved.includes(id);
-function planSig() { return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, S.trip.arr, S.trip.arrT, S.trip.dep, S.trip.depT, S.stayOv]); }
+function planSig() { const a = tripAir(); return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, a.arr, S.trip.arrT, a.dep, S.trip.depT, S.stayOv]); }

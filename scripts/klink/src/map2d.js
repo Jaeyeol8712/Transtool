@@ -80,12 +80,12 @@ const Map2D = (() => {
 
   /* ---------- Korea ---------- */
   function showKorea(opts) {
-    ctx = opts || {}; mode = 'korea'; lat0 = 36; clearOverlay();
+    ctx = opts || {}; mode = 'korea'; lat0 = 36; clearOverlay(); zoom.scaleExtent([1, 18]);
     const land = ringsFeat(GEO.korea);
     fit(fc([land]), 8);
     gW.append('path').datum(land).attr('class', 'land').attr('d', path()).attr('fill', 'var(--land)').attr('stroke', '#D3DAE8').attr('stroke-width', 1).attr('vector-effect', 'non-scaling-stroke').attr('fill-rule', 'evenodd')
       .style('filter', 'drop-shadow(0 6px 0 #BCCAEA)');
-    const pins = REGION_IDS.map(r => ({ r, xy: P(REGIONS[r].lng, REGIONS[r].lat) }));
+    const pins = KR_IDS.map(r => ({ r, xy: P(REGIONS[r].lng, REGIONS[r].lat) }));
     const g = gPins.selectAll('g.pin').data(pins.map(p => Object.assign(p, { col: '#2443E8', icon: ICONS.pin, onClick: () => ctx.onRegion(p.r) }))).join(enter => {
       const gg = enter.append('g').attr('class', 'pin').style('cursor', 'pointer');
       gg.append('circle').attr('r', 16).attr('fill', 'rgba(36,67,232,.14)');
@@ -94,6 +94,28 @@ const Map2D = (() => {
     for (const p of pins) {
       const n = PLACES.filter(x => x.r === p.r).length, f = S.saved.filter(id => PBY[id].r === p.r).length;
       addLabel(p.xy, `${esc(rn(p.r))}<small>${T.spots(n)}${f ? ` · <span class="hrt">♥${f}</span>` : ''}</small>`, 'region', 2, { button: true, dy: 14, onClick: () => ctx.onRegion(p.r) });
+    }
+    place();
+  }
+
+  /* ---------- 해외 전체 (동아시아·동남아·괌·사이판) ---------- */
+  const OV_TOP = new Set(['tokyo', 'osaka', 'fukuoka', 'sapporo', 'okinawa', 'taipei', 'hongkong', 'shanghai', 'hanoi', 'danang', 'hochiminh', 'bangkok', 'singapore', 'kualalumpur', 'cebu', 'guam']);
+  function showWorld(opts) {
+    ctx = opts || {}; mode = 'world'; lat0 = 24; clearOverlay(); zoom.scaleExtent([1, 18]);
+    const land = ringsFeat(GEO.world || []);
+    const la = OV_IDS.map(r => REGIONS[r].lat), lo = OV_IDS.map(r => REGIONS[r].lng);
+    const a0 = Math.min(...la) - 2.5, a1 = Math.max(...la) + 2.5, o0 = Math.min(...lo) - 2.5, o1 = Math.max(...lo) + 2.5;
+    fit(fc([polyFeat([[[[o0, a0], [o1, a0], [o1, a1], [o0, a1], [o0, a0]]]])]), 0);
+    gW.append('path').datum(land).attr('class', 'land').attr('d', path()).attr('fill', 'var(--land)').attr('stroke', '#D3DAE8').attr('stroke-width', 1).attr('vector-effect', 'non-scaling-stroke').attr('fill-rule', 'evenodd');
+    const pins = OV_IDS.map(r => ({ r, xy: P(REGIONS[r].lng, REGIONS[r].lat) }));
+    gPins.selectAll('g.pin').data(pins.map(p => Object.assign(p, { onClick: () => ctx.onRegion(p.r) }))).join(enter => {
+      const gg = enter.append('g').attr('class', 'pin').style('cursor', 'pointer');
+      gg.append('circle').attr('r', 13).attr('fill', 'rgba(36,67,232,.14)');
+      gg.append('circle').attr('r', 6.5).attr('fill', '#2443E8').attr('stroke', '#fff').attr('stroke-width', 2.5);
+      gg.on('click', (ev, d) => { ev.stopPropagation(); d.onClick(); }); return gg; });
+    for (const p of pins) {
+      const f = S.saved.filter(id => PBY[id].r === p.r).length;
+      addLabel(p.xy, `${esc(rn(p.r))}${f ? `<small><span class="hrt">♥${f}</span></small>` : ''}`, 'region', f ? 3 : OV_TOP.has(p.r) ? 2.2 : 1.6, { button: true, dy: 12, minK: OV_TOP.has(p.r) ? null : 1.5, onClick: () => ctx.onRegion(p.r) });
     }
     place();
   }
@@ -109,8 +131,10 @@ const Map2D = (() => {
   }
   function showRegion(r, opts) {
     ctx = Object.assign({}, opts || {}, { r }); mode = 'region'; lat0 = REGIONS[r].lat; clearOverlay();
+    zoom.scaleExtent([PLACES.some(p => p.r === r && p.far) ? 0.08 : 1, 18]);   // 근교가 있는 도시는 더 멀리 축소할 수 있게
     const reg = GEO.regions[r];
-    const rp = PLACES.filter(p => p.r === r), las = rp.map(p => p.lat), los = rp.map(p => p.lng);
+    let rp = PLACES.filter(p => p.r === r && !p.far); if (!rp.length) rp = PLACES.filter(p => p.r === r);   // 근교(far)는 처음 화면 맞춤에서 뺀다
+    const las = rp.map(p => p.lat), los = rp.map(p => p.lng);
     let a0 = Math.min(...las), a1 = Math.max(...las), o0 = Math.min(...los), o1 = Math.max(...los);
     const pa = Math.max(.012, (a1 - a0) * .16), po = Math.max(.015, (o1 - o0) * .16); a0 -= pa; a1 += pa; o0 -= po; o1 += po;
     const fitFeats = [polyFeat([[[[o0, a0], [o1, a0], [o1, a1], [o0, a1], [o0, a0]]]])];
@@ -132,7 +156,7 @@ const Map2D = (() => {
       addLabel(c, `${esc(tr4(f.d.n))}<small>${T.spots(f.d.ids.length)}${sv2 ? ` · <span class="hrt">♥${sv2}</span>` : ''}</small>`, 'district' + (f.d.id === ctx.district ? ' on' : ''), 2.1, { button: true, onClick: () => ctx.onDistrict && ctx.onDistrict(f.d.id) });
     }
     // muni names (faint) for orientation
-    if (!focus) for (const m of reg.munis) { if (reg.districts.some(d => d.id === m.code)) continue; const c = path().centroid(polyFeat(m.g)); if (!isFinite(c[0])) continue;
+    if (!focus) for (const m of reg.munis) { if (!m.n[0] || reg.districts.some(d => d.id === m.code)) continue; const c = path().centroid(polyFeat(m.g)); if (!isFinite(c[0])) continue;
       const el = document.createElement('div'); el.className = 'm-label'; el.style.cssText = 'background:none;box-shadow:none;color:#A3ABC0;font-weight:500;font-size:11px;pointer-events:none'; el.textContent = tr4(m.n);
       layer.appendChild(el); labData.push({ xy: c, el, pri: 0, minK: 1.6 }); }
     drawPins(r);
@@ -153,7 +177,7 @@ const Map2D = (() => {
 
   /* ---------- day route ---------- */
   function showRoute(plan, i, opts) {
-    ctx = Object.assign({ noSheet: true }, opts || {}); mode = 'route'; const day = plan.days[i]; const r = day.r; lat0 = REGIONS[r].lat; clearOverlay();
+    ctx = Object.assign({ noSheet: true }, opts || {}); mode = 'route'; const day = plan.days[i]; const r = day.r; lat0 = REGIONS[r].lat; clearOverlay(); zoom.scaleExtent([0.08, 18]);
     const sc = scheduleDay(plan, i), stay = STAY_BY[plan.stays[r]];
     const pts = [{ k: 'stay', lat: stay.lat, lng: stay.lng }];
     sc.rows.forEach(o => { const id = o.e.id; if (id && PBY[id].r === r) pts.push({ k: o.e.k, id, n: o.num, lat: PBY[id].lat, lng: PBY[id].lng }); });
@@ -195,11 +219,12 @@ const Map2D = (() => {
     svg.transition().duration(650).call(zoom.transform, d3.zoomIdentity.translate(cx - x * kk, cy - y * kk).scale(kk));
   }
   function zoomBy(f) { svg.transition().duration(300).call(zoom.scaleBy, f); }
-  function onResize() { if (!host) return; if (mode === 'korea') showKorea(ctx); else if (mode === 'region') showRegion(ctx.r, ctx); }
+  function onResize() { if (!host) return; if (mode === 'korea') showKorea(ctx); else if (mode === 'world') showWorld(ctx); else if (mode === 'region') showRegion(ctx.r, ctx); }
   // tiny silhouette of a region for list cards
   const thumbs = {};
   function thumb(r) {
     if (thumbs[r]) return thumbs[r];
+    if (isOv(r)) return (thumbs[r] = `<span class="cc">${REGIONS[r].cc.toUpperCase()}</span>`);   // 해외는 나라 코드 배지
     const k = Math.cos(REGIONS[r].lat * Math.PI / 180), rings = [];
     for (const m of GEO.regions[r].munis) for (const poly of m.g) rings.push(poly[0].map(([x, y]) => [x * k, -y]));
     const xs = rings.flat().map(q => q[0]), ys = rings.flat().map(q => q[1]);
@@ -208,5 +233,5 @@ const Map2D = (() => {
     const d = rings.map(rg => 'M' + rg.filter((_, i) => i % 2 === 0 || rg.length < 40).map(([x, y]) => `${((x - x0) * sc + ox).toFixed(1)} ${((y - y0) * sc + oy).toFixed(1)}`).join('L') + 'Z').join('');
     return (thumbs[r] = `<svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="${d}" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>`);
   }
-  return { thumb, mount, showKorea, showRegion, showRoute, refresh, focusOn, zoomBy, onResize, get mode() { return mode; }, get host() { return host; } };
+  return { thumb, mount, showKorea, showWorld, showRegion, showRoute, refresh, focusOn, zoomBy, onResize, get mode() { return mode; }, get host() { return host; } };
 })();

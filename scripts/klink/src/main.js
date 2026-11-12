@@ -4,9 +4,10 @@ function init() {
   let l = S.lang;
   if (!l || !I18N[l]) { const n = (navigator.language || 'en').toLowerCase(); l = n.startsWith('zh') ? 'zh' : n.startsWith('ja') ? 'ja' : n.startsWith('ko') ? 'ko' : 'en'; }
   const h = (location.hash || '').slice(1);
-  if (REGIONS[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = h; }
+  if (REGIONS[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = h; S.ui.scope = isOv(h) ? 'ov' : 'kr'; }
+  else if (h === 'overseas') { S.seenIntro = true; S.ui.scope = 'ov'; }
   setLang(l); buildShell();
-  loadAround(() => { if (S.ui.tab === 'map' || S.ui.tab === 'plan') renderPanel(); });
+  loadAround(() => { if (S.ui.tab !== 'saved') renderPanel(); });
   renderChrome(); renderPanel(); safeStage();
   if (!S.seenIntro) showIntro();
 }

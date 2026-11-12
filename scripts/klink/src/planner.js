@@ -29,8 +29,9 @@ function bestStay(r, ids, isFirst, isLast) {
   let best = cands[0], bs = Infinity;
   for (const s of cands) {
     let sc = stayScore(s, r, ids).score;
-    if (isFirst && AIRPORTS[S.trip.arr].r === r) sc += 0.35 * airportLeg(S.trip.arr, s, r).min;
-    if (isLast && AIRPORTS[S.trip.dep].r === r) sc += 0.35 * airportLeg(S.trip.dep, s, r).min;
+    const ta = tripAir(), mine = c => AIRPORTS[c].r === r || (AIRPORTS[c].to && AIRPORTS[c].to[r] != null);
+    if (isFirst && mine(ta.arr)) sc += 0.35 * airportLeg(ta.arr, s, r).min;
+    if (isLast && mine(ta.dep)) sc += 0.35 * airportLeg(ta.dep, s, r).min;
     if (sc < bs) { bs = sc; best = s; }
   }
   return best.id;
@@ -93,9 +94,10 @@ function orderDayPlaces(ids, stay, t0, r) {
 function dayWindow(plan, i) {
   const day = plan.days[i], pace = PACE[S.trip.pace], stay = STAY_BY[plan.stays[day.r]];
   let start = pace.start, end = pace.end;
-  if (day.first) start = Math.max(start, S.trip.arrT + 1 + airportLeg(S.trip.arr, stay, day.r).min / 60 + 0.35);
+  const ta = tripAir();
+  if (day.first) start = Math.max(start, S.trip.arrT + 1 + airportLeg(ta.arr, stay, day.r).min / 60 + 0.35);
   else if (day.transfer) start = Math.max(start, 9 + interRegion(plan.days[i - 1].r, day.r).min / 60 + 0.6);
-  if (day.last) end = Math.min(end, S.trip.depT - 2.5 - airportLeg(S.trip.dep, stay, day.r).min / 60 - 0.35);
+  if (day.last) end = Math.min(end, S.trip.depT - 2.5 - airportLeg(ta.dep, stay, day.r).min / 60 - 0.35);
   end = Math.max(end, start + 0.5);
   const meals = (start <= 13 && end >= 12.5 ? 60 : 0) + (start <= 18.5 && end >= 19 ? 75 : 0);
   return { start, end, cap: Math.max(30, (end - start) * 60 - meals) };
@@ -200,10 +202,10 @@ function insertMeals(plan, idxs, foods, used) {
 function autoOrder(rs) {
   if (rs.length <= 1) return rs.slice();
   const near = (list, pt) => list.slice().sort((a, b) => hav(REGIONS[a], pt) - hav(REGIONS[b], pt))[0];
-  const arrR = AIRPORTS[S.trip.arr].r, depR = AIRPORTS[S.trip.dep].r;
-  const first = rs.includes(arrR) ? arrR : near(rs, AIRPORTS[S.trip.arr]);
+  const ta = tripAir(), arrR = AIRPORTS[ta.arr].r, depR = AIRPORTS[ta.dep].r;
+  const first = rs.includes(arrR) ? arrR : near(rs, AIRPORTS[ta.arr]);
   let rest = rs.filter(r => r !== first);
-  const last = rest.includes(depR) ? depR : near(rest, AIRPORTS[S.trip.dep]);
+  const last = rest.includes(depR) ? depR : near(rest, AIRPORTS[ta.dep]);
   rest = rest.filter(r => r !== last);
   const seq = [first]; let cur = first;
   while (rest.length) { const nx = rest.slice().sort((a, b) => hav(REGIONS[cur], REGIONS[a]) - hav(REGIONS[cur], REGIONS[b]))[0]; seq.push(nx); rest = rest.filter(r => r !== nx); cur = nx; }
@@ -218,9 +220,10 @@ function generatePlan() {
   if (!regsAll.length) return null;
   const unsched = [];
   let R = regsAll.slice();
+  const ta = tripAir();
   const need = r => { const k = R.indexOf(r), pc = PACE[S.trip.pace], hub = REGIONS[r];
-    let loss = k <= 0 ? Math.max(0, S.trip.arrT + 1.35 + airportLeg(S.trip.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
-    if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - 2.85 - airportLeg(S.trip.dep, hub, r).min / 60)) * 60;
+    let loss = k <= 0 ? Math.max(0, S.trip.arrT + 1.35 + airportLeg(ta.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
+    if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - 2.85 - airportLeg(ta.dep, hub, r).min / 60)) * 60;
     return S.saved.map(id => PBY[id]).filter(p => p.r === r && !isFood(p)).reduce((a, p) => a + loadOf(p), 0) + loss; };
   if (R.length > n) { const keep = R.slice().sort((a, b) => need(b) - need(a)).slice(0, n); R = R.filter(r => keep.includes(r));
     S.saved.forEach(id => { if (!R.includes(PBY[id].r)) unsched.push({ id, why: 'nodays' }); }); }
@@ -284,7 +287,7 @@ function generatePlan() {
   }
   const inPlan = new Set(plan.days.flatMap(d => d.stops.map(x => x.id)).filter(Boolean)), seen = new Set();
   plan.unsched = unsched.filter(u => !inPlan.has(u.id) && !seen.has(u.id) && seen.add(u.id));
-  const lastR = plan.days[n - 1].r, depLeg = airportLeg(S.trip.dep, STAY_BY[plan.stays[lastR]], lastR);
+  const lastR = plan.days[n - 1].r, depLeg = airportLeg(ta.dep, STAY_BY[plan.stays[lastR]], lastR);
   plan.warn = depLeg.min > 150 ? { k: 'farDep', min: depLeg.min, r: lastR } : null;
   return plan;
 }
@@ -324,11 +327,11 @@ function fitRegion(plan, idx, unsched) {
 /* ---------- schedule for display ---------- */
 function entriesOf(plan, i) {
   const day = plan.days[i], stay = STAY_BY[plan.stays[day.r]], L = [];
-  if (day.first) { L.push({ k: 'arrive', ap: S.trip.arr }); L.push({ k: 'stay', stay, drop: true }); }
+  if (day.first) { L.push({ k: 'arrive', ap: tripAir().arr }); L.push({ k: 'stay', stay, drop: true }); }
   else if (day.transfer) { const ps = STAY_BY[plan.stays[plan.days[i - 1].r]]; L.push({ k: 'checkout', stay: ps }); L.push({ k: 'transfer', from: plan.days[i - 1].r, to: day.r }); L.push({ k: 'stay', stay, drop: true }); }
   else L.push({ k: 'start', stay });
   day.stops.forEach((s, si) => L.push(Object.assign({ si }, s)));
-  if (day.last) { L.push({ k: 'stay', stay, pickup: true }); L.push({ k: 'depart', ap: S.trip.dep }); }
+  if (day.last) { L.push({ k: 'stay', stay, pickup: true }); L.push({ k: 'depart', ap: tripAir().dep }); }
   else L.push({ k: 'end', stay });
   return L;
 }
@@ -347,7 +350,7 @@ function scheduleDay(plan, i) {
     let leg = null;
     if (e.k === 'stay' && L[k - 1].k === 'arrive') leg = airportLeg(L[k - 1].ap, e.stay, r);
     else if (e.k === 'transfer') leg = interRegion(e.from, e.to);
-    else if (e.k === 'stay' && L[k - 1].k === 'transfer') leg = { mode: REGIONS[r].sub ? 'subway' : 'taxi', min: 15, cost: REGIONS[r].sub ? 1500 : 6000, group: !REGIONS[r].sub };
+    else if (e.k === 'stay' && L[k - 1].k === 'transfer') leg = { mode: REGIONS[r].sub ? 'subway' : 'taxi', min: 15, cost: isOv(r) ? 0 : REGIONS[r].sub ? 1500 : 6000, group: !REGIONS[r].sub, ov: isOv(r) };
     else if (e.k === 'depart') leg = airportLeg(e.ap, pos, r);
     else { const tgt = e.id ? PBY[e.id] : (e.stay || null); leg = tgt ? legBetween(pos, tgt, r) : null; }
     if (leg && leg.min) { o.leg = leg; moveMin += leg.min; cost += leg.group ? leg.cost / people : leg.cost; }
@@ -366,8 +369,8 @@ function scheduleDay(plan, i) {
         if (!inSeason(p, day.date)) o.flags.push(['season']); else if (!openOn(p, day.date)) o.flags.push(['closed']);
         else if (b >= p.o[1]) o.flags.push(['shut']); else if (b + dur > p.o[1] + 0.1) o.flags.push(['late']);
         if (p.best === 'night' && b < 17.5) o.flags.push(['night']); else if (p.best === 'eve' && b < 15.5) o.flags.push(['eve']);
-        cost += p.cost || (e.k === 'meal' ? 12000 : 0); pos = p; }
-      else cost += 12000;
+        if (!isOv(r)) cost += p.cost || (e.k === 'meal' ? 12000 : 0); pos = p; }
+      else if (!isOv(r)) cost += 12000;
       if (e.sug) o.flags.push(['sug']);
       o.start = b; o.end = b + dur; o.num = ++n;
     } else if (e.k === 'stay') { o.start = a; o.end = a + (e.drop ? 0.35 : 0.25); pos = e.stay; }

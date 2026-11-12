@@ -1,0 +1,289 @@
+[
+{
+"id": "seoul",
+"name": "서울",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "busan",
+"name": "부산",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "jeju",
+"name": "제주",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "gyeongju",
+"name": "경주",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "gangneung",
+"name": "강릉",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "jeonju",
+"name": "전주",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "yeosu",
+"name": "여수",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "tokyo",
+"name": "도쿄",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "osaka",
+"name": "오사카",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "kyoto",
+"name": "교토",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "fukuoka",
+"name": "후쿠오카",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "sapporo",
+"name": "삿포로",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "okinawa",
+"name": "오키나와",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "nagoya",
+"name": "나고야",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "hakodate",
+"name": "하코다테",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "beppu",
+"name": "벳푸",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "matsuyama",
+"name": "마쓰야마",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "kagoshima",
+"name": "가고시마",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "shizuoka",
+"name": "시즈오카",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "takamatsu",
+"name": "다카마쓰",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "taipei",
+"name": "타이베이",
+"cc": "tw",
+"country": "대만",
+"ov": true
+},
+{
+"id": "kaohsiung",
+"name": "가오슝",
+"cc": "tw",
+"country": "대만",
+"ov": true
+},
+{
+"id": "taichung",
+"name": "타이중",
+"cc": "tw",
+"country": "대만",
+"ov": true
+},
+{
+"id": "hongkong",
+"name": "홍콩",
+"cc": "hk",
+"country": "홍콩",
+"ov": true
+},
+{
+"id": "macau",
+"name": "마카오",
+"cc": "mo",
+"country": "마카오",
+"ov": true
+},
+{
+"id": "shanghai",
+"name": "상하이",
+"cc": "cn",
+"country": "중국",
+"ov": true
+},
+{
+"id": "danang",
+"name": "다낭",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "nhatrang",
+"name": "나트랑",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "hanoi",
+"name": "하노이",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "hochiminh",
+"name": "호치민",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "phuquoc",
+"name": "푸꾸옥",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "bangkok",
+"name": "방콕",
+"cc": "th",
+"country": "태국",
+"ov": true
+},
+{
+"id": "chiangmai",
+"name": "치앙마이",
+"cc": "th",
+"country": "태국",
+"ov": true
+},
+{
+"id": "cebu",
+"name": "세부",
+"cc": "ph",
+"country": "필리핀",
+"ov": true
+},
+{
+"id": "bohol",
+"name": "보홀",
+"cc": "ph",
+"country": "필리핀",
+"ov": true
+},
+{
+"id": "clark",
+"name": "클락",
+"cc": "ph",
+"country": "필리핀",
+"ov": true
+},
+{
+"id": "singapore",
+"name": "싱가포르",
+"cc": "sg",
+"country": "싱가포르",
+"ov": true
+},
+{
+"id": "kualalumpur",
+"name": "쿠알라룸푸르",
+"cc": "my",
+"country": "말레이시아",
+"ov": true
+},
+{
+"id": "kotakinabalu",
+"name": "코타키나발루",
+"cc": "my",
+"country": "말레이시아",
+"ov": true
+},
+{
+"id": "guam",
+"name": "괌",
+"cc": "gu",
+"country": "괌",
+"ov": true
+},
+{
+"id": "saipan",
+"name": "사이판",
+"cc": "mp",
+"country": "사이판",
+"ov": true
+}
+]
