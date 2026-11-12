@@ -1,4 +1,4 @@
-== 2026-11-12T09:47:41Z push dfa4d3d2bace0beb509fe36b8426e7908e73a66d
+== 2026-11-12T09:51:27Z push 3a4239299afa36e1b5ad562d6665821ab22a582b
 · 전송할 URL이 없습니다. 변경된 HTML이 없습니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
