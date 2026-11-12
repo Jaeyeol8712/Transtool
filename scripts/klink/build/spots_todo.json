@@ -1,0 +1,1516 @@
+{
+ "done": 8,
+ "todo": 286,
+ "regions": {
+  "seoul": [
+   {
+    "id": "gbg",
+    "name": "경복궁",
+    "guide": false
+   },
+   {
+    "id": "bukchon",
+    "name": "북촌 한옥마을",
+    "guide": false
+   },
+   {
+    "id": "cdg",
+    "name": "창덕궁 후원",
+    "guide": false
+   },
+   {
+    "id": "insa",
+    "name": "인사동 쌈지길",
+    "guide": false
+   },
+   {
+    "id": "museum",
+    "name": "국립중앙박물관",
+    "guide": false
+   },
+   {
+    "id": "gwangjang",
+    "name": "광장시장 먹거리",
+    "guide": false
+   },
+   {
+    "id": "samgyup",
+    "name": "숯불 삼겹살 맛집",
+    "guide": false
+   },
+   {
+    "id": "gejang",
+    "name": "간장게장 전문점",
+    "guide": false
+   },
+   {
+    "id": "mdfood",
+    "name": "명동 길거리 음식",
+    "guide": false
+   },
+   {
+    "id": "samgye",
+    "name": "토속촌 삼계탕",
+    "guide": false
+   },
+   {
+    "id": "kalguksu",
+    "name": "명동 칼국수·만두",
+    "guide": false
+   },
+   {
+    "id": "dakgalbi",
+    "name": "홍대 닭갈비 골목",
+    "guide": false
+   },
+   {
+    "id": "sbrunch",
+    "name": "성수 브런치 레스토랑",
+    "guide": false
+   },
+   {
+    "id": "hanwoo",
+    "name": "한우 오마카세",
+    "guide": false
+   },
+   {
+    "id": "skin1",
+    "name": "강남 피부과 상담",
+    "guide": false
+   },
+   {
+    "id": "skin2",
+    "name": "명동 피부과 레이저 관리",
+    "guide": false
+   },
+   {
+    "id": "spa",
+    "name": "K-뷰티 스파·헤드스파",
+    "guide": false
+   },
+   {
+    "id": "oliveyoung",
+    "name": "올리브영 명동 플래그십",
+    "guide": false
+   },
+   {
+    "id": "garosu",
+    "name": "가로수길 쇼핑",
+    "guide": false
+   },
+   {
+    "id": "seongsu",
+    "name": "성수동 편집숍 거리",
+    "guide": false
+   },
+   {
+    "id": "ddp",
+    "name": "DDP·동대문 패션타운",
+    "guide": false
+   },
+   {
+    "id": "hongdae",
+    "name": "홍대 거리",
+    "guide": false
+   },
+   {
+    "id": "thehyundai",
+    "name": "더현대 서울",
+    "guide": false
+   },
+   {
+    "id": "scafe",
+    "name": "성수동 카페 거리",
+    "guide": false
+   },
+   {
+    "id": "ikcafe",
+    "name": "익선동 한옥 카페",
+    "guide": false
+   },
+   {
+    "id": "ycafe",
+    "name": "연남동 카페 골목",
+    "guide": false
+   },
+   {
+    "id": "hybe",
+    "name": "하이브 인사이트 주변",
+    "guide": false
+   },
+   {
+    "id": "kstar",
+    "name": "K-스타로드",
+    "guide": false
+   },
+   {
+    "id": "namsan",
+    "name": "남산서울타워 야경",
+    "guide": false
+   },
+   {
+    "id": "hangang",
+    "name": "한강 노을 산책",
+    "guide": false
+   },
+   {
+    "id": "lotte",
+    "name": "롯데월드타워 서울스카이",
+    "guide": false
+   },
+   {
+    "id": "cheong",
+    "name": "청계천 야간 산책",
+    "guide": false
+   },
+   {
+    "id": "banpo",
+    "name": "반포 달빛무지개분수",
+    "guide": false
+   },
+   {
+    "id": "seoulforest",
+    "name": "서울숲",
+    "guide": false
+   },
+   {
+    "id": "coex",
+    "name": "코엑스 K-POP 광장·별마당도서관",
+    "guide": false
+   },
+   {
+    "id": "deoksugung",
+    "name": "덕수궁",
+    "guide": false
+   },
+   {
+    "id": "namdaemun",
+    "name": "남대문시장",
+    "guide": false
+   },
+   {
+    "id": "lotteworld",
+    "name": "롯데월드",
+    "guide": false
+   },
+   {
+    "id": "naksan",
+    "name": "낙산공원 성곽길",
+    "guide": false
+   },
+   {
+    "id": "mangwon",
+    "name": "망원시장",
+    "guide": false
+   },
+   {
+    "id": "noryangjin",
+    "name": "노량진수산시장",
+    "guide": false
+   }
+  ],
+  "busan": [
+   {
+    "id": "bs_haeundae",
+    "name": "해운대 해수욕장",
+    "guide": true
+   },
+   {
+    "id": "bs_gamcheon",
+    "name": "감천문화마을",
+    "guide": true
+   },
+   {
+    "id": "bs_jagalchi",
+    "name": "자갈치시장 회센터",
+    "guide": false
+   },
+   {
+    "id": "bs_gwangan",
+    "name": "광안대교 야경",
+    "guide": true
+   },
+   {
+    "id": "bs_gukbap",
+    "name": "서면 돼지국밥 골목",
+    "guide": true
+   },
+   {
+    "id": "bs_yonggung",
+    "name": "해동용궁사",
+    "guide": false
+   },
+   {
+    "id": "bs_huinyeoul",
+    "name": "흰여울문화마을 카페",
+    "guide": false
+   },
+   {
+    "id": "bs_centum",
+    "name": "신세계 센텀시티",
+    "guide": false
+   },
+   {
+    "id": "bs_skin",
+    "name": "서면 피부과 상담",
+    "guide": true
+   },
+   {
+    "id": "bs_gejang",
+    "name": "해운대 대게·간장게장",
+    "guide": true
+   },
+   {
+    "id": "bs_blueline",
+    "name": "해운대 블루라인파크",
+    "guide": true
+   },
+   {
+    "id": "bs_taejongdae",
+    "name": "태종대",
+    "guide": false
+   },
+   {
+    "id": "bs_gukje",
+    "name": "국제시장·BIFF광장",
+    "guide": false
+   },
+   {
+    "id": "bs_songdo",
+    "name": "송도 해상케이블카",
+    "guide": false
+   }
+  ],
+  "jeju": [
+   {
+    "id": "jj_seongsan",
+    "name": "성산일출봉",
+    "guide": true
+   },
+   {
+    "id": "jj_halla",
+    "name": "한라산 영실 코스",
+    "guide": true
+   },
+   {
+    "id": "jj_pork",
+    "name": "제주 흑돼지 거리",
+    "guide": true
+   },
+   {
+    "id": "jj_dongmun",
+    "name": "동문시장 야시장",
+    "guide": true
+   },
+   {
+    "id": "jj_aewol",
+    "name": "애월 해안 카페 거리",
+    "guide": false
+   },
+   {
+    "id": "jj_jusang",
+    "name": "중문 주상절리",
+    "guide": true
+   },
+   {
+    "id": "jj_dutyfree",
+    "name": "제주 시내 면세점",
+    "guide": true
+   },
+   {
+    "id": "jj_sunset",
+    "name": "애월 노을 해안도로",
+    "guide": false
+   },
+   {
+    "id": "jj_udo",
+    "name": "우도",
+    "guide": true
+   },
+   {
+    "id": "jj_hyeopjae",
+    "name": "협재해변",
+    "guide": false
+   },
+   {
+    "id": "jj_osulloc",
+    "name": "오설록 티뮤지엄",
+    "guide": true
+   },
+   {
+    "id": "jj_cheonjiyeon",
+    "name": "천지연폭포",
+    "guide": true
+   },
+   {
+    "id": "jj_seopji",
+    "name": "섭지코지",
+    "guide": true
+   }
+  ],
+  "gangneung": [
+   {
+    "id": "gn_anmok",
+    "name": "안목 커피거리",
+    "guide": true
+   },
+   {
+    "id": "gn_gyeongpo",
+    "name": "경포해변·경포대",
+    "guide": true
+   },
+   {
+    "id": "gn_jumunjin",
+    "name": "주문진 수산시장",
+    "guide": true
+   },
+   {
+    "id": "gn_sundubu",
+    "name": "초당 순두부 마을",
+    "guide": true
+   },
+   {
+    "id": "gn_ojukheon",
+    "name": "오죽헌",
+    "guide": true
+   },
+   {
+    "id": "gn_bts",
+    "name": "BTS 버스정류장 촬영지",
+    "guide": false
+   },
+   {
+    "id": "gn_jungang",
+    "name": "강릉 중앙시장",
+    "guide": true
+   }
+  ],
+  "jeonju": [
+   {
+    "id": "jn_hanok",
+    "name": "전주 한옥마을",
+    "guide": true
+   },
+   {
+    "id": "jn_bibim",
+    "name": "전주비빔밥 명가",
+    "guide": false
+   },
+   {
+    "id": "jn_night",
+    "name": "남부시장 야시장",
+    "guide": true
+   },
+   {
+    "id": "jn_gyeonggi",
+    "name": "경기전",
+    "guide": true
+   },
+   {
+    "id": "jn_tea",
+    "name": "한옥마을 전통 찻집",
+    "guide": true
+   },
+   {
+    "id": "jn_jeondong",
+    "name": "전동성당",
+    "guide": true
+   }
+  ],
+  "yeosu": [
+   {
+    "id": "ys_cable",
+    "name": "여수 해상케이블카",
+    "guide": true
+   },
+   {
+    "id": "ys_night",
+    "name": "여수 밤바다 낭만포차",
+    "guide": true
+   },
+   {
+    "id": "ys_gejang",
+    "name": "여수 돌게장 백반",
+    "guide": true
+   },
+   {
+    "id": "ys_odong",
+    "name": "오동도",
+    "guide": true
+   },
+   {
+    "id": "ys_hyangil",
+    "name": "향일암",
+    "guide": true
+   },
+   {
+    "id": "ys_aqua",
+    "name": "아쿠아플라넷 여수",
+    "guide": true
+   },
+   {
+    "id": "ys_dolsanpark",
+    "name": "돌산공원 야경",
+    "guide": true
+   }
+  ],
+  "tokyo": [
+   {
+    "id": "tk_sensoji",
+    "name": "센소지",
+    "guide": true
+   },
+   {
+    "id": "tk_nakamise",
+    "name": "나카미세 거리",
+    "guide": true
+   },
+   {
+    "id": "tk_ueno",
+    "name": "우에노 공원",
+    "guide": true
+   },
+   {
+    "id": "tk_shibuya",
+    "name": "시부야 스크램블 교차로",
+    "guide": true
+   },
+   {
+    "id": "tk_meiji",
+    "name": "메이지 신궁",
+    "guide": true
+   },
+   {
+    "id": "tk_takeshita",
+    "name": "다케시타 거리",
+    "guide": true
+   },
+   {
+    "id": "tk_tocho",
+    "name": "도쿄도청 전망실",
+    "guide": true
+   },
+   {
+    "id": "tk_omoide",
+    "name": "오모이데 요코초",
+    "guide": true
+   },
+   {
+    "id": "tk_odaiba",
+    "name": "오다이바 해변공원",
+    "guide": true
+   },
+   {
+    "id": "tk_kamakura",
+    "name": "가마쿠라 대불",
+    "guide": true
+   },
+   {
+    "id": "tk_hakone",
+    "name": "하코네",
+    "guide": true
+   }
+  ],
+  "osaka": [
+   {
+    "id": "os_dotonbori",
+    "name": "도톤보리",
+    "guide": true
+   },
+   {
+    "id": "os_shinsaibashi",
+    "name": "신사이바시",
+    "guide": true
+   },
+   {
+    "id": "os_kuromon",
+    "name": "구로몬 시장",
+    "guide": true
+   },
+   {
+    "id": "os_shinsekai",
+    "name": "신세카이·츠텐카쿠",
+    "guide": true
+   },
+   {
+    "id": "os_castle",
+    "name": "오사카성",
+    "guide": true
+   },
+   {
+    "id": "os_umeda",
+    "name": "우메다 공중정원",
+    "guide": true
+   },
+   {
+    "id": "os_usj",
+    "name": "유니버설 스튜디오 재팬",
+    "guide": true
+   },
+   {
+    "id": "os_kaiyukan",
+    "name": "가이유칸(카이유칸)",
+    "guide": true
+   },
+   {
+    "id": "os_nara",
+    "name": "나라 공원·도다이지",
+    "guide": true
+   }
+  ],
+  "kyoto": [
+   {
+    "id": "ky_kiyomizu",
+    "name": "기요미즈데라",
+    "guide": true
+   },
+   {
+    "id": "ky_gion",
+    "name": "기온",
+    "guide": true
+   },
+   {
+    "id": "ky_fushimi",
+    "name": "후시미 이나리 신사",
+    "guide": true
+   },
+   {
+    "id": "ky_bamboo",
+    "name": "아라시야마 대나무숲",
+    "guide": true
+   },
+   {
+    "id": "ky_togetsu",
+    "name": "도게츠교",
+    "guide": true
+   },
+   {
+    "id": "ky_kinkaku",
+    "name": "금각사",
+    "guide": true
+   },
+   {
+    "id": "ky_ryoan",
+    "name": "료안지",
+    "guide": true
+   }
+  ],
+  "fukuoka": [
+   {
+    "id": "fk_station",
+    "name": "하카타역",
+    "guide": true
+   },
+   {
+    "id": "fk_canal",
+    "name": "캐널시티 하카타",
+    "guide": true
+   },
+   {
+    "id": "fk_tenjin",
+    "name": "텐진 지하상가",
+    "guide": true
+   },
+   {
+    "id": "fk_yatai",
+    "name": "나카스 야타이",
+    "guide": true
+   },
+   {
+    "id": "fk_dazaifu",
+    "name": "다자이후 텐만구",
+    "guide": true
+   },
+   {
+    "id": "fk_yufuin",
+    "name": "유후인 긴린코",
+    "guide": true
+   }
+  ],
+  "sapporo": [
+   {
+    "id": "sp_odori",
+    "name": "오도리 공원",
+    "guide": true
+   },
+   {
+    "id": "sp_tvtower",
+    "name": "삿포로 TV타워",
+    "guide": true
+   },
+   {
+    "id": "sp_clock",
+    "name": "삿포로 시계탑",
+    "guide": true
+   },
+   {
+    "id": "sp_susukino",
+    "name": "스스키노·라멘 골목",
+    "guide": true
+   },
+   {
+    "id": "sp_moiwa",
+    "name": "모이와산 로프웨이",
+    "guide": true
+   },
+   {
+    "id": "sp_otaru",
+    "name": "오타루 운하",
+    "guide": true
+   },
+   {
+    "id": "sp_orgel",
+    "name": "오타루 오르골당",
+    "guide": true
+   }
+  ],
+  "okinawa": [
+   {
+    "id": "ok_kokusai",
+    "name": "국제거리",
+    "guide": true
+   },
+   {
+    "id": "ok_shuri",
+    "name": "슈리성 공원",
+    "guide": true
+   },
+   {
+    "id": "ok_american",
+    "name": "아메리칸 빌리지",
+    "guide": true
+   },
+   {
+    "id": "ok_manzamo",
+    "name": "만좌모",
+    "guide": true
+   },
+   {
+    "id": "ok_churaumi",
+    "name": "츄라우미 수족관",
+    "guide": true
+   },
+   {
+    "id": "ok_kouri",
+    "name": "고우리 대교",
+    "guide": true
+   }
+  ],
+  "nagoya": [
+   {
+    "id": "ng_noritake",
+    "name": "노리타케의 숲",
+    "guide": true
+   },
+   {
+    "id": "ng_sakae",
+    "name": "사카에",
+    "guide": true
+   },
+   {
+    "id": "ng_osu",
+    "name": "오스 상점가",
+    "guide": true
+   },
+   {
+    "id": "ng_castle",
+    "name": "나고야성",
+    "guide": true
+   },
+   {
+    "id": "ng_nabana",
+    "name": "나바나노사토",
+    "guide": true
+   }
+  ],
+  "hakodate": [
+   {
+    "id": "hd_asaichi",
+    "name": "하코다테 아침시장",
+    "guide": true
+   },
+   {
+    "id": "hd_brick",
+    "name": "가네모리 붉은벽돌창고",
+    "guide": true
+   },
+   {
+    "id": "hd_motomachi",
+    "name": "모토마치",
+    "guide": true
+   },
+   {
+    "id": "hd_ropeway",
+    "name": "하코다테산 로프웨이",
+    "guide": true
+   },
+   {
+    "id": "hd_goryokaku",
+    "name": "고료카쿠 공원·타워",
+    "guide": true
+   },
+   {
+    "id": "hd_yunokawa",
+    "name": "유노카와 온천",
+    "guide": true
+   }
+  ],
+  "beppu": [
+   {
+    "id": "bp_jigoku",
+    "name": "벳푸 지옥 온천 순례",
+    "guide": true
+   },
+   {
+    "id": "bp_kannawa",
+    "name": "칸나와 온천 마을",
+    "guide": true
+   },
+   {
+    "id": "bp_takegawara",
+    "name": "벳푸역 앞 온천·상점가",
+    "guide": true
+   },
+   {
+    "id": "bp_kinrin",
+    "name": "긴린코 호수",
+    "guide": true
+   },
+   {
+    "id": "bp_yunotsubo",
+    "name": "유노쓰보 거리",
+    "guide": true
+   }
+  ],
+  "matsuyama": [
+   {
+    "id": "my_dogo",
+    "name": "도고온천 본관",
+    "guide": true
+   },
+   {
+    "id": "my_haikara",
+    "name": "도고 상점가",
+    "guide": true
+   },
+   {
+    "id": "my_castle",
+    "name": "마쓰야마성",
+    "guide": true
+   },
+   {
+    "id": "my_okaido",
+    "name": "오카이도",
+    "guide": true
+   },
+   {
+    "id": "my_shimonada",
+    "name": "시모나다역",
+    "guide": true
+   }
+  ],
+  "kagoshima": [
+   {
+    "id": "kg_tenmonkan",
+    "name": "덴몬칸",
+    "guide": true
+   },
+   {
+    "id": "kg_shiroyama",
+    "name": "시로야마 전망대",
+    "guide": true
+   },
+   {
+    "id": "kg_sengan",
+    "name": "센간엔",
+    "guide": true
+   },
+   {
+    "id": "kg_sakurajima",
+    "name": "사쿠라지마",
+    "guide": true
+   },
+   {
+    "id": "kg_ibusuki",
+    "name": "이부스키 모래찜질 온천",
+    "guide": true
+   }
+  ],
+  "shizuoka": [
+   {
+    "id": "sz_sunpu",
+    "name": "시즈오카역 주변·슨푸성 공원",
+    "guide": true
+   },
+   {
+    "id": "sz_nihondaira",
+    "name": "니혼다이라",
+    "guide": true
+   },
+   {
+    "id": "sz_miho",
+    "name": "미호노마쓰바라",
+    "guide": true
+   },
+   {
+    "id": "sz_shimizu",
+    "name": "시미즈 항",
+    "guide": true
+   }
+  ],
+  "takamatsu": [
+   {
+    "id": "tm_ritsurin",
+    "name": "리쓰린 공원",
+    "guide": true
+   },
+   {
+    "id": "tm_arcade",
+    "name": "다카마쓰 상점가",
+    "guide": true
+   },
+   {
+    "id": "tm_naoshima",
+    "name": "나오시마",
+    "guide": true
+   },
+   {
+    "id": "tm_kotohira",
+    "name": "고토히라궁",
+    "guide": true
+   },
+   {
+    "id": "tm_shodo",
+    "name": "쇼도시마",
+    "guide": true
+   }
+  ],
+  "taipei": [
+   {
+    "id": "tp_101",
+    "name": "타이베이 101",
+    "guide": true
+   },
+   {
+    "id": "tp_xiangshan",
+    "name": "샹산 전망",
+    "guide": true
+   },
+   {
+    "id": "tp_shilin",
+    "name": "스린 야시장",
+    "guide": true
+   },
+   {
+    "id": "tp_palace",
+    "name": "국립고궁박물원",
+    "guide": true
+   },
+   {
+    "id": "tp_ximen",
+    "name": "시먼딩",
+    "guide": true
+   },
+   {
+    "id": "tp_tamsui",
+    "name": "단수이",
+    "guide": true
+   },
+   {
+    "id": "tp_jiufen",
+    "name": "지우펀",
+    "guide": true
+   },
+   {
+    "id": "tp_shifen",
+    "name": "스펀",
+    "guide": true
+   },
+   {
+    "id": "tp_yehliu",
+    "name": "예류 지질공원",
+    "guide": true
+   }
+  ],
+  "kaohsiung": [
+   {
+    "id": "kh_dome",
+    "name": "메이리다오역 빛의 돔",
+    "guide": true
+   },
+   {
+    "id": "kh_liuhe",
+    "name": "리우허 야시장",
+    "guide": true
+   },
+   {
+    "id": "kh_pier2",
+    "name": "보얼예술특구",
+    "guide": true
+   },
+   {
+    "id": "kh_love",
+    "name": "아이허(러브 리버)",
+    "guide": true
+   },
+   {
+    "id": "kh_cijin",
+    "name": "치진섬",
+    "guide": true
+   },
+   {
+    "id": "kh_lotus",
+    "name": "연지담 용호탑",
+    "guide": true
+   }
+  ],
+  "taichung": [
+   {
+    "id": "tc_miyahara",
+    "name": "궁원안과",
+    "guide": true
+   },
+   {
+    "id": "tc_museum",
+    "name": "국립대만미술관",
+    "guide": true
+   },
+   {
+    "id": "tc_fengjia",
+    "name": "펑자 야시장",
+    "guide": true
+   },
+   {
+    "id": "tc_rainbow",
+    "name": "무지개마을",
+    "guide": true
+   },
+   {
+    "id": "tc_gaomei",
+    "name": "가오메이 습지",
+    "guide": true
+   },
+   {
+    "id": "tc_sunmoon",
+    "name": "일월담",
+    "guide": true
+   }
+  ],
+  "hongkong": [
+   {
+    "id": "hk_avenue",
+    "name": "스타의 거리·심포니 오브 라이트",
+    "guide": true
+   },
+   {
+    "id": "hk_ferry",
+    "name": "스타페리",
+    "guide": true
+   },
+   {
+    "id": "hk_peak",
+    "name": "피크트램·빅토리아 피크",
+    "guide": true
+   },
+   {
+    "id": "hk_central",
+    "name": "센트럴",
+    "guide": true
+   },
+   {
+    "id": "hk_mongkok",
+    "name": "몽콕 야시장",
+    "guide": true
+   },
+   {
+    "id": "hk_ngongping",
+    "name": "옹핑 케이블카·빅부다",
+    "guide": true
+   }
+  ],
+  "macau": [
+   {
+    "id": "mc_senado",
+    "name": "세나도 광장",
+    "guide": true
+   },
+   {
+    "id": "mc_stpaul",
+    "name": "성 바울 성당 유적",
+    "guide": true
+   },
+   {
+    "id": "mc_taipa",
+    "name": "타이파 빌리지",
+    "guide": true
+   },
+   {
+    "id": "mc_cotai",
+    "name": "코타이 리조트",
+    "guide": true
+   },
+   {
+    "id": "mc_tower",
+    "name": "마카오 타워",
+    "guide": true
+   }
+  ],
+  "shanghai": [
+   {
+    "id": "sh_bund",
+    "name": "와이탄",
+    "guide": true
+   },
+   {
+    "id": "sh_nanjing",
+    "name": "난징루",
+    "guide": true
+   },
+   {
+    "id": "sh_pearl",
+    "name": "동방명주",
+    "guide": true
+   },
+   {
+    "id": "sh_yuyuan",
+    "name": "예원·위위안 상가",
+    "guide": true
+   },
+   {
+    "id": "sh_zhujiajiao",
+    "name": "주자자오 수향",
+    "guide": true
+   }
+  ],
+  "danang": [
+   {
+    "id": "dn_mykhe",
+    "name": "미케 해변",
+    "guide": true
+   },
+   {
+    "id": "dn_han",
+    "name": "한 시장",
+    "guide": false
+   },
+   {
+    "id": "dn_dragon",
+    "name": "용다리",
+    "guide": true
+   },
+   {
+    "id": "dn_marble",
+    "name": "오행산",
+    "guide": true
+   },
+   {
+    "id": "dn_bana",
+    "name": "바나힐·골든브리지",
+    "guide": true
+   },
+   {
+    "id": "dn_hoian",
+    "name": "호이안 구시가지",
+    "guide": true
+   }
+  ],
+  "nhatrang": [
+   {
+    "id": "nt_beach",
+    "name": "나트랑 해변",
+    "guide": true
+   },
+   {
+    "id": "nt_night",
+    "name": "나트랑 야시장",
+    "guide": true
+   },
+   {
+    "id": "nt_ponagar",
+    "name": "포나가르 탑",
+    "guide": true
+   },
+   {
+    "id": "nt_mud",
+    "name": "머드 온천(탑바)",
+    "guide": true
+   },
+   {
+    "id": "nt_vin",
+    "name": "빈원더스(혼째섬)",
+    "guide": true
+   },
+   {
+    "id": "nt_hopping",
+    "name": "호핑투어(혼문섬)",
+    "guide": true
+   }
+  ],
+  "hanoi": [
+   {
+    "id": "hn_hoankiem",
+    "name": "호안끼엠 호수",
+    "guide": true
+   },
+   {
+    "id": "hn_36",
+    "name": "36거리",
+    "guide": true
+   },
+   {
+    "id": "hn_temple",
+    "name": "문묘",
+    "guide": true
+   },
+   {
+    "id": "hn_hcm",
+    "name": "호찌민 묘소",
+    "guide": true
+   },
+   {
+    "id": "hn_trangan",
+    "name": "닌빈 짱안",
+    "guide": true
+   },
+   {
+    "id": "hn_halong",
+    "name": "하롱베이",
+    "guide": true
+   }
+  ],
+  "hochiminh": [
+   {
+    "id": "hc_benthanh",
+    "name": "벤탄 시장",
+    "guide": true
+   },
+   {
+    "id": "hc_post",
+    "name": "중앙우체국",
+    "guide": true
+   },
+   {
+    "id": "hc_palace",
+    "name": "통일궁",
+    "guide": true
+   },
+   {
+    "id": "hc_buivien",
+    "name": "부이비엔 거리",
+    "guide": true
+   },
+   {
+    "id": "hc_cuchi",
+    "name": "구찌 터널",
+    "guide": true
+   },
+   {
+    "id": "hc_mekong",
+    "name": "메콩델타 보트 투어",
+    "guide": true
+   }
+  ],
+  "phuquoc": [
+   {
+    "id": "pq_night",
+    "name": "즈엉동 야시장",
+    "guide": true
+   },
+   {
+    "id": "pq_cable",
+    "name": "혼텀 케이블카",
+    "guide": true
+   },
+   {
+    "id": "pq_sunset",
+    "name": "선셋타운",
+    "guide": true
+   },
+   {
+    "id": "pq_sao",
+    "name": "사오 해변",
+    "guide": true
+   },
+   {
+    "id": "pq_vin",
+    "name": "빈원더스·사파리",
+    "guide": true
+   }
+  ],
+  "bangkok": [
+   {
+    "id": "bk_palace",
+    "name": "왕궁·왓 프라깨우",
+    "guide": true
+   },
+   {
+    "id": "bk_watpho",
+    "name": "왓 포",
+    "guide": false
+   },
+   {
+    "id": "bk_watarun",
+    "name": "왓 아룬",
+    "guide": true
+   },
+   {
+    "id": "bk_khaosan",
+    "name": "카오산 로드",
+    "guide": true
+   },
+   {
+    "id": "bk_siam",
+    "name": "시암 쇼핑몰",
+    "guide": true
+   },
+   {
+    "id": "bk_chatuchak",
+    "name": "짜뚜짝 주말시장",
+    "guide": true
+   },
+   {
+    "id": "bk_ayutthaya",
+    "name": "아유타야 유적",
+    "guide": true
+   }
+  ],
+  "chiangmai": [
+   {
+    "id": "cm_phrasingh",
+    "name": "왓 프라싱",
+    "guide": true
+   },
+   {
+    "id": "cm_chediluang",
+    "name": "왓 체디루앙",
+    "guide": true
+   },
+   {
+    "id": "cm_sunday",
+    "name": "일요 워킹스트리트",
+    "guide": true
+   },
+   {
+    "id": "cm_nimman",
+    "name": "님만해민",
+    "guide": true
+   },
+   {
+    "id": "cm_doisuthep",
+    "name": "왓 프라탓 도이수텝",
+    "guide": true
+   }
+  ],
+  "cebu": [
+   {
+    "id": "cb_mactan",
+    "name": "막탄 호핑 투어",
+    "guide": true
+   },
+   {
+    "id": "cb_santonino",
+    "name": "산토니뇨 성당",
+    "guide": true
+   },
+   {
+    "id": "cb_moalboal",
+    "name": "모알보알",
+    "guide": true
+   }
+  ],
+  "bohol": [
+   {
+    "id": "bh_alona",
+    "name": "알로나 해변",
+    "guide": true
+   },
+   {
+    "id": "bh_balicasag",
+    "name": "발리카삭 호핑",
+    "guide": true
+   },
+   {
+    "id": "bh_loboc",
+    "name": "로복강",
+    "guide": true
+   },
+   {
+    "id": "bh_tarsier",
+    "name": "안경원숭이 보호구역",
+    "guide": true
+   },
+   {
+    "id": "bh_chocolate",
+    "name": "초콜릿 힐",
+    "guide": true
+   }
+  ],
+  "clark": [
+   {
+    "id": "cl_freeport",
+    "name": "클락 프리포트",
+    "guide": true
+   },
+   {
+    "id": "cl_angeles",
+    "name": "앙헬레스 시내",
+    "guide": true
+   },
+   {
+    "id": "cl_pinatubo",
+    "name": "피나투보 화산",
+    "guide": true
+   },
+   {
+    "id": "cl_subic",
+    "name": "수빅",
+    "guide": true
+   }
+  ],
+  "singapore": [
+   {
+    "id": "sg_mbs",
+    "name": "마리나베이샌즈",
+    "guide": true
+   },
+   {
+    "id": "sg_merlion",
+    "name": "멀라이언 공원",
+    "guide": true
+   },
+   {
+    "id": "sg_gardens",
+    "name": "가든스 바이 더 베이",
+    "guide": true
+   },
+   {
+    "id": "sg_chinatown",
+    "name": "차이나타운",
+    "guide": true
+   },
+   {
+    "id": "sg_india",
+    "name": "리틀인디아",
+    "guide": true
+   },
+   {
+    "id": "sg_orchard",
+    "name": "오차드 로드",
+    "guide": true
+   },
+   {
+    "id": "sg_sentosa",
+    "name": "센토사",
+    "guide": true
+   }
+  ],
+  "kualalumpur": [
+   {
+    "id": "kl_twin",
+    "name": "페트로나스 트윈타워·KLCC 공원",
+    "guide": true
+   },
+   {
+    "id": "kl_bintang",
+    "name": "부킷빈탕",
+    "guide": true
+   },
+   {
+    "id": "kl_alor",
+    "name": "잘란알로 야시장",
+    "guide": true
+   },
+   {
+    "id": "kl_merdeka",
+    "name": "메르데카 광장",
+    "guide": true
+   },
+   {
+    "id": "kl_chinatown",
+    "name": "차이나타운",
+    "guide": true
+   },
+   {
+    "id": "kl_batu",
+    "name": "바투동굴",
+    "guide": true
+   }
+  ],
+  "kotakinabalu": [
+   {
+    "id": "kk_waterfront",
+    "name": "워터프런트·야시장",
+    "guide": true
+   },
+   {
+    "id": "kk_aru",
+    "name": "탄중아루 해변",
+    "guide": true
+   },
+   {
+    "id": "kk_sapi",
+    "name": "사피섬",
+    "guide": true
+   },
+   {
+    "id": "kk_manukan",
+    "name": "마누칸섬",
+    "guide": true
+   },
+   {
+    "id": "kk_kinabalu",
+    "name": "키나발루 국립공원",
+    "guide": true
+   }
+  ],
+  "guam": [
+   {
+    "id": "gm_beach",
+    "name": "투몬 비치",
+    "guide": true
+   },
+   {
+    "id": "gm_shop",
+    "name": "투몬 쇼핑몰",
+    "guide": true
+   },
+   {
+    "id": "gm_lovers",
+    "name": "사랑의 절벽",
+    "guide": true
+   },
+   {
+    "id": "gm_chamorro",
+    "name": "차모로 빌리지 야시장",
+    "guide": true
+   },
+   {
+    "id": "gm_inarajan",
+    "name": "이나라한 자연 풀",
+    "guide": true
+   }
+  ],
+  "saipan": [
+   {
+    "id": "sn_micro",
+    "name": "마이크로 비치",
+    "guide": true
+   },
+   {
+    "id": "sn_garapan",
+    "name": "가라판 시내",
+    "guide": true
+   },
+   {
+    "id": "sn_managaha",
+    "name": "마나가하섬",
+    "guide": true
+   },
+   {
+    "id": "sn_north",
+    "name": "북부(만세절벽·새섬·그로토)",
+    "guide": true
+   }
+  ]
+ }
+}

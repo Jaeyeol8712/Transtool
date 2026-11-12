@@ -6,6 +6,7 @@ function init() {
   const h = (location.hash || '').slice(1);
   if (REGIONS[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = h; S.ui.scope = isOv(h) ? 'ov' : 'kr'; }
   else if (h === 'overseas') { S.seenIntro = true; S.ui.scope = 'ov'; }
+  else if (PBY[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = PBY[h].r; S.ui.scope = isOv(PBY[h].r) ? 'ov' : 'kr'; S.ui.sel = h; }   // 여행 가이드 '명소 안내'에서 바로 이 장소로
   setLang(l); buildShell();
   loadAround(() => { if (S.ui.tab !== 'saved') renderPanel(); });
   renderChrome(); renderPanel(); safeStage();

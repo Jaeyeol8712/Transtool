@@ -1000,3 +1000,43 @@ body.b main table:not(.b-stack) :is(th,td){padding:9px 10px!important}
 .at-klink-tx b{display:block;font-size:1.02rem;line-height:1.35;word-break:keep-all}
 .at-klink-tx span{display:block;font-size:.84rem;line-height:1.45;opacity:.88;margin-top:.1rem;word-break:keep-all}
 .at-klink-go{flex:0 0 auto;font-size:1.5rem;line-height:1;opacity:.8}
+
+/* 명소 안내 카드 (2026-11-12, 여행 가이드 '명소 안내' — K링크 상세 화면과 같은 내용) */
+.at-spots-lead{margin:0 0 1rem;color:var(--at-sub);font-size:.95rem;line-height:1.6}
+.at-spot-list{display:grid;gap:1.1rem}
+.at-spot{border:1px solid #E3EAE7;border-radius:18px;overflow:hidden;background:var(--at-surface)}
+.at-spot .at-fig{margin:0}
+.at-spot .at-fig img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:0}
+.at-spot .at-fig figcaption{padding:.45rem 1rem 0;margin:0}
+.at-spot .at-fig figcaption>span{display:none}
+.at-spot-b{padding:1rem 1.1rem 1.15rem}
+.at-spot-k{display:flex;gap:.35rem;flex-wrap:wrap;margin:0 0 .45rem}
+.at-spot-k span{font-size:.78rem;font-weight:700;padding:.18rem .6rem;border-radius:999px;background:#EEF2F0;color:var(--at-sub)}
+.at-spot-k .c{color:#fff}
+.at-spot-k .c-palace{background:#A0522D}.at-spot-k .c-food{background:#EF7C1C}.at-spot-k .c-cafe{background:#8C6A4B}.at-spot-k .c-shop{background:#0E9A63}
+.at-spot-k .c-night{background:#3B3FB6}.at-spot-k .c-nature{background:#0E9F8F}.at-spot-k .c-fun{background:#D99A00}.at-spot-k .c-skin{background:#E8457A}.at-spot-k .c-kpop{background:#8E5BD8}
+.at-spot h3{margin:0 0 .35rem;font-size:1.22rem;line-height:1.35}
+.at-spot-one{margin:0 0 .85rem;line-height:1.65}
+.at-spot-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 1rem}
+.at-spot-facts div{background:#F4F7F5;border-radius:12px;padding:.6rem .75rem;min-width:0}
+.at-spot-facts div:last-child:nth-child(odd){grid-column:1/-1}
+.at-spot-facts dt{font-size:.78rem;color:var(--at-sub);font-weight:600;margin:0}
+.at-spot-facts dd{margin:.15rem 0 0;font-size:.9rem;font-weight:700;line-height:1.45;word-break:keep-all}
+.at-spot-h{margin:.25rem 0 .45rem;font-size:.86rem;font-weight:800;color:var(--at-brand)}
+.at-spot-see{list-style:none;margin:0 0 .9rem;padding:0;display:grid;gap:.55rem;counter-reset:s}
+.at-spot-see li{display:grid;grid-template-columns:1.5rem minmax(0,1fr);column-gap:.6rem;counter-increment:s;margin:0}
+.at-spot-see li::before{content:counter(s);grid-row:1/3;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--at-brand-tint);color:var(--at-brand);font-weight:800;font-size:.8rem;display:grid;place-items:center}
+.at-spot-see b{font-size:.95rem;line-height:1.4}
+.at-spot-see span{font-size:.88rem;color:var(--at-sub);line-height:1.5}
+.at-spot-tips{list-style:none;margin:0 0 .9rem;padding:.7rem .85rem;background:#FFF8EC;border-radius:12px}
+.at-spot-tips li{position:relative;padding-left:1.3rem;font-size:.9rem;line-height:1.55;margin:.2rem 0}
+.at-spot-tips li::before{content:"✓";position:absolute;left:0;color:#B5560F;font-weight:800}
+.at-spot-src{font-size:.78rem;color:var(--at-faint);margin:0 0 .85rem;line-height:1.55}
+.at-spot-src a{color:inherit;text-decoration:underline}
+.at-spot-go{display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:48px;border-radius:12px;background:#2443E8;color:#fff!important;font-weight:800;text-decoration:none!important}
+.at-spot-go:hover{background:#1B34C4}
+@media (min-width:720px){.at-spot-list{grid-template-columns:repeat(2,minmax(0,1fr))}.at-spot{display:flex;flex-direction:column}.at-spot-b{display:flex;flex-direction:column;flex:1}.at-spot-go{margin-top:auto}}
+html body .at-spot ul.at-spot-see,html body .at-spot ul.at-spot-tips{padding-left:0;margin-left:0;list-style:none}
+html body .at-spot ul.at-spot-tips{padding:.7rem .85rem}
+html body .at-spot ul li{list-style:none}
+@media (max-width:719px){.at-spot-b{padding:.9rem .9rem 1rem}.at-spot .at-fig figcaption{padding:.4rem .9rem 0}}
