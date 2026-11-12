@@ -1,6 +1,6 @@
 {
- "done": 33,
- "todo": 247,
+ "done": 51,
+ "todo": 229,
  "regions": {
   "seoul": [
    {
@@ -157,102 +157,6 @@
     "id": "noryangjin",
     "name": "노량진수산시장",
     "guide": false
-   }
-  ],
-  "gangneung": [
-   {
-    "id": "gn_anmok",
-    "name": "안목 커피거리",
-    "guide": true
-   },
-   {
-    "id": "gn_gyeongpo",
-    "name": "경포해변·경포대",
-    "guide": true
-   },
-   {
-    "id": "gn_jumunjin",
-    "name": "주문진 수산시장",
-    "guide": true
-   },
-   {
-    "id": "gn_sundubu",
-    "name": "초당 순두부 마을",
-    "guide": true
-   },
-   {
-    "id": "gn_ojukheon",
-    "name": "오죽헌",
-    "guide": true
-   },
-   {
-    "id": "gn_bts",
-    "name": "BTS 버스정류장 촬영지",
-    "guide": false
-   },
-   {
-    "id": "gn_jungang",
-    "name": "강릉 중앙시장",
-    "guide": true
-   }
-  ],
-  "jeonju": [
-   {
-    "id": "jn_hanok",
-    "name": "전주 한옥마을",
-    "guide": true
-   },
-   {
-    "id": "jn_night",
-    "name": "남부시장 야시장",
-    "guide": true
-   },
-   {
-    "id": "jn_gyeonggi",
-    "name": "경기전",
-    "guide": true
-   },
-   {
-    "id": "jn_tea",
-    "name": "한옥마을 전통 찻집",
-    "guide": true
-   },
-   {
-    "id": "jn_jeondong",
-    "name": "전동성당",
-    "guide": true
-   }
-  ],
-  "yeosu": [
-   {
-    "id": "ys_cable",
-    "name": "여수 해상케이블카",
-    "guide": true
-   },
-   {
-    "id": "ys_night",
-    "name": "여수 밤바다 낭만포차",
-    "guide": true
-   },
-   {
-    "id": "ys_odong",
-    "name": "오동도",
-    "guide": true
-   },
-   {
-    "id": "ys_hyangil",
-    "name": "향일암",
-    "guide": true
-   },
-   {
-    "id": "ys_aqua",
-    "name": "아쿠아플라넷 여수",
-    "guide": true
-   },
-   {
-    "id": "ys_dolsanpark",
-    "name": "돌산공원 야경",
-    "guide": true
    }
   ],
   "tokyo": [
