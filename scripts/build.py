@@ -2398,10 +2398,8 @@ def build_home():
   <ul class="ah-picks">{picks}</ul>
 </section>
 <div class="ah-row">
-  <section class="ah-card" aria-labelledby="ah-new">
-    <div class="ah-head"><h2 id="ah-new">최신 글</h2><a href="/sitemap.html">전체 페이지</a></div>
-    <ul class="ah-ups ah-new" id="ah-new-list" aria-labelledby="ah-new">{news}</ul>
-    <div class="ah-head ah-head-sub"><h3>새 가이드</h3><a href="/etc.html">가이드 전체</a></div>
+  <section class="ah-card" aria-labelledby="ah-guides">
+    <div class="ah-head"><h2 id="ah-guides">새 가이드</h2><a href="/etc.html">가이드 전체</a></div>
     <ul class="ah-links">{guides}</ul>
   </section>
   <section class="ah-card" aria-labelledby="ah-faq">
