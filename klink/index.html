@@ -612,6 +612,15 @@ p{text-wrap:pretty}
 .intro .langseg button{height:42px;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;font-size:14px;font-weight:700;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
 .intro .langseg button.on{background:#fff;color:var(--cobalt);box-shadow:none}
 @media (min-width:900px){.intro .kinds{grid-row:1 / span 3}}
+/* K링크 배치 개선 (2026-11-12, 인터랙션 디자이너) */
+@media (max-width:979px){
+  .crumbs{display:none}                                   /* 위치 표시는 아래 시트에 이미 있다 */
+  .app.sheet-full .ov-ctrl,.app.sheet-full .ov-top{opacity:0;pointer-events:none;transition:opacity .2s}
+  .g-reg small{display:none}                              /* 지도 위 지역 이름만, 곳 수는 목록에 */
+}
+.pd-acts .btn.taxi{gap:6px;padding:0 14px}
+.pd-acts .btn.taxi span{font-size:13.5px}
+.pdx-head{margin-top:4px}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
@@ -1007,7 +1016,7 @@ Object.assign(I18N.ja, {
 });
 /* 2026-11-12 K링크 2단계: 여행 유형(국내 여행·해외 여행·한국 방문) + 실제 지도(3D 건물) */
 Object.assign(I18N.ko, {
-  scopeKrSub: '7개 지역', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
+  scopeKrSub: '7개 지역', taxiShort: '택시', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
   tripLeadHome: '출발역과 시각을 알려 주면 첫날·마지막 날 일정을 맞춰 드려요.',
   flightsHome: '출발·도착', flightsHomeSub: '집에서 가까운 역', fromSt: '출발역', fromT: '출발 시각', backSt: '돌아오는 역', backT: '돌아오는 시각',
   eFrom: ap => `${ap} 출발`, eBack: ap => `${ap} 도착`,
@@ -1018,7 +1027,7 @@ Object.assign(I18N.ko, {
   introP: '실제 지도에서 가고 싶은 곳을 저장하면, 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천해요. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 와요.'
 });
 Object.assign(I18N.zh, {
-  scopeKrSub: '7 个地区', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
+  scopeKrSub: '7 个地区', taxiShort: '出租车', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
   tripLeadHome: '告诉我们出发车站和时间，就会安排好第一天和最后一天的行程。',
   flightsHome: '出发·返回', flightsHomeSub: '离家近的车站', fromSt: '出发车站', fromT: '出发时间', backSt: '返回车站', backT: '返回时间',
   eFrom: ap => `${ap} 出发`, eBack: ap => `到达 ${ap}`,
@@ -1029,7 +1038,7 @@ Object.assign(I18N.zh, {
   introP: '在真实地图上收藏想去的地方，我们会根据距离和营业时间推荐每天的路线和住宿区域。信息来自 AroundTool 的旅行指南、美食记录和景点介绍。'
 });
 Object.assign(I18N.en, {
-  scopeKrSub: '7 regions', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
+  scopeKrSub: '7 regions', taxiShort: 'Taxi', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
   tripLeadHome: 'Tell us your station and times and we will fit the first and last day.',
   flightsHome: 'Departure & return', flightsHomeSub: 'Your nearest station', fromSt: 'From', fromT: 'Leave at', backSt: 'Back to', backT: 'Back by',
   eFrom: ap => `Leave ${ap}`, eBack: ap => `Arrive ${ap}`,
@@ -1040,7 +1049,7 @@ Object.assign(I18N.en, {
   introP: 'Save places on a real map and we plan daily routes and where to stay from distances and opening hours. Info comes from AroundTool travel guides, food notes and spot guides.'
 });
 Object.assign(I18N.ja, {
-  scopeKrSub: '7地域', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
+  scopeKrSub: '7地域', taxiShort: 'タクシー', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
   tripLeadHome: '出発駅と時刻を教えてくだされば、初日と最終日の日程を合わせます。',
   flightsHome: '出発・帰り', flightsHomeSub: '家から近い駅', fromSt: '出発駅', fromT: '出発時刻', backSt: '帰りの駅', backT: '帰りの到着時刻',
   eFrom: ap => `${ap} 出発`, eBack: ap => `${ap} 到着`,
@@ -2244,7 +2253,7 @@ function bindPanel() {
 function sheetPx(state) { const h = $('.main').getBoundingClientRect().height || window.innerHeight * .8;
   return state === 'peek' ? 148 : state === 'full' ? Math.round(h - 64) : Math.round(h * .42); }
 function setSheet(state, quiet) {
-  S.ui.sheet = state; const px = isDesk() ? 0 : sheetPx(state);
+  S.ui.sheet = state; app.classList.toggle('sheet-full', state === 'full'); const px = isDesk() ? 0 : sheetPx(state);
   app.style.setProperty('--sheet-h', px + 'px'); app.style.setProperty('--sheet-px', px);
   if (!quiet && S.ui.tab === 'map' && Map2D.mode === 'region' && S.ui.sel) { const p = PBY[S.ui.sel]; setTimeout(() => Map2D.focusOn(p.lat, p.lng), 340); }
 }
@@ -2350,7 +2359,7 @@ function panelMap() {
   const cats = CAT_ORDER.filter(c => PLACES.some(p => p.r === r && (!inD || p.dist === S.ui.d) && p.c === c));
   const head = inD
     ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1><p class="lead">${S.ui.mode3d ? T.distLead3d : T.distLead2d}</p>`
-    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${isOv(r) ? T.regionLeadOv : T.regionLead}</p>
+    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))}</p>
        <div class="sec"><h3>${T.pickDistrict}</h3><small>${T.pickDistrictSub}</small></div>
        <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${ICONS.pin.replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
   return `${head}${inD ? '' : courseCards(r)}
@@ -2386,7 +2395,6 @@ function aroundMore() {
 }
 function placeRow(p, opts = {}) {
   const tags = [];
-  if (p.best === 'night') tags.push(`<span class="pill info">${T.bestNight}</span>`); else if (p.best === 'am') tags.push(`<span class="pill info">${T.bestAm}</span>`);
   if (p.far) tags.push(`<span class="pill sug">${T.far}</span>`);
   return `<div class="prow ${S.ui.sel === p.id ? 'sel' : ''}"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${p.id}">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(p.id))}</span>
     <span class="ds">${opts.sub || esc(pd(p.id))}</span>${tags.length ? `<span class="mt">${tags.join('')}</span>` : ''}</span></button>${heartBtn(p.id)}</div>`;
@@ -2405,14 +2413,14 @@ function placeDetail(id) {
       .filter(x => x[2]).map(([i, k, v, w]) => [i, k, `<span${ko}>${esc(v)}</span>`, w])
     : p.est ? [['clock', T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<small>${F.closed(p)}</small>` : ''}`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['ticket', T.fFee, T.localCheck], ['pin', T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]]
-    : [['clock', T.fHours, `${T.localCheck}<small>${T.checkBefore}</small>`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
+    : [['clock', T.fHours, T.localCheck], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['pin', T.fWhere, `${esc(stationOf(p))}${S.lang !== 'ko' ? `<small lang="ko">${esc(p.st)}</small>` : ''}`, 1]];
   if (!F_ && best) facts.splice(2, 0, ['sun', T.fWhen, best]);
   if (p.season) facts.splice(1, 0, ['cal', T.fSeason, T.season(p.season[0], p.season[1]), 1]);
   { const half = facts.filter(f => !f[3]); if (half.length % 2) half[half.length - 1][3] = 1; }   // 두 칸씩 맞추고 남는 칸은 넓게
   const factsHtml = `<div class="pdx-facts">${facts.map(([i, k, v, w]) => `<div class="pdx-f ${w ? 'wide' : ''}"><span class="i" style="color:${col}">${ic(i)}</span><div><small>${k}</small><b>${v}</b></div></div>`).join('')}</div>`;
   const photo = sp && sp.photo ? `<figure class="pdx-ph"><img src="${esc(sp.photo.src)}" alt="${esc(sp.photo.alt)}" loading="lazy" decoding="async"><figcaption>${T.photoBy} ${sp.photo.link ? `<a href="${esc(sp.photo.link)}" target="_blank" rel="noopener nofollow">${esc(sp.photo.by)}</a>` : esc(sp.photo.by)} · ${esc(sp.photo.lic)}</figcaption></figure>`
-    : `<div class="pdx-cover" style="--c:${col}"><span class="big">${catIcon(p.c).replace('<svg ', '<svg width="40" height="40" ')}</span><span class="tx">${esc(rn(p.r))}<b>${esc(dn(p.dist))}</b></span></div>`;
+    : '';   // 사진이 없으면 큰 색 상자 대신 바로 이름부터 (2026-11-12 배치 개선)
   const chips = [`<span class="pdx-cat" style="background:${col}">${catIcon(p.c).replace('<svg ', '<svg width="14" height="14" ')}${esc(T.cats[p.c])}</span>`,
     p.best === 'night' && p.c !== 'night' ? `<span class="pdx-chip">${T.bestNight}</span>` : p.best === 'am' ? `<span class="pdx-chip">${T.bestAm}</span>` : '',
     p.far ? `<span class="pdx-chip">${T.far}</span>` : ''].join('');
@@ -2443,7 +2451,7 @@ function placeDetail(id) {
     ${factsHtml}
     <div class="pd-acts"><button class="btn ${isSaved(id) ? 'ghost' : ''}" data-save="${id}">${isSaved(id) ? ICONS.heartF : ICONS.heart}${isSaved(id) ? T.savedBtn : T.saveBtn}</button>
       ${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn ghost" data-act="addToPlan" data-v="${id}">${ICONS.plus}${T.addToPlan}</button>` : ''}
-      <button class="btn ghost" data-act="taxi" data-v="${id}" style="flex:0 0 auto">${ICONS.taxi}<span class="vh">${T.taxiCard}</span></button></div>
+      <button class="btn ghost taxi" data-act="taxi" data-v="${id}" style="flex:0 0 auto" aria-label="${esc(T.taxiCard)}">${ICONS.taxi}<span>${T.taxiShort}</span></button></div>
     ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}${sp ? '' : `<p class="note">${T.estNote}</p>`}` : ''}
     ${see}${tips}${course}${food}${moves}${faq}${trips}
     ${near ? sec(T.nearTitle, `<div class="list">${near}</div>`) : ''}

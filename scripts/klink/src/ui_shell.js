@@ -89,7 +89,7 @@ function bindPanel() {
 function sheetPx(state) { const h = $('.main').getBoundingClientRect().height || window.innerHeight * .8;
   return state === 'peek' ? 148 : state === 'full' ? Math.round(h - 64) : Math.round(h * .42); }
 function setSheet(state, quiet) {
-  S.ui.sheet = state; const px = isDesk() ? 0 : sheetPx(state);
+  S.ui.sheet = state; app.classList.toggle('sheet-full', state === 'full'); const px = isDesk() ? 0 : sheetPx(state);
   app.style.setProperty('--sheet-h', px + 'px'); app.style.setProperty('--sheet-px', px);
   if (!quiet && S.ui.tab === 'map' && Map2D.mode === 'region' && S.ui.sel) { const p = PBY[S.ui.sel]; setTimeout(() => Map2D.focusOn(p.lat, p.lng), 340); }
 }
@@ -195,7 +195,7 @@ function panelMap() {
   const cats = CAT_ORDER.filter(c => PLACES.some(p => p.r === r && (!inD || p.dist === S.ui.d) && p.c === c));
   const head = inD
     ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1><p class="lead">${S.ui.mode3d ? T.distLead3d : T.distLead2d}</p>`
-    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${isOv(r) ? T.regionLeadOv : T.regionLead}</p>
+    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))}</p>
        <div class="sec"><h3>${T.pickDistrict}</h3><small>${T.pickDistrictSub}</small></div>
        <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${ICONS.pin.replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
   return `${head}${inD ? '' : courseCards(r)}
@@ -231,7 +231,6 @@ function aroundMore() {
 }
 function placeRow(p, opts = {}) {
   const tags = [];
-  if (p.best === 'night') tags.push(`<span class="pill info">${T.bestNight}</span>`); else if (p.best === 'am') tags.push(`<span class="pill info">${T.bestAm}</span>`);
   if (p.far) tags.push(`<span class="pill sug">${T.far}</span>`);
   return `<div class="prow ${S.ui.sel === p.id ? 'sel' : ''}"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${p.id}">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(p.id))}</span>
     <span class="ds">${opts.sub || esc(pd(p.id))}</span>${tags.length ? `<span class="mt">${tags.join('')}</span>` : ''}</span></button>${heartBtn(p.id)}</div>`;
@@ -250,14 +249,14 @@ function placeDetail(id) {
       .filter(x => x[2]).map(([i, k, v, w]) => [i, k, `<span${ko}>${esc(v)}</span>`, w])
     : p.est ? [['clock', T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<small>${F.closed(p)}</small>` : ''}`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['ticket', T.fFee, T.localCheck], ['pin', T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]]
-    : [['clock', T.fHours, `${T.localCheck}<small>${T.checkBefore}</small>`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
+    : [['clock', T.fHours, T.localCheck], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
         ['pin', T.fWhere, `${esc(stationOf(p))}${S.lang !== 'ko' ? `<small lang="ko">${esc(p.st)}</small>` : ''}`, 1]];
   if (!F_ && best) facts.splice(2, 0, ['sun', T.fWhen, best]);
   if (p.season) facts.splice(1, 0, ['cal', T.fSeason, T.season(p.season[0], p.season[1]), 1]);
   { const half = facts.filter(f => !f[3]); if (half.length % 2) half[half.length - 1][3] = 1; }   // 두 칸씩 맞추고 남는 칸은 넓게
   const factsHtml = `<div class="pdx-facts">${facts.map(([i, k, v, w]) => `<div class="pdx-f ${w ? 'wide' : ''}"><span class="i" style="color:${col}">${ic(i)}</span><div><small>${k}</small><b>${v}</b></div></div>`).join('')}</div>`;
   const photo = sp && sp.photo ? `<figure class="pdx-ph"><img src="${esc(sp.photo.src)}" alt="${esc(sp.photo.alt)}" loading="lazy" decoding="async"><figcaption>${T.photoBy} ${sp.photo.link ? `<a href="${esc(sp.photo.link)}" target="_blank" rel="noopener nofollow">${esc(sp.photo.by)}</a>` : esc(sp.photo.by)} · ${esc(sp.photo.lic)}</figcaption></figure>`
-    : `<div class="pdx-cover" style="--c:${col}"><span class="big">${catIcon(p.c).replace('<svg ', '<svg width="40" height="40" ')}</span><span class="tx">${esc(rn(p.r))}<b>${esc(dn(p.dist))}</b></span></div>`;
+    : '';   // 사진이 없으면 큰 색 상자 대신 바로 이름부터 (2026-11-12 배치 개선)
   const chips = [`<span class="pdx-cat" style="background:${col}">${catIcon(p.c).replace('<svg ', '<svg width="14" height="14" ')}${esc(T.cats[p.c])}</span>`,
     p.best === 'night' && p.c !== 'night' ? `<span class="pdx-chip">${T.bestNight}</span>` : p.best === 'am' ? `<span class="pdx-chip">${T.bestAm}</span>` : '',
     p.far ? `<span class="pdx-chip">${T.far}</span>` : ''].join('');
@@ -288,7 +287,7 @@ function placeDetail(id) {
     ${factsHtml}
     <div class="pd-acts"><button class="btn ${isSaved(id) ? 'ghost' : ''}" data-save="${id}">${isSaved(id) ? ICONS.heartF : ICONS.heart}${isSaved(id) ? T.savedBtn : T.saveBtn}</button>
       ${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn ghost" data-act="addToPlan" data-v="${id}">${ICONS.plus}${T.addToPlan}</button>` : ''}
-      <button class="btn ghost" data-act="taxi" data-v="${id}" style="flex:0 0 auto">${ICONS.taxi}<span class="vh">${T.taxiCard}</span></button></div>
+      <button class="btn ghost taxi" data-act="taxi" data-v="${id}" style="flex:0 0 auto" aria-label="${esc(T.taxiCard)}">${ICONS.taxi}<span>${T.taxiShort}</span></button></div>
     ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}${sp ? '' : `<p class="note">${T.estNote}</p>`}` : ''}
     ${see}${tips}${course}${food}${moves}${faq}${trips}
     ${near ? sec(T.nearTitle, `<div class="list">${near}</div>`) : ''}
