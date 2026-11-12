@@ -1042,3 +1042,18 @@ html body .at-spot ul li{list-style:none}
 @media (max-width:719px){.at-spot-b{padding:.9rem .9rem 1rem}.at-spot .at-fig figcaption{padding:.4rem .9rem 0}}
 .ah-tsit{margin:0}.ah-tsit .ah-sit{grid-template-columns:6.5rem minmax(0,1fr)}
 @media (min-width:1024px){.ah-tsit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}.ah-tsit .ah-head{grid-column:1/-1}.ah-tsit .ah-sit:nth-of-type(2){border-top:0;padding-top:0}}
+/* ===== 버튼 체계 (2026-11-12, i261112-16 인터랙션 디자이너) =====
+   1단계 주요: 파랑 채움(한 화면 1개) · 2단계 보조: 흰 바탕+테두리 · 3단계 글자: 파랑 글자+›
+   칩은 고르기·이동 묶음 전용(8개까지), 모서리: 버튼 12 · 카드 16 · 칩 999 */
+:root{--act:#2443E8;--act-soft:#E9EDFF}
+.at-board-tabs li.more a{border:0!important;background:none!important;color:var(--act)!important;font-weight:700;padding-left:.4rem}
+html body .at-spot-go{background:none!important;color:var(--act)!important;box-shadow:none!important;padding:.4rem 0!important;min-height:44px;justify-content:flex-start!important;font-weight:700;width:auto!important}
+html body .at-side-klink{background:#fff!important;color:var(--at-ink)!important;border:1.5px solid #CBD3F5!important;box-shadow:none!important}
+html body .at-side-klink b{color:var(--act)!important}
+html body .at-side-klink .tx span{color:var(--at-sub)!important}
+.at-prose .at-copy{background:#fff;color:var(--at-ink);border:1.5px solid var(--at-line-2);border-radius:12px}
+.at-prose .at-copy:hover{background:var(--at-sunk)}
+.at-regions a{border-radius:999px}
+.at-regions a{background:#fff;color:var(--at-sub)}
+html body .b-chips a{color:var(--at-sub)}
+html body .fx-dir button{border-radius:12px}

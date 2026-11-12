@@ -275,7 +275,7 @@ FAQ_HOME = [
     ("어라운드툴은 어떤 사이트인가요?",
      "여행을 가볍게 준비하도록 돕는 사이트입니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소 위치를 짜 주는 여행 플래너 K링크를 중심으로, 국내외 여행 코스 가이드, 광고·협찬을 배제하고 선정 근거를 밝힌 지역 맛집 기록, 환율·여행 경비 같은 계산기를 무료로 제공합니다. 회원가입 없이 모든 페이지를 이용할 수 있습니다."),
     ("K링크는 무엇인가요?",
-     "지도에서 가고 싶은 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천하는 여행 일정 플래너입니다. 국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). 여행 가이드·맛집 기록과 서로 연결돼 있습니다."),
+     "지도에서 가고 싶은 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천하는 여행 일정 플래너입니다. 국내·해외 모두 실제 지도에서 고르고, 3D 버튼으로 건물을 입체로 볼 수 있습니다. 여행 가이드·맛집 기록과 서로 연결돼 있습니다."),
     ("계산 결과를 그대로 믿어도 되나요?",
      "계산기는 최신 법령과 요율을 반영하지만 결과는 참고용 추정치이며 법적 효력이 없습니다. 각 계산기 페이지에 계산 기준과 공식을 적어 두었으니, 급여명세서·고지서·금융기관 안내와 함께 확인하세요."),
     ("맛집은 어떤 기준으로 고르나요?",
@@ -728,6 +728,20 @@ def crumb_ld(p):
     return {"@type": "BreadcrumbList", "itemListElement": items}
 
 
+BOARD_MAX = 8   # 2026-11-12 인터랙션 규칙(i261112-16): 게시판 칩은 8개까지, 나머지는 '전체 ›' 글자 링크
+
+
+def cap_tabs(tabs, more_href, more_label):
+    """현재 페이지 칩은 꼭 넣고, 앞에서부터 8개까지. 넘치면 끝에 글자 링크 하나."""
+    if len(tabs) <= BOARD_MAX:
+        return tabs
+    cur = next((i for i, t in enumerate(tabs) if 'aria-current' in t), None)
+    keep = tabs[:BOARD_MAX - 1]
+    if cur is not None and cur >= BOARD_MAX - 1:
+        keep = tabs[:BOARD_MAX - 2] + [tabs[cur]]
+    return keep + [f'<li class="more"><a href="{more_href}">{esc(more_label)} <span aria-hidden="true">›</span></a></li>']
+
+
 def board_html(p):
     s = p["section"]
     if s in ("food", "gu"):
@@ -747,7 +761,7 @@ def board_html(p):
             sub = f'<div class="at-board-sub"><span>{esc(area[2])} 다른 지역</span>{"".join(links)}</div>'
         return f"""<div class="at-board is-food">
   <div class="at-board-head"><p class="at-board-name"><a href="/{p['prefix']}.html">{"제철 음식·시장" if p['prefix'] == "season" else esc(p['region_short']) + " " + esc(p['gu']) + " 맛집"}</a></p><span class="at-board-meta">{"제철·장소 안내" if p['prefix'] == "season" else str(gu_count(p['prefix'])) + "곳 수록"} · 광고·협찬 제외</span></div>
-  <ul class="at-board-tabs">{"".join(tabs)}</ul>{sub}
+  <ul class="at-board-tabs">{"".join(cap_tabs(tabs, f"/{p['prefix']}.html", "전체 보기"))}</ul>{sub}
 </div>"""
     if s == "tools":
         g = next(x for x in TOOL_GROUPS if x[0] == p["group"])
@@ -758,18 +772,17 @@ def board_html(p):
             tabs.append(f'<li><a href="/{q["file"]}"{cur}>{esc(q["name"])}</a></li>')
         return f"""<div class="at-board is-tool">
   <div class="at-board-head"><p class="at-board-name"><a href="/tools.html#g-{g[0]}">생활툴 · {esc(g[1])}</a></p><span class="at-board-meta">{len(g[2])}종</span></div>
-  <ul class="at-board-tabs">{"".join(tabs)}</ul>
+  <ul class="at-board-tabs">{"".join(cap_tabs(tabs, f"/tools.html#g-{g[0]}", f"{len(g[2])}종 전체"))}</ul>
 </div>"""
     if s == "trip":
         tabs = []
         for slug, name, kind in TRIP_PAGES:
             cur = ' aria-current="page"' if slug + ".html" == p["file"] else ""
             tabs.append(f'<li><a href="/{slug}.html"{cur}>{esc(name.replace(" 여행", ""))}</a></li>')
-        tabs.append('<li><a href="/japan_travel_calculator.html">일본 여행 경비 계산</a></li>')
-        tabs.append('<li><a href="/exchange_rate_calculator.html">환율 계산</a></li>')
+        tabs = tabs[::-1]   # 최신 여행 글부터
         return f"""<div class="at-board is-trip">
   <div class="at-board-head"><p class="at-board-name"><a href="/travel.html">여행 가이드</a></p><span class="at-board-meta">코스 · 일정 · 예산 · 교통 · 맛집</span></div>
-  <ul class="at-board-tabs">{"".join(tabs)}</ul>
+  <ul class="at-board-tabs">{"".join(cap_tabs(tabs, "/travel.html", f"여행 {len(TRIP_PAGES)}곳 전체"))}</ul>
 </div>"""
     if s == "connect":
         k = kind_of(p)
@@ -780,7 +793,7 @@ def board_html(p):
         sub = "".join(f'<a href="/connect.html#{kk}"{" aria-current=\"page\"" if kk == k else ""}>{esc(v)}</a>' for kk, v in KINDS.items())
         return f"""<div class="at-board is-shop">
   <div class="at-board-head"><p class="at-board-name"><a href="/connect.html#{k}">추천 모음 · {esc(KINDS[k])}</a></p><span class="at-board-meta">제휴 링크가 포함된 광고 게시판</span></div>
-  <ul class="at-board-tabs">{"".join(tabs)}</ul>
+  <ul class="at-board-tabs">{"".join(cap_tabs(tabs, f"/connect.html#{k}", "전체 보기"))}</ul>
   <div class="at-board-sub"><span>분류</span>{sub}</div>
 </div>"""
     if s == "guide":
@@ -790,7 +803,7 @@ def board_html(p):
             tabs.append(f'<li><a href="/{slug}.html"{cur}>{esc(name)}</a></li>')
         return f"""<div class="at-board">
   <div class="at-board-head"><p class="at-board-name"><a href="/etc.html">생활 가이드</a></p><span class="at-board-meta">질문에 바로 답하는 가이드</span></div>
-  <ul class="at-board-tabs">{"".join(tabs)}</ul>
+  <ul class="at-board-tabs">{"".join(cap_tabs(tabs, "/etc.html", "가이드 전체"))}</ul>
 </div>"""
     return ""
 
@@ -1356,7 +1369,7 @@ def spot_card_html(pl, zone):
             + (f'<p class="at-spot-h">볼거리</p><ul class="at-spot-see">{see}</ul>' if see else "")
             + (f'<p class="at-spot-h">알아 두면 좋아요</p><ul class="at-spot-tips">{tips}</ul>' if tips else "")
             + f'<p class="at-spot-src">확인 {esc(sp.get("checked", ""))}{" · 출처: " + src if src else ""} · 운영 시간·요금은 바뀔 수 있으니 방문 전에 확인하세요.</p>'
-            f'<a class="at-spot-go" href="/klink/#{pl["id"]}">K링크 지도에서 보고 저장하기 <span aria-hidden="true">›</span></a></div></article>')
+            f'<a class="at-spot-go" href="/klink/#{pl["id"]}">K링크에서 보기 <span aria-hidden="true">›</span></a></div></article>')
 
 
 def inject_spots():
@@ -2416,17 +2429,17 @@ def build_home():
     news = "".join(f'<li><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
-    faq_home = [(q, a if KLINK_OV else a.replace("국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). ", "")) for q, a in FAQ_HOME if not q.startswith(("계산 결과", "입력한 값"))]
+    faq_home = [(q, a if True else a.replace("국내·해외 모두 실제 지도에서 고르고, 3D 버튼으로 건물을 입체로 볼 수 있습니다. ", "")) for q, a in FAQ_HOME if not q.startswith(("계산 결과", "입력한 값"))]
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in faq_home)
     # ── 2026-11-12 대표 지시: 여행 중심 개편. K링크가 맨 위, 여행·맛집이 그다음, 계산기·추천·가이드는 여행을 돕는 서브 ──
     kr_chips = "".join(f'<li><a href="/klink/#{r["id"]}">{esc(r["name"])}</a></li>' for r in KLINK_INDEX if not r.get("ov"))
     ov_all = [r for r in KLINK_INDEX if r.get("ov")]
-    ov_pick = [r for rid in HOME_OV_FIRST for r in ov_all if r["id"] == rid][:11]
+    ov_pick = [r for rid in HOME_OV_FIRST for r in ov_all if r["id"] == rid][:7]   # 2026-11-12 버튼 정리: 칩은 한 묶음 8개까지
     ov_chips = "".join(f'<li><a href="/klink/#{r["id"]}">{esc(r["name"])}</a></li>' for r in ov_pick)
     if ov_all:
         ov_chips += f'<li><a class="is-all" href="/klink/#overseas">해외 {len(ov_all)}곳 전체</a></li>'
-    dest = (f'<p>국내 <span>3D 거리</span></p><ul>{kr_chips}</ul>' +
-            (f'<p>해외 <span>도시 지도</span></p><ul>{ov_chips}</ul>' if ov_all else ''))
+    dest = (f'<p>국내 <span>실제 지도</span></p><ul>{kr_chips}</ul>' +
+            (f'<p>해외 <span>실제 지도</span></p><ul>{ov_chips}</ul>' if ov_all else ''))
     trip_li = lambda slug, name: f'<li><a href="/{slug}.html">{esc(name)}</a></li>'
     trip_name = {sl: n for sl, n, _ in TRIP_PAGES}
     def first_trips(ids, kind_ov):  # K링크와 이어진 여행지를 먼저, 모자라면 최신 글로 채운다

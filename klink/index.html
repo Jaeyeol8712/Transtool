@@ -621,6 +621,14 @@ p{text-wrap:pretty}
 .pd-acts .btn.taxi{gap:6px;padding:0 14px}
 .pd-acts .btn.taxi span{font-size:13.5px}
 .pdx-head{margin-top:4px}
+/* 지도 아이콘 설명(범례) */
+.legend{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding:1px 1px 3px;margin:0 -1px}
+.legend::-webkit-scrollbar{display:none}
+.legend button{flex:0 0 auto;display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 9px 0 3px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 1px 4px rgba(20,26,46,.16);font-size:11.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+.legend button i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.legend button i svg{width:11px;height:11px}
+.legend button.on{background:var(--ink);color:#fff}
+@media (min-width:980px){.legend{flex-wrap:wrap;overflow:visible;max-width:560px}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
@@ -1016,7 +1024,7 @@ Object.assign(I18N.ja, {
 });
 /* 2026-11-12 K링크 2단계: 여행 유형(국내 여행·해외 여행·한국 방문) + 실제 지도(3D 건물) */
 Object.assign(I18N.ko, {
-  scopeKrSub: '7개 지역', taxiShort: '택시', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
+  scopeKrSub: '7개 지역', taxiShort: '택시', tripLeadOvAny: '여행지 공항 도착·출발 시각을 알려 주면 첫날·마지막 날 일정을 맞춰 드려요.', legend: '지도 아이콘', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
   tripLeadHome: '출발역과 시각을 알려 주면 첫날·마지막 날 일정을 맞춰 드려요.',
   flightsHome: '출발·도착', flightsHomeSub: '집에서 가까운 역', fromSt: '출발역', fromT: '출발 시각', backSt: '돌아오는 역', backT: '돌아오는 시각',
   eFrom: ap => `${ap} 출발`, eBack: ap => `${ap} 도착`,
@@ -1027,7 +1035,7 @@ Object.assign(I18N.ko, {
   introP: '실제 지도에서 가고 싶은 곳을 저장하면, 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천해요. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 와요.'
 });
 Object.assign(I18N.zh, {
-  scopeKrSub: '7 个地区', taxiShort: '出租车', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
+  scopeKrSub: '7 个地区', taxiShort: '出租车', tripLeadOvAny: '告诉我们目的地机场的到达和出发时间，就会安排好第一天和最后一天。', legend: '地图图标', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
   tripLeadHome: '告诉我们出发车站和时间，就会安排好第一天和最后一天的行程。',
   flightsHome: '出发·返回', flightsHomeSub: '离家近的车站', fromSt: '出发车站', fromT: '出发时间', backSt: '返回车站', backT: '返回时间',
   eFrom: ap => `${ap} 出发`, eBack: ap => `到达 ${ap}`,
@@ -1038,7 +1046,7 @@ Object.assign(I18N.zh, {
   introP: '在真实地图上收藏想去的地方，我们会根据距离和营业时间推荐每天的路线和住宿区域。信息来自 AroundTool 的旅行指南、美食记录和景点介绍。'
 });
 Object.assign(I18N.en, {
-  scopeKrSub: '7 regions', taxiShort: 'Taxi', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
+  scopeKrSub: '7 regions', taxiShort: 'Taxi', tripLeadOvAny: 'Tell us when you land and leave at your destination airport and we will fit the first and last day.', legend: 'Map icons', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
   tripLeadHome: 'Tell us your station and times and we will fit the first and last day.',
   flightsHome: 'Departure & return', flightsHomeSub: 'Your nearest station', fromSt: 'From', fromT: 'Leave at', backSt: 'Back to', backT: 'Back by',
   eFrom: ap => `Leave ${ap}`, eBack: ap => `Arrive ${ap}`,
@@ -1049,7 +1057,7 @@ Object.assign(I18N.en, {
   introP: 'Save places on a real map and we plan daily routes and where to stay from distances and opening hours. Info comes from AroundTool travel guides, food notes and spot guides.'
 });
 Object.assign(I18N.ja, {
-  scopeKrSub: '7地域', taxiShort: 'タクシー', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
+  scopeKrSub: '7地域', taxiShort: 'タクシー', tripLeadOvAny: '旅行先の空港の到着・出発時刻を教えてくだされば、初日と最終日を合わせます。', legend: '地図アイコン', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
   tripLeadHome: '出発駅と時刻を教えてくだされば、初日と最終日の日程を合わせます。',
   flightsHome: '出発・帰り', flightsHomeSub: '家から近い駅', fromSt: '出発駅', fromT: '出発時刻', backSt: '帰りの駅', backT: '帰りの到着時刻',
   eFrom: ap => `${ap} 出発`, eBack: ap => `${ap} 到着`,
@@ -1258,7 +1266,9 @@ function tripAir() {
   if (key === _taKey) return _ta;
   const cnt = {}, rc = {};
   for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
-  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
+  const pick = AIRPORTS[S.trip.arr];   // 해외 여행인데 아직 도시를 안 골랐으면 고른 공항의 나라
+  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : null)
+    || (tripKind() === 'ov' && pick && pick.cc !== 'kr' ? pick.cc : 'kr');
   const home = cc === 'kr' && tripKind() === 'kr';   // 국내 여행: 역에서 출발
   const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc && !!AIRPORTS[c].home === home;
   let def = home ? 'SEL' : 'ICN';
@@ -2225,7 +2235,7 @@ const TABS = [['map', 'map'], ['saved', 'heart'], ['plan', 'cal'], ['prep', 'tic
 function renderChrome() {
   $('#brandt').textContent = T.brand;
   const ds = tripDates();
-  $('#tript').innerHTML = `${esc(T.mdShort(toDate(ds[0])))}–${esc(T.mdShort(toDate(ds[ds.length - 1])))}<span class="pp"> · ${esc(T.ppl(S.trip.people))}</span>`;
+  $('#tript').innerHTML = `${esc(T.mdShort(toDate(ds[0])))}–${esc(T.mdShort(toDate(ds[ds.length - 1])))}`;
   $('#langs').innerHTML = LANGS.map(([k, , s]) => `<button role="radio" aria-checked="${k === S.lang}" class="${k === S.lang ? 'on' : ''}" data-lang="${k}" lang="${HTML_LANG[k]}">${s}</button>`).join('');
   $$('#langs [data-lang]').forEach(b => b.onclick = () => { if (b.dataset.lang !== S.lang) { setLang(b.dataset.lang); renderAll(true); } });
   const badge = n => n ? `<span class="badge">${n}</span>` : '';
@@ -2316,14 +2326,21 @@ function overlayHtml() {
   const ctrl = `<button class="iconbtn" data-o="zin" aria-label="+">${ICONS.plus}</button><button class="iconbtn" data-o="zout" aria-label="−">${ICONS.minus}</button>`
     + (lvl !== 'korea' && Map2D.gl ? `<button class="iconbtn t3d ${in3d ? 'on' : ''}" data-o="mode" aria-label="${in3d ? T.view2d : T.view3d}" aria-pressed="${in3d}"><span>3D</span></button>` : '');
   return `<div class="ov-top"><label class="search">${ICONS.search}<input id="q" placeholder="${esc(T.searchPh)}" autocomplete="off" value="${esc(S.ui.q || '')}"><button class="clr" data-o="clr" aria-label="${T.close}" ${S.ui.q ? '' : 'hidden'}>${ICONS.x}</button></label>
-    <div class="searchres" id="sres" hidden></div>${crumbs.length ? `<div class="crumbs">${crumbs.join('')}</div>` : ''}</div>
+    <div class="searchres" id="sres" hidden></div>${crumbs.length ? `<div class="crumbs">${crumbs.join('')}</div>` : ''}${legendHtml()}</div>
     <div class="ov-ctrl">${ctrl}</div>`;
+}
+// 지도 아이콘 설명: 이 지역에 있는 분류만 작은 글씨로. 누르면 그 분류만 보기(다시 누르면 전체)
+function legendHtml() {
+  if (S.ui.lvl === 'korea' || !S.ui.r) return '';
+  const cs = CAT_ORDER.filter(c => PLACES.some(p => p.r === S.ui.r && p.c === c));
+  return `<div class="legend" role="group" aria-label="${esc(T.legend)}">${cs.map(c => `<button class="${S.ui.filter === c ? 'on' : ''}" data-o="flt" data-c="${c}"><i style="background:${CATS[c].col}">${catIcon(c)}</i>${esc(T.cats[c])}</button>`).join('')}</div>`;
 }
 function bindOverlay() {
   $$('#ovl [data-o]').forEach(b => b.onclick = e => { e.stopPropagation(); const o = b.dataset.o;
     if (o === 'korea') openKorea(); else if (o === 'region') openRegion(S.ui.r);
     else if (o === 'zin') Map2D.zoomBy(1.6); else if (o === 'zout') Map2D.zoomBy(1 / 1.6);
     else if (o === 'mode') { S.ui.mode3d = !S.ui.mode3d; persist(); Map2D.set3d(S.ui.mode3d); b.classList.toggle('on', S.ui.mode3d); b.setAttribute('aria-pressed', S.ui.mode3d); }
+    else if (o === 'flt') { const c = b.dataset.c; ACT.filter(S.ui.filter === c ? 'all' : c); }
     else if (o === 'clr') { S.ui.q = ''; $('#q').value = ''; showSearch(''); } });
   const q = $('#q'); if (q) { q.oninput = () => { S.ui.q = q.value; showSearch(q.value); }; q.onfocus = () => showSearch(q.value); q.onkeydown = e => { if (e.key === 'Escape') { q.blur(); showSearch(''); } }; }
 }
@@ -2509,16 +2526,20 @@ function openTrip() {
   const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
   t.arr = ta.arr; t.dep = ta.dep; t.kind = tripKind();   // 이번 여행 나라의 공항(국내 여행은 역)으로 맞춘다
   const homeNow = () => ta.cc === 'kr' && t.kind === 'kr';
-  const fix = () => { const L = Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === homeNow());
-    if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
+  // 고를 수 있는 공항·역: 국내 여행=역, 해외 여행(아직 도시 안 고름)=해외 공항 전체, 그 밖=여행 나라 공항
+  const apMode = () => homeNow() ? 'home' : (t.kind === 'ov' && !ta.ov) ? 'ovany' : 'cc';
+  const codes = () => { const md = apMode(); return Object.keys(AIRPORTS).filter(c => { const a = AIRPORTS[c]; return md === 'home' ? a.home : md === 'ovany' ? a.cc !== 'kr' : (a.cc === ta.cc && !a.home); }); };
+  const fix = () => { const L = codes(); if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
   fix();
   const draw = m => {
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
     const H = homeNow();
-    const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === H).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const opt = (c, v) => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`;
+    const apOpts = v => { const L = codes(); if (apMode() !== 'ovany') return L.map(c => opt(c, v)).join('');
+      return [...new Set(L.map(c => AIRPORTS[c].cc))].map(cc => `<optgroup label="${esc(countryName(cc))}">${L.filter(c => AIRPORTS[c].cc === cc).map(c => opt(c, v)).join('')}</optgroup>`).join(''); };
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : T.tripLead}</p>
+    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : t.kind === 'ov' ? T.tripLeadOvAny : T.tripLead}</p>
       <div class="fld"><div class="lb">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
@@ -2527,10 +2548,7 @@ function openTrip() {
       <div class="fld"><div class="lb">${H ? T.flightsHome : T.flights}<small>${H ? T.flightsHomeSub : T.flightsSub}</small></div>
         <div class="ftrow"><div class="sel"><small>${H ? T.fromSt : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${H ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
         <div class="sel"><small>${H ? T.backSt : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${H ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
-      <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
-        <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
-      <div class="fld" ${ta.ov ? 'hidden' : ''}><div class="lb">${T.interests}<small>${T.multi}</small></div><div class="chips">${CAT_ORDER.map(c => `<button class="chip ${t.interests.includes(c) ? 'on' : ''}" data-int="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div></div>
       <div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost" data-close style="flex:.6">${T.cancel}</button><button class="btn" id="t-ok" style="flex:1">${T.saveTrip}</button></div>`;
     const re = () => { const y = m.scrollTop; draw(m); m.scrollTop = y; };
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
@@ -2539,10 +2557,7 @@ function openTrip() {
     $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
     $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
     $$('[data-kind]', m).forEach(b => b.onclick = () => { t.kind = b.dataset.kind; setKindTimes(t, t.kind); fix(); re(); });
-    $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
-    $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
-    $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
     $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
   };
@@ -2570,7 +2585,7 @@ function showIntro() {
 /* ---------- actions ---------- */
 const ACT = {
   region: v => openRegion(v), korea: () => openKorea(), district: v => openDistrict(v), scope: v => openKorea(v),
-  filter: v => { S.ui.filter = v; persist(); renderPanel(); Map2D.refresh({ filter: v }); },
+  filter: v => { S.ui.filter = v; persist(); renderPanel(); Map2D.refresh({ filter: v }); $$('#ovl .legend button').forEach(b => b.classList.toggle('on', b.dataset.c === v)); },
   place: v => selectPlace(v), unsel: () => clearSel(),
   taxi: v => openTaxi(v),
   gotoDay: v => { S.ui.day = +v; go('plan'); },
@@ -2676,7 +2691,7 @@ function panelPlan() {
       ${!sp ? `<button class="more" data-act="stopMenu" data-v="${e.si}" aria-label="${T.more}">${ICONS.more}</button>` : ''}</div></div>`;
   });
   const uns = P.unsched.filter(u => PBY[u.id]);
-  return `<div class="eyebrow">${F.date(ds[0].date)} – ${F.date(ds[n - 1].date)} · ${F.nights(n)} · ${T.ppl(S.trip.people)}</div>
+  return `<div class="eyebrow">${F.date(ds[0].date)} – ${F.date(ds[n - 1].date)} · ${F.nights(n)}</div>
     <div class="row" style="justify-content:space-between;align-items:flex-start"><h1 class="h1">${T.planTitle}</h1><button class="btn sm ghost" data-act="genPlan">${ICONS.magic}${T.replanShort}</button></div>
     <div class="route">${route}</div>
     ${stale ? `<div class="banner">${ICONS.info.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.stale}</span><button class="btn sm" data-act="genPlan">${T.replanShort}</button></div>` : ''}
