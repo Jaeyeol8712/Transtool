@@ -4,45 +4,66 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
-:root{--ink:#141A2E;--mute:#6B7390;--line:#E3E7F0;--cobalt:#2443E8;--soft:#F3F5FA}
-*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink);background:#fff}
-#map{position:fixed;inset:0}
-.top{position:fixed;top:12px;left:12px;right:12px;display:flex;flex-wrap:wrap;gap:8px;z-index:5;pointer-events:none}
-.top>*{pointer-events:auto}
-.seg{display:flex;background:#fff;border-radius:999px;padding:4px;box-shadow:0 2px 10px rgba(20,26,46,.15)}
-.seg button{border:0;background:none;font:600 14px inherit;padding:8px 14px;border-radius:999px;cursor:pointer;color:var(--mute)}
-.seg button.on{background:var(--ink);color:#fff}
-.badge{background:#fff;border-radius:999px;padding:8px 12px;font-size:12.5px;box-shadow:0 2px 10px rgba(20,26,46,.15);color:var(--mute)}
-.badge a{color:var(--cobalt);font-weight:700;text-decoration:none}
-.pin{display:flex;flex-direction:column;align-items:center;cursor:pointer;transform:translateY(-6px)}
-.pin .dot{width:30px;height:30px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-.pin .dot svg{width:16px;height:16px;color:#fff}
-.pin .lb{margin-top:3px;background:rgba(255,255,255,.95);border-radius:8px;padding:2px 7px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.15)}
-.pin.on .dot{width:38px;height:38px;outline:4px solid rgba(36,67,232,.25)}
-.num{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--cobalt);font:800 12px/18px inherit;text-align:center;color:var(--ink);box-shadow:0 2px 5px rgba(0,0,0,.25)}
-.card{position:fixed;left:12px;right:12px;bottom:12px;max-width:440px;background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(20,26,46,.25);overflow:hidden;z-index:6;display:none}
-.card.show{display:block}
-.card img{display:block;width:100%;height:150px;object-fit:cover}
-.card .b{padding:14px 16px 16px}
-.card .k{font-size:12px;font-weight:700;color:#fff;border-radius:999px;padding:3px 9px;display:inline-block}
-.card h3{margin:8px 0 4px;font-size:19px}
-.card p{margin:0;color:#3A4160;font-size:14px;line-height:1.55}
-.card .act{display:flex;gap:8px;margin-top:12px}
-.card .act a,.card .act button{flex:1;text-align:center;border-radius:12px;padding:11px;font:700 14px inherit;text-decoration:none;border:0;cursor:pointer}
-.card .go{background:var(--cobalt);color:#fff}.card .x{background:var(--soft);color:var(--ink)}
-.route{position:fixed;left:12px;bottom:12px;background:#fff;border-radius:14px;padding:10px 14px;font-size:13px;font-weight:700;box-shadow:0 2px 10px rgba(20,26,46,.15);z-index:4}
-.route i{display:inline-block;width:18px;height:4px;background:var(--cobalt);border-radius:2px;vertical-align:middle;margin-right:6px}
-@media (min-width:700px){.card{left:auto;right:16px;bottom:16px;width:380px}}
+:root{--ink:#141A2E;--mute:#6B7390;--line:#E3E7F0;--cobalt:#2443E8;--soft:#F3F5FA;--sheet:208px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink);background:#fff}
+#map{position:fixed;left:0;right:0;top:0;bottom:var(--sheet)}
+/* 위: 한 줄짜리 작은 막대 */
+.bar{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;right:10px;display:flex;gap:6px;align-items:center;z-index:5}
+.chip{appearance:none;border:0;background:#fff;border-radius:999px;height:40px;padding:0 14px;font:700 14px inherit;color:var(--ink);box-shadow:0 2px 10px rgba(20,26,46,.16);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+select.chip{padding-right:30px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23141A2E' stroke-width='3'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center}
+.chip.sm{font-weight:600;color:var(--mute)}
+.chip.on{background:var(--ink);color:#fff}
+.sp{flex:1}
+/* 아래: 시트 (모바일 기본) */
+.sheet{position:fixed;left:0;right:0;bottom:0;height:var(--sheet);background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -6px 24px rgba(20,26,46,.14);z-index:6;padding:8px 0 calc(env(safe-area-inset-bottom,0px) + 8px);display:flex;flex-direction:column}
+.grab{width:40px;height:4px;border-radius:2px;background:#D5DAE6;margin:0 auto 8px}
+.shd{display:flex;align-items:center;gap:8px;padding:0 16px 8px;font-size:13px}
+.shd b{font-size:15px}
+.shd .rt{margin-left:auto;color:var(--cobalt);font-weight:700;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.shd .rt i{display:inline-block;width:16px;height:4px;border-radius:2px;background:var(--cobalt)}
+.rail{display:flex;gap:10px;overflow-x:auto;padding:2px 16px 4px;scroll-snap-type:x mandatory;scrollbar-width:none;flex:1}
+.rail::-webkit-scrollbar{display:none}
+.pc{flex:0 0 78%;max-width:300px;scroll-snap-align:center;display:flex;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:10px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.pc.on{border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(36,67,232,.15)}
+.pc .th{width:76px;height:100%;min-height:84px;border-radius:12px;flex-shrink:0;background-size:cover;background-position:center;display:grid;place-items:center}
+.pc .th svg{width:30px;height:30px;color:#fff}
+.pc .tx{min-width:0;display:flex;flex-direction:column}
+.pc .k{font-size:11.5px;font-weight:700}
+.pc .n{font-size:15.5px;font-weight:800;line-height:1.3;margin-top:2px}
+.pc .d{font-size:12.5px;color:var(--mute);line-height:1.45;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc .go{margin-top:auto;padding-top:6px;font-size:12.5px;font-weight:800;color:var(--cobalt)}
+.pc .num{position:static;display:inline-grid;place-items:center;width:18px;height:18px;border:2px solid var(--cobalt);font-size:10px;line-height:1;margin-right:4px;box-shadow:none}
+/* 지도 위 핀 */
+.pin{display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.pin .dot{width:28px;height:28px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:transform .15s}
+.pin .dot svg{width:15px;height:15px;color:#fff}
+.pin .lb{margin-top:3px;background:rgba(255,255,255,.95);border-radius:8px;padding:2px 7px;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.lbl-off .pin .lb{display:none}.lbl-off .pin.on .lb{display:block}
+.pin.on{z-index:3}.pin.on .dot{transform:scale(1.3);box-shadow:0 0 0 5px rgba(36,67,232,.25),0 2px 6px rgba(0,0,0,.3)}
+.num{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--cobalt);font:800 11px/16px inherit;text-align:center;color:var(--ink);box-shadow:0 2px 5px rgba(0,0,0,.25)}
+.maplibregl-ctrl-bottom-right{bottom:6px}
+.maplibregl-ctrl-group button{width:36px;height:36px}
+/* PC: 왼쪽 목록 + 오른쪽 지도 */
+@media (min-width:900px){
+  :root{--sheet:0px}
+  #map{left:380px}
+  .bar{left:396px}
+  .sheet{top:0;bottom:0;left:0;right:auto;width:380px;height:auto;border-radius:0;box-shadow:1px 0 0 var(--line);padding:16px 0}
+  .grab{display:none}
+  .rail{flex-direction:column;overflow-y:auto;overflow-x:hidden;scroll-snap-type:none;gap:10px}
+  .pc{flex:0 0 auto;max-width:none}
+  .shd{flex-wrap:wrap}
+}
 </style></head><body>
 <div id="map"></div>
-<div class="top">
-  <div class="seg" id="reg"></div>
-  <div class="seg" id="lang"></div>
-  <div class="seg" id="mode"><button data-m="2d" class="on">2D</button><button data-m="3d">3D 건물</button></div>
-  <div class="badge">실제 지도 시험판 · <a href="/klink/">지금 K링크와 비교</a></div>
+<div class="bar">
+  <select class="chip" id="reg" aria-label="여행지"></select>
+  <span class="sp"></span>
+  <button class="chip sm" id="mode" aria-pressed="false">3D</button>
+  <select class="chip sm" id="lang" aria-label="Language"></select>
 </div>
-<div class="route" id="route"></div>
-<div class="card" id="card"></div>
+<section class="sheet" id="sheet"><div class="grab"></div><div class="shd" id="shd"></div><div class="rail" id="rail"></div></section>
 <script>
 'use strict';
 const sv = (d, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ${extra}>${d}</svg>`;
@@ -103,74 +124,92 @@ const MODE_ICON = { walk: 'walk', subway: 'subway', taxi: 'taxi', car: 'taxi', r
 const DATA = {"gyeongju":{"t":["경주","庆州","Gyeongju","慶州"],"route":{"label":["경주 1박 2일 · 1일차 (어라운드툴 코스)","庆州 2天1夜 · 第1天","Gyeongju 2 days · Day 1","慶州1泊2日・1日目"],"ids":["gj_daereung","gj_hwangni","gj_gyochon","gj_wolji"]},"zones":[{"id":"gj_down","n":["경주 시내·황리단길","庆州市区·皇理团路","Downtown & Hwangnidan-gil","慶州市内・皇理団通り"],"g":[[[[129.2149,35.8201],[129.2105,35.8208],[129.2065,35.8229],[129.1987,35.8332],[129.1974,35.8389],[129.2002,35.8442],[129.2092,35.8487],[129.2153,35.8494],[129.2322,35.8435],[129.2361,35.8409],[129.2382,35.8377],[129.2388,35.8346],[129.2379,35.831],[129.2359,35.8283],[129.2325,35.826],[129.2206,35.8212],[129.2149,35.8201]]]]},{"id":"gj_bomun","n":["보문관광단지","普门旅游区","Bomun Resort","普門観光団地"],"g":[[[[129.2829,35.8327],[129.2782,35.8335],[129.2743,35.8356],[129.2717,35.8389],[129.2708,35.8427],[129.2718,35.8465],[129.2745,35.8497],[129.2785,35.8518],[129.2831,35.8525],[129.2878,35.8517],[129.2917,35.8496],[129.2943,35.8463],[129.2952,35.8425],[129.2942,35.8387],[129.2915,35.8355],[129.2875,35.8334],[129.2829,35.8327]]]]},{"id":"gj_bulguk","n":["불국사·석굴암","佛国寺·石窟庵","Bulguksa & Seokguram","仏国寺・石窟庵"],"g":[[[[129.3319,35.7801],[129.3251,35.7818],[129.3219,35.7844],[129.3204,35.787],[129.3203,35.7928],[129.3242,35.7976],[129.3479,35.8049],[129.3549,35.8037],[129.3597,35.7998],[129.361,35.7968],[129.361,35.7932],[129.3597,35.7902],[129.3568,35.7874],[129.3365,35.7808],[129.3319,35.7801]]]]}],"places":[{"id":"gj_bulguksa","c":"palace","n":{"ko":"불국사","zh":"佛国寺","en":"Bulguksa Temple","ja":"仏国寺"},"d":{"ko":"신라 천년 사찰 · 유네스코 세계유산","zh":"新罗千年古寺 · 世界文化遗产","en":"Silla-era temple · UNESCO heritage","ja":"新羅千年の寺 · 世界遺産"},"lat":35.79,"lng":129.332,"far":0,"dist":"gj_bulguk","one":"신라 때 세운 절로, 석굴암과 함께 1995년 유네스코 세계유산에 올랐습니다. 국보 문화유산이 많아 경주 여행에서 가장 먼저 찾는 곳입니다.","photo":"/assets/photos/k-gj-bulguksa.jpg"},{"id":"gj_daereung","c":"palace","n":{"ko":"대릉원·첨성대","zh":"大陵苑·瞻星台","en":"Daereungwon & Cheomseongdae","ja":"大陵苑・瞻星台"},"d":{"ko":"신라 고분과 천문대","zh":"新罗古坟和天文台","en":"Silla royal tombs and observatory","ja":"新羅の古墳と天文台"},"lat":35.8365,"lng":129.2135,"far":0,"dist":"gj_down","one":"신라 왕과 귀족의 큰 무덤 20여 기가 능선처럼 이어진 고분 공원입니다. 천마총은 안까지 들어가 볼 수 있고, 첨성대와 걸어서 이어집니다.","photo":"/assets/photos/k-gj-daereung.jpg"},{"id":"gj_hwangni","c":"cafe","n":{"ko":"황리단길 한옥 카페","zh":"皇理团路韩屋咖啡","en":"Hwangnidan-gil hanok cafés","ja":"皇理団通りの韓屋カフェ"},"d":{"ko":"한옥 카페와 소품숍 골목","zh":"韩屋咖啡和小店街","en":"Hanok cafés and little shops","ja":"韓屋カフェと雑貨店の路地"},"lat":35.8378,"lng":129.2095,"far":0,"dist":"gj_down","one":"대릉원 바로 옆에 한옥을 고친 카페·식당·소품숍이 모인 골목입니다. 시내 유적 사이에 쉬어 가기 좋은 곳입니다.","photo":"/assets/photos/k-gj-hwangni.jpg"},{"id":"gj_wolji","c":"night","n":{"ko":"동궁과 월지 야경","zh":"东宫与月池夜景","en":"Donggung Palace & Wolji Pond","ja":"東宮と月池の夜景"},"d":{"ko":"물에 비친 궁궐 야경","zh":"倒映在水中的宫殿夜景","en":"Palace reflected at night","ja":"水面に映る宮殿の夜景"},"lat":35.8347,"lng":129.2266,"far":0,"dist":"gj_down","one":"신라 왕궁의 별궁 터와 연못을 복원한 곳입니다. 밤에 전각 조명이 연못에 비치는 모습으로 경주의 대표 야경 명소로 꼽힙니다.","photo":"/assets/photos/k-gj-wolji.jpg"},{"id":"gj_ssambap","c":"food","n":{"ko":"경주 쌈밥 거리","zh":"庆州包饭街","en":"Gyeongju ssambap street","ja":"慶州サムパプ通り"},"d":{"ko":"푸짐한 한 상 · 예약 불필요","zh":"丰盛韩定食 · 无需预约","en":"Generous lettuce-wrap set · no booking","ja":"ボリュームたっぷりの定食 · 予約不要"},"lat":35.8395,"lng":129.214,"far":0,"dist":"gj_down","one":"대릉원 주변에 쌈밥 식당이 모여 있는 거리입니다. 여러 가지 채소 쌈과 반찬이 한 상으로 나옵니다.","photo":"/assets/photos/k-gj-ssambap.jpg"},{"id":"gj_bomun","c":"nature","n":{"ko":"보문호수 산책","zh":"普门湖散步","en":"Bomun Lake walk","ja":"普門湖の散歩"},"d":{"ko":"호숫가 산책길","zh":"湖边步道","en":"Lakeside path","ja":"湖畔の散歩道"},"lat":35.8426,"lng":129.283,"far":0,"dist":"gj_bomun","one":"보문관광단지 안의 호수입니다. 호수를 한 바퀴 도는 보문호반길은 약 6km로, 다 걸으면 2시간쯤 걸립니다.","photo":"/assets/photos/k-gj-bomun.jpg"},{"id":"gj_seokguram","c":"palace","n":{"ko":"석굴암","zh":"石窟庵","en":"Seokguram Grotto","ja":"石窟庵"},"d":{"ko":"토함산의 신라 석굴 불상","zh":"吐含山上的新罗石窟佛像","en":"Silla stone Buddha on Tohamsan","ja":"吐含山の新羅石窟仏"},"lat":35.795,"lng":129.349,"far":0,"dist":"gj_bulguk","one":"토함산 중턱의 석굴 사원입니다. 하얀 화강암으로 만든 본존불이 동해 쪽을 향해 앉아 있습니다.","photo":"/assets/photos/k-gj-seokguram.jpg"},{"id":"gj_gyochon","c":"palace","n":{"ko":"교촌마을","zh":"校村村","en":"Gyochon Hanok Village","ja":"校村マウル"},"d":{"ko":"경주 최부자댁과 전통 한옥 골목","zh":"庆州崔富者宅与传统韩屋小巷","en":"Choi family estate and hanok lanes","ja":"崔富者宅と伝統韓屋の路地"},"lat":35.83,"lng":129.215,"far":0,"dist":"gj_down","one":"경주 최부자댁과 경주향교가 있는 한옥 마을입니다. 월정교와 붙어 있어 첨성대·계림에서 걸어서 이어 보기 좋습니다.","photo":"/assets/photos/k-gj-gyochon.jpg"}]},"osaka":{"t":["오사카","大阪","Osaka","大阪"],"route":{"label":["오사카 2박 3일 · 2일차 (어라운드툴 코스)","大阪 3天2夜 · 第2天","Osaka 3 days · Day 2","大阪2泊3日・2日目"],"ids":["os_castle","os_umeda","os_shinsekai"]},"zones":[{"id":"os_z1","n":["미나미(난바)","Minami (Namba)","Minami (Namba)","Minami (Namba)"],"g":[[[[135.5062,34.6426],[135.5005,34.6438],[135.4958,34.6477],[135.4895,34.6669],[135.489,34.6731],[135.49,34.6769],[135.4935,34.6808],[135.4985,34.6827],[135.5044,34.6825],[135.5094,34.6801],[135.5181,34.6672],[135.5183,34.6524],[135.5174,34.6488],[135.5131,34.6443],[135.5062,34.6426]]]]},{"id":"os_z2","n":["오사카성·우메다","Osaka Castle & Umeda","Osaka Castle & Umeda","Osaka Castle & Umeda"],"g":[[[[135.5261,34.6774],[135.5204,34.6786],[135.4826,34.6977],[135.4798,34.7005],[135.4785,34.7035],[135.4785,34.7071],[135.4798,34.7101],[135.4826,34.7129],[135.4858,34.7145],[135.4939,34.7148],[135.5339,34.6949],[135.5377,34.6901],[135.5382,34.6864],[135.5374,34.6836],[135.533,34.6791],[135.5261,34.6774]],[[135.5053,34.6907],[135.5046,34.69],[135.5061,34.69],[135.5053,34.6907]]]]},{"id":"os_z3","n":["베이 에어리어","Bay area","Bay area","Bay area"],"g":[[[[135.4289,34.6446],[135.4243,34.6454],[135.4204,34.6476],[135.4258,34.647],[135.4231,34.6491],[135.4241,34.6533],[135.4204,34.6503],[135.4182,34.6501],[135.4171,34.6534],[135.4172,34.6563],[135.4208,34.6684],[135.4229,34.6716],[135.4278,34.6746],[135.4348,34.6751],[135.4356,34.675],[135.4319,34.6694],[135.4392,34.662],[135.4443,34.666],[135.4441,34.6636],[135.4391,34.6491],[135.4348,34.6458],[135.4289,34.6446]]]]},{"id":"os_z4","n":["근교","Day trips","Day trips","Day trips"],"g":[[[[135.8429,34.6752],[135.8383,34.676],[135.8344,34.6781],[135.8318,34.6814],[135.831,34.6852],[135.832,34.689],[135.8346,34.6922],[135.8385,34.6943],[135.8431,34.695],[135.8477,34.6942],[135.8516,34.6921],[135.8542,34.6888],[135.855,34.685],[135.854,34.6812],[135.8514,34.678],[135.8475,34.6759],[135.8429,34.6752]]]]}],"places":[{"id":"os_dotonbori","c":"food","n":{"ko":"도톤보리","zh":"道頓堀","en":"Dotonbori","ja":"道頓堀"},"d":{"ko":"간판과 먹거리가 늘어선 운하 거리","en":"Canal street lined with signs and street food"},"lat":34.6687,"lng":135.5013,"far":0,"dist":"os_z1","one":null,"photo":null},{"id":"os_shinsaibashi","c":"shop","n":{"ko":"신사이바시","zh":"心斎橋","en":"Shinsaibashi","ja":"心斎橋"},"d":{"ko":"아케이드로 이어진 쇼핑 거리","en":"Covered arcade shopping street"},"lat":34.673,"lng":135.501,"far":0,"dist":"os_z1","one":null,"photo":null},{"id":"os_kuromon","c":"food","n":{"ko":"구로몬 시장","zh":"黒門市場","en":"Kuromon Market","ja":"黒門市場"},"d":{"ko":"해산물·간식을 사 먹는 시장","en":"Market for seafood and snacks"},"lat":34.6654,"lng":135.5063,"far":0,"dist":"os_z1","one":null,"photo":null},{"id":"os_shinsekai","c":"night","n":{"ko":"신세카이·츠텐카쿠","zh":"新世界・通天閣","en":"Shinsekai & Tsutenkaku","ja":"新世界・通天閣"},"d":{"ko":"옛 분위기 번화가와 전망 타워 · 쿠시카츠 골목","en":"Retro district with a tower and kushikatsu lane"},"lat":34.6525,"lng":135.5063,"far":0,"dist":"os_z1","one":null,"photo":null},{"id":"os_castle","c":"palace","n":{"ko":"오사카성","zh":"大阪城","en":"Osaka Castle","ja":"大阪城"},"d":{"ko":"천수각과 넓은 성곽 공원","en":"Castle keep and wide moat-side park"},"lat":34.6873,"lng":135.5262,"far":0,"dist":"os_z2","one":null,"photo":null},{"id":"os_umeda","c":"night","n":{"ko":"우메다 공중정원","zh":"梅田スカイビル","en":"Umeda Sky Building","ja":"梅田スカイビル"},"d":{"ko":"두 빌딩을 잇는 옥상 전망대","en":"Rooftop observatory linking two towers"},"lat":34.7053,"lng":135.4903,"far":0,"dist":"os_z2","one":null,"photo":null},{"id":"os_usj","c":"fun","n":{"ko":"유니버설 스튜디오 재팬","zh":"ユニバーサル・スタジオ・ジャパン","en":"Universal Studios Japan","ja":"ユニバーサル・スタジオ・ジャパン"},"d":{"ko":"하루를 통째로 쓰는 테마파크","en":"Theme park that takes a full day"},"lat":34.6654,"lng":135.4323,"far":0,"dist":"os_z3","one":null,"photo":null},{"id":"os_kaiyukan","c":"fun","n":{"ko":"가이유칸(카이유칸)","zh":"海遊館","en":"Osaka Aquarium Kaiyukan","ja":"海遊館"},"d":{"ko":"덴포잔의 대형 수족관","en":"Large aquarium at Tempozan"},"lat":34.6545,"lng":135.429,"far":0,"dist":"os_z3","one":null,"photo":null},{"id":"os_nara","c":"palace","n":{"ko":"나라 공원·도다이지","zh":"奈良公園・東大寺","en":"Nara Park & Todai-ji","ja":"奈良公園・東大寺"},"d":{"ko":"사슴 공원과 큰 불상의 절 · 전철 당일치기","en":"Deer park and great-Buddha temple by train"},"lat":34.6851,"lng":135.843,"far":1,"dist":"os_z4","one":null,"photo":null}]}};
 const CATC = {palace:'#A0522D',food:'#EF7C1C',skin:'#E8457A',shop:'#0E9A63',cafe:'#8C6A4B',kpop:'#8E5BD8',night:'#3B3FB6',nature:'#0E9F8F',fun:'#D99A00'};
 const CATN = {palace:['역사·문화','历史文化','History','歴史・文化'],food:['맛집','美食','Food','グルメ'],cafe:['카페','咖啡','Café','カフェ'],shop:['쇼핑','购物','Shopping','ショッピング'],night:['야경','夜景','Night view','夜景'],nature:['자연·바다','自然','Nature','自然'],fun:['테마파크·체험','体验','Fun','体験'],skin:['뷰티','美容','Beauty','ビューティー'],kpop:['K-POP','K-POP','K-POP','K-POP']};
-const LANGS = [['ko','한국어'],['zh','中文'],['en','EN'],['ja','日本語']], LI = {ko:0,zh:1,en:2,ja:3};
-let R = location.hash.slice(1) in DATA ? location.hash.slice(1) : 'gyeongju', L = 'ko', markers = [], sel = null;
+const TX = {places:['곳','处','places','か所'],more:['자세히 ›','详情 ›','Details ›','詳しく ›']};
+const LANGS = [['ko','한국어'],['zh','中文'],['en','English'],['ja','日本語']], LI = {ko:0,zh:1,en:2,ja:3};
+let R = location.hash.slice(1) in DATA ? location.hash.slice(1) : 'gyeongju', L = 'ko', markers = {}, nums = [], sel = null;
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const t4 = a => a[LI[L]] || a[0];
+const isMob = () => innerWidth < 900;
 const map = new maplibregl.Map({ container: 'map', style: 'https://tiles.openfreemap.org/styles/liberty', center: [129.22, 35.83], zoom: 12,
-  attributionControl: { compact: true }, localIdeographFontFamily: '"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans CJK KR",sans-serif' });
-map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
-function setLabels() {   // 지명을 보는 사람 언어로 (없으면 현지 이름)
+  attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false,
+  localIdeographFontFamily: '"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans CJK KR",sans-serif' });
+map.touchZoomRotate.disableRotation();
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
+function setLabels() {
   for (const l of map.getStyle().layers) {
     if (l.type !== 'symbol' || !l.layout || !l.layout['text-field']) continue;
     if (!JSON.stringify(l.layout['text-field']).includes('name')) continue;
     map.setLayoutProperty(l.id, 'text-field', ['coalesce', ['get', 'name:' + L], ['get', 'name']]);
   }
 }
-function feat(r) {
-  const d = DATA[r];
-  return { zones: { type: 'FeatureCollection', features: d.zones.map(z => ({ type: 'Feature', properties: { n: t4(z.n) }, geometry: { type: 'MultiPolygon', coordinates: z.g } })) },
-    route: { type: 'Feature', geometry: { type: 'LineString', coordinates: d.route.ids.map(id => { const p = d.places.find(x => x.id === id); return [p.lng, p.lat]; }) } } };
-}
-function draw() {
-  const d = DATA[R], f = feat(R);
-  for (const m of markers) m.remove(); markers = [];
-  for (const [id, data] of [['zones', f.zones], ['route', f.route]]) { const s = map.getSource(id); if (s) s.setData(data); else map.addSource(id, { type: 'geojson', data }); }
+const pname = p => p.n[L] || p.n.en || p.n.ko;
+function drawMap() {
+  const d = DATA[R];
+  Object.values(markers).forEach(m => m.remove()); nums.forEach(m => m.remove()); markers = {}; nums = [];
+  const zones = { type: 'FeatureCollection', features: d.zones.map(z => ({ type: 'Feature', properties: {}, geometry: { type: 'MultiPolygon', coordinates: z.g } })) };
+  const route = { type: 'Feature', geometry: { type: 'LineString', coordinates: d.route.ids.map(id => { const p = d.places.find(x => x.id === id); return [p.lng, p.lat]; }) } };
+  for (const [id, data] of [['zones', zones], ['route', route]]) { const s = map.getSource(id); if (s) s.setData(data); else map.addSource(id, { type: 'geojson', data }); }
   if (!map.getLayer('zones-fill')) {
-    map.addLayer({ id: 'zones-fill', type: 'fill', source: 'zones', paint: { 'fill-color': '#2443E8', 'fill-opacity': 0.06 } });
-    map.addLayer({ id: 'zones-line', type: 'line', source: 'zones', paint: { 'line-color': '#2443E8', 'line-width': 1.6, 'line-dasharray': [3, 2], 'line-opacity': 0.6 } });
-    map.addLayer({ id: 'route-line', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#2443E8', 'line-width': 5, 'line-opacity': 0.85 } });
+    map.addLayer({ id: 'zones-fill', type: 'fill', source: 'zones', paint: { 'fill-color': '#2443E8', 'fill-opacity': 0.05 } });
+    map.addLayer({ id: 'zones-line', type: 'line', source: 'zones', paint: { 'line-color': '#2443E8', 'line-width': 1.4, 'line-dasharray': [3, 2], 'line-opacity': 0.5 } });
+    map.addLayer({ id: 'route-line', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#2443E8', 'line-width': 4.5, 'line-opacity': 0.85 } });
   }
   d.route.ids.forEach((id, i) => { const p = d.places.find(x => x.id === id); const el = document.createElement('div'); el.className = 'num'; el.textContent = i + 1;
-    markers.push(new maplibregl.Marker({ element: el, offset: [16, -26] }).setLngLat([p.lng, p.lat]).addTo(map)); });
+    nums.push(new maplibregl.Marker({ element: el, offset: [15, -14] }).setLngLat([p.lng, p.lat]).addTo(map)); });
   for (const p of d.places) {
-    const el = document.createElement('div'); el.className = 'pin' + (sel === p.id ? ' on' : '');
-    el.innerHTML = `<span class="dot" style="background:${CATC[p.c]}">${ICONS['c_' + p.c] || ''}</span><span class="lb">${esc(p.n[L] || p.n.en || p.n.ko)}</span>`;
-    el.onclick = e => { e.stopPropagation(); open(p.id); };
-    markers.push(new maplibregl.Marker({ element: el, anchor: 'top' }).setLngLat([p.lng, p.lat]).addTo(map));
+    const el = document.createElement('div'); el.className = 'pin';
+    el.innerHTML = `<span class="dot" style="background:${CATC[p.c]}">${ICONS['c_' + p.c] || ''}</span><span class="lb">${esc(pname(p))}</span>`;
+    el.onclick = e => { e.stopPropagation(); pick(p.id, true); };
+    markers[p.id] = new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([p.lng, p.lat]).addTo(map);
   }
-  document.getElementById('route').innerHTML = `<i></i>${esc(t4(d.route.label))}`;
+  labels();
 }
+function labels() { document.body.classList.toggle('lbl-off', isMob() && map.getZoom() < 13.2); }
+map.on('zoom', labels);
+function drawSheet() {
+  const d = DATA[R];
+  document.getElementById('shd').innerHTML = `<b>${esc(t4(d.t))}</b><span style="color:var(--mute)">${d.places.length}${t4(TX.places)}</span><span class="rt"><i></i>${esc(t4(d.route.label))}</span>`;
+  const order = [...d.route.ids, ...d.places.map(p => p.id).filter(id => !d.route.ids.includes(id))];
+  document.getElementById('rail').innerHTML = order.map(id => { const p = d.places.find(x => x.id === id), k = d.route.ids.indexOf(id);
+    return `<button class="pc ${sel === id ? 'on' : ''}" data-id="${id}"><span class="th" style="${p.photo ? `background-image:url('${esc(p.photo)}')` : `background:${CATC[p.c]}`}">${p.photo ? '' : (ICONS['c_' + p.c] || '')}</span>
+      <span class="tx"><span class="k" style="color:${CATC[p.c]}">${k >= 0 ? `<span class="num">${k + 1}</span>` : ''}${esc(t4(CATN[p.c]))}</span><span class="n">${esc(pname(p))}</span>
+      <span class="d">${esc(L === 'ko' && p.one ? p.one : (p.d[L] || p.d.en || p.d.ko))}</span><span class="go" data-go="${id}">${t4(TX.more)}</span></span></button>`; }).join('');
+  document.querySelectorAll('.pc').forEach(b => b.onclick = e => { if (e.target.dataset.go) { location.href = '/klink/#' + e.target.dataset.go; return; } pick(b.dataset.id, false); });
+}
+function pick(id, fromMap) {
+  sel = id; const p = DATA[R].places.find(x => x.id === id);
+  Object.entries(markers).forEach(([k, m]) => m.getElement().classList.toggle('on', k === id));
+  document.querySelectorAll('.pc').forEach(b => b.classList.toggle('on', b.dataset.id === id));
+  if (fromMap) { const c = document.querySelector(`.pc[data-id="${id}"]`); c && c.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
+  map.easeTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13.5), duration: 500 });
+  labels();
+}
+// 모바일: 카드를 옆으로 넘기면 그 장소로 지도 이동
+let st = 0; document.getElementById('rail').addEventListener('scroll', e => { if (!isMob()) return; clearTimeout(st); st = setTimeout(() => {
+  const r = e.target.getBoundingClientRect(), cx = r.left + r.width / 2; let best = null, bd = 1e9;
+  e.target.querySelectorAll('.pc').forEach(b => { const q = b.getBoundingClientRect(), dd = Math.abs(q.left + q.width / 2 - cx); if (dd < bd) { bd = dd; best = b; } });
+  if (best && best.dataset.id !== sel) pick(best.dataset.id, false); }, 140); });
 function fit() {
-  const pts = DATA[R].places.filter(p => !p.far), b = new maplibregl.LngLatBounds();
-  pts.forEach(p => b.extend([p.lng, p.lat]));
-  map.fitBounds(b, { padding: { top: 90, bottom: 90, left: 40, right: 40 }, maxZoom: 14.5, duration: 800 });
-}
-function open(id) {
-  sel = id; const p = DATA[R].places.find(x => x.id === id), c = document.getElementById('card');
-  c.innerHTML = `${p.photo ? `<img src="${esc(p.photo)}" alt="">` : ''}<div class="b"><span class="k" style="background:${CATC[p.c]}">${esc(t4(CATN[p.c]))}</span>
-    <h3>${esc(p.n[L] || p.n.en || p.n.ko)}</h3><p>${esc(L === 'ko' && p.one ? p.one : (p.d[L] || p.d.en || p.d.ko))}</p>
-    <div class="act"><a class="go" href="/klink/#${p.id}">K링크에서 자세히</a><button class="x" id="cx">닫기</button></div></div>`;
-  c.classList.add('show'); document.getElementById('cx').onclick = () => { c.classList.remove('show'); sel = null; draw(); };
-  map.easeTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 14), duration: 600, padding: innerWidth < 700 ? { bottom: Math.min(380, innerHeight * .5) } : { right: 400 } }); draw();
+  const b = new maplibregl.LngLatBounds(); DATA[R].places.filter(p => !p.far).forEach(p => b.extend([p.lng, p.lat]));
+  map.fitBounds(b, { padding: { top: 70, bottom: 30, left: 30, right: 30 }, maxZoom: 14, duration: 700 });
 }
 function ui() {
-  document.getElementById('reg').innerHTML = Object.keys(DATA).map(r => `<button data-r="${r}" class="${r === R ? 'on' : ''}">${esc(t4(DATA[r].t))}</button>`).join('');
-  document.getElementById('lang').innerHTML = LANGS.map(([k, n]) => `<button data-l="${k}" class="${k === L ? 'on' : ''}">${n}</button>`).join('');
-  document.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { R = b.dataset.r; sel = null; document.getElementById('card').classList.remove('show'); ui(); draw(); fit(); });
-  document.querySelectorAll('[data-l]').forEach(b => b.onclick = () => { L = b.dataset.l; ui(); setLabels(); draw(); });
+  const reg = document.getElementById('reg'), lang = document.getElementById('lang');
+  reg.innerHTML = Object.keys(DATA).map(r => `<option value="${r}" ${r === R ? 'selected' : ''}>${esc(t4(DATA[r].t))}</option>`).join('');
+  lang.innerHTML = LANGS.map(([k, n]) => `<option value="${k}" ${k === L ? 'selected' : ''}>${n}</option>`).join('');
+  reg.onchange = () => { R = reg.value; sel = null; ui(); drawMap(); drawSheet(); fit(); };
+  lang.onchange = () => { L = lang.value; document.documentElement.lang = L; ui(); setLabels(); drawMap(); drawSheet(); };
 }
-document.querySelectorAll('[data-m]').forEach(b => b.onclick = () => {
-  document.querySelectorAll('[data-m]').forEach(x => x.classList.toggle('on', x === b));
-  const on = b.dataset.m === '3d';
+document.getElementById('mode').onclick = function () {
+  const on = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', on); this.classList.toggle('on', on);
   if (on && !map.getLayer('bld3d')) {
     const src = Object.keys(map.getStyle().sources).find(s => map.getStyle().sources[s].type === 'vector');
-    map.addLayer({ id: 'bld3d', type: 'fill-extrusion', source: src, 'source-layer': 'building', minzoom: 13,
+    if (src) map.addLayer({ id: 'bld3d', type: 'fill-extrusion', source: src, 'source-layer': 'building', minzoom: 13,
       paint: { 'fill-extrusion-color': '#dfe3ec', 'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 8], 'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0], 'fill-extrusion-opacity': 0.85 } }, 'zones-fill');
   }
   if (map.getLayer('bld3d')) map.setLayoutProperty('bld3d', 'visibility', on ? 'visible' : 'none');
-  map.easeTo({ pitch: on ? 58 : 0, bearing: on ? -20 : 0, zoom: on ? Math.max(map.getZoom(), 15) : map.getZoom(), duration: 900 });
-});
-map.on('click', () => { document.getElementById('card').classList.remove('show'); if (sel) { sel = null; draw(); } });
-map.on('load', () => { setLabels(); ui(); draw(); fit(); });
+  map.easeTo({ pitch: on ? 55 : 0, zoom: on ? Math.max(map.getZoom(), 15) : map.getZoom(), duration: 800 });
+};
+map.on('load', () => { map.resize(); setLabels(); ui(); drawMap(); drawSheet(); fit(); });
+addEventListener('resize', () => { map.resize(); labels(); });
 </script></body></html>
