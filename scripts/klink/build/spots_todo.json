@@ -1,6 +1,6 @@
 {
- "done": 20,
- "todo": 260,
+ "done": 33,
+ "todo": 247,
  "regions": {
   "seoul": [
    {
@@ -157,73 +157,6 @@
     "id": "noryangjin",
     "name": "노량진수산시장",
     "guide": false
-   }
-  ],
-  "jeju": [
-   {
-    "id": "jj_seongsan",
-    "name": "성산일출봉",
-    "guide": true
-   },
-   {
-    "id": "jj_halla",
-    "name": "한라산 영실 코스",
-    "guide": true
-   },
-   {
-    "id": "jj_pork",
-    "name": "제주 흑돼지 거리",
-    "guide": true
-   },
-   {
-    "id": "jj_dongmun",
-    "name": "동문시장 야시장",
-    "guide": true
-   },
-   {
-    "id": "jj_aewol",
-    "name": "애월 해안 카페 거리",
-    "guide": true
-   },
-   {
-    "id": "jj_jusang",
-    "name": "중문 주상절리",
-    "guide": true
-   },
-   {
-    "id": "jj_dutyfree",
-    "name": "제주 시내 면세점",
-    "guide": true
-   },
-   {
-    "id": "jj_sunset",
-    "name": "애월 노을 해안도로",
-    "guide": true
-   },
-   {
-    "id": "jj_udo",
-    "name": "우도",
-    "guide": true
-   },
-   {
-    "id": "jj_hyeopjae",
-    "name": "협재해변",
-    "guide": true
-   },
-   {
-    "id": "jj_osulloc",
-    "name": "오설록 티뮤지엄",
-    "guide": true
-   },
-   {
-    "id": "jj_cheonjiyeon",
-    "name": "천지연폭포",
-    "guide": true
-   },
-   {
-    "id": "jj_seopji",
-    "name": "섭지코지",
-    "guide": true
    }
   ],
   "gangneung": [
