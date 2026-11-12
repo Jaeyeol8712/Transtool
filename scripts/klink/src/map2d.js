@@ -3,7 +3,11 @@
    2D maps (d3): Korea overview, region/district map with pins, day route map
    Planar projection: x = lng*cos(lat0), y = lat (no spherical winding issues)
    ========================================================= */
+<<<<<<< HEAD
 const Map2DSvg = (() => {
+=======
+const MapSVG = (() => {
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   let host = null, svg, gW, gPins, layer, zoom, proj, lat0 = 36, mode = null, ctx = {}, T0 = null, pinData = [], labData = [];
   const K = () => Math.cos(lat0 * Math.PI / 180);
   const P = (lng, lat) => proj([lng * K(), lat]);

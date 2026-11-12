@@ -116,6 +116,7 @@ Object.assign(I18N.ja, {
   courseLoaded: n => `コースの${n}か所を入れて日程を作りました`, courseStops: n => `${n}か所`,
   tripsTitle: 'この場所が出てくる旅行記事', foodTitle: 'AroundTool グルメ記録', foodSub: 'この周辺を扱った記事'
 });
+<<<<<<< HEAD
 /* 여행 유형·국내 출발지 문구 (2026-11-12, 컨펌 i261112-15) */
 Object.assign(I18N.ko, {
   introAsk: '어떤 여행인가요?', introLater: '그냥 지도부터 볼게요',
@@ -156,4 +157,50 @@ Object.assign(I18N.ja, {
   originH: '出発地', originHSub: '出発時刻・帰りの時刻', fromPl: '出発地', fromT: '出発時刻', backPl: '帰る場所', backT: '帰りの到着時刻',
   gRail: '駅', gAir: '空港', gCar: '車', originSub: '出発地まで', pickCityFirst: '海外の都市を先に選ぶと、現地空港の到着・出国時刻を入力できます。',
   eFrom: s => `${s}を出発`, eBack: s => `${s}に到着`, domNote: '出発地との往復時間は距離からの目安です。列車・航空便の時刻は各社でご確認ください。'
+=======
+/* 2026-11-12 K링크 2단계: 여행 유형(국내 여행·해외 여행·한국 방문) + 실제 지도(3D 건물) */
+Object.assign(I18N.ko, {
+  scopeKrSub: '7개 지역', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 인천·김포·김해·제주 공항'] },
+  tripLeadHome: '출발역과 시각을 알려 주면 첫날·마지막 날 일정을 맞춰 드려요.',
+  flightsHome: '출발·도착', flightsHomeSub: '집에서 가까운 역', fromSt: '출발역', fromT: '출발 시각', backSt: '돌아오는 역', backT: '돌아오는 시각',
+  eFrom: ap => `${ap} 출발`, eBack: ap => `${ap} 도착`,
+  whereLead: '지역을 고르면 실제 지도가 펼쳐져요. 핀을 눌러 정보를 보고, 마음에 들면 ♥로 저장하세요.',
+  regionLead: '핀을 누르면 자세히 볼 수 있어요. 3D 버튼을 누르면 건물이 입체로 보여요.', regionLeadOv: '핀을 누르면 자세히 볼 수 있어요. 3D 버튼을 누르면 건물이 입체로 보여요.',
+  pickDistrictSub: '구역별로 보기', distLead2d: '이 구역의 장소예요. 마음에 들면 ♥로 저장하세요.', distLead3d: '이 구역의 장소예요. 마음에 들면 ♥로 저장하세요.',
+  view3d: '3D로 보기', view2d: '평면으로 보기',
+  introP: '실제 지도에서 가고 싶은 곳을 저장하면, 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천해요. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 와요.'
+});
+Object.assign(I18N.zh, {
+  scopeKrSub: '7 个地区', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 仁川·金浦·金海·济州机场'] },
+  tripLeadHome: '告诉我们出发车站和时间，就会安排好第一天和最后一天的行程。',
+  flightsHome: '出发·返回', flightsHomeSub: '离家近的车站', fromSt: '出发车站', fromT: '出发时间', backSt: '返回车站', backT: '返回时间',
+  eFrom: ap => `${ap} 出发`, eBack: ap => `到达 ${ap}`,
+  whereLead: '选择地区后会显示真实地图。点击图钉查看详情，喜欢就用 ♥ 收藏。',
+  regionLead: '点击图钉查看详情。按 3D 按钮可以看到立体建筑。', regionLeadOv: '点击图钉查看详情。按 3D 按钮可以看到立体建筑。',
+  pickDistrictSub: '按区域查看', distLead2d: '这个区域的地点。喜欢就用 ♥ 收藏。', distLead3d: '这个区域的地点。喜欢就用 ♥ 收藏。',
+  view3d: '3D 查看', view2d: '平面查看',
+  introP: '在真实地图上收藏想去的地方，我们会根据距离和营业时间推荐每天的路线和住宿区域。信息来自 AroundTool 的旅行指南、美食记录和景点介绍。'
+});
+Object.assign(I18N.en, {
+  scopeKrSub: '7 regions', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · Incheon, Gimpo, Gimhae, Jeju'] },
+  tripLeadHome: 'Tell us your station and times and we will fit the first and last day.',
+  flightsHome: 'Departure & return', flightsHomeSub: 'Your nearest station', fromSt: 'From', fromT: 'Leave at', backSt: 'Back to', backT: 'Back by',
+  eFrom: ap => `Leave ${ap}`, eBack: ap => `Arrive ${ap}`,
+  whereLead: 'Pick a region to open a real map. Tap a pin for details and ♥ the places you like.',
+  regionLead: 'Tap a pin for details. Press 3D to see buildings in 3D.', regionLeadOv: 'Tap a pin for details. Press 3D to see buildings in 3D.',
+  pickDistrictSub: 'By area', distLead2d: 'Places in this area. ♥ the ones you like.', distLead3d: 'Places in this area. ♥ the ones you like.',
+  view3d: 'View in 3D', view2d: 'Flat view',
+  introP: 'Save places on a real map and we plan daily routes and where to stay from distances and opening hours. Info comes from AroundTool travel guides, food notes and spot guides.'
+});
+Object.assign(I18N.ja, {
+  scopeKrSub: '7地域', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 仁川・金浦・金海・済州空港'] },
+  tripLeadHome: '出発駅と時刻を教えてくだされば、初日と最終日の日程を合わせます。',
+  flightsHome: '出発・帰り', flightsHomeSub: '家から近い駅', fromSt: '出発駅', fromT: '出発時刻', backSt: '帰りの駅', backT: '帰りの到着時刻',
+  eFrom: ap => `${ap} 出発`, eBack: ap => `${ap} 到着`,
+  whereLead: '地域を選ぶと実際の地図が開きます。ピンをタップして詳細を見て、気に入ったら♥で保存。',
+  regionLead: 'ピンをタップすると詳しく見られます。3Dボタンで建物が立体になります。', regionLeadOv: 'ピンをタップすると詳しく見られます。3Dボタンで建物が立体になります。',
+  pickDistrictSub: 'エリア別に見る', distLead2d: 'このエリアの場所です。気に入ったら♥で保存。', distLead3d: 'このエリアの場所です。気に入ったら♥で保存。',
+  view3d: '3Dで見る', view2d: '平面で見る',
+  introP: '実際の地図で行きたい場所を保存すると、距離と営業時間から日ごとのルートと宿泊エリアを提案します。情報はAroundToolの旅行ガイド・グルメ記録・スポット案内から。'
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
 });

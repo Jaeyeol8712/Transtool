@@ -38,6 +38,14 @@ const AIRPORTS = {
   PUS: { lat: 35.1796, lng: 128.9382, r: 'busan', t: ['김해공항', '金海机场', 'Gimhae (PUS)', '金海空港'] },
   CJU: { lat: 33.5104, lng: 126.4914, r: 'jeju', t: ['제주공항', '济州机场', 'Jeju (CJU)', '済州空港'] }
 };
+// 국내 여행(한국에 사는 사람): 공항 대신 집에서 가까운 KTX역에서 출발해 돌아온다 (home)
+Object.assign(AIRPORTS, {
+  SEL: { lat: 37.5547, lng: 126.9707, r: 'seoul', home: true, t: ['서울역', '首尔站', 'Seoul Stn', 'ソウル駅'] },
+  BSS: { lat: 35.1151, lng: 129.0422, r: 'busan', home: true, t: ['부산역', '釜山站', 'Busan Stn', '釜山駅'] },
+  DGU: { lat: 35.8794, lng: 128.6286, r: null, home: true, t: ['동대구역', '东大邱站', 'Dongdaegu Stn', '東大邱駅'] },
+  DJN: { lat: 36.3323, lng: 127.4342, r: null, home: true, t: ['대전역', '大田站', 'Daejeon Stn', '大田駅'] },
+  GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주송정역', '光州松汀站', 'Gwangju-Songjeong Stn', '光州松汀駅'] }
+});
 for (const c of Object.keys(AIRPORTS)) AIRPORTS[c].cc = 'kr';
 for (const [c, v] of Object.entries(OVD.airports)) AIRPORTS[c] = v;   // 해외 공항: to = { 지역: 공항→도심 분 }
 // Where to stay: candidate neighbourhoods per region with station / access notes.
@@ -155,6 +163,13 @@ function interRegion(a, b) {
 // airport <-> a point inside region r
 function airportLeg(code, pt, r) {
   const ap = AIRPORTS[code];
+  if (ap.home) {   // 집 근처 역 ↔ 여행지: 같은 도시면 시내 이동, 제주는 항공, 나머지는 KTX·기차 (시간만 어림)
+    if (ap.r === r) { const L = legBetween(ap, pt, r); return Object.assign({}, L, { home: true }); }
+    const last = legBetween(REGIONS[r], pt, r);
+    if (REGIONS[r].fly) return { mode: 'flight', min: 170 + last.min, km: 0, cost: 0, via: true, home: true };
+    const ride = code === 'SEL' && REGIONS[r].fromSeoul ? REGIONS[r].fromSeoul : ap.r && REGIONS[ap.r] && r === 'seoul' && REGIONS[ap.r].fromSeoul ? REGIONS[ap.r].fromSeoul : Math.round((hav(ap, REGIONS[r]) * 0.6 + 25) / 5) * 5;
+    return { mode: 'rail', min: ride + last.min, km: 0, cost: 0, via: true, home: true };
+  }
   if (ap.to) {   // 해외 공항: 여행 가이드의 '공항 → 시내' 시간에 도심에서 떨어진 만큼 더한다
     if (ap.to[r] != null) return { mode: 'airport', min: Math.round(ap.to[r] + hav(REGIONS[r], pt) * 2.2), km: 0, cost: 0, ov: true };
     const mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r);
@@ -212,6 +227,7 @@ const tripType = (t = S.trip) => t.type || (S.lang === 'ko' ? (S.ui.scope === 'o
 /* ---------- 여행 나라와 공항 ---------- */
 // 저장한 곳이 가장 많은 나라가 이번 여행 나라. 공항은 그 나라 공항 중에서 고른 것, 없으면 저장이 가장 많은 도시의 공항.
 let _taKey = null, _ta = null;
+<<<<<<< HEAD
 function airFor(t) {
   const cnt = {}, rc = {};
   for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
@@ -219,28 +235,54 @@ function airFor(t) {
   const dom = cc === 'kr' && tripType(t) === 'kr';   // 국내 여행: 공항 대신 출발지
   const ok = c => dom ? !!ORIGINS[c] : (AIRPORTS[c] && AIRPORTS[c].cc === cc);
   let def = dom ? 'st-seoul' : 'ICN';
+=======
+function tripAir() {
+  const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '') + '|' + tripKind();
+  if (key === _taKey) return _ta;
+  const cnt = {}, rc = {};
+  for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
+  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
+  const home = cc === 'kr' && tripKind() === 'kr';   // 국내 여행: 역에서 출발
+  const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc && !!AIRPORTS[c].home === home;
+  let def = home ? 'SEL' : 'ICN';
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   if (cc !== 'kr') {
     const top = Object.keys(rc).filter(r => REGIONS[r].cc === cc).sort((a, b) => rc[b] - rc[a])[0] || (S.ui.r && REGIONS[S.ui.r] && REGIONS[S.ui.r].cc === cc ? S.ui.r : OV_IDS.find(r => REGIONS[r].cc === cc));
     def = REGIONS[top].air;
   }
+<<<<<<< HEAD
   return { cc, ov: cc !== 'kr', dom, arr: ok(t.arr) ? t.arr : def, dep: ok(t.dep) ? t.dep : (ok(t.arr) && dom ? t.arr : def) };
 }
 function tripAir() {
   const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '') + '|' + tripType() + '|' + S.lang;
   if (key === _taKey) return _ta;
   _taKey = key; _ta = airFor(S.trip);
+=======
+  _taKey = key; _ta = { cc, ov: cc !== 'kr', home, arr: ok(S.trip.arr) ? S.trip.arr : def, dep: ok(S.trip.dep) ? S.trip.dep : def };
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   return _ta;
 }
+// 여행 유형: kr 국내 여행(한국에 사는 사람) · ov 해외 여행 · visit 한국 방문(외국에서 오는 사람). 고르지 않았으면 언어로 정한다.
+// 여행 유형을 바꿀 때 기본 시각: 국내 여행은 아침 8시 출발·밤 9시 도착, 비행기는 오전 도착·저녁 출국
+function setKindTimes(t, k) { const H = k === 'kr'; if ((t.arrT === 9 || t.arrT === 8 || t.arrT === 10) && (t.depT === 19 || t.depT === 21)) { t.arrT = H ? 8 : 10; t.depT = H ? 21 : 19; } }
+function tripKind() { return S.trip.kind || (S.lang === 'ko' ? 'kr' : 'visit'); }
+// 공항·역에서 쓰는 여유 시간(시간): 입국 심사·출국 수속은 공항만
+const arrBuf = () => tripAir().home ? 0 : 1, depBuf = () => tripAir().home ? 0.4 : 2.5;
 function regionOfPoint(pt) { let best = 'seoul', bd = 1e9; for (const r of REGION_IDS) { const d = hav(REGIONS[r], pt); if (d < bd) { bd = d; best = r; } } return best; }
 
 /* ---------- state & persistence ---------- */
 const KEY = 'klink-v2';
 const DEFAULT = () => ({
   v: 2, lang: null, seenIntro: false,
+<<<<<<< HEAD
   trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'],
           arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19, type: null },
+=======
+  trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'], kind: null,
+          arr: 'ICN', arrT: 9, dep: 'ICN', depT: 19 },
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   saved: [], order: [], plan: null, stayOv: {},
-  ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: true }
+  ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: false }
 });
 let S = DEFAULT();
 // Browser storage is off: state lives only in memory and resets on reload. Remove anything an earlier version stored.

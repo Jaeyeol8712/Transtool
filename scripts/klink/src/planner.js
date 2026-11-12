@@ -95,9 +95,15 @@ function dayWindow(plan, i) {
   const day = plan.days[i], pace = PACE[S.trip.pace], stay = STAY_BY[plan.stays[day.r]];
   let start = pace.start, end = pace.end;
   const ta = tripAir();
+<<<<<<< HEAD
   if (day.first) start = Math.max(start, S.trip.arrT + gateBuf(ta.arr, 'arr') + gateLeg(ta.arr, stay, day.r).min / 60 + 0.35);
   else if (day.transfer) start = Math.max(start, 9 + interRegion(plan.days[i - 1].r, day.r).min / 60 + 0.6);
   if (day.last) end = Math.min(end, S.trip.depT - gateBuf(ta.dep, 'dep') - gateLeg(ta.dep, stay, day.r).min / 60 - 0.35);
+=======
+  if (day.first) start = Math.max(start, S.trip.arrT + arrBuf() + airportLeg(ta.arr, stay, day.r).min / 60 + 0.35);
+  else if (day.transfer) start = Math.max(start, 9 + interRegion(plan.days[i - 1].r, day.r).min / 60 + 0.6);
+  if (day.last) end = Math.min(end, S.trip.depT - depBuf() - airportLeg(ta.dep, stay, day.r).min / 60 - 0.35);
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   end = Math.max(end, start + 0.5);
   const meals = (start <= 13 && end >= 12.5 ? 60 : 0) + (start <= 18.5 && end >= 19 ? 75 : 0);
   return { start, end, cap: Math.max(30, (end - start) * 60 - meals) };
@@ -222,8 +228,13 @@ function generatePlan() {
   let R = regsAll.slice();
   const ta = tripAir();
   const need = r => { const k = R.indexOf(r), pc = PACE[S.trip.pace], hub = REGIONS[r];
+<<<<<<< HEAD
     let loss = k <= 0 ? Math.max(0, S.trip.arrT + gateBuf(ta.arr, 'arr') + 0.35 + gateLeg(ta.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
     if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - gateBuf(ta.dep, 'dep') - 0.35 - gateLeg(ta.dep, hub, r).min / 60)) * 60;
+=======
+    let loss = k <= 0 ? Math.max(0, S.trip.arrT + arrBuf() + 0.35 + airportLeg(ta.arr, hub, r).min / 60 - pc.start) * 60 : interRegion(R[k - 1], r).min + 60;
+    if (k === R.length - 1) loss += Math.max(0, pc.end - (S.trip.depT - depBuf() - 0.35 - airportLeg(ta.dep, hub, r).min / 60)) * 60;
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     return S.saved.map(id => PBY[id]).filter(p => p.r === r && !isFood(p)).reduce((a, p) => a + loadOf(p), 0) + loss; };
   if (R.length > n) { const keep = R.slice().sort((a, b) => need(b) - need(a)).slice(0, n); R = R.filter(r => keep.includes(r));
     S.saved.forEach(id => { if (!R.includes(PBY[id].r)) unsched.push({ id, why: 'nodays' }); }); }
@@ -292,15 +303,24 @@ function generatePlan() {
   }
   const inPlan = new Set(plan.days.flatMap(d => d.stops.map(x => x.id)).filter(Boolean)), seen = new Set();
   plan.unsched = unsched.filter(u => !inPlan.has(u.id) && !seen.has(u.id) && seen.add(u.id));
+<<<<<<< HEAD
   const lastR = plan.days[n - 1].r, depLeg = gateLeg(ta.dep, STAY_BY[plan.stays[lastR]], lastR);
   plan.warn = !ta.dom && depLeg.min > 150 ? { k: 'farDep', min: depLeg.min, r: lastR } : null;
+=======
+  const lastR = plan.days[n - 1].r, depLeg = airportLeg(ta.dep, STAY_BY[plan.stays[lastR]], lastR);
+  plan.warn = !ta.home && depLeg.min > 150 ? { k: 'farDep', min: depLeg.min, r: lastR } : null;
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   return plan;
 }
 
 function dayOver(plan, i) {
   const sc = scheduleDay(plan, i), w = dayWindow(plan, i), last = sc.rows[sc.rows.length - 1];
   const late = sc.rows.filter(o => (o.e.k === 'place' || o.e.k === 'meal') && o.flags.some(f => f[0] === 'late' || f[0] === 'shut' || f[0] === 'closed'));
+<<<<<<< HEAD
   const over = plan.days[i].last ? last.start > S.trip.depT - gateBuf(tripAir().dep, 'dep') + 0.05 : last.start > w.end + 0.75;
+=======
+  const over = plan.days[i].last ? last.start > S.trip.depT - depBuf() + 0.05 : last.start > w.end + 0.75;
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   return { over, late, sc };
 }
 function fitRegion(plan, idx, unsched) {
@@ -347,7 +367,11 @@ function scheduleDay(plan, i) {
   for (let k = 0; k < L.length; k++) {
     const e = L[k], o = { e, flags: [] };
     if (k === 0) {
+<<<<<<< HEAD
       if (e.k === 'arrive') { t = S.trip.arrT; o.start = t; o.end = t + gateBuf(e.ap, 'arr'); pos = GATE(e.ap); }
+=======
+      if (e.k === 'arrive') { t = S.trip.arrT; o.start = t; o.end = t + arrBuf(); pos = AIRPORTS[e.ap]; }
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
       else if (e.k === 'checkout') { t = 9; o.start = t; o.end = t; pos = e.stay; }
       else { t = pace.start; o.start = t; o.end = t; pos = e.stay; }
       t = o.end; out.push(o); continue;
@@ -380,7 +404,11 @@ function scheduleDay(plan, i) {
       o.start = b; o.end = b + dur; o.num = ++n;
     } else if (e.k === 'stay') { o.start = a; o.end = a + (e.drop ? 0.35 : 0.25); pos = e.stay; }
     else if (e.k === 'transfer') { o.start = t; o.end = a; pos = REGIONS[e.to]; }
+<<<<<<< HEAD
     else if (e.k === 'depart') { o.start = a; o.end = a; if (a > S.trip.depT - gateBuf(e.ap, 'dep') + 0.1) o.flags.push(['depLate']); }
+=======
+    else if (e.k === 'depart') { o.start = a; o.end = a; if (a > S.trip.depT - depBuf() + 0.1) o.flags.push(['depLate']); }
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     else { o.start = a; o.end = a; pos = e.stay; }
     t = o.end; out.push(o);
   }

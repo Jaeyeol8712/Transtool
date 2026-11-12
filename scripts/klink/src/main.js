@@ -4,10 +4,11 @@ function init() {
   let l = S.lang;
   if (!l || !I18N[l]) { const n = (navigator.language || 'en').toLowerCase(); l = n.startsWith('zh') ? 'zh' : n.startsWith('ja') ? 'ja' : n.startsWith('ko') ? 'ko' : 'en'; }
   const h = (location.hash || '').slice(1);
+  if ((REGIONS[h] && isOv(h)) || h === 'overseas' || (PBY[h] && isOv(PBY[h].r))) S.trip.kind = 'ov';
   if (REGIONS[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = h; S.ui.scope = isOv(h) ? 'ov' : 'kr'; }
   else if (h === 'overseas') { S.seenIntro = true; S.ui.scope = 'ov'; }
   else if (PBY[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = PBY[h].r; S.ui.scope = isOv(PBY[h].r) ? 'ov' : 'kr'; S.ui.sel = h; }   // 여행 가이드 '명소 안내'에서 바로 이 장소로
-  setLang(l); buildShell();
+  setLang(l); setKindTimes(S.trip, tripKind()); buildShell();
   loadAround(() => { if (S.ui.tab !== 'saved') renderPanel(); });
   renderChrome(); renderPanel(); safeStage();
   if (!S.seenIntro) showIntro();

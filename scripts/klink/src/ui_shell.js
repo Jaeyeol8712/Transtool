@@ -44,7 +44,8 @@ function buildShell() {
   $('#tripbtn').onclick = openTrip;
   setupSheet();
   document.addEventListener('click', onGlobalClick);
-  let rt = 0; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { setSheet(S.ui.sheet || 'half', true); renderStage(true); }, 150); });
+  let rt = 0, rDesk = isDesk(); window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { setSheet(S.ui.sheet || 'half', true);
+    if (Map2D.gl && rDesk === isDesk()) Map2D.onResize(); else { rDesk = isDesk(); renderStage(true); } }, 150); });
 }
 function onGlobalClick(e) {
   const sv = e.target.closest('[data-save]');
@@ -52,7 +53,7 @@ function onGlobalClick(e) {
 }
 function afterSaveChange(id) {
   renderChrome();
-  if (S.ui.tab === 'map') { renderPanel(); if (World3D.cur) World3D.cur.refreshSaved(); else Map2D.refresh({ sel: S.ui.sel, filter: S.ui.filter, district: S.ui.lvl === 'district' ? S.ui.d : null }); }
+  if (S.ui.tab === 'map') { renderPanel(); Map2D.refresh({ sel: S.ui.sel, filter: S.ui.filter, district: S.ui.lvl === 'district' ? S.ui.d : null }); }
   else renderPanel();
   if (isDesk() && S.ui.tab !== 'map') renderStage();
 }
@@ -90,7 +91,7 @@ function sheetPx(state) { const h = $('.main').getBoundingClientRect().height ||
 function setSheet(state, quiet) {
   S.ui.sheet = state; const px = isDesk() ? 0 : sheetPx(state);
   app.style.setProperty('--sheet-h', px + 'px'); app.style.setProperty('--sheet-px', px);
-  if (!quiet && S.ui.tab === 'map' && !World3D.cur && Map2D.mode === 'region' && S.ui.sel) { const p = PBY[S.ui.sel]; setTimeout(() => Map2D.focusOn(p.lat, p.lng), 340); }
+  if (!quiet && S.ui.tab === 'map' && Map2D.mode === 'region' && S.ui.sel) { const p = PBY[S.ui.sel]; setTimeout(() => Map2D.focusOn(p.lat, p.lng), 340); }
 }
 function setupSheet() {
   const g = $('#grab'); let y0 = 0, h0 = 0, drag = false;
@@ -104,27 +105,29 @@ function setupSheet() {
 }
 
 /* ---------- map tab: navigation ---------- */
-function openKorea(scope) { S.ui.scope = scope || (S.ui.r && isOv(S.ui.r) ? 'ov' : S.ui.r ? 'kr' : (S.ui.scope || 'kr')); S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; persist(); World3D.leave(); setSheet('half'); renderChrome(); renderPanel(); renderStage(); }
-function openRegion(r, keepSel) { S.ui.lvl = 'region'; S.ui.r = r; S.ui.scope = isOv(r) ? 'ov' : 'kr'; S.ui.d = null; if (!keepSel) S.ui.sel = null; S.ui.filter = 'all'; persist(); World3D.leave(); if (S.ui.sheet === 'full') setSheet('half', true); renderChrome(); renderPanel(); renderStage(); }
-function openDistrict(did) { const d = DISTRICTS[did], ov = isOv(d.r); S.ui.lvl = 'district'; S.ui.r = d.r; S.ui.d = did; S.ui.sel = null; S.ui.mode3d = !ov; persist(); setSheet(ov ? 'half' : 'peek', true); renderPanel(); renderStage(); }   // 해외는 3D 거리 준비 중 → 2D 지도
+function openKorea(scope) { S.ui.scope = scope || (S.ui.r && isOv(S.ui.r) ? 'ov' : S.ui.r ? 'kr' : (S.ui.scope || 'kr')); S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; persist(); setSheet('half'); renderChrome(); renderPanel(); renderStage(); }
+function openRegion(r, keepSel) { S.ui.lvl = 'region'; S.ui.r = r; S.ui.scope = isOv(r) ? 'ov' : 'kr'; S.ui.d = null; if (!keepSel) S.ui.sel = null; S.ui.filter = 'all'; persist(); if (S.ui.sheet === 'full') setSheet('half', true); renderChrome(); renderPanel(); renderStage(); }
+function openDistrict(did) { const d = DISTRICTS[did], ov = isOv(d.r); S.ui.lvl = 'district'; S.ui.r = d.r; S.ui.d = did; S.ui.sel = null; persist(); setSheet('half', true); renderPanel(); renderStage(); }   // 해외는 3D 거리 준비 중 → 2D 지도
 function selectPlace(id, opt = {}) {
   const p = PBY[id]; if (!p) return;
   if (S.ui.tab !== 'map') { S.ui.tab = 'map'; renderChrome(); }
-  if (S.ui.lvl === 'korea' || S.ui.r !== p.r) { S.ui.lvl = 'region'; S.ui.r = p.r; S.ui.scope = isOv(p.r) ? 'ov' : 'kr'; S.ui.d = null; World3D.leave(); }
+  if (S.ui.lvl === 'korea' || S.ui.r !== p.r) { S.ui.lvl = 'region'; S.ui.r = p.r; S.ui.scope = isOv(p.r) ? 'ov' : 'kr'; S.ui.d = null; }
   S.ui.sel = id; persist();
   if (!isDesk() && S.ui.sheet !== 'full') setSheet('half', true);
   renderPanel(); (pin.closest('.panel-in') || pin).scrollTop = 0; pin.scrollTop = 0;
-  if (World3D.cur && S.ui.lvl === 'district') { if (!opt.from3d) World3D.cur.select(id, false); }
-  else { renderStage(); setTimeout(() => Map2D.focusOn(p.lat, p.lng, 2.6), 60); }
+  if (Map2D.gl && stageR === p.r + '|' + (S.ui.lvl === 'district' ? S.ui.d : '')) { Map2D.refresh({ sel: id }); Map2D.focusOn(p.lat, p.lng); }
+  else { renderStage(); if (!Map2D.gl) setTimeout(() => Map2D.focusOn(p.lat, p.lng, 2.6), 60); }
 }
-function clearSel() { S.ui.sel = null; persist(); renderPanel(); if (!World3D.cur) Map2D.refresh({ sel: null }); }
+function clearSel() { S.ui.sel = null; persist(); renderPanel(); Map2D.refresh({ sel: null }); }
 
 /* ---------- stage ---------- */
-let stageKey = '';
+let stageKey = '', stageR = '';
 function renderStage(force) {
   const mapbox = $('#mapbox'), worldbox = $('#worldbox'), ovl = $('#ovl');
+  if (worldbox) { worldbox.style.display = 'none'; worldbox.innerHTML = ''; }
+  mapbox.style.display = 'block'; stageR = '';
   if (S.ui.tab !== 'map') {
-    World3D.leave(); worldbox.style.display = 'none'; mapbox.style.display = 'block'; ovl.innerHTML = '';
+    ovl.innerHTML = '';
     if (!isDesk()) { stageKey = ''; return; }
     Map2D.mount(mapbox);
     if ((S.ui.tab === 'plan' || S.ui.tab === 'prep') && S.plan) { const i = clamp(S.ui.day, 0, S.plan.days.length - 1); Map2D.showRoute(S.plan, i, { top: 30 }); stageKey = 'route' + i; }
@@ -134,44 +137,29 @@ function renderStage(force) {
     return;
   }
   const lvl = S.ui.lvl;
-  if (lvl === 'district' && S.ui.mode3d) {
-    mapbox.style.display = 'none'; worldbox.style.display = 'block';
-    if (!World3D.cur || World3D.cur.did !== S.ui.d) {
-      worldbox.innerHTML = `<div class="w-load"><div><div class="spin"></div>${T.loading3d}</div></div>`;
-      const did = S.ui.d;
-      World3D.enter(did, worldbox, { onSelect: id => selectPlace(id, { from3d: true }), onInteract: () => { const h = $('.w-hint'); if (h) h.style.opacity = 0; } })
-        .then(() => { const l = $('.w-load', worldbox); if (l) l.remove(); if (S.ui.sel) World3D.cur.select(S.ui.sel, false); })
-        .catch(err => { worldbox.innerHTML = ''; S.ui.mode3d = false; toast(T.no3d); renderStage(); });
-    }
-    ovl.innerHTML = overlayHtml(); bindOverlay();
-    clearTimeout(renderStage._ht); renderStage._ht = setTimeout(() => { const h = $('.w-hint'); if (h) h.style.opacity = 0; S.ui.hintSeen = true; }, 5200);
-    return;
-  }
-  World3D.leave(); worldbox.style.display = 'none'; worldbox.innerHTML = ''; mapbox.style.display = 'block';
   Map2D.mount(mapbox);
   if (lvl === 'korea') (S.ui.scope === 'ov' ? Map2D.showWorld : Map2D.showKorea)({ onRegion: openRegion });
-  else Map2D.showRegion(S.ui.r, { district: lvl === 'district' ? S.ui.d : null, sel: S.ui.sel, filter: S.ui.filter, onPlace: id => selectPlace(id), onDistrict: openDistrict, onBg: () => { if (S.ui.sel) clearSel(); } });
+  else { Map2D.showRegion(S.ui.r, { district: lvl === 'district' ? S.ui.d : null, sel: S.ui.sel, filter: S.ui.filter, onPlace: id => selectPlace(id), onDistrict: openDistrict, onBg: () => { if (S.ui.sel) clearSel(); } });
+    stageR = S.ui.r + '|' + (lvl === 'district' ? S.ui.d : ''); if (S.ui.mode3d) Map2D.set3d(true); }
   ovl.innerHTML = overlayHtml(); bindOverlay();
 }
 function overlayHtml() {
-  const lvl = S.ui.lvl, in3d = lvl === 'district' && S.ui.mode3d && World3D.webglOK();
+  const lvl = S.ui.lvl, in3d = lvl !== 'korea' && S.ui.mode3d && Map2D.gl;
   const crumbs = [];
   if (lvl !== 'korea') crumbs.push(`<button data-o="korea">${ICONS.left}${esc(isOv(S.ui.r) ? T.scopeOv : T.korea)}</button>`);
   if (lvl === 'district') crumbs.push(`<button data-o="region">${esc(rn(S.ui.r))}</button>`, `<span>${esc(dn(S.ui.d))}</span>`);
   else if (lvl === 'region') crumbs.push(`<span>${esc(rn(S.ui.r))}</span>`);
-  const ctrl = lvl === 'district'
-    ? `<button class="iconbtn" data-o="zin" aria-label="+">${ICONS.plus}</button><button class="iconbtn" data-o="zout" aria-label="−">${ICONS.minus}</button>${in3d ? `<button class="iconbtn" data-o="home" aria-label="${T.resetView}">${ICONS.reset}</button>` : ''}<button class="iconbtn" data-o="mode" aria-label="${in3d ? T.view2d : T.view3d}">${in3d ? ICONS.flat : ICONS.cube}</button>`
-    : `<button class="iconbtn" data-o="zin" aria-label="+">${ICONS.plus}</button><button class="iconbtn" data-o="zout" aria-label="−">${ICONS.minus}</button>`;
+  const ctrl = `<button class="iconbtn" data-o="zin" aria-label="+">${ICONS.plus}</button><button class="iconbtn" data-o="zout" aria-label="−">${ICONS.minus}</button>`
+    + (lvl !== 'korea' && Map2D.gl ? `<button class="iconbtn t3d ${in3d ? 'on' : ''}" data-o="mode" aria-label="${in3d ? T.view2d : T.view3d}" aria-pressed="${in3d}"><span>3D</span></button>` : '');
   return `<div class="ov-top"><label class="search">${ICONS.search}<input id="q" placeholder="${esc(T.searchPh)}" autocomplete="off" value="${esc(S.ui.q || '')}"><button class="clr" data-o="clr" aria-label="${T.close}" ${S.ui.q ? '' : 'hidden'}>${ICONS.x}</button></label>
     <div class="searchres" id="sres" hidden></div>${crumbs.length ? `<div class="crumbs">${crumbs.join('')}</div>` : ''}</div>
-    <div class="ov-ctrl">${ctrl}</div>${in3d && !S.ui.hintSeen ? `<div class="w-hint">${T.hint3d}</div>` : ''}`;
+    <div class="ov-ctrl">${ctrl}</div>`;
 }
 function bindOverlay() {
   $$('#ovl [data-o]').forEach(b => b.onclick = e => { e.stopPropagation(); const o = b.dataset.o;
     if (o === 'korea') openKorea(); else if (o === 'region') openRegion(S.ui.r);
-    else if (o === 'zin') (World3D.cur ? World3D.cur.zoomBy(1.5) : Map2D.zoomBy(1.6)); else if (o === 'zout') (World3D.cur ? World3D.cur.zoomBy(1 / 1.5) : Map2D.zoomBy(1 / 1.6));
-    else if (o === 'home' && World3D.cur) World3D.cur.home();
-    else if (o === 'mode') { if (isOv(S.ui.r)) { toast(T.soon3d); return; } S.ui.mode3d = !S.ui.mode3d; persist(); renderStage(); }
+    else if (o === 'zin') Map2D.zoomBy(1.6); else if (o === 'zout') Map2D.zoomBy(1 / 1.6);
+    else if (o === 'mode') { S.ui.mode3d = !S.ui.mode3d; persist(); Map2D.set3d(S.ui.mode3d); b.classList.toggle('on', S.ui.mode3d); b.setAttribute('aria-pressed', S.ui.mode3d); }
     else if (o === 'clr') { S.ui.q = ''; $('#q').value = ''; showSearch(''); } });
   const q = $('#q'); if (q) { q.oninput = () => { S.ui.q = q.value; showSearch(q.value); }; q.onfocus = () => showSearch(q.value); q.onkeydown = e => { if (e.key === 'Escape') { q.blur(); showSearch(''); } }; }
 }
@@ -208,8 +196,8 @@ function panelMap() {
   const head = inD
     ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1><p class="lead">${S.ui.mode3d ? T.distLead3d : T.distLead2d}</p>`
     : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))} · ${isOv(r) ? T.regionLeadOv : T.regionLead}</p>
-       <div class="sec"><h3>${T.pickDistrict}</h3><small>${isOv(r) ? `<span class="pill sug">${T.soon3dShort}</span>` : T.pickDistrictSub}</small></div>
-       <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${(isOv(r) ? ICONS.pin : ICONS.cube).replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
+       <div class="sec"><h3>${T.pickDistrict}</h3><small>${T.pickDistrictSub}</small></div>
+       <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${ICONS.pin.replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
   return `${head}${inD ? '' : courseCards(r)}
     <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${T.spots(list.length)}</small></div>
     <div class="chips scroll" style="margin-bottom:12px"><button class="chip ${S.ui.filter === 'all' ? 'on' : ''}" data-act="filter" data-v="all">${T.all}</button>${cats.map(c => `<button class="chip ${S.ui.filter === c ? 'on' : ''}" data-act="filter" data-v="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div>
@@ -355,12 +343,22 @@ function openTaxi(id) {
 
 /* ---------- trip settings ---------- */
 function openTrip() {
+<<<<<<< HEAD
   const t = JSON.parse(JSON.stringify(S.trip)); t.type = tripType(t);
   let ta = airFor(t); t.arr = ta.arr; t.dep = ta.dep;   // 이번 여행 나라의 공항(국내 여행은 출발지)으로 맞춘다
+=======
+  const t = JSON.parse(JSON.stringify(S.trip)), ta = tripAir();
+  t.arr = ta.arr; t.dep = ta.dep; t.kind = tripKind();   // 이번 여행 나라의 공항(국내 여행은 역)으로 맞춘다
+  const homeNow = () => ta.cc === 'kr' && t.kind === 'kr';
+  const fix = () => { const L = Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === homeNow());
+    if (!L.includes(t.arr)) t.arr = L[0]; if (!L.includes(t.dep)) t.dep = L[0]; };
+  fix();
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   const draw = m => {
     ta = airFor(t);
     const ds = []; for (let d = t.start, k = 0; d <= t.end && k < 14; d = addDays(d, 1), k++) ds.push(d); const n = ds.length;
     const hrs = Array.from({ length: 19 }, (_, k) => 6 + k);
+<<<<<<< HEAD
     const apOpts = (v) => ta.dom
       ? [['rail', T.gRail], ['air', T.gAir], ['car', T.gCar]].map(([g, lb]) => `<optgroup label="${esc(lb)}">${Object.keys(ORIGINS).filter(c => ORIGINS[c].g === g).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('')}</optgroup>`).join('')
       : Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
@@ -369,13 +367,26 @@ function openTrip() {
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
     m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : ta.dom ? T.tripLeadDom : T.tripLead}</p>
       <div class="fld"><div class="lb">${T.typeLb}</div><div class="ttype">${tt.map(([k, a, b]) => `<button class="${t.type === k ? 'on' : ''}" data-tt="${k}">${a}<small>${b}</small></button>`).join('')}</div></div>
+=======
+    const H = homeNow();
+    const apOpts = (v) => Object.keys(AIRPORTS).filter(c => AIRPORTS[c].cc === ta.cc && !!AIRPORTS[c].home === H).map(c => `<option value="${c}" ${c === v ? 'selected' : ''}>${esc(an(c))}</option>`).join('');
+    const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
+    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : T.tripLead}</p>
+      <div class="fld"><div class="lb">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
       <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
         <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
         <label class="dbox"><small>${T.last}</small><b>${T.mdShort(toDate(t.end))}</b><span>${T.wdL[toDate(t.end).getDay()]}</span><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
         ${n >= 14 ? `<p class="note">${T.max14}</p>` : ''}</div>
+<<<<<<< HEAD
       ${noAp ? `<div class="fld"><div class="lb">${T.flights}</div><p class="note">${T.pickCityFirst}</p></div>` : `<div class="fld"><div class="lb">${ta.dom ? T.originH : T.flights}<small>${ta.dom ? T.originHSub : T.flightsSub}</small></div>
         <div class="ftrow"><div class="sel"><small>${ta.dom ? T.fromPl : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${ta.dom ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
         <div class="sel"><small>${ta.dom ? T.backPl : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${ta.dom ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div>${ta.dom ? `<p class="note">${T.domNote}</p>` : ''}</div>`}
+=======
+      <div class="fld"><div class="lb">${H ? T.flightsHome : T.flights}<small>${H ? T.flightsHomeSub : T.flightsSub}</small></div>
+        <div class="ftrow"><div class="sel"><small>${H ? T.fromSt : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${H ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
+        <div class="sel"><small>${H ? T.backSt : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${H ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
       <div class="fld"><div class="lb">${T.who}</div><div class="ftrow"><div class="stepper"><button data-p="-1" aria-label="−">−</button><b>${T.ppl(t.people)}</b><button data-p="1" aria-label="+">+</button></div>
         <div class="segc" style="align-self:center;justify-content:space-between">${T.parties.map((p, i) => `<button class="${t.party === i ? 'on' : ''}" data-party="${i}">${p}</button>`).join('')}</div></div></div>
       <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
@@ -385,17 +396,27 @@ function openTrip() {
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $('#t-e', m).onchange = e => { t.end = e.target.value || t.end; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $$('.dbox', m).forEach(b => b.onclick = e => { const i = b.querySelector('input'); if (e.target !== i) { try { i.showPicker(); } catch (er) { i.focus(); } } });
+<<<<<<< HEAD
     $$('[data-tt]', m).forEach(b => b.onclick = () => { if (t.type === b.dataset.tt) return; t.type = b.dataset.tt; const a = airFor(t); t.arr = a.arr; t.dep = a.dep;
       if (t.type === 'kr') { t.arrT = 8; t.depT = 21; } else { t.arrT = 10; t.depT = 19; } re(); });
     if (!noAp) { $('#t-aa', m).onchange = e => { const was = t.arr; t.arr = e.target.value; if (ta.dom && t.dep === was) { t.dep = t.arr; re(); } }; $('#t-da', m).onchange = e => t.dep = e.target.value;
       $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value; }
+=======
+    $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
+    $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
+    $$('[data-kind]', m).forEach(b => b.onclick = () => { t.kind = b.dataset.kind; setKindTimes(t, t.kind); fix(); re(); });
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     $$('[data-p]', m).forEach(b => b.onclick = () => { t.people = clamp(t.people + +b.dataset.p, 1, 8); re(); });
     $$('[data-party]', m).forEach(b => b.onclick = () => { t.party = +b.dataset.party; re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
     $$('[data-int]', m).forEach(b => b.onclick = () => { const c = b.dataset.int, i = t.interests.indexOf(c); i < 0 ? t.interests.push(c) : t.interests.splice(i, 1); re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
+<<<<<<< HEAD
     $('#t-ok', m).onclick = () => { const scopeWas = S.ui.scope; S.trip = t; if (S.ui.lvl === 'korea') S.ui.scope = t.type === 'ov' ? 'ov' : 'kr'; persist(); closeModal(); toast(T.tripSaved);
       if (S.ui.scope !== scopeWas) { renderAll(); return; } renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
+=======
+    $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   };
   openModal('', m => draw(m));
 }
@@ -416,12 +437,21 @@ function showIntro() {
     if (S.lang !== 'ko') tt.push(tt.shift(), tt.shift());   // 외국어 화면은 '한국 방문'을 맨 위로
     el.innerHTML = `<div class="intro-in"><div class="langs">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}">${n}</button>`).join('')}</div>
       <h1>${T.introH}</h1><p>${T.introP}</p>
+<<<<<<< HEAD
       <h2 style="font-size:19px;font-weight:800;margin-top:26px">${T.introAsk}</h2>
       <div class="types">${tt.map(([k, ic, a, b]) => `<button data-tt="${k}"><i>${ICONS[ic]}</i><span><b>${a}</b><small>${b}</small></span>${ICONS.right}</button>`).join('')}</div>
       <div class="sp"></div><button class="later" id="intro-later">${T.introLater}</button></div>`;
     $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
     $$('[data-tt]', el).forEach(b => b.onclick = () => { el.remove(); startType(b.dataset.tt); });
     $('#intro-later', el).onclick = () => { S.seenIntro = true; persist(); el.remove(); };
+=======
+      <div class="intro-map" aria-hidden="true"><svg viewBox="0 0 400 180"><path d="M128 14 V90 L286 14 M128 90 L292 166 M128 90 V166" class="pth"/>
+        ${[[128, 14, .35, 112, 19, 'end'], [128, 90, .9, 112, 95, 'end'], [286, 14, 1.5, 302, 19, 'start'], [292, 166, 2.2, 308, 171, 'start']].map(([x, y, d, lx, ly, an], k) => `<g class="st" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="9" fill="#2443E8" stroke="#fff" stroke-width="5"/><text x="${lx}" y="${ly}" fill="#fff" font-size="14" font-weight="700" text-anchor="${an}">${esc(T.introStops[k])}</text></g>`).join('')}</svg></div>
+      <div class="sp"></div><div class="kinds"><b>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
+    $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
+    $$('[data-k]', el).forEach(b => b.onclick = () => { const k = b.dataset.k; S.trip.kind = k; setKindTimes(S.trip, k); S.seenIntro = true;
+      if (S.ui.lvl === 'korea') S.ui.scope = k === 'ov' ? 'ov' : 'kr'; persist(); el.remove(); renderAll(); openTrip(); });
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   };
   draw(); document.body.appendChild(el);
 }
@@ -429,7 +459,7 @@ function showIntro() {
 /* ---------- actions ---------- */
 const ACT = {
   region: v => openRegion(v), korea: () => openKorea(), district: v => openDistrict(v), scope: v => openKorea(v),
-  filter: v => { S.ui.filter = v; persist(); renderPanel(); if (!World3D.cur) Map2D.refresh({ filter: v }); },
+  filter: v => { S.ui.filter = v; persist(); renderPanel(); Map2D.refresh({ filter: v }); },
   place: v => selectPlace(v), unsel: () => clearSel(),
   taxi: v => openTaxi(v),
   gotoDay: v => { S.ui.day = +v; go('plan'); },

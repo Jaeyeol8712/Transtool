@@ -518,6 +518,7 @@ p{text-wrap:pretty}
 .crs-d em{font-style:normal;color:var(--mute)}
 .crs-a{display:flex;gap:8px}
 .crs-a .btn{flex:1;text-decoration:none}
+<<<<<<< HEAD
 /* ---------- 실제 지도 (MapLibre + OpenFreeMap, i261112-15) ---------- */
 .glmap,.glmap.maplibregl-map{position:absolute;inset:0;width:100%;height:100%}
 .glmap .maplibregl-canvas{outline:none}
@@ -558,3 +559,54 @@ p{text-wrap:pretty}
 .ttype button{appearance:none;border:1.5px solid var(--line);background:var(--white);border-radius:12px;padding:9px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.25}
 .ttype button small{display:block;font-size:11px;font-weight:500;color:var(--mute);margin-top:2px}
 .ttype button.on{border-color:var(--cobalt);background:var(--cobalt-soft);color:var(--cobalt)}
+=======
+/* ===== 실제 지도 (MapLibre) 2026-11-12 ===== */
+#mapbox .maplibregl-canvas{outline:none}
+#mapbox .maplibregl-ctrl-bottom-right,#mapbox .maplibregl-ctrl-bottom-left{bottom:calc(var(--sheet-h,38%) - 4px);transition:bottom .32s cubic-bezier(.3,.7,.2,1)}
+@media (min-width:980px){#mapbox .maplibregl-ctrl-bottom-right,#mapbox .maplibregl-ctrl-bottom-left{bottom:0}}
+.app:not(.t-map) #mapbox .maplibregl-ctrl-bottom-right{bottom:0}
+.maplibregl-ctrl-attrib{font-size:10.5px}
+.gm{font-family:var(--sans);border:0;background:none;padding:0;cursor:pointer;color:var(--ink)}
+.g-reg{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.g-reg i{width:18px;height:18px;border-radius:50%;background:#2443E8;border:3.5px solid #fff;box-shadow:0 0 0 7px rgba(36,67,232,.16),0 2px 5px rgba(20,26,46,.25);flex-shrink:0}
+.g-reg span{background:#fff;border-radius:10px;padding:5px 9px;font-size:13.5px;font-weight:800;box-shadow:0 2px 8px rgba(20,26,46,.16);display:flex;flex-direction:column;line-height:1.2;text-align:left}
+.g-reg small{font-size:11px;font-weight:600;color:var(--mute)}
+.g-reg.sm i{width:14px;height:14px;border-width:3px;box-shadow:0 0 0 5px rgba(36,67,232,.14)}
+.g-reg.sm span{font-size:12.5px;padding:3px 8px}
+.gl-minor-off .g-reg.minor span{display:none}
+.hrt{color:#FF4F7B}
+.g-dist{background:rgba(255,255,255,.92);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:800;box-shadow:0 1px 6px rgba(20,26,46,.14);white-space:nowrap;display:flex;gap:6px;align-items:baseline;color:#2443E8}
+.g-dist small{font-size:11px;font-weight:600;color:var(--mute)}
+.gl-dist-off .g-dist{display:none}
+.g-pin{display:flex;flex-direction:column;align-items:center;gap:3px}
+.g-pin .d{position:relative;width:30px;height:30px;border-radius:50%;background:var(--c);border:2.5px solid #fff;display:grid;place-items:center;color:#fff;box-shadow:0 2px 6px rgba(20,26,46,.3);transition:transform .15s}
+.g-pin .d svg{width:15px;height:15px}
+.g-pin .d em{position:absolute;right:-7px;top:-7px;width:17px;height:17px;border-radius:50%;background:#FF4F7B;border:2px solid #fff;font-style:normal;font-size:9px;line-height:13px;text-align:center;color:#fff}
+.g-pin .lb{background:#fff;border-radius:7px;padding:2px 7px;font-size:12px;font-weight:700;box-shadow:0 1px 5px rgba(20,26,46,.18);white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.g-pin:hover .d{transform:scale(1.08)}
+.g-pin.on .d{transform:scale(1.25);box-shadow:0 0 0 6px rgba(36,67,232,.22),0 3px 8px rgba(20,26,46,.35)}
+.g-pin.on .lb{background:#2443E8;color:#fff}
+.gl-lbl-off .g-pin:not(.on):not(.saved) .lb{display:none}
+.g-num{position:relative;display:flex;flex-direction:column;align-items:center}
+.g-num b{width:28px;height:28px;border-radius:50%;background:#fff;border:3.5px solid var(--c);display:grid;place-items:center;font-size:12px;font-weight:800;box-shadow:0 2px 5px rgba(20,26,46,.25)}
+.g-num.meal b{border-color:#EF7C1C}
+.g-num .lb,.g-stay .lb{position:absolute;top:31px;background:#fff;border-radius:7px;padding:2px 7px;font-size:11.5px;font-weight:700;box-shadow:0 1px 5px rgba(20,26,46,.18);white-space:nowrap}
+.g-stay{position:relative;width:30px;height:30px;border-radius:50%;background:#141A2E;border:2.5px solid #fff;display:grid;place-items:center;color:#fff;box-shadow:0 2px 6px rgba(20,26,46,.3)}
+.g-stay svg{width:15px;height:15px}
+.g-stay .lb{color:var(--ink);left:50%;transform:translateX(-50%)}
+@media (max-width:520px){.routebox .g-num .lb{display:none}}
+.iconbtn.t3d span{font-size:13px;font-weight:800;letter-spacing:-.3px}
+.iconbtn.t3d.on{background:#2443E8;color:#fff}
+/* 여행 유형 고르기 */
+.intro .kinds{display:flex;flex-direction:column;gap:10px}
+.intro .kinds>b{font-size:16px;margin-bottom:2px}
+.intro .kindbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px 14px}
+.intro .kindbtn i{width:38px;height:38px;border-radius:12px;background:#E9EDFF;color:#2443E8;display:grid;place-items:center;flex-shrink:0;font-style:normal}
+.intro .kindbtn i svg{width:20px;height:20px}
+.intro .kindbtn span{flex:1;display:flex;flex-direction:column;gap:2px}
+.intro .kindbtn b{font-size:16px;font-weight:800}
+.intro .kindbtn small{font-size:12.5px;color:var(--mute)}
+.intro .kindbtn>svg{width:18px;height:18px;color:var(--faint)}
+.kindseg{display:flex;width:100%}
+.kindseg button{flex:1}
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
