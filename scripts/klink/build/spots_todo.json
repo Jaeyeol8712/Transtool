@@ -245,7 +245,7 @@
    {
     "id": "jj_aewol",
     "name": "애월 해안 카페 거리",
-    "guide": false
+    "guide": true
    },
    {
     "id": "jj_jusang",
@@ -260,7 +260,7 @@
    {
     "id": "jj_sunset",
     "name": "애월 노을 해안도로",
-    "guide": false
+    "guide": true
    },
    {
     "id": "jj_udo",
@@ -270,7 +270,7 @@
    {
     "id": "jj_hyeopjae",
     "name": "협재해변",
-    "guide": false
+    "guide": true
    },
    {
     "id": "jj_osulloc",
