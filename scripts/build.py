@@ -995,17 +995,17 @@ def side_html():
 
 
 def footer_html():
-    regions = "".join(f'<li><a href="/{gus[0][0]}.html">{esc(rshort)} {esc(gus[0][1])} 맛집</a></li>' for rid, _, rshort, gus in FOOD_AREAS[:6])
+    regions = "".join(f'<li><a href="/{gus[0][0]}.html">{esc(rshort)} {esc(gus[0][1])} 맛집</a></li>' for rid, _, rshort, gus in FOOD_AREAS[:5])  # 2026-11-12 대표 지시: 푸터 칸마다 5개
     groups = "".join(f'<li><a href="/tools.html#g-{gid}">{esc(gname)}</a></li>' for gid, gname, _ in TOOL_GROUPS)
-    trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES)
+    trips = "".join(f'<li><a href="/{slug}.html">{esc(name)}</a></li>' for slug, name, _ in TRIP_PAGES[::-1][:5])  # 최근 5개
     shop_links = "".join(f'<li><a href="/{q["file"]}">{esc(q["post"]["keyword"])}</a></li>' for q in SHOP_LIVE[:5])
     return f"""<footer class="at-footer"><div class="at-in">
   <div class="at-footer-brand"><a class="at-logo" href="/">{LOGO_SVG}<span>어라운드<b>툴</b></span></a>
     <p>어딜 가나 가볍게, 여행을 엽니다. 여행 일정 플래너 K링크와 여행 코스, 대가 없이 근거를 밝힌 맛집 기록, 여행·생활 계산기. 회원가입 없이 모든 페이지를 볼 수 있습니다.</p></div>
   <div class="at-footer-cols">
-    <div><p>여행</p><ul><li><a href="/klink/">K링크 여행 일정 짜기</a></li>{trips}</ul></div>
+    <div><p>여행</p><ul><li><a href="/klink/">K링크 여행 일정 짜기</a></li>{trips}<li><a href="/travel.html">여행 전체</a></li></ul></div>
     <div><p>맛집</p><ul>{regions}<li><a href="/food.html">전체 지역</a></li></ul></div>
-    <div><p>생활툴</p><ul>{groups}</ul></div>
+    <div><p>생활툴</p><ul>{groups}<li><a href="/tools.html">계산기 전체</a></li></ul></div>
     <div><p>가이드</p><ul><li><a href="/guide_2026_wage.html">2026 노동법 변경</a></li><li><a href="/guide_2026_tax.html">2026 세금 가이드</a></li><li><a href="/etc.html">텍스트 도구</a></li><li><a href="/search.html">검색</a></li></ul></div>
     <div><p>추천 모음</p><ul>{shop_links}<li><a href="/connect.html">추천 모음 전체</a></li></ul></div>
   </div>
