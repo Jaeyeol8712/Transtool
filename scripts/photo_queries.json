@@ -507,5 +507,46 @@
   "k-my-shimonada": [
     "Shimonada Station",
     "Shimonada"
+  ],
+  "k-bs-haeundae": [
+    "Haeundae Beach",
+    "Haeundae beach Busan"
+  ],
+  "k-bs-gamcheon": [
+    "Gamcheon Culture Village"
+  ],
+  "k-bs-jagalchi": [
+    "Jagalchi Market",
+    "Jagalchi fish market Busan"
+  ],
+  "k-bs-gwangan": [
+    "Gwangan Bridge night",
+    "Gwangalli beach bridge"
+  ],
+  "k-bs-yonggung": [
+    "Haedong Yonggungsa"
+  ],
+  "k-bs-huinyeoul": [
+    "Huinnyeoul Culture Village",
+    "Yeongdo Busan coast"
+  ],
+  "k-bs-centum": [
+    "Shinsegae Centum City"
+  ],
+  "k-bs-blueline": [
+    "Haeundae Blueline Park",
+    "Cheongsapo sky capsule",
+    "Haeundae Beach Train"
+  ],
+  "k-bs-taejongdae": [
+    "Taejongdae"
+  ],
+  "k-bs-gukje": [
+    "Gukje Market",
+    "BIFF Square Busan"
+  ],
+  "k-bs-songdo": [
+    "Songdo Marine Cable Car",
+    "Songdo beach Busan"
   ]
 }
