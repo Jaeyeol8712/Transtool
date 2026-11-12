@@ -1040,3 +1040,5 @@ html body .at-spot ul.at-spot-see,html body .at-spot ul.at-spot-tips{padding-lef
 html body .at-spot ul.at-spot-tips{padding:.7rem .85rem}
 html body .at-spot ul li{list-style:none}
 @media (max-width:719px){.at-spot-b{padding:.9rem .9rem 1rem}.at-spot .at-fig figcaption{padding:.4rem .9rem 0}}
+.ah-tsit{margin:0}.ah-tsit .ah-sit{grid-template-columns:6.5rem minmax(0,1fr)}
+@media (min-width:1024px){.ah-tsit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}.ah-tsit .ah-head{grid-column:1/-1}.ah-tsit .ah-sit:nth-of-type(2){border-top:0;padding-top:0}}

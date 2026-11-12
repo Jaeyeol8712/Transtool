@@ -2260,6 +2260,12 @@ HOME_TRIP_TILES = [  # 여행 준비 계산기 (한 줄은 각 계산기 페이�
     ("tip_calculator", "팁", "15·18·20%"), ("fuel_economy_calculator", "L", "거리·연비로 주유비"),
     ("camping_gear_calculator", "캠", "텐트캠핑·차박"), ("volumetric_weight_calculator", "kg", "해외 배송·특송"),
 ]
+HOME_TRIP_SITUATIONS = [  # 2026-11-12 대표 지시: 홈은 여행 관련만
+    ("떠나기 전", ["exchange_rate_calculator", "overseas_travel_budget_calculator", "roaming_esim_compare_calculator", "overseas_card_fee_calculator"]),
+    ("공항 가는 날", ["incheon_airport_parking_calculator", "excess_baggage_fee_calculator", "duty_free_limit_calculator"]),
+    ("현지에서", ["tip_calculator", "time_difference_calculator", "japan_travel_calculator"]),
+    ("국내 여행", ["fuel_economy_calculator", "rental_car_total_cost_calculator", "camping_gear_calculator"]),
+]
 HOME_OV_FIRST = ["tokyo", "osaka", "fukuoka", "kyoto", "sapporo", "okinawa", "taipei", "danang", "bangkok", "hongkong", "singapore", "cebu", "guam"]
 HOME_SITUATIONS = [  # (상황, [계산기])
     ("월급날", ["salary_calculator", "holiday_pay_calculator", "hourly_monthly_wage_calculator"]),
@@ -2328,7 +2334,7 @@ def build_home():
     news = "".join(f'<li><a href="/{q["file"]}"><span class="t"><span class="ah-tag">{sec_tag[q["section"]]}</span><span class="tt">{esc(q.get("title") or q["name"])}</span></span>'
                    f'<time datetime="{up_time(q)[0]}">{up_time(q)[1]}</time></a></li>' for q in latest)
     ups = "".join(f'<li><a href="{u}"><span class="t">{esc(t)}</span><time datetime="{d}">{short_date(d)}</time></a></li>' for d, tag, t, u in UPDATES[:4])
-    faq_home = [(q, a if KLINK_OV else a.replace("국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). ", "")) for q, a in FAQ_HOME]
+    faq_home = [(q, a if KLINK_OV else a.replace("국내 도시는 3D 거리로 둘러볼 수 있고, 해외 도시는 지도에서 고릅니다(해외 3D 거리는 준비 중). ", "")) for q, a in FAQ_HOME if not q.startswith(("계산 결과", "입력한 값"))]
     faqs = "".join(f"<details><summary>{esc(q)}</summary><div class=\"a\"><p>{esc(a)}</p></div></details>" for q, a in faq_home)
     # ── 2026-11-12 대표 지시: 여행 중심 개편. K링크가 맨 위, 여행·맛집이 그다음, 계산기·추천·가이드는 여행을 돕는 서브 ──
     kr_chips = "".join(f'<li><a href="/klink/#{r["id"]}">{esc(r["name"])}</a></li>' for r in KLINK_INDEX if not r.get("ov"))
@@ -2351,7 +2357,9 @@ def build_home():
     trip_tiles = "".join(f'<li><a class="ah-tile" href="/{slug}.html"><span class="ah-ico" aria-hidden="true">{esc(mk)}</span>'
                          f'<b>{esc(tool_name(slug))}</b><span class="ah-sub">{esc(sub)}</span></a></li>'
                          for slug, mk, sub in HOME_TRIP_TILES if slug + ".html" in PAGES)
-    prep_guides = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(PAGES["guide-" + g["slug"] + ".html"]["name"])}</a></li>' for g in travel_guides()[:4])
+    prep_guides = "".join(f'<li><a href="/guide-{g["slug"]}.html">{esc(PAGES["guide-" + g["slug"] + ".html"]["name"])}</a></li>' for g in travel_guides()[:6])
+    tsits = "".join(f'<div class="ah-sit"><p>{esc(t)}</p><ul>' + "".join(f'<li><a href="/{x}.html">{esc(tool_name(x))}</a></li>' for x in xs if x + ".html" in PAGES) + "</ul></div>"
+                    for t, xs in HOME_TRIP_SITUATIONS)
     content = f"""<section class="ah-khero" aria-labelledby="ah-h1">
   <div class="ah-khero-tx">
     <p class="ah-khero-eb"><span class="ah-klink-mark">{K_MARK}</span><span><b>K링크</b> 여행 일정 플래너</span></p>
@@ -2380,18 +2388,10 @@ def build_home():
   <div class="ah-head"><h2 id="ah-prep">여행 준비 계산기</h2><a href="/tools.html#g-trip">여행 도구 전체</a></div>
   <p class="ah-note">환전·경비·시차처럼 떠나기 전에 필요한 계산을 모았어요.</p>
   <ul class="ah-tiles">{trip_tiles}</ul>
-  {f'<ul class="ah-links ah-prep-guides">{prep_guides}</ul>' if prep_guides else ''}
 </section>
-<section class="ah-hero" aria-labelledby="ah-life">
-  <div class="ah-main">
-    <h2 class="ah-h2" id="ah-life">생활 계산기</h2>
-    <p class="ah-lead">가입 없이 무료 · 계산 기준과 공식을 함께 보여 드려요</p>
-    <ul class="ah-tiles">{tiles}</ul>
-  </div>
-  <div class="ah-side">
-    <h2>지금 상황으로 찾기</h2>
-    {sits}
-  </div>
+<section class="ah-card ah-tsit" aria-labelledby="ah-tsit">
+  <div class="ah-head"><h2 id="ah-tsit">여행 상황으로 찾기</h2><a href="/tools.html#g-trip">여행 도구 전체</a></div>
+  {tsits}
 </section>
 <section class="ah-sec" aria-labelledby="ah-picks">
   <div class="ah-head"><h2 id="ah-picks">여행 추천</h2><a href="/connect.html">추천 모음 전체 {len(SHOP_LIVE)}개</a></div>
@@ -2399,8 +2399,8 @@ def build_home():
 </section>
 <div class="ah-row">
   <section class="ah-card" aria-labelledby="ah-guides">
-    <div class="ah-head"><h2 id="ah-guides">새 가이드</h2><a href="/etc.html">가이드 전체</a></div>
-    <ul class="ah-links">{guides}</ul>
+    <div class="ah-head"><h2 id="ah-guides">여행 준비 가이드</h2><a href="/etc.html">가이드 전체</a></div>
+    <ul class="ah-links">{prep_guides}</ul>
   </section>
   <section class="ah-card" aria-labelledby="ah-faq">
     <div class="ah-head"><h2 id="ah-faq">자주 묻는 질문</h2><a href="/about.html">사이트 소개</a></div>
