@@ -1,6 +1,6 @@
 {
- "done": 51,
- "todo": 229,
+ "done": 62,
+ "todo": 218,
  "regions": {
   "seoul": [
    {
@@ -157,63 +157,6 @@
     "id": "noryangjin",
     "name": "노량진수산시장",
     "guide": false
-   }
-  ],
-  "tokyo": [
-   {
-    "id": "tk_sensoji",
-    "name": "센소지",
-    "guide": true
-   },
-   {
-    "id": "tk_nakamise",
-    "name": "나카미세 거리",
-    "guide": true
-   },
-   {
-    "id": "tk_ueno",
-    "name": "우에노 공원",
-    "guide": true
-   },
-   {
-    "id": "tk_shibuya",
-    "name": "시부야 스크램블 교차로",
-    "guide": true
-   },
-   {
-    "id": "tk_meiji",
-    "name": "메이지 신궁",
-    "guide": true
-   },
-   {
-    "id": "tk_takeshita",
-    "name": "다케시타 거리",
-    "guide": true
-   },
-   {
-    "id": "tk_tocho",
-    "name": "도쿄도청 전망실",
-    "guide": true
-   },
-   {
-    "id": "tk_omoide",
-    "name": "오모이데 요코초",
-    "guide": true
-   },
-   {
-    "id": "tk_odaiba",
-    "name": "오다이바 해변공원",
-    "guide": true
-   },
-   {
-    "id": "tk_kamakura",
-    "name": "가마쿠라 대불",
-    "guide": true
-   },
-   {
-    "id": "tk_hakone",
-    "name": "하코네",
-    "guide": true
    }
   ],
   "osaka": [
