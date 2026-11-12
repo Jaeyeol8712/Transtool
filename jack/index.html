@@ -139,7 +139,7 @@ var ROOMS=[
  {id:"data",kind:"team",name:"데이터방",x:2,z:2,w:8,d:7,tint:"#bcd3ee",people:[["데이터 분석가"]]},
  {id:"ops",kind:"team",name:"운영 점검방",x:11,z:2,w:7,d:7,tint:"#efc6c6",people:[["고객만족팀"],["인스타 기획자"]]},
  {id:"meet",kind:"meet",name:"회의실 · 총괄",x:19.5,z:2,w:9,d:8,tint:"#e6dfcf",people:[["총괄"]]},
- {id:"dev",kind:"team",name:"개발방",x:30,z:2,w:8,d:7,tint:"#d5c9ee",people:[["사이트 개발"],["디자이너"]]},
+ {id:"dev",kind:"team",name:"개발방",x:30,z:2,w:8,d:7,tint:"#d5c9ee",people:[["사이트 개발"],["디자이너"],["인터랙션 디자이너"]]},
  {id:"blog",kind:"team",name:"블로그방",x:2,z:11,w:8,d:6,tint:"#f5d3b0",people:[["블로그 담당"]]},
  {id:"sched",kind:"sched",name:"예약 작업실",x:11,z:11,w:7,d:6,tint:"#dfe3e6",people:SCHED.map(function(s){return[s[0],s[1]]})},
  {id:"boss",kind:"boss",name:"대표실",x:19.5,z:12,w:9,d:7,tint:"#c9a27a",people:[["대표님"]]},
@@ -148,7 +148,7 @@ var ROOMS=[
  {id:"lounge",kind:"lounge",name:"라운지 · 탕비실",x:15.5,z:21,w:7,d:7,tint:"#eee8dc",people:[]},
  {id:"law",kind:"team",name:"법무·재무방",x:24,z:21,w:14,d:7,tint:"#e0dbd0",people:[["법무팀"],["재무 담당"],["상품 개발팀"],["AI 개발팀"]]}
 ];
-var ORDER=["총괄","검색 노출","사이트 개발","기획자","디자이너","콘텐츠 작성자","데이터 분석가","검수","신뢰","광고","카페 담당","인스타 기획자","커뮤니티 관리자","법무팀","상품 개발팀","재무 담당","AI 개발팀","고객만족팀"];
+var ORDER=["총괄","검색 노출","사이트 개발","기획자","디자이너","콘텐츠 작성자","데이터 분석가","검수","신뢰","광고","카페 담당","인스타 기획자","커뮤니티 관리자","법무팀","상품 개발팀","재무 담당","AI 개발팀","고객만족팀","인터랙션 디자이너"];
 function kst(){var d=new Date();return new Date(d.getTime()+(d.getTimezoneOffset()+540)*60000)}
 function focus(){var t=kst(),day=Math.floor((Date.UTC(t.getFullYear(),t.getMonth(),t.getDate())-Date.UTC(2026,9,28))/864e5);var f=ORDER[((day%ORDER.length)+ORDER.length)%ORDER.length];return f==="검수"||f==="신뢰"?"검수·신뢰":f}
 var D=null,OFF=null,tab="turn";
