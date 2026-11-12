@@ -240,6 +240,8 @@ from food_1108b import PAGES_1108B as _FOOD_1108B  # noqa: E402  (2026-11-07 컨
 PAGE_DATES.update({x["file"]: "2026-11-07" for x in _FOOD_1108B})
 from food_1111 import PAGES_1111 as _FOOD_1111  # noqa: E402  (2026-11-08·09 컨펌 i261108-04·i261109-04 제철·시장 20곳, 11.11 중간 크기)
 PAGE_DATES.update({x["file"]: "2026-11-11" for x in _FOOD_1111})
+from food_1112 import PAGES_1112 as _FOOD_1112  # noqa: E402  (2026-11-11 컨펌 i261111-02 지역 제철 먹거리 3곳: 제주 겨울 생선 시장·부산 겨울 국물·인천 물텀벙)
+PAGE_DATES.update({x["file"]: "2026-11-12" for x in _FOOD_1112})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -573,6 +575,12 @@ PAGES["tools.html"]["desc"] = (f"연봉 실수령액, 퇴직금, 실업급여, �
                                "로그인 없이 무료이며 2026년 요율과 법령을 반영했습니다.")
 # ── 서치콘솔 기회 검색어(평균 8~20위)에 맞춘 제목·설명 보강 (2026-10-25 보고서 기준)
 #    2026-10-29 i31: 노출 상위 5개(일본여행·띄어쓰기·환율·함박마을·대출) 검색어 반영 재조정 ──
+HUB_SEASON_LINKS = {  # 맛집 구 허브 '함께 보기'에 붙이는 제철·시장 안내 (2026-11-12 i261111-02)
+    "jeju-seogwipo": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-moseulpo-bangeo.html", "모슬포 방어")],
+    "jeju-jejusi": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장")],
+    "haeundae": [("season-busan-winter-gukmul.html", "부산 겨울 국물 음식")],
+    "yeonsu": [("season-incheon-multeombeong.html", "인천 물텀벙 (아귀)"), ("season-sorae-jeotgal.html", "소래포구 젓갈")],
+}
 SEO_FIX = {
     "japan_travel_calculator.html": ("일본 여행 경비 계산기 — 일본여행 비용·가격 얼마? 도시별 항공·숙박·식비 예산",
         "일본 여행 비용이 얼마나 드는지 도쿄·오사카·후쿠오카·삿포로·오키나와·나고야 등 도시와 기간, 여행 스타일로 계산합니다. 항공권·숙박·식비·교통비 내역과 일자별 코스를 함께 보여 줍니다."),
@@ -2457,6 +2465,8 @@ def build_gu_hub(p):
     answer = f"{area}에서 이 사이트가 기록한 맛집은 <b>{total}곳</b>입니다. " + " · ".join(esc(x) for x in names[:6]) + (" 등입니다." if names else "")
     others = [g for r, _, _, gus in FOOD_AREAS if r == p["region"] for g in gus if g[0] != p["prefix"]]
     other_html = ""
+    _sl = HUB_SEASON_LINKS.get(p["prefix"], [])  # 2026-11-12 i261111-02: 지역 제철 안내 연결
+    season_html = ("<p>제철 안내: " + " · ".join(f'<a href="/{u}">{esc(t)}</a>' for u, t in _sl) + "</p>") if _sl else ""
     if others:
         other_html = "<p>" + esc(p["region_short"]) + "의 다른 지역: " + " · ".join(f'<a href="/{pre}.html">{esc(gu)} 맛집</a>' for pre, gu in others) + "</p>"
     travel = ""
@@ -2474,7 +2484,7 @@ def build_gu_hub(p):
 {photo_blk}
 {"".join(blocks)}
 <h2>함께 보기</h2>
-{travel}{other_html}
+{travel}{other_html}{season_html}
 <p>전국 다른 지역은 <a href="/food.html">전국 맛집 기록</a>에서 볼 수 있습니다.</p>
 </div></div>"""
     if p["prefix"] == "season":  # 제철·시장 안내 묶음: 가게 목록이 아니므로 '맛집 N곳' 문구와 Restaurant 구조화 데이터를 쓰지 않음
