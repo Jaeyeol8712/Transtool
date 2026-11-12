@@ -210,6 +210,7 @@ document.getElementById('mode').onclick = function () {
   if (map.getLayer('bld3d')) map.setLayoutProperty('bld3d', 'visibility', on ? 'visible' : 'none');
   map.easeTo({ pitch: on ? 55 : 0, zoom: on ? Math.max(map.getZoom(), 15) : map.getZoom(), duration: 800 });
 };
-map.on('load', () => { map.resize(); setLabels(); ui(); drawMap(); drawSheet(); fit(); });
+ui(); drawSheet();   // 목록은 지도를 기다리지 않고 바로 보여 준다
+map.once('style.load', () => { map.resize(); setLabels(); drawMap(); fit(); });   // 지도 그림(타일)이 다 오기 전, 스타일만 오면 바로 그린다
 addEventListener('resize', () => { map.resize(); labels(); });
 </script></body></html>
