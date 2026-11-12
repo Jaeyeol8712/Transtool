@@ -1,30 +1,10 @@
-== 2026-11-12T03:56:11Z push 4843fd19d31b55811d54d54bdccb74b50f2ac28f
-· 대상 53개
-  https://www.aroundtool.com/food.html
-  https://www.aroundtool.com/haeundae-gukmul-myeon.html
-  https://www.aroundtool.com/haeundae.html
+== 2026-11-12T03:56:19Z push f58a03ebb16940b234f5d82da55dd28c0840b96c
+· 대상 1개
   https://www.aroundtool.com/
-  https://www.aroundtool.com/jeju-jejusi.html
-  https://www.aroundtool.com/jeju-seogwipo-galchi.html
-  https://www.aroundtool.com/jeju-seogwipo.html
-  https://www.aroundtool.com/season-beolgyo-kkomak.html
-  https://www.aroundtool.com/season-buan-gomso-jeotgal.html
-  https://www.aroundtool.com/season-busan-winter-gukmul.html
-  https://www.aroundtool.com/season-cheonbuk-gul.html
-  https://www.aroundtool.com/season-cheongsong-sagwa.html
-  https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html
-  https://www.aroundtool.com/season-ganghwa-sunmu.html
-  https://www.aroundtool.com/season-gapyeong-jat.html
-  https://www.aroundtool.com/season-geoje-oepo-daegu.html
-  https://www.aroundtool.com/season-goheung-yuja.html
-  https://www.aroundtool.com/season-goseong-garibi.html
-  https://www.aroundtool.com/season-gwangcheon-saeujeot.html
-  https://www.aroundtool.com/season-haenam-goguma.html
-  … 외 33개
 
   ✓ api.indexnow.org — 200 접수됨
   ✓ www.bing.com — 200 접수됨
-  ✓ searchadvisor.naver.com — 200 접수됨
+  ✗ searchadvisor.naver.com — 422 URL이 host와 맞지 않습니다
 
 · 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
