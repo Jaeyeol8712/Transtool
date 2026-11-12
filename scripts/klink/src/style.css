@@ -567,3 +567,17 @@ p{text-wrap:pretty}
 .intro .kindbtn>svg{width:18px;height:18px;color:var(--faint)}
 .kindseg{display:flex;width:100%}
 .kindseg button{flex:1}
+/* 시작 화면: 휴대폰 한 화면에 다 들어오게 (2026-11-12) */
+.intro-in{height:100%;min-height:0;padding-top:calc(14px + var(--safe-t));padding-bottom:calc(16px + var(--safe-b))}
+.intro h1{font-size:clamp(26px,7.6vw,38px);margin-top:16px}
+.intro p{font-size:14px;line-height:1.55;margin-top:10px}
+.intro-map{flex:1 1 0;min-height:56px;max-height:240px;height:auto;margin:auto -24px 10px}
+.intro .sp{display:none}
+.intro .kinds{gap:8px}
+.intro .kinds>b{font-size:15px}
+.intro .kindbtn{padding:10px 12px;border-radius:14px}
+.intro .kindbtn i{width:34px;height:34px}
+.intro .kindbtn b{font-size:15px}
+.intro .kindbtn small{font-size:12px}
+@media (max-height:620px){.intro-map{display:none}.intro p{display:none}}
+.intro .kinds{margin-top:auto;padding-top:14px}
