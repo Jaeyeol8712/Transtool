@@ -1,6 +1,6 @@
 {
  "done": 8,
- "todo": 286,
+ "todo": 272,
  "regions": {
   "seoul": [
    {
@@ -34,58 +34,13 @@
     "guide": false
    },
    {
-    "id": "samgyup",
-    "name": "숯불 삼겹살 맛집",
-    "guide": false
-   },
-   {
-    "id": "gejang",
-    "name": "간장게장 전문점",
-    "guide": false
-   },
-   {
     "id": "mdfood",
     "name": "명동 길거리 음식",
     "guide": false
    },
    {
-    "id": "samgye",
-    "name": "토속촌 삼계탕",
-    "guide": false
-   },
-   {
-    "id": "kalguksu",
-    "name": "명동 칼국수·만두",
-    "guide": false
-   },
-   {
     "id": "dakgalbi",
     "name": "홍대 닭갈비 골목",
-    "guide": false
-   },
-   {
-    "id": "sbrunch",
-    "name": "성수 브런치 레스토랑",
-    "guide": false
-   },
-   {
-    "id": "hanwoo",
-    "name": "한우 오마카세",
-    "guide": false
-   },
-   {
-    "id": "skin1",
-    "name": "강남 피부과 상담",
-    "guide": false
-   },
-   {
-    "id": "skin2",
-    "name": "명동 피부과 레이저 관리",
-    "guide": false
-   },
-   {
-    "id": "spa",
-    "name": "K-뷰티 스파·헤드스파",
     "guide": false
    },
    {
@@ -131,11 +86,6 @@
    {
     "id": "ycafe",
     "name": "연남동 카페 골목",
-    "guide": false
-   },
-   {
-    "id": "hybe",
-    "name": "하이브 인사이트 주변",
     "guide": false
    },
    {
@@ -249,16 +199,6 @@
     "id": "bs_centum",
     "name": "신세계 센텀시티",
     "guide": false
-   },
-   {
-    "id": "bs_skin",
-    "name": "서면 피부과 상담",
-    "guide": true
-   },
-   {
-    "id": "bs_gejang",
-    "name": "해운대 대게·간장게장",
-    "guide": true
    },
    {
     "id": "bs_blueline",
@@ -392,11 +332,6 @@
     "guide": true
    },
    {
-    "id": "jn_bibim",
-    "name": "전주비빔밥 명가",
-    "guide": false
-   },
-   {
     "id": "jn_night",
     "name": "남부시장 야시장",
     "guide": true
@@ -426,11 +361,6 @@
    {
     "id": "ys_night",
     "name": "여수 밤바다 낭만포차",
-    "guide": true
-   },
-   {
-    "id": "ys_gejang",
-    "name": "여수 돌게장 백반",
     "guide": true
    },
    {

@@ -50,15 +50,7 @@ I18N.ko = {
   totalPP: '1인 예상 비용 (숙박 제외)', totalMove: '전체 이동 시간', planNote: '이동 시간과 비용은 거리로 계산한 예상치예요. 예약 단계에서 직원이 휴무일과 예약 가능 여부를 다시 확인해요.', toBook: '예약·동행 고르기', planned: '일정을 짰어요',
   mUp: '위로 옮기기', mDown: '아래로 옮기기', mSwap: '다른 식당으로 바꾸기', noOther: '근처에 다른 식당이 없어요', mMoveTo: n => `${n}일차로 옮기기`, movedTo: n => `${n}일차로 옮겼어요`, mRemove: '일정에서 빼기', optimized: '동선을 다시 정리했어요',
   addStopT: n => `${n}일차에 장소 추가`, addStopLead: '저장했지만 일정에 없는 곳이에요.', addStopNone: '추가할 수 있는 저장 장소가 없어요.', findMore: '지도에서 찾기',
-  bookTitle: '예약·동행', bookEmptyH: '먼저 일정을 짜 주세요', bookEmpty: '일정에 들어간 곳 중 예약이 필요한 곳을 모아 드려요.', bookLead: '켜 둔 항목만 직원이 대신 예약해요. 가격은 1~4인 한 팀 기준이에요.',
-  bRsv: '예약이 필요한 곳', bKind: { clinic: '예약 + 통역 동행 2시간', table: '한국 번호 없이 대신 예약', ticket: '관람 예약 대행' }, bNoRsv: '예약이 필요한 곳이 없어요.',
-  bStay: '숙소 예약 대행', bStaySub: '추천 지역에서 직원이 객실을 찾아요', freeAgency: '대행 무료', bNoStay: '숙박이 없는 일정이에요.',
-  bGuide: '통역 가이드', bGuideSub: '관광통역안내사 자격증 보유', gOpt: { none: '없음', half: '반일', full: '종일' }, guideNote: '반일 4시간 160,000원 · 종일 8시간 300,000원. 동행 72시간 전까지 전액 환불돼요.',
-  selN: n => `${n}개 선택`, payBtn: '위챗페이로 결제하기', sendBtn: '예약 요청 보내기', payT: '결제 확인', total: '합계', payNow: '결제하기', paidToast: '예약 요청을 보냈어요',
-  paidEyebrow: '예약 요청 완료', paidH: '위챗으로 일정표를 보냈어요', paidLead: '직원이 24시간 안에 휴무일과 예약을 확인해 확정본을 보내 드려요.',
-  wMsg: nm => `${nm} 님, 예약 요청을 받았어요. 확정되면 바로 알려 드릴게요. 아래는 지금 일정표예요.`, chatPh: '메시지 입력 · 中文 / English OK', send: '전송',
-  copyTxt: '일정 텍스트 복사', copied: '복사했어요', editBook: '예약 다시 고르기', demoNote: '시연용 화면이라 실제 결제나 예약은 일어나지 않아요.',
-  thanks: '천만에요! 즐거운 여행 되세요.', autoReply: '메시지를 받았어요. 담당 직원이 곧 답변드릴게요. (상담 09–23시)'
+  copyTxt: '일정 텍스트 복사', copied: '복사했어요',
 };
 I18N.zh = {
   atTitle: '在 AroundTool 看更多', atKo: '韩语内容', atTrip: r => `${r}旅行指南`, atTripSub: '按天路线 · 预算 · 交通', atFood: (r, n) => `${r}美食记录 ${n} 家`, atFoodSub: '无赞助、写明依据的餐厅记录', atMoreTitle: 'AroundTool 旅行·美食', atAllTrips: n => `查看全部 ${n} 篇旅行指南`, atAllFood: (g, n) => `全国 ${g} 个地区 ${n} 家餐厅`, atBy: 'K-Link 的旅行和美食信息与 AroundTool（aroundtool.com）的记录相连，新内容发布后也会出现在这里。',
@@ -107,15 +99,7 @@ I18N.zh = {
   totalPP: '人均预计费用（不含住宿）', totalMove: '总交通时间', planNote: '交通时间和费用是按距离估算的。预约时工作人员会再次确认休息日和可否预约。', toBook: '选择预约和陪同', planned: '行程已规划好',
   mUp: '上移', mDown: '下移', mSwap: '换一家餐厅', noOther: '附近没有其他餐厅', mMoveTo: n => `移到第${n}天`, movedTo: n => `已移到第${n}天`, mRemove: '从行程中移除', optimized: '已重新整理路线',
   addStopT: n => `给第${n}天添加地点`, addStopLead: '这些是已收藏但不在行程里的地点。', addStopNone: '没有可添加的收藏地点。', findMore: '去地图找',
-  bookTitle: '预约·陪同', bookEmptyH: '请先规划行程', bookEmpty: '我们会把行程中需要预约的地方整理出来。', bookLead: '只有打开的项目会由工作人员代为预约。价格按 1~4 人一组计算。',
-  bRsv: '需要预约的地方', bKind: { clinic: '预约 + 翻译陪同 2 小时', table: '无需韩国手机号，代为预约', ticket: '代办参观预约' }, bNoRsv: '没有需要预约的地方。',
-  bStay: '代订住宿', bStaySub: '工作人员会在推荐区域找房', freeAgency: '免代办费', bNoStay: '这个行程不需要住宿。',
-  bGuide: '翻译导游', bGuideSub: '持有韩国旅游翻译导游资格证', gOpt: { none: '不需要', half: '半天', full: '全天' }, guideNote: '半天 4 小时 ₩160,000 · 全天 8 小时 ₩300,000。陪同开始 72 小时前可全额退款。',
-  selN: n => `已选 ${n} 项`, payBtn: '使用微信支付', sendBtn: '发送预约请求', payT: '确认付款', total: '合计', payNow: '付款', paidToast: '已发送预约请求',
-  paidEyebrow: '预约请求已发送', paidH: '行程表已发到微信', paidLead: '工作人员会在 24 小时内确认休息日和预约，再发送确定版。',
-  wMsg: nm => `${nm}，我们已收到预约请求，确认后会马上通知你。下面是目前的行程表。`, chatPh: '输入消息 · 한국어 / English OK', send: '发送',
-  copyTxt: '复制行程文字', copied: '已复制', editBook: '重新选择预约', demoNote: '这是演示画面，不会真的付款或预约。',
-  thanks: '不客气！祝你旅途愉快。', autoReply: '消息已收到，工作人员会尽快回复你。（咨询时间 09–23 点）'
+  copyTxt: '复制行程文字', copied: '已复制',
 };
 I18N.en = {
   atTitle: 'More on AroundTool', atKo: 'In Korean', atTrip: r => `${r} travel guide`, atTripSub: 'Day-by-day routes · budget · transport', atFood: (r, n) => `${r} food notes · ${n} places`, atFoodSub: 'Unsponsored restaurant notes with reasons', atMoreTitle: 'AroundTool travel & food', atAllTrips: n => `All ${n} travel guides`, atAllFood: (g, n) => `${n} restaurants in ${g} areas`, atBy: "K-Link's travel and food info links to AroundTool (aroundtool.com). New posts show up here as they are published.",
@@ -164,15 +148,7 @@ I18N.en = {
   totalPP: 'Est. cost per person (no hotel)', totalMove: 'Total travel time', planNote: 'Travel times and costs are estimates based on distance. Our staff re-check closing days and availability when you book.', toBook: 'Choose bookings & guide', planned: 'Your plan is ready',
   mUp: 'Move up', mDown: 'Move down', mSwap: 'Try another restaurant', noOther: 'No other restaurant nearby', mMoveTo: n => `Move to Day ${n}`, movedTo: n => `Moved to Day ${n}`, mRemove: 'Remove from plan', optimized: 'Route re-optimized',
   addStopT: n => `Add to Day ${n}`, addStopLead: 'Saved places that are not in your plan yet.', addStopNone: 'No saved places left to add.', findMore: 'Find on map',
-  bookTitle: 'Book & guide', bookEmptyH: 'Plan your trip first', bookEmpty: "We'll gather the places in your plan that need a booking.", bookLead: 'Our staff book only what you switch on. Prices are per group of 1–4.',
-  bRsv: 'Needs booking', bKind: { clinic: 'Booking + 2-hr interpreter', table: 'Booked for you, no Korean number needed', ticket: 'Entry booking' }, bNoRsv: 'Nothing in your plan needs booking.',
-  bStay: 'Hotel booking', bStaySub: 'Our staff find rooms in the suggested area', freeAgency: 'No fee', bNoStay: 'No overnight stays in this plan.',
-  bGuide: 'Interpreter guide', bGuideSub: 'Licensed tourist interpreter guides', gOpt: { none: 'None', half: 'Half day', full: 'Full day' }, guideNote: 'Half day 4 hrs ₩160,000 · full day 8 hrs ₩300,000. Full refund up to 72 hours before.',
-  selN: n => `${n} selected`, payBtn: 'Pay with WeChat Pay', sendBtn: 'Send booking request', payT: 'Confirm payment', total: 'Total', payNow: 'Pay', paidToast: 'Booking request sent',
-  paidEyebrow: 'Request sent', paidH: 'Your plan is on WeChat', paidLead: 'Our staff check closing days and bookings within 24 hours and send the final version.',
-  wMsg: nm => `${nm}, we've got your booking request and will message you once it's confirmed. Here's your plan so far.`, chatPh: 'Type a message · 中文 / 한국어 OK', send: 'Send',
-  copyTxt: 'Copy plan as text', copied: 'Copied', editBook: 'Change bookings', demoNote: 'This is a demo. No real payment or booking happens.',
-  thanks: "You're welcome! Enjoy your trip.", autoReply: 'Got your message. Our staff will reply soon (9am–11pm).'
+  copyTxt: 'Copy plan as text', copied: 'Copied',
 };
 I18N.ja = {
   atTitle: 'AroundToolでもっと見る', atKo: '韓国語', atTrip: r => `${r}旅行ガイド`, atTripSub: '日程別コース · 予算 · 交通', atFood: (r, n) => `${r}グルメ記録 ${n}軒`, atFoodSub: '対価なしで根拠を示した飲食店の記録', atMoreTitle: 'AroundToolの旅行・グルメ', atAllTrips: n => `旅行ガイド全${n}件を見る`, atAllFood: (g, n) => `全国${g}地域のグルメ${n}軒`, atBy: 'Kリンクの旅行・グルメ情報はAroundTool（aroundtool.com）の記録とつながっています。新しい記事もここに反映されます。',
@@ -221,13 +197,5 @@ I18N.ja = {
   totalPP: '1人あたりの予想費用（宿泊除く）', totalMove: '移動時間の合計', planNote: '移動時間と費用は距離からの目安です。予約時にスタッフが定休日と予約可否を再確認します。', toBook: '予約・同行を選ぶ', planned: '日程ができました',
   mUp: '上へ移動', mDown: '下へ移動', mSwap: '別の店に変える', noOther: '近くにほかの店がありません', mMoveTo: n => `${n}日目へ移動`, movedTo: n => `${n}日目へ移動しました`, mRemove: '日程から外す', optimized: 'ルートを整理しました',
   addStopT: n => `${n}日目に場所を追加`, addStopLead: '保存したけれど日程にない場所です。', addStopNone: '追加できる保存場所はありません。', findMore: '地図で探す',
-  bookTitle: '予約・同行', bookEmptyH: 'まず日程を作ってください', bookEmpty: '日程の中で予約が必要な場所をまとめます。', bookLead: 'オンにした項目だけスタッフが代わりに予約します。料金は1〜4人の1グループあたりです。',
-  bRsv: '予約が必要な場所', bKind: { clinic: '予約＋通訳同行2時間', table: '韓国の電話番号なしで代行予約', ticket: '観覧予約の代行' }, bNoRsv: '予約が必要な場所はありません。',
-  bStay: 'ホテル予約代行', bStaySub: 'おすすめエリアでスタッフが部屋を探します', freeAgency: '代行無料', bNoStay: '宿泊のない日程です。',
-  bGuide: '通訳ガイド', bGuideSub: '観光通訳案内士の資格保有者', gOpt: { none: 'なし', half: '半日', full: '1日' }, guideNote: '半日4時間₩160,000・1日8時間₩300,000。同行の72時間前まで全額返金できます。',
-  selN: n => `${n}件選択`, payBtn: 'WeChat Payで支払う', sendBtn: '予約リクエストを送る', payT: 'お支払いの確認', total: '合計', payNow: '支払う', paidToast: '予約リクエストを送りました',
-  paidEyebrow: 'リクエスト完了', paidH: 'WeChatに日程表を送りました', paidLead: 'スタッフが24時間以内に定休日と予約を確認し、確定版をお送りします。',
-  wMsg: nm => `${nm}さん、予約リクエストを受け付けました。確定したらすぐお知らせします。こちらが今の日程表です。`, chatPh: 'メッセージを入力 · 中文 / English OK', send: '送信',
-  copyTxt: '日程をテキストでコピー', copied: 'コピーしました', editBook: '予約を選び直す', demoNote: 'デモ画面のため、実際の決済や予約は行われません。',
-  thanks: 'どういたしまして！よい旅を。', autoReply: 'メッセージを受け取りました。担当スタッフがまもなく返信します（9〜23時）。'
+  copyTxt: '日程をテキストでコピー', copied: 'コピーしました',
 };

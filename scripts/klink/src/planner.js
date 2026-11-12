@@ -252,6 +252,11 @@ function generatePlan() {
     const perms = permutations(idx.length);
     if (perms) { let bs = Infinity; for (const pm of perms) { let s = 0; pm.forEach((g, j) => { s += conflicts(groups[g], idx[j]) * 1000 + Math.max(0, gl(groups[g]) - W[j].cap); }); if (s < bs) { bs = s; mapping = pm; } } }
     const dayIds = idx.map((_, j) => groups[mapping[j]].slice());
+    // 어라운드툴 추천 코스를 담았으면 코스의 날짜 나눔과 순서를 그대로 쓴다 (닫는 날·시간 충돌은 아래에서 다시 맞춘다)
+    const CD = S.course && S.course.r === r && S.course.days.length === idx.length ? S.course.days.map(d => d.filter(id => P.includes(id))) : null;
+    const cpos = CD ? new Map(CD.flat().map((id, k) => [id, k])) : null;
+    if (CD) { CD.forEach((d, j) => { dayIds[j] = d.slice(); }); P.filter(id => !cpos.has(id)).forEach(id => dayIds.reduce((a, d) => d.length < a.length ? d : a).push(id)); }
+    const ordD = (ids, j, t0) => CD ? ids.slice().sort((a, b) => (cpos.has(a) ? cpos.get(a) : 99) - (cpos.has(b) ? cpos.get(b) : 99)) : orderDayPlaces(ids, stay, t0, r);
     // fix conflicts and overflow
     const loadD = j => dayIds[j].reduce((a, id) => a + loadOf(PBY[id]), 0);
     const homeless = [];
@@ -268,10 +273,10 @@ function generatePlan() {
             for (let k = 0; k < dayIds.length; k++) { if (k === j || conflicts([other], idx[k]) || loadD(k) + loadOf(PBY[other]) > W[k].cap + 20) continue;
               dayIds[j].splice(dayIds[j].indexOf(other), 1); dayIds[k].push(other); bj = j; break outer; } } } }
       if (bj >= 0) dayIds[bj].push(id); else unsched.push({ id, why: conflicts([id], idx[0]) && idx.every(i => conflicts([id], i)) ? 'closed' : 'full' }); }
-    idx.forEach((i, j) => { plan.days[i].stops = orderDayPlaces(dayIds[j], stay, W[j].start, r).map(id => ({ k: 'place', id })); });
+    idx.forEach((i, j) => { plan.days[i].stops = ordD(dayIds[j], j, W[j].start).map(id => ({ k: 'place', id })); });
     insertMeals(plan, idx, F, new Set(used));
     fitRegion(plan, idx, unsched);
-    idx.forEach((i, j) => { const ids = plan.days[i].stops.filter(x => x.k === 'place').map(x => x.id); plan.days[i].stops = orderDayPlaces(ids, stay, dayWindow(plan, i).start, r).map(id => ({ k: 'place', id })); });
+    idx.forEach((i, j) => { const ids = plan.days[i].stops.filter(x => x.k === 'place').map(x => x.id); plan.days[i].stops = ordD(ids, j, dayWindow(plan, i).start).map(id => ({ k: 'place', id })); });
     const left = insertMeals(plan, idx, F, used);
     fitRegion(plan, idx, unsched);
     left.forEach(id => unsched.push({ id, why: 'meals' }));

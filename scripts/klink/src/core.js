@@ -14,7 +14,7 @@ const CATS = {
   palace: { col: '#A0522D' }, food: { col: '#EF7C1C' }, skin: { col: '#E8457A' }, shop: { col: '#0E9A63' },
   cafe: { col: '#8C6A4B' }, kpop: { col: '#8E5BD8' }, night: { col: '#3B3FB6' }, nature: { col: '#0E9F8F' }, fun: { col: '#D99A00' }
 };
-const CAT_ORDER = ['palace', 'nature', 'food', 'cafe', 'shop', 'skin', 'night', 'kpop', 'fun'];
+const CAT_ORDER = ['palace', 'nature', 'food', 'cafe', 'shop', 'night', 'kpop', 'fun'];
 const LINE = ['#2443E8', '#00A84D', '#EF7C1C', '#00A5DE', '#996CAC', '#CD7C2F', '#747F00', '#E6186C', '#8C7B5A', '#5E8E3E'];
 
 const REGIONS = {
@@ -68,7 +68,6 @@ const STAYS = [
   ['ys_dolsan', 'yeosu', 34.7280, 127.7430, ['돌산', '突山', 'Dolsan', '突山'], ['오션뷰 호텔 · 케이블카 근처', '海景酒店 · 近缆车', 'Sea-view hotels · near cable car', 'オーシャンビュー · ケーブルカー近く']]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
-const PRICE = { seoul: [[6, 10], [12, 20], [30, 0]], busan: [[5, 9], [10, 18], [25, 0]], jeju: [[6, 10], [12, 20], [25, 0]], other: [[5, 8], [9, 15], [20, 0]] };
 const REGION_TAG = {
   seoul: ['궁궐과 쇼핑, K-뷰티의 중심', '宫殿、购物与韩式美容中心', 'Palaces, shopping and K-beauty', '宮殿とショッピング、Kビューティーの中心'],
   busan: ['바다와 시장, 야경의 도시', '大海、市场与夜景之城', 'Beaches, markets and night views', '海と市場、夜景の街'],
@@ -196,9 +195,9 @@ function regionOfPoint(pt) { let best = 'seoul', bd = 1e9; for (const r of REGIO
 const KEY = 'klink-v2';
 const DEFAULT = () => ({
   v: 2, lang: null, seenIntro: false,
-  trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['skin', 'food', 'shop'], name: '',
+  trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'],
           arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19 },
-  saved: [], order: [], plan: null, stayOv: {}, book: { rsv: {}, stay: {}, guide: {} }, paid: false, chat: [],
+  saved: [], order: [], plan: null, stayOv: {},
   ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: true }
 });
 let S = DEFAULT();

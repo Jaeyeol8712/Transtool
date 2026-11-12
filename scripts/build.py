@@ -1388,12 +1388,91 @@ def inject_spots():
         _GUIDE.pop(f, None)
 
 
-def klink_spots():
-    """around.json 의 spots: 장소 id → {s: 어라운드툴 명소 안내, g: 가이드에서 나온 줄}. 안내가 없는 곳은 spots_todo.json 에 남긴다."""
+# ── K링크 콘텐츠 연결 (2026-11-12 대표 지시: 맛집·여행지·계산기·추천 코스가 K링크의 정보처가 되게) ──
+# 새 글이 올라오면 다음 빌드에서 자동으로 잡힌다: 장소 이름이 본문에 나오는 맛집·제철 글과 여행 글, 장소가 있는 구의 맛집 기록,
+# 여행 가이드 '일정(ul.days)'에 나온 장소 순서 → 추천 코스.
+K_LINK_GENERIC = {"수산시장", "해수욕장", "중앙시장", "돼지국밥", "밤바다", "해산물", "케이블카", "해상케이블카", "전망대", "한옥마을", "해안도로",
+                  "버스정류장", "흑돼지", "편집숍", "먹거리", "촬영지", "테마파크", "야시장", "빌리지", "리조트", "국립공원", "쇼핑몰",
+                  "차이나타운", "구시가지", "빈원더스"}
+_PTXT = {}
+
+
+def page_text(f):
+    if f not in _PTXT:
+        s = read(f) if os.path.exists(f) else ""
+        a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
+        s = re.sub(r"<!-- at:spots -->.*?<!-- /at:spots -->", "", s[a:b] if a >= 0 < b else s, flags=re.S)
+        _PTXT[f] = re.sub(r"\s+", " ", BeautifulSoup(s, "html.parser").get_text(" ")) if s else ""
+    return _PTXT[f]
+
+
+def link_keys(pl):
+    names = {v[0] for v in KLINK_REGIONS.values()} | {r["name"] for r in KLINK_INDEX}
+    return [k for k in spot_keys(pl) if len(k) >= 3 and k not in K_LINK_GENERIC and k not in names]
+
+
+def klink_links(pl, zone, gus):
+    """이 장소를 다룬 어라운드툴 글: f 맛집·제철 글, t 다른 여행 글, gu 이 구의 맛집 기록."""
+    ks, o = link_keys(pl), {}
+    if ks:
+        food_rid = KLINK_REGIONS.get(pl["r"], (None, None))[1]
+        def ranked(files, need):
+            sc = []
+            for fl in files:
+                t, body = PAGES[fl].get("title", ""), page_text(fl)
+                n = sum(body.count(k) for k in ks) + 5 * any(k in t for k in ks)
+                if n >= need:
+                    sc.append((-n, fl))
+            return [fl for _, fl in sorted(sc)[:3]]
+        # 맛집: 제철·시장 글은 이름이 한 번만 나와도, 지역 맛집 글은 두 번 이상(구 맛집 기록은 gu 로 따로 잇는다)
+        foods = [q["file"] for q in FOOD_OK if q["region"] == "season"]
+        near = [q["file"] for q in FOOD_OK if food_rid and q["region"] == food_rid and q["special"] in (True, "True") and not q["prefix"].endswith("-winter")]
+        o["f"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") if PAGES[fl].get("region") != "season" else PAGES[fl].get("cat") or PAGES[fl]["title"],
+                   "desc": PAGES[fl].get("detail", "")} for fl in (ranked(foods, 1) + ranked(near, 2))[:3]]
+        trips = [f"{slug}.html" for slug, _, _ in TRIP_PAGES if f"{slug}.html" in PAGES and slug != f"travel-{pl['r']}"]
+        o["t"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") or PAGES[fl]["title"]} for fl in ranked(trips, 3)]
+    z = (zone or "").split("·")[0].split(" ")[0]
+    g = next((g for g in gus if g["gu"] == zone or (z and g["gu"] in (z, z + "시"))), None)
+    if g:
+        o["gu"] = {"gu": g["gu"], "url": g["url"], "count": g["count"], "cats": g["cats"][:4]}
+    return {k: v for k, v in o.items() if v}
+
+
+def klink_courses(rid, P):
+    """여행 가이드의 일정(ul.days)을 K링크 장소 id 순서로 바꾼 추천 코스."""
+    f = f"travel-{rid}.html"
+    g = guide_parts(f) if f in PAGES else None
+    if not g or not g["days"]:
+        return []
+    mine = [p for p in P if p["r"] == rid]
+    def match(tok):
+        tok = tok.strip()
+        core = re.sub(r"\s*(산책|야경|구경|관람|투어|출발|도착)$", "", tok)
+        for p in mine:
+            nm = p["n"]["ko"]
+            if any(k in tok for k in link_keys(p) + [nm]) or (len(core) >= 3 and core in nm):
+                return p["id"]
+        return None
+    out, cur = [], None
+    for plan, dn, dt, dc in g["days"]:
+        if not cur or cur["t"] != plan:
+            cur = {"t": plan, "url": f"{SITE}/{f}", "days": []}
+            out.append(cur)
+        ids = []
+        for tok in re.split(r"[→·,]", dc):
+            i = match(tok)
+            if i and i not in ids and not any(i in d["ids"] for d in cur["days"]):
+                ids.append(i)
+        cur["days"].append({"d": dn, "t": dt, "ids": ids})
+    return [c for c in out if sum(len(d["ids"]) for d in c["days"]) >= 3]
+
+
+def klink_spots(regions=None):
+    """around.json 의 spots: 장소 id → {s: 어라운드툴 명소 안내, g: 가이드에서 나온 줄, f/t/gu: 이 장소를 다룬 글}. 안내가 없는 곳은 spots_todo.json 에 남긴다."""
     P, zone = klink_places()
     out, todo = {}, {}
     for pl in P:
-        o = {}
+        o = klink_links(pl, zone.get(pl["id"], ""), (regions or {}).get(pl["r"], {}).get("gus", []))
         if pl["id"] in SPOTS:
             sp = dict(SPOTS[pl["id"]])
             sp["photo"] = spot_photo(sp.get("photo"))
@@ -1452,7 +1531,10 @@ def build_klink_data():
                    for g in travel_guides()]
     data = {"site": SITE, "name": NAME, "travel": f"{SITE}/travel.html", "food": f"{SITE}/food.html",
             "counts": {"places": N_PLACES, "gu": N_GU, "trips": len(TRIP_PAGES)}, "regions": regions, "moreTrips": more,
-            "prep": {"tools": prep_tools, "guides": prep_guides}, "spots": klink_spots()}
+            "prep": {"tools": prep_tools, "guides": prep_guides}, "spots": klink_spots(regions)}
+    P, _ = klink_places()
+    for rid, r in regions.items():
+        r["courses"] = klink_courses(rid, P)
     os.makedirs("klink", exist_ok=True)
     with open("klink/around.json", "w", encoding="utf-8") as fh:
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))

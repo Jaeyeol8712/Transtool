@@ -103,6 +103,21 @@ ys_dolsanpark 34.7317 127.7409 0 24 night - 1
 # Changes to existing places (Korean text, category, flags)
 UPDATES = {
     "smt": None,  # replaced by "coex"
+    # 2026-11-12 근거 없는 시연용 장소 제거 (prune_places.py REMOVED 와 같게)
+    "skin1": None,
+    "skin2": None,
+    "spa": None,
+    "bs_skin": None,
+    "samgyup": None,
+    "gejang": None,
+    "samgye": None,
+    "kalguksu": None,
+    "sbrunch": None,
+    "hanwoo": None,
+    "bs_gejang": None,
+    "jn_bibim": None,
+    "ys_gejang": None,
+    "hybe": None,
     "hybe": {"d": ["BTS 팬들이 찾는 하이브 사옥 주변", "BTS 粉丝常去的 HYBE 总部周边", "Outside HYBE HQ, a BTS fan stop", "BTSファンが訪れるHYBE社屋周辺"]},
     "banpo": {"season": [4, 10]},
     "jn_night": {"closed": [0, 1, 2, 3, 4]},

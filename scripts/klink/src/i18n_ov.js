@@ -87,3 +87,32 @@ Object.assign(I18N.ja, {
   checkedOn: d => `${d} 確認`, checkBefore: '営業時間・料金は変わることがあります', guideMore: '旅行ガイドで詳しく見る',
   spotSoonH: 'スポット案内は準備中', spotSoon: 'AroundToolがこの場所の営業時間・料金・見どころを公式情報で確認してまとめています。'
 });
+/* 2026-11-12 K링크 정리: 예약·결제 대행 대신 어라운드툴 콘텐츠(추천 코스·맛집 기록·준비 계산기)를 잇는다 */
+Object.assign(I18N.ko, {
+  planNote: '이동 시간은 거리로 계산한 예상치예요. 운영 시간·요금·휴무일은 방문 전에 공식 안내로 확인하세요.',
+  slotAm: '오전', slotPm: '오후', slotEve: '저녁', totalPlaces: '일정에 넣은 곳',
+  coursesTitle: '어라운드툴 추천 코스', coursesSub: '여행 가이드의 코스를 그대로 담아요', courseLoad: '이 코스 담기', courseOpen: '가이드 보기',
+  courseLoaded: n => `코스의 ${n}곳을 담고 일정을 짰어요`, courseStops: n => `${n}곳`,
+  tripsTitle: '이 장소가 나오는 여행 글', foodTitle: '어라운드툴 맛집·먹거리 기록', foodSub: '이 근처를 다룬 글'
+});
+Object.assign(I18N.zh, {
+  planNote: '交通时间是按距离估算的。营业时间、费用和休息日请在出发前查看官方信息。',
+  slotAm: '上午', slotPm: '下午', slotEve: '晚上', totalPlaces: '行程中的地点',
+  coursesTitle: 'AroundTool 推荐路线', coursesSub: '直接载入旅行指南里的路线', courseLoad: '载入这条路线', courseOpen: '查看指南',
+  courseLoaded: n => `已载入路线中的 ${n} 个地点并生成行程`, courseStops: n => `${n} 处`,
+  tripsTitle: '提到这里的旅行文章', foodTitle: 'AroundTool 美食记录', foodSub: '介绍这一带的文章'
+});
+Object.assign(I18N.en, {
+  planNote: 'Travel times are estimates based on distance. Check official information for hours, prices and closing days before you go.',
+  slotAm: 'Morning', slotPm: 'Afternoon', slotEve: 'Evening', totalPlaces: 'Places in plan',
+  coursesTitle: 'AroundTool routes', coursesSub: 'Load a route from our travel guides', courseLoad: 'Use this route', courseOpen: 'Read guide',
+  courseLoaded: n => `Added ${n} places from the route and built your plan`, courseStops: n => `${n} stops`,
+  tripsTitle: 'Also in these travel guides', foodTitle: 'AroundTool food notes', foodSub: 'Articles about this area'
+});
+Object.assign(I18N.ja, {
+  planNote: '移動時間は距離からの目安です。営業時間・料金・定休日は出発前に公式情報でご確認ください。',
+  slotAm: '午前', slotPm: '午後', slotEve: '夜', totalPlaces: '日程に入れた場所',
+  coursesTitle: 'AroundTool おすすめコース', coursesSub: '旅行ガイドのコースをそのまま入れます', courseLoad: 'このコースを入れる', courseOpen: 'ガイドを見る',
+  courseLoaded: n => `コースの${n}か所を入れて日程を作りました`, courseStops: n => `${n}か所`,
+  tripsTitle: 'この場所が出てくる旅行記事', foodTitle: 'AroundTool グルメ記録', foodSub: 'この周辺を扱った記事'
+});
