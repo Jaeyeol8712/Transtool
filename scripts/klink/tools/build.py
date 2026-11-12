@@ -34,6 +34,8 @@ html = f'''<!DOCTYPE html>
 <style>
 {src('style.css')}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>

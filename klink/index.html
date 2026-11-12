@@ -536,6 +536,8 @@ p{text-wrap:pretty}
 .crs-a .btn{flex:1;text-decoration:none}
 
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
@@ -1140,10 +1142,12 @@ function savedRegions() {
   for (const r of rs) if (!S.order.includes(r)) S.order.push(r);
   return S.order.slice();
 }
+function track(name, p) { try { if (typeof gtag === 'function') gtag('event', name, p || {}); } catch (e) {} }
 function toggleSave(id) {
   const i = S.saved.indexOf(id);
   if (i >= 0) S.saved.splice(i, 1); else S.saved.push(id);
   savedRegions(); persist();
+  if (i < 0 && PBY[id]) track('klink_save', { region: PBY[id].r });
   return i < 0;
 }
 const isSaved = id => S.saved.includes(id);
@@ -2131,7 +2135,7 @@ function renderChrome() {
 }
 function go(tab) {
   if (S.ui.tab === tab && tab === 'map' && S.ui.sel) { S.ui.sel = null; }
-  S.ui.tab = tab; persist(); renderAll();
+  S.ui.tab = tab; persist(); if (tab === 'prep') track('klink_prep'); renderAll();
   panel.scrollTop = 0; const inn = $('.panel-in'); if (inn) inn.scrollTop = 0;
 }
 function renderAll(keepStage) { renderChrome(); renderPanel(); renderStage(!keepStage ? false : true); }
@@ -2641,7 +2645,7 @@ function loadCourse(v) {
   const days = c.days.map(d => d.ids.filter(id => PBY[id])), ids = days.flat();
   S.saved = [...S.saved.filter(id => PBY[id].r !== r), ...ids]; savedRegions();
   if (S.order.length === 1) S.trip.end = addDays(S.trip.start, days.length - 1);
-  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.courseLoaded(ids.length));
+  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_course', { region: r }); go('plan'); toast(T.courseLoaded(ids.length));
 }
 
 /* ---------- 일정 텍스트 ---------- */
@@ -2659,7 +2663,7 @@ Object.assign(ACT, {
   ordUp: v => { const o = tripOrder(), k = o.indexOf(v); if (k > 0) { [o[k - 1], o[k]] = [o[k], o[k - 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordDown: v => { const o = tripOrder(), k = o.indexOf(v); if (k >= 0 && k < o.length - 1) { [o[k + 1], o[k]] = [o[k], o[k + 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordAuto: () => { S.orderManual = false; persist(); renderPanel(); },
-  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.planned); },
+  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_plan', { places: S.saved.length }); go('plan'); toast(T.planned); },
   day: v => { S.ui.day = +v; persist(); renderPanel(); if (isDesk()) renderStage(); },
   openPlace: v => selectPlace(v),
   stopMenu: (v, el) => { const i = S.ui.day, si = +v, st = S.plan.days[i].stops, e = st[si];
@@ -2702,6 +2706,13 @@ function init() {
   renderChrome(); renderPanel(); safeStage();
   if (!S.seenIntro) showIntro();
 }
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+  let u; try { u = new URL(a.getAttribute('href'), location.href); } catch (x) { return; }
+  if (!/(^|\.)aroundtool\.com$/.test(u.hostname) || u.pathname.startsWith('/klink/')) return;
+  const f = u.pathname.replace(/^\//, ''), kind = /_calculator\.html$/.test(f) || f === 'tools.html' ? 'calculator' : /^guide[-_]/.test(f) ? 'guide' : /^travel[-.]/.test(f) ? 'travel' : /^season/.test(f) ? 'season' : /^(shop|connect)/.test(f) ? 'recommend' : /\.html$/.test(f) ? 'food' : 'other';
+  track('klink_out', { kind });
+}, true);
 const _renderAll0 = renderAll;
 renderAll = function (keep) { renderChrome(); renderPanel(); safeStage(); };
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

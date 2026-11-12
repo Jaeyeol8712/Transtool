@@ -213,10 +213,12 @@ function savedRegions() {
   for (const r of rs) if (!S.order.includes(r)) S.order.push(r);
   return S.order.slice();
 }
+function track(name, p) { try { if (typeof gtag === 'function') gtag('event', name, p || {}); } catch (e) {} }
 function toggleSave(id) {
   const i = S.saved.indexOf(id);
   if (i >= 0) S.saved.splice(i, 1); else S.saved.push(id);
   savedRegions(); persist();
+  if (i < 0 && PBY[id]) track('klink_save', { region: PBY[id].r });
   return i < 0;
 }
 const isSaved = id => S.saved.includes(id);

@@ -160,7 +160,7 @@ function loadCourse(v) {
   const days = c.days.map(d => d.ids.filter(id => PBY[id])), ids = days.flat();
   S.saved = [...S.saved.filter(id => PBY[id].r !== r), ...ids]; savedRegions();
   if (S.order.length === 1) S.trip.end = addDays(S.trip.start, days.length - 1);
-  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.courseLoaded(ids.length));
+  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_course', { region: r }); go('plan'); toast(T.courseLoaded(ids.length));
 }
 
 /* ---------- 일정 텍스트 ---------- */
@@ -178,7 +178,7 @@ Object.assign(ACT, {
   ordUp: v => { const o = tripOrder(), k = o.indexOf(v); if (k > 0) { [o[k - 1], o[k]] = [o[k], o[k - 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordDown: v => { const o = tripOrder(), k = o.indexOf(v); if (k >= 0 && k < o.length - 1) { [o[k + 1], o[k]] = [o[k], o[k + 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordAuto: () => { S.orderManual = false; persist(); renderPanel(); },
-  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.planned); },
+  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_plan', { places: S.saved.length }); go('plan'); toast(T.planned); },
   day: v => { S.ui.day = +v; persist(); renderPanel(); if (isDesk()) renderStage(); },
   openPlace: v => selectPlace(v),
   stopMenu: (v, el) => { const i = S.ui.day, si = +v, st = S.plan.days[i].stops, e = st[si];

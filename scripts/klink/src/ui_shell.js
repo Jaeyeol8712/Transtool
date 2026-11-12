@@ -72,7 +72,7 @@ function renderChrome() {
 }
 function go(tab) {
   if (S.ui.tab === tab && tab === 'map' && S.ui.sel) { S.ui.sel = null; }
-  S.ui.tab = tab; persist(); renderAll();
+  S.ui.tab = tab; persist(); if (tab === 'prep') track('klink_prep'); renderAll();
   panel.scrollTop = 0; const inn = $('.panel-in'); if (inn) inn.scrollTop = 0;
 }
 function renderAll(keepStage) { renderChrome(); renderPanel(); renderStage(!keepStage ? false : true); }

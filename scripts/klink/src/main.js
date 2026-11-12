@@ -12,6 +12,13 @@ function init() {
   renderChrome(); renderPanel(); safeStage();
   if (!S.seenIntro) showIntro();
 }
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+  let u; try { u = new URL(a.getAttribute('href'), location.href); } catch (x) { return; }
+  if (!/(^|\.)aroundtool\.com$/.test(u.hostname) || u.pathname.startsWith('/klink/')) return;
+  const f = u.pathname.replace(/^\//, ''), kind = /_calculator\.html$/.test(f) || f === 'tools.html' ? 'calculator' : /^guide[-_]/.test(f) ? 'guide' : /^travel[-.]/.test(f) ? 'travel' : /^season/.test(f) ? 'season' : /^(shop|connect)/.test(f) ? 'recommend' : /\.html$/.test(f) ? 'food' : 'other';
+  track('klink_out', { kind });
+}, true);
 const _renderAll0 = renderAll;
 renderAll = function (keep) { renderChrome(); renderPanel(); safeStage(); };
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
