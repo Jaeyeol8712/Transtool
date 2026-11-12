@@ -249,33 +249,58 @@ function placeRow(p, opts = {}) {
     <span class="ds">${opts.sub || esc(pd(p.id))}</span>${tags.length ? `<span class="mt">${tags.join('')}</span>` : ''}</span></button>${heartBtn(p.id)}</div>`;
 }
 function placeInPlan(id) { if (!S.plan) return -1; return S.plan.days.findIndex(d => d.stops.some(s => s.id === id)); }
+/* ---------- 장소 상세: 어라운드툴 명소 안내 + 가이드 코스 (2026-11-12) ---------- */
+const spotOf = id => (AROUND && AROUND.spots && AROUND.spots[id]) || {};
+const hiRoute = (txt, keys) => { let h = esc(txt); for (const k of (keys || []).slice().sort((a, b) => b.length - a.length)) { const e = esc(k); if (e && h.includes(e)) { h = h.split(e).join(`<b>${e}</b>`); break; } } return h; };
+const ic = (name, s = 18) => ICONS[name].replace('<svg ', `<svg width="${s}" height="${s}" `);
 function placeDetail(id) {
-  const p = PBY[id], di = placeInPlan(id);
-  const facts = p.est ? [   // 해외: 운영 시간·요금은 확인된 값이 아니라서 '현지 확인'으로 보여 준다
-    [T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<br><span class="muted" style="font-weight:500">${F.closed(p)}</span>` : ''}`],
-    [T.fStay, T.usually(F.dur(p.h * 60))],
-    [T.fPrice, T.localCheck],
-    [T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]
-  ] : [
-    [T.fHours, `${F.hours(p)}<br><span class="muted" style="font-weight:500">${F.closed(p)}</span>`],
-    [T.fStay, T.usually(F.dur(p.h * 60))],
-    [T.fPrice, p.cost ? T.perPerson(F.money(p.cost)) : T.free],
-    [T.fRsv, p.rsv ? T.needRsv : T.noRsv],
-    [T.fWhere, `${esc(stationOf(p))}${S.lang !== 'ko' ? `<br><span class="muted" style="font-weight:500" lang="ko">${esc(p.st)}</span>` : ''}`, true]
-  ];
-  if (p.season) facts.splice(1, 0, [T.fSeason, T.season(p.season[0], p.season[1]), true]);
-  const best = { am: T.bestAmL, eve: T.bestEveL, night: T.bestNightL }[p.best];
+  const p = PBY[id], di = placeInPlan(id), { s: sp, g } = spotOf(id), ko = S.lang !== 'ko' ? ` lang="ko"` : '';
+  const col = CATS[p.c].col, best = { am: T.bestAmL, eve: T.bestEveL, night: T.bestNightL }[p.best];
+  // 한눈에 보는 정보: 명소 안내가 있으면 그 내용(한국어), 없으면 K링크 기본값
+  const F_ = sp ? sp.facts : null;
+  const facts = F_ ? [['clock', T.fHours, F_.hours], ['ticket', T.fFee, F_.fee], ['walk', T.fStay, F_.stay], ['sun', T.fWhen, F_.when], ['pin', T.fWhere, F_.access, 1]]
+      .filter(x => x[2]).map(([i, k, v, w]) => [i, k, `<span${ko}>${esc(v)}</span>`, w])
+    : p.est ? [['clock', T.fHours, `${T.localCheck}${p.closed && p.closed.length ? `<small>${F.closed(p)}</small>` : ''}`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
+        ['ticket', T.fFee, T.localCheck], ['pin', T.fWhere, esc(`${rn(p.r)} · ${dn(p.dist)}`)]]
+    : [['clock', T.fHours, `${F.hours(p)}<small>${F.closed(p)}</small>`], ['walk', T.fStay, T.usually(F.dur(p.h * 60))],
+        ['ticket', T.fFee, p.cost ? T.perPerson(F.money(p.cost)) : T.free], ['check', T.fRsv, p.rsv ? T.needRsv : T.noRsv],
+        ['pin', T.fWhere, `${esc(stationOf(p))}${S.lang !== 'ko' ? `<small lang="ko">${esc(p.st)}</small>` : ''}`, 1]];
+  if (!F_ && best) facts.splice(2, 0, ['sun', T.fWhen, best]);
+  if (p.season) facts.splice(1, 0, ['cal', T.fSeason, T.season(p.season[0], p.season[1]), 1]);
+  { const half = facts.filter(f => !f[3]); if (half.length % 2) half[half.length - 1][3] = 1; }   // 두 칸씩 맞추고 남는 칸은 넓게
+  const factsHtml = `<div class="pdx-facts">${facts.map(([i, k, v, w]) => `<div class="pdx-f ${w ? 'wide' : ''}"><span class="i" style="color:${col}">${ic(i)}</span><div><small>${k}</small><b>${v}</b></div></div>`).join('')}</div>`;
+  const photo = sp && sp.photo ? `<figure class="pdx-ph"><img src="${esc(sp.photo.src)}" alt="${esc(sp.photo.alt)}" loading="lazy" decoding="async"><figcaption>${T.photoBy} ${sp.photo.link ? `<a href="${esc(sp.photo.link)}" target="_blank" rel="noopener nofollow">${esc(sp.photo.by)}</a>` : esc(sp.photo.by)} · ${esc(sp.photo.lic)}</figcaption></figure>`
+    : `<div class="pdx-cover" style="--c:${col}"><span class="big">${catIcon(p.c).replace('<svg ', '<svg width="40" height="40" ')}</span><span class="tx">${esc(rn(p.r))}<b>${esc(dn(p.dist))}</b></span></div>`;
+  const chips = [`<span class="pdx-cat" style="background:${col}">${catIcon(p.c).replace('<svg ', '<svg width="14" height="14" ')}${esc(T.cats[p.c])}</span>`,
+    p.best === 'night' && p.c !== 'night' ? `<span class="pdx-chip">${T.bestNight}</span>` : p.best === 'am' ? `<span class="pdx-chip">${T.bestAm}</span>` : '',
+    p.rsv ? `<span class="pdx-chip rsv">${T.needRsv}</span>` : '', p.far ? `<span class="pdx-chip">${T.far}</span>` : ''].join('');
+  const sec = (title, body, extra = '') => `<section class="pdx-sec"><h3>${title}${extra}</h3>${body}</section>`;
+  const see = sp && sp.see && sp.see.length ? sec(T.seeTitle, `<ol class="pdx-see"${ko}>${sp.see.map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('')}</ol>`, koOnly()) : '';
+  const tips = sp && sp.tips && sp.tips.length ? `<div class="pdx-tips"${ko}><h3>${T.tipsTitle}</h3><ul>${sp.tips.map(t => `<li>${ic('check', 16)}<span>${esc(t)}</span></li>`).join('')}</ul></div>` : '';
+  const course = g && (g.days || g.area) ? sec(T.courseTitle, `${g.area ? `<div class="pdx-area"${ko}><small>${T.areaLbl}</small><b>${esc(g.area[0])}</b><span>${esc(g.area[1])}${g.area[2] ? ` · ${esc(g.area[2])}` : ''}</span></div>` : ''}
+      ${(g.days || []).map(d => `<div class="pdx-day"${ko}><div class="lbl"><span>${esc(d[0].replace(/\s*—.*$/, ''))}</span><em>${esc(d[1])}</em>${d[2] ? `<b>${esc(d[2])}</b>` : ''}</div><p>${hiRoute(d[3], g.keys)}</p></div>`).join('')}`, koOnly()) : '';
+  const moves = g && g.moves ? sec(T.movesTitle, `<div class="pdx-moves"${ko}>${g.moves.map(m => `<div><span>${esc(m[0])}</span><em>${esc(m[1])}</em><b>${esc(m[2])}</b></div>`).join('')}</div>`) : '';
+  const faq = g && g.faq ? sec(T.faqTitle, `<div class="pdx-faq"${ko}>${g.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`) : '';
+  const near = PLACES.filter(q => q.r === p.r && q.id !== id).map(q => [hav(p, q), q]).sort((a, b) => a[0] - b[0]).slice(0, 3)
+    .map(([, q]) => { const L = legBetween(p, q, p.r); return `<div class="prow"><button class="row grow" style="text-align:left;gap:12px" data-act="place" data-v="${q.id}">${cicon(q.c, 'sm')}<span class="tx"><span class="nm">${esc(pn(q.id))}</span><span class="ds">${modeLabel(L)} ${F.dur(L.min)}</span></span></button>${heartBtn(q.id)}</div>`; }).join('');
+  const srcRow = sp ? `<div class="pdx-src"><div class="who">${ic('check', 16)}<span>${T.spotFrom}<small>${T.checkedOn(sp.checked)} · ${T.checkBefore}</small></span></div>
+      ${(sp.src || []).filter(x => !/aroundtool\.com/.test(x[1])).length ? `<div class="links">${sp.src.filter(x => !/aroundtool\.com/.test(x[1])).map(([n, u]) => ext(u, esc(n))).join('')}</div>` : ''}
+      ${sp.url ? ext(sp.url, `${ic('map', 18)}${T.guideMore}`, 'btn ghost block') : ''}</div>`
+    : `<div class="pdx-soon">${ic('info', 20)}<div><b>${T.spotSoonH}</b><span>${T.spotSoon}</span>${g ? ext(g.url, `${esc(g.title)} ›`, 'lnk') : ''}</div></div>`;
   return `<button class="back" data-act="unsel">${ICONS.left}${esc(S.ui.lvl === 'district' ? dn(S.ui.d) : rn(p.r))}</button>
-    <div class="pd-head">${cicon(p.c)}<div class="grow"><div class="pd-name">${esc(pn(id))}</div>${S.lang !== 'ko' ? `<div class="pd-ko" lang="ko">${esc(p.n.ko)}</div>` : ''}
-      <div class="pd-ko">${esc(T.cats[p.c])} · ${esc(rn(p.r))} ${esc(dn(p.dist))}</div></div>${heartBtn(id)}</div>
-    <p class="lead" style="margin-top:12px;color:var(--ink2)">${esc(pd(id))}</p>
-    ${best ? `<div class="banner" style="background:var(--cobalt-soft);color:var(--cobalt2)">${ICONS.clock.replace('<svg ', '<svg width="18" height="18" ')}<span>${best}</span></div>` : ''}
-    ${di >= 0 ? `<div class="banner" style="background:var(--green-soft);color:var(--green)">${ICONS.check.replace('<svg ', '<svg width="18" height="18" ')}<span>${T.inPlanDay(di + 1)}</span><button class="btn sm soft" data-act="gotoDay" data-v="${di}">${T.viewPlan}</button></div>` : ''}
-    <div class="pd-facts">${facts.map(([k, v, w]) => `<div class="fact ${w ? 'wide' : ''}"><small>${k}</small><b>${v}</b></div>`).join('')}</div>
+    ${photo}
+    <div class="pdx-head"><div class="grow"><div class="pdx-chips">${chips}</div><h2 class="pdx-name">${esc(pn(id))}</h2>
+      ${S.lang !== 'ko' ? `<div class="pd-ko" lang="ko">${esc(p.n.ko)}</div>` : ''}<div class="pdx-where">${ic('pin', 14)}${esc(rn(p.r))} · ${esc(dn(p.dist))}</div></div>${heartBtn(id)}</div>
+    <p class="pdx-one"${sp ? ko : ''}>${esc(sp ? sp.one : pd(id))}</p>
+    ${di >= 0 ? `<div class="banner" style="background:var(--green-soft);color:var(--green)">${ic('check')}<span>${T.inPlanDay(di + 1)}</span><button class="btn sm soft" data-act="gotoDay" data-v="${di}">${T.viewPlan}</button></div>` : ''}
+    ${factsHtml}
     <div class="pd-acts"><button class="btn ${isSaved(id) ? 'ghost' : ''}" data-save="${id}">${isSaved(id) ? ICONS.heartF : ICONS.heart}${isSaved(id) ? T.savedBtn : T.saveBtn}</button>
       ${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn ghost" data-act="addToPlan" data-v="${id}">${ICONS.plus}${T.addToPlan}</button>` : ''}
       <button class="btn ghost" data-act="taxi" data-v="${id}" style="flex:0 0 auto">${ICONS.taxi}<span class="vh">${T.taxiCard}</span></button></div>
-    ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}<p class="note">${T.estNote}</p>` : ''}
+    ${p.est ? `${ext(mapUrl(p), `${ICONS.pin}${T.openMap}`, 'btn ghost block maplink')}${sp ? '' : `<p class="note">${T.estNote}</p>`}` : ''}
+    ${see}${tips}${course}${moves}${faq}
+    ${near ? sec(T.nearTitle, `<div class="list">${near}</div>`) : ''}
+    ${srcRow}
     ${aroundCard(p.r, p.dist, true)}`;
 }
 function stationOf(p) { return /역/.test(p.st) ? stationTr(p.st) : `${rn(p.r)} ${dn(p.dist)}`; }

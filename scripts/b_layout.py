@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup, NavigableString, Comment
 
 TOP = "<!-- /at:top -->"
 BOT = "<!-- at:bottom -->"
-NO_NUM = ("자주 묻는 질문", "다른 ", "이 글의 기준", "함께 보면", "관련", "출처", "참고 자료")
+NO_NUM = ("자주 묻는 질문", "명소 안내", "다른 ", "이 글의 기준", "함께 보면", "관련", "출처", "참고 자료")
 
 
 def _text(el):

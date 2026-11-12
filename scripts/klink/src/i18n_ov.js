@@ -62,3 +62,28 @@ Object.assign(I18N.ja, {
   introP: '地図を見ながら行きたい場所を保存しましょう。韓国は3Dストリート、海外は都市の地図で選ぶと、距離と営業時間から日ごとのルートと宿泊エリアを提案します。',
   introStops: ['ソウル', '釜山', '東京', 'ダナン'], introSteps: ['韓国・海外から行き先を選ぶ', '地図で観光地・グルメを保存', '日ごとのルートと宿泊エリアを提案', '旅の準備の計算ツール・ガイド']
 });
+/* 장소 상세 개편 (2026-11-12) */
+Object.assign(I18N.ko, {
+  fFee: '요금', fWhen: '가기 좋은 때', seeTitle: '이곳의 볼거리', tipsTitle: '알아 두면 좋아요', courseTitle: '어라운드툴 코스에서는', areaLbl: '권역',
+  movesTitle: '이동 시간', faqTitle: '자주 묻는 질문', nearTitle: '가까운 곳', photoBy: '사진', spotFrom: '어라운드툴 명소 안내',
+  checkedOn: d => `${d} 확인`, checkBefore: '운영 시간·요금은 바뀔 수 있어요', guideMore: '여행 가이드에서 자세히 보기',
+  spotSoonH: '명소 안내 준비 중', spotSoon: '어라운드툴이 이곳의 운영 시간·요금·볼거리를 공식 안내로 확인해 정리하고 있어요.'
+});
+Object.assign(I18N.zh, {
+  fFee: '费用', fWhen: '推荐时段', seeTitle: '看点', tipsTitle: '小贴士', courseTitle: 'AroundTool 路线中', areaLbl: '区域',
+  movesTitle: '交通时间', faqTitle: '常见问题', nearTitle: '附近', photoBy: '照片', spotFrom: 'AroundTool 景点介绍',
+  checkedOn: d => `${d} 核实`, checkBefore: '营业时间和费用可能变动', guideMore: '在旅行指南中查看详情',
+  spotSoonH: '景点介绍准备中', spotSoon: 'AroundTool 正在根据官方信息整理这里的营业时间、费用和看点。'
+});
+Object.assign(I18N.en, {
+  fFee: 'Price', fWhen: 'Best time', seeTitle: 'Highlights', tipsTitle: 'Good to know', courseTitle: 'In AroundTool routes', areaLbl: 'Area',
+  movesTitle: 'Travel times', faqTitle: 'FAQ', nearTitle: 'Nearby', photoBy: 'Photo', spotFrom: 'AroundTool spot guide',
+  checkedOn: d => `Checked ${d}`, checkBefore: 'Hours and prices may change', guideMore: 'Read more in the travel guide',
+  spotSoonH: 'Spot guide coming soon', spotSoon: 'AroundTool is checking official sources for this place’s hours, prices and highlights.'
+});
+Object.assign(I18N.ja, {
+  fFee: '料金', fWhen: 'おすすめの時間', seeTitle: '見どころ', tipsTitle: '知っておきたいこと', courseTitle: 'AroundToolのコースでは', areaLbl: 'エリア',
+  movesTitle: '移動時間', faqTitle: 'よくある質問', nearTitle: '近くのスポット', photoBy: '写真', spotFrom: 'AroundTool スポット案内',
+  checkedOn: d => `${d} 確認`, checkBefore: '営業時間・料金は変わることがあります', guideMore: '旅行ガイドで詳しく見る',
+  spotSoonH: 'スポット案内は準備中', spotSoon: 'AroundToolがこの場所の営業時間・料金・見どころを公式情報で確認してまとめています。'
+});

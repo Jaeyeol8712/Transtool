@@ -367,5 +367,37 @@
   "b-tangerine": [
     "tangerine orchard jeju",
     "mandarin oranges tree"
+  ],
+  "k-gj-bulguksa": [
+    "Bulguksa",
+    "Bulguksa temple Gyeongju"
+  ],
+  "k-gj-seokguram": [
+    "Seokguram",
+    "Seokguram grotto"
+  ],
+  "k-gj-daereung": [
+    "Daereungwon",
+    "Cheomseongdae"
+  ],
+  "k-gj-wolji": [
+    "Donggung Palace and Wolji Pond",
+    "Anapji"
+  ],
+  "k-gj-gyochon": [
+    "Woljeonggyo",
+    "Gyochon Gyeongju"
+  ],
+  "k-gj-hwangni": [
+    "Hwangnidan-gil",
+    "Gyeongju hanok"
+  ],
+  "k-gj-ssambap": [
+    "ssambap",
+    "Korean ssam lettuce wrap"
+  ],
+  "k-gj-bomun": [
+    "Bomun Lake",
+    "Bomun lake Gyeongju"
   ]
 }

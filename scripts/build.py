@@ -36,6 +36,7 @@ from shop_extra import SHOP_EXTRA, TRUST_NOTE, TRUST_NOTE_TRAVEL, SHOP_UPDATED  
 from connect_posts import POSTS, DISCLOSURE  # noqa: E402
 from shop_sources import SHOP_SOURCES  # noqa: E402  (컨펌 i08)
 from guides import GUIDES  # noqa: E402
+from spots_data import SPOTS, ALIASES as SPOT_ALIASES, GENERIC as SPOT_GENERIC  # noqa: E402  (2026-11-12 명소 안내)
 
 SITE = "https://www.aroundtool.com"
 NAME = "어라운드툴"
@@ -1228,6 +1229,180 @@ def klink_cta_html(p):
             f'<span class="at-klink-go" aria-hidden="true">›</span></a>')
 
 
+# ── 명소 안내 (2026-11-12 대표 지시) ─────────────────────────────
+# K링크에서 명소를 누르면 어라운드툴 정보가 보이게: ① spots_data.SPOTS(직접 확인해 쓴 안내)
+# ② 그 지역 여행 가이드의 코스·이동·FAQ에서 이 장소가 나오는 줄(자동 추출). 둘 다 around.json 의 spots 로 내보낸다.
+KLINK_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "klink", "build")
+K_CAT = {"palace": "역사·문화", "food": "맛집", "skin": "피부·뷰티", "shop": "쇼핑", "cafe": "카페", "kpop": "K-POP", "night": "야경",
+         "nature": "자연·바다", "fun": "테마파크·체험"}
+
+
+def klink_places():
+    try:
+        P = json.load(open(os.path.join(KLINK_DIR, "places.json"), encoding="utf-8"))
+        G = json.load(open(os.path.join(KLINK_DIR, "geo.json"), encoding="utf-8"))
+    except FileNotFoundError:
+        return [], {}
+    zones = {d["id"]: d["n"][0] for reg in G["regions"].values() for d in reg["districts"]}
+    return P, {pid: zones.get(z, "") for pid, z in G["pd"].items()}
+
+
+def spot_keys(pl):
+    if pl["id"] in SPOT_ALIASES:
+        return SPOT_ALIASES[pl["id"]]
+    n = pl["n"]["ko"]
+    toks = [t.strip() for t in re.split(r"[·()\s]", n) if t.strip()]
+    return list(dict.fromkeys([n] + [t for t in toks if len(t) >= 2 and t not in SPOT_GENERIC]))
+
+
+_GUIDE = {}
+
+
+def guide_parts(f):
+    """여행 가이드 본문에서 권역 표·일정·이동 표·FAQ를 뽑는다(명소 안내 영역은 빼고)."""
+    if f in _GUIDE:
+        return _GUIDE[f]
+    out = None
+    if os.path.exists(f):
+        s = re.sub(r"<!-- at:spots -->.*?<!-- /at:spots -->", "", read(f), flags=re.S)
+        a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
+        soup = BeautifulSoup(s[a:b] if a >= 0 < b else s, "html.parser")
+        tx = lambda e: re.sub(r"\s+", " ", e.get_text(" ", strip=True)) if e else ""
+        out = {"areas": [], "moves": [], "days": [], "faq": []}
+        for t in soup.find_all("table"):
+            hs = [tx(c) for c in (t.find("thead") or t).find("tr").find_all(["th", "td"])]
+            kind = "moves" if hs and "구간" in hs[0] else "areas" if hs and ("권역" in hs[0] or "지역" in hs[0]) else None
+            if not kind:
+                continue
+            for tr in (t.find("tbody") or t).find_all("tr"):
+                cells = [tx(c) for c in tr.find_all(["th", "td"])]
+                if cells and cells != hs:
+                    out[kind].append(cells[:3])
+        for ul in soup.select("ul.days"):
+            h = ul.find_previous("h3")
+            plan = tx(h)
+            for li in ul.find_all("li", recursive=False):
+                d, t_, c = li.select_one(".dn"), li.select_one(".dt"), li.select_one(".dc")
+                if c:
+                    out["days"].append([plan, tx(d), tx(t_), tx(c)])
+        for det in soup.find_all("details"):
+            q = det.find("summary")
+            a_ = tx(det)[len(tx(q)):].strip() if q else ""
+            if q and a_:
+                out["faq"].append([tx(q), a_])
+    _GUIDE[f] = out
+    return out
+
+
+def guide_for(pl):
+    """이 장소가 그 지역 여행 가이드에서 어떻게 나오는지 (없으면 None)."""
+    f = f"travel-{pl['r']}.html"
+    g = guide_parts(f) if f in PAGES else None
+    if not g:
+        return None
+    ks = spot_keys(pl)
+    hit = lambda *xs: any(k in x for k in ks for x in xs)
+    o = {"url": f"{SITE}/{f}", "title": PAGES[f].get("name") or PAGES[f]["title"], "keys": ks}
+    area = next((r for r in g["areas"] if hit(*r[:2])), None)
+    if area:
+        o["area"] = area
+    days = [d for d in g["days"] if hit(d[2], d[3])][:3]
+    if days:
+        o["days"] = days
+    moves = [m for m in g["moves"] if hit(m[0])][:2]
+    if moves:
+        o["moves"] = moves
+    faq = [q for q in g["faq"] if hit(q[0])][:2] or [q for q in g["faq"] if hit(q[1])][:1]
+    if faq:
+        o["faq"] = faq
+    return o if len(o) > 3 else None
+
+
+def spot_photo(name):
+    if not name or not photo_ok(name):
+        return None
+    m = PHOTOS[name]
+    lic = LIC_NAME.get(m.get("license"), (m.get("license") or "").upper())
+    ver = f" {m['license_version']}" if m.get("license_version") and m.get("license") != "pdm" else ""
+    return {"src": f"/assets/photos/{name}.jpg", "alt": m.get("alt", ""), "by": m.get("creator") or "작가 미상", "lic": lic + ver,
+            "link": m.get("foreign_landing_url") or m.get("license_url")}
+
+
+def spot_card_html(pl, zone):
+    sp = SPOTS[pl["id"]]
+    ph = photo_html(sp.get("photo")) if sp.get("photo") else ""
+    f = sp["facts"]
+    facts = "".join(f'<div><dt>{k}</dt><dd>{esc(f[v])}</dd></div>' for k, v in
+                    (("운영 시간", "hours"), ("요금", "fee"), ("머무는 시간", "stay"), ("가기 좋은 때", "when"), ("가는 법", "access")) if f.get(v))
+    see = "".join(f"<li><b>{esc(a)}</b><span>{esc(b)}</span></li>" for a, b in sp.get("see", []))
+    tips = "".join(f"<li>{esc(t)}</li>" for t in sp.get("tips", []))
+    src = " · ".join(f'<a href="{esc(u)}" rel="nofollow noopener" target="_blank">{esc(n)}</a>' for n, u in sp.get("src", []) if "aroundtool.com" not in u)
+    return (f'<article class="at-spot" id="spot-{pl["id"]}">{ph}<div class="at-spot-b">'
+            f'<p class="at-spot-k"><span class="c c-{pl["c"]}">{K_CAT.get(pl["c"], "")}</span>{f"<span>{esc(zone)}</span>" if zone else ""}</p>'
+            f'<h3>{esc(pl["n"]["ko"])}</h3><p class="at-spot-one">{esc(sp["one"])}</p>'
+            f'<dl class="at-spot-facts">{facts}</dl>'
+            + (f'<p class="at-spot-h">볼거리</p><ul class="at-spot-see">{see}</ul>' if see else "")
+            + (f'<p class="at-spot-h">알아 두면 좋아요</p><ul class="at-spot-tips">{tips}</ul>' if tips else "")
+            + f'<p class="at-spot-src">확인 {esc(sp.get("checked", ""))}{" · 출처: " + src if src else ""} · 운영 시간·요금은 바뀔 수 있으니 방문 전에 확인하세요.</p>'
+            f'<a class="at-spot-go" href="/klink/#{pl["id"]}">K링크 지도에서 보고 저장하기 <span aria-hidden="true">›</span></a></div></article>')
+
+
+def inject_spots():
+    """여행 가이드에 '명소 안내' 카드 영역을 넣는다(FAQ 바로 앞, 여러 번 돌려도 같은 결과)."""
+    P, zone = klink_places()
+    by_r = {}
+    for pl in P:
+        if pl["id"] in SPOTS:
+            by_r.setdefault(pl["r"], []).append(pl)
+    for r, pls in by_r.items():
+        f = f"travel-{r}.html"
+        if f not in PAGES or not os.path.exists(f):
+            continue
+        s = read(f)
+        cards = "".join(spot_card_html(pl, zone.get(pl["id"], "")) for pl in pls)
+        sec = (f'<!-- at:spots --><section class="b-card at-spots" id="spots"><h2 class="sec"><span class="b-ht">명소 안내</span></h2>'
+               f'<p class="at-spots-lead">어라운드툴이 공식 안내로 확인한 명소 정보입니다. K링크 지도에서 저장하면 날짜별 동선에 바로 넣을 수 있어요.</p>'
+               f'<div class="at-spot-list">{cards}</div></section><!-- /at:spots -->')
+        if "<!-- at:spots -->" in s:
+            s = re.sub(r"<!-- at:spots -->.*?<!-- /at:spots -->", lambda m: sec, s, count=1, flags=re.S)
+        else:
+            m = re.search(r'<section class="b-card" id="b-s\d+"><h2 class="sec"><span class="b-ht">자주 묻는 질문', s)
+            if not m:
+                continue
+            s = s[:m.start()] + sec + "\n" + s[m.start():]
+        if 'href="#spots"' not in s:
+            s = re.sub(r'(<li><a href="#b-s\d+">자주 묻는 질문</a></li>)', r'<li><a href="#spots">명소 안내</a></li>\1', s, count=1)
+        open(f, "w", encoding="utf-8").write(s)
+        _GUIDE.pop(f, None)
+
+
+def klink_spots():
+    """around.json 의 spots: 장소 id → {s: 어라운드툴 명소 안내, g: 가이드에서 나온 줄}. 안내가 없는 곳은 spots_todo.json 에 남긴다."""
+    P, zone = klink_places()
+    out, todo = {}, {}
+    for pl in P:
+        o = {}
+        if pl["id"] in SPOTS:
+            sp = dict(SPOTS[pl["id"]])
+            sp["photo"] = spot_photo(sp.get("photo"))
+            f = f"travel-{pl['r']}.html"
+            sp["url"] = f"{SITE}/{f}#spot-{pl['id']}" if f in PAGES else None
+            sp["src"] = [list(x) for x in sp.get("src", [])]
+            sp["see"] = [list(x) for x in sp.get("see", [])]
+            o["s"] = sp
+        g = guide_for(pl)
+        if g:
+            o["g"] = g
+        if o:
+            out[pl["id"]] = o
+        if pl["id"] not in SPOTS:
+            todo.setdefault(pl["r"], []).append({"id": pl["id"], "name": pl["n"]["ko"], "guide": bool(g)})
+    if P:
+        with open(os.path.join(KLINK_DIR, "spots_todo.json"), "w", encoding="utf-8") as fh:
+            json.dump({"done": len(SPOTS), "todo": sum(len(v) for v in todo.values()), "regions": todo}, fh, ensure_ascii=False, indent=1)
+    return out
+
+
 def build_klink_data():
     """K링크가 읽는 연결 데이터(/klink/around.json)."""
     def page(f):
@@ -1265,7 +1440,7 @@ def build_klink_data():
                    for g in travel_guides()]
     data = {"site": SITE, "name": NAME, "travel": f"{SITE}/travel.html", "food": f"{SITE}/food.html",
             "counts": {"places": N_PLACES, "gu": N_GU, "trips": len(TRIP_PAGES)}, "regions": regions, "moreTrips": more,
-            "prep": {"tools": prep_tools, "guides": prep_guides}}
+            "prep": {"tools": prep_tools, "guides": prep_guides}, "spots": klink_spots()}
     os.makedirs("klink", exist_ok=True)
     with open("klink/around.json", "w", encoding="utf-8") as fh:
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
@@ -2728,6 +2903,7 @@ def main():
         if f in generated or f in UNTOUCHED:
             continue
         transform_existing(p)
+    inject_spots()
     build_klink_data()
     build_home()
     build_food_hub()

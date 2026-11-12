@@ -135,7 +135,10 @@ def candidates():
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 28)
     except Exception:
         pass
+    have = json.load(open(os.path.join(ROOT, "scripts/photos.json"), encoding="utf-8"))
     for key, qlist in queries.items():
+        if any(n == key or n.startswith(key + "-") for n in have):
+            continue  # 이미 고른 사진이 있는 검색어는 건너뜀 (새 검색어만 후보를 받는다)
         seen, picks = set(), []
         for q in qlist:
             try:
