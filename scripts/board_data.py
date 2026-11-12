@@ -97,8 +97,22 @@ if kpi.get("yday"):
     meta["yday"] = yd["date"]
     meta["weekRange"] = f'{done[-1]["start"]} ~ {done[-1]["end"]}' if done else ""
     meta["lwRange"] = lw.get("range", "")
+# K링크 (2026-11-12 컨펌 i261112-09): kpi.json 'klink' — 7일·전주. 이벤트(i261112-14)가 생기면 숫자 키가 더 붙어도 그대로 표에 나온다.
+kl = kpi.get("klink") or {}
+if isinstance(kl.get("cur"), dict):
+    kc, kp = kl["cur"], kl.get("prev") or {}
+    KL = (("views", "K링크 조회"), ("users", "K링크 사용자"), ("fromSite", "사이트 글→K링크"), ("fromTravel", "여행 글→K링크"))
+    for key, lab in KL:
+        if isinstance(kc.get(key), (int, float)): add("klink", key, lab, kc[key], kp.get(key))
+    known = {k for k, _ in KL}
+    for key, v in kc.items():
+        if key in known or not isinstance(v, (int, float)): continue
+        add("klinkev", key, key, v, kp.get(key) if isinstance(kp.get(key), (int, float)) else None)
+    meta["klink"] = "있음"
+elif kl.get("error"):
+    meta["klink"] = "오류: " + str(kl["error"])[:80]
 m = meta
-for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일"),("yday","어제"),("weekRange","지난주"),("lwRange","지난주 랜딩"),("gwRange","구글 주")):
+for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일"),("yday","어제"),("weekRange","지난주"),("lwRange","지난주 랜딩"),("gwRange","구글 주"),("klink","K링크 지표")):
     if k not in m: continue
     rows.append({"id": f"meta-{k}", "section": "meta", "label": m[k], "cur": None, "prev": None, "alt": lab, "chg": None})
 json.dump(rows, open(os.path.join(out, "board.json"), "w", encoding="utf-8"), ensure_ascii=False)
