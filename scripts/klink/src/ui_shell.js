@@ -390,11 +390,13 @@ function openTrip() {
 function showIntro() {
   const el = document.createElement('div'); el.className = 'intro';
   const draw = () => {
-    el.innerHTML = `<div class="intro-in"><div class="langs">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}">${n}</button>`).join('')}</div>
+    el.innerHTML = `<div class="intro-in">
       <h1>${T.introH}</h1><p>${T.introP}</p>
       <div class="intro-map" aria-hidden="true"><svg viewBox="0 0 400 180"><path d="M128 14 V90 L286 14 M128 90 L292 166 M128 90 V166" class="pth"/>
         ${[[128, 14, .35, 112, 19, 'end'], [128, 90, .9, 112, 95, 'end'], [286, 14, 1.5, 302, 19, 'start'], [292, 166, 2.2, 308, 171, 'start']].map(([x, y, d, lx, ly, an], k) => `<g class="st" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="9" fill="#2443E8" stroke="#fff" stroke-width="5"/><text x="${lx}" y="${ly}" fill="#fff" font-size="14" font-weight="700" text-anchor="${an}">${esc(T.introStops[k])}</text></g>`).join('')}</svg></div>
-      <div class="sp"></div><div class="kinds"><b>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
+      <div class="sp"></div><div class="kinds"><b><span class="stp">1</span>언어 · 语言 · Language · 言語</b>
+        <div class="langseg">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}" aria-pressed="${k === S.lang}">${n}</button>`).join('')}</div>
+        <b><span class="stp">2</span>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
     $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
     $$('[data-k]', el).forEach(b => b.onclick = () => { const k = b.dataset.k; S.trip.kind = k; setKindTimes(S.trip, k); S.seenIntro = true;
       if (S.ui.lvl === 'korea') S.ui.scope = k === 'ov' ? 'ov' : 'kr'; persist(); el.remove(); renderAll(); openTrip(); });

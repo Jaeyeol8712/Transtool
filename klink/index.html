@@ -597,6 +597,21 @@ p{text-wrap:pretty}
 .intro .kindbtn small{font-size:12px}
 @media (max-height:620px){.intro-map{display:none}.intro p{display:none}}
 .intro .kinds{margin-top:auto;padding-top:14px}
+/* 시작 화면 2차 (2026-11-12): 빈 공간 없이 가운데로 모은다 */
+.intro-in{justify-content:center;gap:0}
+.intro-map{flex:0 1 170px;max-height:170px;margin:18px -24px 6px}
+.intro .kinds{margin-top:8px;padding-top:0}
+@media (min-width:900px){.intro-in{max-width:880px;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto auto auto auto;column-gap:56px;align-content:center;height:100%}.intro .langs{justify-self:start}
+  .intro .langs,.intro h1,.intro p,.intro-map{grid-column:1}.intro .kinds{grid-column:2;grid-row:1 / span 4;align-self:center;margin:0}
+  .intro-map{margin:18px 0 0}}
+/* 시작 화면: 1 언어 → 2 여행 유형 */
+.intro .kinds>b{display:flex;align-items:center;gap:8px}
+.intro .kinds>b:not(:first-child){margin-top:10px}
+.intro .stp{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--cobalt);font-size:12px;font-weight:800;display:grid;place-items:center;flex-shrink:0}
+.intro .langseg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.intro .langseg button{height:42px;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;font-size:14px;font-weight:700;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.intro .langseg button.on{background:#fff;color:var(--cobalt);box-shadow:none}
+@media (min-width:900px){.intro .kinds{grid-row:1 / span 3}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
@@ -1994,13 +2009,27 @@ const MapGL = (() => {
     m.addLayer({ id: 'route-case', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#fff', 'line-width': 8, 'line-opacity': 0.9 } });
     m.addLayer({ id: 'route-line', type: 'line', source: 'route', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ['get', 'c'], 'line-width': 4.5 } });
   }
+  // 지도 글자: 고른 언어 이름이 있는 것만 보여 준다(외국어 글자가 잔뜩 깔리지 않게).
+  // 한국 지도를 한국어로 볼 때는 원래 이름(한글)을 쓰고, 영어는 로마자 이름으로 채운다. 나라·도시 이름만 예외로 로마자를 보탠다.
   function setLabels(inst) {
-    if (inst.lang === S.lang) return; inst.lang = S.lang;
-    const L = S.lang, m = inst.map;
+    const L = S.lang, kr = mode === 'korea' || (ctx.r && REGIONS[ctx.r] && !isOv(ctx.r));
+    const key = L + (kr ? ':kr' : ':ov'); if (inst.lang === key) return; inst.lang = key;
+    const m = inst.map, nm = ['get', 'name:' + L], loose = L === 'en' || (L === 'ko' && kr);
+    inst.filt = inst.filt || {};
     for (const l of m.getStyle().layers) {
       if (l.type !== 'symbol' || !l.layout || !l.layout['text-field']) continue;
       if (!JSON.stringify(l.layout['text-field']).includes('name')) continue;
-      try { m.setLayoutProperty(l.id, 'text-field', ['coalesce', ['get', 'name:' + L], ['get', 'name:' + (L === 'zh' ? 'zh-Hans' : L)], ['get', 'name']]); } catch (e) {}
+      const city = /country|state|city|capital|continent|town/.test(l.id), poi = /poi|transit|airport|aerialway/.test(l.id);
+      let tf;
+      if (L === 'en') tf = ['coalesce', nm, ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+      else if (loose) tf = ['coalesce', nm, ['get', 'name']];
+      else tf = city ? ['coalesce', nm, ['get', 'name:latin'], ['get', 'name']] : ['coalesce', nm, ''];
+      try { m.setLayoutProperty(l.id, 'text-field', tf); } catch (e) {}
+      if (poi) {   // 고른 언어 이름이 없는 가게·정류장은 아이콘째 숨긴다
+        if (!(l.id in inst.filt)) inst.filt[l.id] = m.getFilter(l.id) || null;
+        const base = inst.filt[l.id];
+        try { m.setFilter(l.id, loose ? base : (base ? ['all', base, ['has', 'name:' + L]] : ['has', 'name:' + L])); } catch (e) {}
+      }
     }
   }
   function glOK() {
@@ -2082,7 +2111,7 @@ const MapGL = (() => {
 
   /* ---------- 날짜별 동선 ---------- */
   function showRoute(plan, i, opts) {
-    ctx = Object.assign({ noSheet: true }, opts || {}); mode = 'route';
+    ctx = Object.assign({ noSheet: true }, opts || {}, { r: plan.days[i].r }); mode = 'route';
     run(inst => { clear(inst);
       const day = plan.days[i], r = day.r, sc = scheduleDay(plan, i), stay = STAY_BY[plan.stays[r]], col = LINE[i % LINE.length];
       const pts = [{ k: 'stay', lat: stay.lat, lng: stay.lng }];
@@ -2516,11 +2545,13 @@ function openTrip() {
 function showIntro() {
   const el = document.createElement('div'); el.className = 'intro';
   const draw = () => {
-    el.innerHTML = `<div class="intro-in"><div class="langs">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}">${n}</button>`).join('')}</div>
+    el.innerHTML = `<div class="intro-in">
       <h1>${T.introH}</h1><p>${T.introP}</p>
       <div class="intro-map" aria-hidden="true"><svg viewBox="0 0 400 180"><path d="M128 14 V90 L286 14 M128 90 L292 166 M128 90 V166" class="pth"/>
         ${[[128, 14, .35, 112, 19, 'end'], [128, 90, .9, 112, 95, 'end'], [286, 14, 1.5, 302, 19, 'start'], [292, 166, 2.2, 308, 171, 'start']].map(([x, y, d, lx, ly, an], k) => `<g class="st" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="9" fill="#2443E8" stroke="#fff" stroke-width="5"/><text x="${lx}" y="${ly}" fill="#fff" font-size="14" font-weight="700" text-anchor="${an}">${esc(T.introStops[k])}</text></g>`).join('')}</svg></div>
-      <div class="sp"></div><div class="kinds"><b>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
+      <div class="sp"></div><div class="kinds"><b><span class="stp">1</span>언어 · 语言 · Language · 言語</b>
+        <div class="langseg">${LANGS.map(([k, n]) => `<button class="${k === S.lang ? 'on' : ''}" data-l="${k}" lang="${HTML_LANG[k]}" aria-pressed="${k === S.lang}">${n}</button>`).join('')}</div>
+        <b><span class="stp">2</span>${T.kindTitle}</b>${['kr', 'ov', 'visit'].map(k => `<button class="kindbtn" data-k="${k}"><i>${ICONS[k === 'ov' ? 'plane' : k === 'kr' ? 'rail' : 'pin']}</i><span><b>${T.kinds[k][0]}</b><small>${T.kinds[k][1]}</small></span>${ICONS.right}</button>`).join('')}</div></div>`;
     $$('[data-l]', el).forEach(b => b.onclick = () => { setLang(b.dataset.l); draw(); renderAll(true); });
     $$('[data-k]', el).forEach(b => b.onclick = () => { const k = b.dataset.k; S.trip.kind = k; setKindTimes(S.trip, k); S.seenIntro = true;
       if (S.ui.lvl === 'korea') S.ui.scope = k === 'ov' ? 'ov' : 'kr'; persist(); el.remove(); renderAll(); openTrip(); });
