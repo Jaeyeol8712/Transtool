@@ -120,7 +120,7 @@ const pd = id => { const p = PBY[id]; return p ? (p.d[S.lang] || (S.lang !== 'ko
 const rn = r => REGIONS[r] ? tr4(REGIONS[r].t) : r;
 const dn = id => DISTRICTS[id] ? tr4(DISTRICTS[id].n) : '';
 const sn = id => STAY_BY[id] ? tr4(STAY_BY[id].t) : '';
-const an = code => AIRPORTS[code] ? tr4(AIRPORTS[code].t) : ORIGINS[code] ? tr4(ORIGINS[code].t) : code;
+const an = code => AIRPORTS[code] ? tr4(AIRPORTS[code].t) : code;
 function hav(a, b) { const R = 6371, t = Math.PI / 180; const dLa = (b.lat - a.lat) * t, dLo = (b.lng - a.lng) * t;
   const x = Math.sin(dLa / 2) ** 2 + Math.cos(a.lat * t) * Math.cos(b.lat * t) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); }
 const hm = v => { v = ((v % 24) + 24) % 24; const h = Math.floor(v + 1e-6), m = Math.round((v - h) * 60); return `${String(h + (m === 60 ? 1 : 0)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
@@ -186,56 +186,9 @@ function airportLeg(code, pt, r) {
   const hub = REGIONS[ap.r], first = airportLeg(code, hub, ap.r), mid = interRegion(ap.r, r), last = legBetween(REGIONS[r], pt, r);
   return { mode: mid.mode, min: first.min + mid.min + last.min, km: 0, cost: first.cost + mid.cost, via: true };
 }
-/* ---------- 국내 여행 출발지 (컨펌 i261112-15) ---------- */
-// 국내 여행은 인천공항 도착 대신 출발지(기차역·공항·자가용)에서 시작해 그곳으로 돌아온다. 시간은 거리로 어림한 예상치.
-const ORIGINS = {
-  'st-seoul':  { g: 'rail', r: 'seoul', lat: 37.5547, lng: 126.9707, t: ['서울역', '首尔站', 'Seoul Station', 'ソウル駅'] },
-  'st-yongsan': { g: 'rail', r: 'seoul', lat: 37.5299, lng: 126.9648, t: ['용산역', '龙山站', 'Yongsan Station', '龍山駅'] },
-  'st-suseo':  { g: 'rail', r: 'seoul', lat: 37.4873, lng: 127.1018, t: ['수서역 (SRT)', '水西站 (SRT)', 'Suseo Station (SRT)', '水西駅 (SRT)'] },
-  'st-cheongnyangni': { g: 'rail', r: 'seoul', lat: 37.5803, lng: 127.0469, t: ['청량리역', '清凉里站', 'Cheongnyangni Station', '清凉里駅'] },
-  'st-daejeon': { g: 'rail', lat: 36.3323, lng: 127.4342, t: ['대전역', '大田站', 'Daejeon Station', '大田駅'] },
-  'st-dongdaegu': { g: 'rail', lat: 35.8797, lng: 128.6286, t: ['동대구역', '东大邱站', 'Dongdaegu Station', '東大邱駅'] },
-  'st-gwangju': { g: 'rail', lat: 35.1378, lng: 126.7913, t: ['광주송정역', '光州松汀站', 'Gwangju-Songjeong Station', '光州松汀駅'] },
-  'st-busan':  { g: 'rail', r: 'busan', lat: 35.1151, lng: 129.0422, t: ['부산역', '釜山站', 'Busan Station', '釜山駅'] },
-  'ap-gmp':    { g: 'air', ap: 'GMP', r: 'seoul', lat: 37.5583, lng: 126.7906, t: ['김포공항', '金浦机场', 'Gimpo Airport', '金浦空港'] },
-  'ap-pus':    { g: 'air', ap: 'PUS', r: 'busan', lat: 35.1796, lng: 128.9382, t: ['김해공항', '金海机场', 'Gimhae Airport', '金海空港'] },
-  'car-seoul': { g: 'car', r: 'seoul', lat: 37.5665, lng: 126.9780, t: ['자가용 · 서울', '自驾 · 首尔', 'Car · Seoul', '車 · ソウル'] },
-  'car-daejeon': { g: 'car', lat: 36.3504, lng: 127.3845, t: ['자가용 · 대전', '自驾 · 大田', 'Car · Daejeon', '車 · 大田'] },
-  'car-daegu': { g: 'car', lat: 35.8714, lng: 128.6014, t: ['자가용 · 대구', '自驾 · 大邱', 'Car · Daegu', '車 · 大邱'] },
-  'car-gwangju': { g: 'car', lat: 35.1595, lng: 126.8526, t: ['자가용 · 광주', '自驾 · 光州', 'Car · Gwangju', '車 · 光州'] },
-  'car-busan': { g: 'car', r: 'busan', lat: 35.1796, lng: 129.0756, t: ['자가용 · 부산', '自驾 · 釜山', 'Car · Busan', '車 · 釜山'] }
-};
-const GATE = code => AIRPORTS[code] || ORIGINS[code];
-const gateR = code => { const g = GATE(code); return g.r || regionOfPoint(g); };
-// 공항은 도착 뒤 입국 1시간·출국 2.5시간 전 도착. 출발지는 바로 출발·바로 도착.
-const gateBuf = (code, k) => ORIGINS[code] ? 0 : (k === 'arr' ? 1 : 2.5);
-const gateLeg = (code, pt, r) => ORIGINS[code] ? originLeg(code, pt, r) : airportLeg(code, pt, r);
-function originLeg(code, pt, r) {
-  const o = ORIGINS[code], dom = true;
-  if (isOv(r)) return airportLeg('ICN', pt, r);
-  if (o.r === r) { const L = legRaw(o, pt, r); return { ...L, cost: 0, dom }; }
-  const toJeju = REGIONS[r].fly;
-  if (o.g === 'air' && toJeju) return { mode: 'flight', min: 65 + 20 + airportLeg('CJU', pt, r).min, km: 0, cost: 0, via: true, dom };
-  if (o.g === 'air' && REGIONS[r].air === 'PUS' && o.ap !== 'PUS') return { mode: 'flight', min: 60 + 20 + airportLeg('PUS', pt, r).min, km: 0, cost: 0, via: true, dom };
-  if (toJeju) return { mode: 'flight', min: 50 + 60 + 65 + 20 + airportLeg('CJU', pt, r).min, km: 0, cost: 0, via: true, dom };   // 가까운 공항까지 + 탑승 수속 + 비행
-  if (o.g === 'car') { const km = hav(o, pt) * 1.3; return { mode: 'car', min: Math.round((15 + km / 80 * 60) / 5) * 5, km, cost: 0, via: true, dom }; }
-  const base = o.r === 'seoul' ? REGIONS[r].fromSeoul : Math.round((hav(o, REGIONS[r]) * 0.6 + 25) / 5) * 5;
-  return { mode: 'rail', min: base + 10 + legBetween(REGIONS[r], pt, r).min, km: 0, cost: 0, via: true, dom };
-}
-/* 여행 유형: kr 국내 여행(출발지에서) · ov 해외 여행 · visit 한국 방문(외국인, 공항 도착) */
-const tripType = (t = S.trip) => t.type || (S.lang === 'ko' ? (S.ui.scope === 'ov' ? 'ov' : 'kr') : 'visit');
 /* ---------- 여행 나라와 공항 ---------- */
 // 저장한 곳이 가장 많은 나라가 이번 여행 나라. 공항은 그 나라 공항 중에서 고른 것, 없으면 저장이 가장 많은 도시의 공항.
 let _taKey = null, _ta = null;
-<<<<<<< HEAD
-function airFor(t) {
-  const cnt = {}, rc = {};
-  for (const id of S.saved) { const r = PBY[id].r, cc = REGIONS[r].cc; cnt[cc] = (cnt[cc] || 0) + 1; rc[r] = (rc[r] || 0) + 1; }
-  const cc = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0] || (S.ui.r && REGIONS[S.ui.r] ? REGIONS[S.ui.r].cc : 'kr');
-  const dom = cc === 'kr' && tripType(t) === 'kr';   // 국내 여행: 공항 대신 출발지
-  const ok = c => dom ? !!ORIGINS[c] : (AIRPORTS[c] && AIRPORTS[c].cc === cc);
-  let def = dom ? 'st-seoul' : 'ICN';
-=======
 function tripAir() {
   const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '') + '|' + tripKind();
   if (key === _taKey) return _ta;
@@ -245,21 +198,11 @@ function tripAir() {
   const home = cc === 'kr' && tripKind() === 'kr';   // 국내 여행: 역에서 출발
   const ok = c => AIRPORTS[c] && AIRPORTS[c].cc === cc && !!AIRPORTS[c].home === home;
   let def = home ? 'SEL' : 'ICN';
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   if (cc !== 'kr') {
     const top = Object.keys(rc).filter(r => REGIONS[r].cc === cc).sort((a, b) => rc[b] - rc[a])[0] || (S.ui.r && REGIONS[S.ui.r] && REGIONS[S.ui.r].cc === cc ? S.ui.r : OV_IDS.find(r => REGIONS[r].cc === cc));
     def = REGIONS[top].air;
   }
-<<<<<<< HEAD
-  return { cc, ov: cc !== 'kr', dom, arr: ok(t.arr) ? t.arr : def, dep: ok(t.dep) ? t.dep : (ok(t.arr) && dom ? t.arr : def) };
-}
-function tripAir() {
-  const key = S.saved.join(',') + '|' + S.trip.arr + '|' + S.trip.dep + '|' + (S.ui.r || '') + '|' + (S.ui.scope || '') + '|' + tripType() + '|' + S.lang;
-  if (key === _taKey) return _ta;
-  _taKey = key; _ta = airFor(S.trip);
-=======
   _taKey = key; _ta = { cc, ov: cc !== 'kr', home, arr: ok(S.trip.arr) ? S.trip.arr : def, dep: ok(S.trip.dep) ? S.trip.dep : def };
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   return _ta;
 }
 // 여행 유형: kr 국내 여행(한국에 사는 사람) · ov 해외 여행 · visit 한국 방문(외국에서 오는 사람). 고르지 않았으면 언어로 정한다.
@@ -274,13 +217,8 @@ function regionOfPoint(pt) { let best = 'seoul', bd = 1e9; for (const r of REGIO
 const KEY = 'klink-v2';
 const DEFAULT = () => ({
   v: 2, lang: null, seenIntro: false,
-<<<<<<< HEAD
-  trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'],
-          arr: 'ICN', arrT: 10, dep: 'ICN', depT: 19, type: null },
-=======
   trip: { start: '2026-11-14', end: '2026-11-17', people: 2, party: 1, budget: 1, pace: 1, interests: ['palace', 'food', 'night'], kind: null,
           arr: 'ICN', arrT: 9, dep: 'ICN', depT: 19 },
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
   saved: [], order: [], plan: null, stayOv: {},
   ui: { tab: 'map', lvl: 'korea', scope: 'kr', r: null, d: null, sel: null, filter: 'all', day: 0, mode3d: false }
 });
@@ -306,4 +244,4 @@ function toggleSave(id) {
   return i < 0;
 }
 const isSaved = id => S.saved.includes(id);
-function planSig() { const a = tripAir(); return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, a.arr, S.trip.arrT, a.dep, S.trip.depT, S.stayOv, a.dom]); }
+function planSig() { const a = tripAir(); return JSON.stringify([S.saved.slice().sort(), S.order, S.trip.start, S.trip.end, S.trip.pace, a.arr, S.trip.arrT, a.dep, S.trip.depT, S.stayOv]); }

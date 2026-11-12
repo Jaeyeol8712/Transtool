@@ -8,11 +8,7 @@ ovp = os.path.join(root, 'build', 'overseas.json')
 ov = open(ovp, encoding='utf-8').read() if os.path.exists(ovp) else 'null'
 ap = sys.argv[3] if len(sys.argv) > 3 else ''
 around = open(ap, encoding='utf-8').read() if ap and os.path.exists(ap) else 'null'
-<<<<<<< HEAD
-js = ['icons.js', 'i18n.js', 'i18n_ov.js', 'core.js', 'planner.js', 'map2d.js', 'mapgl.js', 'world3d.js', 'ui_shell.js', 'ui_views.js', 'main.js']
-=======
 js = ['icons.js', 'i18n.js', 'i18n_ov.js', 'core.js', 'planner.js', 'map2d.js', 'mapgl.js', 'ui_shell.js', 'ui_views.js', 'main.js']   # 2026-11-12: 3D 거리(three.js) 대신 실제 지도(MapLibre)의 3D 건물
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
 import json as _j
 _P = _j.loads(places); _R = {}
 for _p in _P: _R.setdefault(_p['r'], []).append(_p['n']['ko'])
@@ -44,10 +40,7 @@ html = f'''<!DOCTYPE html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<<<<<<< HEAD
-=======
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
->>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
 </head>
 <body>
 {static}
