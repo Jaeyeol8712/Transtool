@@ -118,7 +118,7 @@ Object.assign(I18N.ja, {
 });
 /* 2026-11-12 K링크 2단계: 여행 유형(국내 여행·해외 여행·한국 방문) + 실제 지도(3D 건물) */
 Object.assign(I18N.ko, {
-  scopeKrSub: '7개 지역', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
+  scopeKrSub: '7개 지역', taxiShort: '택시', apSubHome: '역까지', kindTitle: '어떤 여행인가요?', kinds: { kr: ['국내 여행', '한국에서 국내 여행지로 · 역에서 출발'], ov: ['해외 여행', '한국에서 해외 도시로 · 공항 도착부터'], visit: ['한국 방문', '외국에서 한국으로 · 공항 도착부터'] },
   tripLeadHome: '출발역과 시각을 알려 주면 첫날·마지막 날 일정을 맞춰 드려요.',
   flightsHome: '출발·도착', flightsHomeSub: '집에서 가까운 역', fromSt: '출발역', fromT: '출발 시각', backSt: '돌아오는 역', backT: '돌아오는 시각',
   eFrom: ap => `${ap} 출발`, eBack: ap => `${ap} 도착`,
@@ -129,7 +129,7 @@ Object.assign(I18N.ko, {
   introP: '실제 지도에서 가고 싶은 곳을 저장하면, 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천해요. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 와요.'
 });
 Object.assign(I18N.zh, {
-  scopeKrSub: '7 个地区', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
+  scopeKrSub: '7 个地区', taxiShort: '出租车', apSubHome: '到车站', kindTitle: '是哪种旅行？', kinds: { kr: ['韩国国内游', '住在韩国 · 从火车站出发'], ov: ['出国旅行', '从韩国去海外城市 · 从机场到达开始'], visit: ['访问韩国', '从国外来韩国 · 从机场到达开始'] },
   tripLeadHome: '告诉我们出发车站和时间，就会安排好第一天和最后一天的行程。',
   flightsHome: '出发·返回', flightsHomeSub: '离家近的车站', fromSt: '出发车站', fromT: '出发时间', backSt: '返回车站', backT: '返回时间',
   eFrom: ap => `${ap} 出发`, eBack: ap => `到达 ${ap}`,
@@ -140,7 +140,7 @@ Object.assign(I18N.zh, {
   introP: '在真实地图上收藏想去的地方，我们会根据距离和营业时间推荐每天的路线和住宿区域。信息来自 AroundTool 的旅行指南、美食记录和景点介绍。'
 });
 Object.assign(I18N.en, {
-  scopeKrSub: '7 regions', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
+  scopeKrSub: '7 regions', taxiShort: 'Taxi', apSubHome: 'to the station', kindTitle: 'What kind of trip?', kinds: { kr: ['Trip within Korea', 'Live in Korea · start from a train station'], ov: ['Trip abroad', 'From Korea to a city overseas · from landing'], visit: ['Visiting Korea', 'Coming to Korea · from landing'] },
   tripLeadHome: 'Tell us your station and times and we will fit the first and last day.',
   flightsHome: 'Departure & return', flightsHomeSub: 'Your nearest station', fromSt: 'From', fromT: 'Leave at', backSt: 'Back to', backT: 'Back by',
   eFrom: ap => `Leave ${ap}`, eBack: ap => `Arrive ${ap}`,
@@ -151,7 +151,7 @@ Object.assign(I18N.en, {
   introP: 'Save places on a real map and we plan daily routes and where to stay from distances and opening hours. Info comes from AroundTool travel guides, food notes and spot guides.'
 });
 Object.assign(I18N.ja, {
-  scopeKrSub: '7地域', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
+  scopeKrSub: '7地域', taxiShort: 'タクシー', apSubHome: '駅まで', kindTitle: 'どんな旅ですか？', kinds: { kr: ['韓国国内の旅', '韓国在住 · 駅から出発'], ov: ['海外旅行', '韓国から海外の都市へ · 到着から'], visit: ['韓国訪問', '海外から韓国へ · 空港到着から'] },
   tripLeadHome: '出発駅と時刻を教えてくだされば、初日と最終日の日程を合わせます。',
   flightsHome: '出発・帰り', flightsHomeSub: '家から近い駅', fromSt: '出発駅', fromT: '出発時刻', backSt: '帰りの駅', backT: '帰りの到着時刻',
   eFrom: ap => `${ap} 出発`, eBack: ap => `${ap} 到着`,
