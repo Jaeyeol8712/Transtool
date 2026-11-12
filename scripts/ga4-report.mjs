@@ -500,6 +500,19 @@ async function siteKpi() {
   const [aiCur, aiPrev] = await seq([() => aiVisits(s7, y), () => aiVisits(p7s, p7e)]);
   const [cur, prev, chCur, chPrev, series, land] = await seq([() => tot(s7, y), () => tot(p7s, p7e), () => org(s7, y), () => org(p7s, p7e),
     () => ga(s28, y, ["date"], ["totalUsers", "sessions"]), () => ga(s7, y, ["landingPage"], ["sessions"], null, 10)]);
+  // K링크 지표 (2026-11-12 컨펌 i261112-02): /klink/ 조회·사용자, 사이트 글에서 K링크로 넘어온 조회(pageReferrer 기준 — 클릭 이벤트가 따로 없음)
+  let klink = null;
+  try {
+    const kf = { filter: { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH", value: "/klink/" } } };
+    const kOne = async (a, b) => {
+      const [t0, rf] = await seq([() => ga(a, b, [], ["screenPageViews", "totalUsers"], kf), () => ga(a, b, ["pageReferrer"], ["screenPageViews"], kf, 1000)]);
+      const m = t0[0] ? t0[0].m : [0, 0]; let fromSite = 0, fromTravel = 0;
+      for (const x of rf) { const u = x.d[0] || ""; if (/aroundtool\.com/.test(u) && !/\/klink\//.test(u)) { fromSite += x.m[0]; if (/\/travel[-.]/.test(u)) fromTravel += x.m[0]; } }
+      return { views: m[0], users: m[1], fromSite, fromTravel };
+    };
+    const [kc, kp] = await seq([() => kOne(s7, y), () => kOne(p7s, p7e)]);
+    klink = { cur: kc, prev: kp, note: "fromSite/fromTravel = 사이트 글(여행 글)에서 넘어온 /klink/ 조회(이전 페이지 기준)" };
+  } catch (e) { klink = { error: e.message }; }
   const g = {};
   try {
     const last = add(kstToday(), -3), t = await token();
@@ -542,7 +555,7 @@ async function siteKpi() {
     organic: { cur: chCur["Organic Search"] || 0, prev: chPrev["Organic Search"] || 0 }, channels: { cur: chCur, prev: chPrev },
     daily: series.map((x) => ({ date: x.d[0], users: x.m[0], sessions: x.m[1] })).sort((a, b) => a.date.localeCompare(b.date)),
     landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g,
-    ai: { cur: aiCur, prev: aiPrev } };
+    ai: { cur: aiCur, prev: aiPrev }, klink };
 }
 
 // ───────── 실행 ─────────
