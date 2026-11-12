@@ -32,3 +32,14 @@
 - 사진: `scripts/photo_queries.json`에 `k-<지역>-<이름>` 검색어 추가 → 푸시하면 후보 모음이 `photo-candidates` 브랜치에 올라옴 → 보고 골라 `scripts/photos.json`에 적고 푸시 → `assets/photos/`에 저장됨 → `SPOTS[...]["photo"]`에 이름.
 - 가이드에서 장소 이름으로 못 찾는 곳은 `spots_data.py`의 `ALIASES`에 다른 이름을 넣는다.
 - 여행 가이드 URL로 바로 열기: `/klink/#<장소 id>` (예: `/klink/#gj_bulguksa`).
+
+## 실제 지도 · 여행 유형 (2026-11-12, 컨펌 i261112-15)
+
+- 지도: `src/mapgl.js` — MapLibre GL 4.7.1(unpkg) + OpenFreeMap `liberty` 스타일. `Map2DSvg`(d3 그림 지도, `src/map2d.js`)와 같은 API(`Map2D`)를 낸다.
+  - 지명은 화면 언어(`name:ko/zh/en/ja`)로 바꿔 보여 준다. 출처 표기(OpenStreetMap·OpenFreeMap)는 왼쪽 아래.
+  - 지도 라이브러리·WebGL이 없거나 스타일이 12초 안에 안 오면 자동으로 `Map2DSvg`로 그린다(`geo.json`은 그래서 계속 필요).
+  - 모바일은 지도 위 아래 시트(목록·상세), PC는 왼쪽 목록 + 오른쪽 지도(기존 화면 틀 그대로).
+  - 국내 구역의 3D 거리(`world3d.js`)는 국내만 유지. 해외는 실제 지도로만 본다.
+- 여행 유형(`S.trip.type`): `kr` 국내 여행 · `ov` 해외 여행 · `visit` 한국 방문(외국인). 시작 화면에서 고르고, 여행 설정에서 바꾼다.
+  - 국내 여행은 공항 대신 출발지(`core.js` `ORIGINS`: 기차역·김포/김해공항·자가용)에서 출발해 돌아온다. 이동 시간은 거리로 어림한 예상치(`originLeg`).
+  - 한국 방문은 지금처럼 인천공항 등 도착 공항부터. 정하지 않았으면 한국어 화면은 국내 여행, 다른 언어는 한국 방문으로 본다(`tripType`).

@@ -42,13 +42,21 @@ function modeLabel(leg) { const k = { walk: 'mWalk', subway: 'mSubway', taxi: 'm
 function entryName(o) {
   const e = o.e;
   switch (e.k) {
-    case 'arrive': return T.eArrive(an(e.ap));
+<<<<<<< HEAD
+    case 'arrive': return ORIGINS[e.ap] ? T.eFrom(an(e.ap)) : T.eArrive(an(e.ap));
+=======
+    case 'arrive': return tripAir().home ? T.eFrom(an(e.ap)) : T.eArrive(an(e.ap));
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     case 'checkout': return T.eCheckout(sn(e.stay.id));
     case 'transfer': return T.eTransfer(rn(e.to));
     case 'stay': return e.drop ? T.eDrop(sn(e.stay.id)) : T.ePickup(sn(e.stay.id));
     case 'start': return T.eStart(sn(e.stay.id));
     case 'end': return T.eEnd(sn(e.stay.id));
-    case 'depart': return T.eDepart(an(e.ap));
+<<<<<<< HEAD
+    case 'depart': return ORIGINS[e.ap] ? T.eBack(an(e.ap)) : T.eDepart(an(e.ap));
+=======
+    case 'depart': return tripAir().home ? T.eBack(an(e.ap)) : T.eDepart(an(e.ap));
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     case 'meal': return e.id ? pn(e.id) : (e.slot === 'dinner' ? T.genericDinner : T.genericLunch);
     default: return pn(e.id);
   }
@@ -72,12 +80,16 @@ function panelPlan() {
   const totals = ds.map((_, k) => scheduleDay(P, k)).reduce((a, s) => ({ cost: a.cost + s.cost, move: a.move + s.moveMin, places: a.places + s.places }), { cost: 0, move: 0, places: 0 });
   const stays = R.map(r => { const st = STAY_BY[P.stays[r]], sc2 = stayScore(st, r, S.saved), nights = ds.filter((d, k) => d.r === r && k < n - 1).length;
     const dIdx = ds.map((d, k) => d.r === r ? k + 1 : 0).filter(Boolean); 
-    const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r ? ta.dep : (REGIONS[r].air));
-    const apMin = airportLeg(apCode, st, r).min;
+    const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r || ta.dom ? ta.dep : (REGIONS[r].air));
+    const apMin = gateLeg(apCode, st, r).min;
     return `<div class="stay"><div class="stay-top"><span class="hic">${ICONS.house}</span><div class="tx"><small>${T.stayFor(esc(rn(r)), T.dayRange(dIdx[0], dIdx[dIdx.length - 1]), nights)}</small><b>${esc(sn(st.id))}</b></div>
       <label class="stsel"><span class="vh">${T.changeStay}</span><select data-stay="${r}">${STAYS.filter(s => s.r === r).map(s => `<option value="${s.id}" ${s.id === st.id ? 'selected' : ''}>${esc(sn(s.id))}</option>`).join('')}</select></label></div>
       <div class="stay-why"><div><b>${sc2.total ? T.avgMin(sc2.avg) : '—'}</b>${T.avgMinSub}</div><div><b>${T.nearN(sc2.near, sc2.total)}</b>${T.nearSub}</div>
-        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${T.apSub}</div>
+<<<<<<< HEAD
+        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${ORIGINS[apCode] ? T.originSub : T.apSub}</div>
+=======
+        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${tripAir().home ? T.apSubHome : T.apSub}</div>
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
         <div style="grid-column:1/-1"><b>${T.localCheck}</b>${T.priceLocal}</div></div>
       ${S.stayOv[r] ? `<p class="note">${T.stayManual} <button class="btn sm ghost" data-act="stayAuto" data-v="${r}" style="margin-left:6px">${T.stayAuto}</button></p>` : ''}</div>`; }).join('');
   const rows = sc.rows, last = rows.length - 1;
@@ -87,7 +99,12 @@ function panelPlan() {
     const e = o.e, sp = !['place', 'meal'].includes(e.k), p = e.id ? PBY[e.id] : null;
     const tags = (o.flags || []).map(flagPill).join('') + (e.k === 'meal' ? `<span class="pill" style="background:#FFF1E3;color:#B5560F">${e.slot === 'dinner' ? T.dinner : T.lunch}</span>` : '');
     const sub = p ? `${esc(T.cats[p.c])} · ${F.dur(p.h * 60)}` : (e.k === 'transfer' ? `${T.mRail === modeLabel(o.leg || {}) ? '' : ''}${esc(rn(e.from))} → ${esc(rn(e.to))}` : '');
-    const icon = sp ? ({ arrive: 'plane', depart: 'plane', transfer: (o.leg && o.leg.mode === 'flight') ? 'plane' : 'rail', checkout: 'house', stay: 'house', start: 'house', end: 'house' }[e.k]) : null;
+<<<<<<< HEAD
+    const gi = e.ap && ORIGINS[e.ap] ? { rail: 'rail', car: 'taxi', air: 'plane' }[ORIGINS[e.ap].g] : 'plane';
+    const icon = sp ? ({ arrive: gi, depart: gi, transfer: (o.leg && o.leg.mode === 'flight') ? 'plane' : 'rail', checkout: 'house', stay: 'house', start: 'house', end: 'house' }[e.k]) : null;
+=======
+    const icon = sp ? ({ arrive: tripAir().home ? 'rail' : 'plane', depart: tripAir().home ? 'rail' : 'plane', transfer: (o.leg && o.leg.mode === 'flight') ? 'plane' : 'rail', checkout: 'house', stay: 'house', start: 'house', end: 'house' }[e.k]) : null;
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
     tl += `<div class="ent ${sp ? 'sp' : ''} ${e.k === 'meal' ? 'meal' : ''} ${k === 0 ? 'first' : ''} ${k === last ? 'last' : ''}">
       <div class="tm">${slotLbl(o, rows[k - 1])}</div><div class="rl"><i>${sp ? ICONS[icon] : (o.num || '')}</i></div>
       <div class="bx">${p ? `<button class="tx" style="text-align:left" data-act="openPlace" data-v="${p.id}">` : '<div class="tx">'}<div class="nm">${esc(entryName(o))}</div>${sub ? `<div class="sub">${sub}</div>` : ''}${tags ? `<div class="tags">${tags}</div>` : ''}${p ? '</button>' : '</div>'}
@@ -160,7 +177,7 @@ function loadCourse(v) {
   const days = c.days.map(d => d.ids.filter(id => PBY[id])), ids = days.flat();
   S.saved = [...S.saved.filter(id => PBY[id].r !== r), ...ids]; savedRegions();
   if (S.order.length === 1) S.trip.end = addDays(S.trip.start, days.length - 1);
-  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.courseLoaded(ids.length));
+  S.course = { r, days }; S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_course', { region: r }); go('plan'); toast(T.courseLoaded(ids.length));
 }
 
 /* ---------- 일정 텍스트 ---------- */
@@ -178,7 +195,7 @@ Object.assign(ACT, {
   ordUp: v => { const o = tripOrder(), k = o.indexOf(v); if (k > 0) { [o[k - 1], o[k]] = [o[k], o[k - 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordDown: v => { const o = tripOrder(), k = o.indexOf(v); if (k >= 0 && k < o.length - 1) { [o[k + 1], o[k]] = [o[k], o[k + 1]]; S.order = o; S.orderManual = true; persist(); renderPanel(); } },
   ordAuto: () => { S.orderManual = false; persist(); renderPanel(); },
-  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); go('plan'); toast(T.planned); },
+  genPlan: () => { if (S.ui.tab === 'saved' && S.plan && S.plan.sig === planSig()) { go('plan'); return; } S.plan = generatePlan(); S.ui.day = 0; persist(); track('klink_plan', { places: S.saved.length }); go('plan'); toast(T.planned); },
   day: v => { S.ui.day = +v; persist(); renderPanel(); if (isDesk()) renderStage(); },
   openPlace: v => selectPlace(v),
   stopMenu: (v, el) => { const i = S.ui.day, si = +v, st = S.plan.days[i].stops, e = st[si];

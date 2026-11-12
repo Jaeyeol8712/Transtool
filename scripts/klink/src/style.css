@@ -518,3 +518,95 @@ p{text-wrap:pretty}
 .crs-d em{font-style:normal;color:var(--mute)}
 .crs-a{display:flex;gap:8px}
 .crs-a .btn{flex:1;text-decoration:none}
+<<<<<<< HEAD
+/* ---------- 실제 지도 (MapLibre + OpenFreeMap, i261112-15) ---------- */
+.glmap,.glmap.maplibregl-map{position:absolute;inset:0;width:100%;height:100%}
+.glmap .maplibregl-canvas{outline:none}
+.glmap .maplibregl-ctrl-attrib{font-size:10px}
+@media (max-width:979px){.app.t-map #mapbox .maplibregl-ctrl-bottom-left{bottom:calc(var(--sheet-h,38%) - 2px);transition:bottom .32s cubic-bezier(.3,.7,.2,1)}}
+.glpin,.glreg,.glstay,.glnum{appearance:none;border:0;background:none;padding:0;margin:0;cursor:pointer;font:inherit;color:var(--ink)}
+.glpin{width:28px;height:28px;position:relative}
+.glpin .dot{width:28px;height:28px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(20,26,46,.32);transition:transform .15s}
+.glpin .dot svg{width:15px;height:15px;color:#fff}
+.glpin.sel{z-index:4}.glpin.saved{z-index:3}
+.glpin.sel .dot{transform:scale(1.3);box-shadow:0 0 0 6px rgba(36,67,232,.22),0 2px 6px rgba(20,26,46,.32)}
+.glpin .hb{position:absolute;right:-7px;top:-7px;width:17px;height:17px;border-radius:50%;background:var(--blossom);color:#fff;font-size:9px;line-height:1;display:grid;place-items:center;border:2px solid #fff}
+.glpin .lb,.glstay .lb,.glnum .lb{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,.96);border-radius:8px;padding:2px 7px;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(20,26,46,.18);color:var(--ink);pointer-events:none;line-height:1.35}
+.glpin.sel .lb{background:var(--ink);color:#fff;top:calc(100% + 8px)}
+.gl-lbl-off .glpin:not(.keep):not(.sel) .lb{display:none}
+.glreg{display:flex;flex-direction:column;align-items:center}
+.glreg .m-label{position:static;transform:none;display:block}
+.glreg .rdot{width:16px;height:16px;border-radius:50%;background:var(--cobalt);border:3px solid #fff;box-shadow:0 0 0 7px rgba(36,67,232,.16);margin-top:6px}
+.gl-world .glreg .m-label{font-size:12.5px;padding:4px 9px}
+.gl-world .glreg .rdot{width:13px;height:13px;border-width:2.5px;box-shadow:0 0 0 5px rgba(36,67,232,.16)}
+.gl-minor-off .glreg.minor .m-label{display:none}
+.m-label.gldist{position:static;transform:none;opacity:.94}
+.gl-region .m-label.gldist{z-index:1}
+.glstay{width:30px;height:30px;border-radius:50%;background:var(--ink);border:2.5px solid #fff;display:grid;place-items:center;position:relative;box-shadow:0 2px 6px rgba(20,26,46,.3)}
+.glstay svg{width:16px;height:16px;color:#fff}
+.glnum{width:26px;height:26px;border-radius:50%;background:#fff;border:3.5px solid var(--lc0,var(--cobalt));font-size:11.5px;font-weight:800;line-height:19px;text-align:center;position:relative;box-shadow:0 2px 5px rgba(20,26,46,.25)}
+.glnum.meal{border-color:#EF7C1C}
+/* 여행 유형 고르기 (시작 화면·여행 설정) */
+.intro .types{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.intro .types button{appearance:none;border:0;cursor:pointer;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;font:inherit;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.intro .types button i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--cobalt-soft);color:var(--cobalt);display:grid;place-items:center;flex-shrink:0}
+.intro .types button i svg{width:22px;height:22px}
+.intro .types button b{display:block;font-size:16.5px;font-weight:800}
+.intro .types button small{display:block;font-size:13px;color:var(--mute);margin-top:2px;line-height:1.4}
+.intro .types button>svg{width:18px;height:18px;margin-left:auto;color:var(--mute);flex-shrink:0}
+.intro .later{appearance:none;border:0;background:none;color:rgba(255,255,255,.85);font:inherit;font-size:13.5px;text-decoration:underline;margin-top:14px;cursor:pointer;align-self:center;padding:8px}
+.ttype{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ttype button{appearance:none;border:1.5px solid var(--line);background:var(--white);border-radius:12px;padding:9px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.25}
+.ttype button small{display:block;font-size:11px;font-weight:500;color:var(--mute);margin-top:2px}
+.ttype button.on{border-color:var(--cobalt);background:var(--cobalt-soft);color:var(--cobalt)}
+=======
+/* ===== 실제 지도 (MapLibre) 2026-11-12 ===== */
+#mapbox .maplibregl-canvas{outline:none}
+#mapbox .maplibregl-ctrl-bottom-right,#mapbox .maplibregl-ctrl-bottom-left{bottom:calc(var(--sheet-h,38%) - 4px);transition:bottom .32s cubic-bezier(.3,.7,.2,1)}
+@media (min-width:980px){#mapbox .maplibregl-ctrl-bottom-right,#mapbox .maplibregl-ctrl-bottom-left{bottom:0}}
+.app:not(.t-map) #mapbox .maplibregl-ctrl-bottom-right{bottom:0}
+.maplibregl-ctrl-attrib{font-size:10.5px}
+.gm{font-family:var(--sans);border:0;background:none;padding:0;cursor:pointer;color:var(--ink)}
+.g-reg{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.g-reg i{width:18px;height:18px;border-radius:50%;background:#2443E8;border:3.5px solid #fff;box-shadow:0 0 0 7px rgba(36,67,232,.16),0 2px 5px rgba(20,26,46,.25);flex-shrink:0}
+.g-reg span{background:#fff;border-radius:10px;padding:5px 9px;font-size:13.5px;font-weight:800;box-shadow:0 2px 8px rgba(20,26,46,.16);display:flex;flex-direction:column;line-height:1.2;text-align:left}
+.g-reg small{font-size:11px;font-weight:600;color:var(--mute)}
+.g-reg.sm i{width:14px;height:14px;border-width:3px;box-shadow:0 0 0 5px rgba(36,67,232,.14)}
+.g-reg.sm span{font-size:12.5px;padding:3px 8px}
+.gl-minor-off .g-reg.minor span{display:none}
+.hrt{color:#FF4F7B}
+.g-dist{background:rgba(255,255,255,.92);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:800;box-shadow:0 1px 6px rgba(20,26,46,.14);white-space:nowrap;display:flex;gap:6px;align-items:baseline;color:#2443E8}
+.g-dist small{font-size:11px;font-weight:600;color:var(--mute)}
+.gl-dist-off .g-dist{display:none}
+.g-pin{display:flex;flex-direction:column;align-items:center;gap:3px}
+.g-pin .d{position:relative;width:30px;height:30px;border-radius:50%;background:var(--c);border:2.5px solid #fff;display:grid;place-items:center;color:#fff;box-shadow:0 2px 6px rgba(20,26,46,.3);transition:transform .15s}
+.g-pin .d svg{width:15px;height:15px}
+.g-pin .d em{position:absolute;right:-7px;top:-7px;width:17px;height:17px;border-radius:50%;background:#FF4F7B;border:2px solid #fff;font-style:normal;font-size:9px;line-height:13px;text-align:center;color:#fff}
+.g-pin .lb{background:#fff;border-radius:7px;padding:2px 7px;font-size:12px;font-weight:700;box-shadow:0 1px 5px rgba(20,26,46,.18);white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.g-pin:hover .d{transform:scale(1.08)}
+.g-pin.on .d{transform:scale(1.25);box-shadow:0 0 0 6px rgba(36,67,232,.22),0 3px 8px rgba(20,26,46,.35)}
+.g-pin.on .lb{background:#2443E8;color:#fff}
+.gl-lbl-off .g-pin:not(.on):not(.saved) .lb{display:none}
+.g-num{position:relative;display:flex;flex-direction:column;align-items:center}
+.g-num b{width:28px;height:28px;border-radius:50%;background:#fff;border:3.5px solid var(--c);display:grid;place-items:center;font-size:12px;font-weight:800;box-shadow:0 2px 5px rgba(20,26,46,.25)}
+.g-num.meal b{border-color:#EF7C1C}
+.g-num .lb,.g-stay .lb{position:absolute;top:31px;background:#fff;border-radius:7px;padding:2px 7px;font-size:11.5px;font-weight:700;box-shadow:0 1px 5px rgba(20,26,46,.18);white-space:nowrap}
+.g-stay{position:relative;width:30px;height:30px;border-radius:50%;background:#141A2E;border:2.5px solid #fff;display:grid;place-items:center;color:#fff;box-shadow:0 2px 6px rgba(20,26,46,.3)}
+.g-stay svg{width:15px;height:15px}
+.g-stay .lb{color:var(--ink);left:50%;transform:translateX(-50%)}
+@media (max-width:520px){.routebox .g-num .lb{display:none}}
+.iconbtn.t3d span{font-size:13px;font-weight:800;letter-spacing:-.3px}
+.iconbtn.t3d.on{background:#2443E8;color:#fff}
+/* 여행 유형 고르기 */
+.intro .kinds{display:flex;flex-direction:column;gap:10px}
+.intro .kinds>b{font-size:16px;margin-bottom:2px}
+.intro .kindbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;color:var(--ink);border-radius:16px;padding:14px 14px}
+.intro .kindbtn i{width:38px;height:38px;border-radius:12px;background:#E9EDFF;color:#2443E8;display:grid;place-items:center;flex-shrink:0;font-style:normal}
+.intro .kindbtn i svg{width:20px;height:20px}
+.intro .kindbtn span{flex:1;display:flex;flex-direction:column;gap:2px}
+.intro .kindbtn b{font-size:16px;font-weight:800}
+.intro .kindbtn small{font-size:12.5px;color:var(--mute)}
+.intro .kindbtn>svg{width:18px;height:18px;color:var(--faint)}
+.kindseg{display:flex;width:100%}
+.kindseg button{flex:1}
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)

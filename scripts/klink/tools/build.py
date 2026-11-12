@@ -2,19 +2,24 @@ import json, sys, os
 root = sys.argv[1]; out = sys.argv[2]
 src = lambda f: open(os.path.join(root, 'src', f), encoding='utf-8').read()
 places = open(os.path.join(root, 'build', 'places.json'), encoding='utf-8').read()
-geo = open(os.path.join(root, 'build', 'geo.json'), encoding='utf-8').read()
+_g = json.loads(open(os.path.join(root, 'build', 'geo.json'), encoding='utf-8').read()); _g.pop('diorama', None)   # 3D 거리 모형은 더 쓰지 않는다
+geo = json.dumps(_g, ensure_ascii=False, separators=(',', ':'))
 ovp = os.path.join(root, 'build', 'overseas.json')
 ov = open(ovp, encoding='utf-8').read() if os.path.exists(ovp) else 'null'
 ap = sys.argv[3] if len(sys.argv) > 3 else ''
 around = open(ap, encoding='utf-8').read() if ap and os.path.exists(ap) else 'null'
-js = ['icons.js', 'i18n.js', 'i18n_ov.js', 'core.js', 'planner.js', 'map2d.js', 'world3d.js', 'ui_shell.js', 'ui_views.js', 'main.js']
+<<<<<<< HEAD
+js = ['icons.js', 'i18n.js', 'i18n_ov.js', 'core.js', 'planner.js', 'map2d.js', 'mapgl.js', 'world3d.js', 'ui_shell.js', 'ui_views.js', 'main.js']
+=======
+js = ['icons.js', 'i18n.js', 'i18n_ov.js', 'core.js', 'planner.js', 'map2d.js', 'mapgl.js', 'ui_shell.js', 'ui_views.js', 'main.js']   # 2026-11-12: 3D 거리(three.js) 대신 실제 지도(MapLibre)의 3D 건물
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
 import json as _j
 _P = _j.loads(places); _R = {}
 for _p in _P: _R.setdefault(_p['r'], []).append(_p['n']['ko'])
 _ov = _j.loads(open(os.path.join(root, 'build', 'regions.json'), encoding='utf-8').read()) if os.path.exists(os.path.join(root, 'build', 'regions.json')) else []
 _li = ''.join(f"<li><a href=\"#{r['id']}\">{r['name']}</a> — {' · '.join(_R.get(r['id'], [])[:6])}</li>" for r in _ov)
 static = (f'<main id="seo"><h1>K링크 — 여행 일정 플래너</h1><p>지도에서 가고 싶은 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천합니다. '
-          f'국내 {sum(1 for r in _ov if not r.get("ov"))}곳은 3D 거리, 해외 {sum(1 for r in _ov if r.get("ov"))}개 도시는 지도로 고릅니다. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 옵니다.</p>'
+          f'국내 {sum(1 for r in _ov if not r.get("ov"))}곳과 해외 {sum(1 for r in _ov if r.get("ov"))}개 도시를 실제 지도(OpenStreetMap)에서 고르고, 국내 여행·해외 여행·한국 방문에 맞춰 일정을 짭니다. 정보는 어라운드툴 여행 가이드·맛집 기록·명소 안내에서 옵니다.</p>'
           f'<h2>여행지</h2><ul>{_li}</ul><p><a href="/travel.html">어라운드툴 여행 가이드 전체</a></p></main>')
 html = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -34,7 +39,15 @@ html = f'''<!DOCTYPE html>
 <style>
 {src('style.css')}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<<<<<<< HEAD
+=======
+<link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+>>>>>>> ad291fab (K링크 2단계: 실제 지도(MapLibre+OpenFreeMap, 3D 건물)로 전환하고 3D 거리 모형 제거, 시작 화면에서 여행 유형(국내 여행·해외 여행·한국 방문) 고르기, 국내 여행은 KTX역 출발·도착으로 일정)
 </head>
 <body>
 {static}
