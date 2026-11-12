@@ -768,5 +768,49 @@
  "k-ys-dolsanpark": [
   "Dolsan bridge night",
   "Dolsan park Yeosu"
+ ],
+ "k-tk-sensoji": [
+  "Senso-ji Kaminarimon",
+  "Sensoji Hondo"
+ ],
+ "k-tk-nakamise": [
+  "Nakamise-dori Asakusa",
+  "Nakamise shopping street"
+ ],
+ "k-tk-ueno": [
+  "Ueno Park Tokyo",
+  "Ueno Park cherry blossoms"
+ ],
+ "k-tk-shibuya": [
+  "Shibuya Crossing",
+  "Shibuya scramble crossing"
+ ],
+ "k-tk-meiji": [
+  "Meiji Jingu",
+  "Meiji Shrine torii"
+ ],
+ "k-tk-takeshita": [
+  "Takeshita Street Harajuku",
+  "Takeshita-dori"
+ ],
+ "k-tk-tocho": [
+  "Tokyo Metropolitan Government Building",
+  "Tokyo Metropolitan Government Building observatory"
+ ],
+ "k-tk-omoide": [
+  "Omoide Yokocho",
+  "Omoide Yokocho Shinjuku"
+ ],
+ "k-tk-odaiba": [
+  "Odaiba Seaside Park",
+  "Odaiba Marine Park Rainbow Bridge"
+ ],
+ "k-tk-kamakura": [
+  "Kamakura Daibutsu",
+  "Great Buddha of Kamakura"
+ ],
+ "k-tk-hakone": [
+  "Lake Ashi Hakone",
+  "Hakone Owakudani"
  ]
 }
