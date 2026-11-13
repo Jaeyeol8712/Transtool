@@ -880,5 +880,25 @@
  "k-hn-halong": [
   "Ha Long Bay",
   "Halong Bay karst"
+ ],
+ "b-esim": [
+  "SIM card smartphone",
+  "eSIM smartphone travel"
+ ],
+ "b-baggage": [
+  "airport check-in baggage",
+  "luggage scale suitcase"
+ ],
+ "b-rentalcar": [
+  "rental car counter",
+  "car rental parking lot"
+ ],
+ "b-catfood": [
+  "cat eating food bowl",
+  "dry cat food"
+ ],
+ "b-dewpoint": [
+  "window condensation",
+  "condensation on glass"
  ]
 }
