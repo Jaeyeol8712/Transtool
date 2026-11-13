@@ -1,39 +1,44 @@
 {
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-12.html",
-   "title": "일간 보고서 · 2026-11-12(목)",
+   "file": "reports/daily-2026-11-13.html",
+   "title": "일간 보고서 · 2026-11-13(금)",
    "kpi": {
+    "views": 4,
+    "viewers": 4,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 8,
     "viewers": 3,
     "clicks": 7,
     "clickers": 3
    },
-   "prev": {
-    "views": 1,
-    "viewers": 1,
-    "clicks": 0,
-    "clickers": 0
-   },
    "ai": {
-    "sessions": 4,
-    "users": 4,
+    "sessions": 5,
+    "users": 5,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 4,
-      "users": 4
+      "sessions": 3,
+      "users": 3
+     },
+     {
+      "name": "perplexity",
+      "sessions": 1,
+      "users": 1
+     },
+     {
+      "name": "perplexity.ai",
+      "sessions": 1,
+      "users": 1
      }
     ]
    },
    "site": {
-    "20261106": {
-     "views": 52,
-     "users": 27,
-     "sessions": 37
-    },
     "20261107": {
      "views": 25,
      "users": 17,
@@ -63,18 +68,14 @@
      "views": 135,
      "users": 26,
      "sessions": 34
+    },
+    "20261113": {
+     "views": 35,
+     "users": 27,
+     "sessions": 28
     }
    },
    "days7": [
-    {
-     "key": "20261106",
-     "label": "11.6(금)",
-     "views": 3,
-     "viewers": 1,
-     "clicks": 2,
-     "clickers": 1,
-     "site": 52
-    },
     {
      "key": "20261107",
      "label": "11.7(토)",
@@ -128,6 +129,15 @@
      "clicks": 7,
      "clickers": 3,
      "site": 135
+    },
+    {
+     "key": "20261113",
+     "label": "11.13(금)",
+     "views": 4,
+     "viewers": 4,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 35
     }
    ],
    "weeks8": [
@@ -205,18 +215,18 @@
      "key": "202646",
      "label": "11.9~(진행 중)",
      "done": false,
-     "views": 12,
-     "viewers": 6,
+     "views": 16,
+     "viewers": 9,
      "clicks": 9,
      "clickers": 5,
-     "site": 303
+     "site": 338
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 7
+     "clicks": 5
     },
     {
      "channel": "Cross-network",
@@ -237,8 +247,8 @@
     },
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 6,
-     "clicks": 5
+     "views": 4,
+     "clicks": 3
     },
     {
      "post": "거북목 교정기 목견인기 추천 가격 비교",
@@ -250,7 +260,7 @@
     {
      "name": "m.search.naver.com / referral",
      "sessions": 4,
-     "users": 4
+     "users": 3
     },
     {
      "name": "daum / organic",
@@ -268,7 +278,7 @@
      "users": 1
     },
     {
-     "name": "chatgpt.com / ai-assistant",
+     "name": "(direct) / (none)",
      "sessions": 1,
      "users": 1
     }
@@ -325,25 +335,11 @@
    ],
    "google": [
     {
-     "query": "무선 게이밍 키보드 추천",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 3,
-     "position": 7
-    },
-    {
      "query": "jbl 어센틱 200",
      "post": "jbl-authentics-200",
      "clicks": 0,
      "impressions": 1,
      "position": 27
-    },
-    {
-     "query": "가격",
-     "post": "queens-collagen-rg3",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 2
     },
     {
      "query": "갤탭 12 울트라",
@@ -360,11 +356,11 @@
      "position": 10
     },
     {
-     "query": "쉐이빙폼 추천",
-     "post": "shaving-foam-cream",
+     "query": "무선 게이밍 키보드 추천",
+     "post": "wireless-gaming-keyboard",
      "clicks": 0,
      "impressions": 1,
-     "position": 56
+     "position": 7
     },
     {
      "query": "시드니여행코스",
@@ -379,6 +375,20 @@
      "clicks": 0,
      "impressions": 1,
      "position": 8
+    },
+    {
+     "query": "튀르 키예 여행 코스",
+     "post": "turkiye-9days",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 60
+    },
+    {
+     "query": "튀르키예 여행 코스",
+     "post": "turkiye-9days",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 34
     }
    ]
   }
