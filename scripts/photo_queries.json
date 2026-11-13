@@ -832,5 +832,53 @@
  "b-humidifier": [
   "ultrasonic humidifier",
   "humidifier mist"
+ ],
+ "k-dn-mykhe": [
+  "My Khe beach Da Nang",
+  "Da Nang beach"
+ ],
+ "k-dn-han": [
+  "Han Market Da Nang",
+  "Cho Han Da Nang"
+ ],
+ "k-dn-dragon": [
+  "Dragon Bridge Da Nang",
+  "Cau Rong Da Nang"
+ ],
+ "k-dn-marble": [
+  "Marble Mountains Da Nang",
+  "Ngu Hanh Son"
+ ],
+ "k-dn-bana": [
+  "Golden Bridge Ba Na Hills",
+  "Ba Na Hills"
+ ],
+ "k-dn-hoian": [
+  "Hoi An ancient town",
+  "Hoi An Japanese bridge"
+ ],
+ "k-hn-hoankiem": [
+  "Hoan Kiem Lake",
+  "Huc bridge Hanoi"
+ ],
+ "k-hn-36": [
+  "Hanoi Old Quarter street",
+  "Hang Ma street Hanoi"
+ ],
+ "k-hn-temple": [
+  "Temple of Literature Hanoi",
+  "Van Mieu Hanoi"
+ ],
+ "k-hn-hcm": [
+  "Ho Chi Minh Mausoleum",
+  "Ba Dinh Square Hanoi"
+ ],
+ "k-hn-trangan": [
+  "Trang An Ninh Binh",
+  "Trang An boat"
+ ],
+ "k-hn-halong": [
+  "Ha Long Bay",
+  "Halong Bay karst"
  ]
 }
