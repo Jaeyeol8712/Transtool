@@ -1,6 +1,26 @@
-== 2026-11-12T21:40:24Z push 0a79c7e77c30440602eb56cc935cdf5a1ad3c9af
-· 대상 1개
-  https://www.aroundtool.com/travel-tokyo.html
+== 2026-11-13T04:48:34Z push 5f73ec8cb7c39aa3ac53527d06500269024a2e4c
+· 대상 501개
+  https://www.aroundtool.com/about.html
+  https://www.aroundtool.com/acquisition_tax_calculator.html
+  https://www.aroundtool.com/age_calculator.html
+  https://www.aroundtool.com/alcohol_calorie_calculator.html
+  https://www.aroundtool.com/apartment_fee_per_area_calculator.html
+  https://www.aroundtool.com/bmi_calculator.html
+  https://www.aroundtool.com/bmr_calculator.html
+  https://www.aroundtool.com/body_fat_navy_calculator.html
+  https://www.aroundtool.com/bonus_net_pay_calculator.html
+  https://www.aroundtool.com/brokerage_fee_calculator.html
+  https://www.aroundtool.com/caffeine_intake_calculator.html
+  https://www.aroundtool.com/calorie_calculator.html
+  https://www.aroundtool.com/camping_gear_calculator.html
+  https://www.aroundtool.com/capital_gains_tax_calculator.html
+  https://www.aroundtool.com/car_installment_calculator.html
+  https://www.aroundtool.com/car_tax_calculator.html
+  https://www.aroundtool.com/card_installment_calculator.html
+  https://www.aroundtool.com/cat_food_amount_calculator.html
+  https://www.aroundtool.com/character_counter.html
+  https://www.aroundtool.com/christmas_gift_budget_calculator.html
+  … 외 481개
 
   ✓ api.indexnow.org — 200 접수됨
   ✓ www.bing.com — 200 접수됨
@@ -11,9 +31,8 @@
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
-  ✗ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
-  ✗ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
-  · 사이트가 Bing 웹마스터 도구에 등록·인증돼 있는지, siteUrl 이 등록한 주소와 같은지 확인하세요.
+  ✓ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 제출됨
+  ✓ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 제출됨
 
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
