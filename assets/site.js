@@ -131,6 +131,16 @@
     track(a, { method: mobile ? 'mobile' : 'desktop' });
   }, true);
 
+  /* ---------- 여행 글 → K링크 (2026-11-13 컨펌 i261113-01) ----------
+     여행 가이드 '일정별 추천' 아래 'K링크에서 이 코스 담기' 버튼. GA4 이벤트 klink_from_travel
+     (post_slug = 여행 글, klink_kind = course 코스 담기 · region 지역 · home K링크 첫 화면) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-klink-from]');
+    if (!a || !window.gtag) return;
+    gtag('event', 'klink_from_travel', { post_slug: a.getAttribute('data-klink-from'), klink_kind: a.getAttribute('data-klink-kind') || '',
+      link_url: a.getAttribute('href'), method: mobile ? 'mobile' : 'desktop', transport_type: 'beacon' });
+  }, true);
+
   /* ---------- 유료 광고로 들어온 방문 ----------
      구글 애즈·네이버·카카오 키워드 광고 랜딩은 광고 정책(Better Ads Standards의 팝업·깜빡이는 광고 금지,
      이용자 의도와 무관한 화면 변화 금지)에 맞춰 팝업을 띄우지 않고 버튼 깜빡임도 멈춥니다.

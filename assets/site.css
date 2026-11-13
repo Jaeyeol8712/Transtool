@@ -1075,3 +1075,11 @@ html body .at-search button{background:transparent!important;color:var(--at-ink)
 html body .at-search button:hover{background:transparent!important;color:var(--act)!important}
 .at-board .at-board-tabs a[aria-current="page"],.at-board:is(.is-food,.is-tool,.is-trip,.is-shop) .at-board-tabs a[aria-current="page"]{
   background:var(--at-ink);border-color:var(--at-ink);color:#fff}
+
+/* i261113-01 (2026-11-13) 여행 가이드 '일정별 추천' 아래 주요 버튼 1개 — K링크에서 이 코스 담기 (1단계 주요: 파랑 채움, 높이 48, 모서리 12) */
+.at-kcourse{margin:1.1rem 0 .2rem}
+html body a.at-kcourse-btn{display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:48px;padding:.7rem 1.1rem;border-radius:12px;
+  background:var(--act);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;box-sizing:border-box;width:100%;max-width:420px}
+html body a.at-kcourse-btn:hover{background:#1B34C4;color:#fff}
+html body a.at-kcourse-btn:focus-visible{outline:3px solid #9DB0FF;outline-offset:2px}
+.at-kcourse-sub{margin:.45rem 0 0;font-size:.875rem;color:var(--at-sub);line-height:1.5;overflow-wrap:anywhere}

@@ -1290,7 +1290,7 @@ def guide_parts(f):
         return _GUIDE[f]
     out = None
     if os.path.exists(f):
-        s = re.sub(r"<!-- at:spots -->.*?<!-- /at:spots -->", "", read(f), flags=re.S)
+        s = re.sub(r"<!-- at:(spots|kcourse) -->.*?<!-- /at:\1 -->", "", read(f), flags=re.S)
         a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
         soup = BeautifulSoup(s[a:b] if a >= 0 < b else s, "html.parser")
         tx = lambda e: re.sub(r"\s+", " ", e.get_text(" ", strip=True)) if e else ""
@@ -1407,7 +1407,7 @@ def inject_spots():
 # 여행 가이드 '일정(ul.days)'에 나온 장소 순서 → 추천 코스.
 K_LINK_GENERIC = {"수산시장", "해수욕장", "중앙시장", "돼지국밥", "밤바다", "해산물", "케이블카", "해상케이블카", "전망대", "한옥마을", "해안도로",
                   "버스정류장", "흑돼지", "편집숍", "먹거리", "촬영지", "테마파크", "야시장", "빌리지", "리조트", "국립공원", "쇼핑몰",
-                  "차이나타운", "구시가지", "빈원더스"}
+                  "차이나타운", "구시가지", "빈원더스", "닭갈비"}  # 닭갈비: 홍대 닭갈비 골목이 춘천 여행 글에 잘못 붙던 것(i261113-02 표본 점검)
 _PTXT = {}
 
 
@@ -1415,9 +1415,56 @@ def page_text(f):
     if f not in _PTXT:
         s = read(f) if os.path.exists(f) else ""
         a, b = s.find("<!-- /at:top -->"), s.find("<!-- at:bottom -->")
-        s = re.sub(r"<!-- at:spots -->.*?<!-- /at:spots -->", "", s[a:b] if a >= 0 < b else s, flags=re.S)
+        s = re.sub(r"<!-- at:(spots|kcourse) -->.*?<!-- /at:\1 -->", "", s[a:b] if a >= 0 < b else s, flags=re.S)
         _PTXT[f] = re.sub(r"\s+", " ", BeautifulSoup(s, "html.parser").get_text(" ")) if s else ""
     return _PTXT[f]
+
+
+def _place_aliases():
+    """scripts/klink/tools/places_master.py 의 ALIASES (2026-11-13 컨펌 i261113-02). 3글자 미만·흔한 낱말은 뺀다."""
+    import importlib.util
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "klink", "tools", "places_master.py")
+    try:
+        spec = importlib.util.spec_from_file_location("klink_places_master", path)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        al = getattr(m, "ALIASES", {})
+    except (OSError, SyntaxError):
+        return {}
+    return {pid: [a for a in v if len(a.replace(" ", "")) >= 3 and a not in K_LINK_GENERIC] for pid, v in al.items()}
+
+
+PLACE_ALIASES = _place_aliases()
+
+
+def alias_keys(pl):
+    """별칭 중 link_keys 에 없는 것 (긴 것부터)."""
+    base = link_keys(pl)
+    names = {v[0] for v in KLINK_REGIONS.values()} | {r["name"] for r in KLINK_INDEX}
+    return sorted([a for a in PLACE_ALIASES.get(pl["id"], []) if a not in base and a not in names], key=len, reverse=True)
+
+
+def region_name(rid):
+    return KLINK_OV[rid]["name"] if rid in KLINK_OV else KLINK_REGIONS.get(rid, (rid,))[0]
+
+
+def alias_hits(pl, fl, body, title):
+    """별칭으로 걸린 횟수. 동명 장소 방지: 이 장소 지역 이름이 글에 나오고, 글이 다른 K링크 지역의 여행 가이드가 아닐 때만."""
+    als = alias_keys(pl)
+    if not als:
+        return 0
+    rname = region_name(pl["r"])
+    if rname not in body and rname not in title:
+        return 0
+    if klink_region_of(PAGES[fl]) not in (None, pl["r"]):
+        return 0
+    for k in link_keys(pl):  # 원래 이름으로 이미 센 자리는 빼고 센다(같은 자리 두 번 세지 않게)
+        body = body.replace(k, " ")
+    n = 0
+    for a in als:
+        n += body.count(a) + 5 * (a in title)
+        body = body.replace(a, " ")
+    return n
 
 
 def link_keys(pl):
@@ -1428,13 +1475,14 @@ def link_keys(pl):
 def klink_links(pl, zone, gus):
     """이 장소를 다룬 어라운드툴 글: f 맛집·제철 글, t 다른 여행 글, gu 이 구의 맛집 기록."""
     ks, o = link_keys(pl), {}
-    if ks:
+    if ks or alias_keys(pl):
         food_rid = KLINK_REGIONS.get(pl["r"], (None, None))[1]
         def ranked(files, need):
             sc = []
             for fl in files:
                 t, body = PAGES[fl].get("title", ""), page_text(fl)
                 n = sum(body.count(k) for k in ks) + 5 * any(k in t for k in ks)
+                n += alias_hits(pl, fl, body, t)
                 if n >= need:
                     sc.append((-n, fl))
             return [fl for _, fl in sorted(sc)[:3]]
@@ -1505,6 +1553,18 @@ def klink_spots(regions=None):
     if P:
         with open(os.path.join(KLINK_DIR, "spots_todo.json"), "w", encoding="utf-8") as fh:
             json.dump({"done": len(SPOTS), "todo": sum(len(v) for v in todo.values()), "regions": todo}, fh, ensure_ascii=False, indent=1)
+        # 글이 하나도 연결되지 않은 장소(맛집·제철 f, 다른 여행 글 t, 구 맛집 기록 gu 모두 없음) → 다음 콘텐츠 안건 근거 (i261113-02)
+        gaps, linked = {}, 0
+        for pl in P:
+            o = out.get(pl["id"], {})
+            if any(o.get(k) for k in ("f", "t", "gu")):
+                linked += 1
+            else:
+                gaps.setdefault(pl["r"], []).append({"id": pl["id"], "name": pl["n"]["ko"], "keys": link_keys(pl) + alias_keys(pl)})
+        with open(os.path.join(KLINK_DIR, "link_gaps.json"), "w", encoding="utf-8") as fh:
+            json.dump({"date": (__import__("datetime").datetime.now(__import__("datetime").timezone.utc) + __import__("datetime").timedelta(hours=9)).strftime("%Y-%m-%d"), "places": len(P), "linked": linked, "gaps": len(P) - linked,
+                       "note": "글이 연결되지 않은 장소. 이 장소 이름(keys 중 하나)이 본문에 나오는 맛집·제철 글이나 다른 여행 글(3번 이상 또는 제목)을 쓰면 다음 빌드에서 자동 연결",
+                       "regions": gaps}, fh, ensure_ascii=False, indent=1)
     return out
 
 
@@ -1552,6 +1612,52 @@ def build_klink_data():
     os.makedirs("klink", exist_ok=True)
     with open("klink/around.json", "w", encoding="utf-8") as fh:
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
+
+
+def inject_klink_course():
+    """여행 가이드 '일정별 추천'(ul.days) 아래 주요 버튼 1개: K링크에서 이 코스 담기 (2026-11-13 컨펌 i261113-01).
+    가이드 일정이 K링크 추천 코스로 잡히면 /klink/#course-<지역>-0(첫 코스를 바로 담음), 코스가 없으면 그 지역(#<지역>).
+    K링크에 없는 도시의 글에는 두지 않는다.
+    클릭은 GA4 이벤트 klink_from_travel(assets/site.js)로 잰다. 여러 번 돌려도 같은 결과."""
+    P, _ = klink_places()
+    n = 0
+    for f, p in PAGES.items():
+        if not f.startswith("travel-") or not os.path.exists(f):
+            continue
+        s = read(f)
+        s0 = s
+        s = re.sub(r"<!-- at:kcourse -->.*?<!-- /at:kcourse -->", "", s, flags=re.S)
+        i = s.find('<ul class="days"')
+        if i < 0:
+            if s != s0:
+                open(f, "w", encoding="utf-8").write(s)
+            continue
+        end = s.find("</section>", i)
+        if end < 0:
+            continue
+        rid = klink_region_of(p)
+        cs = klink_courses(rid, P) if rid else []
+        if cs:
+            href, sub = f"/klink/#course-{rid}-0", f"「{cs[0]['t']}」 코스를 지도에 담아 날짜별 동선으로 봐요"
+            label = "K링크에서 이 코스 담기"
+        elif rid:
+            name = KLINK_OV[rid]["name"] if rid in KLINK_OV else KLINK_REGIONS[rid][0]
+            href, sub, label = f"/klink/#{rid}", f"{name} 장소를 지도에서 골라 날짜별 동선으로 짜요", "K링크에서 이 일정 짜기"
+        else:  # K링크에 아직 없는 도시: 지도에서 짤 수 없으니 주요 버튼을 두지 않는다(글 끝 K링크 상자만)
+            if s != s0:
+                open(f, "w", encoding="utf-8").write(s)
+            continue
+        slug = f[:-5]
+        btn = (f'<!-- at:kcourse --><div class="at-kcourse"><a class="at-kcourse-btn" href="{href}" data-klink-from="{slug}" '
+               f'data-klink-kind="{"course" if cs else "region"}">{esc(label)} <span aria-hidden="true">›</span></a>'
+               f'<p class="at-kcourse-sub">{esc(sub)}</p></div><!-- /at:kcourse -->')
+        s = s[:end] + btn + s[end:]
+        if s != s0:
+            open(f, "w", encoding="utf-8").write(s)
+        _GUIDE.pop(f, None)
+        _PTXT.pop(f, None)
+        n += 1
+    return n
 
 
 def bottom_block(p):
@@ -3017,6 +3123,7 @@ def main():
         transform_existing(p)
     inject_spots()
     build_klink_data()
+    inject_klink_course()
     build_home()
     build_food_hub()
     build_tools_hub()

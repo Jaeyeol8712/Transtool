@@ -2418,6 +2418,18 @@
    "title": "자유글 게시판",
    "status": "wait",
    "note": "Supabase 주소·anon 키 대기."
+  },
+  {
+   "date": "11.13",
+   "title": "여행 글 → K링크 주요 버튼 1개 + 측정 확인 (i261113-01)",
+   "status": "done",
+   "note": "K링크 지역 여행 가이드 40개 '일정별 추천' 아래 'K링크에서 이 코스 담기'(/klink/#course-<지역>-0, 바로 담김). 클릭 이벤트 klink_from_travel. fromTravel 분류식 점검: 맞음(같은 사이트 안은 전체 주소 전달)."
+  },
+  {
+   "date": "11.13",
+   "title": "글↔장소 연결 별칭 매칭 (i261113-02)",
+   "status": "done",
+   "note": "places_master.ALIASES 253곳, 지역 일치 조건·3글자 이상. 연결 39→40/280(본문에 장소 이름이 나오는 글 자체가 적음). 빈 장소 240곳 scripts/klink/build/link_gaps.json. 표본 점검: 홍대 닭갈비 골목↔춘천 글 잘못 연결 제거."
   }
  ],
  "days": [

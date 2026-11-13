@@ -3,7 +3,9 @@ function safeStage() { try { renderStage(); } catch (e) { console.error(e); cons
 function init() {
   let l = S.lang;
   if (!l || !I18N[l]) { const n = (navigator.language || 'en').toLowerCase(); l = n.startsWith('zh') ? 'zh' : n.startsWith('ja') ? 'ja' : n.startsWith('ko') ? 'ko' : 'en'; }
-  const h = (location.hash || '').slice(1);
+  let h = (location.hash || '').slice(1), course = null;
+  { const m = /^course-(.+)-(\d+)$/.exec(h); if (m && REGIONS[m[1]]) { h = m[1]; course = `${m[1]}:${m[2]}`; } }   // 여행 가이드 'K링크에서 이 코스 담기'(i261113-01)
+  if (course) { if (!S.lang) l = 'ko'; if (!S.trip.kind && !isOv(h)) S.trip.kind = 'kr'; }   // 한국어 여행 가이드에서 왔으면 한국어 · 국내 여행으로 시작
   if ((REGIONS[h] && isOv(h)) || h === 'overseas' || (PBY[h] && isOv(PBY[h].r))) S.trip.kind = 'ov';
   if (REGIONS[h]) { S.seenIntro = true; S.ui.lvl = 'region'; S.ui.r = h; S.ui.scope = isOv(h) ? 'ov' : 'kr'; }
   else if (h === 'overseas') { S.seenIntro = true; S.ui.scope = 'ov'; }
@@ -11,6 +13,7 @@ function init() {
   setLang(l); setKindTimes(S.trip, tripKind()); buildShell();
   loadAround(() => { if (S.ui.tab !== 'saved') renderPanel(); });
   renderChrome(); renderPanel(); safeStage();
+  if (course) { try { loadCourse(course); } catch (e) { console.error(e); } try { history.replaceState(null, '', '#' + h); } catch (e) {} }
   if (!S.seenIntro) showIntro();
 }
 document.addEventListener('click', e => {
