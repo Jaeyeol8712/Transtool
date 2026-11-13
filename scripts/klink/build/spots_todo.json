@@ -1,6 +1,6 @@
 {
- "done": 62,
- "todo": 218,
+ "done": 74,
+ "todo": 206,
  "regions": {
   "seoul": [
    {
@@ -730,38 +730,6 @@
     "guide": true
    }
   ],
-  "danang": [
-   {
-    "id": "dn_mykhe",
-    "name": "미케 해변",
-    "guide": true
-   },
-   {
-    "id": "dn_han",
-    "name": "한 시장",
-    "guide": false
-   },
-   {
-    "id": "dn_dragon",
-    "name": "용다리",
-    "guide": true
-   },
-   {
-    "id": "dn_marble",
-    "name": "오행산",
-    "guide": true
-   },
-   {
-    "id": "dn_bana",
-    "name": "바나힐·골든브리지",
-    "guide": true
-   },
-   {
-    "id": "dn_hoian",
-    "name": "호이안 구시가지",
-    "guide": true
-   }
-  ],
   "nhatrang": [
    {
     "id": "nt_beach",
@@ -791,38 +759,6 @@
    {
     "id": "nt_hopping",
     "name": "호핑투어(혼문섬)",
-    "guide": true
-   }
-  ],
-  "hanoi": [
-   {
-    "id": "hn_hoankiem",
-    "name": "호안끼엠 호수",
-    "guide": true
-   },
-   {
-    "id": "hn_36",
-    "name": "36거리",
-    "guide": true
-   },
-   {
-    "id": "hn_temple",
-    "name": "문묘",
-    "guide": true
-   },
-   {
-    "id": "hn_hcm",
-    "name": "호찌민 묘소",
-    "guide": true
-   },
-   {
-    "id": "hn_trangan",
-    "name": "닌빈 짱안",
-    "guide": true
-   },
-   {
-    "id": "hn_halong",
-    "name": "하롱베이",
     "guide": true
    }
   ],
