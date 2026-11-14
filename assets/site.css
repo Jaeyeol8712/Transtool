@@ -1083,3 +1083,12 @@ html body a.at-kcourse-btn{display:flex;align-items:center;justify-content:cente
 html body a.at-kcourse-btn:hover{background:#1B34C4;color:#fff}
 html body a.at-kcourse-btn:focus-visible{outline:3px solid #9DB0FF;outline-offset:2px}
 .at-kcourse-sub{margin:.45rem 0 0;font-size:.875rem;color:var(--at-sub);line-height:1.5;overflow-wrap:anywhere}
+
+/* i261114-01 (2026-11-14) 맛집 글 끝 '같은 지역 K링크 장소' — 2단계 보조 버튼(흰 바탕+테두리, 높이 44, 모서리 12) */
+.at-kplaces-list{margin:.4rem 0 .6rem;padding-left:1.1rem}
+.at-kplaces-list li{margin:.35rem 0;overflow-wrap:anywhere}
+.at-kplaces-src{font-size:.875rem;color:var(--at-sub);overflow-wrap:anywhere}
+html body a.at-kplaces-btn{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;min-height:44px;padding:.55rem 1rem;border-radius:12px;
+  background:#fff;color:var(--at-ink);border:1.5px solid var(--at-line-2,#D5DDDA);font-weight:700;text-decoration:none;box-sizing:border-box;max-width:100%}
+html body a.at-kplaces-btn:hover{border-color:var(--act);color:var(--act)}
+html body a.at-kplaces-btn:focus-visible{outline:3px solid #9DB0FF;outline-offset:2px}
