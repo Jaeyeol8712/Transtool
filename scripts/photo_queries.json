@@ -900,5 +900,101 @@
  "b-dewpoint": [
   "window condensation",
   "condensation on glass"
+ ],
+ "k-bk-palace": [
+  "Grand Palace Bangkok",
+  "Wat Phra Kaew"
+ ],
+ "k-bk-watpho": [
+  "Wat Pho reclining Buddha",
+  "Wat Pho Bangkok"
+ ],
+ "k-bk-watarun": [
+  "Wat Arun Bangkok",
+  "Temple of Dawn Bangkok"
+ ],
+ "k-bk-khaosan": [
+  "Khao San Road",
+  "Khaosan Road Bangkok"
+ ],
+ "k-bk-siam": [
+  "Siam Paragon Bangkok",
+  "Siam Square Bangkok"
+ ],
+ "k-bk-chatuchak": [
+  "Chatuchak weekend market",
+  "Chatuchak market Bangkok"
+ ],
+ "k-bk-ayutthaya": [
+  "Ayutthaya historical park",
+  "Wat Mahathat Ayutthaya"
+ ],
+ "k-cm-phrasingh": [
+  "Wat Phra Singh Chiang Mai",
+  "Wat Phra Singh"
+ ],
+ "k-cm-chediluang": [
+  "Wat Chedi Luang Chiang Mai",
+  "Wat Chedi Luang"
+ ],
+ "k-cm-sunday": [
+  "Chiang Mai Sunday walking street",
+  "Chiang Mai night market"
+ ],
+ "k-cm-nimman": [
+  "Nimmanhaemin Chiang Mai",
+  "Nimman road Chiang Mai"
+ ],
+ "k-cm-doisuthep": [
+  "Wat Phra That Doi Suthep",
+  "Doi Suthep temple"
+ ],
+ "k-cb-mactan": [
+  "Mactan island boat",
+  "island hopping Cebu"
+ ],
+ "k-cb-santonino": [
+  "Basilica del Santo Nino Cebu",
+  "Santo Nino Cebu"
+ ],
+ "k-cb-moalboal": [
+  "Moalboal Cebu",
+  "Moalboal sardine run"
+ ],
+ "k-bh-alona": [
+  "Alona Beach Panglao",
+  "Panglao Bohol beach"
+ ],
+ "k-bh-balicasag": [
+  "Balicasag island",
+  "Balicasag Bohol"
+ ],
+ "k-bh-loboc": [
+  "Loboc River Bohol",
+  "Loboc river cruise"
+ ],
+ "k-bh-tarsier": [
+  "Philippine tarsier",
+  "tarsier Bohol"
+ ],
+ "k-bh-chocolate": [
+  "Chocolate Hills Bohol",
+  "Chocolate Hills"
+ ],
+ "k-cl-freeport": [
+  "Clark Freeport Zone",
+  "Clark Pampanga"
+ ],
+ "k-cl-angeles": [
+  "Angeles City Pampanga",
+  "Holy Rosary Parish Church Angeles"
+ ],
+ "k-cl-pinatubo": [
+  "Mount Pinatubo crater lake",
+  "Pinatubo crater"
+ ],
+ "k-cl-subic": [
+  "Subic Bay",
+  "Subic Bay Freeport"
  ]
 }
