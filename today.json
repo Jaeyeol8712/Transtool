@@ -1,30 +1,30 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-15",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-13.html",
-   "title": "일간 보고서 · 2026-11-13(금)",
+   "file": "reports/daily-2026-11-14.html",
+   "title": "일간 보고서 · 2026-11-14(토)",
    "kpi": {
+    "views": 4,
+    "viewers": 2,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 4,
     "viewers": 4,
     "clicks": 0,
     "clickers": 0
    },
-   "prev": {
-    "views": 8,
-    "viewers": 3,
-    "clicks": 7,
-    "clickers": 3
-   },
    "ai": {
-    "sessions": 5,
-    "users": 5,
+    "sessions": 4,
+    "users": 4,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 3,
-      "users": 3
+      "sessions": 2,
+      "users": 2
      },
      {
       "name": "perplexity",
@@ -39,11 +39,6 @@
     ]
    },
    "site": {
-    "20261107": {
-     "views": 25,
-     "users": 17,
-     "sessions": 21
-    },
     "20261108": {
      "views": 20,
      "users": 14,
@@ -73,18 +68,14 @@
      "views": 35,
      "users": 27,
      "sessions": 28
+    },
+    "20261114": {
+     "views": 31,
+     "users": 20,
+     "sessions": 22
     }
    },
    "days7": [
-    {
-     "key": "20261107",
-     "label": "11.7(토)",
-     "views": 6,
-     "viewers": 6,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 25
-    },
     {
      "key": "20261108",
      "label": "11.8(일)",
@@ -138,6 +129,15 @@
      "clicks": 0,
      "clickers": 0,
      "site": 35
+    },
+    {
+     "key": "20261114",
+     "label": "11.14(토)",
+     "views": 4,
+     "viewers": 2,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 31
     }
    ],
    "weeks8": [
@@ -215,40 +215,30 @@
      "key": "202646",
      "label": "11.9~(진행 중)",
      "done": false,
-     "views": 16,
-     "viewers": 9,
+     "views": 20,
+     "viewers": 11,
      "clicks": 9,
      "clickers": 5,
-     "site": 338
+     "site": 369
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 5
-    },
-    {
-     "channel": "Cross-network",
-     "keyword": "(검색어 미전달)",
-     "clicks": 4
-    },
-    {
-     "channel": "AI Assistant",
-     "keyword": "(직접·내부)",
-     "clicks": 1
+     "clicks": 9
     }
    ],
    "topPosts": [
     {
      "post": "경동나비엔 온수매트 추천 가격 고르는 법",
-     "views": 9,
+     "views": 11,
      "clicks": 6
     },
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 4,
-     "clicks": 3
+     "views": 3,
+     "clicks": 2
     },
     {
      "post": "거북목 교정기 목견인기 추천 가격 비교",
@@ -259,26 +249,21 @@
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 4,
-     "users": 3
+     "sessions": 6,
+     "users": 5
     },
     {
-     "name": "daum / organic",
+     "name": "(direct) / (none)",
      "sessions": 3,
-     "users": 3
-    },
-    {
-     "name": "naver_cafe / cafe",
-     "sessions": 2,
      "users": 2
     },
     {
-     "name": "(data not available)",
+     "name": "google / organic",
      "sessions": 1,
      "users": 1
     },
     {
-     "name": "(direct) / (none)",
+     "name": "perplexity.ai / ai-assistant",
      "sessions": 1,
      "users": 1
     }
@@ -297,56 +282,39 @@
      "sessions": 2
     },
     {
-     "engine": "다음",
+     "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "car-vacuum-air-duster",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "홍콩 3박",
-     "post": "hongkong-deal-travel",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "경동나비엔 온수매트",
-     "post": "navien-water-mat",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "목 어깨",
-     "post": "pulio-neck-shoulder-tapping",
-     "sessions": 1
-    },
-    {
-     "engine": "다음",
-     "query": "차량용",
-     "post": "car-vacuum-air-duster",
+     "post": "neck-traction",
      "sessions": 1
     },
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "neck-traction",
+     "post": "student-office-laptop",
      "sessions": 1
     }
    ],
    "google": [
     {
-     "query": "jbl 어센틱 200",
-     "post": "jbl-authentics-200",
+     "query": "대학생 노트북",
+     "post": "student-office-laptop",
      "clicks": 0,
-     "impressions": 1,
-     "position": 27
+     "impressions": 4,
+     "position": 37.5
     },
     {
-     "query": "갤탭 12 울트라",
-     "post": "galaxy-tab-s12-ultra",
+     "query": "갤럭시 폴드8 가격",
+     "post": "galaxy-z-fold8-256",
      "clicks": 0,
      "impressions": 1,
      "position": 50
+    },
+    {
+     "query": "갤탭 s12 울트라 가격",
+     "post": "galaxy-tab-s12-ultra",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 10
     },
     {
      "query": "대학생 인강용 노트북 추천",
@@ -363,6 +331,13 @@
      "position": 7
     },
     {
+     "query": "순하고 무향 셰이빙 크림 추천",
+     "post": "shaving-foam-cream",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 10
+    },
+    {
      "query": "시드니여행코스",
      "post": "sydney-7days-full",
      "clicks": 0,
@@ -375,20 +350,6 @@
      "clicks": 0,
      "impressions": 1,
      "position": 8
-    },
-    {
-     "query": "튀르 키예 여행 코스",
-     "post": "turkiye-9days",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 60
-    },
-    {
-     "query": "튀르키예 여행 코스",
-     "post": "turkiye-9days",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 34
     }
    ]
   }
