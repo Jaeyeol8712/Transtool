@@ -508,10 +508,12 @@ async function siteKpi() {
       const [t0, rf] = await seq([() => ga(a, b, [], ["screenPageViews", "totalUsers"], kf), () => ga(a, b, ["pageReferrer"], ["screenPageViews"], kf, 1000)]);
       const m = t0[0] ? t0[0].m : [0, 0]; let fromSite = 0, fromTravel = 0;
       for (const x of rf) { const u = x.d[0] || ""; if (/aroundtool\.com/.test(u) && !/\/klink\//.test(u)) { fromSite += x.m[0]; if (/\/travel[-.]/.test(u)) fromTravel += x.m[0]; } }
+      // 여행 글 → K링크: fromTravel 은 이전 페이지(pageReferrer)가 /travel-*.html 인 /klink/ 조회(같은 사이트 안에서는 브라우저가 전체 주소를 보냄 — 2026-11-13 확인),
+      //   klink_from_travel 은 여행 가이드 'K링크에서 이 코스 담기' 버튼 클릭 수(i261113-01, 여행 글 쪽에서 직접 잼)
       // 이용 이벤트 (i261112-14): klink_save 저장 · klink_course 코스 담기 · klink_plan 일정 만들기 · klink_prep 준비 탭 · klink_out 어라운드툴 글·계산기로 이동
-      const ev = { klink_save: 0, klink_course: 0, klink_plan: 0, klink_prep: 0, klink_out: 0 };
+      const ev = { klink_save: 0, klink_course: 0, klink_plan: 0, klink_prep: 0, klink_out: 0, klink_from_travel: 0 };
       try {
-        const er = await ga(a, b, ["eventName"], ["eventCount"], { filter: { fieldName: "eventName", stringFilter: { matchType: "FULL_REGEXP", value: "klink_(save|course|plan|prep|out)" } } }, 20);
+        const er = await ga(a, b, ["eventName"], ["eventCount"], { filter: { fieldName: "eventName", stringFilter: { matchType: "FULL_REGEXP", value: "klink_(save|course|plan|prep|out|from_travel)" } } }, 20);
         for (const x of er) if (x.d[0] in ev) ev[x.d[0]] = x.m[0];
       } catch (e) { ev.error = e.message; }
       return { views: m[0], users: m[1], fromSite, fromTravel, events: ev };

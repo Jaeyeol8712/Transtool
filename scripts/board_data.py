@@ -104,7 +104,7 @@ if isinstance(kl.get("cur"), dict):
     KL = (("views", "K링크 조회"), ("users", "K링크 사용자"), ("fromSite", "사이트 글→K링크"), ("fromTravel", "여행 글→K링크"))
     for key, lab in KL:
         if isinstance(kc.get(key), (int, float)): add("klink", key, lab, kc[key], kp.get(key))
-    EVL = {"klink_save": "장소 저장", "klink_course": "코스 담기", "klink_plan": "일정 만들기", "klink_prep": "준비 탭 클릭", "klink_out": "어라운드툴 글·계산기로 이동"}
+    EVL = {"klink_save": "장소 저장", "klink_course": "코스 담기", "klink_plan": "일정 만들기", "klink_prep": "준비 탭 클릭", "klink_out": "어라운드툴 글·계산기로 이동", "klink_from_travel": "여행 글 코스 담기 버튼"}
     ec, ep = kc.get("events") or {}, kp.get("events") or {}
     for key, v in ec.items():
         if not isinstance(v, (int, float)): continue

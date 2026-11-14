@@ -196,3 +196,93 @@ NEW = [
      ["돌산공원 야경", "돌산대교와 여수항 야경"], ["突山公园夜景", "突山大桥与丽水港夜景"],
      ["Dolsan Park night view", "Dolsan Bridge and harbor lights"], ["突山公園の夜景", "突山大橋と麗水港の夜景"]),
 ]
+
+# 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.
+# 규칙: 3글자 이상만(2글자 별칭 금지), 흔한 낱말 금지(build.py K_LINK_GENERIC), 별칭으로만 걸린 글은
+#       그 장소 지역 이름이 본문·제목에 나오고 다른 K링크 지역의 여행 가이드가 아닐 때만 연결한다(동명 장소 방지).
+# 국내·해외 장소 모두 여기 둔다(id는 places.json 과 같다). places.json 을 다시 만들 필요는 없다.
+ALIASES = {
+    # 서울
+    "gbg": ["경복궁"], "bukchon": ["북촌한옥마을", "북촌 한옥"], "cdg": ["창덕궁"], "insa": ["인사동", "쌈지길"],
+    "gwangjang": ["광장시장"], "mdfood": ["명동 길거리", "명동 노점"], "dakgalbi": ["닭갈비 골목"], "oliveyoung": ["올리브영 명동"],
+    "garosu": ["가로수길"], "seongsu": ["성수동", "성수 편집숍"], "ddp": ["동대문디자인플라자", "동대문 패션"], "hongdae": ["홍대 거리", "홍대입구"],
+    "thehyundai": ["더현대 서울", "더현대"], "scafe": ["성수동 카페"], "ikcafe": ["익선동"], "ycafe": ["연남동"], "kstar": ["K-스타로드", "케이스타로드"],
+    "namsan": ["남산서울타워", "N서울타워", "남산타워"], "hangang": ["한강공원", "여의도 한강"], "lotte": ["롯데월드타워", "서울스카이"],
+    "cheong": ["청계천"], "banpo": ["달빛무지개분수", "반포한강"], "seoulforest": ["서울숲"], "coex": ["코엑스", "별마당도서관"],
+    "deoksugung": ["덕수궁"], "namdaemun": ["남대문시장"], "lotteworld": ["롯데월드 어드벤처"], "naksan": ["낙산공원"], "mangwon": ["망원시장"],
+    "noryangjin": ["노량진수산시장", "노량진 수산"],
+    # 부산
+    "bs_haeundae": ["해운대해수욕장", "해운대 해변"], "bs_gamcheon": ["감천문화마을", "감천마을"], "bs_jagalchi": ["자갈치시장", "자갈치"],
+    "bs_gwangan": ["광안대교", "광안리"], "bs_gukbap": ["돼지국밥 골목", "서면 국밥"], "bs_yonggung": ["해동용궁사", "용궁사"],
+    "bs_huinyeoul": ["흰여울문화마을", "흰여울"], "bs_centum": ["센텀시티"], "bs_blueline": ["블루라인파크", "해변열차"],
+    "bs_taejongdae": ["태종대"], "bs_gukje": ["국제시장", "BIFF광장"], "bs_songdo": ["송도해상케이블카", "송도 케이블카", "송도해수욕장"],
+    # 제주
+    "jj_seongsan": ["성산일출봉", "일출봉"], "jj_halla": ["한라산"], "jj_pork": ["흑돼지 거리", "흑돼지거리"], "jj_dongmun": ["동문시장"],
+    "jj_aewol": ["애월 카페", "애월해안"], "jj_jusang": ["주상절리"], "jj_dutyfree": ["제주 면세점"], "jj_sunset": ["애월 해안도로", "애월 노을"],
+    "jj_udo": ["우도 땅콩", "우도 도항선", "우도행"], "jj_hyeopjae": ["협재해변", "협재해수욕장"], "jj_osulloc": ["오설록"],
+    "jj_cheonjiyeon": ["천지연폭포", "천지연"], "jj_seopji": ["섭지코지"],
+    # 경주
+    "gj_bulguksa": ["불국사"], "gj_daereung": ["대릉원", "첨성대"], "gj_hwangni": ["황리단길"], "gj_wolji": ["동궁과 월지", "안압지"],
+    "gj_ssambap": ["쌈밥 거리", "쌈밥거리"], "gj_bomun": ["보문호", "보문관광단지"], "gj_seokguram": ["석굴암"], "gj_gyochon": ["교촌마을", "월정교"],
+    # 강릉
+    "gn_anmok": ["안목해변", "커피거리"], "gn_gyeongpo": ["경포해변", "경포대", "경포호"], "gn_jumunjin": ["주문진"], "gn_sundubu": ["초당순두부", "초당 순두부"],
+    "gn_ojukheon": ["오죽헌"], "gn_bts": ["향호해변"], "gn_jungang": ["강릉중앙시장", "강릉 중앙시장"],
+    # 전주
+    "jn_hanok": ["전주한옥마을", "전주 한옥마을"], "jn_night": ["남부시장"], "jn_gyeonggi": ["경기전"], "jn_tea": ["전통 찻집"], "jn_jeondong": ["전동성당"],
+    # 여수
+    "ys_cable": ["여수해상케이블카", "여수 케이블카"], "ys_night": ["낭만포차"], "ys_odong": ["오동도"], "ys_hyangil": ["향일암"],
+    "ys_aqua": ["아쿠아플라넷"], "ys_dolsanpark": ["돌산공원", "돌산대교"],
+    # 일본
+    "tk_sensoji": ["센소지", "아사쿠사"], "tk_nakamise": ["나카미세"], "tk_ueno": ["우에노"], "tk_shibuya": ["시부야"], "tk_meiji": ["메이지 신궁", "메이지신궁"],
+    "tk_takeshita": ["다케시타", "하라주쿠"], "tk_tocho": ["도쿄도청"], "tk_omoide": ["오모이데 요코초", "오모이데요코초"], "tk_odaiba": ["오다이바"],
+    "tk_kamakura": ["가마쿠라"], "tk_hakone": ["하코네"],
+    "os_dotonbori": ["도톤보리"], "os_shinsaibashi": ["신사이바시"], "os_kuromon": ["구로몬"], "os_shinsekai": ["신세카이", "츠텐카쿠"],
+    "os_castle": ["오사카성"], "os_umeda": ["우메다", "공중정원"], "os_usj": ["유니버설 스튜디오", "유니버설스튜디오"], "os_kaiyukan": ["가이유칸", "카이유칸"],
+    "os_nara": ["나라 공원", "나라공원", "도다이지"],
+    "ky_kiyomizu": ["기요미즈데라", "기요미즈"], "ky_bamboo": ["아라시야마"], "ky_togetsu": ["도게츠교"], "ky_kinkaku": ["금각사", "킨카쿠지"], "ky_ryoan": ["료안지"],
+    "fk_station": ["하카타역"], "fk_canal": ["캐널시티"], "fk_yatai": ["야타이"], "fk_dazaifu": ["다자이후"],
+    "sp_odori": ["오도리 공원", "오도리공원"], "sp_tvtower": ["TV타워"], "sp_clock": ["시계탑"], "sp_susukino": ["스스키노"], "sp_otaru": ["오타루"],
+    "sp_orgel": ["오르골당"],
+    "ok_kokusai": ["국제거리"], "ok_shuri": ["슈리성"], "ok_american": ["아메리칸 빌리지", "아메리칸빌리지"], "ok_manzamo": ["만좌모"],
+    "ok_churaumi": ["츄라우미"], "ok_kouri": ["고우리"],
+    "ng_noritake": ["노리타케"], "ng_sakae": ["사카에"], "ng_osu": ["오스 상점가", "오스칸논"], "ng_castle": ["나고야성"], "ng_nabana": ["나바나노사토"],
+    "hd_asaichi": ["아침시장"], "hd_brick": ["붉은벽돌창고", "가네모리"], "hd_motomachi": ["모토마치"], "hd_ropeway": ["하코다테산"],
+    "hd_goryokaku": ["고료카쿠"], "hd_yunokawa": ["유노카와"],
+    "bp_jigoku": ["지옥 순례", "지옥 온천"], "bp_kannawa": ["칸나와"], "bp_kinrin": ["긴린코"], "bp_yunotsubo": ["유노쓰보"],
+    "my_dogo": ["도고온천"], "my_haikara": ["도고 상점가"], "my_castle": ["마쓰야마성"], "my_okaido": ["오카이도"], "my_shimonada": ["시모나다"],
+    "kg_tenmonkan": ["덴몬칸"], "kg_shiroyama": ["시로야마"], "kg_sengan": ["센간엔"], "kg_sakurajima": ["사쿠라지마"], "kg_ibusuki": ["이부스키"],
+    "sz_sunpu": ["슨푸성"], "sz_nihondaira": ["니혼다이라"], "sz_miho": ["미호노마쓰바라"], "sz_shimizu": ["시미즈항", "시미즈 항"],
+    "tm_ritsurin": ["리쓰린"], "tm_naoshima": ["나오시마"], "tm_kotohira": ["고토히라", "곤피라"], "tm_shodo": ["쇼도시마"],
+    # 대만·홍콩·마카오·중국
+    "tp_101": ["타이베이 101", "타이베이101"], "tp_shilin": ["스린 야시장", "스린야시장"], "tp_palace": ["고궁박물원"],
+    "tp_ximen": ["시먼딩"], "tp_tamsui": ["단수이"], "tp_jiufen": ["지우펀"],
+    "kh_dome": ["메이리다오", "빛의 돔"], "kh_liuhe": ["리우허"], "kh_pier2": ["보얼예술특구"], "kh_love": ["아이허", "러브 리버"],
+    "kh_lotus": ["연지담", "용호탑"],
+    "tc_miyahara": ["궁원안과", "미야하라"], "tc_museum": ["국립대만미술관"], "tc_rainbow": ["무지개마을"],
+    "tc_gaomei": ["가오메이"], "tc_sunmoon": ["일월담"],
+    "hk_avenue": ["스타의 거리", "심포니 오브 라이트"], "hk_ferry": ["스타페리"], "hk_peak": ["빅토리아 피크", "피크트램"], "hk_central": ["센트럴 미드레벨"],
+    "hk_ngongping": ["빅부다"],
+    "mc_senado": ["세나도"], "mc_stpaul": ["성 바울 성당"], "mc_taipa": ["타이파"], "mc_cotai": ["코타이"], "mc_tower": ["마카오 타워", "마카오타워"],
+    "sh_bund": ["와이탄"], "sh_nanjing": ["난징루"], "sh_pearl": ["동방명주"], "sh_yuyuan": ["위위안"], "sh_zhujiajiao": ["주자자오"],
+    # 동남아·괌·사이판
+    "dn_mykhe": ["미케 해변", "미케비치"], "dn_han": ["한 시장"], "dn_dragon": ["용다리"], "dn_marble": ["오행산"], "dn_bana": ["바나힐", "골든브리지"],
+    "dn_hoian": ["호이안"],
+    "nt_beach": ["나트랑 해변"], "nt_ponagar": ["포나가르"], "nt_mud": ["머드 온천"], "nt_vin": ["혼째섬"], "nt_hopping": ["혼문섬"],
+    "hn_hoankiem": ["호안끼엠"], "hn_36": ["36거리"], "hn_hcm": ["호찌민 묘소"], "hn_halong": ["하롱베이"],
+    "hc_post": ["중앙우체국"], "hc_palace": ["통일궁"], "hc_buivien": ["부이비엔"], "hc_cuchi": ["구찌 터널", "구찌터널"],
+    "hc_mekong": ["메콩델타", "메콩강"],
+    "pq_night": ["즈엉동"], "pq_sunset": ["선셋타운"], "pq_sao": ["사오 해변", "사오비치"],
+    "bk_palace": ["왓 프라깨우", "에메랄드 사원"], "bk_watarun": ["왓 아룬", "왓아룬", "새벽 사원"], "bk_khaosan": ["카오산"],
+    "bk_siam": ["시암 파라곤", "시암파라곤"], "bk_chatuchak": ["짜뚜짝"], "bk_ayutthaya": ["아유타야"],
+    "cm_phrasingh": ["왓 프라싱"], "cm_chediluang": ["체디루앙"], "cm_sunday": ["선데이 마켓", "워킹스트리트"], "cm_nimman": ["님만해민"],
+    "cm_doisuthep": ["도이수텝"],
+    "cb_santonino": ["산토니뇨"], "cb_moalboal": ["모알보알"],
+    "bh_alona": ["알로나"], "bh_balicasag": ["발리카삭"], "bh_loboc": ["로복강"], "bh_tarsier": ["안경원숭이"], "bh_chocolate": ["초콜릿 힐", "초콜릿힐"],
+    "cl_freeport": ["클락 프리포트"], "cl_angeles": ["앙헬레스"], "cl_pinatubo": ["피나투보"],
+    "sg_mbs": ["마리나베이샌즈", "마리나 베이 샌즈"], "sg_merlion": ["멀라이언"], "sg_gardens": ["가든스 바이 더 베이", "슈퍼트리"],
+    "sg_india": ["리틀인디아"], "sg_orchard": ["오차드"], "sg_sentosa": ["센토사"],
+    "kl_twin": ["페트로나스", "KLCC"], "kl_bintang": ["부킷빈탕"], "kl_alor": ["잘란알로"], "kl_merdeka": ["메르데카"], "kl_batu": ["바투동굴", "바투 동굴"],
+    "kk_aru": ["탄중아루"], "kk_sapi": ["사피섬"], "kk_manukan": ["마누칸"], "kk_kinabalu": ["키나발루산", "키나발루 국립공원"],
+    "gm_beach": ["투몬 비치", "투몬비치"], "gm_lovers": ["사랑의 절벽"], "gm_chamorro": ["차모로 빌리지", "차모로빌리지"], "gm_inarajan": ["이나라한"],
+    "sn_micro": ["마이크로 비치", "마이크로비치"], "sn_garapan": ["가라판"], "sn_managaha": ["마나가하"], "sn_north": ["만세절벽"],
+}

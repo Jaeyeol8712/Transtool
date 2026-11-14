@@ -6,6 +6,17 @@
 (function () {
   'use strict';
 
+  /* ---------- 휴대폰 헤더: 검색 아이콘을 누르면 검색칸이 열림 (스크립트가 없으면 검색 페이지로 이동) ---------- */
+  var sOpen = document.querySelector('.at-search-open');
+  if (sOpen) sOpen.addEventListener('click', function (e) {
+    var h = sOpen.closest('.at-header');
+    if (!h) return;
+    e.preventDefault();
+    h.classList.add('is-search');
+    var q = h.querySelector('.at-search input');
+    if (q) q.focus();
+  });
+
   /* ---------- 현재 게시판 탭을 보이게 ---------- */
   document.querySelectorAll('.at-board-tabs [aria-current="page"]').forEach(function (a) {
     var ul = a.closest('.at-board-tabs');
@@ -129,6 +140,16 @@
     var a = e.target.closest && e.target.closest('a[data-track]');
     if (!a || (mobile && a.hasAttribute('data-web'))) return;   /* 휴대폰 제휴 버튼은 위에서 처리 */
     track(a, { method: mobile ? 'mobile' : 'desktop' });
+  }, true);
+
+  /* ---------- 여행 글 → K링크 (2026-11-13 컨펌 i261113-01) ----------
+     여행 가이드 '일정별 추천' 아래 'K링크에서 이 코스 담기' 버튼. GA4 이벤트 klink_from_travel
+     (post_slug = 여행 글, klink_kind = course 코스 담기 · region 지역 · home K링크 첫 화면) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-klink-from]');
+    if (!a || !window.gtag) return;
+    gtag('event', 'klink_from_travel', { post_slug: a.getAttribute('data-klink-from'), klink_kind: a.getAttribute('data-klink-kind') || '',
+      link_url: a.getAttribute('href'), method: mobile ? 'mobile' : 'desktop', transport_type: 'beacon' });
   }, true);
 
   /* ---------- 유료 광고로 들어온 방문 ----------
