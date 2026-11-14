@@ -670,9 +670,10 @@ def header_html(p):
         tx = '<b class="at-gnb-k">K</b>링크' if k == "klink" else label
         items.append(f'<li><a class="{cls}{" is-on" if on else ""}" href="/{f}"{cur}>{tx}</a></li>')
     return f"""<a class="at-skip" href="#at-main">본문 바로가기</a>
-<header class="at-header"><div class="at-in">
+<header class="at-header{" is-search" if p["section"] == "home" else ""}"><div class="at-in">
   <a class="at-logo" href="/" aria-label="{NAME} 홈">{LOGO_SVG}<span class="at-logo-tx"><span>어라운드<b>툴</b></span><small class="at-slogan">어딜 가나 가볍게, 여행을 엽니다.</small></span></a>
   <nav class="at-gnb" aria-label="주 메뉴"><ul>{"".join(items)}</ul></nav>
+  <a class="at-search-open" href="/search.html" aria-label="검색 열기"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
   <form class="at-search" action="/search.html" method="get" role="search">
     <label class="at-sr" for="at-q">사이트 검색</label>
     <input id="at-q" type="search" name="q" placeholder="오사카 여행, 해운대 맛집, 환율…" autocomplete="off">
@@ -981,32 +982,28 @@ def related_html(p):
 
 def side_html():
     key = "".join(row("/" + PAGES[s + ".html"]["file"], PAGES[s + ".html"]["name"], None, "", None, "", None) for s in KEY_TOOLS[:8])
-    ups = "".join(row(u, t, None, "", None, "", d, is_new(d)) for d, tag, t, u in UPDATES[:5])
     shops = "".join(row("/" + q["file"], q["title"], KINDS[kind_of(q)][:2], "shop", None, "", q["date"], is_new(q["date"])) for q in SHOP_LIVE[:5])
-    regions = "".join(f'<a href="/food.html#r-{rid}">{esc(rshort)} <span style="color:var(--at-faint)">{region_count(rid)}</span></a>'
+    regions = "".join(f'<a href="/food.html#r-{rid}">{esc(rshort)} <span>{region_count(rid)}</span></a>'
                       for rid, _, rshort, _ in FOOD_AREAS)
     trips_new = "".join(row("/" + sl + ".html", n, k, "trip", None, "", None) for sl, n, k in TRIP_PAGES[::-1][:5])
+    # 2026-11-14 리뉴얼: 상자 수를 줄였다 — K링크 → 새 여행 코스 → 지역별 맛집 → 주요 계산기 → 추천 모음 → 사이트 숫자·방문자 → 원칙(상자 없이 글만)
     return f"""<aside class="at-side" aria-label="사이드바">
   <a class="at-side-klink" href="/klink/"><span class="ah-klink-mark">{K_MARK}</span><span class="tx"><b>K링크 여행 일정 짜기</b><span>가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 추천해요</span></span></a>
   <section class="at-box is-trip"><div class="at-box-head"><p>새 여행 코스</p><a class="more" href="/travel.html">전체</a></div>
     <div class="at-box-body"><ul class="at-list is-wrap">{trips_new}</ul></div></section>
   <section class="at-box is-food"><div class="at-box-head"><p>지역별 맛집</p><a class="more" href="/food.html">전체</a></div>
     <div class="at-regions">{regions}</div></section>
+  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list">{key}</ul></div></section>
+  <section class="at-box is-shop"><div class="at-box-head"><p>추천 모음 새 글</p><a class="more" href="/connect.html">전체</a></div>
+    <div class="at-box-body"><ul class="at-list is-wrap">{shops}</ul></div></section>
   <section class="at-box"><div class="at-stat">
     <div><b>{N_TOOLS}</b><span>생활 계산기</span></div>
     <div><b>{N_PLACES}</b><span>맛집 기록</span></div>
     <div><b>{N_GU}</b><span>수록 지역</span></div>
   </div>
   <div class="at-visitors" data-visitors hidden><span>오늘 <b data-v="today">-</b></span><span>어제 <b data-v="yesterday">-</b></span><span>전체 <b data-v="total">-</b></span></div></section>
-  <section class="at-box is-tool"><div class="at-box-head"><p>주요 계산기</p><a class="more" href="/tools.html">전체</a></div>
-    <div class="at-box-body"><ul class="at-list">{key}</ul></div></section>
-  <section class="at-box is-shop"><div class="at-box-head"><p>추천 모음 새 글</p><a class="more" href="/connect.html">전체</a></div>
-    <div class="at-box-body"><ul class="at-list is-wrap">{shops}</ul></div></section>
-  <section class="at-box"><div class="at-box-head"><p>최근 업데이트</p></div>
-    <div class="at-box-body"><ul class="at-list is-wrap">{ups}</ul></div></section>
-  <section class="at-box"><div class="at-box-head"><p>이 사이트의 원칙</p></div>
-    <div class="at-promise"><p>계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다.</p>
-    <a href="/editorial.html">편집 방침 읽기</a></div></section>
+  <p class="at-side-note">계산기는 계산 기준과 공식을 화면에 밝힙니다. 맛집은 광고·협찬 글을 근거에서 빼고 단점도 적습니다. <a href="/editorial.html">편집 방침 읽기</a></p>
 </aside>"""
 
 
@@ -1726,7 +1723,7 @@ def head_block(p, robots=None):
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{u}">
 <meta name="robots" content="{robots}">
-<meta name="theme-color" content="#0B6E5F">
+<meta name="theme-color" content="#2443E8">
 <meta name="naver-site-verification" content="{NAVER_VERIFY}">
 <meta name="msvalidate.01" content="14B6BD6C2AF11B0D12515414F9FCDD11">
 <meta name="google-adsense-account" content="{ADSENSE}">
@@ -2051,7 +2048,7 @@ def build_embed(slug, tool, head_css, ext_scripts):
 <link rel="canonical" href="{u}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.css?v={CSS_V}">
-<style>body{{background:#fff!important}}.at-tool{{margin:0;max-width:none;border-radius:8px}}
+<style>html body{{background:#fff!important}}.at-tool{{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}}
 .at-embed-credit{{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}}
 .at-embed-credit a{{color:var(--at-ink);font-weight:700;text-decoration:none}}.at-embed-credit a:hover{{text-decoration:underline}}</style>
 {head_css}

@@ -6,6 +6,17 @@
 (function () {
   'use strict';
 
+  /* ---------- 휴대폰 헤더: 검색 아이콘을 누르면 검색칸이 열림 (스크립트가 없으면 검색 페이지로 이동) ---------- */
+  var sOpen = document.querySelector('.at-search-open');
+  if (sOpen) sOpen.addEventListener('click', function (e) {
+    var h = sOpen.closest('.at-header');
+    if (!h) return;
+    e.preventDefault();
+    h.classList.add('is-search');
+    var q = h.querySelector('.at-search input');
+    if (q) q.focus();
+  });
+
   /* ---------- 현재 게시판 탭을 보이게 ---------- */
   document.querySelectorAll('.at-board-tabs [aria-current="page"]').forEach(function (a) {
     var ul = a.closest('.at-board-tabs');
