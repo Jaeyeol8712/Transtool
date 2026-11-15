@@ -1,19 +1,19 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-14.html",
-   "title": "일간 보고서 · 2026-11-14(토)",
+   "file": "reports/daily-2026-11-15.html",
+   "title": "일간 보고서 · 2026-11-15(일)",
    "kpi": {
-    "views": 4,
-    "viewers": 2,
-    "clicks": 0,
-    "clickers": 0
+    "views": 5,
+    "viewers": 4,
+    "clicks": 1,
+    "clickers": 1
    },
    "prev": {
     "views": 4,
-    "viewers": 4,
+    "viewers": 2,
     "clicks": 0,
     "clickers": 0
    },
@@ -39,11 +39,6 @@
     ]
    },
    "site": {
-    "20261108": {
-     "views": 20,
-     "users": 14,
-     "sessions": 17
-    },
     "20261109": {
      "views": 29,
      "users": 25,
@@ -73,18 +68,14 @@
      "views": 31,
      "users": 20,
      "sessions": 22
+    },
+    "20261115": {
+     "views": 28,
+     "users": 20,
+     "sessions": 23
     }
    },
    "days7": [
-    {
-     "key": "20261108",
-     "label": "11.8(일)",
-     "views": 0,
-     "viewers": 0,
-     "clicks": 0,
-     "clickers": 0,
-     "site": 20
-    },
     {
      "key": "20261109",
      "label": "11.9(월)",
@@ -138,6 +129,15 @@
      "clicks": 0,
      "clickers": 0,
      "site": 31
+    },
+    {
+     "key": "20261115",
+     "label": "11.15(일)",
+     "views": 5,
+     "viewers": 4,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 28
     }
    ],
    "weeks8": [
@@ -213,27 +213,27 @@
     },
     {
      "key": "202646",
-     "label": "11.9~(진행 중)",
-     "done": false,
-     "views": 20,
-     "viewers": 11,
-     "clicks": 9,
-     "clickers": 5,
-     "site": 369
+     "label": "11.9~11.15",
+     "done": true,
+     "views": 25,
+     "viewers": 15,
+     "clicks": 10,
+     "clickers": 6,
+     "site": 397
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 9
+     "clicks": 10
     }
    ],
    "topPosts": [
     {
      "post": "경동나비엔 온수매트 추천 가격 고르는 법",
-     "views": 11,
-     "clicks": 6
+     "views": 14,
+     "clicks": 7
     },
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
@@ -249,18 +249,18 @@
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 6,
-     "users": 5
+     "sessions": 8,
+     "users": 7
     },
     {
      "name": "(direct) / (none)",
-     "sessions": 3,
-     "users": 2
+     "sessions": 4,
+     "users": 3
     },
     {
      "name": "google / organic",
-     "sessions": 1,
-     "users": 1
+     "sessions": 2,
+     "users": 2
     },
     {
      "name": "perplexity.ai / ai-assistant",
@@ -273,7 +273,7 @@
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "navien-water-mat",
-     "sessions": 2
+     "sessions": 4
     },
     {
      "engine": "네이버",
@@ -317,18 +317,18 @@
      "position": 10
     },
     {
+     "query": "게이밍 무선 키보드",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 38
+    },
+    {
      "query": "대학생 인강용 노트북 추천",
      "post": "student-office-laptop",
      "clicks": 0,
      "impressions": 1,
      "position": 10
-    },
-    {
-     "query": "무선 게이밍 키보드 추천",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 7
     },
     {
      "query": "순하고 무향 셰이빙 크림 추천",
@@ -343,13 +343,6 @@
      "clicks": 0,
      "impressions": 1,
      "position": 57
-    },
-    {
-     "query": "인강용 노트북 추천",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 8
     }
    ]
   }
