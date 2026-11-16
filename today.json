@@ -1,21 +1,21 @@
 {
- "date": "2026-11-16",
+ "date": "2026-11-17",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-15.html",
-   "title": "일간 보고서 · 2026-11-15(일)",
+   "file": "reports/daily-2026-11-16.html",
+   "title": "일간 보고서 · 2026-11-16(월)",
    "kpi": {
+    "views": 1,
+    "viewers": 1,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 5,
     "viewers": 4,
     "clicks": 1,
     "clickers": 1
-   },
-   "prev": {
-    "views": 4,
-    "viewers": 2,
-    "clicks": 0,
-    "clickers": 0
    },
    "ai": {
     "sessions": 4,
@@ -39,11 +39,6 @@
     ]
    },
    "site": {
-    "20261109": {
-     "views": 29,
-     "users": 25,
-     "sessions": 28
-    },
     "20261110": {
      "views": 45,
      "users": 36,
@@ -73,18 +68,14 @@
      "views": 28,
      "users": 20,
      "sessions": 23
+    },
+    "20261116": {
+     "views": 20,
+     "users": 19,
+     "sessions": 22
     }
    },
    "days7": [
-    {
-     "key": "20261109",
-     "label": "11.9(월)",
-     "views": 2,
-     "viewers": 1,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 29
-    },
     {
      "key": "20261110",
      "label": "11.10(화)",
@@ -138,19 +129,18 @@
      "clicks": 1,
      "clickers": 1,
      "site": 28
+    },
+    {
+     "key": "20261116",
+     "label": "11.16(월)",
+     "views": 1,
+     "viewers": 1,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 20
     }
    ],
    "weeks8": [
-    {
-     "key": "202639",
-     "label": "9.21~9.27",
-     "done": true,
-     "views": 0,
-     "viewers": 0,
-     "clicks": 0,
-     "clickers": 0,
-     "site": 47
-    },
     {
      "key": "202640",
      "label": "9.28~10.4",
@@ -220,13 +210,23 @@
      "clicks": 10,
      "clickers": 6,
      "site": 397
+    },
+    {
+     "key": "202647",
+     "label": "11.16~(진행 중)",
+     "done": false,
+     "views": 1,
+     "viewers": 1,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 20
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 10
+     "clicks": 9
     }
    ],
    "topPosts": [
@@ -241,21 +241,21 @@
      "clicks": 2
     },
     {
-     "post": "거북목 교정기 목견인기 추천 가격 비교",
-     "views": 2,
-     "clicks": 1
+     "post": "약산성 클렌징폼 녹두 추천 가격 비교",
+     "views": 3,
+     "clicks": 0
     }
    ],
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 8,
-     "users": 7
+     "sessions": 7,
+     "users": 6
     },
     {
      "name": "(direct) / (none)",
-     "sessions": 4,
-     "users": 3
+     "sessions": 5,
+     "users": 4
     },
     {
      "name": "google / organic",
@@ -284,12 +284,6 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "neck-traction",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
      "post": "student-office-laptop",
      "sessions": 1
     }
@@ -301,6 +295,13 @@
      "clicks": 0,
      "impressions": 4,
      "position": 37.5
+    },
+    {
+     "query": "갤럭시 폴드 8 가격",
+     "post": "galaxy-z-fold8-256",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 11
     },
     {
      "query": "갤럭시 폴드8 가격",
@@ -322,13 +323,6 @@
      "clicks": 0,
      "impressions": 1,
      "position": 38
-    },
-    {
-     "query": "대학생 인강용 노트북 추천",
-     "post": "student-office-laptop",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 10
     },
     {
      "query": "순하고 무향 셰이빙 크림 추천",

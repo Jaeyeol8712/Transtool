@@ -1,29 +1,19 @@
 {
  "yday": {
+  "date": "2026-11-16",
+  "users": 19,
+  "sessions": 22,
+  "views": 20,
+  "organic": 15
+ },
+ "yday0": {
   "date": "2026-11-15",
   "users": 20,
   "sessions": 23,
   "views": 28,
   "organic": 19
  },
- "yday0": {
-  "date": "2026-11-14",
-  "users": 20,
-  "sessions": 22,
-  "views": 31,
-  "organic": 16
- },
  "weeks": [
-  {
-   "key": "202639",
-   "start": "2026-09-21",
-   "end": "2026-09-27",
-   "done": true,
-   "users": 33,
-   "sessions": 42,
-   "views": 47,
-   "organic": 42
-  },
   {
    "key": "202640",
    "start": "2026-09-28",
@@ -93,6 +83,16 @@
    "sessions": 197,
    "views": 397,
    "organic": 133
+  },
+  {
+   "key": "202647",
+   "start": "2026-11-16",
+   "end": "2026-11-22",
+   "done": false,
+   "users": 19,
+   "sessions": 22,
+   "views": 20,
+   "organic": 15
   }
  ],
  "lastWeek": {
@@ -112,16 +112,16 @@
     "sessions": 8
    },
    {
+    "page": "(not set)",
+    "sessions": 7
+   },
+   {
     "page": "/kerosene_heating_cost_calculator.html",
     "sessions": 6
    },
    {
     "page": "/shop-navien-water-mat.html",
     "sessions": 6
-   },
-   {
-    "page": "(not set)",
-    "sessions": 5
    },
    {
     "page": "/yeonsu-bapjip.html",
@@ -160,15 +160,6 @@
   }
  },
  "googleWeeks": [
-  {
-   "key": "202639",
-   "start": "2026-09-21",
-   "end": "2026-09-27",
-   "complete": true,
-   "clicks": 4,
-   "impressions": 109,
-   "position": 19.5
-  },
   {
    "key": "202640",
    "start": "2026-09-28",
@@ -228,52 +219,56 @@
    "start": "2026-11-09",
    "end": "2026-11-15",
    "complete": false,
-   "clicks": 25,
-   "impressions": 2925,
-   "position": 11.2
+   "clicks": 26,
+   "impressions": 3273,
+   "position": 11.8
+  },
+  {
+   "key": "202647",
+   "start": "2026-11-16",
+   "end": "2026-11-22",
+   "complete": false,
+   "clicks": 0,
+   "impressions": 0,
+   "position": null
   }
  ],
- "made": "2026-11-16T02:44:14.178Z",
- "range": "2026-11-09 ~ 2026-11-15",
- "prevRange": "2026-11-02 ~ 2026-11-08",
+ "made": "2026-11-16T23:27:07.854Z",
+ "range": "2026-11-10 ~ 2026-11-16",
+ "prevRange": "2026-11-03 ~ 2026-11-09",
  "cur": {
-  "users": 168,
-  "sessions": 197,
-  "views": 397
+  "users": 160,
+  "sessions": 191,
+  "views": 388
  },
  "prev": {
-  "users": 124,
-  "sessions": 160,
-  "views": 437
+  "users": 132,
+  "sessions": 170,
+  "views": 443
  },
  "organic": {
-  "cur": 133,
-  "prev": 100
+  "cur": 126,
+  "prev": 111
  },
  "channels": {
   "cur": {
-   "Organic Search": 133,
-   "Direct": 54,
-   "Unassigned": 4,
+   "Organic Search": 126,
+   "Direct": 58,
    "AI Assistant": 3,
    "Organic Social": 2,
-   "Referral": 1
+   "Referral": 1,
+   "Unassigned": 1
   },
   "prev": {
-   "Organic Search": 100,
+   "Organic Search": 111,
    "Direct": 39,
-   "Unassigned": 10,
+   "Unassigned": 9,
    "AI Assistant": 6,
    "Organic Social": 4,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261019",
-   "users": 9,
-   "sessions": 10
-  },
   {
    "date": "20261020",
    "users": 4,
@@ -408,12 +403,17 @@
    "date": "20261115",
    "users": 20,
    "sessions": 23
+  },
+  {
+   "date": "20261116",
+   "users": 19,
+   "sessions": 22
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 29
+   "sessions": 31
   },
   {
    "page": "/jeju-seogwipo-galchi.html",
@@ -436,11 +436,11 @@
    "sessions": 5
   },
   {
-   "page": "/yeonsu-bapjip.html",
+   "page": "/time_difference_calculator.html",
    "sessions": 4
   },
   {
-   "page": "/alcohol_calorie_calculator.html",
+   "page": "",
    "sessions": 3
   },
   {
@@ -453,16 +453,16 @@
   }
  ],
  "google": {
-  "range": "2026-11-07 ~ 2026-11-13",
+  "range": "2026-11-08 ~ 2026-11-14",
   "cur": {
    "clicks": 29,
-   "impressions": 3809,
-   "position": 11.144132318193751
+   "impressions": 3785,
+   "position": 11.63434610303831
   },
   "prev": {
-   "clicks": 13,
-   "impressions": 2792,
-   "position": 9.165472779369628
+   "clicks": 14,
+   "impressions": 2895,
+   "position": 9.546113989637306
   }
  },
  "ai": {
@@ -501,15 +501,15 @@
  },
  "klink": {
   "cur": {
-   "views": 33,
+   "views": 34,
    "users": 5,
-   "fromSite": 25,
+   "fromSite": 26,
    "fromTravel": 1,
    "events": {
-    "klink_save": 12,
+    "klink_save": 16,
     "klink_course": 2,
-    "klink_plan": 2,
-    "klink_prep": 9,
+    "klink_plan": 3,
+    "klink_prep": 11,
     "klink_out": 3,
     "klink_from_travel": 0
    }
