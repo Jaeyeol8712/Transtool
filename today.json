@@ -1,30 +1,30 @@
 {
- "date": "2026-11-17",
+ "date": "2026-11-18",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-16.html",
-   "title": "일간 보고서 · 2026-11-16(월)",
+   "file": "reports/daily-2026-11-17.html",
+   "title": "일간 보고서 · 2026-11-17(화)",
    "kpi": {
+    "views": 3,
+    "viewers": 3,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 1,
     "viewers": 1,
     "clicks": 0,
     "clickers": 0
    },
-   "prev": {
-    "views": 5,
-    "viewers": 4,
-    "clicks": 1,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 4,
-    "users": 4,
+    "sessions": 7,
+    "users": 7,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 2,
-      "users": 2
+      "sessions": 5,
+      "users": 5
      },
      {
       "name": "perplexity",
@@ -39,11 +39,6 @@
     ]
    },
    "site": {
-    "20261110": {
-     "views": 45,
-     "users": 36,
-     "sessions": 37
-    },
     "20261111": {
      "views": 94,
      "users": 19,
@@ -73,18 +68,14 @@
      "views": 20,
      "users": 19,
      "sessions": 22
+    },
+    "20261117": {
+     "views": 40,
+     "users": 32,
+     "sessions": 32
     }
    },
    "days7": [
-    {
-     "key": "20261110",
-     "label": "11.10(화)",
-     "views": 1,
-     "viewers": 1,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 45
-    },
     {
      "key": "20261111",
      "label": "11.11(수)",
@@ -138,6 +129,15 @@
      "clicks": 0,
      "clickers": 0,
      "site": 20
+    },
+    {
+     "key": "20261117",
+     "label": "11.17(화)",
+     "views": 3,
+     "viewers": 3,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 40
     }
    ],
    "weeks8": [
@@ -215,20 +215,159 @@
      "key": "202647",
      "label": "11.16~(진행 중)",
      "done": false,
-     "views": 1,
-     "viewers": 1,
+     "views": 4,
+     "viewers": 4,
      "clicks": 0,
      "clickers": 0,
-     "site": 20
+     "site": 60
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 9
+     "clicks": 8
     }
    ],
+   "topPosts": [
+    {
+     "post": "경동나비엔 온수매트 추천 가격 고르는 법",
+     "views": 14,
+     "clicks": 7
+    },
+    {
+     "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
+     "views": 2,
+     "clicks": 1
+    },
+    {
+     "post": "약산성 클렌징폼 녹두 추천 가격 비교",
+     "views": 4,
+     "clicks": 0
+    }
+   ],
+   "sources": [
+    {
+     "name": "(direct) / (none)",
+     "sessions": 7,
+     "users": 6
+    },
+    {
+     "name": "m.search.naver.com / referral",
+     "sessions": 7,
+     "users": 6
+    },
+    {
+     "name": "google / organic",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "naver / organic",
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "perplexity.ai / ai-assistant",
+     "sessions": 1,
+     "users": 1
+    }
+   ],
+   "keywords": [
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "navien-water-mat",
+     "sessions": 4
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "queens-collagen-rg3",
+     "sessions": 2
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "student-office-laptop",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "shaving-foam-cream",
+     "sessions": 1
+    }
+   ],
+   "google": [
+    {
+     "query": "대학생 노트북",
+     "post": "student-office-laptop",
+     "clicks": 0,
+     "impressions": 4,
+     "position": 37.5
+    },
+    {
+     "query": "갤럭시 폴드 8 가격",
+     "post": "galaxy-z-fold8-256",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 11
+    },
+    {
+     "query": "갤럭시 폴드8 가격",
+     "post": "galaxy-z-fold8-256",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 50
+    },
+    {
+     "query": "갤탭 s12 울트라 가격",
+     "post": "galaxy-tab-s12-ultra",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 10
+    },
+    {
+     "query": "게이밍 무선 키보드",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 38
+    },
+    {
+     "query": "게이밍 무선 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 9
+    },
+    {
+     "query": "순하고 무향 셰이빙 크림 추천",
+     "post": "shaving-foam-cream",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 10
+    }
+   ]
+  },
+  {
+   "type": "weekly",
+   "file": "reports/weekly-2026-11-09.html",
+   "title": "주간 보고서 · 11.9(월) ~ 11.15(일)",
+   "kpi": {
+    "views": 25,
+    "viewers": 15,
+    "clicks": 10,
+    "clickers": 6
+   },
+   "prev": {
+    "views": 63,
+    "viewers": 23,
+    "clicks": 9,
+    "clickers": 7
+   },
+   "site": null,
    "topPosts": [
     {
      "post": "경동나비엔 온수매트 추천 가격 고르는 법",
@@ -241,21 +380,21 @@
      "clicks": 2
     },
     {
-     "post": "약산성 클렌징폼 녹두 추천 가격 비교",
-     "views": 3,
-     "clicks": 0
+     "post": "거북목 교정기 목견인기 추천 가격 비교",
+     "views": 2,
+     "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 7,
-     "users": 6
+     "sessions": 8,
+     "users": 7
     },
     {
      "name": "(direct) / (none)",
-     "sessions": 5,
-     "users": 4
+     "sessions": 4,
+     "users": 3
     },
     {
      "name": "google / organic",
@@ -280,6 +419,12 @@
      "query": "(검색어 미전달)",
      "post": "queens-collagen-rg3",
      "sessions": 2
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "neck-traction",
+     "sessions": 1
     },
     {
      "engine": "네이버",
@@ -325,18 +470,25 @@
      "position": 38
     },
     {
-     "query": "순하고 무향 셰이빙 크림 추천",
-     "post": "shaving-foam-cream",
+     "query": "게이밍 무선 키보드 추천",
+     "post": "wireless-gaming-keyboard",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 9
+    },
+    {
+     "query": "대학생 인강용 노트북 추천",
+     "post": "student-office-laptop",
      "clicks": 0,
      "impressions": 1,
      "position": 10
     },
     {
-     "query": "시드니여행코스",
-     "post": "sydney-7days-full",
+     "query": "순하고 무향 셰이빙 크림 추천",
+     "post": "shaving-foam-cream",
      "clicks": 0,
      "impressions": 1,
-     "position": 57
+     "position": 10
     }
    ]
   }

@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-17",
+  "users": 32,
+  "sessions": 32,
+  "views": 40,
+  "organic": 20
+ },
+ "yday0": {
   "date": "2026-11-16",
   "users": 19,
   "sessions": 22,
   "views": 20,
   "organic": 15
- },
- "yday0": {
-  "date": "2026-11-15",
-  "users": 20,
-  "sessions": 23,
-  "views": 28,
-  "organic": 19
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-16",
    "end": "2026-11-22",
    "done": false,
-   "users": 19,
-   "sessions": 22,
-   "views": 20,
-   "organic": 15
+   "users": 51,
+   "sessions": 54,
+   "views": 60,
+   "organic": 35
   }
  ],
  "lastWeek": {
@@ -218,10 +218,10 @@
    "key": "202646",
    "start": "2026-11-09",
    "end": "2026-11-15",
-   "complete": false,
+   "complete": true,
    "clicks": 26,
-   "impressions": 3273,
-   "position": 11.8
+   "impressions": 3388,
+   "position": 12
   },
   {
    "key": "202647",
@@ -233,47 +233,41 @@
    "position": null
   }
  ],
- "made": "2026-11-17T05:05:13.218Z",
- "range": "2026-11-10 ~ 2026-11-16",
- "prevRange": "2026-11-03 ~ 2026-11-09",
+ "made": "2026-11-17T23:26:47.136Z",
+ "range": "2026-11-11 ~ 2026-11-17",
+ "prevRange": "2026-11-04 ~ 2026-11-10",
  "cur": {
-  "users": 160,
-  "sessions": 191,
-  "views": 388
+  "users": 157,
+  "sessions": 186,
+  "views": 383
  },
  "prev": {
-  "users": 132,
-  "sessions": 170,
-  "views": 443
+  "users": 152,
+  "sessions": 185,
+  "views": 289
  },
  "organic": {
   "cur": 126,
-  "prev": 111
+  "prev": 125
  },
  "channels": {
   "cur": {
    "Organic Search": 126,
-   "Direct": 58,
-   "AI Assistant": 3,
-   "Organic Social": 2,
-   "Referral": 1,
-   "Unassigned": 1
+   "Direct": 49,
+   "AI Assistant": 6,
+   "Unassigned": 4,
+   "Organic Social": 3,
+   "Referral": 1
   },
   "prev": {
-   "Organic Search": 111,
-   "Direct": 39,
-   "Unassigned": 9,
-   "AI Assistant": 6,
+   "Organic Search": 125,
+   "Direct": 47,
+   "Unassigned": 6,
    "Organic Social": 4,
-   "Referral": 1
+   "AI Assistant": 3
   }
  },
  "daily": [
-  {
-   "date": "20261020",
-   "users": 4,
-   "sessions": 4
-  },
   {
    "date": "20261021",
    "users": 4,
@@ -408,72 +402,77 @@
    "date": "20261116",
    "users": 19,
    "sessions": 22
+  },
+  {
+   "date": "20261117",
+   "users": 32,
+   "sessions": 32
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 31
-  },
-  {
-   "page": "/jeju-seogwipo-galchi.html",
-   "sessions": 9
-  },
-  {
-   "page": "(not set)",
-   "sessions": 8
+   "sessions": 29
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 8
+   "sessions": 10
+  },
+  {
+   "page": "(not set)",
+   "sessions": 7
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
-   "sessions": 6
+   "sessions": 7
   },
   {
    "page": "/shop-navien-water-mat.html",
    "sessions": 6
   },
   {
+   "page": "/alcohol_calorie_calculator.html",
+   "sessions": 4
+  },
+  {
+   "page": "/kimjang_cost_calculator.html",
+   "sessions": 4
+  },
+  {
+   "page": "/shop-mung-bean-cleanser.html",
+   "sessions": 4
+  },
+  {
    "page": "/time_difference_calculator.html",
    "sessions": 4
   },
   {
-   "page": "/fuel_economy_calculator",
-   "sessions": 3
-  },
-  {
-   "page": "/gas_bill_calculator.html",
-   "sessions": 3
-  },
-  {
-   "page": "/guide-kimjang-timing-2026.html",
-   "sessions": 3
+   "page": "/yeonsu-bapjip.html",
+   "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-08 ~ 2026-11-14",
+  "range": "2026-11-09 ~ 2026-11-15",
   "cur": {
-   "clicks": 29,
-   "impressions": 3785,
-   "position": 11.63434610303831
+   "clicks": 26,
+   "impressions": 3388,
+   "position": 11.962219598583236
   },
   "prev": {
-   "clicks": 14,
-   "impressions": 2895,
-   "position": 9.546113989637306
+   "clicks": 17,
+   "impressions": 3027,
+   "position": 9.764453254046911
   }
  },
  "ai": {
   "cur": {
-   "sessions": 4,
-   "users": 4,
+   "sessions": 7,
+   "users": 7,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 2,
-     "users": 2
+     "sessions": 5,
+     "users": 5
     },
     {
      "name": "perplexity",
@@ -488,13 +487,13 @@
    ]
   },
   "prev": {
-   "sessions": 6,
-   "users": 6,
+   "sessions": 3,
+   "users": 3,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 6,
-     "users": 6
+     "sessions": 3,
+     "users": 3
     }
    ]
   }
