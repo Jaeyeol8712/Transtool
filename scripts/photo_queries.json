@@ -996,5 +996,137 @@
  "k-cl-subic": [
   "Subic Bay",
   "Subic Bay Freeport"
+ ],
+ "c-seoul-gyeongbok": [
+  "Gyeongbokgung Palace Geunjeongjeon",
+  "Gyeongbokgung Gwanghwamun"
+ ],
+ "c-seoul-bukchon": [
+  "Bukchon Hanok Village",
+  "Bukchon hanok alley Seoul"
+ ],
+ "c-seoul-namsan": [
+  "N Seoul Tower night",
+  "Namsan Seoul Tower city view"
+ ],
+ "c-seoul-hangang": [
+  "Han River Seoul night bridge",
+  "Banpo Bridge Moonlight Rainbow Fountain"
+ ],
+ "c-jeju-udo": [
+  "Udo island Jeju",
+  "Udo Jeju beach"
+ ],
+ "c-jeju-woljeongri": [
+  "Woljeongri beach Jeju",
+  "Gimnyeong beach Jeju"
+ ],
+ "c-hakone-ropeway": [
+  "Hakone Ropeway Owakudani",
+  "Owakudani Hakone"
+ ],
+ "c-kamakura-enoden": [
+  "Enoden Kamakura",
+  "Enoshima Electric Railway"
+ ],
+ "c-yufuin-kinrinko": [
+  "Lake Kinrin Yufuin",
+  "Yufuin Kinrinko"
+ ],
+ "c-yufuin-street": [
+  "Yufuin Yunotsubo street",
+  "Yufuin town Mount Yufu"
+ ],
+ "c-beppu-jigoku": [
+  "Umi Jigoku Beppu",
+  "Beppu hells"
+ ],
+ "c-taipei-jiufen": [
+  "Jiufen old street night",
+  "Jiufen Taiwan"
+ ],
+ "c-taipei-shifen": [
+  "Shifen sky lantern",
+  "Shifen old street railway"
+ ],
+ "c-taipei-yehliu": [
+  "Yehliu Geopark Queen Head",
+  "Yehliu Geopark"
+ ],
+ "c-gwangjang-bindae": [
+  "Gwangjang Market bindaetteok",
+  "Gwangjang Market food stall"
+ ],
+ "c-gwangjang-market": [
+  "Gwangjang Market Seoul",
+  "Gwangjang Market interior"
+ ],
+ "c-jagalchi-hoe": [
+  "Jagalchi Market fish",
+  "Jagalchi fish market Busan"
+ ],
+ "c-dongmun-night": [
+  "Dongmun Market Jeju night market",
+  "Dongmun traditional market Jeju"
+ ],
+ "c-jeonju-nambu-night": [
+  "Jeonju Nambu Market night market",
+  "Nambu Market Jeonju"
+ ],
+ "c-chodang-sundubu": [
+  "Chodang sundubu",
+  "sundubu tofu Gangneung"
+ ],
+ "c-icn-t1-departure": [
+  "Incheon International Airport Terminal 1 departure hall",
+  "Incheon Airport check-in counters"
+ ],
+ "c-icn-t2": [
+  "Incheon Airport Terminal 2",
+  "Incheon Airport terminal 2 interior"
+ ],
+ "c-arex-train": [
+  "AREX express train",
+  "Airport Railroad Express Seoul"
+ ],
+ "c-airport-limousine": [
+  "Korea airport limousine bus",
+  "Incheon airport bus stop"
+ ],
+ "c-power-bank": [
+  "power bank charging",
+  "portable battery charger"
+ ],
+ "c-airport-security": [
+  "airport security check tray",
+  "airport security screening"
+ ],
+ "c-japan-immigration": [
+  "Narita Airport arrival immigration",
+  "Kansai Airport arrival hall"
+ ],
+ "c-travel-insurance": [
+  "airport departure board",
+  "travel suitcase airport"
+ ],
+ "c-departure-board": [
+  "airport departure board flights",
+  "flight information display"
+ ],
+ "c-currency-exchange": [
+  "currency exchange booth",
+  "foreign currency banknotes"
+ ],
+ "c-travel-budget": [
+  "travel planning map notebook",
+  "travel budget planning"
+ ],
+ "c-ktx-train": [
+  "KTX train Korea",
+  "Korail KTX station"
+ ],
+ "c-ic-card": [
+  "Suica card",
+  "Japanese IC card ticket gate"
  ]
 }
