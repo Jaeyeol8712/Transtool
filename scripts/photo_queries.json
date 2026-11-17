@@ -1128,5 +1128,9 @@
  "c-ic-card": [
   "Suica card",
   "Japanese IC card ticket gate"
+ ],
+ "c-japan-taxfree": [
+  "Japan tax free shop sign",
+  "tax-free counter Japan store"
  ]
 }

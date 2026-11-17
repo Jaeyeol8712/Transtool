@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일본 면세 환급 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/japan_tax_refund_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="일본 면세 환급 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">일본 면세 환급 계산기</p>
+<label for="tr1">일반 물품 결제 금액 (엔, 세금 포함, 소비세 10%)</label>
+<input id="tr1" type="number" inputmode="numeric" placeholder="화장품·옷·전자제품 등"/>
+<label for="tr2">식품·음료 결제 금액 (엔, 세금 포함, 소비세 8%)</label>
+<input id="tr2" type="number" inputmode="numeric" placeholder="과자·차 등 (술 제외), 없으면 비워 두기"/>
+<label for="tr3">환급 수수료 (%, 가게 안내)</label>
+<input id="tr3" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="tr4">환율 (원/100엔)</label>
+<input id="tr4" type="number" inputmode="decimal" placeholder="원화 환산용, 없으면 비워 두기"/>
+<button onclick="calc_japan_tax_refund()">환급액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 환급액</span><span class="result-value" id="trR">-</span></div>
+<div class="result-row"><span class="result-label">면세 조건 (같은 가게·같은 날 세전 5,000엔 이상)</span><span class="result-value" id="trOk" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">소비세 상당액</span><span class="result-value" id="trT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">수수료 (세전 금액 기준)</span><span class="result-value" id="trF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">원화 환산</span><span class="result-value" id="trK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _y(x){return Math.round(x).toLocaleString('ko-KR')+'엔';}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_japan_tax_refund(){
+ var a=_v('tr1'),b=_v('tr2'),f=_v('tr3'),x=_v('tr4');
+ if(isNaN(a))a=0; if(isNaN(b))b=0; if(isNaN(f))f=0;
+ if(a<0||b<0||a+b<=0) return alert('결제 금액(엔)을 입력해주세요.');
+ if(f<0||f>10) return alert('수수료는 0~10% 사이로 입력해주세요.');
+ var pre=a/1.1+b/1.08,tax=Math.round(a+b-pre),fee=Math.round(pre*f/100),ok=Math.round(pre)>=5000,ref=ok?Math.max(0,tax-fee):0;
+ _s('trR',ok?_y(ref):'0엔 (면세 조건 미달)');
+ _s('trOk',ok?'충족 (세전 '+_y(pre)+')':'미달: 세전 '+_y(pre)+', '+_y(5000-pre)+' 더 필요');
+ _s('trT',_y(tax)+(a&&b?' (10% '+_y(a-a/1.1)+' + 8% '+_y(b-b/1.08)+')':''));
+ _s('trF',_y(fee)+' ('+f+'%)');
+ _s('trK',isNaN(x)||x<=0?'환율을 넣으면 나옵니다':_w(ref*x/100)+' (결제 '+_w((a+b)*x/100)+')');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/japan_tax_refund_calculator.html?utm_source=embed&amp;utm_campaign=japan_tax_refund_calculator" target="_blank" rel="noopener">어라운드툴 일본 면세 환급 계산기</a></p>
+</body>
+</html>

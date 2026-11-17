@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공항 출발 시간 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/airport_departure_time_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="공항 출발 시간 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">공항 출발 시간 계산기</p>
+<label for="ad1">비행기 출발 시각</label>
+<input id="ad1" type="time"/>
+<label for="ad2">노선</label>
+<select id="ad2" onchange="ad_route()"><option value="int" selected>국제선 (출발 3시간 전 도착)</option><option value="dom">국내선 (출발 1시간 전 도착)</option></select>
+<label for="ad3">공항 도착 기준 (출발 몇 분 전)</label>
+<input id="ad3" type="number" inputmode="numeric" value="180"/>
+<label for="ad4">집에서 공항까지 걸리는 시간 (분)</label>
+<input id="ad4" type="number" inputmode="numeric" placeholder="지도 앱 예상 시간"/>
+<label for="ad5">여유 시간 (분, 막힘·주차·셔틀)</label>
+<input id="ad5" type="number" inputmode="numeric" placeholder="20"/>
+<button onclick="calc_airport_departure_time()">나갈 시각 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">집에서 나갈 시각</span><span class="result-value" id="adL">-</span></div>
+<div class="result-row"><span class="result-label">공항 도착 목표</span><span class="result-value" id="adA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">체크인 마감 (항공사 확인)</span><span class="result-value" id="adC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">탑승 마감</span><span class="result-value" id="adB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">출발 전 필요한 시간</span><span class="result-value" id="adT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function ad_route(){document.getElementById('ad3').value=document.getElementById('ad2').value==='dom'?60:180;}
+function ad_fmt(m){var d=0;while(m<0){m+=1440;d++;}var h=Math.floor(m/60)%24,mm=Math.round(m%60);
+ return (d===1?'전날 ':d>1?d+'일 전 ':'')+('0'+h).slice(-2)+':'+('0'+mm).slice(-2);}
+function ad_dur(m){var h=Math.floor(m/60),mm=Math.round(m%60),o=[];if(h)o.push(h+'시간');if(mm||!h)o.push(mm+'분');return o.join(' ');}
+function calc_airport_departure_time(){
+ var t=document.getElementById('ad1').value,k=document.getElementById('ad2').value,lead=_v('ad3'),mv=_v('ad4'),buf=_v('ad5');
+ if(!t) return alert('비행기 출발 시각을 입력해주세요.');
+ if(isNaN(lead)||lead<0) return alert('공항 도착 기준(분)을 입력해주세요.');
+ if(isNaN(mv)||mv<0) return alert('집에서 공항까지 걸리는 시간(분)을 입력해주세요.');
+ if(isNaN(buf)||buf<0) buf=0;
+ var p=t.split(':'),dep=(+p[0])*60+(+p[1]),ck=k==='dom'?30:60,arr=dep-lead,go=arr-mv-buf;
+ _s('adL',ad_fmt(go)); _s('adA',ad_fmt(arr)+' (출발 '+ad_dur(lead)+' 전)');
+ _s('adC',ad_fmt(dep-ck)+' (출발 '+ck+'분 전, 대한항공 기준)'); _s('adB',ad_fmt(dep-10)+' (출발 10분 전)');
+ _s('adT',ad_dur(lead+mv+buf)+' = 공항 '+ad_dur(lead)+' + 이동 '+ad_dur(mv)+' + 여유 '+ad_dur(buf));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/airport_departure_time_calculator.html?utm_source=embed&amp;utm_campaign=airport_departure_time_calculator" target="_blank" rel="noopener">어라운드툴 공항 출발 시간 계산기</a></p>
+</body>
+</html>

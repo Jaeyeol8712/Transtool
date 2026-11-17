@@ -1,0 +1,46 @@
+<label for="fe1">환전 방향</label>
+<select id="fe1" onchange="fe_dir()"><option value="buy" selected>원화로 외화 사기 (여행 전)</option><option value="sell">남은 외화를 원화로 팔기 (여행 후)</option></select>
+<label for="fe2">고시 단위</label>
+<select id="fe2"><option value="1" selected>1단위 (달러·유로 등)</option><option value="100">100단위 (엔화 100엔 등)</option></select>
+<label for="fe3">바꿀 외화 금액</label>
+<input id="fe3" type="number" inputmode="decimal" placeholder="예: 1000"/>
+<label for="fe4">매매기준율 (원)</label>
+<input id="fe4" type="number" inputmode="decimal" placeholder="은행 환율표의 매매기준율"/>
+<label for="fe5" id="fe5l">현찰 살 때 환율 (원)</label>
+<input id="fe5" type="number" inputmode="decimal" placeholder="은행 환율표 금액"/>
+<label for="fe6">환율 우대율 (%)</label>
+<input id="fe6" type="number" inputmode="decimal" placeholder="예: 90"/>
+<button onclick="calc_currency_exchange_fee()">우대 환율 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label" id="feWl">내는 원화</span><span class="result-value" id="feW">-</span></div>
+<div class="result-row"><span class="result-label">우대 적용 환율</span><span class="result-value" id="feR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">우대 없을 때</span><span class="result-value" id="fe0" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">우대로 아낀 돈</span><span class="result-value" id="feS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">남은 환전 비용 (매매기준율 대비)</span><span class="result-value" id="feF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">우대율별 원화</span><span class="result-value" id="feT" style="font-size:1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function _n(x,d){return Number(x.toFixed(d===undefined?2:d)).toLocaleString('ko-KR');}
+function fe_dir(){var b=document.getElementById('fe1').value==='buy';
+ document.getElementById('fe5l').textContent=b?'현찰 살 때 환율 (원)':'현찰 팔 때 환율 (원)';}
+function calc_currency_exchange_fee(){
+ var b=document.getElementById('fe1').value==='buy',u=parseFloat(document.getElementById('fe2').value),a=_v('fe3'),base=_v('fe4'),q=_v('fe5'),r=_v('fe6');
+ if(isNaN(a)||a<=0) return alert('바꿀 외화 금액을 입력해주세요.');
+ if(isNaN(base)||base<=0||isNaN(q)||q<=0) return alert('매매기준율과 은행 고시 환율을 입력해주세요.');
+ if(b&&q<base) return alert('현찰 살 때 환율은 매매기준율보다 높습니다. 숫자를 확인해주세요.');
+ if(!b&&q>base) return alert('현찰 팔 때 환율은 매매기준율보다 낮습니다. 숫자를 확인해주세요.');
+ if(isNaN(r)) r=0; if(r<0||r>100) return alert('우대율은 0~100% 사이로 입력해주세요.');
+ var sp=Math.abs(q-base),k=a/u;
+ function rate(p){return b?base+sp*(1-p/100):base-sp*(1-p/100);}
+ var ap=rate(r),w=k*ap,w0=k*q,fee=Math.abs(w-k*base);
+ _s('feWl',b?'내는 원화':'받는 원화'); _s('feW',_w(w));
+ _s('feR',_n(ap)+'원 (스프레드 '+_n(sp)+'원 중 '+_n(sp*(1-r/100))+'원 부담)');
+ _s('fe0',_w(w0)+' (고시 환율 '+_n(q)+'원)'); _s('feS',_w(Math.abs(w0-w)));
+ _s('feF',_w(fee)+' (약 '+_n(sp*(1-r/100)/base*100,3)+'%)');
+ _s('feT',[50,80,90,100].map(function(p){return p+'% '+_w(k*rate(p));}).join(' / '));
+ document.getElementById('result').classList.add('show');
+}
+</script>

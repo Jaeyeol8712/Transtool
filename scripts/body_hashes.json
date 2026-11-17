@@ -11,6 +11,10 @@
 "d": "2026-11-11",
 "h": "b564e46ad4bdfe3a"
 },
+"airport_departure_time_calculator.html": {
+"d": "2026-11-17",
+"h": "624b727eddd4ab35"
+},
 "alcohol_calorie_calculator.html": {
 "d": "2026-11-03",
 "h": "b3ae0a1a71dbb701"
@@ -103,6 +107,10 @@
 "d": "2026-11-06",
 "h": "ddb800738ae2c7e8"
 },
+"currency_exchange_fee_calculator.html": {
+"d": null,
+"h": "b90297452ddcca34"
+},
 "daejeon-daedeok-sintanjin.html": {
 "d": "2026-11-03",
 "h": "4bcf98dd14c2182a"
@@ -171,6 +179,10 @@
 "d": null,
 "h": "a21128df3cd034f3"
 },
+"domestic_trip_cost_calculator.html": {
+"d": null,
+"h": "d70fc6c818045e0f"
+},
 "donation_tax_credit_calculator.html": {
 "d": "2026-11-06",
 "h": "d9dd0f5b22f3a10e"
@@ -201,7 +213,7 @@
 },
 "etc.html": {
 "d": "2026-11-17",
-"h": "81f30d559d3dce9a"
+"h": "1c40548e52e4fec5"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -221,7 +233,7 @@
 },
 "exchange_rate_calculator.html": {
 "d": "2026-11-17",
-"h": "e9aabc2602ba7c9f"
+"h": "1deb71868f468c77"
 },
 "exercise_met_calorie_calculator.html": {
 "d": null,
@@ -313,7 +325,7 @@
 },
 "guide-black-friday-direct-purchase-refund.html": {
 "d": "2026-11-17",
-"h": "373a7676cb1a6912"
+"h": "686abbe46ff0e4da"
 },
 "guide-black-ice-safe-driving.html": {
 "d": "2026-11-11",
@@ -456,12 +468,12 @@
 "h": "b5d1656b0af1b4e7"
 },
 "guide-incheon-airport-arex-limousine.html": {
-"d": null,
-"h": "b31a048734d4fda8"
+"d": "2026-11-17",
+"h": "084e9ba00e8d5480"
 },
 "guide-incheon-airport-arrival-time.html": {
 "d": "2026-11-17",
-"h": "13b28b1fd75e57c5"
+"h": "e5926097c79ba224"
 },
 "guide-income-tax-filing-may.html": {
 "d": "2026-11-06",
@@ -481,7 +493,7 @@
 },
 "guide-japan-travel-budget.html": {
 "d": "2026-11-17",
-"h": "f0aeb90cceb44a24"
+"h": "90c33dbf4884f954"
 },
 "guide-jeonse-contract-checklist.html": {
 "d": "2026-11-03",
@@ -541,11 +553,11 @@
 },
 "guide-overseas-direct-purchase-duty-free.html": {
 "d": "2026-11-17",
-"h": "a32d3d8b3862bce7"
+"h": "da3621d29723cdd8"
 },
 "guide-overseas-trip-departure-checklist.html": {
 "d": "2026-11-17",
-"h": "2cffe2dd663edd1c"
+"h": "339cca6a7ca9c654"
 },
 "guide-parcel-loss-damage-compensation.html": {
 "d": null,
@@ -553,7 +565,7 @@
 },
 "guide-passport-reissue.html": {
 "d": "2026-11-17",
-"h": "cc9925689e94788b"
+"h": "2fd1dcd1965857db"
 },
 "guide-pension-irp-year-end-limit.html": {
 "d": "2026-11-06",
@@ -625,7 +637,7 @@
 },
 "guide-travel-insurance-coverage.html": {
 "d": "2026-11-17",
-"h": "5e67980622c06de9"
+"h": "82a1b045adbcc3f7"
 },
 "guide-unemployment-benefit-application-steps.html": {
 "d": "2026-11-05",
@@ -645,7 +657,7 @@
 },
 "guide-visit-japan-web.html": {
 "d": "2026-11-17",
-"h": "b6f6c0934c80bbd8"
+"h": "377a01db05fbc171"
 },
 "guide-weekly-holiday-pay-rules.html": {
 "d": "2026-11-17",
@@ -846,6 +858,10 @@
 "interior_calculator.html": {
 "d": "2026-11-03",
 "h": "d6d0720eb1196c11"
+},
+"japan_tax_refund_calculator.html": {
+"d": "2026-11-17",
+"h": "cebcfd2c2d1ea7ec"
 },
 "japan_travel_calculator.html": {
 "d": "2026-11-17",
@@ -1521,7 +1537,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-17",
-"h": "c320d9b8c3abce20"
+"h": "d85f570db23e078c"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1599,9 +1615,13 @@
 "d": "2026-11-07",
 "h": "a2c1edf3b84ad6c5"
 },
+"tokyo_subway_ticket_calculator.html": {
+"d": null,
+"h": "fb226676d06e3a29"
+},
 "tools.html": {
-"d": "2026-11-12",
-"h": "d8f8acc020e66b51"
+"d": "2026-11-17",
+"h": "ad174491065c29d7"
 },
 "travel-andong.html": {
 "d": "2026-11-13",
