@@ -413,5 +413,21 @@
  ],
  "tokyo_subway_ticket_calculator.html": [
   "c-ic-card"
+ ],
+ "season-gwangjang-market-food.html": [
+  "c-gwangjang-bindae",
+  "c-gwangjang-market"
+ ],
+ "season-jagalchi-winter-hoe.html": [
+  "c-jagalchi-hoe"
+ ],
+ "season-jeju-dongmun-night-market.html": [
+  "c-dongmun-night"
+ ],
+ "season-jeonju-nambu-night-market.html": [
+  "c-jeonju-nambu-night"
+ ],
+ "season-gangneung-chodang-sundubu.html": [
+  "c-chodang-sundubu"
  ]
 }
