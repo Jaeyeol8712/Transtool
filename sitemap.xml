@@ -2097,7 +2097,8 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-hakone.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-hakone-ropeway.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-hanoi.html</loc>
@@ -2256,7 +2257,10 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-seoul.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-gyeongbok.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-bukchon.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-namsan.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-shanghai.html</loc>
