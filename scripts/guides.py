@@ -846,3 +846,5 @@ from guides_1111a import GUIDES_1111A  # noqa: E402  (2026-11-08 컨펌 i261108-
 GUIDES += GUIDES_1111A
 from guides_1111b import GUIDES_1111B  # noqa: E402  (2026-11-09 컨펌 i261109-02, 11.11 적용)
 GUIDES += GUIDES_1111B
+from guides_1117 import GUIDES_1117  # noqa: E402  (2026-11-17 대표 지시 '카테고리별 5개 고퀄리티' — i261112-05 ①③⑤⑥⑦ 여행 준비 5)
+GUIDES += GUIDES_1117

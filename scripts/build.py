@@ -950,7 +950,15 @@ def related_html(p):
     elif s == "guide":
         head = "관련 계산기"
         more = '<a class="more" href="/tools.html#g-labor">노동 계산기</a>'
-        for slug in ("salary_calculator", "holiday_pay_calculator", "severance_calculator", "unemployment_benefit_calculator", "freelancer_tax_calculator", "pto_calculator"):
+        slugs = ("salary_calculator", "holiday_pay_calculator", "severance_calculator", "unemployment_benefit_calculator", "freelancer_tax_calculator", "pto_calculator")
+        gd = p.get("guide") or {}
+        if gd and (gd.get("slug") in TRIP_GUIDE_WHEN or any(k in gd.get("title", "") for k in TRIP_GUIDE_KEYS)):
+            # 2026-11-17: 여행 준비 가이드에는 노동 계산기 대신 여행 계산기를 붙인다
+            head, more = "여행 계산기", '<a class="more" href="/tools.html#g-trip">여행 도구</a>'
+            trip = next(x for x in TOOL_GROUPS if x[0] == "trip")[2]
+            slugs = [x for x in list(gd.get("tools", [])) + trip if x + ".html" in PAGES]
+            slugs = list(dict.fromkeys(slugs))[:6]
+        for slug in slugs:
             q = PAGES[slug + ".html"]
             rows.append(row("/" + q["file"], q["name"], "생활툴", "", None, "", q["date"], is_new(q["date"])))
     elif s == "connect":
@@ -1188,7 +1196,8 @@ TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "k
                   "excess_baggage_fee_calculator": "ov", "duty_free_limit_calculator": "ov", "overseas_card_fee_calculator": "ov",
                   "incheon_airport_parking_calculator": "ov", "roaming_esim_compare_calculator": "ov", "rental_car_total_cost_calculator": "all"}
 TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
-TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr"}
+TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr",
+                   "incheon-airport-arrival-time": "ov", "travel-insurance-coverage": "ov", "visit-japan-web": "jp", "incheon-airport-arex-limousine": "ov"}  # 11-17
 
 
 def travel_guides():
@@ -2324,7 +2333,14 @@ def guide_links_for(slug):
 
 def build_qguide(p):
     g = p["guide"]
-    secs = "".join(f"<h2>{esc(h)}</h2>{html_}" for h, html_ in g["body"])
+    # 2026-11-17: "photos"(사진 키 목록)가 있는 가이드만 사진을 넣는다 — 첫 장은 첫 소제목 앞, 다음 장은 두 소제목 뒤마다
+    ph = [n for n in g.get("photos", []) if photo_ok(n)]
+    parts = []
+    for i, (h, html_) in enumerate(g["body"]):
+        if i % 2 == 0 and ph[i // 2:i // 2 + 1]:
+            parts.append(photo_html(ph[i // 2]))
+        parts.append(f"<h2>{esc(h)}</h2>{html_}")
+    secs = "".join(parts)
     tool_btns = "".join(
         f'<a class="at-guide-tool" href="/{s}.html"><b>{esc(PAGES[s + ".html"]["name"])}{"" if "계산" in PAGES[s + ".html"]["name"] or "검사" in PAGES[s + ".html"]["name"] else " 계산기"}</b>'
         f'<span>{esc(short_desc(PAGES[s + ".html"]["desc"]))}</span></a>'
@@ -2351,7 +2367,7 @@ def build_qguide(p):
            "datePublished": p["date"], "dateModified": g.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
            "image": image_ld("/assets/og/og-default.png", g["title"])}
-    extra = [art] + ([faq_ld(g["faq"])] if g.get("faq") else [])
+    extra = [art] + ([faq_ld(g["faq"])] if g.get("faq") else []) + [image_ld(f"/assets/photos/{n}.jpg", PHOTOS[n]["alt"], PHOTOS[n]) for n in ph]
     write(p["file"], page_shell(p, content, extra))
 
 
