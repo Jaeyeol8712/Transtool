@@ -288,8 +288,8 @@
 "h": "eb61ac8f38d8bbf8"
 },
 "gangnam.html": {
-"d": "2026-11-03",
-"h": "80685a848ce4f1f5"
+"d": "2026-11-18",
+"h": "0e9ce97cc3e4b53a"
 },
 "gas_bill_calculator.html": {
 "d": "2026-11-11",
@@ -848,8 +848,8 @@
 "h": "fb5ecea9c8780245"
 },
 "index.html": {
-"d": "2026-11-17",
-"h": "f12ea2796dc4d899"
+"d": "2026-11-18",
+"h": "9cdb268128575d93"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -993,7 +993,7 @@
 },
 "jongno.html": {
 "d": "2026-11-18",
-"h": "a215726d656ae7a9"
+"h": "9982969f0046d2ee"
 },
 "kerosene_heating_cost_calculator.html": {
 "d": "2026-11-11",
@@ -1036,8 +1036,8 @@
 "h": "58249119e17f6248"
 },
 "mapo.html": {
-"d": "2026-11-03",
-"h": "0bd9b307f0a97e92"
+"d": "2026-11-18",
+"h": "6d1db73603aebe51"
 },
 "medical_expense_tax_credit_calculator.html": {
 "d": "2026-11-03",
@@ -1348,8 +1348,8 @@
 "h": "e1b69f25ecb4e035"
 },
 "seocho.html": {
-"d": "2026-11-03",
-"h": "7da6ccf9f827cca5"
+"d": "2026-11-18",
+"h": "9ed50fcbef1d3633"
 },
 "seongdong-michelin.html": {
 "d": "2026-11-03",
@@ -1360,8 +1360,8 @@
 "h": "cccb074692981978"
 },
 "seoul-junggu.html": {
-"d": "2026-11-03",
-"h": "dac35fae6b04a39b"
+"d": "2026-11-18",
+"h": "efbdec90c3ba7512"
 },
 "seoul-winter-asian.html": {
 "d": "2026-11-03",
@@ -1404,8 +1404,8 @@
 "h": "1c51eecdc8244e9f"
 },
 "seoul-winter.html": {
-"d": "2026-11-03",
-"h": "734f4332d4d1478f"
+"d": "2026-11-18",
+"h": "0399038bf0b7940a"
 },
 "service_years_calculator.html": {
 "d": "2026-11-03",
@@ -1557,7 +1557,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-18",
-"h": "65df56dc9e5e911f"
+"h": "7ad0f6be70a5cb72"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1699,6 +1699,10 @@
 "d": "2026-11-14",
 "h": "31df553d2d0f17b9"
 },
+"travel-daegu.html": {
+"d": null,
+"h": "cd837f4620a8d150"
+},
 "travel-damyang.html": {
 "d": "2026-11-13",
 "h": "5a4ca56555c52e80"
@@ -1755,6 +1759,10 @@
 "d": "2026-11-13",
 "h": "f36da9dcd788494d"
 },
+"travel-hakone.html": {
+"d": null,
+"h": "6a8d4e16cace6275"
+},
 "travel-hanoi.html": {
 "d": "2026-11-13",
 "h": "25f737d7599a4a7c"
@@ -1770,6 +1778,10 @@
 "travel-hongkong.html": {
 "d": "2026-11-13",
 "h": "35372479d1a9877e"
+},
+"travel-incheon.html": {
+"d": null,
+"h": "8677a5f29f88b4dd"
 },
 "travel-inje.html": {
 "d": "2026-11-13",
@@ -1798,6 +1810,10 @@
 "travel-kaohsiung.html": {
 "d": "2026-11-13",
 "h": "84f54a3d70379c3e"
+},
+"travel-kobe.html": {
+"d": null,
+"h": "21fb4ad2c2974327"
 },
 "travel-kotakinabalu.html": {
 "d": "2026-11-13",
@@ -1879,6 +1895,10 @@
 "d": "2026-11-13",
 "h": "011ff8e2b389bbc7"
 },
+"travel-seoul.html": {
+"d": null,
+"h": "9bcf67478b86bb4a"
+},
 "travel-shanghai.html": {
 "d": "2026-11-13",
 "h": "b4d7d631f558cac0"
@@ -1940,8 +1960,8 @@
 "h": "4801375d7044b770"
 },
 "travel.html": {
-"d": "2026-11-11",
-"h": "678c4733a7808e1c"
+"d": "2026-11-18",
+"h": "00b78b0730db3769"
 },
 "unemployment_benefit_calculator.html": {
 "d": "2026-11-05",
@@ -2024,8 +2044,8 @@
 "h": "981f4408ccfc5c7e"
 },
 "yeonsu.html": {
-"d": "2026-11-12",
-"h": "a86d1dbff3070ff5"
+"d": "2026-11-18",
+"h": "337ee653a0c6fd99"
 },
 "yongsan-bapjip.html": {
 "d": "2026-11-03",
@@ -2060,7 +2080,7 @@
 "h": "a524d2cd7af9b090"
 },
 "yongsan.html": {
-"d": "2026-11-03",
-"h": "c71756fd938c9a78"
+"d": "2026-11-18",
+"h": "838a3f3f7cacaa6e"
 }
 }

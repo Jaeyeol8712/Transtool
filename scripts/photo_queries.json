@@ -1132,5 +1132,24 @@
  "c-japan-taxfree": [
   "Japan tax free shop sign",
   "tax-free counter Japan store"
+ ],
+ "c-daegu-seomun": [
+  "Seomun Market Daegu"
+ ],
+ "c-daegu-kimkwangseok": [
+  "Kim Kwang-seok Street Daegu"
+ ],
+ "c-incheon-chinatown": [
+  "Incheon Chinatown"
+ ],
+ "c-incheon-songdo": [
+  "Songdo Central Park"
+ ],
+ "c-kobe-harborland": [
+  "Kobe Harborland night",
+  "Meriken Park Kobe"
+ ],
+ "c-kobe-kitano": [
+  "Kitano Ijinkan Kobe"
  ]
 }

@@ -6,22 +6,22 @@
    {
     "id": "gbg",
     "name": "경복궁",
-    "guide": false
+    "guide": true
    },
    {
     "id": "bukchon",
     "name": "북촌 한옥마을",
-    "guide": false
+    "guide": true
    },
    {
     "id": "cdg",
     "name": "창덕궁 후원",
-    "guide": false
+    "guide": true
    },
    {
     "id": "insa",
     "name": "인사동 쌈지길",
-    "guide": false
+    "guide": true
    },
    {
     "id": "museum",
@@ -31,22 +31,22 @@
    {
     "id": "gwangjang",
     "name": "광장시장 먹거리",
-    "guide": false
+    "guide": true
    },
    {
     "id": "mdfood",
     "name": "명동 길거리 음식",
-    "guide": false
+    "guide": true
    },
    {
     "id": "dakgalbi",
     "name": "홍대 닭갈비 골목",
-    "guide": false
+    "guide": true
    },
    {
     "id": "oliveyoung",
     "name": "올리브영 명동 플래그십",
-    "guide": false
+    "guide": true
    },
    {
     "id": "garosu",
@@ -56,7 +56,7 @@
    {
     "id": "seongsu",
     "name": "성수동 편집숍 거리",
-    "guide": false
+    "guide": true
    },
    {
     "id": "ddp",
@@ -66,12 +66,12 @@
    {
     "id": "hongdae",
     "name": "홍대 거리",
-    "guide": false
+    "guide": true
    },
    {
     "id": "thehyundai",
     "name": "더현대 서울",
-    "guide": false
+    "guide": true
    },
    {
     "id": "scafe",
@@ -81,7 +81,7 @@
    {
     "id": "ikcafe",
     "name": "익선동 한옥 카페",
-    "guide": false
+    "guide": true
    },
    {
     "id": "ycafe",
@@ -96,12 +96,12 @@
    {
     "id": "namsan",
     "name": "남산서울타워 야경",
-    "guide": false
+    "guide": true
    },
    {
     "id": "hangang",
     "name": "한강 노을 산책",
-    "guide": false
+    "guide": true
    },
    {
     "id": "lotte",
@@ -116,7 +116,7 @@
    {
     "id": "banpo",
     "name": "반포 달빛무지개분수",
-    "guide": false
+    "guide": true
    },
    {
     "id": "seoulforest",
@@ -126,7 +126,7 @@
    {
     "id": "coex",
     "name": "코엑스 K-POP 광장·별마당도서관",
-    "guide": false
+    "guide": true
    },
    {
     "id": "deoksugung",
