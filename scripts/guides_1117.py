@@ -164,7 +164,7 @@ GUIDES_1117 = [
   ("국내 실손보험이 있으면 필요 없나요?", "해외에서 낸 치료비와 휴대품·항공기 지연은 별도이니 약관을 비교해 봅니다. 국내 의료비는 중복 보상되지 않습니다."),
   ("언제 가입하나요?", "출국 전에 보험회사 누리집이나 앱에서 가입하고, 보장 기간이 출국부터 귀국까지 모두 덮는지 확인합니다."),
  ],
- "tools": ["overseas_travel_budget_calculator", "overseas_card_fee_calculator"],
+ "tools": ["overseas_travel_budget_calculator", "currency_exchange_fee_calculator", "overseas_card_fee_calculator"],
  "sources": [
   ("금융감독원 — 여행자보험 유익정보·분쟁조정 사례 발표 보도 (세계일보, 2026.7.12)", "https://www.segye.com/newsView/20260712512381"),
   ("금융감독원 발표 보도 — 지수형·실손형·제외 품목 (SBS Biz, 2026.7.12)", "https://biz.sbs.co.kr/amp/article/20000321953"),
@@ -209,7 +209,7 @@ GUIDES_1117 = [
   ("모든 일본 공항에서 키오스크를 쓰나요?", "공동 키오스크는 나리타 제3터미널·하네다·간사이·후쿠오카에, 세관 전자 게이트는 7개 공항에 있습니다. 그 밖의 공항은 직원에게 QR을 보여 줍니다."),
   ("일본 면세는 어떻게 바뀌었나요?", "2026년 11월부터 세금 포함 가격으로 사고, 출국할 때 공항 세관 확인을 받은 뒤 돌려받는 환급 방식입니다. 짐을 부치기 전에 절차를 밟습니다."),
  ],
- "tools": ["japan_travel_calculator", "exchange_rate_calculator", "roaming_esim_compare_calculator"],
+ "tools": ["japan_tax_refund_calculator", "tokyo_subway_ticket_calculator", "japan_travel_calculator", "roaming_esim_compare_calculator"],
  "sources": [
   ("Visit Japan Web (일본 디지털청 공식)", "https://www.vjw.digital.go.jp/"),
   ("일본 디지털청 서비스 안내", "https://services.digital.go.jp/"),

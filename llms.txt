@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 124종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 129종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -146,6 +146,11 @@
 - [인천공항 주차 요금](https://www.aroundtool.com/incheon_airport_parking_calculator.html): 인천국제공항 장기·단기주차장(소형차) 공식 요금으로 주차 일수와 시간을 넣으면 예상 주차 요금을 계산하고 두 주차장을 비교합니다.
 - [로밍·eSIM·유심 비용 비교](https://www.aroundtool.com/roaming_esim_compare_calculator.html): 여행 일수와 통신사 로밍 요금(하루·기간), eSIM 가격, 유심 가격과 배송비를 넣으면 세 방법의 총비용과 하루 비용을 비교하고 가장 싼 방법을 알려 줍니다.
 - [여행 렌터카 총비용](https://www.aroundtool.com/rental_car_total_cost_calculator.html): 대여 일수, 하루 대여료·보험료, 예상 주행거리와 연비·연료 가격, 기타 비용과 인원을 넣으면 렌터카 총비용과 연료비, 1인당·하루당 비용을 계산합니다.
+- [공항 출발 시간](https://www.aroundtool.com/airport_departure_time_calculator.html): 비행기 출발 시각, 국제선·국내선, 공항까지 이동 시간을 넣으면 집에서 나갈 시각과 공항 도착 목표, 체크인·탑승 마감 시각을 계산합니다. 인천공항 3시간 전 권고 기준.
+- [환율 우대](https://www.aroundtool.com/currency_exchange_fee_calculator.html): 매매기준율, 은행이 고시한 현찰 살 때·팔 때 환율, 환율 우대율을 넣으면 실제 적용 환율과 내는 원화, 우대로 아낀 돈, 남은 환전 비용을 계산합니다. 엔화 100엔 고시도 지원합니다.
+- [자동차 vs 기차 여행 비용](https://www.aroundtool.com/domestic_trip_cost_calculator.html): 인원, 편도 거리, 연비, 기름값, 통행료, 기차 운임을 넣으면 국내 여행 왕복 비용을 자동차와 기차(KTX·SRT)로 비교하고, 1인당 비용과 자동차가 싸지는 인원을 계산합니다.
+- [도쿄 서브웨이 티켓 본전](https://www.aroundtool.com/tokyo_subway_ticket_calculator.html): 도쿄에서 지하철을 탈 날, 하루 탑승 횟수, 평균 운임을 넣으면 Tokyo Subway Ticket 24·48·72시간권 중 가장 싼 조합과 IC 카드(Suica·PASMO) 운임을 비교하고 본전 탑승 횟수를 계산합니다.
+- [일본 면세 환급](https://www.aroundtool.com/japan_tax_refund_calculator.html): 2026년 11월부터 바뀐 일본 면세(환급 방식)에 맞춰 세금 포함 결제 금액을 넣으면 세전 5,000엔 조건 충족 여부, 돌려받을 소비세(10%·8%), 수수료, 원화 환급액을 계산합니다.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.

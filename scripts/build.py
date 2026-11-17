@@ -197,7 +197,9 @@ TOOL_GROUPS = [
     ("trip", "여행", ["overseas_travel_budget_calculator", "time_difference_calculator", "fuel_economy_calculator", "exchange_rate_calculator", "japan_travel_calculator",
                      "camping_gear_calculator", "tip_calculator", "volumetric_weight_calculator",
                      "excess_baggage_fee_calculator", "duty_free_limit_calculator", "overseas_card_fee_calculator",
-                     "incheon_airport_parking_calculator", "roaming_esim_compare_calculator", "rental_car_total_cost_calculator"]),  # 11-12 i261112-04
+                     "incheon_airport_parking_calculator", "roaming_esim_compare_calculator", "rental_car_total_cost_calculator",  # 11-12 i261112-04
+                     "airport_departure_time_calculator", "currency_exchange_fee_calculator", "domestic_trip_cost_calculator",
+                     "tokyo_subway_ticket_calculator", "japan_tax_refund_calculator"]),  # 11-17 대표 지시
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -829,6 +831,7 @@ GUIDE_LINKS = {  # 가이드 ↔ 계산기
     "guide_2026_tax.html": ["freelancer_tax_calculator", "salary_calculator", "acquisition_tax_calculator", "car_tax_calculator"],
 }
 TRIP_TOOLS = {"travel-osaka.html": ["japan_travel_calculator", "exchange_rate_calculator"],
+              "travel-tokyo.html": ["tokyo_subway_ticket_calculator", "japan_tax_refund_calculator"],  # 11-17
               "travel-jeju.html": ["fuel_economy_calculator", "camping_gear_calculator"],
               "travel-busan.html": ["fuel_economy_calculator"], "travel-sokcho.html": ["fuel_economy_calculator", "camping_gear_calculator"]}
 
@@ -1194,7 +1197,9 @@ TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "k
                   "overseas_travel_budget_calculator": "ov", "time_difference_calculator": "ov", "exchange_rate_calculator": "ov",
                   "tip_calculator": "ov", "volumetric_weight_calculator": "ov",
                   "excess_baggage_fee_calculator": "ov", "duty_free_limit_calculator": "ov", "overseas_card_fee_calculator": "ov",
-                  "incheon_airport_parking_calculator": "ov", "roaming_esim_compare_calculator": "ov", "rental_car_total_cost_calculator": "all"}
+                  "incheon_airport_parking_calculator": "ov", "roaming_esim_compare_calculator": "ov", "rental_car_total_cost_calculator": "all",
+                  "currency_exchange_fee_calculator": "ov", "domestic_trip_cost_calculator": "kr",  # 11-17
+                  "tokyo_subway_ticket_calculator": "jp", "japan_tax_refund_calculator": "jp"}
 TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
 TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr",
                    "incheon-airport-arrival-time": "ov", "travel-insurance-coverage": "ov", "visit-japan-web": "jp", "incheon-airport-arex-limousine": "ov"}  # 11-17

@@ -4,9 +4,25 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 74곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 124종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 74곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 129종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>도쿄 서브웨이 티켓 계산기 — 72시간권 vs Suica 본전</title>
+      <link>https://www.aroundtool.com/tokyo_subway_ticket_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/tokyo_subway_ticket_calculator.html</guid>
+      <category>생활툴</category>
+      <description>도쿄에서 지하철을 탈 날, 하루 탑승 횟수, 평균 운임을 넣으면 Tokyo Subway Ticket 24·48·72시간권 중 가장 싼 조합과 IC 카드(Suica·PASMO) 운임을 비교하고 본전 탑승 횟수를 계산합니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>일본 면세 환급 계산기 — 2026년 11월 환급 방식, 얼마 돌려받나</title>
+      <link>https://www.aroundtool.com/japan_tax_refund_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/japan_tax_refund_calculator.html</guid>
+      <category>생활툴</category>
+      <description>2026년 11월부터 바뀐 일본 면세(환급 방식)에 맞춰 세금 포함 결제 금액을 넣으면 세전 5,000엔 조건 충족 여부, 돌려받을 소비세(10%·8%), 수수료, 원화 환급액을 계산합니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>Visit Japan Web 등록 방법 — 일본 입국심사·세관 QR 한 번에</title>
       <link>https://www.aroundtool.com/guide-visit-japan-web.html</link>
@@ -45,6 +61,30 @@
       <guid isPermaLink="true">https://www.aroundtool.com/guide-incheon-airport-arex-limousine.html</guid>
       <category>가이드</category>
       <description>서울에서 인천공항까지 공항철도 직통열차·일반열차, 리무진 버스, 서울역·광명역 도심공항터미널을 비교했습니다. 직통열차 운행 시간과 배차, 도심공항터미널 수속 마감, 새벽 출발편 선택법을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>자동차 vs KTX 여행 비용 계산기 — 몇 명부터 차가 쌀까</title>
+      <link>https://www.aroundtool.com/domestic_trip_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/domestic_trip_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>인원, 편도 거리, 연비, 기름값, 통행료, 기차 운임을 넣으면 국내 여행 왕복 비용을 자동차와 기차(KTX·SRT)로 비교하고, 1인당 비용과 자동차가 싸지는 인원을 계산합니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>환율 우대 계산기 — 우대 90%면 실제 환율과 수수료는</title>
+      <link>https://www.aroundtool.com/currency_exchange_fee_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/currency_exchange_fee_calculator.html</guid>
+      <category>생활툴</category>
+      <description>매매기준율, 은행이 고시한 현찰 살 때·팔 때 환율, 환율 우대율을 넣으면 실제 적용 환율과 내는 원화, 우대로 아낀 돈, 남은 환전 비용을 계산합니다. 엔화 100엔 고시도 지원합니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>공항 출발 시간 계산기 — 비행기 시각으로 집에서 나갈 시각</title>
+      <link>https://www.aroundtool.com/airport_departure_time_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/airport_departure_time_calculator.html</guid>
+      <category>생활툴</category>
+      <description>비행기 출발 시각, 국제선·국내선, 공항까지 이동 시간을 넣으면 집에서 나갈 시각과 공항 도착 목표, 체크인·탑승 마감 시각을 계산합니다. 인천공항 3시간 전 권고 기준.</description>
       <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

@@ -401,5 +401,17 @@
  ],
  "guide_2026_wage.html": [
   "t-won-1"
+ ],
+ "airport_departure_time_calculator.html": [
+  "c-departure-board"
+ ],
+ "currency_exchange_fee_calculator.html": [
+  "c-currency-exchange"
+ ],
+ "domestic_trip_cost_calculator.html": [
+  "c-ktx-train"
+ ],
+ "tokyo_subway_ticket_calculator.html": [
+  "c-ic-card"
  ]
 }

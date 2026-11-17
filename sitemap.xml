@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 507 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 512 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
@@ -37,6 +37,10 @@
     <loc>https://www.aroundtool.com/age_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-cake-1.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/airport_departure_time_calculator.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/alcohol_calorie_calculator.html</loc>
@@ -138,6 +142,10 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/currency_exchange_fee_calculator.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/daejeon-daedeok-sintanjin.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/f-bapjip-2.jpg</image:loc></image:image>
@@ -216,6 +224,10 @@
   <url>
     <loc>https://www.aroundtool.com/dog_food_amount_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/domestic_trip_cost_calculator.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/donation_tax_credit_calculator.html</loc>
@@ -914,6 +926,10 @@
   <url>
     <loc>https://www.aroundtool.com/interior_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/japan_tax_refund_calculator.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/japan_travel_calculator.html</loc>
@@ -1867,6 +1883,10 @@
     <loc>https://www.aroundtool.com/tire_date_calculator.html</loc>
     <lastmod>2026-11-07</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-tire-2.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/tokyo_subway_ticket_calculator.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-andong.html</loc>

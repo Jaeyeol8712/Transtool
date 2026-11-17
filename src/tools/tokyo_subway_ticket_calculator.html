@@ -1,0 +1,45 @@
+<label for="ts1">지하철을 탈 날 (연속, 일)</label>
+<input id="ts1" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="ts2">하루 지하철 탑승 횟수 (번)</label>
+<input id="ts2" type="number" inputmode="numeric" placeholder="예: 4"/>
+<label for="ts3">1번 탈 때 평균 운임 (엔, IC 운임)</label>
+<input id="ts3" type="number" inputmode="numeric" placeholder="도쿄메트로 운임 검색 금액"/>
+<label for="ts4">어른 인원 (명)</label>
+<input id="ts4" type="number" inputmode="numeric" placeholder="1"/>
+<label for="ts5">환율 (원/100엔)</label>
+<input id="ts5" type="number" inputmode="decimal" placeholder="원화 환산용, 없으면 비워 두기"/>
+<button onclick="calc_tokyo_subway_ticket()">패스 본전 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 싼 방법</span><span class="result-value" id="tsW">-</span></div>
+<div class="result-row"><span class="result-label">IC 카드로 낼 지하철 운임</span><span class="result-value" id="tsI" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">가장 싼 패스 조합</span><span class="result-value" id="tsP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">패스 본전 탑승 횟수</span><span class="result-value" id="tsB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">원화 환산 (차액)</span><span class="result-value" id="tsK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _y(x){return Math.round(x).toLocaleString('ko-KR')+'엔';}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+var TS=[[1,1000,'24시간'],[2,1500,'48시간'],[3,2000,'72시간']]; /* 도쿄메트로 발표 어른 요금, 2026-11-17 확인 */
+function ts_best(d){var c=[0],w=[[]];for(var i=1;i<=d;i++){c[i]=Infinity;
+ TS.forEach(function(t){if(i-t[0]>=0&&c[i-t[0]]+t[1]<c[i]){c[i]=c[i-t[0]]+t[1];w[i]=w[i-t[0]].concat([t[2]]);}});}
+ return [c[d],w[d]];}
+function calc_tokyo_subway_ticket(){
+ var d=_v('ts1'),r=_v('ts2'),f=_v('ts3'),n=_v('ts4'),x=_v('ts5');
+ if(isNaN(d)||d<1||d>14) return alert('지하철을 탈 날을 1~14일 사이로 입력해주세요.');
+ if(isNaN(r)||r<0) return alert('하루 탑승 횟수를 입력해주세요.');
+ if(isNaN(f)||f<=0) return alert('1번 탈 때 평균 운임(엔)을 입력해주세요.');
+ if(isNaN(n)||n<1) n=1; d=Math.floor(d); n=Math.floor(n);
+ var bp=ts_best(d),pass=bp[0]*n,ic=d*r*f*n,gap=Math.abs(ic-pass),cnt={};
+ bp[1].forEach(function(k){cnt[k]=(cnt[k]||0)+1;});
+ var combo=Object.keys(cnt).map(function(k){return k+' '+cnt[k]+'장';}).join(' + ');
+ _s('tsW',ic>pass?'패스가 '+_y(gap)+' 저렴':ic<pass?'IC 카드가 '+_y(gap)+' 저렴':'두 방법이 같습니다');
+ _s('tsI',_y(ic)+' ('+d+'일 × '+r+'번 × '+_y(f)+(n>1?' × '+n+'명':'')+')');
+ _s('tsP',combo+' = '+_y(bp[0])+(n>1?' × '+n+'명 = '+_y(pass):''));
+ var be=Math.ceil(bp[0]/(d*f));
+ _s('tsB','하루 '+be+'번 이상 타면 패스가 같거나 저렴');
+ _s('tsK',isNaN(x)||x<=0?'환율을 넣으면 나옵니다':_w(gap*x/100)+' (IC '+_w(ic*x/100)+' / 패스 '+_w(pass*x/100)+')');
+ document.getElementById('result').classList.add('show');
+}
+</script>

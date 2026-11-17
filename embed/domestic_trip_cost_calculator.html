@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동차 vs 기차 국내 여행 비용 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/domestic_trip_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="자동차 vs 기차 국내 여행 비용 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">자동차 vs 기차 국내 여행 비용 계산기</p>
+<label for="dc1">여행 인원 (명)</label>
+<input id="dc1" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="dc2">편도 거리 (km)</label>
+<input id="dc2" type="number" inputmode="decimal" placeholder="지도 앱 자동차 경로 거리"/>
+<label for="dc3">내 차 연비 (km/L)</label>
+<input id="dc3" type="number" inputmode="decimal" placeholder="예: 12"/>
+<label for="dc4">기름값 (원/L)</label>
+<input id="dc4" type="number" inputmode="decimal" placeholder="오피넷 지역 평균"/>
+<label for="dc5">고속도로 통행료, 편도 (원)</label>
+<input id="dc5" type="number" inputmode="numeric" placeholder="한국도로공사 통행료 조회"/>
+<label for="dc6">주차비·기타 차량비, 여행 전체 (원)</label>
+<input id="dc6" type="number" inputmode="numeric" placeholder="없으면 비워 두기"/>
+<label for="dc7">기차 1인 편도 운임 (원)</label>
+<input id="dc7" type="number" inputmode="numeric" placeholder="코레일+ 예매 화면 금액"/>
+<label for="dc8">역에서 목적지까지 교통비, 여행 전체 (원)</label>
+<input id="dc8" type="number" inputmode="numeric" placeholder="택시·버스·렌터카, 없으면 비워 두기"/>
+<button onclick="calc_domestic_trip_cost()">왕복 비용 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 싼 방법</span><span class="result-value" id="dcW">-</span></div>
+<div class="result-row"><span class="result-label">자동차 왕복 합계</span><span class="result-value" id="dcC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">자동차 1인당</span><span class="result-value" id="dcCp" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">기차 왕복 합계</span><span class="result-value" id="dcT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">기차 1인당</span><span class="result-value" id="dcTp" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">자동차가 싸지는 인원</span><span class="result-value" id="dcB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_domestic_trip_cost(){
+ var n=_v('dc1'),km=_v('dc2'),e=_v('dc3'),fp=_v('dc4'),tl=_v('dc5'),pk=_v('dc6'),fare=_v('dc7'),lc=_v('dc8');
+ if(isNaN(n)||n<1) return alert('여행 인원을 입력해주세요.');
+ if(isNaN(km)||km<=0||isNaN(e)||e<=0||isNaN(fp)||fp<=0) return alert('편도 거리, 연비, 기름값을 입력해주세요.');
+ if(isNaN(fare)||fare<=0) return alert('기차 1인 편도 운임을 입력해주세요.');
+ if(isNaN(tl))tl=0; if(isNaN(pk))pk=0; if(isNaN(lc))lc=0; n=Math.floor(n);
+ var fuel=km*2/e*fp,car=fuel+tl*2+pk,train=fare*2*n+lc,d=Math.abs(car-train);
+ _s('dcW',car<train?'자동차가 '+_w(d)+' 저렴':car>train?'기차가 '+_w(d)+' 저렴':'두 방법이 같습니다');
+ _s('dcC',_w(car)+' (기름 '+_w(fuel)+' + 통행료 '+_w(tl*2)+' + 주차·기타 '+_w(pk)+')');
+ _s('dcCp',_w(car/n)); _s('dcT',_w(train)+' (운임 '+_w(fare*2*n)+' + 현지 교통 '+_w(lc)+')'); _s('dcTp',_w(train/n));
+ var be=Math.max(1,Math.ceil((car-lc)/(fare*2)));
+ _s('dcB',(car-lc)<=fare*2?'1명부터 자동차가 같거나 저렴':be+'명부터 자동차가 같거나 저렴');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/domestic_trip_cost_calculator.html?utm_source=embed&amp;utm_campaign=domestic_trip_cost_calculator" target="_blank" rel="noopener">어라운드툴 자동차 vs 기차 국내 여행 비용 계산기</a></p>
+</body>
+</html>
