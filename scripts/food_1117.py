@@ -166,7 +166,7 @@ PAGES_1117 = [dict(file=f"season-{s['slug']}.html", **s) for s in S]
 
 
 def page(p, style):
-    title = f"{p['name']} — 가는 때·먹는 법·알아 둘 것"
+    title = f"{p['name']} — 제철 메뉴·먹는 법·가는 때"
     desc = f"{p['name']}({p['place']})의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다."
     faq = p["faq"] + [("이 글은 광고인가요?", "아닙니다. 가게에서 대가를 받지 않았고, 특정 가게를 추천하지 않습니다.")]
     ld = {"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [
