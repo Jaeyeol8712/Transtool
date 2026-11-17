@@ -174,7 +174,8 @@ FOOD_AREAS = [
                                     ("jeonnam-seobu", "서부권"), ("jeonnam-nambu", "남부권")]),
     ("season", "전국 제철 음식", "제철", [("season", "제철 음식·시장")]),  # 2026-11-06 i261106-04 제철·시장 안내(가게 이름 없음)
 ]
-REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html"}
+REGION_TRAVEL = {"jeju": "travel-jeju.html", "gangwon": "travel-sokcho.html", "busan": "travel-busan.html",
+                 "seoul": "travel-seoul.html", "incheon": "travel-incheon.html"}  # 11-17 서울·인천 추가
 
 TOOL_GROUPS = [
     ("money", "재테크·부동산", ["inflation_calculator", "loan_refinance_calculator", "dividend_tax_calculator", "stock_average_price_calculator", "jeonse_loan_interest_calculator", "car_installment_calculator", "gift_tax_calculator", "retirement_income_tax_calculator", "bonus_net_pay_calculator", "donation_tax_credit_calculator", "housing_subscription_score_calculator", "credit_card_deduction_calculator", "pension_savings_tax_credit_calculator", "monthly_rent_tax_credit_calculator", "medical_expense_tax_credit_calculator", "salary_calculator", "loan_calculator", "savings_calculator", "compound_calculator",
@@ -232,6 +233,9 @@ PAGE_DATES.update({s + ".html": "2026-11-05" for s, _, _ in TRIP_PAGES_1106})
 PAGE_DATES.update({s + ".html": "2026-11-06" for s, _, _ in TRIP_PAGES_1107})
 PAGE_DATES.update({s + ".html": "2026-11-07" for s, _, _ in TRIP_PAGES_1108})
 PAGE_DATES.update({s + ".html": "2026-11-11" for s, _, _ in TRIP_PAGES_1111})
+from trips_1117 import TRIP_PAGES_1117  # noqa: E402  (2026-11-17 대표 지시 여행 5곳: 서울·대구·인천·하코네·고베)
+TRIP_PAGES += TRIP_PAGES_1117
+PAGE_DATES.update({s + ".html": "2026-11-17" for s, _, _ in TRIP_PAGES_1117})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)

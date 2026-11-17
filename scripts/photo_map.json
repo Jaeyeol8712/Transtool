@@ -429,5 +429,14 @@
  ],
  "season-gangneung-chodang-sundubu.html": [
   "c-chodang-sundubu"
+ ],
+ "travel-seoul.html": [
+  "c-seoul-gyeongbok",
+  "c-seoul-bukchon",
+  "c-seoul-namsan",
+  "c-seoul-hangang"
+ ],
+ "travel-hakone.html": [
+  "c-hakone-ropeway"
  ]
 }

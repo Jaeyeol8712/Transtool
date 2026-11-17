@@ -4,9 +4,49 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 74곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 129종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 79곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 129종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>서울 여행 코스 — 1박 2일·2박 3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-seoul.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-seoul.html</guid>
+      <category>여행</category>
+      <description>서울 여행 코스. 경복궁·북촌·인사동, 남산서울타워, 광장시장, 한강 야경, 성수·홍대를 1박 2일·2박 3일로 묶고 궁궐 휴궁일과 지하철 이동 시간을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고베 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-kobe.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-kobe.html</guid>
+      <category>여행</category>
+      <description>고베 여행 코스. 하버랜드·메리켄파크, 기타노 이진칸, 난킨마치(차이나타운), 롯코산 야경, 아리마 온천을 당일·1박 2일로 묶고 오사카에서의 이동 시간을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>인천 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-incheon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-incheon.html</guid>
+      <category>여행</category>
+      <description>인천 여행 코스. 차이나타운·개항장 거리, 송월동 동화마을, 월미도, 송도 센트럴파크, 소래포구, 영종도를 당일·1박 2일로 묶고 서울에서의 이동 시간을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>하코네 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-hakone.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hakone.html</guid>
+      <category>여행</category>
+      <description>하코네 여행 코스. 하코네유모토 온천, 등산열차·케이블카, 로프웨이와 오와쿠다니, 아시노코 유람선, 하코네 신사를 당일·1박 2일로 묶고 2026년 12월~2027년 2월 로프웨이 점검 운휴 일정을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>대구 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-daegu.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-daegu.html</guid>
+      <category>여행</category>
+      <description>대구 여행 코스. 근대골목, 김광석 다시그리기길, 서문시장과 서문야시장, 앞산 전망대, 동성로, 팔공산을 당일·1박 2일로 묶고 KTX 이동 시간과 2026년 야시장 운영 요일을 정리했습니다.</description>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>도쿄 서브웨이 티켓 계산기 — 72시간권 vs Suica 본전</title>
       <link>https://www.aroundtool.com/tokyo_subway_ticket_calculator.html</link>

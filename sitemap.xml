@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 517 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 522 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/klink/</loc>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
@@ -341,7 +341,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/gangnam.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-gangnam-1.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1141,7 +1141,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/mapo.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/medical_expense_tax_credit_calculator.html</loc>
@@ -1458,7 +1458,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/seocho.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/seongdong-michelin.html</loc>
@@ -1470,7 +1470,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/seoul-junggu.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/seoul-winter-asian.html</loc>
@@ -1514,7 +1514,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/seoul-winter.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/service_years_calculator.html</loc>
@@ -2006,6 +2006,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-cl-subic.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-daegu.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-damyang.html</loc>
     <lastmod>2026-11-13</lastmod>
   </url>
@@ -2082,6 +2086,10 @@
     <lastmod>2026-11-13</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-hakone.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-hanoi.html</loc>
     <lastmod>2026-11-13</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-hn-hoankiem.jpg</image:loc></image:image>
@@ -2102,6 +2110,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-hongkong.html</loc>
     <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-incheon.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-inje.html</loc>
@@ -2145,6 +2157,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-kaohsiung.html</loc>
     <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-kobe.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kotakinabalu.html</loc>
@@ -2227,6 +2243,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-sapporo.html</loc>
     <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-seoul.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-shanghai.html</loc>
@@ -2396,7 +2416,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/yeonsu.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-yeonsu-2.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2440,7 +2460,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/yongsan.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-yongsan-3.jpg</image:loc></image:image>
   </url>
 </urlset>
