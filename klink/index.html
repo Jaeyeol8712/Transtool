@@ -250,6 +250,11 @@ p{text-wrap:pretty}
 .achips .chip{height:32px;font-size:13px;color:var(--at);background:var(--at-soft);box-shadow:none;text-decoration:none}
 .achips .chip .muted{color:var(--at);opacity:.7;font-size:12px}
 
+.planbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabbar) + var(--safe-b) + 10px);z-index:40;max-width:calc(100vw - 32px)}
+.planbar[hidden]{display:none}
+.planbar button{height:44px;padding:0 20px;border-radius:999px;background:var(--cobalt);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;box-shadow:var(--sh3);white-space:nowrap}
+.planbar button svg{width:18px;height:18px}
+@media (min-width:980px){.planbar{left:220px;bottom:16px}}
 /* ---------- saved ---------- */
 .rg-head{display:flex;align-items:center;gap:10px;padding:12px 10px 12px 14px;background:var(--white)}
 .rg-head .tx{flex:1;min-width:0}
@@ -736,7 +741,7 @@ I18N.ko = {
   introStops: ['서울', '경주', '부산', '제주'], introSteps: ['지도에서 지역과 구역 고르기', '3D 거리에서 관광지·맛집 저장', '날짜별 최적 동선과 숙소 추천', '맛집·병원 예약과 통역 가이드'], introGo: '시작하기',
   savedTitle: '저장한 곳', savedEmptyH: '아직 저장한 곳이 없어요', savedEmpty: '지도에서 건물이나 핀을 누르고 ♥를 눌러 보세요.', exploreMap: '지도에서 둘러보기',
   savedLead: '저장한 곳을 바탕으로 날짜별 동선과 숙소를 짜 드려요.', needDays: x => `둘러보는 데 약 ${x}일 필요`, tripDays: n => `여행 ${n}일`, tooMany: '여행 기간보다 많아요. 일정을 짜면 들어가지 못한 곳은 따로 알려 드려요.',
-  regionOrder: '지역 순서', orderManual: '직접 정한 순서', orderAuto: '공항에 맞춘 자동 순서', orderReset: '자동 순서로 되돌리기', replan: '일정 다시 짜기', makePlan: n => `저장한 ${n}곳으로 일정 짜기`,
+  regionOrder: '지역 순서', orderManual: '직접 정한 순서', orderAuto: '공항에 맞춘 자동 순서', orderReset: '자동 순서로 되돌리기', replan: '일정 다시 짜기', makePlan: n => `저장한 ${n}곳으로 일정 짜기`, planBar: n => `저장 ${n}곳으로 일정 만들기`,
   mWalk: '도보', mSubway: '지하철', mTaxi: '택시', mCar: '택시·차량', mRail: 'KTX·기차', mFlight: '국내선', mAirport: '공항철도·리무진',
   eArrive: ap => `${ap} 도착 · 입국 심사`, eCheckout: s => `${s} 숙소 체크아웃`, eTransfer: r => `${r}${koRo(r)} 이동`, eDrop: s => `${s} 숙소에 짐 맡기기`, ePickup: s => `${s} 숙소에서 짐 찾기`,
   eStart: s => `${s} 숙소에서 출발`, eEnd: s => `${s} 숙소 도착`, eDepart: ap => `${ap} 도착 · 출국`, genericLunch: '근처 식당에서 점심', genericDinner: '근처 식당에서 저녁',
@@ -2213,7 +2218,7 @@ function buildShell() {
       <button class="tripbtn" id="tripbtn">${ICONS.cal}<span id="tript"></span></button><div class="langs" id="langs" role="radiogroup" aria-label="Language"></div></header>
     <div class="main"><section class="panel" id="panel"><div class="grab" id="grab" role="button" aria-label="sheet"><i></i></div><div class="tabtop" id="tabtop"></div><div class="panel-in" id="pin"></div></section>
       <section class="stage" id="stage"><div id="mapbox"></div><div id="worldbox" style="display:none"></div><div id="ovl"></div></section></div>
-    <nav class="tabbar" id="tabbar"></nav></div>`;
+    <nav class="tabbar" id="tabbar"></nav><div class="planbar" id="planbar" hidden></div></div>`;
   app = $('#app'); panel = $('#panel'); pin = $('#pin'); stage = $('#stage');
   $('#tripbtn').onclick = openTrip;
   setupSheet();
@@ -2244,6 +2249,10 @@ function renderChrome() {
   $('#tabtop').innerHTML = items.map(t => `<button class="${S.ui.tab === t.k ? 'on' : ''}" data-tab="${t.k}">${ICONS[t.ic]}<span>${t.label}</span>${t.b}</button>`).join('');
   $$('[data-tab]').forEach(b => b.onclick = () => go(b.dataset.tab));
   app.classList.toggle('t-map', S.ui.tab === 'map');
+  const pb = $('#planbar'), n = S.saved.length, showPb = n >= 1 && (S.ui.tab === 'map' || S.ui.tab === 'prep');
+  pb.hidden = !showPb;
+  pb.innerHTML = showPb ? `<button type="button" id="planbarbtn">${ICONS.magic}${esc((T.planBar || T.makePlan)(n))}</button>` : '';
+  if (showPb) $('#planbarbtn').onclick = () => ACT.genPlan();
 }
 function go(tab) {
   if (S.ui.tab === tab && tab === 'map' && S.ui.sel) { S.ui.sel = null; }
