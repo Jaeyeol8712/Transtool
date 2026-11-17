@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 512 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 517 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
@@ -523,11 +523,14 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-incheon-airport-arex-limousine.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-arex-train.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-airport-limousine.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-incheon-airport-arrival-time.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-icn-t1-departure.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-income-tax-filing-may.html</loc>
@@ -635,7 +638,8 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-power-bank-airplane-rules.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-power-bank.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-pyeong-area-types.html</loc>
@@ -692,7 +696,8 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-travel-insurance-coverage.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-travel-insurance.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-unemployment-benefit-application-steps.html</loc>
@@ -712,7 +717,8 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-visit-japan-web.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-japan-immigration.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-weekly-holiday-pay-rules.html</loc>
@@ -962,7 +968,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/jeju-jejusi.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/g-jejusi-3.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1088,7 +1094,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/jongno.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/kerosene_heating_cost_calculator.html</loc>
@@ -1279,6 +1285,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-gangneung-chodang-sundubu.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-gapyeong-jat.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -1299,6 +1309,10 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-gwangjang-market-food.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-haenam-goguma.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
@@ -1315,12 +1329,20 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-jagalchi-winter-hoe.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-jangheung-maesaengi.html</loc>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jangheung-pyogo.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jeju-dongmun-night-market.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jeju-gamgyul.html</loc>
@@ -1337,6 +1359,10 @@
   <url>
     <loc>https://www.aroundtool.com/season-jeju-woldongmu.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-jeonju-nambu-night-market.html</loc>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jindo-daepa.html</loc>
@@ -1796,7 +1822,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/sleep_calculator.html</loc>

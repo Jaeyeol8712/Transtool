@@ -240,8 +240,8 @@
 "h": "55c689b1fb62f044"
 },
 "food.html": {
-"d": "2026-11-12",
-"h": "c7511f4ce0575d95"
+"d": "2026-11-18",
+"h": "2c02f1179d891a46"
 },
 "four_insurance_calculator.html": {
 "d": "2026-11-05",
@@ -468,12 +468,12 @@
 "h": "b5d1656b0af1b4e7"
 },
 "guide-incheon-airport-arex-limousine.html": {
-"d": "2026-11-17",
-"h": "084e9ba00e8d5480"
+"d": "2026-11-18",
+"h": "c4f29cdf302ff01d"
 },
 "guide-incheon-airport-arrival-time.html": {
-"d": "2026-11-17",
-"h": "e5926097c79ba224"
+"d": "2026-11-18",
+"h": "b0fcbfefd16aca7b"
 },
 "guide-income-tax-filing-may.html": {
 "d": "2026-11-06",
@@ -580,8 +580,8 @@
 "h": "4a1edec5ee776b94"
 },
 "guide-power-bank-airplane-rules.html": {
-"d": "2026-11-17",
-"h": "76d76a1920bcb4c1"
+"d": "2026-11-18",
+"h": "c9e99ac0722155fc"
 },
 "guide-pyeong-area-types.html": {
 "d": "2026-11-03",
@@ -636,8 +636,8 @@
 "h": "3469ee10dbaa82bb"
 },
 "guide-travel-insurance-coverage.html": {
-"d": "2026-11-17",
-"h": "82a1b045adbcc3f7"
+"d": "2026-11-18",
+"h": "2b71ebada6bd1523"
 },
 "guide-unemployment-benefit-application-steps.html": {
 "d": "2026-11-05",
@@ -656,8 +656,8 @@
 "h": "63c9ff42f357ccab"
 },
 "guide-visit-japan-web.html": {
-"d": "2026-11-17",
-"h": "377a01db05fbc171"
+"d": "2026-11-18",
+"h": "87c0ed859595be03"
 },
 "guide-weekly-holiday-pay-rules.html": {
 "d": "2026-11-17",
@@ -888,8 +888,8 @@
 "h": "7d0d11580e084741"
 },
 "jeju-jejusi.html": {
-"d": "2026-11-12",
-"h": "92b6ff413c48f4c2"
+"d": "2026-11-18",
+"h": "1fde31f4accf178f"
 },
 "jeju-seogwipo-bapjip.html": {
 "d": "2026-11-03",
@@ -992,8 +992,8 @@
 "h": "aa24ca21cb64ea82"
 },
 "jongno.html": {
-"d": "2026-11-03",
-"h": "fa36623b2bd481a5"
+"d": "2026-11-18",
+"h": "a215726d656ae7a9"
 },
 "kerosene_heating_cost_calculator.html": {
 "d": "2026-11-11",
@@ -1175,6 +1175,10 @@
 "d": null,
 "h": "b0f236456d573f78"
 },
+"season-gangneung-chodang-sundubu.html": {
+"d": null,
+"h": "75e12d2b4ec6aa02"
+},
 "season-gapyeong-jat.html": {
 "d": null,
 "h": "360a208b1de33d66"
@@ -1195,6 +1199,10 @@
 "d": null,
 "h": "dfb910ace8b8a1fd"
 },
+"season-gwangjang-market-food.html": {
+"d": null,
+"h": "141a6b379d6c36bb"
+},
 "season-haenam-goguma.html": {
 "d": null,
 "h": "3931fefb24767523"
@@ -1211,6 +1219,10 @@
 "d": null,
 "h": "4670223bda2d2ef2"
 },
+"season-jagalchi-winter-hoe.html": {
+"d": null,
+"h": "d30dab0aaec2b270"
+},
 "season-jangheung-maesaengi.html": {
 "d": null,
 "h": "a368aeb4998f4408"
@@ -1218,6 +1230,10 @@
 "season-jangheung-pyogo.html": {
 "d": null,
 "h": "15257a7843aea4c7"
+},
+"season-jeju-dongmun-night-market.html": {
+"d": null,
+"h": "481f6a613b9390d4"
 },
 "season-jeju-gamgyul.html": {
 "d": null,
@@ -1234,6 +1250,10 @@
 "season-jeju-woldongmu.html": {
 "d": null,
 "h": "98021f89c8647875"
+},
+"season-jeonju-nambu-night-market.html": {
+"d": null,
+"h": "2f6e3191f5d0806c"
 },
 "season-jindo-daepa.html": {
 "d": null,
@@ -1536,8 +1556,8 @@
 "h": "b40c20c411500ecb"
 },
 "sitemap.html": {
-"d": "2026-11-17",
-"h": "d85f570db23e078c"
+"d": "2026-11-18",
+"h": "65df56dc9e5e911f"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
