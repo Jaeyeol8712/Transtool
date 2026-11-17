@@ -233,7 +233,7 @@
    "position": null
   }
  ],
- "made": "2026-11-16T23:27:07.854Z",
+ "made": "2026-11-17T05:05:13.218Z",
  "range": "2026-11-10 ~ 2026-11-16",
  "prevRange": "2026-11-03 ~ 2026-11-09",
  "cur": {
@@ -420,6 +420,10 @@
    "sessions": 9
   },
   {
+   "page": "(not set)",
+   "sessions": 8
+  },
+  {
    "page": "/interior_calculator.html",
    "sessions": 8
   },
@@ -432,16 +436,8 @@
    "sessions": 6
   },
   {
-   "page": "(not set)",
-   "sessions": 5
-  },
-  {
    "page": "/time_difference_calculator.html",
    "sessions": 4
-  },
-  {
-   "page": "",
-   "sessions": 3
   },
   {
    "page": "/fuel_economy_calculator",
@@ -449,6 +445,10 @@
   },
   {
    "page": "/gas_bill_calculator.html",
+   "sessions": 3
+  },
+  {
+   "page": "/guide-kimjang-timing-2026.html",
    "sessions": 3
   }
  ],
