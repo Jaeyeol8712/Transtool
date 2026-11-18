@@ -1014,3 +1014,4 @@ from calc_1111 import *  # noqa: E402,F401,F403  (2026-11-08·09 컨펌 i261108-
 from calc_1113 import *  # noqa: E402,F401,F403  (2026-11-12 컨펌 i261112-04 계산기 10종: 여행 준비 6 + 생활 4)
 from calc_1117 import *  # noqa: E402,F401,F403  (2026-11-17 대표 지시 여행 계산기 5종)
 from calc_1118 import *  # noqa: E402,F401,F403  (2026-11-18 대표 지시 여행 계산기 10종)
+from calc_1119 import *  # noqa: E402,F401,F403  (2026-11-19 대표 지시 여행 계산기 10종)

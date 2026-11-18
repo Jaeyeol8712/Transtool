@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>면세점 vs 국내 가격 비교 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="면세점 vs 국내 가격 비교 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">면세점 vs 국내 가격 비교 계산기</p>
+<label for="dp1">면세점 가격 (달러)</label>
+<input id="dp1" type="number" inputmode="decimal" placeholder="예: 120"/>
+<label for="dp2">면세점 할인·쿠폰 (%)</label>
+<input id="dp2" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="dp3">적립금·선불카드로 내는 금액 (달러)</label>
+<input id="dp3" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="dp4">카드 결제 환율 (원/달러, 수수료 포함)</label>
+<input id="dp4" type="number" inputmode="decimal" placeholder="예: 1420"/>
+<label for="dp5">국내 매장·온라인 최저가 (원)</label>
+<input id="dp5" type="number" inputmode="numeric" placeholder="예: 189000"/>
+<label for="dp6">이번 여행 다른 면세·해외 구매 합계 (달러)</label>
+<input id="dp6" type="number" inputmode="decimal" placeholder="800달러 한도 확인용, 없으면 0"/>
+<button onclick="calc_duty_free_shop_price_compare()">가격 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 싼 곳</span><span class="result-value" id="dpR">-</span></div>
+<div class="result-row"><span class="result-label">면세점 실제 원화 부담</span><span class="result-value" id="dpK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">차이</span><span class="result-value" id="dpD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">입국 면세한도(800달러)</span><span class="result-value" id="dpL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _n(x){return Math.round(x).toLocaleString('ko-KR');}
+function calc_duty_free_shop_price_compare(){
+ var p=_v('dp1'),dc=_v('dp2'),pt=_v('dp3'),x=_v('dp4'),k=_v('dp5'),o=_v('dp6');
+ if(isNaN(p)||p<=0||isNaN(x)||x<=0) return alert('면세점 가격과 환율을 입력해주세요.');
+ if(isNaN(dc)||dc<0)dc=0;if(isNaN(pt)||pt<0)pt=0;if(isNaN(o)||o<0)o=0;
+ var net=p*(1-dc/100),pay=Math.max(0,net-pt),won=pay*x;
+ _s('dpK',_n(won)+'원 (카드 '+pay.toFixed(2)+'달러'+(pt>0?' + 적립금 '+pt+'달러':'')+')');
+ if(isNaN(k)||k<=0){_s('dpR','국내 가격을 넣으면 비교합니다');_s('dpD','-');}
+ else{var d=k-won;_s('dpR',d>0?'면세점이 '+_n(d)+'원 쌉니다':'국내가 '+_n(-d)+'원 쌉니다');_s('dpD',(d/k*100).toFixed(1)+'% '+(d>0?'절약':'손해'));}
+ var tot=net+o;_s('dpL',tot>800?'합계 '+tot.toFixed(0)+'달러 — 800달러 초과, 신고 대상':'합계 '+tot.toFixed(0)+'달러 — 한도 안');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html?utm_source=embed&amp;utm_campaign=duty_free_shop_price_compare_calculator" target="_blank" rel="noopener">어라운드툴 면세점 vs 국내 가격 비교 계산기</a></p>
+</body>
+</html>

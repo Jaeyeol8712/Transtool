@@ -203,7 +203,10 @@ TOOL_GROUPS = [
                      "tokyo_subway_ticket_calculator", "japan_tax_refund_calculator",  # 11-17 대표 지시
                      "flight_delay_compensation_calculator", "ktx_refund_fee_calculator", "accommodation_cost_compare_calculator", "travel_cash_amount_calculator",
                      "mileage_value_calculator", "overseas_atm_fee_calculator", "flight_arrival_time_calculator", "airport_transport_compare_calculator",
-                     "japan_accommodation_tax_calculator", "driving_break_plan_calculator"]),  # 11-18 대표 지시
+                     "japan_accommodation_tax_calculator", "driving_break_plan_calculator",  # 11-18 대표 지시
+                     "passport_validity_calculator", "schengen_90_180_calculator", "visa_free_last_day_calculator", "highway_toll_calculator",
+                     "hotel_total_price_calculator", "layover_connection_time_calculator", "daily_budget_left_calculator", "room_split_calculator",
+                     "jr_pass_value_calculator", "duty_free_shop_price_compare_calculator"]),  # 11-19 대표 지시
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -242,6 +245,9 @@ PAGE_DATES.update({s + ".html": "2026-11-17" for s, _, _ in TRIP_PAGES_1117})
 from trips_1118 import TRIP_PAGES_1118  # noqa: E402  (2026-11-18 대표 지시 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1118
 PAGE_DATES.update({s + ".html": "2026-11-18" for s, _, _ in TRIP_PAGES_1118})
+from trips_1119 import TRIP_PAGES_1119  # noqa: E402  (2026-11-19 대표 지시 여행 10곳)
+TRIP_PAGES += TRIP_PAGES_1119
+PAGE_DATES.update({s + ".html": "2026-11-19" for s, _, _ in TRIP_PAGES_1119})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -260,6 +266,8 @@ from food_1117 import PAGES_1117 as _FOOD_1117  # noqa: E402  (2026-11-17 대표
 PAGE_DATES.update({x["file"]: "2026-11-17" for x in _FOOD_1117})
 from food_1118 import PAGES_1118 as _FOOD_1118  # noqa: E402  (2026-11-18 대표 지시 시장 먹거리 10곳)
 PAGE_DATES.update({x["file"]: "2026-11-18" for x in _FOOD_1118})
+from food_1119 import PAGES_1119 as _FOOD_1119  # noqa: E402  (2026-11-19 대표 지시 시장 먹거리 10곳)
+PAGE_DATES.update({x["file"]: "2026-11-19" for x in _FOOD_1119})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -594,11 +602,12 @@ PAGES["tools.html"]["desc"] = (f"연봉 실수령액, 퇴직금, 실업급여, �
 # ── 서치콘솔 기회 검색어(평균 8~20위)에 맞춘 제목·설명 보강 (2026-10-25 보고서 기준)
 #    2026-10-29 i31: 노출 상위 5개(일본여행·띄어쓰기·환율·함박마을·대출) 검색어 반영 재조정 ──
 HUB_SEASON_LINKS = {  # 맛집 구 허브 '함께 보기'에 붙이는 제철·시장 안내 (2026-11-12 i261111-02)
-    "jeju-seogwipo": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-moseulpo-bangeo.html", "모슬포 방어")],
+    "jeju-seogwipo": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-moseulpo-bangeo.html", "모슬포 방어"), ("season-seogwipo-olle-market-food.html", "서귀포 매일올레시장")],
     "jeju-jejusi": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-jeju-dongmun-night-market.html", "제주 동문시장 야시장")],
     "jongno": [("season-gwangjang-market-food.html", "광장시장 먹거리"), ("season-tongin-market-dosirak.html", "통인시장 엽전 도시락")],  # 11-17·18
     "mapo": [("season-mangwon-market-food.html", "망원시장 먹거리")], "seoul-junggu": [("season-namdaemun-galchi-alley.html", "남대문시장 갈치조림 골목")],
-    "haeundae": [("season-busan-winter-gukmul.html", "부산 겨울 국물 음식")],
+    "haeundae": [("season-busan-winter-gukmul.html", "부산 겨울 국물 음식"), ("season-haeundae-market-food.html", "해운대시장 먹거리"), ("season-gijang-market-food.html", "기장시장")],  # 11-19
+    "gwangju-seogu": [("season-gwangju-yangdong-market-food.html", "양동시장 통닭·홍어")],  # 11-19
     "yeonsu": [("season-incheon-multeombeong.html", "인천 물텀벙 (아귀)"), ("season-sorae-jeotgal.html", "소래포구 젓갈")],
 }
 SEO_FIX = {
@@ -851,6 +860,11 @@ TRIP_TOOLS = {"travel-osaka.html": ["japan_travel_calculator", "exchange_rate_ca
               "travel-kyoto.html": ["japan_accommodation_tax_calculator", "japan_travel_calculator"],
               "travel-hiroshima.html": ["japan_accommodation_tax_calculator", "japan_tax_refund_calculator"], "travel-bali.html": ["travel_cash_amount_calculator", "exchange_rate_calculator"],
               "travel-ulleungdo.html": ["domestic_trip_cost_calculator", "driving_break_plan_calculator"],  # 11-17
+              "travel-yangyang.html": ["highway_toll_calculator", "domestic_trip_cost_calculator"], "travel-jinju.html": ["ktx_refund_fee_calculator", "domestic_trip_cost_calculator"],
+              "travel-wonju.html": ["ktx_refund_fee_calculator", "highway_toll_calculator"], "travel-paju.html": ["highway_toll_calculator", "driving_break_plan_calculator"],
+              "travel-phuket.html": ["hotel_total_price_calculator", "exchange_rate_calculator"], "travel-pattaya.html": ["hotel_total_price_calculator", "room_split_calculator"],
+              "travel-dalat.html": ["visa_free_last_day_calculator", "exchange_rate_calculator"], "travel-boracay.html": ["layover_connection_time_calculator", "exchange_rate_calculator"],
+              "travel-nara.html": ["jr_pass_value_calculator", "japan_tax_refund_calculator"],  # 11-19
               "travel-jeju.html": ["fuel_economy_calculator", "camping_gear_calculator"],
               "travel-busan.html": ["fuel_economy_calculator"], "travel-sokcho.html": ["fuel_economy_calculator", "camping_gear_calculator"]}
 
@@ -1220,13 +1234,18 @@ TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "k
                   "currency_exchange_fee_calculator": "ov", "domestic_trip_cost_calculator": "kr",  # 11-17
                   "tokyo_subway_ticket_calculator": "jp", "japan_tax_refund_calculator": "jp",
                   "flight_delay_compensation_calculator": "ov", "ktx_refund_fee_calculator": "kr", "mileage_value_calculator": "ov", "overseas_atm_fee_calculator": "ov", "travel_cash_amount_calculator": "ov",
-                  "flight_arrival_time_calculator": "ov", "airport_transport_compare_calculator": "ov", "japan_accommodation_tax_calculator": "jp", "driving_break_plan_calculator": "kr"}  # 11-18
+                  "flight_arrival_time_calculator": "ov", "airport_transport_compare_calculator": "ov", "japan_accommodation_tax_calculator": "jp", "driving_break_plan_calculator": "kr",  # 11-18
+                  "passport_validity_calculator": "ov", "schengen_90_180_calculator": "ov", "visa_free_last_day_calculator": "ov", "highway_toll_calculator": "kr",
+                  "layover_connection_time_calculator": "ov", "jr_pass_value_calculator": "jp", "duty_free_shop_price_compare_calculator": "ov"}  # 11-19
 TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
 TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr",
                    "incheon-airport-arrival-time": "ov", "travel-insurance-coverage": "ov", "visit-japan-web": "jp", "incheon-airport-arex-limousine": "ov",
                    "international-driving-permit": "ov", "travel-advisory-levels": "ov", "flight-delay-compensation": "ov", "baggage-delay-compensation": "ov",
                    "korea-entry-meat-fruit-quarantine": "ov", "smart-entry-service": "ov", "korail-ticket-refund-fee": "kr", "us-esta-application": "ov",
-                   "thailand-digital-arrival-card": "ov", "vietnam-evisa": "ov"}  # 11-18  # 11-17
+                   "thailand-digital-arrival-card": "ov", "vietnam-evisa": "ov",
+                   "travel-duty-free-allowance": "ov", "carry-on-liquids-rules": "ov", "lost-passport-abroad": "ov", "china-visa-free-30-days": "ov",
+                   "taiwan-online-arrival-card": "ov", "philippines-etravel": "ov", "singapore-sg-arrival-card": "ov", "malaysia-mdac": "ov",
+                   "uk-eta": "ov", "japan-tax-free-refund-2026": "jp"}  # 11-18  # 11-17
 
 
 def travel_guides():

@@ -1,0 +1,33 @@
+<label for="db1">여행 전체 예산</label>
+<input id="db1" type="number" inputmode="decimal" placeholder="예: 1500000 (원) 또는 현지 돈"/>
+<label for="db2">지금까지 쓴 돈</label>
+<input id="db2" type="number" inputmode="decimal" placeholder="예: 820000"/>
+<label for="db3">아직 낼 고정 비용 (남은 숙박비·예약한 투어 등)</label>
+<input id="db3" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="db4">남은 일수 (오늘 포함)</label>
+<input id="db4" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="db5">처음 계획한 하루 지출 (선택)</label>
+<input id="db5" type="number" inputmode="decimal" placeholder="비교용"/>
+<label for="db6">비상금으로 남길 돈 (선택)</label>
+<input id="db6" type="number" inputmode="decimal" placeholder="예: 100000"/>
+<button onclick="calc_daily_budget_left()">하루 쓸 돈 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">남은 날 하루에 쓸 수 있는 돈</span><span class="result-value" id="dbD">-</span></div>
+<div class="result-row"><span class="result-label">자유롭게 남은 돈</span><span class="result-value" id="dbL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">계획 대비</span><span class="result-value" id="dbC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _n(x){return Math.round(x).toLocaleString('ko-KR');}
+function calc_daily_budget_left(){
+ var b=_v('db1'),u=_v('db2'),f=_v('db3'),d=_v('db4'),p=_v('db5'),e=_v('db6');
+ if(isNaN(b)||b<=0||isNaN(u)||u<0) return alert('전체 예산과 쓴 돈을 입력해주세요.');
+ if(isNaN(d)||d<1) return alert('남은 일수를 입력해주세요.');
+ if(isNaN(f)||f<0)f=0;if(isNaN(e)||e<0)e=0;
+ var left=b-u-f-e,day=left/d;
+ _s('dbD',left<0?'예산 초과 ('+_n(-left)+' 부족)':_n(day)); _s('dbL',_n(left));
+ _s('dbC',isNaN(p)||p<=0?'계획 하루 지출을 넣으면 비교합니다':(day>=p?'계획보다 하루 '+_n(day-p)+' 여유':'계획보다 하루 '+_n(p-day)+' 줄여야 합니다'));
+ document.getElementById('result').classList.add('show');
+}
+</script>

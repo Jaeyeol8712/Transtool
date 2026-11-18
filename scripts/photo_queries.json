@@ -1257,5 +1257,125 @@
  "t-bali": [
   "Bali rice terrace Tegallalang",
   "Uluwatu temple Bali"
+ ],
+ "d-duty-free": [
+  "Incheon airport duty free shop",
+  "airport duty free liquor"
+ ],
+ "d-liquids": [
+  "airport security liquids bag",
+  "clear plastic bag toiletries travel"
+ ],
+ "d-passport-lost": [
+  "Korean passport",
+  "passport on table travel"
+ ],
+ "d-china-border": [
+  "Shanghai Bund skyline",
+  "Beijing Forbidden City"
+ ],
+ "d-taiwan": [
+  "Taipei 101 skyline",
+  "Taoyuan airport"
+ ],
+ "d-philippines": [
+  "Manila skyline",
+  "Ninoy Aquino International Airport"
+ ],
+ "d-singapore": [
+  "Singapore Marina Bay Sands",
+  "Changi Airport Jewel"
+ ],
+ "d-malaysia": [
+  "Kuala Lumpur Petronas Towers",
+  "Kota Kinabalu waterfront"
+ ],
+ "d-uk": [
+  "London Tower Bridge",
+  "Heathrow airport terminal"
+ ],
+ "d-japan-taxfree": [
+  "Japan tax free shop sign",
+  "Narita airport departure"
+ ],
+ "m-seomun": [
+  "Seomun Market Daegu",
+  "Daegu night market"
+ ],
+ "m-sinpo": [
+  "Sinpo International Market Incheon",
+  "Sinpo market dakgangjeong"
+ ],
+ "m-gijang": [
+  "Gijang market Busan",
+  "Daebyeon port Gijang"
+ ],
+ "m-olle": [
+  "Seogwipo Maeil Olle Market",
+  "Seogwipo market Jeju"
+ ],
+ "m-tongyeong-jungang": [
+  "Tongyeong Jungang Market",
+  "Gangguan Tongyeong"
+ ],
+ "m-jeongseon": [
+  "Jeongseon Arirang Market",
+  "Jeongseon five day market"
+ ],
+ "m-danyang": [
+  "Danyang Gugyeong Market",
+  "Danyang garlic"
+ ],
+ "m-gyeongdong": [
+  "Gyeongdong Market Seoul",
+  "Seoul Yangnyeongsi herbal medicine market"
+ ],
+ "m-yangdong": [
+  "Yangdong Market Gwangju",
+  "Gwangju traditional market"
+ ],
+ "m-haeundae-market": [
+  "Haeundae Traditional Market",
+  "Haeundae market Busan"
+ ],
+ "t-yangyang": [
+  "Naksansa temple Yangyang",
+  "Hajodae Yangyang"
+ ],
+ "t-jinju": [
+  "Jinjuseong fortress Chokseokru",
+  "Namgang river Jinju lantern"
+ ],
+ "t-yangpyeong": [
+  "Dumulmeori Yangpyeong",
+  "Semiwon Yangpyeong"
+ ],
+ "t-paju": [
+  "Imjingak Paju",
+  "Heyri art valley"
+ ],
+ "t-wonju": [
+  "Sogeumsan suspension bridge Wonju",
+  "Museum SAN Wonju"
+ ],
+ "t-phuket": [
+  "Phuket Patong beach",
+  "Phuket old town"
+ ],
+ "t-pattaya": [
+  "Pattaya beach",
+  "Sanctuary of Truth Pattaya"
+ ],
+ "t-dalat": [
+  "Da Lat Xuan Huong lake",
+  "Da Lat Crazy House"
+ ],
+ "t-boracay": [
+  "Boracay White Beach",
+  "Boracay sunset paraw"
+ ],
+ "t-nara": [
+  "Nara Park deer",
+  "Todaiji Nara"
  ]
 }

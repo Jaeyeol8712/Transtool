@@ -1,0 +1,26 @@
+<label for="ht1">고속도로 주행 거리 (km)</label>
+<input id="ht1" type="number" inputmode="decimal" placeholder="예: 150"/>
+<label for="ht2">차종</label>
+<select id="ht2"><option value="1" selected>1종 (승용차·16인 이하 승합·2.5톤 이하 화물)</option><option value="k">경차 (1,000cc 미만, 1종의 50%)</option><option value="2">2종 (16인 초과 승합·2.5~10톤 화물)</option></select>
+<label for="ht3">왕복</label>
+<select id="ht3"><option value="1" selected>편도</option><option value="2">왕복</option></select>
+<button onclick="calc_highway_toll()">통행료 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 통행료</span><span class="result-value" id="htT">-</span></div>
+<div class="result-row"><span class="result-label">편도 계산</span><span class="result-value" id="htO" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">km당 부담</span><span class="result-value" id="htK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_highway_toll(){
+ var km=_v('ht1'),c=document.getElementById('ht2').value,w=+document.getElementById('ht3').value;
+ if(isNaN(km)||km<=0) return alert('주행 거리를 입력해주세요.');
+ var rate=c==='2'?45.2:44.3,raw=900+rate*km;if(c==='k')raw=raw/2;
+ var one=Math.round(raw/100)*100;
+ _s('htT',_w(one*w)+(w===2?' (왕복)':'')); _s('htO','900원 + '+rate+'원 × '+km+'km'+(c==='k'?' → 50%':'')+' = '+_w(raw)+' → '+_w(one));
+ _s('htK',(one/km).toFixed(1)+'원/km');
+ document.getElementById('result').classList.add('show');
+}
+</script>

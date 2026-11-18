@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 139종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 149종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -161,6 +161,16 @@
 - [공항 가는 교통비 비교](https://www.aroundtool.com/airport_transport_compare_calculator.html): 인원, 여행 일수, 공항 주차 요금, 공항버스·공항철도 1인 요금, 택시 요금을 넣으면 공항 왕복 교통비를 수단별로 비교해 가장 싼 방법을 알려 줍니다.
 - [일본 숙박세](https://www.aroundtool.com/japan_accommodation_tax_calculator.html): 교토시(2026년 3월 5단계 개정), 오사카부(2025년 9월 개정), 도쿄도(현행·2027년 4월 3% 정률) 숙박세를 1인 1박 숙박 요금 기준으로 계산합니다. 인원·박 수·원화 환산까지 봅니다.
 - [장거리 운전 휴식 계획](https://www.aroundtool.com/driving_break_plan_calculator.html): 총 운전 거리, 평균 속도, 출발 시각을 넣으면 2시간마다 15분 휴식을 넣은 도착 예상 시각, 쉬는 시각과 지점, 졸음이 잦은 시간대를 지나는지 알려 줍니다.
+- [여권 유효기간 6개월](https://www.aroundtool.com/passport_validity_calculator.html): 여권 만료일과 귀국일(그 나라 출국일)을 넣으면 남은 기간이 6개월(동남아·중국 등) 또는 3개월(솅겐)을 넘는지 판정하고, 기준을 맞추려면 언제까지 돌아와야 하는지 계산합니다.
+- [솅겐 90/180일](https://www.aroundtool.com/schengen_90_180_calculator.html): 지난 솅겐 여행의 입국일·출국일과 다음 입국 예정일을 넣으면 직전 180일 사용 일수와 그날 들어가면 최대 며칠 머물 수 있는지 계산합니다. 입국일·출국일 모두 하루로 셉니다.
+- [무비자 체류 마지막 날](https://www.aroundtool.com/visa_free_last_day_calculator.html): 입국일과 무비자 허용 일수(중국·필리핀 30일, 베트남 45일, 대만·싱가포르·말레이시아 90일 등)를 넣으면 입국일 포함 셈과 다음 날부터 셈 두 가지 마지막 날, 여유를 둔 권장 출국일을 계산합니다.
+- [고속도로 통행료](https://www.aroundtool.com/highway_toll_calculator.html): 주행 거리와 차종(1종·경차·2종)을 넣으면 한국도로공사 폐쇄식 요금 체계(기본요금 900원 + km당 44.3원)로 예상 통행료를 계산합니다. 왕복, 경차 50% 감면, km당 부담을 함께 봅니다.
+- [호텔 실제 총액](https://www.aroundtool.com/hotel_total_price_calculator.html): 1박 표시 요금, 봉사료(%), 세금(%), 리조트피·숙박세 같은 고정 요금, 숙박 수와 인원을 넣으면 실제로 내는 총액과 1박·1인 가격, 표시 가격보다 더 내는 돈을 계산합니다. 현지 통화 환율도 넣을 수 있습니다.
+- [환승 시간 여유](https://www.aroundtool.com/layover_connection_time_calculator.html): 앞 비행기 도착 시각, 다음 비행기 출발 시각, 최소 연결 시간(인천 같은 터미널 약 70분·T1↔T2 약 90분 등), 셀프 환승 여부를 넣으면 환승 대기 시간과 여유, 놓칠 위험을 판정합니다.
+- [여행 중 남은 예산](https://www.aroundtool.com/daily_budget_left_calculator.html): 여행 전체 예산, 지금까지 쓴 돈, 아직 낼 고정 비용(남은 숙박비·예약 투어), 남은 일수, 비상금을 넣으면 남은 날 하루에 쓸 수 있는 돈과 처음 계획 대비 여유·초과를 계산합니다.
+- [숙소 방 나누기](https://www.aroundtool.com/room_split_calculator.html): 여행 인원, 방 하나 최대 인원, 1박 방 요금, 숙박 수, 엑스트라 베드 요금과 허용 인원을 넣으면 가장 싼 방 배정과 숙박비 총액, 1인·1박 부담을 계산하고 방만 늘릴 때와 비교합니다.
+- [JR 패스 이득](https://www.aroundtool.com/jr_pass_value_calculator.html): JR 전국 패스 종류(보통 7·14·21일, 공식 사이트 50,000엔·해외 판매처 53,000엔 등)와 탈 JR 구간 요금을 넣으면 개별 승차권 합계와 패스 가격을 비교해 어느 쪽이 얼마나 싼지 계산합니다.
+- [면세점 vs 국내가](https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html): 면세점 달러 가격, 할인율, 적립금, 카드 결제 환율과 국내 최저가를 넣으면 면세점 실제 원화 부담과 어느 쪽이 얼마나 싼지 계산하고, 이번 여행 합계가 입국 면세한도 800달러를 넘는지 함께 확인합니다.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.
@@ -197,7 +207,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [제철 음식·시장 안내 59가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [제철 음식·시장 안내 69가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -314,18 +324,25 @@
 - [제철 제철 음식·시장 청송 사과](https://www.aroundtool.com/season-cheongsong-sagwa.html)
 - [제철 제철 음식·시장 춘천 명동 닭갈비골목](https://www.aroundtool.com/season-chuncheon-dakgalbi-alley.html)
 - [제철 제철 음식·시장 대부도 바지락칼국수](https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html)
+- [제철 제철 음식·시장 대구 서문시장 먹거리·야시장](https://www.aroundtool.com/season-daegu-seomun-market-food.html)
+- [제철 제철 음식·시장 단양구경시장 마늘 먹거리](https://www.aroundtool.com/season-danyang-gugyeong-market.html)
 - [제철 제철 음식·시장 강화 순무](https://www.aroundtool.com/season-ganghwa-sunmu.html)
 - [제철 제철 음식·시장 강릉 초당 순두부 마을](https://www.aroundtool.com/season-gangneung-chodang-sundubu.html)
 - [제철 제철 음식·시장 강릉 중앙시장 먹거리](https://www.aroundtool.com/season-gangneung-jungang-market.html)
 - [제철 제철 음식·시장 가평 잣](https://www.aroundtool.com/season-gapyeong-jat.html)
 - [제철 제철 음식·시장 거제 외포 대구](https://www.aroundtool.com/season-geoje-oepo-daegu.html)
+- [제철 제철 음식·시장 부산 기장시장](https://www.aroundtool.com/season-gijang-market-food.html)
 - [제철 제철 음식·시장 고흥 유자](https://www.aroundtool.com/season-goheung-yuja.html)
 - [제철 제철 음식·시장 고성 가리비](https://www.aroundtool.com/season-goseong-garibi.html)
 - [제철 제철 음식·시장 광천 토굴 새우젓](https://www.aroundtool.com/season-gwangcheon-saeujeot.html)
 - [제철 제철 음식·시장 광장시장 먹거리](https://www.aroundtool.com/season-gwangjang-market-food.html)
+- [제철 제철 음식·시장 광주 양동시장 통닭·홍어](https://www.aroundtool.com/season-gwangju-yangdong-market-food.html)
+- [제철 제철 음식·시장 서울 경동시장](https://www.aroundtool.com/season-gyeongdong-market-food.html)
 - [제철 제철 음식·시장 해남 고구마](https://www.aroundtool.com/season-haenam-goguma.html)
 - [제철 제철 음식·시장 해남 겨울배추](https://www.aroundtool.com/season-haenam-winter-baechu.html)
+- [제철 제철 음식·시장 부산 해운대시장](https://www.aroundtool.com/season-haeundae-market-food.html)
 - [제철 제철 음식·시장 인천 물텀벙 (아귀)](https://www.aroundtool.com/season-incheon-multeombeong.html)
+- [제철 제철 음식·시장 인천 신포국제시장 먹거리](https://www.aroundtool.com/season-incheon-sinpo-market-food.html)
 - [제철 제철 음식·시장 인제 용대리 황태](https://www.aroundtool.com/season-inje-yongdae-hwangtae.html)
 - [제철 제철 음식·시장 자갈치시장 겨울 회](https://www.aroundtool.com/season-jagalchi-winter-hoe.html)
 - [제철 제철 음식·시장 장흥 매생이](https://www.aroundtool.com/season-jangheung-maesaengi.html)
@@ -335,6 +352,7 @@
 - [제철 제철 음식·시장 제주 한라봉](https://www.aroundtool.com/season-jeju-hallabong.html)
 - [제철 제철 음식·시장 제주 겨울 생선 시장](https://www.aroundtool.com/season-jeju-winter-fish-market.html)
 - [제철 제철 음식·시장 제주 월동무](https://www.aroundtool.com/season-jeju-woldongmu.html)
+- [제철 제철 음식·시장 정선아리랑시장 5일장](https://www.aroundtool.com/season-jeongseon-arirang-market.html)
 - [제철 제철 음식·시장 전주 남부시장 야시장](https://www.aroundtool.com/season-jeonju-nambu-night-market.html)
 - [제철 제철 음식·시장 진도 대파](https://www.aroundtool.com/season-jindo-daepa.html)
 - [제철 제철 음식·시장 주문진 양미리](https://www.aroundtool.com/season-jumunjin-yangmiri.html)
@@ -351,6 +369,7 @@
 - [제철 제철 음식·시장 삼척 곰치국](https://www.aroundtool.com/season-samcheok-gomchiguk.html)
 - [제철 제철 음식·시장 상주 곶감](https://www.aroundtool.com/season-sangju-gotgam.html)
 - [제철 제철 음식·시장 서천 김](https://www.aroundtool.com/season-seocheon-gim.html)
+- [제철 제철 음식·시장 서귀포 매일올레시장](https://www.aroundtool.com/season-seogwipo-olle-market-food.html)
 - [제철 제철 음식·시장 서산 감태](https://www.aroundtool.com/season-seosan-gamtae.html)
 - [제철 제철 음식·시장 신안 섬초](https://www.aroundtool.com/season-sinan-seomcho.html)
 - [제철 제철 음식·시장 도루묵](https://www.aroundtool.com/season-sokcho-dorumuk.html)
@@ -359,6 +378,7 @@
 - [제철 제철 음식·시장 수원 통닭거리](https://www.aroundtool.com/season-suwon-tongdak-street.html)
 - [제철 제철 음식·시장 통인시장 엽전 도시락](https://www.aroundtool.com/season-tongin-market-dosirak.html)
 - [제철 제철 음식·시장 통영 굴](https://www.aroundtool.com/season-tongyeong-gul.html)
+- [제철 제철 음식·시장 통영 중앙시장·강구안](https://www.aroundtool.com/season-tongyeong-jungang-market-food.html)
 - [제철 제철 음식·시장 통영 물메기](https://www.aroundtool.com/season-tongyeong-mulmegi.html)
 - [제철 제철 음식·시장 완도 전복](https://www.aroundtool.com/season-wando-jeonbok.html)
 - [제철 제철 음식·시장 영덕 대게](https://www.aroundtool.com/season-yeongdeok-daege.html)
@@ -456,6 +476,16 @@
 - [나가사키 여행](https://www.aroundtool.com/travel-nagasaki.html): 나가사키 여행 코스. 이나사야마 야경, 글로버 정원·오우라 천주당, 데지마, 평화공원, 신치 차이나타운, 군함도 투어를 1박 2일·2박 3일로 묶고 후쿠오카에서 가는 법(니시큐슈 신칸센)을 정리했습니다.
 - [칭다오 여행](https://www.aroundtool.com/travel-qingdao.html): 칭다오 여행 코스. 잔교, 천주교당·옛 독일 시가지, 칭다오 맥주 박물관, 팔대관, 5·4광장, 라오산을 2박 3일·3박 4일로 묶고 한국인 무비자 30일(2026년 12월 31일까지)과 결제 준비를 정리했습니다.
 - [발리 여행](https://www.aroundtool.com/travel-bali.html): 발리 여행 코스. 우붓(뜨갈랄랑 계단식 논·몽키 포레스트), 울루와투 사원·케착 댄스, 스미냑·짱구, 누사페니다를 4박 5일·5박 6일로 묶고 관광세 15만 루피아, All Indonesia 입국신고, 도착비자(e-VOA)를 정리했습니다.
+- [양양 여행](https://www.aroundtool.com/travel-yangyang.html): 양양 여행 코스. 낙산사·의상대 일출, 하조대, 서피비치·인구해변·죽도해변 서핑, 남애항, 양양 전통시장을 당일·1박 2일로 묶고 서울에서의 차·버스 이동 시간을 정리했습니다.
+- [진주 여행](https://www.aroundtool.com/travel-jinju.html): 진주 여행 코스. 진주성·촉석루·국립진주박물관, 남강 산책, 진주중앙시장, 진주냉면·비빔밥, 10월 남강유등축제를 당일·1박 2일로 묶고 기차 이동 시간과 함께 볼 남해·통영을 정리했습니다.
+- [양평 여행](https://www.aroundtool.com/travel-yangpyeong.html): 양평 여행 코스. 두물머리·세미원(양수역), 용문사 은행나무(용문역), 양평 물맑은시장, 강변 카페를 당일로 묶고 경의중앙선 이동 시간과 겨울 물안개 시기를 정리했습니다.
+- [파주 여행](https://www.aroundtool.com/travel-paju.html): 파주 여행 코스. 임진각 평화누리·DMZ 안보 관광, 헤이리 예술마을, 파주출판도시·지혜의숲, 마장호수 출렁다리, 프로방스 마을을 당일로 묶고 DMZ 관광 신분증·예약과 이동 시간을 정리했습니다.
+- [원주 여행](https://www.aroundtool.com/travel-wonju.html): 원주 여행 코스. 소금산 그랜드밸리(케이블카·출렁다리·소금잔도·울렁다리·나오라쇼), 뮤지엄 산, 치악산 구룡사, 강원감영을 당일·1박 2일로 묶고 월요일 휴무와 이동 시간을 정리했습니다.
+- [푸껫 여행](https://www.aroundtool.com/travel-phuket.html): 푸껫 여행 코스. 빠통·까론·까따 해변, 올드타운, 빅붓다, 프롬텝 곶 노을, 피피섬·팡아만 섬 투어를 4박 5일·5박 6일로 묶고 한국인 90일 무비자·TDAC, 건기와 우기를 정리했습니다.
+- [파타야 여행](https://www.aroundtool.com/travel-pattaya.html): 파타야 여행 코스. 꼬란(산호섬), 진리의 성전, 파타야 뷰포인트, 워킹 스트리트, 농눅 빌리지, 좀티엔 해변을 2박 3일·3박 4일로 묶고 방콕에서 가는 법과 한국인 90일 무비자·TDAC를 정리했습니다.
+- [달랏 여행](https://www.aroundtool.com/travel-dalat.html): 달랏 여행 코스. 쑤언흐엉 호수, 달랏 야시장, 크레이지 하우스, 다딴라 폭포 레일바이크, 랑비앙 산, 뚜옌럼 호수를 나트랑과 묶은 3박 5일로 정리하고 리엔크엉 공항 재개항, 한국인 45일 무비자, 건기를 정리했습니다.
+- [보라카이 여행](https://www.aroundtool.com/travel-boracay.html): 보라카이 여행 코스. 화이트 비치(스테이션 1~3), 디몰, 파라우 선셋 세일링, 푸카 셸 비치, 섬 호핑, 루호 산 전망대를 3박 5일·4박 6일로 묶고 칼리보·까띠끌란 공항 차이, eTravel, 30일 무비자를 정리했습니다.
+- [나라 여행](https://www.aroundtool.com/travel-nara.html): 나라 여행 코스. 나라 공원 사슴, 도다이지 대불전, 고후쿠지 오층탑, 가스가타이샤, 나라마치, 이스이엔을 당일로 묶고 오사카·교토에서 가는 법(긴테쓰·JR)과 사슴 센베이 주의점을 정리했습니다.
 
 ## 가이드
 
@@ -577,6 +607,16 @@
 - [미국 ESTA 신청 — 수수료 약 40달러, 2년 유효·1회 90일, 공식 사이트만](https://www.aroundtool.com/guide-us-esta-application.html)
 - [태국 디지털 입국카드(TDAC) — 도착 3일 전부터 무료 작성, 한국인 90일 무비자](https://www.aroundtool.com/guide-thailand-digital-arrival-card.html)
 - [베트남 무비자 45일·전자비자 90일 — 공식 사이트·수수료·가짜 사이트 구별](https://www.aroundtool.com/guide-vietnam-evisa.html)
+- [해외여행 입국 면세한도 — 800달러·술 2L 400달러·향수 100ml, 넘으면 자진신고](https://www.aroundtool.com/guide-travel-duty-free-allowance.html)
+- [기내 액체 반입 100ml 규정 — 1L 지퍼백 1개, 국내선·면세품·약 예외](https://www.aroundtool.com/guide-carry-on-liquids-rules.html)
+- [해외에서 여권 분실 — 경찰 신고부터 긴급여권·여행증명서까지 순서](https://www.aroundtool.com/guide-lost-passport-abroad.html)
+- [중국 무비자 30일 — 2026년 12월 31일까지, 2027년 연장은 검토 중](https://www.aroundtool.com/guide-china-visa-free-30-days.html)
+- [대만 온라인 입국신고서(TWAC) — 도착 3일 전부터 무료, 한국인 무비자 90일](https://www.aroundtool.com/guide-taiwan-online-arrival-card.html)
+- [필리핀 eTravel 등록 — 72시간 전부터 무료, QR코드 저장과 30일 무비자](https://www.aroundtool.com/guide-philippines-etravel.html)
+- [싱가포르 SG Arrival Card — 입국일 포함 3일 안 무료 제출, MyICA 앱](https://www.aroundtool.com/guide-singapore-sg-arrival-card.html)
+- [말레이시아 MDAC — 도착 3일 전부터 무료 등록, 한국인 무비자 90일](https://www.aroundtool.com/guide-malaysia-mdac.html)
+- [영국 ETA — 한국인 필수, 20파운드·2년 유효, 공식 앱으로 신청](https://www.aroundtool.com/guide-uk-eta.html)
+- [일본 면세 2026년 11월부터 리펀드 방식 — 세금 내고 사서 출국 때 돌려받기](https://www.aroundtool.com/guide-japan-tax-free-refund-2026.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 

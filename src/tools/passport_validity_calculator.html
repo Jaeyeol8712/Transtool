@@ -1,0 +1,29 @@
+<label for="pv1">여권 만료일</label>
+<input id="pv1" type="date"/>
+<label for="pv2">여행에서 돌아오는 날 (그 나라 출국일)</label>
+<input id="pv2" type="date"/>
+<label for="pv3">가는 나라 기준</label>
+<select id="pv3"><option value="6" selected>입국일·체류 기간 기준 6개월 이상 (동남아·중국·대만 등 다수)</option><option value="3">출국 예정일 기준 3개월 이상 (솅겐 유럽)</option><option value="0">체류 기간 동안만 유효 (미국 일부·일본 등)</option></select>
+<button onclick="calc_passport_validity()">유효기간 확인</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">판정</span><span class="result-value" id="pvR">-</span></div>
+<div class="result-row"><span class="result-label">돌아오는 날 기준 남는 기간</span><span class="result-value" id="pvL" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">이 기준을 맞추려면 귀국이 이 날까지</span><span class="result-value" id="pvD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _d(i){var v=document.getElementById(i).value;if(!v)return null;var p=v.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _f(d){return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';}
+function _addM(d,m){var x=new Date(d.getFullYear(),d.getMonth()+m,1);var last=new Date(x.getFullYear(),x.getMonth()+1,0).getDate();x.setDate(Math.min(d.getDate(),last));return x;}
+function calc_passport_validity(){
+ var e=_d('pv1'),r=_d('pv2'),m=+document.getElementById('pv3').value;
+ if(!e||!r) return alert('여권 만료일과 돌아오는 날을 입력해주세요.');
+ var days=Math.round((e-r)/86400000);
+ if(days<0){_s('pvR','여행 중에 여권이 끝납니다 — 재발급 필요');}
+ else{var need=_addM(r,m);_s('pvR',m===0?(days>=0?'체류 기간 동안 유효합니다':'부족'):(e>=need?'충분합니다 ✓':'부족합니다 — 재발급을 권합니다'));}
+ var mm=0,t=new Date(r);while(_addM(r,mm+1)<=e)mm++;var rest=Math.round((e-_addM(r,mm))/86400000);
+ _s('pvL',days<0?'이미 지남 ('+(-days)+'일 부족)':mm+'개월 '+rest+'일 (총 '+days+'일)');
+ _s('pvD',m===0?_f(e)+' (만료일)':_f(_addM(e,-m)));
+ document.getElementById('result').classList.add('show');
+}
+</script>

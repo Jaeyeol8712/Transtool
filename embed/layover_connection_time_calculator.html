@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>환승 시간 여유 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/layover_connection_time_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="환승 시간 여유 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">환승 시간 여유 계산기</p>
+<label for="lc1">앞 비행기 도착 시각 (환승 공항 현지)</label>
+<input id="lc1" type="time"/>
+<label for="lc2">다음 비행기 출발 시각 (같은 공항 현지)</label>
+<input id="lc2" type="time"/>
+<label for="lc3">다음 비행기가 다음 날 출발</label>
+<select id="lc3"><option value="0" selected>아니오 (같은 날)</option><option value="1">예 (다음 날)</option></select>
+<label for="lc4">환승 유형 (최소 연결 시간)</label>
+<select id="lc4"><option value="70" selected>인천 같은 터미널 국제선↔국제선 (약 70분)</option><option value="90">인천 T1↔T2 터미널 이동 (약 90분)</option><option value="60">같은 항공사 짧은 환승 (약 60분)</option><option value="c">직접 입력</option></select>
+<label for="lc5">직접 입력 최소 연결 시간 (분)</label>
+<input id="lc5" type="number" inputmode="numeric" placeholder="항공사 안내 MCT"/>
+<label for="lc6">항공권이 따로따로 (짐 찾고 다시 부침)</label>
+<select id="lc6"><option value="0" selected>아니오 (한 장의 예약, 짐 연결)</option><option value="1">예 (셀프 환승)</option></select>
+<label for="lc7">셀프 환승 추가 시간 (분, 입국·짐 찾기·재수속)</label>
+<input id="lc7" type="number" inputmode="numeric" value="120"/>
+<button onclick="calc_layover_connection_time()">환승 여유 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">판정</span><span class="result-value" id="lcR">-</span></div>
+<div class="result-row"><span class="result-label">환승 대기 시간</span><span class="result-value" id="lcT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">필요 시간 대비 여유</span><span class="result-value" id="lcM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _t(i){var v=document.getElementById(i).value;if(!v)return null;var p=v.split(':');return +p[0]*60+ +p[1];}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _h(m){var s=m<0?'-':'';m=Math.abs(m);var h=Math.floor(m/60);return s+(h?h+'시간 ':'')+(m%60)+'분';}
+function calc_layover_connection_time(){
+ var a=_t('lc1'),b=_t('lc2'),nx=+document.getElementById('lc3').value,k=document.getElementById('lc4').value,self=+document.getElementById('lc6').value;
+ if(a===null||b===null) return alert('도착·출발 시각을 입력해주세요.');
+ var mct=k==='c'?parseInt(document.getElementById('lc5').value,10):+k; if(isNaN(mct)||mct<0) return alert('최소 연결 시간을 입력해주세요.');
+ var ex=self?parseInt(document.getElementById('lc7').value,10):0; if(isNaN(ex)||ex<0)ex=0;
+ var lay=b-a+nx*1440; if(lay<=0) return alert('출발 시각이 도착보다 빠릅니다. 다음 날 출발이면 \'예\'를 고르세요.');
+ var need=mct+ex,m=lay-need;
+ _s('lcR',m<0?'부족 — 놓칠 위험이 큽니다':m<30?'빠듯 — 지연되면 놓칠 수 있습니다':m<90?'적당합니다':'넉넉합니다');
+ _s('lcT',_h(lay)); _s('lcM',_h(m)+' (필요 '+need+'분)');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/layover_connection_time_calculator.html?utm_source=embed&amp;utm_campaign=layover_connection_time_calculator" target="_blank" rel="noopener">어라운드툴 환승 시간 여유 계산기</a></p>
+</body>
+</html>
