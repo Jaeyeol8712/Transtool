@@ -255,6 +255,8 @@ from food_1112 import PAGES_1112 as _FOOD_1112  # noqa: E402  (2026-11-11 컨펌
 PAGE_DATES.update({x["file"]: "2026-11-12" for x in _FOOD_1112})
 from food_1117 import PAGES_1117 as _FOOD_1117  # noqa: E402  (2026-11-17 대표 지시 시장 먹거리 5곳: 광장시장·자갈치·동문 야시장·남부 야시장·초당 순두부)
 PAGE_DATES.update({x["file"]: "2026-11-17" for x in _FOOD_1117})
+from food_1118 import PAGES_1118 as _FOOD_1118  # noqa: E402  (2026-11-18 대표 지시 시장 먹거리 10곳)
+PAGE_DATES.update({x["file"]: "2026-11-18" for x in _FOOD_1118})
 GUIDE_PAGES = [("guide_2026_wage", "2026 최저임금·노동법 변경"), ("guide_2026_tax", "2026 연말정산·종소세 가이드")]
 Q_GUIDES = [("guide-" + g["slug"], g["name"]) for g in GUIDES]
 INFO_PAGES = [("about", "사이트 소개"), ("editorial", "편집 방침"), ("contact", "문의하기"),
@@ -591,7 +593,8 @@ PAGES["tools.html"]["desc"] = (f"연봉 실수령액, 퇴직금, 실업급여, �
 HUB_SEASON_LINKS = {  # 맛집 구 허브 '함께 보기'에 붙이는 제철·시장 안내 (2026-11-12 i261111-02)
     "jeju-seogwipo": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-moseulpo-bangeo.html", "모슬포 방어")],
     "jeju-jejusi": [("season-jeju-winter-fish-market.html", "제주 겨울 생선 시장"), ("season-jeju-dongmun-night-market.html", "제주 동문시장 야시장")],
-    "jongno": [("season-gwangjang-market-food.html", "광장시장 먹거리")],  # 11-17
+    "jongno": [("season-gwangjang-market-food.html", "광장시장 먹거리"), ("season-tongin-market-dosirak.html", "통인시장 엽전 도시락")],  # 11-17·18
+    "mapo": [("season-mangwon-market-food.html", "망원시장 먹거리")], "seoul-junggu": [("season-namdaemun-galchi-alley.html", "남대문시장 갈치조림 골목")],
     "haeundae": [("season-busan-winter-gukmul.html", "부산 겨울 국물 음식")],
     "yeonsu": [("season-incheon-multeombeong.html", "인천 물텀벙 (아귀)"), ("season-sorae-jeotgal.html", "소래포구 젓갈")],
 }

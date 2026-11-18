@@ -438,5 +438,35 @@
  ],
  "travel-hakone.html": [
   "c-hakone-ropeway"
+ ],
+ "season-mangwon-market-food.html": [
+  "m-mangwon"
+ ],
+ "season-tongin-market-dosirak.html": [
+  "m-tongin"
+ ],
+ "season-namdaemun-galchi-alley.html": [
+  "m-namdaemun"
+ ],
+ "season-bupyeong-kkangtong-night-market.html": [
+  "m-bupyeong-kkangtong"
+ ],
+ "season-sokcho-tourist-fish-market.html": [
+  "m-sokcho-market"
+ ],
+ "season-gangneung-jungang-market.html": [
+  "m-gangneung-market"
+ ],
+ "season-suwon-tongdak-street.html": [
+  "m-suwon-chicken"
+ ],
+ "season-chuncheon-dakgalbi-alley.html": [
+  "m-chuncheon-dakgalbi"
+ ],
+ "season-andong-jjimdak-alley.html": [
+  "m-andong-jjimdak"
+ ],
+ "season-pohang-jukdo-market.html": [
+  "m-jukdo-market"
  ]
 }

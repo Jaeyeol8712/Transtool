@@ -261,7 +261,7 @@
 },
 "food.html": {
 "d": "2026-11-18",
-"h": "2c02f1179d891a46"
+"h": "b84acad054e479c6"
 },
 "four_insurance_calculator.html": {
 "d": "2026-11-05",
@@ -1057,7 +1057,7 @@
 },
 "jongno.html": {
 "d": "2026-11-18",
-"h": "9982969f0046d2ee"
+"h": "cc9cff92471fcd1a"
 },
 "kerosene_heating_cost_calculator.html": {
 "d": "2026-11-11",
@@ -1105,7 +1105,7 @@
 },
 "mapo.html": {
 "d": "2026-11-18",
-"h": "6d1db73603aebe51"
+"h": "bee6f0de115dfe11"
 },
 "medical_expense_tax_credit_calculator.html": {
 "d": "2026-11-03",
@@ -1223,6 +1223,10 @@
 "d": null,
 "h": "f31d44d8f59cfd33"
 },
+"season-andong-jjimdak-alley.html": {
+"d": null,
+"h": "9fc9cb6b799f7015"
+},
 "season-beolgyo-kkomak.html": {
 "d": null,
 "h": "48a686a62ea04443"
@@ -1230,6 +1234,10 @@
 "season-buan-gomso-jeotgal.html": {
 "d": null,
 "h": "d55c9199f4e1680c"
+},
+"season-bupyeong-kkangtong-night-market.html": {
+"d": null,
+"h": "d29c6ef1ba74c474"
 },
 "season-busan-winter-gukmul.html": {
 "d": null,
@@ -1243,6 +1251,10 @@
 "d": null,
 "h": "bdd139b1ffe6cd9a"
 },
+"season-chuncheon-dakgalbi-alley.html": {
+"d": null,
+"h": "0b587a8e5ad8a3ae"
+},
 "season-daebudo-bajirak-kalguksu.html": {
 "d": null,
 "h": "8126546fda0dcca0"
@@ -1254,6 +1266,10 @@
 "season-gangneung-chodang-sundubu.html": {
 "d": "2026-11-18",
 "h": "a4992792f1be4ec4"
+},
+"season-gangneung-jungang-market.html": {
+"d": null,
+"h": "09fe0cd698e47668"
 },
 "season-gapyeong-jat.html": {
 "d": null,
@@ -1339,6 +1355,10 @@
 "d": null,
 "h": "158c6d44dd0587f0"
 },
+"season-mangwon-market-food.html": {
+"d": null,
+"h": "46111e50de306c97"
+},
 "season-masan-agujjim.html": {
 "d": "2026-11-12",
 "h": "6f6f8451264b83f9"
@@ -1350,6 +1370,10 @@
 "season-moseulpo-bangeo.html": {
 "d": "2026-11-12",
 "h": "acf28725c23bf92a"
+},
+"season-namdaemun-galchi-alley.html": {
+"d": null,
+"h": "568d6d9e6637eb50"
 },
 "season-namdang-saejogae.html": {
 "d": null,
@@ -1366,6 +1390,10 @@
 "season-pohang-gwamegi.html": {
 "d": null,
 "h": "b4583943d8a0046f"
+},
+"season-pohang-jukdo-market.html": {
+"d": null,
+"h": "5da9b24e20038bdf"
 },
 "season-samcheok-gomchiguk.html": {
 "d": null,
@@ -1391,9 +1419,21 @@
 "d": null,
 "h": "cec1fc45e7e2521b"
 },
+"season-sokcho-tourist-fish-market.html": {
+"d": null,
+"h": "49e37fe56d64a600"
+},
 "season-sorae-jeotgal.html": {
 "d": "2026-11-12",
 "h": "ac9aa2472f0c2887"
+},
+"season-suwon-tongdak-street.html": {
+"d": null,
+"h": "3d9a39cd8a056819"
+},
+"season-tongin-market-dosirak.html": {
+"d": null,
+"h": "e0679b723289fc34"
 },
 "season-tongyeong-gul.html": {
 "d": null,
@@ -1437,7 +1477,7 @@
 },
 "seoul-junggu.html": {
 "d": "2026-11-18",
-"h": "efbdec90c3ba7512"
+"h": "37b604c5b72b94a4"
 },
 "seoul-winter-asian.html": {
 "d": "2026-11-03",
@@ -1633,7 +1673,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-18",
-"h": "f8b80eeea84d4cdf"
+"h": "615988ebb40fb02e"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
