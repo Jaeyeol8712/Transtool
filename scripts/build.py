@@ -1209,7 +1209,10 @@ TRIP_TOOL_WHEN = {"japan_travel_calculator": "jp", "fuel_economy_calculator": "k
                   "tokyo_subway_ticket_calculator": "jp", "japan_tax_refund_calculator": "jp"}
 TRIP_GUIDE_KEYS = ("여행", "여권", "환전", "로밍", "출국", "입국", "공항", "수하물", "캠핑", "면세점", "항공")
 TRIP_GUIDE_WHEN = {"japan-travel-budget": "jp", "passport-reissue": "ov", "overseas-trip-departure-checklist": "ov", "winter-camping-checklist": "kr",
-                   "incheon-airport-arrival-time": "ov", "travel-insurance-coverage": "ov", "visit-japan-web": "jp", "incheon-airport-arex-limousine": "ov"}  # 11-17
+                   "incheon-airport-arrival-time": "ov", "travel-insurance-coverage": "ov", "visit-japan-web": "jp", "incheon-airport-arex-limousine": "ov",
+                   "international-driving-permit": "ov", "travel-advisory-levels": "ov", "flight-delay-compensation": "ov", "baggage-delay-compensation": "ov",
+                   "korea-entry-meat-fruit-quarantine": "ov", "smart-entry-service": "ov", "korail-ticket-refund-fee": "kr", "us-esta-application": "ov",
+                   "thailand-digital-arrival-card": "ov", "vietnam-evisa": "ov"}  # 11-18  # 11-17
 
 
 def travel_guides():
