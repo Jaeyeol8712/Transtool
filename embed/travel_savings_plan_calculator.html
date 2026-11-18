@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여행 경비 저축 계획 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/travel_savings_plan_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="여행 경비 저축 계획 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">여행 경비 저축 계획 계산기</p>
+<label for="ts1">여행 목표 경비 (원)</label>
+<input id="ts1" type="number" inputmode="numeric" placeholder="예: 3000000"/>
+<label for="ts2">지금 모아 둔 돈 (원)</label>
+<input id="ts2" type="number" inputmode="numeric" placeholder="없으면 0"/>
+<label for="ts3">출발까지 남은 개월</label>
+<input id="ts3" type="number" inputmode="numeric" placeholder="예: 10"/>
+<label for="ts4">적금 연 이자율 (%)</label>
+<input id="ts4" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<button onclick="calc_travel_savings_plan()">한 달 저축액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">매달 모을 돈</span><span class="result-value" id="spM">-</span></div>
+<div class="result-row"><span class="result-label">하루로 치면</span><span class="result-value" id="spD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">세후 이자 (15.4% 과세)</span><span class="result-value" id="spI" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_travel_savings_plan(){
+ var g=_v('ts1'),c=_v('ts2'),m=_v('ts3'),r=_v('ts4');
+ if(isNaN(g)||g<=0) return alert('목표 경비를 입력해주세요.');
+ if(isNaN(m)||m<1) return alert('남은 개월 수를 입력해주세요.');
+ if(isNaN(c)||c<0)c=0; if(isNaN(r)||r<0)r=0; m=Math.floor(m);
+ var need=Math.max(0,g-c);
+ /* 적금 단리: 매달 P를 넣으면 세전 이자 = P*r/12*m(m+1)/2 */
+ var k=1+(r/100/12)*(m+1)/2*(1-0.154),P=need/(m*k),int=P*m*(k-1);
+ _s('spM',need===0?'이미 목표를 넘었습니다':_w(Math.ceil(P/1000)*1000)+' (정확히 '+_w(P)+')');
+ _s('spD',_w(P*12/365)); _s('spI',_w(int));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/travel_savings_plan_calculator.html?utm_source=embed&amp;utm_campaign=travel_savings_plan_calculator" target="_blank" rel="noopener">어라운드툴 여행 경비 저축 계획 계산기</a></p>
+</body>
+</html>

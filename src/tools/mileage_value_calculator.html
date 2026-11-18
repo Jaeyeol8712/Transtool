@@ -1,0 +1,31 @@
+<label for="mv1">보너스 항공권에 필요한 마일</label>
+<input id="mv1" type="number" inputmode="numeric" placeholder="항공사 마일 공제표 기준"/>
+<label for="mv2">같은 날 같은 좌석 현금 항공권 (원)</label>
+<input id="mv2" type="number" inputmode="numeric" placeholder="세금·유류할증료 포함 총액"/>
+<label for="mv3">보너스 항공권 때 따로 내는 세금·유류할증료 (원)</label>
+<input id="mv3" type="number" inputmode="numeric" placeholder="마일 항공권 결제 화면 금액"/>
+<label for="mv4">현금 항공권으로 쌓일 마일 (선택)</label>
+<input id="mv4" type="number" inputmode="numeric" placeholder="현금으로 사면 적립되는 마일, 없으면 0"/>
+<label for="mv5">비교 기준 1마일 가치 (원, 선택)</label>
+<input id="mv5" type="number" inputmode="decimal" placeholder="예: 카드 적립 비용 등 내 기준"/>
+<button onclick="calc_mileage_value()">1마일 가치 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">1마일 가치</span><span class="result-value" id="mvV">-</span></div>
+<div class="result-row"><span class="result-label">마일로 아낀 현금</span><span class="result-value" id="mvS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">내 기준과 비교</span><span class="result-value" id="mvC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_mileage_value(){
+ var m=_v('mv1'),c=_v('mv2'),t=_v('mv3'),e=_v('mv4'),b=_v('mv5');
+ if(isNaN(m)||m<=0||isNaN(c)||c<=0) return alert('필요 마일과 현금 항공권 가격을 입력해주세요.');
+ if(isNaN(t)||t<0)t=0; if(isNaN(e)||e<0)e=0;
+ var save=c-t,val=save/(m+e);
+ _s('mvV',(val>0?Math.round(val*10)/10:0).toLocaleString('ko-KR')+'원');
+ _s('mvS',_w(save)+' (현금가 − 따로 내는 세금)');
+ _s('mvC',isNaN(b)||b<=0?'기준을 넣으면 비교합니다':val>=b?'기준보다 '+(Math.round((val-b)*10)/10)+'원 높아 마일 쓰기 좋은 편':'기준보다 낮아 현금 구매도 고려');
+ document.getElementById('result').classList.add('show');
+}
+</script>

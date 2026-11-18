@@ -3,6 +3,10 @@
 "d": "2026-11-03",
 "h": "b1bb8fc317b15cef"
 },
+"accommodation_cost_compare_calculator.html": {
+"d": null,
+"h": "88d48b8bbbbba6d6"
+},
 "acquisition_tax_calculator.html": {
 "d": "2026-11-05",
 "h": "86dcac33c4ea27fd"
@@ -14,6 +18,10 @@
 "airport_departure_time_calculator.html": {
 "d": "2026-11-18",
 "h": "0ab8d750f264a49e"
+},
+"airport_transport_compare_calculator.html": {
+"d": null,
+"h": "0deb8b4395f91bf7"
 },
 "alcohol_calorie_calculator.html": {
 "d": "2026-11-03",
@@ -187,6 +195,10 @@
 "d": "2026-11-06",
 "h": "d9dd0f5b22f3a10e"
 },
+"driving_break_plan_calculator.html": {
+"d": null,
+"h": "769687edff64a4e8"
+},
 "dsr_calculator.html": {
 "d": "2026-11-03",
 "h": "6cebdd87e456dad4"
@@ -213,7 +225,7 @@
 },
 "etc.html": {
 "d": "2026-11-18",
-"h": "bc6df941c1c184d8"
+"h": "db1e0dbbb7e25c50"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -238,6 +250,14 @@
 "exercise_met_calorie_calculator.html": {
 "d": null,
 "h": "55c689b1fb62f044"
+},
+"flight_arrival_time_calculator.html": {
+"d": null,
+"h": "c4b010046f095b0a"
+},
+"flight_delay_compensation_calculator.html": {
+"d": null,
+"h": "3ced11921d056bfb"
 },
 "food.html": {
 "d": "2026-11-18",
@@ -428,8 +448,8 @@
 "h": "3dd008ed78d56096"
 },
 "guide-flight-delay-compensation.html": {
-"d": null,
-"h": "3d140b3040448e35"
+"d": "2026-11-18",
+"h": "eb620650bd98c768"
 },
 "guide-flu-vaccine-2026-2027.html": {
 "d": "2026-11-18",
@@ -524,8 +544,8 @@
 "h": "3fc0e217b092d82d"
 },
 "guide-korail-ticket-refund-fee.html": {
-"d": null,
-"h": "ea2d8c387baff021"
+"d": "2026-11-18",
+"h": "ad8180a09a3d7165"
 },
 "guide-korea-entry-meat-fruit-quarantine.html": {
 "d": null,
@@ -899,6 +919,10 @@
 "d": "2026-11-03",
 "h": "d6d0720eb1196c11"
 },
+"japan_accommodation_tax_calculator.html": {
+"d": null,
+"h": "d68c4d63fd6ad207"
+},
 "japan_tax_refund_calculator.html": {
 "d": "2026-11-17",
 "h": "cebcfd2c2d1ea7ec"
@@ -1051,6 +1075,10 @@
 "d": null,
 "h": "bd1023e45adeb3b2"
 },
+"ktx_refund_fee_calculator.html": {
+"d": null,
+"h": "2f52bf383ca7d1e4"
+},
 "loan_calculator.html": {
 "d": "2026-11-03",
 "h": "828facef85776802"
@@ -1083,6 +1111,10 @@
 "d": "2026-11-03",
 "h": "8b3438dcc7308f33"
 },
+"mileage_value_calculator.html": {
+"d": null,
+"h": "fd4539811ed56a4d"
+},
 "monthly_rent_tax_credit_calculator.html": {
 "d": "2026-11-03",
 "h": "f2ab4d459495d1e1"
@@ -1090,6 +1122,10 @@
 "moving_cost_calculator.html": {
 "d": null,
 "h": "20135ba4081d1d65"
+},
+"overseas_atm_fee_calculator.html": {
+"d": null,
+"h": "5d48bbf7a8fd0de9"
 },
 "overseas_card_fee_calculator.html": {
 "d": "2026-11-18",
@@ -1597,7 +1633,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-18",
-"h": "dc2d576c1e52f312"
+"h": "f8b80eeea84d4cdf"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1680,8 +1716,8 @@
 "h": "1b03e653afc8747b"
 },
 "tools.html": {
-"d": "2026-11-17",
-"h": "ad174491065c29d7"
+"d": "2026-11-18",
+"h": "7071717e5e9c775e"
 },
 "travel-andong.html": {
 "d": "2026-11-13",
@@ -2002,6 +2038,14 @@
 "travel.html": {
 "d": "2026-11-18",
 "h": "00b78b0730db3769"
+},
+"travel_cash_amount_calculator.html": {
+"d": "2026-11-18",
+"h": "0878fe19e368299d"
+},
+"travel_savings_plan_calculator.html": {
+"d": null,
+"h": "9bff660bd074382a"
 },
 "unemployment_benefit_calculator.html": {
 "d": "2026-11-05",

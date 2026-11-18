@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숙소 1인당 비용 비교 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/accommodation_cost_compare_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="숙소 1인당 비용 비교 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">숙소 1인당 비용 비교 계산기</p>
+<label for="ac1">인원 (명)</label>
+<input id="ac1" type="number" inputmode="numeric" placeholder="예: 4"/>
+<label for="ac2">숙박 (박)</label>
+<input id="ac2" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="ac3">A 숙소 1박 요금 (원)</label>
+<input id="ac3" type="number" inputmode="numeric" placeholder="예: 호텔 객실 2개면 2개 합계"/>
+<label for="ac4">A 1회 청소비·고정비 (원)</label>
+<input id="ac4" type="number" inputmode="numeric" placeholder="없으면 비워 두기"/>
+<label for="ac5">A 세금·수수료 (%)</label>
+<input id="ac5" type="number" inputmode="decimal" placeholder="예약 화면 기준, 없으면 0"/>
+<label for="ac6">B 숙소 1박 요금 (원)</label>
+<input id="ac6" type="number" inputmode="numeric" placeholder="예: 숙소 통째 대여"/>
+<label for="ac7">B 1회 청소비·고정비 (원)</label>
+<input id="ac7" type="number" inputmode="numeric" placeholder="없으면 비워 두기"/>
+<label for="ac8">B 세금·수수료 (%)</label>
+<input id="ac8" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<button onclick="calc_accommodation_cost_compare()">1인당 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">더 싼 숙소</span><span class="result-value" id="acW">-</span></div>
+<div class="result-row"><span class="result-label">A 총액 · 1인 1박</span><span class="result-value" id="acA" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">B 총액 · 1인 1박</span><span class="result-value" id="acB" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">청소비 때문에 생기는 차이</span><span class="result-value" id="acC" style="font-size:1.05rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)?NaN:x;}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_accommodation_cost_compare(){
+ var p=_v('ac1'),n=_v('ac2'),a=_v('ac3'),ac=_v('ac4')||0,at=_v('ac5')||0,b=_v('ac6'),bc=_v('ac7')||0,bt=_v('ac8')||0;
+ if(isNaN(p)||p<1||isNaN(n)||n<1) return alert('인원과 숙박 일수를 입력해주세요.');
+ if(isNaN(a)||a<=0||isNaN(b)||b<=0) return alert('두 숙소의 1박 요금을 입력해주세요.');
+ var A=(a*n+ac)*(1+at/100),B=(b*n+bc)*(1+bt/100),d=Math.abs(A-B);
+ _s('acW',A<B?'A가 '+_w(d)+' 저렴':A>B?'B가 '+_w(d)+' 저렴':'같습니다');
+ _s('acA',_w(A)+' · '+_w(A/p/n)); _s('acB',_w(B)+' · '+_w(B/p/n));
+ _s('acC','청소비는 1박당 A '+_w(ac/n)+', B '+_w(bc/n)+' (오래 묵을수록 줄어듭니다)');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/accommodation_cost_compare_calculator.html?utm_source=embed&amp;utm_campaign=accommodation_cost_compare_calculator" target="_blank" rel="noopener">어라운드툴 숙소 1인당 비용 비교 계산기</a></p>
+</body>
+</html>
