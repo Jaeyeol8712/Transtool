@@ -1151,5 +1151,111 @@
  ],
  "c-kobe-kitano": [
   "Kitano Ijinkan Kobe"
+ ],
+ "d-driving-permit": [
+  "international driving permit"
+ ],
+ "d-passport-control": [
+  "automated border control gate airport"
+ ],
+ "d-baggage-claim": [
+  "baggage claim carousel airport"
+ ],
+ "d-flight-delay": [
+  "airport departure board delayed cancelled"
+ ],
+ "d-quarantine-dog": [
+  "airport quarantine detector dog"
+ ],
+ "d-ktx-ticket": [
+  "Korail ticket machine"
+ ],
+ "d-bangkok-airport": [
+  "Suvarnabhumi Airport immigration"
+ ],
+ "d-hanoi-airport": [
+  "Noi Bai International Airport"
+ ],
+ "d-hotel-room": [
+  "hotel room twin beds"
+ ],
+ "d-atm-overseas": [
+  "ATM machine Japan 7-Eleven"
+ ],
+ "d-highway-rest": [
+  "Korea highway rest area"
+ ],
+ "d-airplane-window": [
+  "airplane window wing sky"
+ ],
+ "m-mangwon": [
+  "Mangwon Market Seoul"
+ ],
+ "m-tongin": [
+  "Tongin Market Seoul"
+ ],
+ "m-namdaemun": [
+  "Namdaemun Market"
+ ],
+ "m-bupyeong-kkangtong": [
+  "Bupyeong Kkangtong Market"
+ ],
+ "m-sokcho-market": [
+  "Sokcho Jungang Market",
+  "Sokcho tourist fish market"
+ ],
+ "m-gangneung-market": [
+  "Gangneung Jungang Market"
+ ],
+ "m-suwon-chicken": [
+  "Suwon fried chicken street",
+  "Korean fried chicken"
+ ],
+ "m-chuncheon-dakgalbi": [
+  "dakgalbi Chuncheon"
+ ],
+ "m-andong-jjimdak": [
+  "Andong jjimdak"
+ ],
+ "m-jukdo-market": [
+  "Jukdo Market Pohang"
+ ],
+ "t-suwon-hwaseong": [
+  "Hwaseong Fortress Suwon"
+ ],
+ "t-daejeon": [
+  "Daejeon Expo Bridge",
+  "Hanbit Tower Daejeon"
+ ],
+ "t-gwangju": [
+  "Asia Culture Center Gwangju",
+  "Yangnim-dong Gwangju"
+ ],
+ "t-ulsan": [
+  "Taehwagang National Garden",
+  "Ganjeolgot Ulsan"
+ ],
+ "t-ulleungdo": [
+  "Ulleungdo island"
+ ],
+ "t-hiroshima": [
+  "Itsukushima Shrine torii",
+  "Hiroshima Peace Memorial"
+ ],
+ "t-kanazawa": [
+  "Kenrokuen garden Kanazawa",
+  "Higashi Chaya district"
+ ],
+ "t-nagasaki": [
+  "Nagasaki Glover Garden",
+  "Nagasaki night view Mount Inasa"
+ ],
+ "t-qingdao": [
+  "Qingdao Zhanqiao pier",
+  "Qingdao old town"
+ ],
+ "t-bali": [
+  "Bali rice terrace Tegallalang",
+  "Uluwatu temple Bali"
  ]
 }
