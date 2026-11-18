@@ -511,5 +511,70 @@
  ],
  "travel-kobe.html": [
   "c-kobe-harborland"
+ ],
+ "season-daegu-seomun-market-food.html": [
+  "m-seomun",
+  "c-daegu-seomun"
+ ],
+ "season-incheon-sinpo-market-food.html": [
+  "m-sinpo",
+  "c-incheon-chinatown"
+ ],
+ "season-gijang-market-food.html": [
+  "m-gijang"
+ ],
+ "season-seogwipo-olle-market-food.html": [
+  "m-olle"
+ ],
+ "season-tongyeong-jungang-market-food.html": [
+  "m-tongyeong-jungang"
+ ],
+ "season-danyang-gugyeong-market.html": [
+  "m-danyang"
+ ],
+ "season-gyeongdong-market-food.html": [
+  "m-gyeongdong"
+ ],
+ "season-gwangju-yangdong-market-food.html": [
+  "m-yangdong"
+ ],
+ "season-haeundae-market-food.html": [
+  "m-haeundae-market"
+ ],
+ "travel-yangyang.html": [
+  "t-yangyang"
+ ],
+ "travel-yangpyeong.html": [
+  "t-yangpyeong"
+ ],
+ "travel-paju.html": [
+  "t-paju"
+ ],
+ "travel-phuket.html": [
+  "t-phuket"
+ ],
+ "travel-pattaya.html": [
+  "t-pattaya"
+ ],
+ "travel-dalat.html": [
+  "t-dalat"
+ ],
+ "travel-boracay.html": [
+  "t-boracay"
+ ],
+ "travel-nara.html": [
+  "t-nara"
+ ],
+ "duty_free_shop_price_compare_calculator.html": [
+  "d-duty-free"
+ ],
+ "passport_validity_calculator.html": [
+  "d-passport-lost"
+ ],
+ "schengen_90_180_calculator.html": [
+  "d-uk"
+ ],
+ "jr_pass_value_calculator.html": [
+  "t-nara"
  ]
 }
