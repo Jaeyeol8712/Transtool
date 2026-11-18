@@ -4,7 +4,7 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 79곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 139종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 89곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 139종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
     <item>
@@ -13,6 +13,86 @@
       <guid isPermaLink="true">https://www.aroundtool.com/travel_cash_amount_calculator.html</guid>
       <category>생활툴</category>
       <description>여행 일수, 하루 현지 지출, 인원, 현금으로 낼 비율, 비상금 여유를 넣으면 환전할 현지 돈(환전 단위로 올림)과 원화 금액, 카드로 쓸 금액을 계산합니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>울산 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-ulsan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-ulsan.html</guid>
+      <category>여행</category>
+      <description>울산 여행 코스. 태화강 국가정원·십리대숲, 대왕암공원 출렁다리, 간절곶 일출, 장생포 고래문화마을, 영남알프스를 당일·1박 2일로 묶고 KTX·차 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>울릉도 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-ulleungdo.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-ulleungdo.html</guid>
+      <category>여행</category>
+      <description>울릉도 여행 코스. 도동·저동항, 행남 해안산책로, 독도 전망대 케이블카, 나리분지, 관음도, 독도 여객선을 2박 3일·3박 4일로 묶고 배편·결항 대비와 울릉공항(2028년 개항 예정) 소식을 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>수원 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-suwon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-suwon.html</guid>
+      <category>여행</category>
+      <description>수원 여행 코스. 수원 화성 성곽길, 화성행궁, 방화수류정, 행리단길, 통닭거리, 광교호수공원을 당일·1박 2일로 묶고 서울에서의 이동 시간과 2026~2027 수원 방문의 해를 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>칭다오 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-qingdao.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-qingdao.html</guid>
+      <category>여행</category>
+      <description>칭다오 여행 코스. 잔교, 천주교당·옛 독일 시가지, 칭다오 맥주 박물관, 팔대관, 5·4광장, 라오산을 2박 3일·3박 4일로 묶고 한국인 무비자 30일(2026년 12월 31일까지)과 결제 준비를 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>나가사키 여행 코스 — 1박 2일·2박 3일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-nagasaki.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-nagasaki.html</guid>
+      <category>여행</category>
+      <description>나가사키 여행 코스. 이나사야마 야경, 글로버 정원·오우라 천주당, 데지마, 평화공원, 신치 차이나타운, 군함도 투어를 1박 2일·2박 3일로 묶고 후쿠오카에서 가는 법(니시큐슈 신칸센)을 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>가나자와 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-kanazawa.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-kanazawa.html</guid>
+      <category>여행</category>
+      <description>가나자와 여행 코스. 겐로쿠엔, 가나자와성, 히가시차야 거리, 오미초 시장, 21세기 미술관, 시라카와고를 2박 3일·3박 4일로 묶고 고마쓰 공항 이동 시간과 겨울 눈 대비를 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>히로시마 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-hiroshima.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hiroshima.html</guid>
+      <category>여행</category>
+      <description>히로시마 여행 코스. 평화기념공원·원폭 돔, 히로시마성, 미야지마(이쓰쿠시마 신사), 오노미치·구레를 2박 3일·3박 4일로 묶고 공항·페리 이동 시간과 미야지마 방문세, 일본 면세 방식을 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>광주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-gwangju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-gwangju.html</guid>
+      <category>여행</category>
+      <description>광주 여행 코스. 국립아시아문화전당, 양림동 역사문화마을, 5·18 민주광장·국립5·18민주묘지, 무등산 국립공원, 송정역 시장, 광주 떡갈비·오리탕을 당일·1박 2일로 묶었습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>대전 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-daejeon.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-daejeon.html</guid>
+      <category>여행</category>
+      <description>대전 여행 코스. 엑스포과학공원·한빛탑, 한밭수목원, 대청호 오백리길, 장태산 자연휴양림, 원도심 빵 투어, 유성온천을 당일·1박 2일로 묶고 KTX 이동 시간을 정리했습니다.</description>
+      <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>발리 여행 코스 — 4박 5일·5박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-bali.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-bali.html</guid>
+      <category>여행</category>
+      <description>발리 여행 코스. 우붓(뜨갈랄랑 계단식 논·몽키 포레스트), 울루와투 사원·케착 댄스, 스미냑·짱구, 누사페니다를 4박 5일·5박 6일로 묶고 관광세 15만 루피아, All Indonesia 입국신고, 도착비자(e-VOA)를 정리했습니다.</description>
       <pubDate>Wed, 18 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
