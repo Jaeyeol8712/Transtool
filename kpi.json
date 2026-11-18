@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-18",
+  "users": 37,
+  "sessions": 39,
+  "views": 54,
+  "organic": 33
+ },
+ "yday0": {
   "date": "2026-11-17",
   "users": 32,
   "sessions": 32,
   "views": 40,
   "organic": 20
- },
- "yday0": {
-  "date": "2026-11-16",
-  "users": 19,
-  "sessions": 22,
-  "views": 20,
-  "organic": 15
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-16",
    "end": "2026-11-22",
    "done": false,
-   "users": 51,
-   "sessions": 54,
-   "views": 60,
-   "organic": 35
+   "users": 87,
+   "sessions": 93,
+   "views": 114,
+   "organic": 68
   }
  ],
  "lastWeek": {
@@ -229,50 +229,45 @@
    "end": "2026-11-22",
    "complete": false,
    "clicks": 0,
-   "impressions": 0,
-   "position": null
+   "impressions": 2,
+   "position": 10.5
   }
  ],
- "made": "2026-11-18T04:20:37.251Z",
- "range": "2026-11-11 ~ 2026-11-17",
- "prevRange": "2026-11-04 ~ 2026-11-10",
+ "made": "2026-11-18T23:26:38.559Z",
+ "range": "2026-11-12 ~ 2026-11-18",
+ "prevRange": "2026-11-05 ~ 2026-11-11",
  "cur": {
-  "users": 157,
-  "sessions": 186,
-  "views": 383
+  "users": 174,
+  "sessions": 200,
+  "views": 343
  },
  "prev": {
-  "users": 152,
+  "users": 147,
   "sessions": 185,
-  "views": 289
+  "views": 297
  },
  "organic": {
-  "cur": 126,
+  "cur": 143,
   "prev": 125
  },
  "channels": {
   "cur": {
-   "Organic Search": 126,
-   "Direct": 49,
+   "Organic Search": 143,
+   "Direct": 47,
    "AI Assistant": 6,
-   "Organic Social": 3,
-   "Referral": 1,
-   "Unassigned": 1
+   "Unassigned": 6,
+   "Organic Social": 1,
+   "Referral": 1
   },
   "prev": {
    "Organic Search": 125,
-   "Direct": 47,
+   "Direct": 46,
    "Unassigned": 6,
-   "Organic Social": 4,
+   "Organic Social": 5,
    "AI Assistant": 3
   }
  },
  "daily": [
-  {
-   "date": "20261021",
-   "users": 4,
-   "sessions": 4
-  },
   {
    "date": "20261022",
    "users": 4,
@@ -407,24 +402,29 @@
    "date": "20261117",
    "users": 32,
    "sessions": 32
+  },
+  {
+   "date": "20261118",
+   "users": 37,
+   "sessions": 39
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 29
+   "sessions": 24
   },
   {
    "page": "/interior_calculator.html",
    "sessions": 10
   },
   {
-   "page": "(not set)",
-   "sessions": 7
+   "page": "/kerosene_heating_cost_calculator.html",
+   "sessions": 8
   },
   {
-   "page": "/kerosene_heating_cost_calculator.html",
-   "sessions": 7
+   "page": "(not set)",
+   "sessions": 6
   },
   {
    "page": "/shop-navien-water-mat.html",
@@ -432,36 +432,36 @@
   },
   {
    "page": "/alcohol_calorie_calculator.html",
-   "sessions": 4
+   "sessions": 5
   },
   {
    "page": "/kimjang_cost_calculator.html",
-   "sessions": 4
-  },
-  {
-   "page": "/shop-mung-bean-cleanser.html",
-   "sessions": 4
+   "sessions": 5
   },
   {
    "page": "/time_difference_calculator.html",
-   "sessions": 4
+   "sessions": 5
   },
   {
    "page": "/yeonsu-bapjip.html",
+   "sessions": 5
+  },
+  {
+   "page": "",
    "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-09 ~ 2026-11-15",
+  "range": "2026-11-10 ~ 2026-11-16",
   "cur": {
-   "clicks": 26,
-   "impressions": 3388,
-   "position": 11.962219598583236
+   "clicks": 20,
+   "impressions": 2668,
+   "position": 12.616191904047977
   },
   "prev": {
-   "clicks": 17,
-   "impressions": 3027,
-   "position": 9.764453254046911
+   "clicks": 19,
+   "impressions": 3354,
+   "position": 9.741502683363148
   }
  },
  "ai": {
@@ -500,10 +500,10 @@
  },
  "klink": {
   "cur": {
-   "views": 34,
-   "users": 5,
-   "fromSite": 26,
-   "fromTravel": 1,
+   "views": 38,
+   "users": 8,
+   "fromSite": 30,
+   "fromTravel": 3,
    "events": {
     "klink_save": 16,
     "klink_course": 2,
