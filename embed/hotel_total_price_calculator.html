@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>호텔 실제 총액 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/hotel_total_price_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="호텔 실제 총액 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">호텔 실제 총액 계산기</p>
+<label for="hp1">1박 객실 요금 (표시 가격)</label>
+<input id="hp1" type="number" inputmode="decimal" placeholder="예: 200000"/>
+<label for="hp2">숙박 수 (박)</label>
+<input id="hp2" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="hp3">객실 수</label>
+<input id="hp3" type="number" inputmode="numeric" placeholder="1"/>
+<label for="hp4">봉사료 (%)</label>
+<input id="hp4" type="number" inputmode="decimal" placeholder="없으면 0, 예: 10"/>
+<label for="hp5">세금 (%)</label>
+<input id="hp5" type="number" inputmode="decimal" placeholder="예: 10"/>
+<label for="hp6">세금 붙는 방식</label>
+<select id="hp6"><option value="c" selected>봉사료까지 합친 금액에 세금</option><option value="s">객실 요금에만 세금</option></select>
+<label for="hp7">1박 1실 고정 요금 (리조트피·숙박세 등)</label>
+<input id="hp7" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="hp8">인원 (명)</label>
+<input id="hp8" type="number" inputmode="numeric" placeholder="2"/>
+<label for="hp9">환율 (원/현지 돈 1단위, 원화면 비움)</label>
+<input id="hp9" type="number" inputmode="decimal" placeholder="예: 바트 41, 달러 1400"/>
+<button onclick="calc_hotel_total_price()">총액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">실제 내는 총액</span><span class="result-value" id="hpT">-</span></div>
+<div class="result-row"><span class="result-label">표시 가격보다 더 내는 돈</span><span class="result-value" id="hpX" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1박 1실 실제 가격</span><span class="result-value" id="hpN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인 1박</span><span class="result-value" id="hpP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _n(x){return Math.round(x).toLocaleString('ko-KR');}
+function calc_hotel_total_price(){
+ var r=_v('hp1'),n=_v('hp2'),k=_v('hp3'),sc=_v('hp4'),tx=_v('hp5'),m=document.getElementById('hp6').value,f=_v('hp7'),p=_v('hp8'),x=_v('hp9');
+ if(isNaN(r)||r<=0||isNaN(n)||n<1) return alert('1박 요금과 숙박 수를 입력해주세요.');
+ if(isNaN(k)||k<1)k=1;if(isNaN(sc)||sc<0)sc=0;if(isNaN(tx)||tx<0)tx=0;if(isNaN(f)||f<0)f=0;if(isNaN(p)||p<1)p=1;
+ var s=r*sc/100,t=(m==='c'?(r+s):r)*tx/100,night=r+s+t+f,tot=night*n*k,base=r*n*k;
+ var kr=function(v){return isNaN(x)||x<=0?_n(v):_n(v)+' (약 '+_n(v*x)+'원)';};
+ _s('hpT',kr(tot)); _s('hpX',kr(tot-base)+' (+'+((tot/base-1)*100).toFixed(1)+'%)'); _s('hpN',kr(night)); _s('hpP',kr(tot/n/p));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/hotel_total_price_calculator.html?utm_source=embed&amp;utm_campaign=hotel_total_price_calculator" target="_blank" rel="noopener">어라운드툴 호텔 실제 총액 계산기</a></p>
+</body>
+</html>

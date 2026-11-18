@@ -1,0 +1,35 @@
+<label for="rs1">여행 인원 (명)</label>
+<input id="rs1" type="number" inputmode="numeric" placeholder="예: 7"/>
+<label for="rs2">방 하나 최대 인원 (명)</label>
+<input id="rs2" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="rs3">1박 방 요금 (세금·봉사료 포함)</label>
+<input id="rs3" type="number" inputmode="decimal" placeholder="예: 120000"/>
+<label for="rs4">숙박 수 (박)</label>
+<input id="rs4" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="rs5">추가 인원 요금 (1명 1박, 엑스트라 베드 등)</label>
+<input id="rs5" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<label for="rs6">추가 인원 허용 (방당 명)</label>
+<input id="rs6" type="number" inputmode="numeric" placeholder="없으면 0"/>
+<button onclick="calc_room_split()">방 나누기 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">가장 싼 방 배정</span><span class="result-value" id="rsR">-</span></div>
+<div class="result-row"><span class="result-label">숙박비 총액</span><span class="result-value" id="rsT" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인 부담</span><span class="result-value" id="rsP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">추가 인원 없이 방만 늘리면</span><span class="result-value" id="rsA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _n(x){return Math.round(x).toLocaleString('ko-KR');}
+function calc_room_split(){
+ var p=_v('rs1'),c=_v('rs2'),r=_v('rs3'),n=_v('rs4'),x=_v('rs5'),xa=_v('rs6');
+ if(isNaN(p)||p<1||isNaN(c)||c<1||isNaN(r)||r<=0) return alert('인원, 방 정원, 방 요금을 입력해주세요.');
+ if(isNaN(n)||n<1)n=1;if(isNaN(x)||x<0)x=0;if(isNaN(xa)||xa<0)xa=0;p=Math.floor(p);c=Math.floor(c);xa=Math.floor(xa);
+ var plain=Math.ceil(p/c),best=null;
+ for(var k=1;k<=plain;k++){var extra=p-k*c;if(extra<0)extra=0;if(extra>k*xa)continue;var cost=(k*r+extra*x)*n;if(!best||cost<best.cost)best={k:k,e:extra,cost:cost};}
+ _s('rsR','방 '+best.k+'개'+(best.e?' + 추가 인원 '+best.e+'명':''));
+ _s('rsT',_n(best.cost)); _s('rsP',_n(best.cost/p)+' (1박 '+_n(best.cost/p/n)+')');
+ _s('rsA','방 '+plain+'개 · 총 '+_n(plain*r*n)+' · 1인 '+_n(plain*r*n/p)+' · 빈 자리 '+(plain*c-p)+'명');
+ document.getElementById('result').classList.add('show');
+}
+</script>

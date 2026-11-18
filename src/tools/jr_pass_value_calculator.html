@@ -1,0 +1,31 @@
+<label for="jp1">JR 패스 종류</label>
+<select id="jp1"><option value="50000" selected>보통 7일 — 공식 사이트 50,000엔</option><option value="80000">보통 14일 — 공식 사이트 80,000엔</option><option value="100000">보통 21일 — 공식 사이트 100,000엔</option><option value="53000">보통 7일 — 해외 판매처 53,000엔 (2026.10~)</option><option value="70000">그린 7일 — 70,000엔</option><option value="c">직접 입력</option></select>
+<label for="jp2">직접 입력 패스 가격 (엔)</label>
+<input id="jp2" type="number" inputmode="numeric" placeholder="예: 84000"/>
+<label for="jp3">탈 JR 구간 요금 1 (엔, 신칸센이면 특급요금 포함)</label><input id="jp3" type="number" inputmode="numeric" placeholder="예: 14170"/>
+<label for="jp4">구간 요금 2 (엔)</label><input id="jp4" type="number" inputmode="numeric"/>
+<label for="jp5">구간 요금 3 (엔)</label><input id="jp5" type="number" inputmode="numeric"/>
+<label for="jp6">구간 요금 4 (엔)</label><input id="jp6" type="number" inputmode="numeric"/>
+<label for="jp7">그 밖의 JR 요금 합계 (엔, 시내 JR·공항 열차 등)</label><input id="jp7" type="number" inputmode="numeric" placeholder="없으면 0"/>
+<label for="jp8">환율 (원/엔)</label><input id="jp8" type="number" inputmode="decimal" placeholder="예: 9.3"/>
+<button onclick="calc_jr_pass_value()">패스 이득 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">판정</span><span class="result-value" id="jpR">-</span></div>
+<div class="result-row"><span class="result-label">개별 승차권 합계</span><span class="result-value" id="jpS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">차이 (개별 − 패스)</span><span class="result-value" id="jpD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _n(x){return Math.round(x).toLocaleString('ko-KR');}
+function calc_jr_pass_value(){
+ var k=document.getElementById('jp1').value,pass=k==='c'?_v('jp2'):+k,x=_v('jp8'),sum=0;
+ if(isNaN(pass)||pass<=0) return alert('패스 가격을 입력해주세요.');
+ ['jp3','jp4','jp5','jp6','jp7'].forEach(function(i){var v=_v(i);if(!isNaN(v)&&v>0)sum+=v;});
+ if(sum<=0) return alert('탈 구간 요금을 하나 이상 입력해주세요.');
+ var d=sum-pass,kr=function(v){return isNaN(x)||x<=0?_n(v)+'엔':_n(v)+'엔 (약 '+_n(v*x)+'원)';};
+ _s('jpR',d>0?'패스가 '+_n(d)+'엔 이득':'개별 승차권이 '+_n(-d)+'엔 쌉니다');
+ _s('jpS',kr(sum)); _s('jpD',kr(d));
+ document.getElementById('result').classList.add('show');
+}
+</script>

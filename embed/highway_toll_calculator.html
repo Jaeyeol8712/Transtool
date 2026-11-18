@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고속도로 통행료 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/highway_toll_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="고속도로 통행료 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">고속도로 통행료 계산기</p>
+<label for="ht1">고속도로 주행 거리 (km)</label>
+<input id="ht1" type="number" inputmode="decimal" placeholder="예: 150"/>
+<label for="ht2">차종</label>
+<select id="ht2"><option value="1" selected>1종 (승용차·16인 이하 승합·2.5톤 이하 화물)</option><option value="k">경차 (1,000cc 미만, 1종의 50%)</option><option value="2">2종 (16인 초과 승합·2.5~10톤 화물)</option></select>
+<label for="ht3">왕복</label>
+<select id="ht3"><option value="1" selected>편도</option><option value="2">왕복</option></select>
+<button onclick="calc_highway_toll()">통행료 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 통행료</span><span class="result-value" id="htT">-</span></div>
+<div class="result-row"><span class="result-label">편도 계산</span><span class="result-value" id="htO" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">km당 부담</span><span class="result-value" id="htK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_highway_toll(){
+ var km=_v('ht1'),c=document.getElementById('ht2').value,w=+document.getElementById('ht3').value;
+ if(isNaN(km)||km<=0) return alert('주행 거리를 입력해주세요.');
+ var rate=c==='2'?45.2:44.3,raw=900+rate*km;if(c==='k')raw=raw/2;
+ var one=Math.round(raw/100)*100;
+ _s('htT',_w(one*w)+(w===2?' (왕복)':'')); _s('htO','900원 + '+rate+'원 × '+km+'km'+(c==='k'?' → 50%':'')+' = '+_w(raw)+' → '+_w(one));
+ _s('htK',(one/km).toFixed(1)+'원/km');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/highway_toll_calculator.html?utm_source=embed&amp;utm_campaign=highway_toll_calculator" target="_blank" rel="noopener">어라운드툴 고속도로 통행료 계산기</a></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<label for="vf1">입국일</label>
+<input id="vf1" type="date"/>
+<label for="vf2">무비자 허용 일수</label>
+<select id="vf2"><option value="30" selected>30일 (중국·필리핀 등)</option><option value="45">45일 (베트남)</option><option value="90">90일 (대만·싱가포르·말레이시아·일본 등)</option><option value="15">15일</option><option value="c">직접 입력</option></select>
+<label for="vf3">직접 입력 일수</label>
+<input id="vf3" type="number" inputmode="numeric" placeholder="예: 60"/>
+<button onclick="calc_visa_free_last_day()">마지막 날 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">안전한 출국 마지막 날 (입국일 포함 셈)</span><span class="result-value" id="vfA">-</span></div>
+<div class="result-row"><span class="result-label">입국 다음 날부터 셀 때 마지막 날</span><span class="result-value" id="vfB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">여유 하루 둔 권장 출국일</span><span class="result-value" id="vfC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _d(i){var v=document.getElementById(i).value;if(!v)return null;var p=v.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+var _W=['일','월','화','수','목','금','토'];
+function _f(d){return d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'. ('+_W[d.getDay()]+')';}
+function _add(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x;}
+function calc_visa_free_last_day(){
+ var e=_d('vf1'),k=document.getElementById('vf2').value,n=k==='c'?parseInt(document.getElementById('vf3').value,10):+k;
+ if(!e) return alert('입국일을 입력해주세요.'); if(isNaN(n)||n<1) return alert('허용 일수를 입력해주세요.');
+ var a=_add(e,n-1),b=_add(e,n);
+ _s('vfA',_f(a)); _s('vfB',_f(b)); _s('vfC',_f(_add(a,-1)));
+ document.getElementById('result').classList.add('show');
+}
+</script>

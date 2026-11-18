@@ -850,3 +850,5 @@ from guides_1117 import GUIDES_1117  # noqa: E402  (2026-11-17 대표 지시 '�
 GUIDES += GUIDES_1117
 from guides_1118 import GUIDES_1118  # noqa: E402  (2026-11-18 대표 지시 '각 10개': 여행 준비 가이드 10개)
 GUIDES += GUIDES_1118
+from guides_1119 import GUIDES_1119  # noqa: E402  (2026-11-19 대표 지시 '오늘도 각 10개': 여행 준비 가이드 10개)
+GUIDES += GUIDES_1119

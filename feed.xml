@@ -4,9 +4,329 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 89곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 139종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 99곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 149종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>무비자 마지막 날 계산기 — 30일·45일·90일, 언제까지 나가야 하나</title>
+      <link>https://www.aroundtool.com/visa_free_last_day_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/visa_free_last_day_calculator.html</guid>
+      <category>생활툴</category>
+      <description>입국일과 무비자 허용 일수(중국·필리핀 30일, 베트남 45일, 대만·싱가포르·말레이시아 90일 등)를 넣으면 입국일 포함 셈과 다음 날부터 셈 두 가지 마지막 날, 여유를 둔 권장 출국일을 계산합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>양양 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-yangyang.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-yangyang.html</guid>
+      <category>여행</category>
+      <description>양양 여행 코스. 낙산사·의상대 일출, 하조대, 서피비치·인구해변·죽도해변 서핑, 남애항, 양양 전통시장을 당일·1박 2일로 묶고 서울에서의 차·버스 이동 시간을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>양평 여행 코스 — 반나절·당일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-yangpyeong.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-yangpyeong.html</guid>
+      <category>여행</category>
+      <description>양평 여행 코스. 두물머리·세미원(양수역), 용문사 은행나무(용문역), 양평 물맑은시장, 강변 카페를 당일로 묶고 경의중앙선 이동 시간과 겨울 물안개 시기를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>원주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-wonju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-wonju.html</guid>
+      <category>여행</category>
+      <description>원주 여행 코스. 소금산 그랜드밸리(케이블카·출렁다리·소금잔도·울렁다리·나오라쇼), 뮤지엄 산, 치악산 구룡사, 강원감영을 당일·1박 2일로 묶고 월요일 휴무와 이동 시간을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>푸껫 여행 코스 — 4박 5일·5박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-phuket.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-phuket.html</guid>
+      <category>여행</category>
+      <description>푸껫 여행 코스. 빠통·까론·까따 해변, 올드타운, 빅붓다, 프롬텝 곶 노을, 피피섬·팡아만 섬 투어를 4박 5일·5박 6일로 묶고 한국인 90일 무비자·TDAC, 건기와 우기를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>파타야 여행 코스 — 2박 3일·3박 4일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-pattaya.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-pattaya.html</guid>
+      <category>여행</category>
+      <description>파타야 여행 코스. 꼬란(산호섬), 진리의 성전, 파타야 뷰포인트, 워킹 스트리트, 농눅 빌리지, 좀티엔 해변을 2박 3일·3박 4일로 묶고 방콕에서 가는 법과 한국인 90일 무비자·TDAC를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>파주 여행 코스 — 반나절·당일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-paju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-paju.html</guid>
+      <category>여행</category>
+      <description>파주 여행 코스. 임진각 평화누리·DMZ 안보 관광, 헤이리 예술마을, 파주출판도시·지혜의숲, 마장호수 출렁다리, 프로방스 마을을 당일로 묶고 DMZ 관광 신분증·예약과 이동 시간을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>나라 여행 코스 — 반나절·당일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-nara.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-nara.html</guid>
+      <category>여행</category>
+      <description>나라 여행 코스. 나라 공원 사슴, 도다이지 대불전, 고후쿠지 오층탑, 가스가타이샤, 나라마치, 이스이엔을 당일로 묶고 오사카·교토에서 가는 법(긴테쓰·JR)과 사슴 센베이 주의점을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>진주 여행 코스 — 당일·1박 2일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-jinju.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-jinju.html</guid>
+      <category>여행</category>
+      <description>진주 여행 코스. 진주성·촉석루·국립진주박물관, 남강 산책, 진주중앙시장, 진주냉면·비빔밥, 10월 남강유등축제를 당일·1박 2일로 묶고 기차 이동 시간과 함께 볼 남해·통영을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>달랏 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-dalat.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-dalat.html</guid>
+      <category>여행</category>
+      <description>달랏 여행 코스. 쑤언흐엉 호수, 달랏 야시장, 크레이지 하우스, 다딴라 폭포 레일바이크, 랑비앙 산, 뚜옌럼 호수를 나트랑과 묶은 3박 5일로 정리하고 리엔크엉 공항 재개항, 한국인 45일 무비자, 건기를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>보라카이 여행 코스 — 3박 5일·4박 6일 동선 정리</title>
+      <link>https://www.aroundtool.com/travel-boracay.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-boracay.html</guid>
+      <category>여행</category>
+      <description>보라카이 여행 코스. 화이트 비치(스테이션 1~3), 디몰, 파라우 선셋 세일링, 푸카 셸 비치, 섬 호핑, 루호 산 전망대를 3박 5일·4박 6일로 묶고 칼리보·까띠끌란 공항 차이, eTravel, 30일 무비자를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>통영 중앙시장·강구안 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-tongyeong-jungang-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-tongyeong-jungang-market-food.html</guid>
+      <category>맛집</category>
+      <description>통영 중앙시장·강구안(경남 통영시 중앙동 · 중앙시장·강구안)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서귀포 매일올레시장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-seogwipo-olle-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-seogwipo-olle-market-food.html</guid>
+      <category>맛집</category>
+      <description>서귀포 매일올레시장(제주 서귀포시 중앙로 · 서귀포매일올레시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>정선아리랑시장 5일장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-jeongseon-arirang-market.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-jeongseon-arirang-market.html</guid>
+      <category>맛집</category>
+      <description>정선아리랑시장 5일장(강원 정선군 정선읍 · 정선아리랑시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>인천 신포국제시장 먹거리 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-incheon-sinpo-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-incheon-sinpo-market-food.html</guid>
+      <category>맛집</category>
+      <description>인천 신포국제시장 먹거리(인천 중구 신포동 · 신포국제시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부산 해운대시장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-haeundae-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-haeundae-market-food.html</guid>
+      <category>맛집</category>
+      <description>부산 해운대시장(부산 해운대구 중동 · 해운대전통시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>서울 경동시장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-gyeongdong-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-gyeongdong-market-food.html</guid>
+      <category>맛집</category>
+      <description>서울 경동시장(서울 동대문구 제기동 · 경동시장·서울약령시)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>광주 양동시장 통닭·홍어 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-gwangju-yangdong-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-gwangju-yangdong-market-food.html</guid>
+      <category>맛집</category>
+      <description>광주 양동시장 통닭·홍어(광주 서구 양동 · 양동시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>부산 기장시장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-gijang-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-gijang-market-food.html</guid>
+      <category>맛집</category>
+      <description>부산 기장시장(부산 기장군 기장읍 · 기장시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단양구경시장 마늘 먹거리 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-danyang-gugyeong-market.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-danyang-gugyeong-market.html</guid>
+      <category>맛집</category>
+      <description>단양구경시장 마늘 먹거리(충북 단양군 단양읍 · 단양구경시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>대구 서문시장 먹거리·야시장 — 제철 메뉴·먹는 법·가는 때</title>
+      <link>https://www.aroundtool.com/season-daegu-seomun-market-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-daegu-seomun-market-food.html</guid>
+      <category>맛집</category>
+      <description>대구 서문시장 먹거리·야시장(대구 중구 대신동 · 서문시장)의 가는 때, 대표 메뉴, 먹는 순서, 알아 둘 점을 공식·보도 자료로 정리했습니다. 광고·협찬 없이, 확인되지 않는 가게 이름은 싣지 않았습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>솅겐 90/180일 계산기 — 유럽 무비자 남은 날, 다음 여행 최대 며칠</title>
+      <link>https://www.aroundtool.com/schengen_90_180_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/schengen_90_180_calculator.html</guid>
+      <category>생활툴</category>
+      <description>지난 솅겐 여행의 입국일·출국일과 다음 입국 예정일을 넣으면 직전 180일 사용 일수와 그날 들어가면 최대 며칠 머물 수 있는지 계산합니다. 입국일·출국일 모두 하루로 셉니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>방 나누기 계산기 — 여럿이 여행할 때 방 몇 개, 1인 숙박비</title>
+      <link>https://www.aroundtool.com/room_split_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/room_split_calculator.html</guid>
+      <category>생활툴</category>
+      <description>여행 인원, 방 하나 최대 인원, 1박 방 요금, 숙박 수, 엑스트라 베드 요금과 허용 인원을 넣으면 가장 싼 방 배정과 숙박비 총액, 1인·1박 부담을 계산하고 방만 늘릴 때와 비교합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>여권 유효기간 계산기 — 6개월 남았나, 귀국일 기준으로 확인</title>
+      <link>https://www.aroundtool.com/passport_validity_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/passport_validity_calculator.html</guid>
+      <category>생활툴</category>
+      <description>여권 만료일과 귀국일(그 나라 출국일)을 넣으면 남은 기간이 6개월(동남아·중국 등) 또는 3개월(솅겐)을 넘는지 판정하고, 기준을 맞추려면 언제까지 돌아와야 하는지 계산합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>환승 시간 계산기 — 최소 연결 시간 넣고 갈아탈 수 있나 판정</title>
+      <link>https://www.aroundtool.com/layover_connection_time_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/layover_connection_time_calculator.html</guid>
+      <category>생활툴</category>
+      <description>앞 비행기 도착 시각, 다음 비행기 출발 시각, 최소 연결 시간(인천 같은 터미널 약 70분·T1↔T2 약 90분 등), 셀프 환승 여부를 넣으면 환승 대기 시간과 여유, 놓칠 위험을 판정합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>JR 패스 계산기 — 7일 50,000엔, 개별 승차권보다 이득일까</title>
+      <link>https://www.aroundtool.com/jr_pass_value_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jr_pass_value_calculator.html</guid>
+      <category>생활툴</category>
+      <description>JR 전국 패스 종류(보통 7·14·21일, 공식 사이트 50,000엔·해외 판매처 53,000엔 등)와 탈 JR 구간 요금을 넣으면 개별 승차권 합계와 패스 가격을 비교해 어느 쪽이 얼마나 싼지 계산합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>호텔 총액 계산기 — 봉사료·세금·리조트피 넣고 진짜 숙박비</title>
+      <link>https://www.aroundtool.com/hotel_total_price_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/hotel_total_price_calculator.html</guid>
+      <category>생활툴</category>
+      <description>1박 표시 요금, 봉사료(%), 세금(%), 리조트피·숙박세 같은 고정 요금, 숙박 수와 인원을 넣으면 실제로 내는 총액과 1박·1인 가격, 표시 가격보다 더 내는 돈을 계산합니다. 현지 통화 환율도 넣을 수 있습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고속도로 통행료 계산기 — 기본 900원 + km당 44.3원, 경차 50%</title>
+      <link>https://www.aroundtool.com/highway_toll_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/highway_toll_calculator.html</guid>
+      <category>생활툴</category>
+      <description>주행 거리와 차종(1종·경차·2종)을 넣으면 한국도로공사 폐쇄식 요금 체계(기본요금 900원 + km당 44.3원)로 예상 통행료를 계산합니다. 왕복, 경차 50% 감면, km당 부담을 함께 봅니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>영국 ETA — 한국인 필수, 20파운드·2년 유효, 공식 앱으로 신청</title>
+      <link>https://www.aroundtool.com/guide-uk-eta.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-uk-eta.html</guid>
+      <category>가이드</category>
+      <description>한국인이 비자 없이 영국에 가려면 출발 전 ETA(전자여행허가)를 받아야 합니다. 2026년 2월 25일부터 탑승 전 확인이 의무가 됐고 수수료는 4월 8일부터 20파운드입니다. 유효기간 2년, 1회 6개월, 신청 순서, 대행 사이트 주의를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해외여행 입국 면세한도 — 800달러·술 2L 400달러·향수 100ml, 넘으면 자진신고</title>
+      <link>https://www.aroundtool.com/guide-travel-duty-free-allowance.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-travel-duty-free-allowance.html</guid>
+      <category>가이드</category>
+      <description>해외여행 후 입국할 때 면세한도는 1인당 미화 800달러이고, 술(2L 이하·400달러 이하)·담배 200개비·향수 100ml는 따로 면세됩니다. 술 병 수 제한 폐지, 자진신고 30% 감면, 미신고 가산세 40%까지 관세청 기준으로 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>대만 온라인 입국신고서(TWAC) — 도착 3일 전부터 무료, 한국인 무비자 90일</title>
+      <link>https://www.aroundtool.com/guide-taiwan-online-arrival-card.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-taiwan-online-arrival-card.html</guid>
+      <category>가이드</category>
+      <description>대만은 2025년 10월 1일부터 종이 입국카드를 없애고 온라인 입국신고서 TWAC를 도착 3일 전부터 무료로 쓰게 했습니다. 공식 주소, 준비물, 작성 순서, 가족·아기 신청, 사칭 사이트 구별법과 한국인 90일 무비자 조건을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>싱가포르 SG Arrival Card — 입국일 포함 3일 안 무료 제출, MyICA 앱</title>
+      <link>https://www.aroundtool.com/guide-singapore-sg-arrival-card.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-singapore-sg-arrival-card.html</guid>
+      <category>가이드</category>
+      <description>싱가포르에 입국하는 외국인은 입국일을 포함한 3일 안에 ICA 웹사이트나 MyICA 앱으로 SG Arrival Card를 무료로 제출해야 합니다. 제출 가능한 날짜 예시, 작성 순서, 환승객 예외, 사칭 사이트 주의를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>필리핀 eTravel 등록 — 72시간 전부터 무료, QR코드 저장과 30일 무비자</title>
+      <link>https://www.aroundtool.com/guide-philippines-etravel.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-philippines-etravel.html</guid>
+      <category>가이드</category>
+      <description>필리핀에 입국하려면 도착(또는 출발) 72시간 전부터 공식 사이트 etravel.gov.ph에서 eTravel을 무료로 등록하고 QR코드를 받아야 합니다. 작성 순서, 유료 대행 구별, 한국인 30일 무비자와 돌아가는 항공권 조건을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>말레이시아 MDAC — 도착 3일 전부터 무료 등록, 한국인 무비자 90일</title>
+      <link>https://www.aroundtool.com/guide-malaysia-mdac.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-malaysia-mdac.html</guid>
+      <category>가이드</category>
+      <description>말레이시아에 입국하는 외국인은 도착 3일 전부터 이민청 공식 사이트에서 디지털 입국카드(MDAC)를 무료로 등록해야 합니다. 대상과 예외, 작성 순서, 코타키나발루 입국, 사칭 사이트 주의, 한국인 90일 무비자 조건을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>해외에서 여권 분실 — 경찰 신고부터 긴급여권·여행증명서까지 순서</title>
+      <link>https://www.aroundtool.com/guide-lost-passport-abroad.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-lost-passport-abroad.html</guid>
+      <category>가이드</category>
+      <description>해외에서 여권을 잃어버리면 현지 경찰 분실 신고 → 재외공관 분실신고 → 긴급여권(보통 48시간) 또는 여행증명서 순서로 처리합니다. 준비물, 수수료, 귀국 항공편 확인, 영사콜센터 번호를 외교부 안내 기준으로 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>일본 면세 2026년 11월부터 리펀드 방식 — 세금 내고 사서 출국 때 돌려받기</title>
+      <link>https://www.aroundtool.com/guide-japan-tax-free-refund-2026.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-japan-tax-free-refund-2026.html</guid>
+      <category>가이드</category>
+      <description>2026년 11월 1일 구매분부터 일본 면세가 매장 즉시 면세에서 출국 때 환급받는 리펀드 방식으로 바뀌었습니다. 세금 포함 결제, 90일 안 공항 세관 확인, 환급 방법 등록, 소모품 50만 엔 상한·특수포장 폐지, 놓치면 못 받는 경우를 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>중국 무비자 30일 — 2026년 12월 31일까지, 2027년 연장은 검토 중</title>
+      <link>https://www.aroundtool.com/guide-china-visa-free-30-days.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-china-visa-free-30-days.html</guid>
+      <category>가이드</category>
+      <description>한국 일반여권 소지자는 2026년 12월 31일 24시까지 관광·비즈니스·친지 방문·교류·경유 목적으로 중국에 비자 없이 최대 30일 머물 수 있습니다. 2027년 연장 상황(11월 17일 중국 외교부 &#x27;검토&#x27;), 체류일 세는 법, 안 되는 목적을 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>기내 액체 반입 100ml 규정 — 1L 지퍼백 1개, 국내선·면세품·약 예외</title>
+      <link>https://www.aroundtool.com/guide-carry-on-liquids-rules.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-carry-on-liquids-rules.html</guid>
+      <category>가이드</category>
+      <description>국제선 기내에는 액체·젤·스프레이를 용기당 100ml 이하로 1L 투명 지퍼백 1개에만 담아 가져갈 수 있습니다. 지퍼백 크기, 국내선 예외, 고추장·김치, 약·이유식, 면세점 액체와 환승 때 주의점을 인천공항 안내 기준으로 정리했습니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>면세점 가격 비교 계산기 — 달러가·환율·적립금 넣고 국내가와 비교</title>
+      <link>https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html</guid>
+      <category>생활툴</category>
+      <description>면세점 달러 가격, 할인율, 적립금, 카드 결제 환율과 국내 최저가를 넣으면 면세점 실제 원화 부담과 어느 쪽이 얼마나 싼지 계산하고, 이번 여행 합계가 입국 면세한도 800달러를 넘는지 함께 확인합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>여행 남은 예산 계산기 — 남은 날 하루에 얼마 쓸 수 있나</title>
+      <link>https://www.aroundtool.com/daily_budget_left_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/daily_budget_left_calculator.html</guid>
+      <category>생활툴</category>
+      <description>여행 전체 예산, 지금까지 쓴 돈, 아직 낼 고정 비용(남은 숙박비·예약 투어), 남은 일수, 비상금을 넣으면 남은 날 하루에 쓸 수 있는 돈과 처음 계획 대비 여유·초과를 계산합니다.</description>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>여행 환전 금액 계산기 — 현금 얼마 바꿔 갈까, 카드와 나누기</title>
       <link>https://www.aroundtool.com/travel_cash_amount_calculator.html</link>
