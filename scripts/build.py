@@ -239,6 +239,9 @@ PAGE_DATES.update({s + ".html": "2026-11-11" for s, _, _ in TRIP_PAGES_1111})
 from trips_1117 import TRIP_PAGES_1117  # noqa: E402  (2026-11-17 대표 지시 여행 5곳: 서울·대구·인천·하코네·고베)
 TRIP_PAGES += TRIP_PAGES_1117
 PAGE_DATES.update({s + ".html": "2026-11-17" for s, _, _ in TRIP_PAGES_1117})
+from trips_1118 import TRIP_PAGES_1118  # noqa: E402  (2026-11-18 대표 지시 여행 10곳)
+TRIP_PAGES += TRIP_PAGES_1118
+PAGE_DATES.update({s + ".html": "2026-11-18" for s, _, _ in TRIP_PAGES_1118})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -845,7 +848,9 @@ GUIDE_LINKS = {  # 가이드 ↔ 계산기
 }
 TRIP_TOOLS = {"travel-osaka.html": ["japan_travel_calculator", "exchange_rate_calculator"],
               "travel-tokyo.html": ["tokyo_subway_ticket_calculator", "japan_tax_refund_calculator", "japan_accommodation_tax_calculator"],
-              "travel-kyoto.html": ["japan_accommodation_tax_calculator", "japan_travel_calculator"],  # 11-17
+              "travel-kyoto.html": ["japan_accommodation_tax_calculator", "japan_travel_calculator"],
+              "travel-hiroshima.html": ["japan_accommodation_tax_calculator", "japan_tax_refund_calculator"], "travel-bali.html": ["travel_cash_amount_calculator", "exchange_rate_calculator"],
+              "travel-ulleungdo.html": ["domestic_trip_cost_calculator", "driving_break_plan_calculator"],  # 11-17
               "travel-jeju.html": ["fuel_economy_calculator", "camping_gear_calculator"],
               "travel-busan.html": ["fuel_economy_calculator"], "travel-sokcho.html": ["fuel_economy_calculator", "camping_gear_calculator"]}
 
