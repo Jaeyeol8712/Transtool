@@ -233,7 +233,7 @@
    "position": null
   }
  ],
- "made": "2026-11-17T23:26:47.136Z",
+ "made": "2026-11-18T04:20:37.251Z",
  "range": "2026-11-11 ~ 2026-11-17",
  "prevRange": "2026-11-04 ~ 2026-11-10",
  "cur": {
@@ -255,9 +255,9 @@
    "Organic Search": 126,
    "Direct": 49,
    "AI Assistant": 6,
-   "Unassigned": 4,
    "Organic Social": 3,
-   "Referral": 1
+   "Referral": 1,
+   "Unassigned": 1
   },
   "prev": {
    "Organic Search": 125,
