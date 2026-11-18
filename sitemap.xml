@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 542 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 552 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -1336,12 +1336,20 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-andong-jjimdak-alley.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-beolgyo-kkomak.html</loc>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-buan-gomso-jeotgal.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-bupyeong-kkangtong-night-market.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-busan-winter-gukmul.html</loc>
@@ -1356,6 +1364,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-chuncheon-dakgalbi-alley.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html</loc>
     <lastmod>2026-11-07</lastmod>
   </url>
@@ -1367,6 +1379,10 @@
     <loc>https://www.aroundtool.com/season-gangneung-chodang-sundubu.html</loc>
     <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-chodang-sundubu.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-gangneung-jungang-market.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gapyeong-jat.html</loc>
@@ -1458,6 +1474,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-mangwon-market-food.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-masan-agujjim.html</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
@@ -1468,6 +1488,10 @@
   <url>
     <loc>https://www.aroundtool.com/season-moseulpo-bangeo.html</loc>
     <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-namdaemun-galchi-alley.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-namdang-saejogae.html</loc>
@@ -1484,6 +1508,10 @@
   <url>
     <loc>https://www.aroundtool.com/season-pohang-gwamegi.html</loc>
     <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-pohang-jukdo-market.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-samcheok-gomchiguk.html</loc>
@@ -1510,8 +1538,20 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-sokcho-tourist-fish-market.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-sorae-jeotgal.html</loc>
     <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-suwon-tongdak-street.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-tongin-market-dosirak.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-tongyeong-gul.html</loc>
