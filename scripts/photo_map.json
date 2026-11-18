@@ -498,5 +498,18 @@
  ],
  "travel-bali.html": [
   "t-bali"
+ ],
+ "japan_tax_refund_calculator.html": [
+  "c-japan-taxfree"
+ ],
+ "travel-daegu.html": [
+  "c-daegu-seomun"
+ ],
+ "travel-incheon.html": [
+  "c-incheon-chinatown",
+  "c-incheon-songdo"
+ ],
+ "travel-kobe.html": [
+  "c-kobe-harborland"
  ]
 }
