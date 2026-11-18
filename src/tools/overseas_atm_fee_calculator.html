@@ -1,0 +1,35 @@
+<label for="at1">한 번에 뽑을 현지 돈</label>
+<input id="at1" type="number" inputmode="decimal" placeholder="예: 20000 (엔), 3000 (바트)"/>
+<label for="at2">환율 (원/현지 돈 1단위)</label>
+<input id="at2" type="number" inputmode="decimal" placeholder="예: 엔이면 9.5, 바트면 40"/>
+<label for="at3">인출 횟수</label>
+<input id="at3" type="number" inputmode="numeric" placeholder="1"/>
+<label for="at4">현지 ATM 수수료, 1회 (현지 돈)</label>
+<input id="at4" type="number" inputmode="decimal" placeholder="ATM 화면에 뜨는 금액, 없으면 0"/>
+<label for="at5">카드 해외 인출 수수료, 1회 (원)</label>
+<input id="at5" type="number" inputmode="numeric" placeholder="카드 상품설명서, 없으면 0"/>
+<label for="at6">카드 해외이용·브랜드 수수료 (%)</label>
+<input id="at6" type="number" inputmode="decimal" placeholder="카드 상품설명서, 없으면 0"/>
+<button onclick="calc_overseas_atm_fee()">인출 비용 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 비용 (원)</span><span class="result-value" id="atT">-</span></div>
+<div class="result-row"><span class="result-label">수수료 합계</span><span class="result-value" id="atF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">실질 수수료율</span><span class="result-value" id="atR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">한 번에 몰아 뽑으면</span><span class="result-value" id="atO" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function at_cost(a,x,n,l,c,p){var base=a*n*x,atm=l*n*x,pct=(a+l)*n*x*p/100,fix=c*n;return [base,atm+pct+fix];}
+function calc_overseas_atm_fee(){
+ var a=_v('at1'),x=_v('at2'),n=_v('at3'),l=_v('at4'),c=_v('at5'),p=_v('at6');
+ if(isNaN(a)||a<=0||isNaN(x)||x<=0) return alert('뽑을 금액과 환율을 입력해주세요.');
+ if(isNaN(n)||n<1)n=1; if(isNaN(l)||l<0)l=0; if(isNaN(c)||c<0)c=0; if(isNaN(p)||p<0)p=0; n=Math.floor(n);
+ var r=at_cost(a,x,n,l,c,p),o=at_cost(a*n,x,1,l,c,p);
+ _s('atT',_w(r[0]+r[1])+' (현지 돈 '+(a*n).toLocaleString('ko-KR')+')');
+ _s('atF',_w(r[1])); _s('atR',(Math.round(r[1]/r[0]*1000)/10)+'%');
+ _s('atO',n>1?'수수료 '+_w(o[1])+' (지금보다 '+_w(r[1]-o[1])+' 절약)':'인출 횟수를 늘려 비교해 보세요');
+ document.getElementById('result').classList.add('show');
+}
+</script>

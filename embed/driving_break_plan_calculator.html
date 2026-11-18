@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>장거리 운전 휴식 계획 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/driving_break_plan_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="장거리 운전 휴식 계획 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">장거리 운전 휴식 계획 계산기</p>
+<label for="db1">총 운전 거리 (km)</label>
+<input id="db1" type="number" inputmode="decimal" placeholder="지도 앱 경로 거리"/>
+<label for="db2">평균 속도 (km/h)</label>
+<input id="db2" type="number" inputmode="decimal" placeholder="지도 앱 예상 시간으로 계산, 예: 75"/>
+<label for="db3">출발 시각</label>
+<input id="db3" type="time"/>
+<label for="db4">쉬는 간격 (시간)</label>
+<input id="db4" type="number" inputmode="decimal" value="2"/>
+<label for="db5">한 번 쉬는 시간 (분)</label>
+<input id="db5" type="number" inputmode="numeric" value="15"/>
+<button onclick="calc_driving_break_plan()">휴식 계획 만들기</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">도착 예상</span><span class="result-value" id="dbA">-</span></div>
+<div class="result-row"><span class="result-label">운전 시간 · 휴식</span><span class="result-value" id="dbT" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">쉬는 때</span><span class="result-value" id="dbL" style="font-size:1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">졸리기 쉬운 시간대</span><span class="result-value" id="dbS" style="font-size:1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function db_t(m){m=((Math.round(m)%1440)+1440)%1440;return ('0'+Math.floor(m/60)).slice(-2)+':'+('0'+m%60).slice(-2);}
+function db_d(m){m=Math.round(m);var h=Math.floor(m/60),r=m%60;return (h?h+'시간 ':'')+r+'분';}
+function calc_driving_break_plan(){
+ var km=_v('db1'),sp=_v('db2'),ts=document.getElementById('db3').value,iv=_v('db4'),bk=_v('db5');
+ if(isNaN(km)||km<=0||isNaN(sp)||sp<=0) return alert('거리와 평균 속도를 입력해주세요.');
+ if(!ts) return alert('출발 시각을 입력해주세요.');
+ if(isNaN(iv)||iv<=0)iv=2; if(isNaN(bk)||bk<0)bk=15;
+ var dm=km/sp*60,nb=Math.max(0,Math.ceil(dm/(iv*60))-1),q=ts.split(':'),st=(+q[0])*60+(+q[1]),L=[],risky=false;
+ for(var i=1;i<=nb;i++){var at=st+i*iv*60+(i-1)*bk;L.push(i+'번째 '+db_t(at)+' ('+Math.round(sp*iv*i)+'km 지점)');}
+ var arr=st+dm+nb*bk;
+ for(var m=st;m<=arr;m+=10){var h=((Math.floor(m/60))%24+24)%24;if((h>=2&&h<6)||(h>=14&&h<16)){risky=true;break;}}
+ _s('dbA',db_t(arr)+(arr>=1440?' (다음 날)':'')); _s('dbT','운전 '+db_d(dm)+' + 휴식 '+nb+'번 '+db_d(nb*bk));
+ _s('dbL',nb?L.join(' / '):'쉬지 않아도 되는 거리입니다 (졸리면 바로 쉬기)');
+ _s('dbS',risky?'새벽 2~6시나 오후 2~4시를 지납니다. 이때는 더 자주 쉬세요':'졸음이 잦은 시간대(새벽 2~6시, 오후 2~4시)를 피합니다');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/driving_break_plan_calculator.html?utm_source=embed&amp;utm_campaign=driving_break_plan_calculator" target="_blank" rel="noopener">어라운드툴 장거리 운전 휴식 계획 계산기</a></p>
+</body>
+</html>

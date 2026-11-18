@@ -1,0 +1,33 @@
+<label for="kr1">결제 금액 (원)</label>
+<input id="kr1" type="number" inputmode="numeric" placeholder="예: 54400"/>
+<label for="kr2">승차권 요일</label>
+<select id="kr2"><option value="wk" selected>월~목</option><option value="we">금~일·공휴일</option></select>
+<label for="kr3">반환 시점</label>
+<select id="kr3">
+<option value="0">출발 2일 전까지</option><option value="1">출발 1일 전</option><option value="2" selected>당일 ~ 출발 3시간 전</option><option value="3">출발 3시간 전 ~ 출발 직전</option>
+<option value="4">출발 후 20분까지</option><option value="5">출발 후 20~60분</option><option value="6">출발 후 60분 ~ 도착 전</option><option value="7">도착 후</option></select>
+<label for="kr4">매수</label>
+<input id="kr4" type="number" inputmode="numeric" placeholder="1"/>
+<button onclick="calc_ktx_refund_fee()">위약금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">돌려받는 돈</span><span class="result-value" id="krB">-</span></div>
+<div class="result-row"><span class="result-label">위약금</span><span class="result-value" id="krF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">평일표였다면</span><span class="result-value" id="krW" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+var KR={wk:[0,0,0,5,15,40,70,100],we:['f400',5,10,20,30,40,70,100]};
+function kr_fee(t,i,p){var r=KR[t][i];return r==='f400'?Math.min(400,p):p*r/100;}
+function kr_lab(t,i){var r=KR[t][i];return r==='f400'?'400원':r===0?'무료':r===100?'반환 불가':r+'%';}
+function calc_ktx_refund_fee(){
+ var p=_v('kr1'),t=document.getElementById('kr2').value,i=+document.getElementById('kr3').value,n=_v('kr4');
+ if(isNaN(p)||p<=0) return alert('결제 금액을 입력해주세요.');
+ if(isNaN(n)||n<1)n=1;n=Math.floor(n);
+ var f=Math.floor(kr_fee(t,i,p))*n;
+ _s('krB',i===7?'반환 불가':_w(p*n-f)); _s('krF',_w(f)+' ('+kr_lab(t,i)+(n>1?' × '+n+'매':'')+')');
+ var fw=Math.floor(kr_fee('wk',i,p))*n; _s('krW',t==='wk'?'지금이 평일표 기준입니다':'위약금 '+_w(fw)+' ('+kr_lab('wk',i)+')');
+ document.getElementById('result').classList.add('show');
+}
+</script>

@@ -1,0 +1,43 @@
+<label for="fd1">노선</label>
+<select id="fd1" onchange="fd_route()"><option value="int" selected>국제선</option><option value="dom">국내선</option></select>
+<label for="fd2">사고 종류</label>
+<select id="fd2" onchange="fd_route()"><option value="delay" selected>지연 (도착 기준)</option><option value="cancel">결항 (국제선)</option></select>
+<label for="fd3" id="fd3l">도착 지연 시간 (시간)</label>
+<input id="fd3" type="number" inputmode="decimal" placeholder="예: 3.5"/>
+<label for="fd4">해당 구간 운임 (원)</label>
+<input id="fd4" type="number" inputmode="numeric" placeholder="편도 운임, 유류할증료·세금 제외"/>
+<label for="fd5">운항 시간 (결항일 때)</label>
+<select id="fd5"><option value="s" selected>4시간 이내</option><option value="l">4시간 초과</option></select>
+<label for="fd6">환율 (원/달러, 결항일 때)</label>
+<input id="fd6" type="number" inputmode="decimal" placeholder="달러 배상액 원화 환산용"/>
+<button onclick="calc_flight_delay_compensation()">배상액 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">예상 배상</span><span class="result-value" id="fdR">-</span></div>
+<div class="result-row"><span class="result-label">적용 기준</span><span class="result-value" id="fdB" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">다음 구간까지</span><span class="result-value" id="fdN" style="font-size:1.05rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function fd_route(){var c=document.getElementById('fd2').value==='cancel';document.getElementById('fd3l').textContent=c?'대체편까지 걸린 시간 (시간)':'도착 지연 시간 (시간)';}
+function calc_flight_delay_compensation(){
+ var r=document.getElementById('fd1').value,k=document.getElementById('fd2').value,h=_v('fd3'),f=_v('fd4'),long=document.getElementById('fd5').value==='l',x=_v('fd6');
+ if(isNaN(h)||h<0) return alert('시간을 입력해주세요.');
+ if(k==='cancel'){
+  if(r==='dom') return alert('국내선 결항은 대체편 시점에 따라 운임 비율로 배상합니다. 지연으로 계산하거나 본문 표를 보세요.');
+  var usd=h<=4?(long?300:200):(long?600:400);
+  _s('fdR','미화 '+usd+'달러'+(isNaN(x)||x<=0?'':' (약 '+_w(usd*x)+')'));
+  _s('fdB','국제선 결항, 운항 '+(long?'4시간 초과':'4시간 이내')+', 대체편 '+(h<=4?'4시간 이내':'4시간 초과'));
+  _s('fdN',h<=4?'대체편이 4시간을 넘기면 '+(long?600:400)+'달러':'이 기준의 최대 구간입니다 (대체편이 없으면 운임 환급 + 600달러)');
+ } else {
+  if(isNaN(f)||f<=0) return alert('해당 구간 운임을 입력해주세요.');
+  var T=r==='int'?[[2,4,10],[4,12,20],[12,1e9,30]]:[[1,2,10],[2,3,20],[3,1e9,30]],p=0,nx=T[0];
+  for(var i=0;i<T.length;i++){if(h>=T[i][0]&&h<T[i][1]){p=T[i][2];nx=T[i+1];}}
+  _s('fdR',p?_w(f*p/100)+' (운임의 '+p+'%)':'배상 기준 아래 (0원)');
+  _s('fdB',(r==='int'?'국제선':'국내선')+' 지연 '+h+'시간 → '+(p?p+'%':'해당 없음'));
+  _s('fdN',!p?(T[0][0]+'시간 이상 늦으면 '+T[0][2]+'%'):(nx?nx[0]+'시간 이상이면 '+nx[2]+'% ('+_w(f*nx[2]/100)+')':'이 기준의 최대 구간입니다'));
+ }
+ document.getElementById('result').classList.add('show');
+}
+</script>

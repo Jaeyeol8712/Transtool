@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일본 숙박세 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/japan_accommodation_tax_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="일본 숙박세 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">일본 숙박세 계산기</p>
+<label for="jt1">도시</label>
+<select id="jt1"><option value="kyoto" selected>교토시</option><option value="osaka">오사카부</option><option value="tokyo">도쿄도 (2027년 3월까지)</option><option value="tokyo27">도쿄도 (2027년 4월부터, 3%)</option></select>
+<label for="jt2">1박 숙박 요금, 방 전체 (엔)</label>
+<input id="jt2" type="number" inputmode="numeric" placeholder="소비세·식사 제외 숙박료"/>
+<label for="jt3">인원 (명)</label>
+<input id="jt3" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="jt4">숙박 (박)</label>
+<input id="jt4" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="jt5">환율 (원/100엔)</label>
+<input id="jt5" type="number" inputmode="decimal" placeholder="원화 환산용, 없으면 비워 두기"/>
+<button onclick="calc_japan_accommodation_tax()">숙박세 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">숙박세 합계</span><span class="result-value" id="jtT">-</span></div>
+<div class="result-row"><span class="result-label">1인 1박 요금 · 세액</span><span class="result-value" id="jtP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">원화 환산</span><span class="result-value" id="jtK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _y(x){return Math.round(x).toLocaleString('ko-KR')+'엔';}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+/* 2026-11-18 확인: 교토시(2026.3.1~ 5단계), 오사카부(2025.9.1~), 도쿄도(현행 / 2027.4.1~ 정률 3%, 1만3천 엔 미만 비과세) */
+function jt_tax(c,p){
+ if(c==='kyoto') return p<6000?200:p<20000?400:p<50000?1000:p<100000?4000:10000;
+ if(c==='osaka') return p<5000?0:p<15000?200:p<20000?400:500;
+ if(c==='tokyo') return p<10000?0:p<15000?100:200;
+ return p<13000?0:Math.floor(p*0.03);
+}
+function calc_japan_accommodation_tax(){
+ var c=document.getElementById('jt1').value,r=_v('jt2'),n=_v('jt3'),d=_v('jt4'),x=_v('jt5');
+ if(isNaN(r)||r<=0) return alert('1박 숙박 요금을 입력해주세요.');
+ if(isNaN(n)||n<1)n=1; if(isNaN(d)||d<1)d=1; n=Math.floor(n); d=Math.floor(d);
+ var pp=r/n,t=jt_tax(c,pp),tot=t*n*d;
+ _s('jtT',_y(tot)+' ('+_y(t)+' × '+n+'명 × '+d+'박)'); _s('jtP',_y(pp)+' · '+_y(t));
+ _s('jtK',isNaN(x)||x<=0?'환율을 넣으면 나옵니다':_w(tot*x/100));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/japan_accommodation_tax_calculator.html?utm_source=embed&amp;utm_campaign=japan_accommodation_tax_calculator" target="_blank" rel="noopener">어라운드툴 일본 숙박세 계산기</a></p>
+</body>
+</html>

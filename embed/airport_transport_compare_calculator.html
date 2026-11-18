@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공항 가는 교통비 비교 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/airport_transport_compare_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=d9f2042a">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="공항 가는 교통비 비교 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">공항 가는 교통비 비교 계산기</p>
+<label for="ap1">인원 (명)</label>
+<input id="ap1" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="ap2">주차 일수 (자가용일 때)</label>
+<input id="ap2" type="number" inputmode="numeric" placeholder="여행 일수, 예: 5"/>
+<label for="ap3">공항 주차 1일 요금 (원)</label>
+<input id="ap3" type="number" inputmode="numeric" placeholder="예: 장기주차장 하루 최대 요금"/>
+<label for="ap4">자가용 왕복 기름값·통행료 (원)</label>
+<input id="ap4" type="number" inputmode="numeric" placeholder="예: 30000"/>
+<label for="ap5">공항버스·리무진 1인 편도 (원)</label>
+<input id="ap5" type="number" inputmode="numeric" placeholder="버스 회사 요금표, 없으면 비워 두기"/>
+<label for="ap6">공항철도 1인 편도 + 역까지 교통비 (원)</label>
+<input id="ap6" type="number" inputmode="numeric" placeholder="없으면 비워 두기"/>
+<label for="ap7">택시 편도 요금 (원)</label>
+<input id="ap7" type="number" inputmode="numeric" placeholder="지도 앱 예상 요금, 없으면 비워 두기"/>
+<button onclick="calc_airport_transport_compare()">왕복 비용 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">가장 싼 방법</span><span class="result-value" id="apW">-</span></div>
+<div class="result-row"><span class="result-label">자가용 + 주차</span><span class="result-value" id="apC" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공항버스</span><span class="result-value" id="apB" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">공항철도</span><span class="result-value" id="apR" style="font-size:1.05rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">택시 왕복</span><span class="result-value" id="apT" style="font-size:1.05rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+function _w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_airport_transport_compare(){
+ var n=_v('ap1'),d=_v('ap2'),pk=_v('ap3'),g=_v('ap4'),b=_v('ap5'),r=_v('ap6'),t=_v('ap7');
+ if(isNaN(n)||n<1) return alert('인원을 입력해주세요.'); n=Math.floor(n);
+ var o=[];
+ if(!isNaN(d)&&d>0&&!isNaN(pk)&&pk>=0){var c=d*pk+(isNaN(g)?0:g);o.push(['자가용 + 주차',c]);_s('apC',_w(c)+' (주차 '+_w(d*pk)+')');}else _s('apC','주차 일수·요금을 넣으면 나옵니다');
+ if(!isNaN(b)&&b>0){o.push(['공항버스',b*2*n]);_s('apB',_w(b*2*n)+' ('+_w(b)+' × 2 × '+n+'명)');}else _s('apB','-');
+ if(!isNaN(r)&&r>0){o.push(['공항철도',r*2*n]);_s('apR',_w(r*2*n));}else _s('apR','-');
+ if(!isNaN(t)&&t>0){o.push(['택시',t*2]);_s('apT',_w(t*2)+' (1인 '+_w(t*2/n)+')');}else _s('apT','-');
+ if(!o.length) return alert('비교할 교통수단 요금을 하나 이상 넣어주세요.');
+ o.sort(function(x,y){return x[1]-y[1];});
+ _s('apW',o[0][0]+' '+_w(o[0][1])+(o[1]?' (다음 '+o[1][0]+'보다 '+_w(o[1][1]-o[0][1])+' 쌈)':''));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/airport_transport_compare_calculator.html?utm_source=embed&amp;utm_campaign=airport_transport_compare_calculator" target="_blank" rel="noopener">어라운드툴 공항 가는 교통비 비교 계산기</a></p>
+</body>
+</html>

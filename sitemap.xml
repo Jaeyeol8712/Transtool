@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 532 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 542 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
@@ -28,6 +28,10 @@
   <url>
     <loc>https://www.aroundtool.com/about.html</loc>
     <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/accommodation_cost_compare_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/acquisition_tax_calculator.html</loc>
@@ -42,6 +46,10 @@
     <loc>https://www.aroundtool.com/airport_departure_time_calculator.html</loc>
     <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-departure-board.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/airport_transport_compare_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/alcohol_calorie_calculator.html</loc>
@@ -237,6 +245,10 @@
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/driving_break_plan_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/dsr_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-6.jpg</image:loc></image:image>
@@ -288,6 +300,14 @@
   <url>
     <loc>https://www.aroundtool.com/exercise_met_calorie_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/flight_arrival_time_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/flight_delay_compensation_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/four_insurance_calculator.html</loc>
@@ -977,6 +997,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/japan_accommodation_tax_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/japan_tax_refund_calculator.html</loc>
     <lastmod>2026-11-17</lastmod>
   </url>
@@ -1156,6 +1180,10 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/ktx_refund_fee_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/loan_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-apartment-3.jpg</image:loc></image:image>
@@ -1191,12 +1219,20 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/mileage_value_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/monthly_rent_tax_credit_calculator.html</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/moving_cost_calculator.html</loc>
     <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/overseas_atm_fee_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/overseas_card_fee_calculator.html</loc>
@@ -2380,6 +2416,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-ys-hyangil.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-ys-aqua.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-ys-dolsanpark.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel_cash_amount_calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc>

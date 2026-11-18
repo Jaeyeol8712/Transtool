@@ -1,0 +1,36 @@
+<label for="fa1">출발 날짜 (출발지 현지)</label>
+<input id="fa1" type="date"/>
+<label for="fa2">출발 시각 (출발지 현지)</label>
+<input id="fa2" type="time"/>
+<label for="fa3">비행 시간 (시간)</label>
+<input id="fa3" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="fa4">비행 시간 (분)</label>
+<input id="fa4" type="number" inputmode="numeric" placeholder="예: 20"/>
+<label for="fa5">도착지 시차 (출발지보다 몇 시간 빠른가)</label>
+<select id="fa5">
+<option value="0" selected>같음 (일본 · 한국)</option><option value="-1">1시간 느림 (대만 · 홍콩 · 필리핀 · 싱가포르 · 중국)</option><option value="-2">2시간 느림 (베트남 · 태국)</option>
+<option value="-3.5">3시간 30분 느림 (인도)</option><option value="1">1시간 빠름 (괌 · 사이판)</option><option value="-8">8시간 느림 (유럽 중부 겨울)</option>
+<option value="-9">9시간 느림 (영국 겨울)</option><option value="-14">14시간 느림 (미국 동부 겨울)</option><option value="-17">17시간 느림 (미국 서부 겨울)</option><option value="-19">19시간 느림 (하와이)</option>
+<option value="9">9시간 빠름 (유럽 중부 → 한국 방향)</option><option value="17">17시간 빠름 (미국 서부 → 한국 방향)</option></select>
+<button onclick="calc_flight_arrival_time()">도착 시각 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">도착 (도착지 현지 시각)</span><span class="result-value" id="faL">-</span></div>
+<div class="result-row"><span class="result-label">그때 출발지 시각</span><span class="result-value" id="faH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">달력상 차이</span><span class="result-value" id="faD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function _v(i){return parseFloat(document.getElementById(i).value);}
+function _s(i,t){document.getElementById(i).textContent=t;}
+var WD=['일','월','화','수','목','금','토'];
+function fa_fmt(d){return (d.getUTCMonth()+1)+'월 '+d.getUTCDate()+'일 ('+WD[d.getUTCDay()]+') '+('0'+d.getUTCHours()).slice(-2)+':'+('0'+d.getUTCMinutes()).slice(-2);}
+function calc_flight_arrival_time(){
+ var ds=document.getElementById('fa1').value,ts=document.getElementById('fa2').value,h=_v('fa3'),m=_v('fa4'),z=parseFloat(document.getElementById('fa5').value);
+ if(!ds||!ts) return alert('출발 날짜와 시각을 입력해주세요.');
+ if(isNaN(h))h=0; if(isNaN(m))m=0; if(h<0||m<0||h+m<=0) return alert('비행 시간을 입력해주세요.');
+ var p=ds.split('-'),q=ts.split(':'),dep=Date.UTC(+p[0],+p[1]-1,+p[2],+q[0],+q[1]),home=new Date(dep+(h*60+m)*60000),loc=new Date(home.getTime()+z*3600000);
+ _s('faL',fa_fmt(loc)); _s('faH',fa_fmt(home));
+ var dd=Math.round((Date.UTC(loc.getUTCFullYear(),loc.getUTCMonth(),loc.getUTCDate())-Date.UTC(+p[0],+p[1]-1,+p[2]))/86400000);
+ _s('faD',dd===0?'출발한 날 도착':dd>0?dd+'일 뒤 도착 (현지 날짜 기준)':(-dd)+'일 앞선 날짜에 도착 (날짜변경선)');
+ document.getElementById('result').classList.add('show');
+}
+</script>
