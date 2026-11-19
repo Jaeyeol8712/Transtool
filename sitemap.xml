@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 602 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 608 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
@@ -140,7 +140,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/connect.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/contact.html</loc>
@@ -1830,6 +1830,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-ai-steam-ultra/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-bespoke-foodshowcase-902l.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-foodshowcase-902l/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-foodshowcase-902l/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-foodshowcase-902l/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/bespoke-foodshowcase-902l/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-c-type-65w-charger.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/c-type-65w-charger/product.jpg</image:loc></image:image>
@@ -1869,6 +1877,14 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/danang-5days/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-dunoen-ps-maxplus.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/dunoen-ps-maxplus/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/dunoen-ps-maxplus/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/dunoen-ps-maxplus/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/dunoen-ps-maxplus/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-east-europe-3countries.html</loc>
@@ -1956,12 +1972,28 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/jbl-authentics-200/3.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/shop-jmw-airjet-ultra-pro.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jmw-airjet-ultra-pro/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jmw-airjet-ultra-pro/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jmw-airjet-ultra-pro/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/jmw-airjet-ultra-pro/3.png</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/shop-majangdong-hanwoo-gift.html</loc>
     <lastmod>2026-11-03</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/majangdong-hanwoo-gift/product.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/majangdong-hanwoo-gift/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/majangdong-hanwoo-gift/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/majangdong-hanwoo-gift/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-maxcut-pro-chrome.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/maxcut-pro-chrome/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/maxcut-pro-chrome/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/maxcut-pro-chrome/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/maxcut-pro-chrome/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-mesh-office-chair.html</loc>
@@ -2028,6 +2060,22 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/1.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/2.png</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/shop/queens-collagen-rg3/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-s23-ultra-magsafe-case.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/s23-ultra-magsafe-case/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/s23-ultra-magsafe-case/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/s23-ultra-magsafe-case/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/s23-ultra-magsafe-case/3.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/shop-samsung-business-tv-50.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/samsung-business-tv-50/product.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/samsung-business-tv-50/1.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/samsung-business-tv-50/2.png</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/shop/samsung-business-tv-50/3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/shop-shaving-foam-cream.html</loc>

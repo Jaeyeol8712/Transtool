@@ -104,8 +104,8 @@
 "h": "86a4f14785cd530c"
 },
 "connect.html": {
-"d": "2026-11-03",
-"h": "de8fde0cd11c3cc7"
+"d": "2026-11-19",
+"h": "846182c7488d4d08"
 },
 "contact.html": {
 "d": "2026-11-03",
@@ -965,7 +965,7 @@
 },
 "index.html": {
 "d": "2026-11-19",
-"h": "c009b879a6cd8318"
+"h": "bf819218eb6a63f5"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -1659,6 +1659,10 @@
 "d": "2026-11-03",
 "h": "76892814edae4895"
 },
+"shop-bespoke-foodshowcase-902l.html": {
+"d": null,
+"h": "c0006b31c7e9bcd1"
+},
 "shop-c-type-65w-charger.html": {
 "d": "2026-11-03",
 "h": "e405dc573619c6e6"
@@ -1678,6 +1682,10 @@
 "shop-danang-5days.html": {
 "d": "2026-11-03",
 "h": "dcf73c745b8fdfa2"
+},
+"shop-dunoen-ps-maxplus.html": {
+"d": "2026-11-19",
+"h": "9a9fbfcba3adff8d"
 },
 "shop-east-europe-3countries.html": {
 "d": "2026-11-03",
@@ -1719,9 +1727,17 @@
 "d": "2026-11-07",
 "h": "6b5d0d99ba2f081f"
 },
+"shop-jmw-airjet-ultra-pro.html": {
+"d": null,
+"h": "72a69548ac330b7a"
+},
 "shop-majangdong-hanwoo-gift.html": {
 "d": "2026-11-03",
 "h": "a6f7896cda47f510"
+},
+"shop-maxcut-pro-chrome.html": {
+"d": "2026-11-19",
+"h": "110279566e9a1d32"
 },
 "shop-mesh-office-chair.html": {
 "d": "2026-11-03",
@@ -1754,6 +1770,14 @@
 "shop-queens-collagen-rg3.html": {
 "d": "2026-11-03",
 "h": "ed56879e32950edc"
+},
+"shop-s23-ultra-magsafe-case.html": {
+"d": "2026-11-19",
+"h": "1cc2508bf0087570"
+},
+"shop-samsung-business-tv-50.html": {
+"d": null,
+"h": "8b7c085f3b935df5"
 },
 "shop-shaving-foam-cream.html": {
 "d": "2026-11-03",
@@ -1789,7 +1813,7 @@
 },
 "sitemap.html": {
 "d": "2026-11-19",
-"h": "9f044007e4d8b698"
+"h": "43c1b7fe605216cb"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
