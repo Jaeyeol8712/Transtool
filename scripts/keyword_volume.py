@@ -23,7 +23,7 @@ def n(v):
 def main():
     seeds = [l.strip().replace(" ", "") for l in open("scripts/kw_queue.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
     out = {"checked": time.strftime("%Y-%m-%d %H:%M"), "seeds": {},
-           "secrets": {k: len(v) for k, v in (("customer_id", CID), ("api_key", KEY), ("secret", SEC))}, "cid_digits": CID.isdigit(), "cid_shape": {"digits": sum(c.isdigit() for c in CID), "ascii_letters": sum(c.isascii() and c.isalpha() for c in CID), "korean": sum("가" <= c <= "힣" for c in CID), "other": "".join(sorted({c for c in CID if not c.isalnum()}))}}
+           "secrets": {k: len(v) for k, v in (("customer_id", CID), ("api_key", KEY), ("secret", SEC))}}
     for i in range(0, len(seeds), 5):
         batch = seeds[i:i + 5]
         try:
@@ -35,8 +35,7 @@ def main():
             out.setdefault("errors", []).append(f"{batch}: {e}")
             continue
         for s in batch:
-            rel = [r for r in rows if s in r["relKeyword"] or r["relKeyword"] == s]
-            rel = sorted(rel, key=lambda r: -(n(r["monthlyPcQcCnt"]) + n(r["monthlyMobileQcCnt"])))[:30]
+            rel = sorted(rows, key=lambda r: (r["relKeyword"] != s, -(n(r["monthlyPcQcCnt"]) + n(r["monthlyMobileQcCnt"]))))[:40]
             out["seeds"][s] = [{"kw": r["relKeyword"], "pc": n(r["monthlyPcQcCnt"]), "mo": n(r["monthlyMobileQcCnt"]),
                                 "total": n(r["monthlyPcQcCnt"]) + n(r["monthlyMobileQcCnt"]), "comp": r.get("compIdx")} for r in rel]
         time.sleep(1)
