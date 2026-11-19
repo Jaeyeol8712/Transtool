@@ -1447,3 +1447,14 @@ body.b .app .l span,.at-tool .toolbar span{font-size:.875rem}
 .ah-sub{font-size:.875rem}
 html body.b .at-content .l span,html body .at-tool .toolbar span{font-size:.875rem!important}
 .vx-check li{border-top:1px solid var(--at-line)}
+
+/* ===== 2026-11-19 대표 확정: 사이트 전체 새 틀(모양) =====
+   흰 배경 · 제목/소제목 검정 볼드 · 사이드바는 추천 모음 새 글만 · 아래쪽 함께 보기·푸터 링크 묶음 제거 · 단계 번호 빨강 */
+html body,html body.b,body main,body .at-page,body .b-card,body .at-tool{background:#fff!important;box-shadow:none!important}
+body .b-card{border:1px solid #EEF0F3;border-radius:16px}
+body .at-page-head h1,body .at-prose h2,body .at-prose h3,body .b-card h2,body .b-ht{color:#111!important;font-weight:800!important}
+body .at-side>*:not(.is-shop){display:none!important}
+body a.at-klink,body .at-related,body .at-footer-brand,body .at-footer-cols{display:none!important}
+body .b-num{background:#FFF1F2!important;color:#E11D48!important}
+body .at-steps li::marker{color:#E11D48;font-weight:800}
+body .at-prose mark,body .at-prose b{background:none}
