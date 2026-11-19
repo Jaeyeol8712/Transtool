@@ -3166,6 +3166,21 @@ def build_search_index():
 # 실행
 # ════════════════════════════════════════════════════════════════
 
+def hub_v2_data():
+    """카테고리 첫 화면 새 틀(hub_v2)에 넘길 여행·가이드 목록 (2026-11-19)."""
+    trips = [(q["name"].replace(" 여행", ""), "/" + q["file"], "국내" if q.get("kind") == "국내" else "해외")
+             for q in PAGES.values() if q.get("section") == "trip"]
+    order = [GUIDE_GROUPS[2], GUIDE_GROUPS[0], GUIDE_GROUPS[1]]
+    guides = []
+    for g in sorted(GUIDES, key=lambda x: x.get("date", ""), reverse=True):
+        name = next((n for n, keys in order if any(k in g["title"] for k in keys)), "생활·건강·여행")
+        short = re.sub(r"\s*\(.*?\)$", "", re.split(r"(?<=\?) ", g["title"].split(" — ")[0])[0])
+        guides.append((short, f"/guide-{g['slug']}.html", name))
+    text_tools = [("글자수 세기", "/character_counter.html", None), ("맞춤법 검사", "/spell_checker.html", None), ("띄어쓰기 검사", "/spacing_checker.html", None)]
+    text_tools = [t for t in text_tools if os.path.exists(os.path.join(ROOT, t[1].lstrip("/")))]
+    return {"trips": trips, "guides": guides, "text_tools": text_tools}
+
+
 def main():
     for slug in CALCS:
         build_calc(slug)
@@ -3197,6 +3212,7 @@ def main():
     build_feed()
     build_llms()
     m = build_search_index()
+    import hub_v2; hub_v2.run(ROOT, hub_v2_data())
     print(f"shop_posts={len(SHOP)} live={len(SHOP_LIVE)}")
     print(f"pages={len(PAGES)} tools={N_TOOLS} food_boards={len(FOOD)} places={N_PLACES} gu={N_GU} sitemap={n} search={m}")
 
