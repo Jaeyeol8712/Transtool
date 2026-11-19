@@ -248,7 +248,7 @@ const spotOf = id => (AROUND && AROUND.spots && AROUND.spots[id]) || {};
 const hiRoute = (txt, keys) => { let h = esc(txt); for (const k of (keys || []).slice().sort((a, b) => b.length - a.length)) { const e = esc(k); if (e && h.includes(e)) { h = h.split(e).join(`<b>${e}</b>`); break; } } return h; };
 const ic = (name, s = 18) => ICONS[name].replace('<svg ', `<svg width="${s}" height="${s}" `);
 function placeDetail(id) {
-  if (typeof PDX2 === 'function' && PDX2(id)) return placeDetail2(id);
+  return placeDetail2(id);
   const p = PBY[id], di = placeInPlan(id), { s: sp, g } = spotOf(id), ko = S.lang !== 'ko' ? ` lang="ko"` : '';
   const col = CATS[p.c].col, best = { am: T.bestAmL, eve: T.bestEveL, night: T.bestNightL }[p.best];
   // 한눈에 보는 정보: 명소 안내가 있으면 그 내용(한국어), 없으면 K링크 기본값
