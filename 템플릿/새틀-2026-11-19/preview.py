@@ -2,6 +2,7 @@ import re,sys
 SRC='/home/claude/transtool/'
 CSS='''<style>
 body,main,.at-page,.at-page-head,.b-card,.at-tool{background:#fff!important;box-shadow:none!important}
+html body.b,html body{background:#fff!important}.at-footer-brand,.at-footer-cols{display:none!important}html,body,.at-wrap,.at-main,.at-footer,.at-side,.at-box,.at-page,.b-card,.at-hub,header,main,footer{background:#fff!important;box-shadow:none!important}
 .nt{color:#222}
 .nt p{font-size:16px!important;line-height:1.6!important;margin:0 0 10px!important;color:#222}
 .nt b,.nt strong{color:#111}
