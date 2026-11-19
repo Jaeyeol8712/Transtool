@@ -1,6 +1,6 @@
 {
- "done": 98,
- "todo": 182,
+ "done": 132,
+ "todo": 176,
  "regions": {
   "seoul": [
    {
@@ -22,11 +22,6 @@
     "id": "insa",
     "name": "인사동 쌈지길",
     "guide": true
-   },
-   {
-    "id": "museum",
-    "name": "국립중앙박물관",
-    "guide": false
    },
    {
     "id": "gwangjang",
@@ -119,19 +114,9 @@
     "guide": true
    },
    {
-    "id": "seoulforest",
-    "name": "서울숲",
-    "guide": false
-   },
-   {
     "id": "coex",
     "name": "코엑스 K-POP 광장·별마당도서관",
     "guide": true
-   },
-   {
-    "id": "deoksugung",
-    "name": "덕수궁",
-    "guide": false
    },
    {
     "id": "namdaemun",
@@ -160,11 +145,6 @@
    }
   ],
   "osaka": [
-   {
-    "id": "os_dotonbori",
-    "name": "도톤보리",
-    "guide": true
-   },
    {
     "id": "os_shinsaibashi",
     "name": "신사이바시",
@@ -218,11 +198,6 @@
     "guide": true
    },
    {
-    "id": "ky_fushimi",
-    "name": "후시미 이나리 신사",
-    "guide": true
-   },
-   {
     "id": "ky_bamboo",
     "name": "아라시야마 대나무숲",
     "guide": true
@@ -262,11 +237,6 @@
    {
     "id": "fk_yatai",
     "name": "나카스 야타이",
-    "guide": true
-   },
-   {
-    "id": "fk_dazaifu",
-    "name": "다자이후 텐만구",
     "guide": true
    },
    {
@@ -331,11 +301,6 @@
    {
     "id": "ok_manzamo",
     "name": "만좌모",
-    "guide": true
-   },
-   {
-    "id": "ok_churaumi",
-    "name": "츄라우미 수족관",
     "guide": true
    },
    {
@@ -565,11 +530,6 @@
     "guide": true
    },
    {
-    "id": "tp_jiufen",
-    "name": "지우펀",
-    "guide": true
-   },
-   {
     "id": "tp_shifen",
     "name": "스펀",
     "guide": true
@@ -584,11 +544,6 @@
    {
     "id": "kh_dome",
     "name": "메이리다오역 빛의 돔",
-    "guide": true
-   },
-   {
-    "id": "kh_liuhe",
-    "name": "리우허 야시장",
     "guide": true
    },
    {
@@ -653,11 +608,6 @@
    {
     "id": "hk_ferry",
     "name": "스타페리",
-    "guide": true
-   },
-   {
-    "id": "hk_peak",
-    "name": "피크트램·빅토리아 피크",
     "guide": true
    },
    {
@@ -752,11 +702,6 @@
     "guide": true
    },
    {
-    "id": "nt_vin",
-    "name": "빈원더스(혼째섬)",
-    "guide": true
-   },
-   {
     "id": "nt_hopping",
     "name": "호핑투어(혼문섬)",
     "guide": true
@@ -781,11 +726,6 @@
    {
     "id": "hc_buivien",
     "name": "부이비엔 거리",
-    "guide": true
-   },
-   {
-    "id": "hc_cuchi",
-    "name": "구찌 터널",
     "guide": true
    },
    {
@@ -830,11 +770,6 @@
    {
     "id": "sg_merlion",
     "name": "멀라이언 공원",
-    "guide": true
-   },
-   {
-    "id": "sg_gardens",
-    "name": "가든스 바이 더 베이",
     "guide": true
    },
    {
@@ -963,6 +898,45 @@
    {
     "id": "sn_north",
     "name": "북부(만세절벽·새섬·그로토)",
+    "guide": true
+   }
+  ],
+  "bali": [
+   {
+    "id": "bl_ubudmarket",
+    "name": "우붓 시장",
+    "guide": true
+   },
+   {
+    "id": "bl_jimbaran",
+    "name": "짐바란 해변",
+    "guide": true
+   },
+   {
+    "id": "bl_seminyak",
+    "name": "스미냑 해변",
+    "guide": true
+   },
+   {
+    "id": "bl_kelingking",
+    "name": "누사페니다 켈링킹 해변",
+    "guide": true
+   }
+  ],
+  "qingdao": [
+   {
+    "id": "qd_church",
+    "name": "천주교당",
+    "guide": true
+   },
+   {
+    "id": "qd_54",
+    "name": "5·4광장",
+    "guide": true
+   },
+   {
+    "id": "qd_laoshan",
+    "name": "라오산",
     "guide": true
    }
   ]

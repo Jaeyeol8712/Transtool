@@ -40,6 +40,8 @@ def region_of_code(code, name):
     if code == '32030': return 'gangneung'
     if code == '36020': return 'yeosu'
     if code in ('35011', '35012'): return 'jeonju'
+    if code == '35020': return 'gunsan'
+    if code == '36010': return 'mokpo'
     return None
 MF = [(f['properties']['code'], f['properties']['name'].replace('전주시', ''), shape(f['geometry']).buffer(0)) for f in muni['features']]
 full = json.load(open(KDIR + '/skorea_municipalities_geo.json', encoding='utf-8'))
@@ -62,7 +64,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
- '완산구':['完山区','Wansan-gu','完山区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
+ '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
  'jeju': [('jj_city', ['jj_pork','jj_dongmun','jj_dutyfree'], ['제주 시내','济州市区','Jeju City','済州市内']),
@@ -83,6 +85,12 @@ ZONES = {
  'jeonju': [('jn_hanok', ['jn_hanok','jn_bibim','jn_night','jn_gyeonggi','jn_tea','jn_jeondong'], ['한옥마을 일대','韩屋村一带','Hanok Village area','韓屋村一帯'])],
  'yeosu': [('ys_down', ['ys_night','ys_gejang','ys_odong','ys_aqua','ys_cable','ys_dolsanpark'], ['여수 시내·오동도','丽水市区·梧桐岛','Downtown & Odongdo','麗水市内・梧桐島']),
            ('ys_hyangil', ['ys_hyangil'], ['향일암','向日庵','Hyangiram','向日庵'])],
+ 'gunsan': [('gs_down', ['gs_museum','gs_chowon','gs_dongguksa','gs_market'], ['군산 원도심','群山旧城','Old Town Gunsan','群山旧市街']),
+            ('gs_east', ['gs_rail','gs_eunpa'], ['철길마을·은파','铁路村·银波湖','Railroad Village & Eunpa','線路村・銀波湖']),
+            ('gs_island', ['gs_seonyudo'], ['고군산군도','古群山群岛','Gogunsan Islands','古群山群島'])],
+ 'mokpo': [('mp_old', ['mp_modern','mp_yudal','mp_market','mp_cable'], ['원도심·유달산','旧城·儒达山','Old Town & Yudalsan','旧市街・儒達山']),
+           ('mp_gohado', ['mp_gohado'], ['고하도','高下岛','Gohado','高下島']),
+           ('mp_hadang', ['mp_gatbawi','mp_peace'], ['하당·평화광장','下塘·和平广场','Hadang & Peace Plaza','下塘・平和広場'])],
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),
@@ -133,6 +141,7 @@ for r, items in REG.items():
             reg['districts'].append({'id': code, 'n': [name] + GU_T.get(name, [name] * 3), 'ids': ids, 'g': rings_of(g.simplify(0.0008, preserve_topology=True), 4), 'kind': 'gu'})
     else:
         for zid, ids, names in ZONES[r]:
+            ids = [i for i in ids if i in pbyid]  # 지운 장소는 건너뜀
             pts = [pbyid[i] for i in ids]
             lat0 = sum(p['lat'] for p in pts) / len(pts); lng0 = sum(p['lng'] for p in pts) / len(pts)
             fwd, inv = proj_fn(lat0, lng0)

@@ -268,8 +268,8 @@
 "h": "3ced11921d056bfb"
 },
 "food.html": {
-"d": "2026-11-19",
-"h": "18c074b57dbc0a26"
+"d": "2026-11-20",
+"h": "9029b2a7facbf0d9"
 },
 "four_insurance_calculator.html": {
 "d": "2026-11-05",
@@ -964,8 +964,8 @@
 "h": "d2d90e2084eace77"
 },
 "index.html": {
-"d": "2026-11-19",
-"h": "15d85821d15b4984"
+"d": "2026-11-20",
+"h": "8e1b91e58b391a66"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -1300,8 +1300,8 @@
 "h": "d24d596ebf1fe3ec"
 },
 "season-andong-jjimdak-alley.html": {
-"d": "2026-11-19",
-"h": "781dd51b61cba8a8"
+"d": "2026-11-20",
+"h": "743f31b59f8cb563"
 },
 "season-beolgyo-kkomak.html": {
 "d": "2026-11-19",
@@ -1312,8 +1312,8 @@
 "h": "d74fdda9facfc123"
 },
 "season-bupyeong-kkangtong-night-market.html": {
-"d": "2026-11-19",
-"h": "cb46a90743e0e5ed"
+"d": "2026-11-20",
+"h": "2f22a1aa4fbc9d2d"
 },
 "season-busan-winter-gukmul.html": {
 "d": "2026-11-19",
@@ -1348,12 +1348,12 @@
 "h": "f2b66c00e82d0245"
 },
 "season-gangneung-chodang-sundubu.html": {
-"d": "2026-11-19",
-"h": "818e668096526a86"
+"d": "2026-11-20",
+"h": "6a1335d1fb731169"
 },
 "season-gangneung-jungang-market.html": {
-"d": "2026-11-19",
-"h": "7c63a5f79c6bcaa6"
+"d": "2026-11-20",
+"h": "1e9ebc48e286b132"
 },
 "season-gapyeong-jat.html": {
 "d": "2026-11-19",
@@ -1375,13 +1375,17 @@
 "d": "2026-11-19",
 "h": "37a596cf24bc1a5d"
 },
+"season-gunsan-food.html": {
+"d": "2026-11-20",
+"h": "0c715d8e3719f02c"
+},
 "season-gwangcheon-saeujeot.html": {
 "d": "2026-11-19",
 "h": "6912786087f0afd0"
 },
 "season-gwangjang-market-food.html": {
-"d": "2026-11-19",
-"h": "8ab41a23ddf40cec"
+"d": "2026-11-20",
+"h": "f2f4ee99dbae4652"
 },
 "season-gwangju-yangdong-market-food.html": {
 "d": "2026-11-19",
@@ -1416,8 +1420,8 @@
 "h": "79c05a7e1645157c"
 },
 "season-jagalchi-winter-hoe.html": {
-"d": "2026-11-19",
-"h": "54acdfe2c4cc5c02"
+"d": "2026-11-20",
+"h": "2037e49226fffca7"
 },
 "season-jangheung-maesaengi.html": {
 "d": "2026-11-19",
@@ -1428,8 +1432,8 @@
 "h": "7558c368074134ae"
 },
 "season-jeju-dongmun-night-market.html": {
-"d": "2026-11-19",
-"h": "8148aaa8c09ac3a5"
+"d": "2026-11-20",
+"h": "17a723efc74cfebd"
 },
 "season-jeju-gamgyul.html": {
 "d": "2026-11-19",
@@ -1452,8 +1456,8 @@
 "h": "f4b9bcc2b94223cd"
 },
 "season-jeonju-nambu-night-market.html": {
-"d": "2026-11-19",
-"h": "909e60514f503b09"
+"d": "2026-11-20",
+"h": "6be1e61ba8be0ce7"
 },
 "season-jindo-daepa.html": {
 "d": "2026-11-19",
@@ -1464,12 +1468,16 @@
 "h": "68c9d6dba35f4add"
 },
 "season-mangwon-market-food.html": {
-"d": "2026-11-19",
-"h": "5796d4015d816771"
+"d": "2026-11-20",
+"h": "42b6ccde941e17ff"
 },
 "season-masan-agujjim.html": {
 "d": "2026-11-19",
 "h": "ad7cf445d2dd8f8a"
+},
+"season-mokpo-9mi.html": {
+"d": "2026-11-20",
+"h": "0ba484ebbbf75622"
 },
 "season-mokpo-hongeo-nakji.html": {
 "d": "2026-11-19",
@@ -1480,8 +1488,8 @@
 "h": "b71fbd15faf963fe"
 },
 "season-namdaemun-galchi-alley.html": {
-"d": "2026-11-19",
-"h": "b2b6b4c31860a21c"
+"d": "2026-11-20",
+"h": "62666e4c10acd8f7"
 },
 "season-namdang-saejogae.html": {
 "d": "2026-11-19",
@@ -1532,16 +1540,16 @@
 "h": "8377532e1bbafe48"
 },
 "season-sokcho-tourist-fish-market.html": {
-"d": "2026-11-19",
-"h": "e9f7b73080742e08"
+"d": "2026-11-20",
+"h": "1a46b577b89bf35d"
 },
 "season-sorae-jeotgal.html": {
 "d": "2026-11-19",
 "h": "207d5d33cf729a4d"
 },
 "season-suwon-tongdak-street.html": {
-"d": "2026-11-19",
-"h": "4a03ec696c8e50c9"
+"d": "2026-11-20",
+"h": "9a7f795b03d7f475"
 },
 "season-tongin-market-dosirak.html": {
 "d": "2026-11-19",
@@ -1574,6 +1582,10 @@
 "season-yeosu-dolsan-gat.html": {
 "d": "2026-11-19",
 "h": "430543ef7cdafb84"
+},
+"season-yeosu-food.html": {
+"d": "2026-11-20",
+"h": "71d60ebd70f11c80"
 },
 "seocho-michelin.html": {
 "d": "2026-11-19",
@@ -1812,8 +1824,8 @@
 "h": "b40c20c411500ecb"
 },
 "sitemap.html": {
-"d": "2026-11-19",
-"h": "2bc992d924a4d589"
+"d": "2026-11-20",
+"h": "148eb7fafc484f72"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -1907,9 +1919,17 @@
 "d": "2026-11-19",
 "h": "f6df0dea89b1ff74"
 },
+"travel-bali-tourist-levy.html": {
+"d": "2026-11-20",
+"h": "16b220dda47a11b3"
+},
+"travel-bali-ubud.html": {
+"d": "2026-11-20",
+"h": "26a82f0d1ed08848"
+},
 "travel-bali.html": {
-"d": "2026-11-19",
-"h": "fc74004da6951f79"
+"d": "2026-11-20",
+"h": "50997f700bac1096"
 },
 "travel-bangkok.html": {
 "d": "2026-11-19",
@@ -1987,13 +2007,21 @@
 "d": "2026-11-19",
 "h": "3c6dc6ff0e38d0e5"
 },
+"travel-fukuoka-dazaifu.html": {
+"d": "2026-11-20",
+"h": "901c3cad82e2a2ec"
+},
 "travel-fukuoka.html": {
-"d": "2026-11-19",
-"h": "c4553a209a7a2aeb"
+"d": "2026-11-20",
+"h": "68c0b9ea2837f463"
 },
 "travel-ganghwa.html": {
 "d": "2026-11-19",
 "h": "f06b88a0a8fbb083"
+},
+"travel-gangneung-anmok.html": {
+"d": "2026-11-20",
+"h": "626bc1f012d3f989"
 },
 "travel-gangneung.html": {
 "d": "2026-11-19",
@@ -2015,13 +2043,29 @@
 "d": "2026-11-19",
 "h": "b9e1de41be2d9674"
 },
+"travel-gunsan-attractions.html": {
+"d": "2026-11-20",
+"h": "86b440dd0df54377"
+},
+"travel-gunsan-seonyudo.html": {
+"d": "2026-11-20",
+"h": "bef04f834d2ea0c8"
+},
 "travel-gunsan.html": {
-"d": "2026-11-19",
-"h": "94cda5f6609777ab"
+"d": "2026-11-20",
+"h": "0e08c4ed344931c3"
 },
 "travel-gwangju.html": {
 "d": "2026-11-19",
 "h": "2eea8eb30ea553f3"
+},
+"travel-gyeongju-bulguksa.html": {
+"d": null,
+"h": "90414b4946e2fae2"
+},
+"travel-gyeongju-wolji-night.html": {
+"d": null,
+"h": "28e524c2a91395e0"
 },
 "travel-gyeongju.html": {
 "d": "2026-11-19",
@@ -2047,17 +2091,25 @@
 "d": "2026-11-19",
 "h": "7b593f4d94ee436e"
 },
+"travel-hochiminh-cu-chi.html": {
+"d": "2026-11-20",
+"h": "5a59d23939e1f108"
+},
 "travel-hochiminh.html": {
-"d": "2026-11-19",
-"h": "19c95725dee8c228"
+"d": "2026-11-20",
+"h": "df1804aa160b1180"
 },
 "travel-hongcheon.html": {
 "d": "2026-11-19",
 "h": "aaa9045dec18bd9e"
 },
+"travel-hongkong-peak-tram.html": {
+"d": "2026-11-20",
+"h": "f5bdb9699da183bb"
+},
 "travel-hongkong.html": {
-"d": "2026-11-19",
-"h": "165c69dbf5b65c9c"
+"d": "2026-11-20",
+"h": "37af7e482e43ab73"
 },
 "travel-incheon.html": {
 "d": "2026-11-19",
@@ -2071,6 +2123,10 @@
 "d": "2026-11-19",
 "h": "48758f93cbb1dbd6"
 },
+"travel-jeju-udo-ferry.html": {
+"d": "2026-11-20",
+"h": "66aca5b30daf3fee"
+},
 "travel-jeju.html": {
 "d": "2026-11-19",
 "h": "009a436b89417b64"
@@ -2078,6 +2134,10 @@
 "travel-jeongseon.html": {
 "d": "2026-11-19",
 "h": "5dd9cf123ec721db"
+},
+"travel-jeonju-gyeonggijeon.html": {
+"d": "2026-11-20",
+"h": "26b7968b32999689"
 },
 "travel-jeonju.html": {
 "d": "2026-11-19",
@@ -2095,9 +2155,13 @@
 "d": "2026-11-19",
 "h": "e0a1f84ce15f8fae"
 },
+"travel-kaohsiung-night-market.html": {
+"d": "2026-11-20",
+"h": "1d5a0da397246b9b"
+},
 "travel-kaohsiung.html": {
-"d": "2026-11-19",
-"h": "b6b89799afe39d32"
+"d": "2026-11-20",
+"h": "7733434c6a2b2ba8"
 },
 "travel-kobe.html": {
 "d": "2026-11-19",
@@ -2111,9 +2175,13 @@
 "d": "2026-11-19",
 "h": "8f40849f1157ac49"
 },
+"travel-kyoto-fushimi-inari.html": {
+"d": "2026-11-20",
+"h": "73eb53b89f2502a2"
+},
 "travel-kyoto.html": {
-"d": "2026-11-19",
-"h": "63a3972d0d914588"
+"d": "2026-11-20",
+"h": "172562daed9c66ce"
 },
 "travel-macau.html": {
 "d": "2026-11-19",
@@ -2123,9 +2191,17 @@
 "d": "2026-11-19",
 "h": "59178d013d47d3c0"
 },
+"travel-mokpo-attractions.html": {
+"d": "2026-11-20",
+"h": "0b5ba875a66c8778"
+},
+"travel-mokpo-cable-car.html": {
+"d": "2026-11-20",
+"h": "7f6cd0e7f120d75b"
+},
 "travel-mokpo.html": {
-"d": "2026-11-19",
-"h": "fe3f2bcf28d828ca"
+"d": "2026-11-20",
+"h": "20e23e578a62dee3"
 },
 "travel-muju.html": {
 "d": "2026-11-19",
@@ -2151,17 +2227,29 @@
 "d": "2026-11-19",
 "h": "f473e43bc9085af5"
 },
+"travel-nhatrang-vinwonders.html": {
+"d": "2026-11-20",
+"h": "b26e660325256d53"
+},
 "travel-nhatrang.html": {
-"d": "2026-11-19",
-"h": "7a6ee9511207f35c"
+"d": "2026-11-20",
+"h": "c677ccf95a4c81b4"
+},
+"travel-okinawa-churaumi.html": {
+"d": null,
+"h": "e4e3021be79c112b"
 },
 "travel-okinawa.html": {
-"d": "2026-11-19",
-"h": "86b7f94eb8c754e8"
+"d": "2026-11-20",
+"h": "0bb8811780e60fc5"
+},
+"travel-osaka-dotonbori.html": {
+"d": "2026-11-20",
+"h": "c5f5d330c79a7314"
 },
 "travel-osaka.html": {
-"d": "2026-11-19",
-"h": "0eec86eb11fa24bd"
+"d": "2026-11-20",
+"h": "bc5599410ea550a7"
 },
 "travel-paju.html": {
 "d": "2026-11-19",
@@ -2191,9 +2279,17 @@
 "d": "2026-11-19",
 "h": "8f319bf50212ee1e"
 },
+"travel-qingdao-beer-museum.html": {
+"d": "2026-11-20",
+"h": "8a1f1155019136de"
+},
+"travel-qingdao-food.html": {
+"d": "2026-11-20",
+"h": "3c29077941154ed2"
+},
 "travel-qingdao.html": {
-"d": "2026-11-19",
-"h": "5614359c7788219f"
+"d": "2026-11-20",
+"h": "226bd9d799c4998c"
 },
 "travel-saipan.html": {
 "d": "2026-11-19",
@@ -2207,9 +2303,21 @@
 "d": "2026-11-19",
 "h": "4ef47e8121710aad"
 },
+"travel-seoul-deoksugung.html": {
+"d": null,
+"h": "0a7ee02c7097c846"
+},
+"travel-seoul-forest.html": {
+"d": null,
+"h": "f106fb807cc6e78c"
+},
+"travel-seoul-national-museum.html": {
+"d": null,
+"h": "16fcc053a44b3756"
+},
 "travel-seoul.html": {
-"d": "2026-11-19",
-"h": "49968faad1f2e647"
+"d": "2026-11-20",
+"h": "4854d7508f52e392"
 },
 "travel-shanghai.html": {
 "d": "2026-11-19",
@@ -2219,9 +2327,13 @@
 "d": "2026-11-19",
 "h": "379d4ed2322f57da"
 },
+"travel-singapore-gardens-by-the-bay.html": {
+"d": "2026-11-20",
+"h": "47bb956427d2e816"
+},
 "travel-singapore.html": {
-"d": "2026-11-19",
-"h": "2031ac6f290d9d74"
+"d": "2026-11-20",
+"h": "71db47fcac7a2294"
 },
 "travel-sokcho.html": {
 "d": "2026-11-19",
@@ -2247,9 +2359,13 @@
 "d": "2026-11-19",
 "h": "673008c7fcecec8a"
 },
+"travel-taipei-jiufen.html": {
+"d": "2026-11-20",
+"h": "ad40b4b55af6dd52"
+},
 "travel-taipei.html": {
-"d": "2026-11-19",
-"h": "219ea89273571606"
+"d": "2026-11-20",
+"h": "00a85d7413661e1f"
 },
 "travel-takamatsu.html": {
 "d": "2026-11-19",
@@ -2291,13 +2407,17 @@
 "d": "2026-11-19",
 "h": "1612dddc4adedf17"
 },
+"travel-yeosu-hyangiram.html": {
+"d": "2026-11-20",
+"h": "7c01a2148033d8c8"
+},
 "travel-yeosu.html": {
 "d": "2026-11-19",
 "h": "d6f0c6bcf4787464"
 },
 "travel.html": {
-"d": "2026-11-19",
-"h": "62756c284f6e03d3"
+"d": "2026-11-20",
+"h": "3bf3810116c54318"
 },
 "travel_cash_amount_calculator.html": {
 "d": "2026-11-19",

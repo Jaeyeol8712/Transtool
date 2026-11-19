@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 608 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 638 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/klink/</loc>
@@ -11,11 +11,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
@@ -1432,7 +1432,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-andong-jjimdak-alley.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-andong-jjimdak.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1445,7 +1445,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-bupyeong-kkangtong-night-market.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-bupyeong-kkangtong.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1486,12 +1486,12 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gangneung-chodang-sundubu.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-chodang-sundubu.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gangneung-jungang-market.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-gangneung-market.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1516,12 +1516,16 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-gunsan-food.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-gwangcheon-saeujeot.html</loc>
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gwangjang-market-food.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-gwangjang-bindae.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-gwangjang-market.jpg</image:loc></image:image>
   </url>
@@ -1564,7 +1568,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jagalchi-winter-hoe.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-jagalchi-hoe.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1577,7 +1581,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jeju-dongmun-night-market.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-dongmun-night.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1602,7 +1606,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jeonju-nambu-night-market.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-jeonju-nambu-night.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1615,12 +1619,16 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-mangwon-market-food.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-mangwon.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-masan-agujjim.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-mokpo-9mi.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-mokpo-hongeo-nakji.html</loc>
@@ -1632,7 +1640,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-namdaemun-galchi-alley.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-namdaemun.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1686,7 +1694,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-sokcho-tourist-fish-market.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-sokcho-market.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1695,7 +1703,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-suwon-tongdak-street.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-suwon-chicken.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1731,6 +1739,10 @@
   <url>
     <loc>https://www.aroundtool.com/season-yeosu-dolsan-gat.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-yeosu-food.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/seocho-michelin.html</loc>
@@ -2150,7 +2162,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/sleep_calculator.html</loc>
@@ -2252,8 +2264,16 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-bali-tourist-levy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-bali-ubud.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-bali.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-bali.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2378,12 +2398,20 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-fukuoka-dazaifu.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-fukuoka.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-ganghwa.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gangneung-anmok.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-gangneung.html</loc>
@@ -2412,13 +2440,29 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-gunsan-attractions.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gunsan-seonyudo.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-gunsan.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-gwangju.html</loc>
     <lastmod>2026-11-19</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-gwangju.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gyeongju-bulguksa.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gyeongju-wolji-night.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-gyeongju.html</loc>
@@ -2461,16 +2505,24 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-hiroshima.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-hochiminh-cu-chi.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-hochiminh.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-hongcheon.html</loc>
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-hongkong-peak-tram.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-hongkong.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-incheon.html</loc>
@@ -2485,6 +2537,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-jecheon.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-jeju-udo-ferry.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-jeju.html</loc>
@@ -2507,6 +2563,10 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-jeonju-gyeonggijeon.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-jeonju.html</loc>
     <lastmod>2026-11-19</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-jn-hanok.jpg</image:loc></image:image>
@@ -2527,8 +2587,12 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-kanazawa.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-kaohsiung-night-market.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-kaohsiung.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kobe.html</loc>
@@ -2544,8 +2608,12 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-kyoto-fushimi-inari.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-kyoto.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-macau.html</loc>
@@ -2556,8 +2624,16 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-mokpo-attractions.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-mokpo-cable-car.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-mokpo.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-muju.html</loc>
@@ -2586,16 +2662,28 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-nara.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-nhatrang-vinwonders.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-nhatrang.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-okinawa-churaumi.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-okinawa.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-osaka-dotonbori.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-osaka.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-dotonbori.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/osaka-castle.jpg</image:loc></image:image>
   </url>
@@ -2631,8 +2719,16 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-qingdao-beer-museum.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-qingdao-food.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-qingdao.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-qingdao.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2648,11 +2744,24 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-seoul-deoksugung.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-seoul-forest.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-seoul-national-museum.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-seoul.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-gyeongbok.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-bukchon.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-namsan.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-seoul-hangang.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-shanghai.html</loc>
@@ -2663,8 +2772,12 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-singapore-gardens-by-the-bay.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-singapore.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-sokcho.html</loc>
@@ -2694,8 +2807,12 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-taipei-jiufen.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-taipei.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-takamatsu.html</loc>
@@ -2751,6 +2868,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-yeongwol.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-yeosu-hyangiram.html</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-yeosu.html</loc>

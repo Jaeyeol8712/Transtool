@@ -248,6 +248,9 @@ PAGE_DATES.update({s + ".html": "2026-11-18" for s, _, _ in TRIP_PAGES_1118})
 from trips_1119 import TRIP_PAGES_1119  # noqa: E402  (2026-11-19 대표 지시 여행 10곳)
 TRIP_PAGES += TRIP_PAGES_1119
 PAGE_DATES.update({s + ".html": "2026-11-19" for s, _, _ in TRIP_PAGES_1119})
+from daily_1120 import TRIP_PAGES_1120, FILES_1120  # noqa: E402  (2026-11-20 매일 콘텐츠: K링크 새 지역 4곳 글 10 + 기존 지역 글 20)
+TRIP_PAGES += TRIP_PAGES_1120
+PAGE_DATES.update({f: "2026-11-20" for f in FILES_1120})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -1258,6 +1261,7 @@ KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지
     "seoul": ("서울", "seoul", []), "busan": ("부산", "busan", []), "jeju": ("제주", "jeju", []),
     "gyeongju": ("경주", None, []), "gangneung": ("강릉", None, []), "jeonju": ("전주", None, []),
     "yeosu": ("여수", None, ["jeonnam-dongbu"]),
+    "gunsan": ("군산", None, []), "mokpo": ("목포", None, []),  # 2026-11-20 매일 콘텐츠 새 지역
 }
 
 
