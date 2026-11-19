@@ -335,7 +335,7 @@ function placeDetail2(id) {
     ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
-    <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button></div>
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
   </div>`;
