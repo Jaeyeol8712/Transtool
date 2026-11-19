@@ -2626,7 +2626,7 @@ def build_home():
     content = f"""<section class="ah-khero" aria-labelledby="ah-h1">
   <div class="ah-khero-tx">
     <p class="ah-khero-eb"><span class="ah-klink-mark">{K_MARK}</span><span><b>K링크</b> 여행 일정 플래너</span></p>
-    <h1 id="ah-h1">가고 싶은 곳만 고르면<br>여행 일정이 나와요</h1>
+    <h1 id="ah-h1">가고 싶은 곳만 고르면 <br>여행 일정이 나와요</h1>
     <p class="ah-khero-lead">지도에서 관광지·맛집을 저장하면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 짜 드려요. 가입 없이 무료.</p>
     <a class="ah-khero-cta" href="/klink/">여행 일정 짜기 <span aria-hidden="true">›</span></a>
   </div>
