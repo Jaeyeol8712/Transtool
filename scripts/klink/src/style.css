@@ -639,3 +639,4 @@ p{text-wrap:pretty}
 .p2-name{font-family:inherit!important}.p2-nears{align-items:start}
 .p2-acts .p2-pri{background:var(--cobalt);color:#fff;border-color:var(--cobalt);font-weight:700}
 .p2-pt{font-family:inherit!important}.p2-go{text-decoration:none!important;color:#fff!important;background:var(--cobalt)!important;justify-content:center}
+.p2-more{margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:0 12px}.p2-more summary{padding:12px 0;font-weight:700;cursor:pointer}.p2-more .p2-chips{padding-bottom:12px}.p2-chips button{border:1px solid var(--line)!important;border-radius:20px!important;padding:5px 11px!important;font-size:13px;font-weight:600}
