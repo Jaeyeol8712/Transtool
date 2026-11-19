@@ -1,14 +1,18 @@
 from preview import *
 # 가이드
-g='''<div class="key"><p class="big">영국 가기 전 <em>ETA</em> 필수</p>
-<div class="nums"><div><b>20</b><span>파운드</span></div><div><b>2년</b><span>여러 번</span></div><div><b>6개월</b><span>1회 체류</span></div></div>
-<p class="s">2026.2.25부터 없으면 탑승 거부될 수 있어요</p></div>
-<p class="yn"><span class="m">필요</span> 비자 없이 관광·방문·출장 (아기 포함)<br><span class="m">불필요</span> 영국 비자가 이미 있는 분</p>
-<h2 class="q">✅ 준비물</h2><div class="chips"><span>📘 전자여권</span><span>📱 스마트폰</span><span>💳 해외결제 카드</span><span>✉️ 이메일</span></div>
-<h2 class="q">✅ 앱으로 신청 (5단계)</h2>
-<div class="flow"><div><i>📲</i>UK ETA<br>앱 설치</div><div><i>📘</i>여권<br>칩 읽기</div><div><i>🤳</i>얼굴<br>사진</div><div><i>📝</i>질문<br>답하기</div><div><i>💳</i>20파운드<br>결제</div></div>
-<div class="tip"><p>📩 보통 <b>3영업일 안</b> 이메일 승인, 출력 필요 없음<br>⚠️ <b>대행 사이트 주의</b> — 비용만 늘어요<br>🔄 <b>여권 바꾸면 다시</b> 신청</p></div>
-<details><summary>더 보기 · 유효기간·유럽·출처</summary></details>'''+nxt(['여권 유효기간 계산기','솅겐 90/180일','환율 계산기'])+sim(['🇺🇸 미국 ESTA 신청 방법','🧳 기내 액체 반입 규정','🛂 해외에서 여권 잃어버렸을 때'])
+g='''<h2 class="q">영국 ETA란?</h2>
+<p>비자 없이 영국에 가는 사람이 <b>출발 전에 받는 전자여행허가</b>예요. 비자는 아니고, 2026년 2월 25일부터 항공사가 탑승 전에 확인해요. 관광·가족 방문·출장으로 6개월 미만 머무는 한국인(아기 포함)은 받아야 하고, 영국 비자가 이미 있으면 필요 없어요.</p>
+<div class="key"><p class="big">한 번 받으면 2년 동안 여러 번</p>
+<div class="nums"><div><b>20</b><span>파운드</span></div><div><b>2년</b><span>유효</span></div><div><b>6개월</b><span>1회 최대 체류</span></div></div></div>
+<h2 class="q">신청 방법</h2>
+<div class="flow"><div><i></i>UK ETA<br>앱 설치</div><div><i></i>여권<br>칩 읽기</div><div><i></i>얼굴<br>사진</div><div><i></i>질문<br>답하기</div><div><i></i>20파운드<br>결제</div></div>
+<p style="margin-top:10px!important">결과는 보통 <b>3영업일 안</b>에 이메일로 와요. 여권에 전자로 연결돼서 출력은 필요 없어요.</p>
+<h2 class="q">쉽게 신청하는 법</h2>
+<div class="tip"><p><b>공식 UK ETA 앱으로</b> — 여권 칩을 휴대폰으로 읽어 신청해요<br><b>출발 1주 전에</b> — 보통 3영업일 걸려 여유가 생겨요<br><b>대행 사이트는 피하기</b> — 빨라지지 않고 비용만 늘어요<br><b>여권 갱신 예정이면 새 여권으로</b> — 여권을 바꾸면 다시 신청해야 해요</p></div>
+<h2 class="q">준비물</h2><div class="chips"><span>전자여권</span><span>스마트폰</span><span>해외결제 카드</span><span>이메일</span></div>
+<h2 class="q">비용</h2>
+<div class="rows"><div><b>수수료</b>20파운드 (2026.4.8부터, 이전 16파운드)</div><div><b>결제</b>신청할 때 카드로</div><div><b>대행</b>공식 수수료 외 추가 비용</div></div>
+<details><summary>더 보기 · 유효기간 자세히·환승·출처</summary></details>'''+nxt(['환율 계산기','여권 유효기간 계산기','솅겐 90/180일'])+sim(['미국 ESTA 신청 방법','기내 액체 반입 규정','해외에서 여권 잃어버렸을 때'])
 write('guide-uk-eta.html','_pv_guide.html',wrap('영국 ETA 신청 방법 — 앱 신청 순서, 이것만 보고 따라하세요','<span>가이드</span><span>2026.11.19 확인</span>',g,'가이드 예시'))
 # 여행
 t='''<div class="key"><p class="big">푸껫은 <em>11~4월 건기</em>에 가세요</p>
