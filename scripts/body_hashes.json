@@ -233,7 +233,7 @@
 },
 "etc.html": {
 "d": "2026-11-19",
-"h": "78c464f97c1cb7f9"
+"h": "f9bee2853ba22ec8"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -345,11 +345,11 @@
 },
 "guide-annual-leave-promotion.html": {
 "d": "2026-11-19",
-"h": "6934034f97af1dc6"
+"h": "2d7165369b22e1e1"
 },
 "guide-annual-leave-rules.html": {
 "d": "2026-11-19",
-"h": "0d57eb11a68c25d2"
+"h": "66e4d88266c66a1d"
 },
 "guide-baggage-delay-compensation.html": {
 "d": "2026-11-19",
@@ -592,8 +592,8 @@
 "h": "3721cc3207441a8e"
 },
 "guide-medical-expense-tax-credit.html": {
-"d": "2026-11-06",
-"h": "84073372a61b18ac"
+"d": "2026-11-19",
+"h": "b00e30eaea773c0a"
 },
 "guide-minimum-wage-2027.html": {
 "d": "2026-11-19",
@@ -1252,8 +1252,8 @@
 "h": "82dd657ee43e67db"
 },
 "pto_calculator.html": {
-"d": "2026-11-03",
-"h": "b65d5be812e3213a"
+"d": "2026-11-19",
+"h": "9b61be72cdd81131"
 },
 "pyeong_calculator.html": {
 "d": "2026-11-19",
@@ -1285,7 +1285,7 @@
 },
 "salary_calculator.html": {
 "d": "2026-11-19",
-"h": "d02c17b63694acfd"
+"h": "763c8aa32b0a45c2"
 },
 "savings_calculator.html": {
 "d": "2026-11-11",
@@ -1641,7 +1641,7 @@
 },
 "service_years_calculator.html": {
 "d": "2026-11-19",
-"h": "f4a45760e6869627"
+"h": "f83bedb8c725fe57"
 },
 "severance_calculator.html": {
 "d": "2026-11-19",
