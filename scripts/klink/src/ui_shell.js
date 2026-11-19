@@ -332,6 +332,7 @@ function placeDetail2(id) {
   return `<div class="p2">
     <div class="p2-path"><button data-act="korea">${esc(T.korea)}</button> › <button data-act="region" data-v="${p.r}">${esc(rn(p.r))}</button> › <span>${esc(dn(p.dist))}</span></div>
     <h2 class="p2-name">${esc(pn(id))}</h2><p class="p2-one">${esc(pd(id))}</p>
+    ${sp && sp.tips && sp.tips.length ? `<div class="p2-tips"><h3>즐기는 꿀팁</h3><ol>${sp.tips.slice(0, 3).map(t => `<li>${esc(t)}</li>`).join('')}</ol></div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
     <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button></div>
