@@ -49,6 +49,27 @@ body,main,.at-page,.at-page-head,.b-card,.at-tool{background:#fff!important;box-
 .nt .yn span.m{font-weight:700;color:#111;margin-right:4px}
 .nt h2.q{color:#111!important}
 .at-page-head h1{color:#111!important}
+.nt .intro{font-size:16px!important;color:#4b5563!important;margin:-4px 0 14px!important}
+.nt .first{border:1px solid #e5e7eb;border-radius:14px;padding:14px 16px;margin:0 0 14px}
+.nt .first .h{font-size:14px!important;font-weight:800;color:#111;margin:0 0 6px!important}
+.nt .first p{margin:0!important}
+.nt .card{border:1px solid #e5e7eb;border-radius:14px;padding:14px 16px;margin:0 0 12px}
+.nt .card h2.q{margin:0 0 8px!important;font-size:18px!important}
+.nt .card h2.q small{font-size:14px;color:#6b7280;font-weight:500;margin-left:4px}
+.nt .card p:last-child{margin-bottom:0!important}
+.nt table.t{width:100%!important;border-collapse:collapse!important;font-size:15px;border:0!important;display:table!important}
+.nt table.t tr{display:table-row!important;border:0!important}
+.nt table.t th,.nt table.t td{display:table-cell!important;border:0!important;border-bottom:1px solid #e5e7eb!important;background:#fff!important}
+.nt table.t th{width:56px!important;white-space:nowrap}
+.nt table.t th{text-align:left;width:64px;padding:8px 8px 8px 0;border-bottom:1px solid #e5e7eb;vertical-align:top;color:#111}
+.nt table.t td{padding:8px 0;border-bottom:1px solid #e5e7eb;line-height:1.5}
+.nt .warn{background:#fffbea;border:1px solid #f3e3a3;border-radius:14px;padding:14px 16px;margin:0 0 12px}
+.nt .warn .h{font-weight:800;margin:0 0 6px!important;font-size:16px!important}
+.nt .warn ul{margin:0;padding-left:18px}.nt .warn li{font-size:15px;line-height:1.65;margin:2px 0}
+.nt .faq details{border:0;border-bottom:1px solid #e5e7eb;border-radius:0;margin:0}
+.nt .faq summary{padding:11px 0}
+.nt .faq .a{font-size:15px;color:#374151;padding:0 0 10px}
+.nt .src{font-size:13px;color:#6b7280;line-height:1.7;margin:10px 0 0}
 </style>'''
 def sim(items): return '<div class="sim"><b class="t">비슷한 글</b>'+''.join(f'<a href="#">{t} <span>›</span></a>' for t in items)+'</div>'
 def nxt(items): return '<div class="next">'+''.join(f'<a href="#">{t}</a>' for t in items)+'</div>'

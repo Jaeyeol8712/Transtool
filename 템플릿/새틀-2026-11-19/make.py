@@ -1,19 +1,32 @@
 from preview import *
 # 가이드
-g='''<h2 class="q">영국 ETA란?</h2>
-<p>비자 없이 영국에 가는 사람이 <b>출발 전에 받는 전자여행허가</b>예요. 비자는 아니고, 2026년 2월 25일부터 항공사가 탑승 전에 확인해요. 관광·가족 방문·출장으로 6개월 미만 머무는 한국인(아기 포함)은 받아야 하고, 영국 비자가 이미 있으면 필요 없어요.</p>
-<div class="key"><p class="big">한 번 받으면 2년 동안 여러 번</p>
-<div class="nums"><div><b>20</b><span>파운드</span></div><div><b>2년</b><span>유효</span></div><div><b>6개월</b><span>1회 최대 체류</span></div></div></div>
-<h2 class="q">신청 방법</h2>
+g='''<p class="intro">비자 없이 영국 가는 한국인이 출발 전에 받는 전자여행허가, 신청부터 비용까지</p>
+<div class="first"><p class="h">먼저 알아둘 것</p><p>한국인은 영국에 가기 전 <b>ETA</b>를 받아야 하고, 없으면 탑승이 거부될 수 있어요(2026.2.25부터). <b>공식 UK ETA 앱</b>에서 <b>20파운드</b>를 내고 신청하며, 한 번 받으면 <b>2년 동안 여러 번</b> 쓸 수 있어요.</p></div>
+<section class="card"><h2 class="q">영국 ETA란?</h2><p>비자 없이 영국에 가는 사람이 출발 전에 받는 <b>전자여행허가</b>예요. 관광·가족 방문·출장으로 6개월 미만 머무는 한국인(아기 포함)이 대상이고, 영국 비자가 이미 있으면 필요 없어요.</p></section>
+<section class="card"><h2 class="q">신청 방법 <small>(공식 앱)</small></h2>
 <div class="flow"><div><i></i>UK ETA<br>앱 설치</div><div><i></i>여권<br>칩 읽기</div><div><i></i>얼굴<br>사진</div><div><i></i>질문<br>답하기</div><div><i></i>20파운드<br>결제</div></div>
-<p style="margin-top:10px!important">결과는 보통 <b>3영업일 안</b>에 이메일로 와요. 여권에 전자로 연결돼서 출력은 필요 없어요.</p>
-<h2 class="q">쉽게 신청하는 법</h2>
-<div class="tip"><p><b>공식 UK ETA 앱으로</b> — 여권 칩을 휴대폰으로 읽어 신청해요<br><b>출발 1주 전에</b> — 보통 3영업일 걸려 여유가 생겨요<br><b>대행 사이트는 피하기</b> — 빨라지지 않고 비용만 늘어요<br><b>여권 갱신 예정이면 새 여권으로</b> — 여권을 바꾸면 다시 신청해야 해요</p></div>
-<h2 class="q">준비물</h2><div class="chips"><span>전자여권</span><span>스마트폰</span><span>해외결제 카드</span><span>이메일</span></div>
-<h2 class="q">비용</h2>
-<div class="rows"><div><b>수수료</b>20파운드 (2026.4.8부터, 이전 16파운드)</div><div><b>결제</b>신청할 때 카드로</div><div><b>대행</b>공식 수수료 외 추가 비용</div></div>
-<details><summary>더 보기 · 유효기간 자세히·환승·출처</summary></details>'''+nxt(['환율 계산기','여권 유효기간 계산기','솅겐 90/180일'])+sim(['미국 ESTA 신청 방법','기내 액체 반입 규정','해외에서 여권 잃어버렸을 때'])
-write('guide-uk-eta.html','_pv_guide.html',wrap('영국 ETA 신청 방법 — 앱 신청 순서, 이것만 보고 따라하세요','<span>가이드</span><span>2026.11.19 확인</span>',g,'가이드 예시'))
+<p style="margin-top:10px!important">결과는 보통 3영업일 안에 이메일로 와요. 출력은 필요 없어요.</p></section>
+<section class="card"><h2 class="q">준비물</h2><div class="chips"><span>전자여권</span><span>스마트폰</span><span>해외결제 카드</span><span>이메일</span></div></section>
+<section class="card"><h2 class="q">비용 <small>(2026.4.8부터)</small></h2><p><b>20파운드</b>를 신청할 때 카드로 내요(이전 16파운드). 대행 사이트를 거치면 공식 수수료 외 비용이 더 붙어요.</p></section>
+<section class="card"><h2 class="q">한눈에 정리</h2><div class="rows">
+<div><b>대상</b>비자 없이 6개월 미만 방문하는 한국인</div>
+<div><b>비용</b>20파운드</div>
+<div><b>유효</b>2년 또는 여권 만료일 중 빠른 날</div>
+<div><b>체류</b>1회 최대 6개월, 여러 번 입국</div>
+<div><b>심사</b>보통 3영업일 안 (빠르면 당일)</div></div></section>
+<div class="warn"><p class="h">실전 팁 · 주의할 점</p><ul>
+<li><b>출발 1주 전</b>에 신청하면 여유 있어요</li>
+<li>주소가 <b>gov.uk</b>인지 확인하고 대행 사이트는 피하세요</li>
+<li><b>여권을 새로 받으면</b> ETA도 다시 신청해요</li>
+<li>유럽(솅겐)은 영국과 따로, 90/180일 규칙이 적용돼요</li></ul></div>
+<section class="card faq"><h2 class="q">자주 묻는 질문</h2>
+<details><summary>한국인도 영국 ETA가 필요한가요?</summary><div class="a">네. 비자 없이 영국에 가는 한국인은 출발 전에 받아야 해요.</div></details>
+<details><summary>비용은 얼마인가요?</summary><div class="a">2026년 4월 8일부터 20파운드예요.</div></details>
+<details><summary>유효기간은?</summary><div class="a">승인일부터 2년 또는 여권 만료일 중 빠른 날까지, 여러 번 쓸 수 있어요.</div></details>
+<details><summary>얼마나 걸리나요?</summary><div class="a">보통 3영업일 안, 빠르면 당일 나와요.</div></details>
+<details><summary>런던에서 환승만 해도 필요한가요?</summary><div class="a">환승 조건에 따라 필요할 수 있어 GOV.UK에서 확인하세요.</div></details>
+<p class="src">근거 자료: GOV.UK·주영국대사관 안내 정리(tilnote, 2026.10.26) · Visas News(수수료 인상) · Travel Weekly Asia(탑승 전 확인 의무, 2026.2.25)</p></section>'''+nxt(['환율 계산기','여권 유효기간 계산기','솅겐 90/180일'])
+write('guide-uk-eta.html','_pv_guide.html',wrap('영국 ETA 신청 방법 — 비용·준비물·앱 신청 순서','<span>가이드</span><span>2026.11.19 확인</span>',g,'가이드 예시'))
 # 여행
 t='''<div class="key"><p class="big">푸껫은 <em>11~4월 건기</em>에 가세요</p>
 <div class="nums"><div><b>6.5시간</b><span>인천 직항(약)</span></div><div><b>90일</b><span>무비자</span></div><div><b>-2시간</b><span>시차</span></div></div>
