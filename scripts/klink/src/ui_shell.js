@@ -62,6 +62,9 @@ function renderChrome() {
   $('#brandt').textContent = T.brand;
   const ds = tripDates();
   $('#tript').innerHTML = `${esc(T.mdShort(toDate(ds[0])))}–${esc(T.mdShort(toDate(ds[ds.length - 1])))}`;
+  if (!$('#langsel')) $('#langs').insertAdjacentHTML('afterend', '<select id="langsel" class="langsel" aria-label="Language"></select>');
+  $('#langsel').innerHTML = LANGS.map(([k, , s]) => `<option value="${k}" ${k === S.lang ? 'selected' : ''}>${s}</option>`).join('');
+  $('#langsel').onchange = e => { if (e.target.value !== S.lang) { setLang(e.target.value); renderAll(true); } };
   $('#langs').innerHTML = LANGS.map(([k, , s]) => `<button role="radio" aria-checked="${k === S.lang}" class="${k === S.lang ? 'on' : ''}" data-lang="${k}" lang="${HTML_LANG[k]}">${s}</button>`).join('');
   $$('#langs [data-lang]').forEach(b => b.onclick = () => { if (b.dataset.lang !== S.lang) { setLang(b.dataset.lang); renderAll(true); } });
   const badge = n => n ? `<span class="badge">${n}</span>` : '';
