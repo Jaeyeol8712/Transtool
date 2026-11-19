@@ -1461,3 +1461,6 @@ body .at-prose mark,body .at-prose b{background:none}
 /* 실전 팁·주의할 점 = 노란 경고 블록 (2026-11-19) */
 body .at-prose .vx-callout,body .at-prose .callout,body .at-prose .b-tip,body .at-prose .pdx-tips{background:#FFFBEA!important;border:1px solid #F3E3A3!important;color:#111!important}
 body .at-prose .vx-callout p{color:#111!important}
+/* 먼저 알아둘 것: 색 없이 회색 테두리 (2026-11-19) */
+body .at-answer{background:#fff!important;border:1px solid #E5E7EB!important}
+body .at-answer::before{color:#111!important}
