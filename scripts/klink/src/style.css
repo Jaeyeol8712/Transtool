@@ -690,3 +690,18 @@ a.p2-it{text-decoration:none;color:inherit}
 .k-cc summary b{font-weight:800;color:#111}.k-cc summary span{color:#9CA3AF;font-size:14px;font-weight:600}
 .k-cc summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid #9CA3AF;border-bottom:2px solid #9CA3AF;transform:rotate(45deg);transition:transform .15s}
 .k-cc[open] summary::after{transform:rotate(-135deg)}.k-cc .k-rts{padding:0 0 16px}
+
+/* 2026-11-19 일정·준비 정리 */
+.k-stays{border-top:1px solid #F1F2F4}
+.k-stay{border-bottom:1px solid #F1F2F4}
+.k-stay summary{display:flex;align-items:baseline;gap:10px;padding:13px 2px;cursor:pointer;list-style:none;font-size:15px;flex-wrap:wrap}.k-stay summary::-webkit-details-marker{display:none}
+.k-stay summary b{font-weight:800;color:#111;min-width:40px}.k-stay summary .nm{font-weight:700;color:#111}.k-stay summary .mt{color:#9CA3AF;font-size:13px}
+.k-stay-in{padding:0 2px 14px;font-size:13.5px;color:#6B7280}.k-stay-in p{margin:8px 0 0}.k-stay-in .stsel{display:flex;gap:8px;align-items:center;font-size:13px}
+.k-stay-in select{border:1px solid #E5E7EB;border-radius:8px;padding:6px 8px;font:inherit}
+.k-tot{font-size:13px;color:#9CA3AF;margin:14px 0 0}
+.k-ptiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.k-ptile{border:1px solid #E5E7EB;border-radius:14px;padding:16px 12px;min-height:74px;text-decoration:none;color:#111;display:flex;align-items:flex-end}.k-ptile b{font-size:15px;font-weight:800;line-height:1.35}
+.k-prows{border-top:1px solid #F1F2F4}.k-prow{display:flex;gap:14px;align-items:baseline;padding:12px 2px;border-bottom:1px solid #F1F2F4;flex-wrap:wrap}.k-prow b{min-width:44px;font-weight:800}
+.k-pl{color:#374151;text-decoration:none;font-size:14.5px;font-weight:600}.k-pl:hover{text-decoration:underline}
+.k-pmore{margin-top:14px;border:1px solid #EEF0F3;border-radius:12px;padding:0 14px}.k-pmore summary{padding:13px 0;font-weight:700;cursor:pointer}
+.k-pmore div{display:flex;flex-direction:column;gap:10px;padding:0 0 14px}

@@ -74,12 +74,10 @@ function panelPlan() {
     const dIdx = ds.map((d, k) => d.r === r ? k + 1 : 0).filter(Boolean); 
     const ta = tripAir(), apCode = R[0] === r ? ta.arr : (R[R.length - 1] === r ? ta.dep : (REGIONS[r].air));
     const apMin = airportLeg(apCode, st, r).min;
-    return `<div class="stay"><div class="stay-top"><span class="hic">${ICONS.house}</span><div class="tx"><small>${T.stayFor(esc(rn(r)), T.dayRange(dIdx[0], dIdx[dIdx.length - 1]), nights)}</small><b>${esc(sn(st.id))}</b></div>
-      <label class="stsel"><span class="vh">${T.changeStay}</span><select data-stay="${r}">${STAYS.filter(s => s.r === r).map(s => `<option value="${s.id}" ${s.id === st.id ? 'selected' : ''}>${esc(sn(s.id))}</option>`).join('')}</select></label></div>
-      <div class="stay-why"><div><b>${sc2.total ? T.avgMin(sc2.avg) : '—'}</b>${T.avgMinSub}</div><div><b>${T.nearN(sc2.near, sc2.total)}</b>${T.nearSub}</div>
-        <div><b>${esc(tr4(st.st))}</b>${T.stationSub}</div><div><b>${T.apMin(an(apCode), F.dur(apMin))}</b>${tripAir().home ? T.apSubHome : T.apSub}</div>
-        <div style="grid-column:1/-1"><b>${T.localCheck}</b>${T.priceLocal}</div></div>
-      ${S.stayOv[r] ? `<p class="note">${T.stayManual} <button class="btn sm ghost" data-act="stayAuto" data-v="${r}" style="margin-left:6px">${T.stayAuto}</button></p>` : ''}</div>`; }).join('');
+    return `<details class="k-stay"><summary><b>${esc(rn(r))}</b><span class="nm">${esc(sn(st.id))}</span><span class="mt">${esc(tr4(st.st))}${sc2.total ? ` · 평균 ${sc2.avg}분` : ''}</span></summary>
+      <div class="k-stay-in"><label class="stsel"><span>숙소 위치 바꾸기</span><select data-stay="${r}">${STAYS.filter(s => s.r === r).map(s => `<option value="${s.id}" ${s.id === st.id ? 'selected' : ''}>${esc(sn(s.id))}</option>`).join('')}</select></label>
+      <p>${T.dayRange(dIdx[0], dIdx[dIdx.length - 1])}${nights ? ` · ${nights}박` : ''} · ${T.nearN(sc2.near, sc2.total)} ${T.nearSub} · ${esc(an(apCode))}까지 ${F.dur(apMin)}</p>
+      ${S.stayOv[r] ? `<p>${T.stayManual} <button class="btn sm ghost" data-act="stayAuto" data-v="${r}">${T.stayAuto}</button></p>` : ''}</div></details>`; }).join('');
   const rows = sc.rows, last = rows.length - 1;
   let tl = '';
   rows.forEach((o, k) => {
@@ -99,8 +97,7 @@ function panelPlan() {
     <div class="route">${route}</div>
     ${stale ? `<div class="banner">${ICONS.info.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.stale}</span><button class="btn sm" data-act="genPlan">${T.replanShort}</button></div>` : ''}
     ${P.warn && P.warn.k === 'farDep' ? `<div class="banner">${ICONS.warn.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.farDep(rn(P.warn.r), F.dur(P.warn.min))}</span><button class="btn sm ghost" data-act="trip">${T.editTrip}</button></div>` : ''}
-    <div class="sec"><h3>${T.staysTitle}</h3><small>${T.staysSub}</small></div><div class="stays">${stays}</div>
-    <div class="sec"><h3>${T.byDay}</h3><small>${T.byDaySub}</small></div>
+    <div class="sec"><h3>${T.byDay}</h3></div>
     <div class="days">${ds.map((d, k) => `<button class="dchip ${k === i ? 'on' : ''}" style="--c:${LINE[k % LINE.length]}" data-act="day" data-v="${k}"><span class="n">${k + 1}</span><span class="d"><b>${F.date(d.date)}</b><small>${esc(rn(d.r))}</small></span></button>`).join('')}</div>
     <div class="dhead"><div><h2>${T.day(i + 1)} · ${esc(rn(day.r))}</h2><small>${F.date(day.date, true)} · ${T.daySumOv(sc.places, F.dur(sc.moveMin))}</small></div></div>
     <div class="routebox inline" id="rbox"></div>
@@ -108,10 +105,8 @@ function panelPlan() {
     <div class="dayacts"><button class="btn sm ghost" data-act="optDay" data-v="${i}">${ICONS.magic}${T.optimize}</button><button class="btn sm ghost" data-act="addStop" data-v="${i}">${ICONS.plus}${T.addStop}</button></div>
     ${uns.length ? `<div class="sec"><h3>${T.unsched}</h3><small>${T.unschedSub}</small></div><div class="list">${uns.map(u => { const p = PBY[u.id]; const can = ds.some(d => d.r === p.r);
       return `<div class="prow">${cicon(p.c)}<span class="tx"><span class="nm">${esc(pn(u.id))}</span><span class="ds">${esc(rn(p.r))} · ${T.why[u.why] || ''}</span></span>${can ? `<button class="btn sm soft" data-act="placeUns" data-v="${u.id}">${T.putIn}</button>` : ''}</div>`; }).join('')}</div>` : ''}
-    <div class="tot"><div><small>${T.totalPlaces}</small><b>${T.spots(totals.places)}</b></div><div><small>${T.totalMove}</small><b>${F.dur(totals.move)}</b></div></div>
-    <p class="note">${T.planNote}</p>
-    ${prepCard(4)}
-    ${(rows => rows ? `<div class="sec"><h3>${T.atTitle}</h3><small>${koOnly()}</small></div><div class="around">${rows}</div>` : '')(R.map(r => aroundCard(r, null, 'rows')).join(''))}
+    <div class="sec"><h3>숙소</h3><small>누르면 자세히</small></div><div class="k-stays">${stays}</div>
+    <p class="k-tot">전체 ${T.spots(totals.places)} · 이동 ${F.dur(totals.move)}</p>
     <div class="stickycta"><button class="btn block" data-act="toPrep">${ICONS.ticket}${T.toPrep}</button></div>`;
 }
 /* ---------- 여행 준비: 어라운드툴 계산기·가이드가 정보를 댄다 ---------- */
@@ -128,13 +123,18 @@ function prepCard(max) {
 }
 function panelPrep() {
   const it = prepItems(), P = S.plan, R = P ? [...new Set(P.days.map(d => d.r))] : savedRegions();
-  const trips = R.map(r => aroundCard(r, null, 'rows')).join('');
-  return `<h1 class="h1">${T.prepTitle}</h1><p class="lead">${T.prepLead}</p>
-    ${trips ? `<div class="sec"><h3>${T.prepTrip}</h3><small>${koOnly()}</small></div><div class="around">${trips}</div>` : ''}
-    ${it.tools.length ? `<div class="sec"><h3>${T.prepTools}</h3><small>${koOnly()}</small></div><div class="around">${it.tools.map(x => prepRow(x, 'ticket')).join('')}</div>` : ''}
-    ${it.guides.length ? `<div class="sec"><h3>${T.prepGuides}</h3><small>${koOnly()}</small></div><div class="around">${it.guides.map(x => prepRow(x, 'info')).join('')}</div>` : ''}
-    ${P ? `<div style="margin-top:18px"><button class="btn ghost block" data-act="copyTxt">${ICONS.copy}${T.copyTxt}</button></div>` : ''}
-    <p class="note">${T.atBy}</p>`;
+  const keys = tripAir().ov ? ['환율', '여권', '입국', '면세'] : ['KTX', '호텔', '주유', '통행료'];
+  const sc = x => { const k = keys.findIndex(w => x.name.includes(w)); return k < 0 ? 99 : k; };
+  const tools = it.tools.slice().sort((a, b) => sc(a) - sc(b)), top = tools.slice(0, 3), restT = tools.slice(3);
+  const tile = x => ext(x.url, `<b lang="ko">${esc(x.name)}</b>`, 'k-ptile');
+  const line = (u, t) => `<a class="k-pl" href="${esc(u)}" target="_blank" rel="noopener" lang="ko">${esc(t)}</a>`;
+  const mine = R.map(r => { const ar = aroundRegion(r); if (!ar) return ''; return `<div class="k-prow"><b>${esc(rn(r))}</b>${ar.trip ? line(ar.trip.url, '여행 가이드') : ''}${ar.food ? line(ar.food.url, `맛집 ${ar.food.count}곳`) : ''}</div>`; }).join('');
+  return `<h1 class="h1">${T.prepTitle}</h1>
+    ${top.length ? `<div class="sec"><h3>꼭 확인할 것</h3></div><div class="k-ptiles">${top.map(tile).join('')}</div>` : ''}
+    ${mine ? `<div class="sec"><h3>내 여행지</h3></div><div class="k-prows">${mine}</div>` : ''}
+    ${restT.length ? `<details class="k-pmore"><summary>계산기 ${restT.length}개 더 보기</summary><div>${restT.map(x => line(x.url, x.name)).join('')}</div></details>` : ''}
+    ${it.guides.length ? `<details class="k-pmore"><summary>가이드 ${it.guides.length}개 더 보기</summary><div>${it.guides.map(x => line(x.url, x.name)).join('')}</div></details>` : ''}
+    ${P ? `<div style="margin-top:18px"><button class="btn ghost block" data-act="copyTxt">${ICONS.copy}${T.copyTxt}</button></div>` : ''}`;
 }
 function afterPlanRender() {
   $$('[data-stay]', pin).forEach(s => s.onchange = () => { S.stayOv[s.dataset.stay] = s.value; regenerate(true); });
