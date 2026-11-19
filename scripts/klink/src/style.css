@@ -758,3 +758,5 @@ a.p2-it{text-decoration:none;color:inherit}
 .brand.at-home{display:inline-flex;align-items:center;gap:4px;padding:8px 12px 8px 8px;border:1px solid #e3e5ea;border-radius:12px;color:#111;font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap}.brand.at-home span{display:inline!important}.brand.at-home #brandt{display:none!important}
 
 .p2-tips{background:#FFF8D6;border-radius:14px;padding:12px 14px;margin:12px 0}.p2-tips h3{margin:0 0 6px;font-size:15px;font-weight:800;color:#111}.p2-tips ol{margin:0;padding-left:20px;font-size:14px;line-height:1.5;color:#222}.p2-tips li{margin:3px 0}.p2-tips li::marker{color:#d32f2f;font-weight:800}
+.panel .k-dsec{margin:22px 0 8px}
+.panel .k-dlink{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}

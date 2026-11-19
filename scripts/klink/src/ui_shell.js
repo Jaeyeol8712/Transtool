@@ -216,7 +216,17 @@ function panelMap0() {
   return `${head}
     <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${list.length}</small></div>
     <div class="chips scroll" style="margin-bottom:12px"><button class="chip ${S.ui.filter === 'all' ? 'on' : ''}" data-act="filter" data-v="all">${T.all}</button>${cats.map(c => `<button class="chip ${S.ui.filter === c ? 'on' : ''}" data-act="filter" data-v="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div>
-    <div class="list k-short">${list.map(p => placeRow(p, { sub: ' ' })).join('') || `<div class="empty">${T.noneFilter}</div>`}</div>`;
+    ${inD ? `<div class="list k-short">${list.map(p => placeRow(p, { sub: ' ' })).join('') || `<div class="empty">${T.noneFilter}</div>`}</div>` : groupedByDistrict(list, ds)}`;
+}
+/* 구(구역) 단위로 묶어 보여준다 — 국내·해외 모든 지역 공통 */
+function groupedByDistrict(list, ds) {
+  if (!list.length) return `<div class="list k-short"><div class="empty">${T.noneFilter}</div></div>`;
+  const used = new Set(), blocks = [];
+  ds.forEach(d => { const L = list.filter(p => p.dist === d.id); if (!L.length) return; L.forEach(p => used.add(p.id));
+    blocks.push(`<div class="sec k-dsec"><h3><button class="k-dlink" data-act="district" data-v="${d.id}">${esc(tr4(d.n))}</button></h3><small>${L.length}</small></div><div class="list k-short">${L.map(p => placeRow(p, { sub: ' ' })).join('')}</div>`); });
+  const rest = list.filter(p => !used.has(p.id));
+  if (rest.length) blocks.push(`<div class="sec k-dsec"><h3>${T.all}</h3><small>${rest.length}</small></div><div class="list k-short">${rest.map(p => placeRow(p, { sub: ' ' })).join('')}</div>`);
+  return blocks.join('');
 }
 /* ---------- 어라운드툴 연결 ---------- */
 const ext = (url, inner, cls = '') => `<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>`;
