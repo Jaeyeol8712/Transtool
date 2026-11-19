@@ -5,11 +5,11 @@ body,main,.at-page,.at-page-head,.b-card,.at-tool{background:#fff!important;box-
 .nt{color:#222}
 .nt p{font-size:16px!important;line-height:1.6!important;margin:0 0 10px!important;color:#222}
 .nt b,.nt strong{color:#111}
-.nt h2.q{font-size:19px!important;font-weight:800;margin:24px 0 10px!important;padding:0;border:0;background:none;color:#14315c}
+.nt h2.q{font-size:19px!important;font-weight:800;margin:24px 0 10px!important;padding:0;border:0;background:none;color:#111}
 .nt .key{border:1px solid #e5e7eb;border-radius:14px;padding:16px;margin:6px 0 10px;background:#fff}
 .nt .key p{margin:0!important}
-.nt .key .big{font-size:21px!important;font-weight:800;line-height:1.35!important;margin:0 0 12px!important;color:#14315c}
-.nt .key em{font-style:normal;color:#14315c}
+.nt .key .big{font-size:21px!important;font-weight:800;line-height:1.35!important;margin:0 0 12px!important;color:#111}
+.nt .key em{font-style:normal;color:#111}
 .nt .key .s{font-size:13px!important;color:#6b7280;margin-top:10px!important}
 .nt .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .nt .nums div{padding:4px 2px;text-align:center;border-left:1px solid #e5e7eb}
@@ -31,9 +31,9 @@ body,main,.at-page,.at-page-head,.b-card,.at-tool{background:#fff!important;box-
 .nt details{border:1px solid #e5e7eb;border-radius:10px;margin:8px 0;background:#fff}
 .nt summary{padding:11px 14px;font-weight:600;font-size:15px;color:#222}
 .nt .next{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0}
-.nt .next a{padding:7px 12px;border-radius:20px;border:1px solid #d1d5db;color:#222;font-weight:600;text-decoration:none;font-size:14px}
+.nt .next a{padding:7px 12px;border-radius:20px;border:1px solid #d1d5db;color:#111;font-weight:600;text-decoration:none;font-size:14px}
 .nt .sim{margin:22px 0 0;border-top:1px solid #222;padding-top:12px}
-.nt .sim b.t{display:block;font-size:16px;color:#14315c;margin:0 0 4px}
+.nt .sim b.t{display:block;font-size:16px;color:#111;margin:0 0 4px}
 .nt .sim a{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid #e5e7eb;color:#222;text-decoration:none;font-size:15px;font-weight:500}
 .nt .sim a span{color:#9ca3af}
 .nt .ad{font-size:12px!important;color:#6b7280;margin:0 0 8px!important}
@@ -44,9 +44,11 @@ body,main,.at-page,.at-page-head,.b-card,.at-tool{background:#fff!important;box-
 .nt b,.nt strong,.nt mark{background:none!important;box-shadow:none!important;text-decoration:none!important;padding:0!important}
 .nt .flow{counter-reset:f}
 .nt .flow div{counter-increment:f}
-.nt .flow i{font-size:15px!important;font-weight:800;color:#14315c}
+.nt .flow i{font-size:15px!important;font-weight:800;color:#111}
 .nt .flow i::before{content:counter(f)}
 .nt .yn span.m{font-weight:700;color:#111;margin-right:4px}
+.nt h2.q{color:#111!important}
+.at-page-head h1{color:#111!important}
 </style>'''
 def sim(items): return '<div class="sim"><b class="t">비슷한 글</b>'+''.join(f'<a href="#">{t} <span>›</span></a>' for t in items)+'</div>'
 def nxt(items): return '<div class="next">'+''.join(f'<a href="#">{t}</a>' for t in items)+'</div>'
