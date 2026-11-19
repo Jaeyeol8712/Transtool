@@ -1,24 +1,5 @@
-== 2026-11-19T22:08:30Z push 7e52e58209ac331a3f1d45f7f7922751cbe3dd5d
-· 대상 13개
-  https://www.aroundtool.com/season-andong-jjimdak-alley.html
-  https://www.aroundtool.com/season-bupyeong-kkangtong-night-market.html
-  https://www.aroundtool.com/season-gangneung-chodang-sundubu.html
-  https://www.aroundtool.com/season-gangneung-jungang-market.html
-  https://www.aroundtool.com/season-gwangjang-market-food.html
-  https://www.aroundtool.com/season-jagalchi-winter-hoe.html
-  https://www.aroundtool.com/season-jeju-dongmun-night-market.html
-  https://www.aroundtool.com/season-jeonju-nambu-night-market.html
-  https://www.aroundtool.com/season-mangwon-market-food.html
-  https://www.aroundtool.com/season-namdaemun-galchi-alley.html
-  https://www.aroundtool.com/season-sokcho-tourist-fish-market.html
-  https://www.aroundtool.com/season-suwon-tongdak-street.html
-  https://www.aroundtool.com/travel-seoul.html
-
-  ✓ api.indexnow.org — 200 접수됨
-  ✓ www.bing.com — 200 접수됨
-  ✓ searchadvisor.naver.com — 200 접수됨
-
-· 접수는 색인 확정이 아닙니다. 크롤링 우선순위가 올라갈 뿐입니다.
+== 2026-11-19T23:55:15Z push c2444c781540bd3b799f8a63e9f2a944c90b2f5d
+· 전송할 URL이 없습니다. 변경된 HTML이 없습니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
