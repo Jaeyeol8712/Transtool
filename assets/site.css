@@ -1489,3 +1489,36 @@ body .b-more>section{border:0!important;margin:0!important}
   body .at-crumbs,body .at-breadcrumb,body nav.crumbs{margin:6px 0!important}
   body .at-fig{margin:0 0 10px!important}
 }
+/* 2026-11-19 휴대폰 글씨·칸 줄이기 (PC 그대로) */
+@media (max-width:43.99rem){
+  body .at-slogan{display:none!important}
+  body .at-logo{font-size:1.0625rem!important}
+  body .at-logo-mark{width:1.75rem!important;height:1.75rem!important}
+  body .at-header{padding-top:4px!important;padding-bottom:0!important}
+  body .at-gnb a,body nav.at-gnb a,body .at-nav a{font-size:14px!important;padding-top:10px!important;padding-bottom:10px!important}
+  body .at-crumbs,body .at-breadcrumb{font-size:13px!important}
+  .hub{padding:4px 0 24px!important}
+  .hub h1{font-size:22px!important;margin:4px 0 10px!important}
+  .hub h2{font-size:16px!important;margin:18px 0 8px!important}
+  .hub-q{padding:10px 12px!important;font-size:15px!important;height:44px}
+  .hub-tiles{gap:8px!important}
+  .hub-tiles a{padding:10px 12px!important;font-size:14px!important;font-weight:700!important;display:flex!important;align-items:baseline;gap:6px;min-height:0!important}
+  .hub-tiles a small{display:inline!important;margin:0!important;font-size:13px!important}
+  .hub-cards{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+  .hub-cards b{font-size:13px!important;margin-top:4px!important}
+  .hub-cards .ph{border-radius:10px!important;aspect-ratio:1/1!important}
+  .hub-tabs{margin:20px 0 2px!important;column-gap:14px!important}
+  .hub-tabs button{font-size:14px!important;padding:8px 0!important}
+  .hub-list a{padding:10px 0!important;font-size:14px!important;font-weight:500!important}
+  .hub-shop{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}
+  .hub-shop b{font-size:13px!important;line-height:1.4;margin:6px 0!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .hub-shop .bt{font-size:12px!important;padding:6px 10px!important}
+  .hub-shop .ph{aspect-ratio:1/1!important}
+  .hub-more{font-size:13px!important}
+}
+@media (max-width:43.99rem){body.hub2 .hub-tiles{grid-template-columns:1fr 1fr!important}}
+@media (max-width:43.99rem){
+  html body .at-content{padding-left:16px!important;padding-right:16px!important}
+  html body.hub2 .at-content .at-page,html body.hub2 main article{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+}
+@media (max-width:43.99rem){html body nav.at-crumb{padding-left:16px!important;padding-right:16px!important;margin:6px 0!important;font-size:13px!important}}
