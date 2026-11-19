@@ -93,6 +93,7 @@ const MapGL = (() => {
 
   /* ---------- 한국 전체 ---------- */
   function showKorea(opts) {
+    clearTimeout(focusT);
     ctx = opts || {}; mode = 'korea';
     run(inst => { clear(inst); set3dRaw(inst, false);
       for (const r of KR_IDS) { const n = PLACES.filter(x => x.r === r).length, f = S.saved.filter(id => PBY[id].r === r).length;
@@ -102,6 +103,7 @@ const MapGL = (() => {
   /* ---------- 해외 전체 ---------- */
   const OV_TOP = new Set(['tokyo', 'osaka', 'fukuoka', 'sapporo', 'okinawa', 'taipei', 'hongkong', 'shanghai', 'hanoi', 'danang', 'hochiminh', 'bangkok', 'singapore', 'kualalumpur', 'cebu', 'guam']);
   function showWorld(opts) {
+    clearTimeout(focusT);
     ctx = opts || {}; mode = 'world';
     run(inst => { clear(inst); set3dRaw(inst, false);
       for (const r of OV_IDS) { const f = S.saved.filter(id => PBY[id].r === r).length;
@@ -110,7 +112,9 @@ const MapGL = (() => {
   }
   /* ---------- 지역·구역 ---------- */
   const ringPts = g => g.flat(2);
+  let focusT = 0;
   function showRegion(r, opts) {
+    clearTimeout(focusT);
     ctx = Object.assign({}, opts || {}, { r }); mode = 'region';
     run(inst => { draw(inst, r, true); });
   }
@@ -131,7 +135,7 @@ const MapGL = (() => {
       const focus = ctx.district && reg.districts.find(d => d.id === ctx.district);
       if (focus) fit(ringPts(focus.g), 15.5);
       else { let rp = PLACES.filter(p => p.r === r && !p.far); if (!rp.length) rp = PLACES.filter(p => p.r === r); fit(rp.map(p => [p.lng, p.lat]), 14); }
-      if (ctx.sel && PBY[ctx.sel]) setTimeout(() => focusOn(PBY[ctx.sel].lat, PBY[ctx.sel].lng), 650);
+      if (ctx.sel && PBY[ctx.sel]) { const want = ctx.sel, wr = r; clearTimeout(focusT); focusT = setTimeout(() => { if (mode === 'region' && ctx.r === wr && ctx.sel === want) focusOn(PBY[want].lat, PBY[want].lng); }, 650); }
     }
     labelVis();
   }
