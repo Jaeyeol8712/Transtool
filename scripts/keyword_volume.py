@@ -24,8 +24,8 @@ def main():
     seeds = [l.strip().replace(" ", "") for l in open("scripts/kw_queue.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
     out = {"checked": time.strftime("%Y-%m-%d %H:%M"), "seeds": {},
            "secrets": {k: len(v) for k, v in (("customer_id", CID), ("api_key", KEY), ("secret", SEC))}}
-    for i in range(0, len(seeds), 5):
-        batch = seeds[i:i + 5]
+    for i in range(0, len(seeds)):
+        batch = seeds[i:i + 1]
         try:
             rows = call(batch)
         except urllib.error.HTTPError as e:
