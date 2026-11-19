@@ -182,35 +182,38 @@ function showSearch(v) {
 }
 
 /* ---------- map tab: panel ---------- */
-function panelMap() {
+function backBtn() {
+  if (S.ui.sel) return `<button class="k-back" data-act="unsel">${ICONS.left}<span>이전</span></button>`;
+  if (S.ui.lvl === 'district') return `<button class="k-back" data-act="region" data-v="${S.ui.r}">${ICONS.left}<span>이전</span></button>`;
+  if (S.ui.lvl === 'region') return `<button class="k-back" data-act="korea">${ICONS.left}<span>이전</span></button>`;
+  return '';
+}
+function panelMap() { return backBtn() + panelMap0(); }
+function panelMap0() {
   if (S.ui.sel) return placeDetail(S.ui.sel);
   const lvl = S.ui.lvl;
   if (lvl === 'korea') {
     const ov = S.ui.scope === 'ov';
     const card = r => { const L = PLACES.filter(p => p.r === r), f = L.filter(p => isSaved(p.id)).length;
-      return `<button class="rcard" data-act="region" data-v="${r}"><span class="rmap">${Map2D.thumb(r)}</span><span class="tx"><b>${esc(rn(r))}</b><span>${esc(tr4(REGION_TAG[r]))}</span>
-        <span class="cnt"><span>${T.spots(L.length)}</span><span>${T.districtsN(GEO.regions[r].districts.length)}</span>${f ? `<span class="hrt">♥ ${f}</span>` : ''}</span></span>${ICONS.right}</button>`; };
-    const seg = `<div class="segc scope" role="tablist"><button role="tab" class="${ov ? '' : 'on'}" data-act="scope" data-v="kr">${T.scopeKr}<small>${T.scopeKrSub}</small></button><button role="tab" class="${ov ? 'on' : ''}" data-act="scope" data-v="ov">${T.scopeOv}<small>${T.scopeOvSub(OV_IDS.length)}</small></button></div>`;
-    if (!ov) return `<h1 class="h1">${T.where}</h1><p class="lead">${T.whereLead}</p>${seg}
-      <div class="rgrid" style="margin-top:14px">${KR_IDS.map(card).join('')}</div>${aroundMore()}`;
-    return `<h1 class="h1">${T.where}</h1><p class="lead">${T.whereLeadOv}</p>${seg}
-      ${OVD.order.map(cc => { const rs = OV_IDS.filter(r => REGIONS[r].cc === cc); return rs.length ? `<div class="sec"><h3>${esc(countryName(cc))}</h3><small>${T.citiesN(rs.length)}</small></div><div class="rgrid">${rs.map(card).join('')}</div>` : ''; }).join('')}
-      <p class="note">${T.ovNote}</p>${aroundMore()}`;
+      return `<button class="k-rt" data-act="region" data-v="${r}"><b>${esc(rn(r))}</b>${f ? `<span class="hrt">♥ ${f}</span>` : ''}</button>`; };
+    const seg = `<div class="segc scope" role="tablist"><button role="tab" class="${ov ? '' : 'on'}" data-act="scope" data-v="kr">${T.scopeKr}</button><button role="tab" class="${ov ? 'on' : ''}" data-act="scope" data-v="ov">${T.scopeOv}</button></div>`;
+    if (!ov) return `<h1 class="h1">${T.where}</h1>${seg}
+      <div class="k-rts" style="margin-top:14px">${KR_IDS.map(card).join('')}</div>`;
+    return `<h1 class="h1">${T.where}</h1>${seg}
+      ${OVD.order.map(cc => { const rs = OV_IDS.filter(r => REGIONS[r].cc === cc); return rs.length ? `<div class="sec"><h3>${esc(countryName(cc))}</h3></div><div class="k-rts">${rs.map(card).join('')}</div>` : ''; }).join('')}`;
   }
-  return areaDetail2();
   const r = S.ui.r, inD = lvl === 'district', ds = GEO.regions[r].districts;
   const list = PLACES.filter(p => p.r === r && (!inD || p.dist === S.ui.d) && (S.ui.filter === 'all' || p.c === S.ui.filter));
   const cats = CAT_ORDER.filter(c => PLACES.some(p => p.r === r && (!inD || p.dist === S.ui.d) && p.c === c));
   const head = inD
-    ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1><p class="lead">${S.ui.mode3d ? T.distLead3d : T.distLead2d}</p>`
-    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1><p class="lead">${esc(tr4(REGION_TAG[r]))}</p>
-       <div class="sec"><h3>${T.pickDistrict}</h3><small>${T.pickDistrictSub}</small></div>
+    ? `<div class="eyebrow"><button data-act="region" data-v="${r}">${esc(rn(r))}</button><span class="sep">›</span><span>${esc(dn(S.ui.d))}</span></div><h1 class="h1">${esc(dn(S.ui.d))}</h1>`
+    : `<div class="eyebrow"><button data-act="korea">${esc(isOv(r) ? `${T.scopeOv} · ${countryName(REGIONS[r].cc)}` : T.korea)}</button><span class="sep">›</span><span>${esc(rn(r))}</span></div><h1 class="h1">${esc(rn(r))}</h1>
+       <div class="sec"><h3>${T.pickDistrict}</h3></div>
        <div class="chips scroll">${ds.map(d => `<button class="chip" data-act="district" data-v="${d.id}">${ICONS.pin.replace('<svg ', '<svg width="16" height="16" ')}${esc(tr4(d.n))}<span class="muted" style="font-weight:500">${d.ids.length}</span></button>`).join('')}</div>`;
-  return `${head}${inD ? '' : courseCards(r)}
-    <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${T.spots(list.length)}</small></div>
+  return `${head}
+    <div class="sec"><h3>${inD ? T.inDistrict : T.allPlaces}</h3><small>${list.length}</small></div>
     <div class="chips scroll" style="margin-bottom:12px"><button class="chip ${S.ui.filter === 'all' ? 'on' : ''}" data-act="filter" data-v="all">${T.all}</button>${cats.map(c => `<button class="chip ${S.ui.filter === c ? 'on' : ''}" data-act="filter" data-v="${c}"><span class="ci" style="background:${CATS[c].col}">${catIcon(c)}</span>${T.cats[c]}</button>`).join('')}</div>
-    <div class="list">${list.map(p => placeRow(p)).join('') || `<div class="empty">${T.noneFilter}</div>`}</div>
-    ${aroundCard(r, inD ? S.ui.d : null)}`;
+    <div class="list k-short">${list.map(p => placeRow(p, { sub: ' ' })).join('') || `<div class="empty">${T.noneFilter}</div>`}</div>`;
 }
 /* ---------- 어라운드툴 연결 ---------- */
 const ext = (url, inner, cls = '') => `<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>`;
@@ -327,7 +330,7 @@ function placeDetail2(id) {
     ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
-    <div class="p2-acts"><button class="btn ghost" data-save="${id}">${isSaved(id) ? T.savedBtn : T.saveBtn}</button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <div class="p2-acts"><button class="btn ghost" data-save="${id}">${isSaved(id) ? T.savedBtn : "여행지 저장"}</button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
   </div>`;
@@ -391,6 +394,23 @@ function a2Pop(kind, key) {
     ${cs.length ? `<h4 class="p2-h">추천 코스</h4>${cs.map((c, k) => `<div class="p2-row"><b>${esc(c.t.replace(/\s*—.*$/, ''))}</b><span>${c.days.length}일 · ${esc(c.days[0].ids.filter(id => PBY[id]).map(id => pn(id)).slice(0, 3).join(' → '))}</span></div>`).join('')}` : ''}${go(ar.trip.url)}`;
   if (kind === 'tip') h = `<span class="p2-tag">꿀팁</span><h3 class="p2-pt">${esc(tip[0])}</h3><p class="p2-one">${esc(tip[4])}</p>${nums(tip[3])}${go(tip[2], '계산기 열기')}`;
   openModal(`<button class="p2-x" data-close aria-label="닫기">×</button>${h}`);
+}
+
+/* ---------- 첫 화면(어디로 갈까요)도 같은 새 틀 — 시안 ---------- */
+function koreaDetail2() {
+  const ov = S.ui.scope === 'ov', ids = ov ? OV_IDS : KR_IDS;
+  const pool = PLACES.filter(p => ids.includes(p.r) && spotOf(p.id).s && spotOf(p.id).s.photo);
+  const pick = ids.map(r => pool.find(p => p.r === r)).filter(Boolean).slice(0, 3);
+  const nearHtml = pick.map(q => { const ph = spotOf(q.id).s.photo; return `<button class="p2-near" data-act="place" data-v="${q.id}"><img src="${esc(ph.src)}" alt="${esc(ph.alt)}" loading="lazy"><b>${esc(pn(q.id))}</b><small>${esc(rn(q.r))}</small></button>`; }).join('');
+  const seg = `<div class="p2-seg"><button class="${ov ? '' : 'on'}" data-act="scope" data-v="kr">국내 ${KR_IDS.length}</button><button class="${ov ? 'on' : ''}" data-act="scope" data-v="ov">해외 ${OV_IDS.length}</button></div>`;
+  const tiles = ids.map(r => `<button class="p2-tile" data-act="region" data-v="${r}"><b>${esc(rn(r))}</b><small>${PLACES.filter(p => p.r === r).length}곳</small></button>`).join('');
+  const A = AROUND || {}, c = A.counts || {};
+  const items = [['맛집', `전국 맛집 ${c.places || ''}곳`, `${c.gu || ''}개 지역 기록`, A.food], ['코스', `여행 코스 ${c.trips || ''}곳`, '일정별 동선·예산·교통', A.travel], ['꿀팁', P2_TIP.ko[0], P2_TIP.ko[1], P2_TIP.ko[2]]];
+  return `<div class="p2"><h2 class="p2-name">어디로 갈까요?</h2><p class="p2-one">지역을 고르면 장소와 일정을 볼 수 있어요</p>${seg}
+    <h3 class="p2-h">추천 여행지</h3><div class="p2-nears">${nearHtml}</div>
+    <h3 class="p2-h">${ov ? '해외 도시' : '국내 지역'}</h3><div class="p2-tiles">${tiles}</div>
+    <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
+    ${items.map(([tag, t, d, u]) => `<a class="p2-it" href="${esc(u || '#')}" target="_blank" rel="noopener"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></a>`).join('')}</div>`;
 }
 function stationOf(p) { return /역/.test(p.st) ? stationTr(p.st) : `${rn(p.r)} ${dn(p.dist)}`; }
 const mapUrl = p => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.n.en} ${REGIONS[p.r].t[2]}`)}`;
