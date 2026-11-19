@@ -41,6 +41,7 @@ html = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+<script>document.documentElement.className+=' js'</script><style>.js #seo{{display:none}}</style>
 </head>
 <body>
 {static}
