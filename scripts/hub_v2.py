@@ -268,6 +268,15 @@ def run(root=None, data=None):
         body = shop() if fn is None else fn(h)
         put(path, h, title, ph, body)
         done.append(f)
+    # 메인 페이지: 푸터의 브랜드 소개·링크 묶음 제거(2026-11-19 대표). 법적 링크 줄은 유지.
+    ip = os.path.join(ROOT, 'index.html')
+    if os.path.exists(ip):
+        h = open(ip, encoding='utf-8').read()
+        h2 = re.sub(r'\s*<div class="at-footer-brand">.*?</p></div>', '', h, count=1, flags=re.S)
+        h2 = re.sub(r'\s*<div class="at-footer-cols">(?:\s*<div><p>[^<]*</p><ul>.*?</ul></div>)+\s*</div>', '', h2, count=1, flags=re.S)
+        if h2 != h:
+            open(ip, 'w', encoding='utf-8').write(h2)
+            done.append('index.html(푸터)')
     print('hub_v2:', ', '.join(done) or '변경 없음')
 
 
