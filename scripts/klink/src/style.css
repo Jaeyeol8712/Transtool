@@ -685,3 +685,8 @@ a.p2-it{text-decoration:none;color:inherit}
   .tabbar button.on{background:#F3F4F6;color:#111!important}
   .tabbar .badge{top:4px!important}
 }
+.k-cc{border-bottom:1px solid #F1F2F4}.k-cc:first-of-type{margin-top:10px}
+.k-cc summary{display:flex;align-items:center;gap:8px;padding:16px 4px;cursor:pointer;list-style:none;font-size:17px}.k-cc summary::-webkit-details-marker{display:none}
+.k-cc summary b{font-weight:800;color:#111}.k-cc summary span{color:#9CA3AF;font-size:14px;font-weight:600}
+.k-cc summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid #9CA3AF;border-bottom:2px solid #9CA3AF;transform:rotate(45deg);transition:transform .15s}
+.k-cc[open] summary::after{transform:rotate(-135deg)}.k-cc .k-rts{padding:0 0 16px}

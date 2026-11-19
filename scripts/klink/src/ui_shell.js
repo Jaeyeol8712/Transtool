@@ -200,7 +200,7 @@ function panelMap0() {
     if (!ov) return `<h1 class="h1">${T.where}</h1>${seg}
       <div class="k-rts" style="margin-top:14px">${KR_IDS.map(card).join('')}</div>`;
     return `<h1 class="h1">${T.where}</h1>${seg}
-      ${OVD.order.map(cc => { const rs = OV_IDS.filter(r => REGIONS[r].cc === cc); return rs.length ? `<div class="sec"><h3>${esc(countryName(cc))}</h3></div><div class="k-rts">${rs.map(card).join('')}</div>` : ''; }).join('')}`;
+      ${OVD.order.map(cc => { const rs = OV_IDS.filter(r => REGIONS[r].cc === cc); return rs.length ? `<details class="k-cc"><summary><b>${esc(countryName(cc))}</b><span>${rs.length}</span></summary><div class="k-rts">${rs.map(card).join('')}</div></details>` : ''; }).join('')}`;
   }
   const r = S.ui.r, inD = lvl === 'district', ds = GEO.regions[r].districts;
   const list = PLACES.filter(p => p.r === r && (!inD || p.dist === S.ui.d) && (S.ui.filter === 'all' || p.c === S.ui.filter));
