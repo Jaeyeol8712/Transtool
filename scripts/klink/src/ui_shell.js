@@ -380,7 +380,7 @@ function areaDetail2() {
     <h2 class="p2-name">${esc(inD ? dn(did) : rn(r))}</h2><p class="p2-one">${esc(inD ? `${rn(r)} · ${dn(did)}` : tr4(REGION_TAG[r]))}</p>
     ${nearHtml ? `<h3 class="p2-h">추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${esc(v)}</b><small>${k}</small></div>`).join('')}</div>
-    <div class="p2-acts"><button class="btn ghost" data-act="tab" data-v="saved">${T.saveBtn}</button>${cs.length ? `<button class="btn p2-pri" data-act="loadCourse" data-v="${r}:0">일정에 넣기</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <div class="p2-acts"><button class="btn ghost k-save" data-act="tab" data-v="saved">${ICONS.heart}<span>${S.lang === 'ko' ? '여행지 저장' : T.saveBtn}</span></button></div>
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="a2Pop('${k}','${key}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
     ${more}</div>`;
