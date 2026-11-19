@@ -754,3 +754,5 @@ a.p2-it{text-decoration:none;color:inherit}
 .k-tr2{align-items:flex-start}.k-st{margin:4px 0 2px;padding-left:18px;font-size:.84rem;line-height:1.45;color:#222}.k-st li{margin:1px 0}.k-st li::marker{color:#d32f2f;font-weight:700}.k-tr2 small a{color:#111;font-weight:700}
 
 .p2-acts .k-save{flex:1 1 100%;width:100%;grid-column:1/-1;color:#d32f2f;font-weight:700}.p2-acts .k-save svg{color:#d32f2f}
+
+.brand.at-home{display:inline-flex;align-items:center;gap:4px;padding:8px 12px 8px 8px;border:1px solid #e3e5ea;border-radius:12px;color:#111;font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap}.brand.at-home span{display:inline!important}.brand.at-home #brandt{display:none!important}

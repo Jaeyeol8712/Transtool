@@ -35,7 +35,7 @@ const heartBtn = id => `<button class="heart ${isSaved(id) ? 'on' : ''}" data-sa
 let app, panel, pin, stage;
 function buildShell() {
   document.body.innerHTML = `<div class="app" id="app">
-    <header class="appbar"><div class="brand"><span class="mark">${ICONS.logo}</span><span id="brandt"></span></div><span class="sp"></span>
+    <header class="appbar"><a class="brand at-home" href="/" aria-label="어라운드툴 홈으로"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span>어라운드툴</span><span id="brandt" hidden></span></a><span class="sp"></span>
       <button class="tripbtn" id="tripbtn">${ICONS.cal}<span id="tript"></span></button><div class="langs" id="langs" role="radiogroup" aria-label="Language"></div></header>
     <div class="main"><section class="panel" id="panel"><div class="grab" id="grab" role="button" aria-label="sheet"><i></i></div><div class="tabtop" id="tabtop"></div><div class="panel-in" id="pin"></div></section>
       <section class="stage" id="stage"><div id="mapbox"></div><div id="worldbox" style="display:none"></div><div id="ovl"></div></section></div>
