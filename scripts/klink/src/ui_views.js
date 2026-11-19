@@ -97,6 +97,15 @@ function panelPlan() {
     <div class="route">${route}</div>
     ${stale ? `<div class="banner">${ICONS.info.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.stale}</span><button class="btn sm" data-act="genPlan">${T.replanShort}</button></div>` : ''}
     ${P.warn && P.warn.k === 'farDep' ? `<div class="banner">${ICONS.warn.replace('<svg ', '<svg width="20" height="20" style="flex-shrink:0" ')}<span class="grow">${T.farDep(rn(P.warn.r), F.dur(P.warn.min))}</span><button class="btn sm ghost" data-act="trip">${T.editTrip}</button></div>` : ''}
+    ${(() => { const ta = tripAir(), st0 = STAY_BY[P.stays[R[0]]], stN = STAY_BY[P.stays[R[R.length - 1]]];
+      const lk = m => m === 'rail' ? ['https://www.letskorail.com/', '코레일'] : m === 'flight' ? null : (ta.arr === 'ICN' || ta.dep === 'ICN') && m !== 'walk' ? ['https://www.arex.or.kr/', '공항철도'] : null;
+      const row = (k, from, to, L) => { const l = lk(L.mode); const body = `<span class="k">${k}</span><span class="tx"><b>${esc(from)} → ${esc(to)}</b><small>${esc(modeLabel(L))} · 약 ${F.dur(L.min)}</small></span>${l ? `<span class="go">${l[1]} ›</span>` : ''}`;
+        return l ? `<a class="k-tr" href="${l[0]}" target="_blank" rel="noopener">${body}</a>` : `<div class="k-tr">${body}</div>`; };
+      const rows = [];
+      try { rows.push(row('도착', an(ta.arr), `${rn(R[0])} 숙소 ${sn(st0.id)}`, airportLeg(ta.arr, st0, R[0]))); } catch (e) {}
+      R.forEach((r, k) => { if (k) { const t = interRegion(R[k - 1], r); if (t) rows.push(row('이동', rn(R[k - 1]), rn(r), Object.assign({}, t, { min: t.ride || t.min }))); } });
+      try { rows.push(row(ta.home ? '귀가' : '출국', `${rn(R[R.length - 1])} 숙소 ${sn(stN.id)}`, an(ta.dep), airportLeg(ta.dep, stN, R[R.length - 1]))); } catch (e) {}
+      return rows.length ? `<div class="sec"><h3>교통편</h3><small>시간은 약, 요금은 예매 사이트 확인</small></div><div class="k-trs">${rows.join('')}</div>` : ''; })()}
     <div class="sec"><h3>${T.byDay}</h3></div>
     <div class="days">${ds.map((d, k) => `<button class="dchip ${k === i ? 'on' : ''}" style="--c:${LINE[k % LINE.length]}" data-act="day" data-v="${k}"><span class="n">${k + 1}</span><span class="d"><b>${F.date(d.date)}</b><small>${esc(rn(d.r))}</small></span></button>`).join('')}</div>
     <div class="dhead"><div><h2>${T.day(i + 1)} · ${esc(rn(day.r))}</h2><small>${F.date(day.date, true)} · ${T.daySumOv(sc.places, F.dur(sc.moveMin))}</small></div></div>
