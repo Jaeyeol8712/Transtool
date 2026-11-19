@@ -14,6 +14,12 @@ NOTE = "※ 제휴 안내: 링크한 페이지에는 네이버 쇼핑 커넥트 
 
 # 슬러그: 카페 제목 (검색 많은 키워드를 맨 앞에)
 TITLES = {
+    "dunoen-ps-maxplus": "포스파티딜세린 고르는 법 — 순도 85%·1일 300mg 표시 읽기",
+    "maxcut-pro-chrome": "맥스컷 프로 크롬 성분 — 녹차·바나바 원료와 기능성 정리",
+    "jmw-airjet-ultra-pro": "JMW 드라이기 에어젯 울트라 프로 — 1700W BLDC 사양 정리",
+    "s23-ultra-magsafe-case": "갤럭시 S23 울트라 케이스 — 맥세이프 하이브리드 고르는 법",
+    "samsung-business-tv-50": "삼성 TV 50인치 비즈니스 TV — 일반 TV와 차이 정리",
+    "bespoke-foodshowcase-902l": "삼성 냉장고 4도어 비스포크 902L — 푸드쇼케이스 사양 정리",
     "galaxy-z-fold8-256": "갤럭시 Z폴드8 256GB 자급제 — 출고가와 폴드8 울트라 차이",
     "shaving-foam-cream": "쉐이빙 폼 면도크림 고르는 법 — 폼·젤·크림 차이",
     "aa-battery-10pack": "AA 건전지 10입 고르는 법 — 알카라인·망간·충전지 차이",
