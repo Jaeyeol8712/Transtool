@@ -1458,3 +1458,6 @@ body a.at-klink,body .at-related,body .at-footer-brand,body .at-footer-cols{disp
 body .b-num{background:#FFF1F2!important;color:#E11D48!important}
 body .at-steps li::marker{color:#E11D48;font-weight:800}
 body .at-prose mark,body .at-prose b{background:none}
+/* 실전 팁·주의할 점 = 노란 경고 블록 (2026-11-19) */
+body .at-prose .vx-callout,body .at-prose .callout,body .at-prose .b-tip,body .at-prose .pdx-tips{background:#FFFBEA!important;border:1px solid #F3E3A3!important;color:#111!important}
+body .at-prose .vx-callout p{color:#111!important}
