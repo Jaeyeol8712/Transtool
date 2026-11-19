@@ -2,9 +2,9 @@
 """네이버 검색광고 API(keywordstool)로 월간 검색수 조회 → _kw/result.json
 입력: scripts/kw_queue.txt (한 줄에 키워드 하나, 띄어쓰기는 자동 제거)
 비밀값: NAVER_AD_CUSTOMER_ID · NAVER_AD_API_KEY · NAVER_AD_SECRET (GitHub secrets, 저장소에 남기지 않음)"""
-import base64, hashlib, hmac, json, os, time, urllib.error, urllib.parse, urllib.request
+import re, base64, hashlib, hmac, json, os, time, urllib.error, urllib.parse, urllib.request
 
-CID, KEY, SEC = (os.environ.get(k, "") for k in ("NAVER_AD_CUSTOMER_ID", "NAVER_AD_API_KEY", "NAVER_AD_SECRET"))
+CID, KEY, SEC = ("".join(os.environ.get(k, "").split()) for k in ("NAVER_AD_CUSTOMER_ID", "NAVER_AD_API_KEY", "NAVER_AD_SECRET"))
 
 
 def call(hints):
@@ -23,13 +23,13 @@ def n(v):
 def main():
     seeds = [l.strip().replace(" ", "") for l in open("scripts/kw_queue.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
     out = {"checked": time.strftime("%Y-%m-%d %H:%M"), "seeds": {},
-           "secrets": {k: len(v.strip()) for k, v in (("customer_id", CID), ("api_key", KEY), ("secret", SEC))}}
+           "secrets": {k: len(v) for k, v in (("customer_id", CID), ("api_key", KEY), ("secret", SEC))}, "cid_digits": CID.isdigit()}
     for i in range(0, len(seeds), 5):
         batch = seeds[i:i + 5]
         try:
             rows = call(batch)
         except urllib.error.HTTPError as e:
-            out.setdefault("errors", []).append(f"{batch}: {e.code} {e.read()[:300].decode('utf-8','replace')}")
+            out.setdefault("errors", []).append(f"{batch}: {e.code} {re.sub(r'api-key: [^,]+', 'api-key: (가림)', e.read()[:300].decode('utf-8','replace'))}")
             continue
         except Exception as e:  # noqa: BLE001
             out.setdefault("errors", []).append(f"{batch}: {e}")
