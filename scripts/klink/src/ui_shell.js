@@ -248,6 +248,7 @@ const spotOf = id => (AROUND && AROUND.spots && AROUND.spots[id]) || {};
 const hiRoute = (txt, keys) => { let h = esc(txt); for (const k of (keys || []).slice().sort((a, b) => b.length - a.length)) { const e = esc(k); if (e && h.includes(e)) { h = h.split(e).join(`<b>${e}</b>`); break; } } return h; };
 const ic = (name, s = 18) => ICONS[name].replace('<svg ', `<svg width="${s}" height="${s}" `);
 function placeDetail(id) {
+  if (typeof PDX2 === 'function' && PDX2(id)) return placeDetail2(id);
   const p = PBY[id], di = placeInPlan(id), { s: sp, g } = spotOf(id), ko = S.lang !== 'ko' ? ` lang="ko"` : '';
   const col = CATS[p.c].col, best = { am: T.bestAmL, eve: T.bestEveL, night: T.bestNightL }[p.best];
   // 한눈에 보는 정보: 명소 안내가 있으면 그 내용(한국어), 없으면 K링크 기본값
@@ -300,6 +301,51 @@ function placeDetail(id) {
     ${near ? sec(T.nearTitle, `<div class="list">${near}</div>`) : ''}
     ${srcRow}
     ${aroundCard(p.r, p.dist, true)}`;
+}
+
+/* ---------- 장소 상세 새 틀 시안 (2026-11-19, 대표 확인용 · PDX2가 켜진 장소만) ---------- */
+const P2_TIP = { ko: ['호텔 총액 계산기', '봉사료·세금 넣은 실제 숙박비', 'https://www.aroundtool.com/hotel_total_price_calculator.html', [['봉사료', '% 입력'], ['세금', '% 입력'], ['리조트피', '고정 요금']], '1박 표시 요금에 봉사료·세금·리조트피를 더해 실제로 낼 숙박비를 계산해요.'],
+  ov: ['환율 계산기', '현지 금액을 원화로 바로', 'https://www.aroundtool.com/exchange_rate_calculator.html', [['통화', '달러·엔·바트 등'], ['금액', '현지 금액 입력'], ['결과', '원화 환산']], '여행지 금액을 원화로 바꿔 예산을 잡아요.'] };
+function p2Data(id) {
+  const p = PBY[id], lk = spotOf(id), g = lk.g, tip = P2_TIP[isOv(p.r) ? 'ov' : 'ko'], items = [];
+  if (lk.gu) items.push(['food', '맛집', `${lk.gu.gu} 맛집 ${lk.gu.count}곳`, `${lk.gu.cats.length}개 카테고리 · ${lk.gu.cats.map(c => c.cat).slice(0, 3).join('·')}`]);
+  if (g) items.push(['course', '코스', g.title, g.days && g.days.length ? `${g.days[0][0].replace(/\s*—.*$/, '')}~${g.days[g.days.length - 1][0].replace(/\s*—.*$/, '')} 일정별 동선` : '일정별 동선·교통']);
+  items.push(['tip', '꿀팁', tip[0], tip[1]]);
+  return { p, lk, g, tip, items };
+}
+function placeDetail2(id) {
+  const { p, lk, items } = p2Data(id), sp = lk.s, F_ = sp ? sp.facts : null;
+  const near = PLACES.filter(q => q.r === p.r && q.id !== id).map(q => [hav(p, q), q]).sort((a, b) => a[0] - b[0]).slice(0, 3);
+  const nearHtml = near.map(([d, q]) => { const ph = spotOf(q.id).s && spotOf(q.id).s.photo; return `<button class="p2-near" data-act="place" data-v="${q.id}">${ph ? `<img src="${esc(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">` : `<span class="p2-noph" style="background:${CATS[q.c].col}">${catIcon(q.c)}</span>`}<b>${esc(pn(q.id))}</b><small>${esc(T.cats[q.c])} · 약 ${d < 10 ? d.toFixed(1) : Math.round(d)}km</small></button>`; }).join('');
+  const short = v => esc(String(v || '').split(/\s*[·(]/)[0]);
+  const nums = F_ ? [[F_.fee, '입장료'], [F_.stay, '머무는 시간'], [F_.when, '추천 시간']] : [[T.localCheck, '요금'], [F.dur(p.h * 60), '머무는 시간'], [stationOf(p), '가는 곳']];
+  const di = placeInPlan(id);
+  return `<div class="p2">
+    <div class="p2-path"><button data-act="korea">${esc(T.korea)}</button> › <button data-act="region" data-v="${p.r}">${esc(rn(p.r))}</button> › <span>${esc(dn(p.dist))}</span></div>
+    <h2 class="p2-name">${esc(pn(id))}</h2><p class="p2-one">${esc(pd(id))}</p>
+    ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
+    <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
+    <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
+    <div class="p2-acts"><button class="btn ghost" data-save="${id}">${isSaved(id) ? T.savedBtn : T.saveBtn}</button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
+    ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
+  </div>`;
+}
+function p2Pop(kind, id) {
+  const { lk, g, tip } = p2Data(id), nums = x => `<div class="p2-nums">${x.map(([v, k]) => `<div><b>${esc(v)}</b><small>${esc(k)}</small></div>`).join('')}</div>`;
+  const go = (u, t = '어라운드툴에서 전체 보기') => `<a class="btn block p2-go" href="${esc(u)}" target="_blank" rel="noopener">${t}</a>`;
+  let h = '';
+  if (kind === 'food' && lk.gu) h = `<span class="p2-tag">맛집</span><h3 class="p2-pt">${esc(lk.gu.gu)} 맛집 ${lk.gu.count}곳</h3><p class="p2-one">광고·협찬 빼고 재방문 언급·공식 지정 근거로 골랐어요</p>
+    ${nums([[`${lk.gu.count}곳`, '전체'], [`${lk.gu.cats.length}개`, '카테고리'], [`${(lk.f || []).length}개`, '근처 먹거리 글']])}
+    <h4 class="p2-h">카테고리</h4><div class="p2-chips">${lk.gu.cats.map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.cat)} ${c.count}</a>`).join('')}</div>
+    ${(lk.f || []).length ? `<h4 class="p2-h">근처 먹거리</h4>${lk.f.map(x => `<div class="p2-row"><b>${esc(x.name)}</b><span>${esc(x.desc)}</span></div>`).join('')}` : ''}${go(lk.gu.url)}`;
+  if (kind === 'course' && g) h = `<span class="p2-tag">코스</span><h3 class="p2-pt">${esc(g.title)}</h3><p class="p2-one">이 장소가 들어간 어라운드툴 일정이에요</p>
+    ${nums([[`${(g.days || []).length}가지`, '일정'], [g.area ? g.area[0] : '-', '권역'], [g.area && g.area[2] ? g.area[2].replace(/^.*?(\d+시간|\d+분)$/, '$1') : '-', '둘러보기']])}
+    <h4 class="p2-h">일정에서는</h4>${(g.days || []).map(d => `<div class="p2-row"><b>${esc(d[0].replace(/\s*—.*$/, ''))} ${esc(d[1])}</b><span>${esc(d[3])}</span></div>`).join('')}
+    ${g.moves && g.moves[0] ? `<h4 class="p2-h">가는 법</h4><div class="p2-row"><b>${esc(g.moves[0][0])}</b><span>${esc(g.moves[0][1])} · ${esc(g.moves[0][2])}</span></div>` : ''}${go(g.url)}`;
+  if (kind === 'tip') h = `<span class="p2-tag">꿀팁</span><h3 class="p2-pt">${esc(tip[0])}</h3><p class="p2-one">${esc(tip[4])}</p>
+    ${nums(tip[3].map(([a, b]) => [a, b]))}${go(tip[2], '계산기 열기')}`;
+  openModal(`<button class="p2-x" data-close aria-label="닫기">×</button>${h}`);
 }
 function stationOf(p) { return /역/.test(p.st) ? stationTr(p.st) : `${rn(p.r)} ${dn(p.dist)}`; }
 const mapUrl = p => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.n.en} ${REGIONS[p.r].t[2]}`)}`;
