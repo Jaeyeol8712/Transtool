@@ -271,13 +271,18 @@ def run(root=None, data=None):
     # 기존 글 새 구성 보강(2026-11-19): '먼저 알아둘 것'이 없으면 설명문으로 넣고, 자주 묻는 질문은 5개까지
     import glob
     n_fix = 0
-    for path in glob.glob(os.path.join(ROOT, 'travel-*.html')) + glob.glob(os.path.join(ROOT, 'season-*.html')):
+    SKIP = {'index.html', '404.html', 'search.html', 'sitemap.html', 'about.html', 'privacy.html', 'terms.html', 'editorial.html', 'contact.html',
+            'connect.html', 'food.html', 'tools.html', 'travel.html', 'etc.html', 'season.html', 'guide_2026_tax.html', 'guide_2026_wage.html'}
+    for path in glob.glob(os.path.join(ROOT, '*.html')):
+        bn = os.path.basename(path)
+        if bn in SKIP or bn.startswith(('guide-', 'shop-')):
+            continue
         h = open(path, encoding='utf-8').read(); o = h
         m = re.search(r'<main.*?</main>', h, re.S)
         if not m:
             continue
         main = m.group(0)
-        if 'at-answer' not in main and '먼저 알아둘 것' not in main:
+        if 'at-answer' not in main and '먼저 알아둘 것' not in main and 'vx-hero' not in main:
             d = re.search(r'<meta name="description" content="([^"]+)"', h)
             if d:
                 box = f'<div class="at-answer b-sum"><p>{d.group(1)}</p></div>'
@@ -304,7 +309,7 @@ def run(root=None, data=None):
         if h != o:
             open(path, 'w', encoding='utf-8').write(h); n_fix += 1
     if n_fix:
-        done.append(f'여행·제철 {n_fix}개 구성 보강')
+        done.append(f'글 {n_fix}개 구성 보강')
     # 메인 페이지: 푸터의 브랜드 소개·링크 묶음 제거(2026-11-19 대표). 법적 링크 줄은 유지.
     ip = os.path.join(ROOT, 'index.html')
     if os.path.exists(ip):
