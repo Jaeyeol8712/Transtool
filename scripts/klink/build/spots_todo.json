@@ -1,23 +1,8 @@
 {
- "done": 132,
- "todo": 176,
+ "done": 138,
+ "todo": 170,
  "regions": {
   "seoul": [
-   {
-    "id": "gbg",
-    "name": "경복궁",
-    "guide": true
-   },
-   {
-    "id": "bukchon",
-    "name": "북촌 한옥마을",
-    "guide": true
-   },
-   {
-    "id": "cdg",
-    "name": "창덕궁 후원",
-    "guide": true
-   },
    {
     "id": "insa",
     "name": "인사동 쌈지길",
@@ -89,11 +74,6 @@
     "guide": false
    },
    {
-    "id": "namsan",
-    "name": "남산서울타워 야경",
-    "guide": true
-   },
-   {
     "id": "hangang",
     "name": "한강 노을 산책",
     "guide": true
@@ -109,11 +89,6 @@
     "guide": false
    },
    {
-    "id": "banpo",
-    "name": "반포 달빛무지개분수",
-    "guide": true
-   },
-   {
     "id": "coex",
     "name": "코엑스 K-POP 광장·별마당도서관",
     "guide": true
@@ -121,11 +96,6 @@
    {
     "id": "namdaemun",
     "name": "남대문시장",
-    "guide": false
-   },
-   {
-    "id": "lotteworld",
-    "name": "롯데월드",
     "guide": false
    },
    {
