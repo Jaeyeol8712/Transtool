@@ -101,10 +101,49 @@ function panelPlan() {
       const lk = m => m === 'rail' ? ['https://www.letskorail.com/', '코레일'] : m === 'flight' ? null : (ta.arr === 'ICN' || ta.dep === 'ICN') && m !== 'walk' ? ['https://www.arex.or.kr/', '공항철도'] : null;
       const row = (k, from, to, L) => { const l = lk(L.mode); const body = `<span class="k">${k}</span><span class="tx"><b>${esc(from)} → ${esc(to)}</b><small>${esc(modeLabel(L))} · 약 ${F.dur(L.min)}</small></span>${l ? `<span class="go">${l[1]} ›</span>` : ''}`;
         return l ? `<a class="k-tr" href="${l[0]}" target="_blank" rel="noopener">${body}</a>` : `<div class="k-tr">${body}</div>`; };
+      const MAIN = { seoul: '서울역', busan: '부산역', gyeongju: '경주역', gangneung: '강릉역', jeonju: '전주역', yeosu: '여수엑스포역', jeju: '제주공항' };
+      const RAIL = { busan: ['서울역', 'KTX 경부선'], gyeongju: ['서울역', 'KTX 경부선'], gangneung: ['서울역·청량리역', 'KTX 강릉선'], jeonju: ['용산역', 'KTX 전라선'], yeosu: ['용산역', 'KTX 전라선'] };
+      const stTx = s => (s && s.st && s.st[0]) || '';
+      const last = (r, s) => { if (!s) return []; const t = stTx(s), nm = sn(s.id);
+        if (r === 'seoul' || r === 'busan') return [`지하철로 ${t.replace(' · ', '(') + (t.includes(' · ') ? ')' : '')}`];
+        if (r === 'jeju') return [`렌터카 또는 택시·버스로 ${nm}`];
+        if (t.startsWith('KTX') || nm === MAIN[r]) return [`${MAIN[r]} 앞 숙소`];
+        return [`${MAIN[r]}에서 택시·시내버스로 ${nm}`]; };
+      const fromSeoul = (r, rev) => { if (r === 'jeju') return rev ? ['제주공항 → 김포공항 항공편', '김포공항에서 지하철 5·9호선·공항철도로 시내'] : ['지하철 5·9호선·공항철도로 김포공항', '김포공항 → 제주공항 항공편'];
+        const x = RAIL[r]; if (!x) return null; return rev ? [`${MAIN[r]}에서 ${x[1]}`, `${x[0].split('·')[0]} 도착`] : [`${x[0]}에서 ${x[1]}`, `${MAIN[r]} 도착`]; };
+      const between = (a, b, sb) => { if (a === 'seoul') return (b === 'jeju' ? [] : [`숙소에서 지하철로 ${RAIL[b] ? RAIL[b][0].replace('·', ' 또는 ') : '역'}`]).concat(fromSeoul(b) || [], last(b, sb)); if (b === 'seoul') return [`숙소에서 ${MAIN[a]}`].concat(fromSeoul(a, true), last('seoul', sb));
+        if (a === 'jeju' || b === 'jeju') return [`${MAIN[a]} → ${MAIN[b]} 항공편 (직항 여부는 예매에서 확인)`].concat(last(b, sb));
+        return [`${MAIN[a]}에서 KTX·고속버스로 ${MAIN[b]} (직통이 없으면 서울·대전·동대구 환승)`].concat(last(b, sb)); };
+      const toSeoulHub = (code, r) => { const need = RAIL[r] && RAIL[r][0];
+        if (code === 'ICN') { if (r === 'seoul') return ['공항철도 타고 서울역' + (/홍대/.test(sn(st0.id)) ? '·홍대입구역' : '')];
+          return ['공항철도 타고 서울역'].concat(need === '용산역' ? ['서울역에서 지하철 1호선으로 용산역'] : need === '서울역·청량리역' ? [] : []); }
+        if (code === 'GMP') return ['지하철 5·9호선 또는 공항철도로 시내' + (r === 'seoul' ? '' : (need === '용산역' ? '(용산역)' : '(서울역)'))];
+        return null; };
+      const arrSteps = (code, r, s) => { const ap = AIRPORTS[code] || {};
+        if (ap.cc !== 'kr') return null;
+        if (code === 'CJU') return r === 'jeju' ? last('jeju', s) : null;
+        if (code === 'PUS') return r === 'busan' ? ['김해경전철 타고 사상역', '사상역에서 지하철 2호선 환승'].concat(last('busan', s).map(x => x.replace('지하철로', '숙소 역:'))) : null;
+        if (ap.home) { const hr = ap.r; if (hr === r) return last(r, s); if (hr === 'seoul') return fromSeoul(r).concat(last(r, s));
+          if (hr) return between(hr, r, s); return [`${an(code)}에서 KTX로 ${MAIN[r] || rn(r)} (노선은 코레일에서 확인)`].concat(last(r, s)); }
+        const h = toSeoulHub(code, r); if (!h) return null; if (r === 'seoul') return h.concat(last('seoul', s)); return h.concat(fromSeoul(r) || [], last(r, s)); };
+      const depSteps = (code, r, s) => { const a = arrSteps(code, r, s); if (!a) return null;
+        const ap = AIRPORTS[code] || {}; if (code === 'CJU' && r === 'jeju') return [`${sn(s.id)}에서 렌터카 또는 택시·버스로 제주공항`];
+        if (r === 'seoul' && code === 'ICN') return ['숙소 근처 역에서 지하철로 서울역', '서울역에서 공항철도로 인천공항'];
+        if (r === 'seoul' && code === 'GMP') return ['지하철 5·9호선 또는 공항철도로 김포공항'];
+        if (ap.home && ap.r === r) return [`숙소에서 ${an(code)}`];
+        const out = [`숙소에서 ${MAIN[r] || '역'}까지 이동`];
+        if (ap.home) return out.concat(ap.r === 'seoul' ? fromSeoul(r, true).concat(code === 'SEL' && RAIL[r] && RAIL[r][0] === '용산역' ? ['용산역에서 지하철 1호선으로 서울역'] : []) : [`KTX로 ${an(code)}`]);
+        if (code === 'PUS') return r === 'busan' ? ['지하철 2호선으로 사상역', '김해경전철로 김해공항'] : null;
+        const back = r === 'seoul' ? [] : (fromSeoul(r, true) || []);
+        const fin = code === 'ICN' ? ['서울역에서 공항철도로 인천공항'] : ['지하철 5·9호선 또는 공항철도로 김포공항'];
+        if (r === 'jeju') return out.slice(0, 0).concat([`${sn(s.id)}에서 제주공항`, `제주공항 → 김포공항 항공편`], code === 'ICN' ? ['김포공항에서 공항철도로 인천공항'] : []);
+        return out.concat(back, RAIL[r] && RAIL[r][0] === '용산역' ? ['용산역에서 지하철 1호선으로 서울역'] : [], fin); };
       const rows = [];
-      try { rows.push(row('도착', an(ta.arr), `${rn(R[0])} 숙소 ${sn(st0.id)}`, airportLeg(ta.arr, st0, R[0]))); } catch (e) {}
-      R.forEach((r, k) => { if (k) { const t = interRegion(R[k - 1], r); if (t) rows.push(row('이동', rn(R[k - 1]), rn(r), Object.assign({}, t, { min: t.ride || t.min }))); } });
-      try { rows.push(row(ta.home ? '귀가' : '출국', `${rn(R[R.length - 1])} 숙소 ${sn(stN.id)}`, an(ta.dep), airportLeg(ta.dep, stN, R[R.length - 1]))); } catch (e) {}
+      const row2 = (k, from, to, L, steps) => { if (!steps || !steps.length) return row(k, from, to, L);
+        const l = lk(L.mode); return `<div class="k-tr k-tr2"><span class="k">${k}</span><span class="tx"><b>${esc(from)} → ${esc(to)}</b><ol class="k-st">${steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol><small>약 ${F.dur(L.min)}${l ? ` · <a href="${l[0]}" target="_blank" rel="noopener">${l[1]} 예매 ›</a>` : ''}</small></span></div>`; };
+      try { rows.push(row2('도착', an(ta.arr), `${rn(R[0])} 숙소 ${sn(st0.id)}`, airportLeg(ta.arr, st0, R[0]), arrSteps(ta.arr, R[0], st0))); } catch (e) {}
+      R.forEach((r, k) => { if (k) { const t = interRegion(R[k - 1], r); if (t) rows.push(row2('이동', rn(R[k - 1]), rn(r), Object.assign({}, t, { min: t.ride || t.min }), isOv(r) || isOv(R[k - 1]) ? null : between(R[k - 1], r, STAY_BY[P.stays[r]]))); } });
+      try { rows.push(row2(ta.home ? '귀가' : '출국', `${rn(R[R.length - 1])} 숙소 ${sn(stN.id)}`, an(ta.dep), airportLeg(ta.dep, stN, R[R.length - 1]), depSteps(ta.dep, R[R.length - 1], stN))); } catch (e) {}
       return rows.length ? `<div class="sec"><h3>교통편</h3><small>시간은 약, 요금은 예매 사이트 확인</small></div><div class="k-trs">${rows.join('')}</div>` : ''; })()}
     <div class="sec"><h3>${T.byDay}</h3></div>
     <div class="days">${ds.map((d, k) => `<button class="dchip ${k === i ? 'on' : ''}" style="--c:${LINE[k % LINE.length]}" data-act="day" data-v="${k}"><span class="n">${k + 1}</span><span class="d"><b>${F.date(d.date)}</b><small>${esc(rn(d.r))}</small></span></button>`).join('')}</div>
