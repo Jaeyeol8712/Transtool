@@ -312,7 +312,7 @@ const P2_TIP = { ko: ['호텔 총액 계산기', '봉사료·세금 넣은 실�
   ov: ['환율 계산기', '현지 금액을 원화로 바로', 'https://www.aroundtool.com/exchange_rate_calculator.html', [['통화', '달러·엔·바트 등'], ['금액', '현지 금액 입력'], ['결과', '원화 환산']], '여행지 금액을 원화로 바꿔 예산을 잡아요.'] };
 function p2Data(id) {
   const p = PBY[id], lk = spotOf(id), g = lk.g, tip = P2_TIP[isOv(p.r) ? 'ov' : 'ko'], items = [];
-  if (lk.gu) items.push(['food', '맛집', `${lk.gu.gu} 맛집 ${lk.gu.count}곳`, `${lk.gu.cats.length}개 카테고리 · ${lk.gu.cats.map(c => c.cat).slice(0, 3).join('·')}`]);
+  if (lk.gu) items.push(['food', '맛집', `${lk.gu.gu} 맛집 ${lk.gu.count}곳`, `${lk.gu.cats.length}개 카테고리`]);
   if (g) items.push(['course', '코스', g.title, g.days && g.days.length ? `${g.days[0][0].replace(/\s*—.*$/, '')}~${g.days[g.days.length - 1][0].replace(/\s*—.*$/, '')} 일정별 동선` : '일정별 동선·교통']);
   items.push(['tip', '꿀팁', tip[0], tip[1]]);
   return { p, lk, g, tip, items };
@@ -322,7 +322,9 @@ function placeDetail2(id) {
   const near = PLACES.filter(q => q.r === p.r && q.id !== id).map(q => [hav(p, q), q]).sort((a, b) => a[0] - b[0]).slice(0, 3);
   const nearHtml = near.map(([d, q]) => { const ph = spotOf(q.id).s && spotOf(q.id).s.photo; return `<button class="p2-near" data-act="place" data-v="${q.id}">${ph ? `<img src="${esc(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">` : `<span class="p2-noph" style="background:${CATS[q.c].col}">${catIcon(q.c)}</span>`}<b>${esc(pn(q.id))}</b><small>${esc(T.cats[q.c])} · 약 ${d < 10 ? d.toFixed(1) : Math.round(d)}km</small></button>`; }).join('');
   const short = v => esc(String(v || '').split(/\s*[·(]/)[0]);
-  const nums = F_ ? [[F_.fee, '입장료'], [F_.stay, '머무는 시간'], [F_.when, '추천 시간']] : [[T.localCheck, '요금'], [F.dur(p.h * 60), '머무는 시간'], [stationOf(p), '가는 곳']];
+  const fee = p.cost === 0 ? '무료' : p.cost ? `${p.cost.toLocaleString()}원` : T.localCheck;
+  const bestL = { am: '오전', eve: '해 질 무렵', night: '밤', any: '언제나' }[p.best] || '언제나';
+  const nums = F_ ? [[F_.fee, '입장료'], [F_.stay, '머무는 시간'], [F_.when, '추천 시간']] : [[fee, '입장료'], [F.dur(p.h * 60), '머무는 시간'], [bestL, '추천 시간']];
   const di = placeInPlan(id);
   return `<div class="p2">
     <div class="p2-path"><button data-act="korea">${esc(T.korea)}</button> › <button data-act="region" data-v="${p.r}">${esc(rn(p.r))}</button> › <span>${esc(dn(p.dist))}</span></div>
