@@ -1,0 +1,73 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;font-family:Pretendard,system-ui,sans-serif;color:#141A2E;background:#fff;width:1280px;height:900px;display:flex;flex-direction:column}
+.top{height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid #E2E6EE;font-weight:800;font-size:18px}
+.logo{width:30px;height:30px;border-radius:8px;background:#2443E8}
+.wrap{flex:1;display:flex;min-height:0}
+.panel{width:420px;border-right:1px solid #E2E6EE;overflow:hidden;padding:14px 20px}
+.map{flex:1;background:#EEF1F6;display:grid;place-items:center;color:#98A0B5;position:relative}
+.pin{position:absolute;top:52%;left:50%;background:#2443E8;color:#fff;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);font-size:14px;color:#667089;text-align:center;border-bottom:1px solid #E2E6EE;padding-bottom:10px;margin-bottom:12px}.tabs b{color:#141A2E}
+.path{font-size:13px;color:#98A0B5;margin:0 0 4px}
+h1{font-size:24px;color:#2443E8;margin:0}
+.sub{font-size:14px;color:#667089;margin:2px 0 14px}
+h3{font-size:15px;font-weight:800;color:#2443E8;margin:16px 0 8px}
+.near{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.near div{font-size:13px;line-height:1.35}.near img{width:100%;height:74px;object-fit:cover;border-radius:10px;display:block;margin-bottom:5px}
+.near b{display:block;font-size:14px}.near span{color:#98A0B5}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #E2E6EE;border-radius:12px;padding:9px 0;margin-top:16px}
+.nums div{text-align:center;border-left:1px solid #E2E6EE}.nums div:first-child{border:0}
+.nums b{display:block;font-size:17px}.nums span{font-size:12px;color:#667089}
+.hrs{font-size:13px;color:#667089;margin:8px 0 0}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 0}
+.acts a{border:1px solid #E2E6EE;border-radius:10px;text-align:center;padding:9px;font-size:14px;font-weight:700}
+.acts a.p{background:#2443E8;color:#fff;border-color:#2443E8}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips a{border:1px solid #E2E6EE;border-radius:20px;padding:5px 11px;font-size:13px;font-weight:600}
+.line{font-size:14px;padding:7px 0;border-bottom:1px solid #E2E6EE}.line span{color:#667089}
+.more{border:1px solid #E2E6EE;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;margin-top:14px}
+.at{margin-top:18px;border-top:1px solid #E2E6EE;padding-top:14px}
+.at h3{margin:0 0 4px}
+.at a.it{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #E2E6EE;text-decoration:none;color:#141A2E}
+.at .tag{flex:0 0 46px;font-size:12px;font-weight:700;color:#667089;border:1px solid #E2E6EE;border-radius:6px;text-align:center;padding:2px 0;margin-top:2px}
+.at b{display:block;font-size:15px}.at span.d{font-size:13px;color:#667089}
+.at .go{display:block;text-align:right;font-size:13px;font-weight:700;color:#2443E8;margin-top:10px}
+.at a.it{position:relative}.at .ar{margin-left:auto;color:#98A0B5;font-size:18px}
+.dim{position:fixed;inset:0;background:rgba(20,26,46,.45);display:none;align-items:center;justify-content:center}
+body.open .dim{display:flex}
+.pop{width:440px;background:#fff;border-radius:18px;padding:20px 22px;box-shadow:0 10px 40px rgba(0,0,0,.25);position:relative}
+.pop .x{position:absolute;right:16px;top:14px;font-size:22px;color:#98A0B5}
+.pop .tg{font-size:12px;font-weight:700;color:#667089;border:1px solid #E2E6EE;border-radius:6px;padding:2px 8px;display:inline-block}
+.pop h2{font-size:21px;color:#2443E8;margin:8px 0 2px}
+.pop .s{font-size:14px;color:#667089;margin:0 0 14px}
+.pop .nums{margin-top:0}
+.pop h4{font-size:15px;color:#2443E8;margin:16px 0 8px}
+.pop .line{font-size:14px}
+.pop .cta{display:block;text-align:center;background:#2443E8;color:#fff;font-weight:700;border-radius:10px;padding:12px;margin-top:16px;font-size:15px}
+.pop .src{font-size:12px;color:#98A0B5;margin:8px 0 0;text-align:center}
+</style></head><body>
+<div class="top"><div class="logo"></div>K링크</div>
+<div class="wrap"><div class="panel">
+<div class="tabs"><b>지도</b><span>저장</span><span>일정</span><span>준비</span></div>
+<p class="path">대한민국 › 부산 › 해운대</p>
+<h1>해운대해수욕장</h1><p class="sub">부산 대표 해변 · 산책하기 좋아요</p>
+<h3>주변 추천 여행지</h3>
+<div class="near">
+<div><img src="k-bs-blueline.jpg"><b>블루라인파크</b><span>해변열차 · 약 0.8km</span></div>
+<div><img src="k-bs-gwangan.jpg"><b>광안대교 야경</b><span>야경 · 약 3.8km</span></div>
+<div><img src="k-bs-yonggung.jpg"><b>해동용궁사</b><span>사찰 · 약 6.6km</span></div>
+</div>
+<div class="nums"><div><b>무료</b><span>입장료</span></div><div><b>약 1.5시간</b><span>머무는 시간</span></div><div><b>해 질 무렵</b><span>추천 시간</span></div></div>
+<p class="hrs">해운대역 3번 출구 · 해수욕장 운영 6~9월</p>
+<div class="acts"><a>저장</a><a class="p">일정에 넣기</a></div>
+<div class="at"><h3>어라운드툴에서 보기</h3><a class="it"><span class="tag">맛집</span><span><b>해운대구 맛집 14곳</b><span class="d">6개 카테고리, 미쉐린 수록 가게 포함</span></span><span class="ar">›</span></a><a class="it"><span class="tag">코스</span><span><b>해운대 1박 2일~3박 4일</b><span class="d">일정별 동선·예산·교통 한 번에</span></span><span class="ar">›</span></a><a class="it"><span class="tag">꿀팁</span><span><b>호텔 총액 계산기</b><span class="d">봉사료·세금 넣은 실제 숙박비</span></span><span class="ar">›</span></a></div>
+</div>
+<div class="map">지도 영역<span class="pin">해운대 해수욕장</span></div></div>
+<div class="dim"><div class="pop"><span class="x">×</span>
+<span class="tg">맛집</span><h2>해운대구 맛집 14곳</h2><p class="s">광고·협찬 빼고 재방문 언급·공식 지정 근거로 골랐어요</p>
+<div class="nums"><div><b>14곳</b><span>전체</span></div><div><b>6개</b><span>카테고리</span></div><div><b>3곳</b><span>미쉐린 카테고리</span></div></div>
+<h4>카테고리</h4>
+<div class="chips"><a>국물과 면 3</a><a>미쉐린 3</a><a>밥집 2</a><a>카페·디저트 2</a><a>고기 2</a><a>이국 2</a></div>
+<h4>골라 둔 기준</h4>
+<div class="line">재방문 언급 · 공식 지정 근거 · 가게별 단점도 함께</div>
+<a class="cta">어라운드툴에서 전체 보기</a>
+<p class="src">가게별 단점·확인 못 한 정보는 전체 글에 있어요</p>
+</div></div></body></html>
