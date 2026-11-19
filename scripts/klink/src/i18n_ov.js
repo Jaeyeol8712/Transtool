@@ -14,7 +14,7 @@ Object.assign(I18N.ko, {
   toPrep: '여행 준비 보기', prepTitle: '여행 준비', prepLead: '떠나기 전에 필요한 계산과 확인할 것을 어라운드툴에서 모았어요.',
   prepTrip: '여행 가이드', prepTools: '계산기', prepGuides: '준비 가이드',
   introP: '지도를 둘러보며 가고 싶은 곳을 저장하세요. 국내는 3D 거리에서, 해외는 도시 지도에서 고르면 거리와 운영 시간을 따져 날짜별 동선과 숙소 위치를 추천해 드려요.',
-  introStops: ['서울', '부산', '도쿄', '다낭'], introSteps: ['국내·해외에서 여행지 고르기', '지도에서 관광지·맛집 저장', '날짜별 동선과 숙소 위치 추천', '여행 준비 계산기·가이드 연결'],
+  introStops: ['서울', '공주', '강원도', '부산', '제주도'], introSteps: ['국내·해외에서 여행지 고르기', '지도에서 관광지·맛집 저장', '날짜별 동선과 숙소 위치 추천', '여행 준비 계산기·가이드 연결'],
   atBy: 'K링크의 여행·맛집·준비 정보는 어라운드툴(aroundtool.com)의 여행 가이드, 맛집 기록, 계산기와 연결돼요. 새 글이 올라오면 여기에도 이어져요.'
 });
 Object.assign(I18N.zh, {
@@ -30,7 +30,7 @@ Object.assign(I18N.zh, {
   toPrep: '查看旅行准备', prepTitle: '旅行准备', prepLead: '出发前需要的计算和注意事项，来自 AroundTool。',
   prepTrip: '旅行指南', prepTools: '计算器', prepGuides: '准备指南',
   introP: '浏览地图，收藏想去的地方。韩国可以走进 3D 街区，海外在城市地图上选择，我们会根据距离和营业时间推荐每天的路线和住宿区域。',
-  introStops: ['首尔', '釜山', '东京', '岘港'], introSteps: ['选择韩国或海外目的地', '在地图上收藏景点和美食', '推荐每日路线和住宿区域', '连接旅行准备计算器和指南']
+  introStops: ['首尔', '公州', '江原道', '釜山', '济州岛'], introSteps: ['选择韩国或海外目的地', '在地图上收藏景点和美食', '推荐每日路线和住宿区域', '连接旅行准备计算器和指南']
 });
 Object.assign(I18N.en, {
   scopeKr: 'Korea', scopeKrSub: '3D streets', scopeOv: 'Overseas', scopeOvSub: n => `${n} cities`, citiesN: n => `${n} ${n === 1 ? 'city' : 'cities'}`,
@@ -45,7 +45,7 @@ Object.assign(I18N.en, {
   toPrep: 'See trip prep', prepTitle: 'Trip prep', prepLead: 'Calculators and checklists for before you leave, from AroundTool.',
   prepTrip: 'Travel guides', prepTools: 'Calculators', prepGuides: 'Prep guides',
   introP: 'Browse the map and save the places you like — 3D streets in Korea, city maps overseas. We check distances and opening hours to suggest the best route for each day and where to stay.',
-  introStops: ['Seoul', 'Busan', 'Tokyo', 'Da Nang'], introSteps: ['Pick a destination in Korea or overseas', 'Save sights and food on the map', 'Get daily routes and where to stay', 'Trip-prep calculators and guides']
+  introStops: ['Seoul', 'Gongju', 'Gangwon', 'Busan', 'Jeju'], introSteps: ['Pick a destination in Korea or overseas', 'Save sights and food on the map', 'Get daily routes and where to stay', 'Trip-prep calculators and guides']
 });
 Object.assign(I18N.ja, {
   scopeKr: '韓国', scopeKrSub: '3Dストリート', scopeOv: '海外', scopeOvSub: n => `${n}都市`, citiesN: n => `${n}都市`,
@@ -60,7 +60,7 @@ Object.assign(I18N.ja, {
   toPrep: '旅の準備を見る', prepTitle: '旅の準備', prepLead: '出発前に必要な計算と確認事項をAroundToolからまとめました。',
   prepTrip: '旅行ガイド', prepTools: '計算ツール', prepGuides: '準備ガイド',
   introP: '地図を見ながら行きたい場所を保存しましょう。韓国は3Dストリート、海外は都市の地図で選ぶと、距離と営業時間から日ごとのルートと宿泊エリアを提案します。',
-  introStops: ['ソウル', '釜山', '東京', 'ダナン'], introSteps: ['韓国・海外から行き先を選ぶ', '地図で観光地・グルメを保存', '日ごとのルートと宿泊エリアを提案', '旅の準備の計算ツール・ガイド']
+  introStops: ['ソウル', '公州', '江原道', '釜山', '済州島'], introSteps: ['韓国・海外から行き先を選ぶ', '地図で観光地・グルメを保存', '日ごとのルートと宿泊エリアを提案', '旅の準備の計算ツール・ガイド']
 });
 /* 장소 상세 개편 (2026-11-12) */
 Object.assign(I18N.ko, {
