@@ -20,9 +20,10 @@ COUNTRIES = {  # cc: [ko, zh, en, ja]
     "mo": ["마카오", "澳门", "Macau", "マカオ"], "cn": ["중국", "中国", "China", "中国"], "th": ["태국", "泰国", "Thailand", "タイ"],
     "vn": ["베트남", "越南", "Vietnam", "ベトナム"], "ph": ["필리핀", "菲律宾", "Philippines", "フィリピン"],
     "sg": ["싱가포르", "新加坡", "Singapore", "シンガポール"], "my": ["말레이시아", "马来西亚", "Malaysia", "マレーシア"],
+    "id": ["인도네시아", "印度尼西亚", "Indonesia", "インドネシア"],
     "gu": ["괌", "关岛", "Guam", "グアム"], "mp": ["사이판", "塞班", "Saipan", "サイパン"],
 }
-COUNTRY_ORDER = ["jp", "tw", "hk", "mo", "cn", "vn", "th", "ph", "sg", "my", "gu", "mp"]
+COUNTRY_ORDER = ["jp", "tw", "hk", "mo", "cn", "vn", "th", "ph", "sg", "my", "id", "gu", "mp"]
 
 DATA = r"""
 C tokyo jp 35.6812 139.7671 1 150 | 도쿄|东京|Tokyo|東京 | 옛 절과 쇼핑 거리, 도쿄만 야경 | Old temples, shopping streets and bay views
@@ -506,4 +507,36 @@ Z sn_z2 | 마나가하섬 | Managaha
 P sn_managaha nature 15.2410 145.7130 4 am | 마나가하섬||Managaha Island| | 배 약 15분 · 스노클링 해변 | Snorkelling beach, about 15 min by boat
 Z sn_z3 | 북부 | North
 P sn_north nature 15.2853 145.8156 2 | 북부(만세절벽·새섬·그로토)||North coast (Banzai Cliff, Bird Island, Grotto)| | 차로 도는 북부 해안 전망 · 약 30분 | Coastal lookouts on a northern drive, about 30 min away
+C bali id -8.6500 115.2000 0 420 | 발리|巴厘岛|Bali|バリ島 | 우붓의 논과 사원, 남부 해변과 노을 | Ubud rice terraces, temples and southern beaches
+A DPS -8.7482 115.1675 40 | 응우라라이공항(덴파사르)|伍拉莱机场|Denpasar (DPS)|デンパサール空港
+S bl_s1 -8.5069 115.2625 | 우붓|乌布|Ubud|ウブド | 우붓 시장·몽키 포레스트 걸어서 | Walk to Ubud market & Monkey Forest
+S bl_s2 -8.6913 115.1586 | 스미냑|水明漾|Seminyak|スミニャック | 해변 카페·노을 | Beach cafés and sunsets
+S bl_s3 -8.7766 115.1665 | 짐바란|金巴兰|Jimbaran|ジンバラン | 공항 가까움 · 울루와투 이동 | Near the airport and Uluwatu
+Z bl_z1 | 우붓 | Ubud
+P bl_monkey nature -8.5188 115.2585 1 am o=D | 몽키 포레스트||Sacred Monkey Forest Sanctuary|モンキーフォレスト | 원숭이가 사는 숲속 사원 · 우붓 중심가 | Forest temple full of monkeys in central Ubud
+P bl_ubudmarket shop -8.5069 115.2625 1 o=S | 우붓 시장||Ubud Art Market|ウブド市場 | 공예품·기념품 시장 · 왕궁 맞은편 | Crafts and souvenirs opposite the palace
+P bl_tegallalang nature -8.4317 115.2795 1.5 am o=D | 뜨갈랄랑 계단식 논||Tegallalang Rice Terraces|テガララン棚田 | 우붓 북쪽 계단식 논 산책 | Terraced rice fields north of Ubud
+Z bl_z2 | 남부 해안 | South coast
+P bl_uluwatu palace -8.8291 115.0849 2 eve o=A | 울루와투 사원||Uluwatu Temple|ウルワツ寺院 | 절벽 위 사원 · 해 질 무렵 케착 댄스 | Cliff-top temple with a sunset Kecak dance
+P bl_jimbaran nature -8.7766 115.1665 1.5 eve | 짐바란 해변||Jimbaran Beach|ジンバランビーチ | 노을과 해산물 저녁으로 알려진 해변 | Sunset beach known for seafood dinners
+Z bl_z3 | 스미냑 | Seminyak
+P bl_seminyak nature -8.6913 115.1586 1.5 eve | 스미냑 해변||Seminyak Beach|スミニャックビーチ | 해변 카페와 노을 | Beach cafés and sunsets
+Z bl_z4 | 누사페니다 | Nusa Penida
+P bl_kelingking nature -8.7505 115.4743 6 | 누사페니다 켈링킹 해변||Kelingking Beach, Nusa Penida|クリンキンビーチ | 사누르에서 스피드보트로 가는 절벽 해변 | Cliff beach reached by speedboat from Sanur
+
+C qingdao cn 36.0670 120.3500 1 90 | 칭다오|青岛|Qingdao|青島 | 독일풍 옛 시가지와 맥주, 바닷가 산책 | German-era old town, beer and seaside walks
+A TAO 36.3620 120.0880 60 | 칭다오 자오둥공항|青岛胶东机场|Qingdao Jiaodong (TAO)|青島膠東空港
+S qd_s1 36.0650 120.3190 | 잔교·중산루|栈桥·中山路|Zhanqiao & Zhongshan Rd|桟橋・中山路 | 옛 시가지 걸어서 · 지하철 3호선 | Old town on foot · Metro Line 3
+S qd_s2 36.0623 120.3846 | 5·4광장|五四广场|May Fourth Square|五四広場 | 신시가지 바닷가 · 지하철 2·3호선 | New town seafront · Metro Lines 2 & 3
+Z qd_z1 | 옛 시가지 | Old town
+P qd_zhanqiao night 36.0617 120.3178 0.75 eve o=A | 잔교|栈桥|Zhanqiao Pier|桟橋 | 바다로 뻗은 옛 부두와 회란각 | Old pier stretching into the bay
+P qd_church palace 36.0679 120.3170 0.75 | 천주교당|天主教堂|St. Michael's Cathedral|天主教堂 | 두 첨탑의 성당 · 옛 독일 거리 | Twin-spired cathedral in the German quarter
+P qd_pichaiyuan food 36.0690 120.3195 1 dinner o=N | 피차위안|劈柴院|Pichaiyuan Food Street|劈柴院 | 1902년부터 이어진 먹자골목 | Food lane dating from 1902
+Z qd_z2 | 맥주 거리 | Beer street
+P qd_beer fun 36.0852 120.3530 1.75 o=D | 칭다오 맥주 박물관|青岛啤酒博物馆|Tsingtao Beer Museum|青島ビール博物館 | 옛 양조장 전시와 원장 맥주 시음 | Old brewery exhibits with a fresh-beer tasting
+Z qd_z3 | 해안 | Seafront
+P qd_badaguan nature 36.0553 120.3497 1.5 | 팔대관|八大关|Badaguan|八大関 | 옛 별장 거리 · 가로수 산책 | Villa district with tree-lined streets
+P qd_54 night 36.0623 120.3846 1 night | 5·4광장|五四广场|May Fourth Square|五四広場 | 붉은 횃불 조형물과 해안 야경 | Red 'May Wind' sculpture and seafront lights
+Z qd_z4 | 근교 | Day trips
+P qd_laoshan nature 36.1630 120.6200 5 | 라오산|崂山|Mount Laoshan|嶗山 | 바다를 낀 도교 명산 · 차 약 1시간 | Taoist mountain by the sea, about an hour by car
 """

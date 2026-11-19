@@ -49,6 +49,20 @@
 "ov": false
 },
 {
+"id": "gunsan",
+"name": "군산",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "mokpo",
+"name": "목포",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -182,6 +196,13 @@
 "ov": true
 },
 {
+"id": "qingdao",
+"name": "칭다오",
+"cc": "cn",
+"country": "중국",
+"ov": true
+},
+{
 "id": "danang",
 "name": "다낭",
 "cc": "vn",
@@ -270,6 +291,13 @@
 "name": "코타키나발루",
 "cc": "my",
 "country": "말레이시아",
+"ov": true
+},
+{
+"id": "bali",
+"name": "발리",
+"cc": "id",
+"country": "인도네시아",
 "ov": true
 },
 {

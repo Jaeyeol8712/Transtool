@@ -297,7 +297,7 @@ def run(root=None, data=None):
             t = re.sub(r'<[^>]+>', '', hm.group(1)) if hm else ''
             if re.search(r'관련 가이드|함께 보면 좋은|함께 보기|다른 계산기', t):
                 main = main.replace(x.group(0), '', 1); continue
-            if hm and not re.search(r'자주 묻는|근거|출처|이 글의 기준|블로그|홈페이지에 넣기', t):
+            if hm and not re.search(r'자주 묻는|근거|출처|이 글의 기준|블로그|홈페이지에 넣기|한눈에 정리', t):
                 core.append((x.group(0), re.sub(r'^\d+', '', t).strip()))
         for sec, t in core[5:]:
             if 'b-more' in sec:

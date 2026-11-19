@@ -98,6 +98,20 @@ ys_odong 34.7440 127.7690 0 24 day - 1.5
 ys_hyangil 34.5920 127.8020 0 24 am - 2
 ys_aqua 34.7460 127.7480 9.5 18 day - 2
 ys_dolsanpark 34.7317 127.7409 0 24 night - 1
+gs_museum 35.9895 126.7105 9 18 am - 1.5
+gs_chowon 35.9858 126.7133 9 18 day - 0.5
+gs_dongguksa 35.9836 126.7118 9 18 am - 0.5
+gs_rail 35.981 126.736 0 24 day - 0.75
+gs_eunpa 35.954 126.72 0 24 eve - 1.0
+gs_market 35.9871 126.7205 9 18 any any 0.75
+gs_seonyudo 35.8114 126.41 0 24 eve - 4.0
+mp_cable 34.8027 126.3712 9 19 eve - 1.0
+mp_gohado 34.779 126.3655 9 18 eve - 0.75
+mp_yudal 34.792 126.373 0 24 am - 1.5
+mp_modern 34.7887 126.3838 9 18 day - 1.25
+mp_gatbawi 34.7957 126.431 5 23 night - 0.5
+mp_peace 34.7935 126.4336 0 24 night - 1.0
+mp_market 34.787 126.3895 7 18 any any 1.0
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -195,6 +209,35 @@ NEW = [
     ("ys_dolsanpark", "night", "yeosu", 0, {}, "여수시 돌산읍 돌산로 3600",
      ["돌산공원 야경", "돌산대교와 여수항 야경"], ["突山公园夜景", "突山大桥与丽水港夜景"],
      ["Dolsan Park night view", "Dolsan Bridge and harbor lights"], ["突山公園の夜景", "突山大橋と麗水港の夜景"]),
+    # 2026-11-20 매일 콘텐츠: K링크 새 지역 군산·목포
+    ("gs_museum", "palace", "gunsan", 2000, {"closed": [1]}, "군산시 해망로 240",
+     ["군산근대역사박물관", "개항기 군산 거리와 생활사 전시"], ["群山近代历史博物馆", "开港时期群山街景与生活史展"], ["Gunsan Modern History Museum", "Port-era streets and daily life exhibits"], ["群山近代歴史博物館", "開港期の群山の街と暮らしの展示"]),
+    ("gs_chowon", "palace", "gunsan", 0, {}, "군산시 구영2길 12-1",
+     ["초원사진관", "영화 촬영지로 알려진 원도심 사진관"], ["草原照相馆", "因电影取景闻名的旧城照相馆"], ["Chowon Photo Studio", "Old-town photo studio from a well-known film"], ["草原写真館", "映画のロケ地として知られる写真館"]),
+    ("gs_dongguksa", "palace", "gunsan", 0, {}, "군산시 동국사길 16",
+     ["동국사", "일제강점기 일본식 사찰 건축이 남은 절"], ["东国寺", "保留日式寺院建筑的寺庙"], ["Dongguksa Temple", "Temple with surviving Japanese-style architecture"], ["東国寺", "日本式の寺院建築が残る寺"]),
+    ("gs_rail", "fun", "gunsan", 0, {}, "군산시 경촌4길 14",
+     ["경암동 철길마을", "옛 철길 양옆으로 이어진 골목"], ["京岩洞铁路村", "旧铁轨两旁的小巷"], ["Gyeongam-dong Railroad Village", "Lanes along an old railway track"], ["京岩洞線路村", "古い線路沿いの路地"]),
+    ("gs_eunpa", "nature", "gunsan", 0, {}, "군산시 은파순환길 9",
+     ["은파호수공원", "호수 둘레길과 물빛다리 야경"], ["银波湖水公园", "环湖步道与水光桥夜景"], ["Eunpa Lake Park", "Lakeside trail and lit bridge at night"], ["銀波湖水公園", "湖畔の散歩道と橋の夜景"]),
+    ("gs_market", "food", "gunsan", 10000, {}, "군산시 신금길 18",
+     ["군산공설시장", "박대·건어물과 시장 먹거리"], ["群山公设市场", "干鱼与市场小吃"], ["Gunsan Public Market", "Dried fish and market snacks"], ["群山公設市場", "干物と市場グルメ"]),
+    ("gs_seonyudo", "nature", "gunsan", 0, {}, "군산시 옥도면 선유도리",
+     ["선유도", "고군산군도 해변과 망주봉 · 차로 다리 건너"], ["仙游岛", "古群山群岛海滩与望主峰"], ["Seonyudo Island", "Gogunsan beaches and Mangjubong, reached by bridge"], ["仙遊島", "古群山群島の浜辺と望主峰"]),
+    ("mp_cable", "fun", "mokpo", 24000, {}, "목포해상케이블카 북항 스테이션",
+     ["목포해상케이블카", "유달산을 넘어 바다 건너 고하도까지"], ["木浦海上缆车", "越过儒达山跨海到高下岛"], ["Mokpo Marine Cable Car", "Over Yudalsan and across the sea to Gohado"], ["木浦海上ケーブルカー", "儒達山を越えて海を渡る"]),
+    ("mp_gohado", "nature", "mokpo", 0, {}, "목포시 고하도안길 234",
+     ["고하도 전망대", "케이블카로 건너는 섬 전망대와 해안 데크"], ["高下岛展望台", "乘缆车到达的海岛展望台"], ["Gohado Observatory", "Island lookout and coastal deck by cable car"], ["高下島展望台", "ケーブルカーで渡る島の展望台"]),
+    ("mp_yudal", "nature", "mokpo", 0, {}, "목포시 노적봉길 45",
+     ["유달산", "목포 시내와 다도해가 보이는 바위산"], ["儒达山", "可眺望木浦市区与多岛海"], ["Yudalsan Mountain", "Rocky peak over the city and islands"], ["儒達山", "市内と多島海を望む岩山"]),
+    ("mp_modern", "palace", "mokpo", 2000, {"closed": [1]}, "목포시 영산로29번길 6",
+     ["목포근대역사관", "옛 영사관 건물의 근대 역사 전시"], ["木浦近代历史馆", "旧领事馆建筑里的近代史展"], ["Mokpo Modern History Museum", "Modern history in a former consulate"], ["木浦近代歴史館", "旧領事館の近代史展示"]),
+    ("mp_gatbawi", "night", "mokpo", 0, {}, "목포시 남농로 166-1",
+     ["갓바위", "해상보행교로 보는 삿갓 모양 바위"], ["笠岩", "从海上步道看斗笠形岩石"], ["Gatbawi Rocks", "Hat-shaped rocks seen from a sea boardwalk"], ["カッパウィ", "笠の形をした岩と海上遊歩道"]),
+    ("mp_peace", "night", "mokpo", 0, {}, "목포시 평화로 64",
+     ["평화광장", "바다 분수 공연과 해변 산책"], ["和平广场", "海上喷泉表演与海边散步"], ["Peace Plaza", "Sea fountain shows and a seaside walk"], ["平和広場", "海の噴水ショーと海辺の散歩"]),
+    ("mp_market", "food", "mokpo", 20000, {}, "목포시 해안로 267",
+     ["목포종합수산시장", "홍어·낙지·생선을 고르는 수산시장"], ["木浦综合水产市场", "挑选斑鳐、章鱼与鲜鱼"], ["Mokpo Fish Market", "Skate, octopus and fresh fish"], ["木浦総合水産市場", "エイ・タコ・鮮魚の市場"]),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.
@@ -219,7 +262,7 @@ ALIASES = {
     # 제주
     "jj_seongsan": ["성산일출봉", "일출봉"], "jj_halla": ["한라산"], "jj_pork": ["흑돼지 거리", "흑돼지거리"], "jj_dongmun": ["동문시장"],
     "jj_aewol": ["애월 카페", "애월해안"], "jj_jusang": ["주상절리"], "jj_dutyfree": ["제주 면세점"], "jj_sunset": ["애월 해안도로", "애월 노을"],
-    "jj_udo": ["우도 땅콩", "우도 도항선", "우도행"], "jj_hyeopjae": ["협재해변", "협재해수욕장"], "jj_osulloc": ["오설록"],
+    "jj_udo": ["우도 땅콩", "우도 도항선", "우도행", "우도 배시간"], "jj_hyeopjae": ["협재해변", "협재해수욕장"], "jj_osulloc": ["오설록"],
     "jj_cheonjiyeon": ["천지연폭포", "천지연"], "jj_seopji": ["섭지코지"],
     # 경주
     "gj_bulguksa": ["불국사"], "gj_daereung": ["대릉원", "첨성대"], "gj_hwangni": ["황리단길"], "gj_wolji": ["동궁과 월지", "안압지"],
@@ -285,4 +328,10 @@ ALIASES = {
     "kk_aru": ["탄중아루"], "kk_sapi": ["사피섬"], "kk_manukan": ["마누칸"], "kk_kinabalu": ["키나발루산", "키나발루 국립공원"],
     "gm_beach": ["투몬 비치", "투몬비치"], "gm_lovers": ["사랑의 절벽"], "gm_chamorro": ["차모로 빌리지", "차모로빌리지"], "gm_inarajan": ["이나라한"],
     "sn_micro": ["마이크로 비치", "마이크로비치"], "sn_garapan": ["가라판"], "sn_managaha": ["마나가하"], "sn_north": ["만세절벽"],
+    # 군산·목포 (2026-11-20)
+    "gs_museum": ["근대역사박물관"], "gs_rail": ["철길마을"], "gs_eunpa": ["은파호수"], "gs_market": ["공설시장"], "gs_seonyudo": ["고군산군도", "선유도해수욕장"],
+    "mp_cable": ["목포 케이블카", "해상케이블카"], "mp_gohado": ["고하도"], "mp_modern": ["근대역사관"], "mp_market": ["종합수산시장"],
+    # 발리·칭다오 (2026-11-20)
+    "bl_monkey": ["몽키포레스트"], "bl_tegallalang": ["뜨갈랄랑"], "bl_kelingking": ["누사페니다", "켈링킹"], "bl_uluwatu": ["울루와투"],
+    "qd_beer": ["맥주 박물관", "맥주박물관"], "qd_badaguan": ["팔대관"], "qd_pichaiyuan": ["피차위안"], "qd_zhanqiao": ["잔교"], "qd_laoshan": ["라오산"],
 }

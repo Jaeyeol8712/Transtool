@@ -24,7 +24,9 @@ const REGIONS = {
   gyeongju:  { lat: 35.8200, lng: 129.2600, sub: false, air: 'ICN', fromSeoul: 130, t: ['경주', '庆州', 'Gyeongju', '慶州'] },
   gangneung: { lat: 37.8000, lng: 128.8900, sub: false, air: 'ICN', fromSeoul: 115, t: ['강릉', '江陵', 'Gangneung', '江陵'] },
   jeonju:    { lat: 35.8150, lng: 127.1500, sub: false, air: 'ICN', fromSeoul: 105, t: ['전주', '全州', 'Jeonju', '全州'] },
-  yeosu:     { lat: 34.7300, lng: 127.7400, sub: false, air: 'ICN', fromSeoul: 180, t: ['여수', '丽水', 'Yeosu', '麗水'] }
+  yeosu:     { lat: 34.7300, lng: 127.7400, sub: false, air: 'ICN', fromSeoul: 180, t: ['여수', '丽水', 'Yeosu', '麗水'] },
+  gunsan:    { lat: 35.9800, lng: 126.7200, sub: false, air: 'ICN', fromSeoul: 170, t: ['군산', '群山', 'Gunsan', '群山'] },
+  mokpo:     { lat: 34.7950, lng: 126.3900, sub: false, air: 'ICN', fromSeoul: 150, t: ['목포', '木浦', 'Mokpo', '木浦'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -73,7 +75,11 @@ const STAYS = [
   ['gn_gyeongpo', 'gangneung', 37.7950, 128.9080, ['경포', '镜浦', 'Gyeongpo', '鏡浦'], ['해변 호텔 · 택시 10분', '海边酒店 · 打车 10 分钟', 'Beach hotels · 10 min taxi', '海辺ホテル · タクシー10分']],
   ['jn_hanok', 'jeonju', 35.8150, 127.1530, ['한옥마을', '韩屋村', 'Hanok Village', '韓屋村'], ['한옥 스테이 · 전주역 택시 15분', '韩屋民宿 · 全州站打车 15 分钟', 'Hanok stays · 15 min taxi from station', '韓屋ステイ · 全州駅からタクシー15分']],
   ['ys_expo', 'yeosu', 34.7530, 127.7470, ['여수엑스포역', '丽水世博站', 'Yeosu Expo Stn', '麗水エキスポ駅'], ['KTX 종착역 · 오동도 도보', 'KTX 终点站 · 步行到梧桐岛', 'KTX terminus · walk to Odongdo', 'KTX終点駅 · 梧桐島へ徒歩']],
-  ['ys_dolsan', 'yeosu', 34.7280, 127.7430, ['돌산', '突山', 'Dolsan', '突山'], ['오션뷰 호텔 · 케이블카 근처', '海景酒店 · 近缆车', 'Sea-view hotels · near cable car', 'オーシャンビュー · ケーブルカー近く']]
+  ['ys_dolsan', 'yeosu', 34.7280, 127.7430, ['돌산', '突山', 'Dolsan', '突山'], ['오션뷰 호텔 · 케이블카 근처', '海景酒店 · 近缆车', 'Sea-view hotels · near cable car', 'オーシャンビュー · ケーブルカー近く']],
+  ['gs_down', 'gunsan', 35.9870, 126.7120, ['군산 원도심', '群山旧城', 'Old Town Gunsan', '群山旧市街'], ['근대역사박물관 · 원도심 걸어서', '近代历史博物馆 · 步行游旧城', 'Walk the old town', '旧市街を徒歩で']],
+  ['gs_island', 'gunsan', 35.8114, 126.4130, ['선유도', '仙游岛', 'Seonyudo', '仙遊島'], ['고군산군도 펜션 · 차 이동', '古群山民宿 · 需开车', 'Island stays · car needed', '島の宿 · 車が便利']],
+  ['mp_station', 'mokpo', 34.7915, 126.3866, ['목포역·원도심', '木浦站·旧城', 'Mokpo Stn & Old Town', '木浦駅・旧市街'], ['KTX 목포역 · 원도심 걸어서', 'KTX 木浦站 · 步行到旧城', 'KTX Mokpo Stn · walk to old town', 'KTX木浦駅 · 旧市街へ徒歩']],
+  ['mp_hadang', 'mokpo', 34.7950, 126.4320, ['하당·평화광장', '下塘·和平广场', 'Hadang & Peace Plaza', '下塘・平和広場'], ['바다분수 야경 · 택시 약 15분', '海上喷泉夜景 · 打车约 15 分钟', 'Fountain shows · about 15 min by taxi', '噴水の夜景 · タクシー約15分']]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -83,7 +89,9 @@ const REGION_TAG = {
   gyeongju: ['천년 신라의 유적', '千年新罗古迹', 'A thousand years of Silla heritage', '千年の新羅の遺跡'],
   gangneung: ['커피 거리와 동해 바다', '咖啡街与东海', 'Coffee street and the East Sea', 'コーヒー通りと東海'],
   jeonju: ['한옥마을과 비빔밥', '韩屋村与拌饭', 'Hanok village and bibimbap', '韓屋村とビビンバ'],
-  yeosu: ['밤바다와 섬 풍경', '夜海与海岛风光', 'Night sea and island views', '夜の海と島の風景']
+  yeosu: ['밤바다와 섬 풍경', '夜海与海岛风光', 'Night sea and island views', '夜の海と島の風景'],
+  gunsan: ['근대 거리와 고군산군도 바다', '近代街道与古群山群岛', 'Modern-era streets and the Gogunsan islands', '近代の街並みと古群山の海'],
+  mokpo: ['해상케이블카와 유달산, 바다 분수', '海上缆车、儒达山与海上喷泉', 'Sea cable car, Yudalsan and fountain shows', '海上ケーブルカーと儒達山']
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;
