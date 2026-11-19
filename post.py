@@ -2,7 +2,7 @@
 publish_at: "now" 또는 한국 시간 "YYYY-MM-DDTHH:MM" (미래면 Blogger 예약 게시).
 필요: secrets BLOGGER_CLIENT_ID, BLOGGER_CLIENT_SECRET, BLOGGER_REFRESH_TOKEN, BLOGGER_BLOG_ID
 """
-import json, os, pathlib, sys, urllib.parse, urllib.request
+import json, os, pathlib, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
@@ -37,7 +37,9 @@ def main():
     if not todo:
         print("올릴 글 없음"); return
     tk = token()
-    for meta_p in todo:
+    for i, meta_p in enumerate(todo):
+        if i:
+            time.sleep(20)  # 연속 게시 시 Blogger 429(rateLimitExceeded) 방지
         meta = json.loads(meta_p.read_text())
         hp = meta_p.with_suffix(".html")
         content = hp.read_text() if hp.exists() else ""
