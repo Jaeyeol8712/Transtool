@@ -2405,7 +2405,7 @@ def build_qguide(p):
 <div class="at-answer"><p>{g['answer']}</p></div>
 {f'<div class="at-guide-tools">{tool_btns}</div>' if tool_btns else ''}
 {secs}
-{faq_html(g['faq']) if g.get('faq') else ''}
+{faq_html(g['faq'][:5]) if g.get('faq') else ''}
 {f'<h2>근거 자료</h2><ul class="at-sources">{src}</ul>' if src else ''}
 <h2>다른 생활 가이드</h2><ul>{others}</ul>
 <p class="at-note">이 글은 작성일 기준 법령·공식 자료를 바탕으로 정리한 일반 안내이며, 개별 상황에 따라 다를 수 있습니다. 중요한 결정 전에는 관할 기관이나 전문가에게 확인하세요.</p>
@@ -2415,7 +2415,7 @@ def build_qguide(p):
            "datePublished": p["date"], "dateModified": g.get("updated", p["date"]), "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url_of(p["file"]),
            "image": image_ld("/assets/og/og-default.png", g["title"])}
-    extra = [art] + ([faq_ld(g["faq"])] if g.get("faq") else []) + [image_ld(f"/assets/photos/{n}.jpg", PHOTOS[n]["alt"], PHOTOS[n]) for n in ph]
+    extra = [art] + ([faq_ld(g["faq"][:5])] if g.get("faq") else []) + [image_ld(f"/assets/photos/{n}.jpg", PHOTOS[n]["alt"], PHOTOS[n]) for n in ph]
     write(p["file"], page_shell(p, content, extra))
 
 
