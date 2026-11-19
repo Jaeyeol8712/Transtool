@@ -122,7 +122,7 @@ add("work_time_calculator", date=D, name="근무시간",
     related=["hourly_monthly_wage_calculator", "holiday_pay_calculator", "salary_calculator"], cat="BusinessApplication")
 
 add("gpa_calculator", date=D, name="학점",
-    title="학점 계산기 — 4.5·4.3 만점 평균 평점 계산",
+    title="학점 계산기 — 4.5·4.3 만점 평균 평점·학점 환산",
     desc="과목별 학점과 성적(A+~F)을 넣으면 4.5 만점 또는 4.3 만점 기준 평균 평점을 계산합니다. 학점 가중 평균으로 계산하며 과목을 원하는 만큼 추가할 수 있습니다.",
     h1="학점 계산기", lede="과목 학점과 성적만 넣으면 평균 평점을 바로 계산합니다.",
     answer="평균 평점은 <b>(과목 학점 × 성적 점수)의 합 ÷ 총 학점</b>입니다. 4.5 만점에서 3학점 A+(4.5)와 2학점 B0(3.0)이면 (13.5 + 6.0) ÷ 5 = <b>3.90</b>입니다. 학교마다 성적 점수표가 달라 소속 학교 기준을 확인하세요.",
