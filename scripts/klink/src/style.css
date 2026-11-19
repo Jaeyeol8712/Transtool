@@ -675,3 +675,13 @@ a.p2-it{text-decoration:none;color:inherit}
 .k-rts{gap:10px}.k-rt{padding:18px 14px}
 .panel .segc{background:#F3F4F6!important}.panel .segc button.on{color:#111!important;box-shadow:none!important}
 .p2-tag{background:#fff}
+/* 2026-11-19 휴대폰: 메뉴를 로고 바로 아래로(크게) */
+@media (max-width:979px){
+  .app{grid-template-rows:calc(var(--appbar) + var(--safe-t)) 58px minmax(0,1fr)!important}
+  .tabbar{grid-row:2!important;border-top:0!important;border-bottom:1px solid #F1F2F4;padding:6px 10px!important;gap:6px;background:#fff!important}
+  .main{grid-row:3!important}
+  .tabbar button{flex-direction:row!important;gap:6px!important;font-size:15px!important;font-weight:700!important;color:#9CA3AF!important;border-radius:12px;height:46px}
+  .tabbar button svg{width:20px!important;height:20px!important}
+  .tabbar button.on{background:#F3F4F6;color:#111!important}
+  .tabbar .badge{top:4px!important}
+}
