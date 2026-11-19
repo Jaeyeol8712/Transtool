@@ -769,6 +769,8 @@ a.p2-it{text-decoration:none;color:inherit}
 
 .k-tr2{align-items:flex-start}.k-st{margin:4px 0 2px;padding-left:18px;font-size:.84rem;line-height:1.45;color:#222}.k-st li{margin:1px 0}.k-st li::marker{color:#d32f2f;font-weight:700}.k-tr2 small a{color:#111;font-weight:700}
 
+.p2-acts .k-save{flex:1 1 100%;width:100%;grid-column:1/-1;color:#d32f2f;font-weight:700}.p2-acts .k-save svg{color:#d32f2f}
+
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LK65NYW74"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LK65NYW74');</script>
@@ -2652,7 +2654,7 @@ function placeDetail2(id) {
     ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
-    <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button></div>
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
   </div>`;
