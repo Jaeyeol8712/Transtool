@@ -1467,3 +1467,8 @@ body .at-answer::before{color:#111!important}
 html body.b .b-sum,html body .at-answer.b-sum{background:#fff!important;color:#111!important;border:1px solid #E5E7EB!important}
 html body.b .b-sum::before{color:#111!important;opacity:1}
 html body .at-steps li::before{background:#FFF1F2!important;color:#E11D48!important}
+/* 6번째부터 접은 본문 카드 */
+body .b-more{border:1px solid #EEF0F3;border-radius:14px;margin:0 0 12px;background:#fff}
+body .b-more>summary{padding:16px 18px;font-weight:800;font-size:1rem;color:#111;cursor:pointer}
+body .b-more[open]>summary{border-bottom:1px solid #EEF0F3}
+body .b-more>section{border:0!important;margin:0!important}

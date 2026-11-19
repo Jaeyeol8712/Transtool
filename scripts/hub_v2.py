@@ -275,7 +275,7 @@ def run(root=None, data=None):
             'connect.html', 'food.html', 'tools.html', 'travel.html', 'etc.html', 'season.html', 'guide_2026_tax.html', 'guide_2026_wage.html'}
     for path in glob.glob(os.path.join(ROOT, '*.html')):
         bn = os.path.basename(path)
-        if bn in SKIP or bn.startswith(('guide-', 'shop-')):
+        if bn in SKIP or bn.startswith('shop-'):
             continue
         h = open(path, encoding='utf-8').read(); o = h
         m = re.search(r'<main.*?</main>', h, re.S)
@@ -289,6 +289,20 @@ def run(root=None, data=None):
                 k = min([x for x in (main.find('<section class="b-card"'), main.find('<section class="compare b-card"'), main.find('<section class="'), ) if x > 0] or [-1])
                 if k > 0:
                     main = main[:k] + box + main[k:]
+        # 본문 카드 정리: '함께 보기'류 목록 카드는 빼고, 핵심 카드가 5개를 넘으면 6번째부터 접기
+        secs = list(re.finditer(r'<section class="[^"]*b-card[^"]*"[^>]*>.*?</section>', main, re.S))
+        core = []
+        for x in secs:
+            hm = re.search(r'<h2[^>]*>(.*?)</h2>', x.group(0), re.S)
+            t = re.sub(r'<[^>]+>', '', hm.group(1)) if hm else ''
+            if re.search(r'관련 가이드|함께 보면 좋은|함께 보기|다른 계산기', t):
+                main = main.replace(x.group(0), '', 1); continue
+            if hm and not re.search(r'자주 묻는|근거|출처|이 글의 기준|블로그|홈페이지에 넣기', t):
+                core.append((x.group(0), re.sub(r'^\d+', '', t).strip()))
+        for sec, t in core[5:]:
+            if 'b-more' in sec:
+                continue
+            main = main.replace(sec, f'<details class="b-more"><summary>{t}</summary>{sec}</details>', 1)
         fq = re.search(r'(<div class="(?:at-faq|faq)[^"]*">)(.*?)(</div>\s*</section>|</div>\s*</div>)', main, re.S)
         if fq:
             dets = list(re.finditer(r'<details[^>]*>.*?</details>', fq.group(2), re.S))
