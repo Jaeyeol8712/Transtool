@@ -332,7 +332,7 @@ function placeDetail2(id) {
     ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
-    <div class="p2-acts"><button class="btn ghost" data-save="${id}">${isSaved(id) ? T.savedBtn : "여행지 저장"}</button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
+    <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button>${S.plan && di < 0 && S.plan.days.some(d => d.r === p.r) ? `<button class="btn p2-pri" data-act="addToPlan" data-v="${id}">${T.addToPlan}</button>` : `<button class="btn p2-pri" data-act="tab" data-v="plan">일정에 넣기</button>`}</div>
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
   </div>`;
@@ -478,27 +478,33 @@ function openTrip() {
     const apOpts = v => { const L = codes(); if (apMode() !== 'ovany') return L.map(c => opt(c, v)).join('');
       return [...new Set(L.map(c => AIRPORTS[c].cc))].map(cc => `<optgroup label="${esc(countryName(cc))}">${L.filter(c => AIRPORTS[c].cc === cc).map(c => opt(c, v)).join('')}</optgroup>`).join(''); };
     const hOpts = v => hrs.map(h => `<option value="${h}" ${h === v ? 'selected' : ''}>${hm(h)}</option>`).join('');
-    m.innerHTML = `<div class="grab2"></div><h3>${T.tripTitle}</h3><p class="lead">${ta.ov ? T.tripLeadOv(countryName(ta.cc)) : H ? T.tripLeadHome : t.kind === 'ov' ? T.tripLeadOvAny : T.tripLead}</p>
-      <div class="fld"><div class="lb">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
-      <div class="fld"><div class="lb">${T.dates}<small>${n > 0 ? F.nights(n) : ''}</small></div>
-        <div class="dates"><label class="dbox"><small>${T.first}</small><b>${T.mdShort(toDate(t.start))}</b><span>${T.wdL[toDate(t.start).getDay()]}</span><input type="date" id="t-s" value="${t.start}"></label>
-        <label class="dbox"><small>${T.last}</small><b>${T.mdShort(toDate(t.end))}</b><span>${T.wdL[toDate(t.end).getDay()]}</span><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
+    if (t.diffBack == null) t.diffBack = t.dep !== t.arr;
+    if (!t.diffBack) t.dep = t.arr;
+    const dl = d => { const x = toDate(d); return `${x.getMonth() + 1}월 ${x.getDate()}일(${T.wdL[x.getDay()].slice(0, 1)})`; };
+    const pc = PACE[t.pace], hh = h => `${Math.floor(h)}시${h % 1 ? ' 반' : ''}`;
+    const paceTxt = `${hh(pc.start)}~${hh(pc.end)} · 관광 하루 약 ${Math.floor(pc.cap / 60)}시간${pc.cap % 60 ? ` ${pc.cap % 60}분` : ''}`;
+    m.innerHTML = `<button class="t2-x" data-close aria-label="닫기">×</button><h3 class="t2-h">${T.tripTitle}</h3>
+      <div class="t2-f"><div class="t2-l">${T.kindTitle}</div><div class="segc kindseg">${['kr', 'ov', 'visit'].map(k => `<button class="${t.kind === k ? 'on' : ''}" data-kind="${k}">${T.kinds[k][0]}</button>`).join('')}</div></div>
+      <div class="t2-f"><div class="t2-l">날짜<small>${n > 0 ? F.nights(n) : ''}</small></div>
+        <div class="t2-dates"><label class="dbox t2-d"><b>${dl(t.start)}</b><input type="date" id="t-s" value="${t.start}"></label><span class="t2-ar">→</span><label class="dbox t2-d"><b>${dl(t.end)}</b><input type="date" id="t-e" value="${t.end}" min="${t.start}"></label></div>
         ${n >= 14 ? `<p class="note">${T.max14}</p>` : ''}</div>
-      <div class="fld"><div class="lb">${H ? T.flightsHome : T.flights}<small>${H ? T.flightsHomeSub : T.flightsSub}</small></div>
-        <div class="ftrow"><div class="sel"><small>${H ? T.fromSt : T.arrAp}</small><select id="t-aa">${apOpts(t.arr)}</select></div><div class="sel"><small>${H ? T.fromT : T.arrT}</small><select id="t-at">${hOpts(t.arrT)}</select></div>
-        <div class="sel"><small>${H ? T.backSt : T.depAp}</small><select id="t-da">${apOpts(t.dep)}</select></div><div class="sel"><small>${H ? T.backT : T.depT}</small><select id="t-dt">${hOpts(t.depT)}</select></div></div></div>
-      <div class="fld"><div class="lb">${T.pace}</div><div class="tiles">${T.paces.map((b, i) => `<button class="tile ${t.pace === i ? 'on' : ''}" data-pace="${i}"><small>${b[1]}</small><b>${b[0]}</b></button>`).join('')}</div></div>
-      <div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost" data-close style="flex:.6">${T.cancel}</button><button class="btn" id="t-ok" style="flex:1">${T.saveTrip}</button></div>`;
+      <div class="t2-f"><div class="t2-l">${H ? '오가는 길' : '항공편'}</div>
+        <div class="t2-row"><span class="t2-k">${H ? '가는 날' : '도착'}</span><select id="t-aa" class="t2-s">${apOpts(t.arr)}</select><span>${H ? '에서' : ''}</span><select id="t-at" class="t2-s">${hOpts(t.arrT)}</select><span>${H ? '출발' : '도착'}</span></div>
+        <div class="t2-row"><span class="t2-k">${H ? '오는 날' : '출발'}</span>${t.diffBack ? `<select id="t-da" class="t2-s">${apOpts(t.dep)}</select>` : `<span class="t2-same">${esc(an(t.arr))}</span>`}<span>${H ? '에' : ''}</span><select id="t-dt" class="t2-s">${hOpts(t.depT)}</select><span>${H ? '도착' : '출발'}</span></div>
+        <label class="t2-chk"><input type="checkbox" id="t-diff" ${t.diffBack ? 'checked' : ''}> ${H ? '돌아오는 역이 달라요' : '돌아오는 공항이 달라요'}</label></div>
+      <div class="t2-f"><div class="t2-l">하루 일정</div><div class="t2-chips">${T.paces.map((b, i) => `<button class="${t.pace === i ? 'on' : ''}" data-pace="${i}">${b[0]}</button>`).join('')}</div><p class="t2-note">${paceTxt}</p></div>
+      <button class="btn block" id="t-ok">${T.saveTrip}</button>`;
     const re = () => { const y = m.scrollTop; draw(m); m.scrollTop = y; };
     $('#t-s', m).onchange = e => { t.start = e.target.value || t.start; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $('#t-e', m).onchange = e => { t.end = e.target.value || t.end; if (t.end < t.start) t.end = t.start; if (addDays(t.start, 13) < t.end) t.end = addDays(t.start, 13); re(); };
     $$('.dbox', m).forEach(b => b.onclick = e => { const i = b.querySelector('input'); if (e.target !== i) { try { i.showPicker(); } catch (er) { i.focus(); } } });
-    $('#t-aa', m).onchange = e => t.arr = e.target.value; $('#t-da', m).onchange = e => t.dep = e.target.value;
+    $('#t-aa', m).onchange = e => { t.arr = e.target.value; if (!t.diffBack) t.dep = t.arr; }; if ($('#t-da', m)) $('#t-da', m).onchange = e => t.dep = e.target.value;
+    $('#t-diff', m).onchange = e => { t.diffBack = e.target.checked; if (!t.diffBack) t.dep = t.arr; re(); };
     $('#t-at', m).onchange = e => t.arrT = +e.target.value; $('#t-dt', m).onchange = e => t.depT = +e.target.value;
     $$('[data-kind]', m).forEach(b => b.onclick = () => { t.kind = b.dataset.kind; setKindTimes(t, t.kind); fix(); re(); });
     $$('[data-pace]', m).forEach(b => b.onclick = () => { t.pace = +b.dataset.pace; re(); });
     $$('[data-close]', m).forEach(b => b.onclick = closeModal);
-    $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
+    $('#t-ok', m).onclick = () => { const kc = S.trip.kind !== t.kind; delete t.diffBack; S.trip = t; if (kc) { S.ui.scope = t.kind === 'ov' ? 'ov' : 'kr'; if (S.ui.lvl !== 'korea' && isOv(S.ui.r) !== (t.kind === 'ov')) { S.ui.lvl = 'korea'; S.ui.r = null; S.ui.d = null; S.ui.sel = null; } } persist(); closeModal(); toast(T.tripSaved); renderAll(true); if (S.ui.tab === 'plan' || isDesk()) renderStage(); };
   };
   openModal('', m => draw(m));
 }

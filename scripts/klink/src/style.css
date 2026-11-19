@@ -705,3 +705,21 @@ a.p2-it{text-decoration:none;color:inherit}
 .k-pl{color:#374151;text-decoration:none;font-size:14.5px;font-weight:600}.k-pl:hover{text-decoration:underline}
 .k-pmore{margin-top:14px;border:1px solid #EEF0F3;border-radius:12px;padding:0 14px}.k-pmore summary{padding:13px 0;font-weight:700;cursor:pointer}
 .k-pmore div{display:flex;flex-direction:column;gap:10px;padding:0 0 14px}
+
+/* 2026-11-19 여행 정보 창 */
+.t2-x{position:absolute;right:14px;top:10px;font-size:26px;color:#9CA3AF;background:none;border:0;cursor:pointer;line-height:1}
+.t2-h{font-size:22px;font-weight:800;color:#111;margin:4px 0 6px}
+.t2-f{margin-top:20px}.t2-l{display:flex;justify-content:space-between;font-size:15px;font-weight:800;color:#111;margin-bottom:10px}.t2-l small{font-size:13px;color:#9CA3AF;font-weight:600}
+.t2-dates{display:flex;align-items:center;gap:10px}.t2-d{position:relative;flex:1;border:0!important;background:none!important;padding:0!important;cursor:pointer}
+.t2-d b{font-size:20px;font-weight:800;font-family:inherit!important;color:#111;border-bottom:2px solid #E5E7EB;padding-bottom:4px;display:block}
+.t2-d input{position:absolute;inset:0;opacity:0;cursor:pointer}.t2-ar{color:#9CA3AF;font-size:18px}
+.t2-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #F1F2F4;font-size:15px;color:#374151}
+.t2-k{min-width:54px;font-weight:700;color:#111}
+.t2-s{font:inherit;font-size:15px;font-weight:700;color:#111;border:0;border-bottom:1px dashed #9CA3AF;background:none;padding:2px 2px;border-radius:0;-webkit-appearance:none;appearance:none;cursor:pointer}
+.t2-same{font-weight:700;color:#111}
+.t2-chk{display:flex;align-items:center;gap:6px;font-size:13.5px;color:#6B7280;margin-top:10px;cursor:pointer}
+.t2-chips{display:flex;gap:8px}.t2-chips button{flex:1;height:44px;border:1px solid #E5E7EB;border-radius:12px;background:#fff;font:inherit;font-size:15px;font-weight:700;color:#6B7280;cursor:pointer}
+.t2-chips button.on{border-color:var(--cobalt);color:var(--cobalt);background:#F3F5FF}
+.t2-note{font-size:13px;color:#9CA3AF;margin:8px 0 0}
+#t-ok{margin-top:24px;height:50px;font-size:16px}
+.k-save{gap:6px}.k-save svg{width:20px;height:20px;color:#9CA3AF}.k-save.on svg{color:#E11D48!important;fill:#E11D48}.k-save.on{border-color:#FBCFD8!important;color:#E11D48!important}
