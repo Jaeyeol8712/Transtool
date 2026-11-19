@@ -1,11 +1,12 @@
-== 2026-11-19T12:04:25Z push 83d713b3270e93f4ca0238ee9d6936657a8a376e
+== 2026-11-19T12:06:04Z push c576466d7f862d377c9a83d72562f9cfcc57a584
 · 전송할 URL이 없습니다. 변경된 HTML이 없습니다.
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/sitemap.xml 제출됨
   ✓ 구글 서치콘솔 — https://www.aroundtool.com/feed.xml 제출됨
-  ✓ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 제출됨
-  ✓ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 제출됨
+  ✗ Bing 웹마스터 — https://www.aroundtool.com/sitemap.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
+  ✗ Bing 웹마스터 — https://www.aroundtool.com/feed.xml 400 {"ErrorCode":5,"Message":"ERROR!!! ThrottleHost"}
+  · 사이트가 Bing 웹마스터 도구에 등록·인증돼 있는지, siteUrl 이 등록한 주소와 같은지 확인하세요.
 
 · 서비스 계정이 볼 수 있는 속성: sc-domain:aroundtool.com (siteFullUser)
   · GSC_SITE(https://www.aroundtool.com/) 대신 실제 속성 sc-domain:aroundtool.com 을 사용합니다. GitHub 변수 GSC_SITE 를 이 값으로 바꿔 두면 좋습니다.
