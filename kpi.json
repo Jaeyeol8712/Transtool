@@ -233,7 +233,7 @@
    "position": 27.2
   }
  ],
- "made": "2026-11-19T23:26:06.262Z",
+ "made": "2026-11-20T03:58:52.972Z",
  "range": "2026-11-13 ~ 2026-11-19",
  "prevRange": "2026-11-06 ~ 2026-11-12",
  "cur": {
@@ -254,8 +254,8 @@
   "cur": {
    "Organic Search": 150,
    "Direct": 46,
-   "Unassigned": 9,
    "AI Assistant": 7,
+   "Unassigned": 2,
    "Organic Social": 1
   },
   "prev": {
@@ -412,7 +412,7 @@
  "landing": [
   {
    "page": "/",
-   "sessions": 24
+   "sessions": 23
   },
   {
    "page": "/interior_calculator.html",
@@ -423,12 +423,12 @@
    "sessions": 10
   },
   {
-   "page": "/time_difference_calculator.html",
-   "sessions": 7
+   "page": "(not set)",
+   "sessions": 8
   },
   {
-   "page": "(not set)",
-   "sessions": 6
+   "page": "/time_difference_calculator.html",
+   "sessions": 7
   },
   {
    "page": "/kimjang_cost_calculator.html",
@@ -447,7 +447,7 @@
    "sessions": 5
   },
   {
-   "page": "",
+   "page": "/percent_calculator.html",
    "sessions": 4
   }
  ],
