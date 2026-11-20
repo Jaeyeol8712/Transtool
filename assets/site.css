@@ -1544,3 +1544,5 @@ body .b-more>section{border:0!important;margin:0!important}
 }
 @media (max-width:43.99rem){.ah-khero-cta{padding:8px 11px!important;font-size:13px!important;height:auto!important;min-height:0!important}.ah-khero-dest a.is-all{background:#fff!important;color:#2a44d8!important}.ah-khero+.ah-row{margin-top:8px!important}}
 @media (max-width:43.99rem){main .ah-khero{margin-bottom:0!important}main .ah-khero~.ah-row:first-of-type,.ah-khero+*{margin-top:0!important;padding-top:0!important}}
+/* 2026-11-20 추천 목록: PC 한 줄 3개·사진 작게 */
+@media (min-width:44rem){.hub-shop{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:14px!important}.hub-shop .ph{aspect-ratio:4/3!important;height:auto!important}.hub-shop .ph img{width:100%;height:100%;object-fit:cover}.hub-shop b{font-size:14px!important}}
