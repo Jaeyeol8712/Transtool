@@ -42,6 +42,8 @@ def region_of_code(code, name):
     if code in ('35011', '35012'): return 'jeonju'
     if code == '35020': return 'gunsan'
     if code == '36010': return 'mokpo'
+    if code == '33380': return 'danyang'
+    if code in ('37011', '37012'): return 'pohang'
     return None
 MF = [(f['properties']['code'], f['properties']['name'].replace('전주시', ''), shape(f['geometry']).buffer(0)) for f in muni['features']]
 full = json.load(open(KDIR + '/skorea_municipalities_geo.json', encoding='utf-8'))
@@ -64,7 +66,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
- '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'덕진구':['德津区','Deokjin-gu','徳津区'],
+ '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
  'jeju': [('jj_city', ['jj_pork','jj_dongmun','jj_dutyfree'], ['제주 시내','济州市区','Jeju City','済州市内']),
@@ -91,6 +93,13 @@ ZONES = {
  'mokpo': [('mp_old', ['mp_modern','mp_yudal','mp_market','mp_cable'], ['원도심·유달산','旧城·儒达山','Old Town & Yudalsan','旧市街・儒達山']),
            ('mp_gohado', ['mp_gohado'], ['고하도','高下岛','Gohado','高下島']),
            ('mp_hadang', ['mp_gatbawi','mp_peace'], ['하당·평화광장','下塘·和平广场','Hadang & Peace Plaza','下塘・平和広場'])],
+ 'danyang': [('dy_town', ['dy_manchunha','dy_jando','dy_gosu','dy_market'], ['단양읍·남한강','丹阳邑·南汉江','Danyang Town & River','丹陽邑・南漢江']),
+             ('dy_dodam', ['dy_dodam'], ['도담삼봉','岛潭三峰','Dodamsambong','島潭三峰']),
+             ('dy_sainam', ['dy_sainam'], ['사인암','舍人岩','Sainam','舎人岩']),
+             ('dy_ondal', ['dy_ondal'], ['영춘·온달','永春·温达','Yeongchun & Ondal','永春・温達'])],
+ 'pohang': [('ph_city', ['ph_spacewalk','ph_yeongildae','ph_jukdo','ph_canal'], ['포항 시내','浦项市区','Pohang City','浦項市内']),
+            ('ph_east', ['ph_homigot','ph_guryongpo'], ['호미곶·구룡포','虎尾串·九龙浦','Homigot & Guryongpo','虎尾串・九龍浦']),
+            ('ph_north', ['ph_igari'], ['이가리','二佳里','Igari','イガリ'])],
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),

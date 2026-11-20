@@ -26,7 +26,9 @@ const REGIONS = {
   jeonju:    { lat: 35.8150, lng: 127.1500, sub: false, air: 'ICN', fromSeoul: 105, t: ['전주', '全州', 'Jeonju', '全州'] },
   yeosu:     { lat: 34.7300, lng: 127.7400, sub: false, air: 'ICN', fromSeoul: 180, t: ['여수', '丽水', 'Yeosu', '麗水'] },
   gunsan:    { lat: 35.9800, lng: 126.7200, sub: false, air: 'ICN', fromSeoul: 170, t: ['군산', '群山', 'Gunsan', '群山'] },
-  mokpo:     { lat: 34.7950, lng: 126.3900, sub: false, air: 'ICN', fromSeoul: 150, t: ['목포', '木浦', 'Mokpo', '木浦'] }
+  mokpo:     { lat: 34.7950, lng: 126.3900, sub: false, air: 'ICN', fromSeoul: 150, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  danyang:   { lat: 36.9850, lng: 128.3650, sub: false, air: 'ICN', fromSeoul: 120, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
+  pohang:    { lat: 36.0400, lng: 129.3700, sub: false, air: 'ICN', fromSeoul: 150, t: ['포항', '浦项', 'Pohang', '浦項'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -57,8 +59,9 @@ Object.assign(AIRPORTS, {
   JNH: { lat: 35.8497, lng: 127.1617, r: 'jeonju', home: true, t: ['전주', '全州', 'Jeonju', '全州'] },
   GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
   MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  DYH: { lat: 36.9670, lng: 128.3420, r: 'danyang', home: true, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
   YSH: { lat: 34.753, lng: 127.747, r: 'yeosu', home: true, t: ['여수', '丽水', 'Yeosu', '麗水'] },
-  PHG: { lat: 36.0718, lng: 129.3418, r: null, home: true, t: ['포항', '浦项', 'Pohang', '浦項'] },
+  PHG: { lat: 36.0718, lng: 129.3418, r: 'pohang', home: true, t: ['포항', '浦项', 'Pohang', '浦項'] },
   GJH: { lat: 35.7983, lng: 129.1386, r: 'gyeongju', home: true, t: ['경주', '庆州', 'Gyeongju', '慶州'] },
   ULS: { lat: 35.5513, lng: 129.1384, r: null, home: true, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
   CWN: { lat: 35.2335, lng: 128.6807, r: null, home: true, t: ['창원', '昌原', 'Changwon', '昌原'] },
@@ -95,7 +98,11 @@ const STAYS = [
   ['gs_down', 'gunsan', 35.9870, 126.7120, ['군산 원도심', '群山旧城', 'Old Town Gunsan', '群山旧市街'], ['근대역사박물관 · 원도심 걸어서', '近代历史博物馆 · 步行游旧城', 'Walk the old town', '旧市街を徒歩で']],
   ['gs_island', 'gunsan', 35.8114, 126.4130, ['선유도', '仙游岛', 'Seonyudo', '仙遊島'], ['고군산군도 펜션 · 차 이동', '古群山民宿 · 需开车', 'Island stays · car needed', '島の宿 · 車が便利']],
   ['mp_station', 'mokpo', 34.7915, 126.3866, ['목포역·원도심', '木浦站·旧城', 'Mokpo Stn & Old Town', '木浦駅・旧市街'], ['KTX 목포역 · 원도심 걸어서', 'KTX 木浦站 · 步行到旧城', 'KTX Mokpo Stn · walk to old town', 'KTX木浦駅 · 旧市街へ徒歩']],
-  ['mp_hadang', 'mokpo', 34.7950, 126.4320, ['하당·평화광장', '下塘·和平广场', 'Hadang & Peace Plaza', '下塘・平和広場'], ['바다분수 야경 · 택시 약 15분', '海上喷泉夜景 · 打车约 15 分钟', 'Fountain shows · about 15 min by taxi', '噴水の夜景 · タクシー約15分']]
+  ['mp_hadang', 'mokpo', 34.7950, 126.4320, ['하당·평화광장', '下塘·和平广场', 'Hadang & Peace Plaza', '下塘・平和広場'], ['바다분수 야경 · 택시 약 15분', '海上喷泉夜景 · 打车约 15 分钟', 'Fountain shows · about 15 min by taxi', '噴水の夜景 · タクシー約15分']],
+  ['dy_town', 'danyang', 36.9846, 128.3654, ['단양읍 시내', '丹阳邑市区', 'Danyang Town', '丹陽邑市内'], ['구경시장·잔도 걸어서 · 단양역 택시 약 10분', '步行到市场与栈道 · 丹阳站打车约 10 分钟', 'Walk to the market and trail · about 10 min taxi from Danyang Stn', '市場・桟道へ徒歩 · 丹陽駅からタクシー約10分']],
+  ['dy_station', 'danyang', 36.9670, 128.3420, ['단양역', '丹阳站', 'Danyang Stn', '丹陽駅'], ['KTX-이음 단양역 · 도담삼봉 차 약 10분', 'KTX-EUM 丹阳站 · 开车约 10 分钟到岛潭三峰', 'KTX-EUM Danyang Stn · about 10 min drive to Dodamsambong', 'KTX-イウム丹陽駅 · 島潭三峰へ車約10分']],
+  ['ph_yeongil', 'pohang', 36.0560, 129.3790, ['영일대', '迎日台', 'Yeongildae', '迎日台'], ['해변 호텔 · 죽도시장 택시 약 10분', '海边酒店 · 打车约 10 分钟到竹岛市场', 'Beach hotels · about 10 min taxi to Jukdo Market', '海辺ホテル · 竹島市場へタクシー約10分']],
+  ['ph_station', 'pohang', 36.0718, 129.3418, ['포항역', '浦项站', 'Pohang Stn', '浦項駅'], ['KTX 포항역 · 시내·호미곶은 차 이동', 'KTX 浦项站 · 市区和虎尾串需开车', 'KTX Pohang Stn · drive to town and Homigot', 'KTX浦項駅 · 市内・虎尾串へは車']]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -107,7 +114,9 @@ const REGION_TAG = {
   jeonju: ['한옥마을과 비빔밥', '韩屋村与拌饭', 'Hanok village and bibimbap', '韓屋村とビビンバ'],
   yeosu: ['밤바다와 섬 풍경', '夜海与海岛风光', 'Night sea and island views', '夜の海と島の風景'],
   gunsan: ['근대 거리와 고군산군도 바다', '近代街道与古群山群岛', 'Modern-era streets and the Gogunsan islands', '近代の街並みと古群山の海'],
-  mokpo: ['해상케이블카와 유달산, 바다 분수', '海上缆车、儒达山与海上喷泉', 'Sea cable car, Yudalsan and fountain shows', '海上ケーブルカーと儒達山']
+  mokpo: ['해상케이블카와 유달산, 바다 분수', '海上缆车、儒达山与海上喷泉', 'Sea cable car, Yudalsan and fountain shows', '海上ケーブルカーと儒達山'],
+  danyang: ['남한강 절벽과 동굴, 스카이워크', '南汉江悬崖、洞窟与天空步道', 'River cliffs, caves and a skywalk', '南漢江の断崖と洞窟、スカイウォーク'],
+  pohang: ['동해 일출과 바다 위 걷는 조형물', '东海日出与海边步行雕塑', 'East Sea sunrise and a walkable sculpture', '東海の日の出と歩ける造形物']
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;

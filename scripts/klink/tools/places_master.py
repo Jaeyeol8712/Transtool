@@ -112,6 +112,20 @@ mp_modern 34.7887 126.3838 9 18 day - 1.25
 mp_gatbawi 34.7957 126.431 5 23 night - 0.5
 mp_peace 34.7935 126.4336 0 24 night - 1.0
 mp_market 34.787 126.3895 7 18 any any 1.0
+dy_dodam 36.9998 128.3446 9 18 am - 0.7
+dy_manchunha 36.9886 128.3606 9 17 day - 1.5
+dy_jando 36.9858 128.3577 0 24 day - 0.7
+dy_gosu 36.9757 128.3878 9 18 any - 1
+dy_market 36.9846 128.3654 9 18 day any 1
+dy_sainam 36.8973 128.3423 0 24 day - 0.5
+dy_ondal 37.0485 128.5446 9 18 day - 1.5
+ph_spacewalk 36.0656 129.3925 10 17 day - 1
+ph_homigot 36.0768 129.5679 0 24 am - 1.5
+ph_yeongildae 36.056 129.379 0 24 eve - 1
+ph_guryongpo 35.9886 129.558 0 24 day - 1
+ph_jukdo 36.0352 129.367 8 22 am any 1.5
+ph_igari 36.196 129.387 9 18 day - 0.5
+ph_canal 36.0335 129.38 9 18 day - 1
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -238,6 +252,35 @@ NEW = [
      ["평화광장", "바다 분수 공연과 해변 산책"], ["和平广场", "海上喷泉表演与海边散步"], ["Peace Plaza", "Sea fountain shows and a seaside walk"], ["平和広場", "海の噴水ショーと海辺の散歩"]),
     ("mp_market", "food", "mokpo", 20000, {}, "목포시 해안로 267",
      ["목포종합수산시장", "홍어·낙지·생선을 고르는 수산시장"], ["木浦综合水产市场", "挑选斑鳐、章鱼与鲜鱼"], ["Mokpo Fish Market", "Skate, octopus and fresh fish"], ["木浦総合水産市場", "エイ・タコ・鮮魚の市場"]),
+    # 2026-11-21 매일 콘텐츠: K링크 새 지역 단양·포항
+    ('dy_dodam', 'nature', 'danyang', 0, {}, '단양군 매포읍 삼봉로 644',
+     ['도담삼봉', '남한강 위 세 봉우리'], ['岛潭三峰', '南汉江上的三座石峰'], ['Dodamsambong Peaks', 'Three rock peaks in the Namhangang River'], ['島潭三峰', '南漢江に浮かぶ三つの岩峰']),
+    ('dy_manchunha', 'fun', 'danyang', 4000, {}, '단양군 적성면 옷바위길 10',
+     ['만천하스카이워크', '남한강 절벽 위 유리 전망대'], ['万天下天空步道', '南汉江悬崖上的玻璃观景台'], ['Mancheonha Skywalk', 'Glass-floor observatory above the river'], ['万天下スカイウォーク', '南漢江の断崖上のガラス展望台']),
+    ('dy_jando', 'nature', 'danyang', 0, {}, '단양군 적성면 애곡리 (상진철교 쪽)',
+     ['단양강 잔도', '강 절벽 따라 걷는 1.2km 길'], ['丹阳江栈道', '沿江悬崖步道1.2公里'], ['Danyanggang Jando Trail', '1.2 km cliffside river walkway'], ['丹陽江桟道', '川沿いの崖を歩く1.2kmの道']),
+    ('dy_gosu', 'nature', 'danyang', 11000, {}, '단양군 단양읍 고수동굴길 8',
+     ['고수동굴', '천연기념물 석회암 동굴'], ['古薮洞窟', '天然纪念物石灰岩洞窟'], ['Gosudonggul Cave', 'Limestone cave, natural monument'], ['古藪洞窟', '天然記念物の鍾乳洞']),
+    ('dy_market', 'food', 'danyang', 0, {}, '단양군 단양읍 (단양구경시장)',
+     ['단양구경시장', '마늘 간식 모인 상설시장'], ['丹阳九景市场', '以大蒜小吃闻名的市场'], ['Danyang Gugyeong Market', 'Market known for garlic snacks'], ['丹陽九景市場', 'ニンニク料理が並ぶ市場']),
+    ('dy_sainam', 'nature', 'danyang', 0, {}, '단양군 대강면 사인암2길 42',
+     ['사인암', '단양팔경 70m 절벽'], ['舍人岩', '丹阳八景之一的70米绝壁'], ['Sainam Rock', "70 m cliff, one of Danyang's Eight Views"], ['舎人岩', '丹陽八景の高さ70mの絶壁']),
+    ('dy_ondal', 'fun', 'danyang', 6000, {}, '단양군 영춘면 온달로 23',
+     ['온달관광지', '온달동굴 있는 강변 관광지'], ['温达观光地', '设有温达洞窟的江边景区'], ['Ondal Tourist Park', 'Riverside park with Ondal Cave'], ['温達観光地', '温達洞窟がある川辺の観光地']),
+    ('ph_spacewalk', 'fun', 'pohang', 0, {}, '포항시 북구 환호공원길 30',
+     ['스페이스워크', '환호공원 언덕 위 걷는 철제 조형물'], ['太空漫步', '环湖公园山丘上的步行钢结构'], ['Space Walk', 'Walkable steel sculpture in Hwanho Park'], ['スペースウォーク', '環湖公園の歩ける鉄の造形物']),
+    ('ph_homigot', 'nature', 'pohang', 0, {}, '포항시 남구 호미곶면 대보리',
+     ['호미곶 해맞이광장', '상생의 손이 있는 일출 명소'], ['虎尾串迎日广场', '有相生之手的日出胜地'], ['Homigot Sunrise Plaza', 'Sunrise spot with the Hands of Harmony'], ['虎尾串日の出広場', '相生の手がある日の出の名所']),
+    ('ph_yeongildae', 'nature', 'pohang', 0, {}, '포항시 북구 두호동',
+     ['영일대해수욕장', '누각 영일대가 있는 도심 해변'], ['迎日台海水浴场', '有海上楼阁的市区海滩'], ['Yeongildae Beach', 'City beach with a sea pavilion'], ['迎日台海水浴場', '海上楼閣のある市街のビーチ']),
+    ('ph_guryongpo', 'palace', 'pohang', 0, {}, '포항시 남구 구룡포읍 호미로 277',
+     ['구룡포 일본인 가옥거리', '일본식 목조 가옥 47채 거리'], ['九龙浦日本人住宅街', '保留日式木屋的街道'], ['Guryongpo Japanese House Street', 'Street of old Japanese wooden houses'], ['九龍浦日本人家屋通り', '日本式木造家屋が残る通り']),
+    ('ph_jukdo', 'food', 'pohang', 0, {}, '포항시 북구 죽도시장13길 13',
+     ['죽도시장', '동해안 최대 규모 전통시장'], ['竹岛市场', '东海岸最大的传统市场'], ['Jukdo Market', 'Largest traditional market on the east coast'], ['竹島市場', '東海岸最大級の伝統市場']),
+    ('ph_igari', 'nature', 'pohang', 0, {}, '포항시 북구 청하면 이가리',
+     ['이가리 닻 전망대', '닻 모양 해안 전망대'], ['二佳里锚形展望台', '锚形海边观景台'], ['Igari Anchor Observatory', 'Anchor-shaped seaside observatory'], ['イガリ錨展望台', '錨の形の海辺の展望台']),
+    ('ph_canal', 'fun', 'pohang', 0, {}, '포항시 남구 희망대로 1040 (포항운하관)',
+     ['포항운하', '크루즈로 도는 도심 물길'], ['浦项运河', '可乘游船的市区水道'], ['Pohang Canal', 'City canal with cruise boats'], ['浦項運河', 'クルーズで巡る街なかの水路']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.

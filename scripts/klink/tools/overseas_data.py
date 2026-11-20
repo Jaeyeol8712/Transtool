@@ -539,4 +539,37 @@ P qd_badaguan nature 36.0553 120.3497 1.5 | 팔대관|八大关|Badaguan|八大�
 P qd_54 night 36.0623 120.3846 1 night | 5·4광장|五四广场|May Fourth Square|五四広場 | 붉은 횃불 조형물과 해안 야경 | Red 'May Wind' sculpture and seafront lights
 Z qd_z4 | 근교 | Day trips
 P qd_laoshan nature 36.1630 120.6200 5 | 라오산|崂山|Mount Laoshan|嶗山 | 바다를 낀 도교 명산 · 차 약 1시간 | Taoist mountain by the sea, about an hour by car
+
+C phuket th 7.8804 98.3923 0 380 | 푸켓|普吉岛|Phuket|プーケット | 안다만해 해변과 올드타운, 섬 투어 | Andaman beaches, an old town and island trips
+A HKT 8.1132 98.3169 45 | 푸켓공항|普吉机场|Phuket (HKT)|プーケット空港
+S pk_s1 7.8960 98.2960 | 빠통|芭东|Patong|パトン | 해변·밤거리 걸어서 | Beach and nightlife on foot
+S pk_s2 7.8840 98.3880 | 푸켓 타운|普吉镇|Phuket Town|プーケットタウン | 올드타운·라사다 항 가까움 | Near the old town and Rassada Pier
+Z pk_z1 | 서해안 해변 | West-coast beaches
+P pk_patong nature 7.8960 98.2960 3 eve o=A | 빠통 비치|芭东海滩|Patong Beach|パトンビーチ | 푸켓 대표 해변 · 방라 로드 밤거리 | Phuket's main beach and Bangla Road nightlife
+P pk_karon nature 7.8440 98.2946 3 o=A | 까론 비치|卡伦海滩|Karon Beach|カロンビーチ | 빠통보다 조용한 서해안 해변 | Quieter west-coast beach south of Patong
+Z pk_z2 | 푸켓 타운 | Phuket Town
+P pk_oldtown shop 7.8840 98.3880 2 eve o=S | 푸켓 올드타운|普吉老城|Phuket Old Town|プーケット・オールドタウン | 시노-포르투갈 건물 거리 · 일요일 워킹스트리트 | Sino-Portuguese streets and a Sunday walking street
+Z pk_z3 | 남부 언덕·곶 | South hills & cape
+P pk_bigbuddha palace 7.8277 98.3128 1 am o=D | 빅 부다|普吉大佛|Big Buddha|ビッグブッダ | 언덕 위 대형 불상과 전망 | Hilltop Buddha statue with views
+P pk_promthep nature 7.7620 98.3055 1 eve o=A | 프롬텝 곶|神仙半岛|Promthep Cape|プロムテープ岬 | 섬 남쪽 끝 노을 전망 | Sunset viewpoint at the island's southern tip
+Z pk_z4 | 섬 투어 | Island trips
+P pk_phiphi nature 7.7407 98.7784 8 | 피피섬|皮皮岛|Phi Phi Islands|ピピ島 | 라사다 항 등에서 배로 가는 국립공원 섬 · 마야 베이 | National park islands by boat, including Maya Bay
+P pk_phangnga nature 8.2750 98.5010 8 | 팡아만|攀牙湾|Phang Nga Bay|パンガー湾 | 석회암 섬 사이 카누·보트 투어 | Boat and canoe trips among limestone islets
+
+C nagasaki jp 32.7503 129.8779 1 80 | 나가사키|长崎|Nagasaki|長崎 | 항구 언덕의 양관과 짬뽕, 야경 | Harbour-side hills, Western houses, champon and night views
+A NGS 32.9169 129.9136 45 | 나가사키공항|长崎机场|Nagasaki (NGS)|長崎空港
+S nk_s1 32.7520 129.8700 | 나가사키역|长崎站|Nagasaki Stn|長崎駅 | 공항 리무진·노면전차 출발 | Airport bus and tram hub
+S nk_s2 32.7414 129.8757 | 신치·데지마|新地·出岛|Shinchi & Dejima|新地・出島 | 중화가·글로버 가든 걸어서 | Walk to Chinatown and Glover Garden
+Z nk_z1 | 미나미야마테 | Minamiyamate
+P nk_glover palace 32.7339 129.8686 1.5 o=D | 글로버 가든|哥拉巴园|Glover Garden|グラバー園 | 항구가 보이는 언덕 위 서양식 주택 정원 | Hillside garden of Western-style houses over the harbour
+P nk_oura palace 32.7343 129.8701 0.75 am o=D | 오우라 천주당|大浦天主堂|Oura Cathedral|大浦天主堂 | 국보로 지정된 성당 · 글로버 가든 아래 | National Treasure church below Glover Garden
+Z nk_z2 | 데지마·중화가 | Dejima & Chinatown
+P nk_dejima palace 32.7435 129.8732 1.5 o=D | 데지마|出岛|Dejima|出島 | 복원된 네덜란드 상관 터 | Restored Dutch trading post
+P nk_chinatown food 32.7414 129.8757 1 eve dinner o=F | 나가사키 신치 중화가|长崎新地中华街|Nagasaki Shinchi Chinatown|長崎新地中華街 | 짬뽕·사라우동을 먹는 중화가 | Chinatown for champon and sara udon
+Z nk_z3 | 이나사야마 | Mt. Inasa
+P nk_inasa night 32.7550 129.8510 1.5 night | 이나사야마 전망대|稻佐山观景台|Mt. Inasa Observatory|稲佐山展望台 | 로프웨이로 오르는 야경 전망대 | Night-view deck reached by ropeway
+Z nk_z4 | 평화공원 | Peace Park
+P nk_peace palace 32.7760 129.8636 2 am o=D | 평화공원·원폭자료관|和平公园·原爆资料馆|Peace Park & Atomic Bomb Museum|平和公園・原爆資料館 | 평화기념상과 원폭 자료 전시 | Peace Statue and atomic bomb records
+Z nk_z5 | 군함도 | Gunkanjima
+P nk_gunkanjima nature 32.6278 129.7386 3 am | 군함도|军舰岛|Gunkanjima (Hashima)|軍艦島 | 나가사키항에서 배로 가는 옛 탄광 섬 상륙 투어 | Landing tour of a former coal-mining island by boat
 """

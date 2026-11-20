@@ -251,6 +251,9 @@ PAGE_DATES.update({s + ".html": "2026-11-19" for s, _, _ in TRIP_PAGES_1119})
 from daily_1120 import TRIP_PAGES_1120, FILES_1120  # noqa: E402  (2026-11-20 매일 콘텐츠: K링크 새 지역 4곳 글 10 + 기존 지역 글 20)
 TRIP_PAGES += TRIP_PAGES_1120
 PAGE_DATES.update({f: "2026-11-20" for f in FILES_1120})
+from daily_1121 import TRIP_PAGES_1121, FILES_1121  # noqa: E402  (2026-11-21 매일 콘텐츠: K링크 새 지역 4곳 글 10 + 기존 지역 글 20)
+TRIP_PAGES += TRIP_PAGES_1121
+PAGE_DATES.update({f: "2026-11-21" for f in FILES_1121})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -1262,6 +1265,7 @@ KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지
     "gyeongju": ("경주", None, []), "gangneung": ("강릉", None, []), "jeonju": ("전주", None, []),
     "yeosu": ("여수", None, ["jeonnam-dongbu"]),
     "gunsan": ("군산", None, []), "mokpo": ("목포", None, []),  # 2026-11-20 매일 콘텐츠 새 지역
+    "danyang": ("단양", None, []), "pohang": ("포항", None, []),  # 2026-11-21 매일 콘텐츠 새 지역
 }
 
 
@@ -1465,7 +1469,8 @@ def inject_spots():
 # 여행 가이드 '일정(ul.days)'에 나온 장소 순서 → 추천 코스.
 K_LINK_GENERIC = {"수산시장", "해수욕장", "중앙시장", "돼지국밥", "밤바다", "해산물", "케이블카", "해상케이블카", "전망대", "한옥마을", "해안도로",
                   "버스정류장", "흑돼지", "편집숍", "먹거리", "촬영지", "테마파크", "야시장", "빌리지", "리조트", "국립공원", "쇼핑몰",
-                  "차이나타운", "구시가지", "빈원더스", "닭갈비"}  # 닭갈비: 홍대 닭갈비 골목이 춘천 여행 글에 잘못 붙던 것(i261113-02 표본 점검)
+                  "차이나타운", "구시가지", "빈원더스", "닭갈비",
+                  "로프웨이", "워킹스트리트", "호핑투어", "보호구역", "메이지"}  # 2026-11-21: 다른 도시 글에 잘못 붙던 낱말(일월담→모이와산 로프웨이, 푸켓→치앙마이 워킹스트리트, 세부→나트랑 호핑투어 등)  # 닭갈비: 홍대 닭갈비 골목이 춘천 여행 글에 잘못 붙던 것(i261113-02 표본 점검)
 _PTXT = {}
 
 

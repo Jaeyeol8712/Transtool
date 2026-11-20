@@ -207,7 +207,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [제철 음식·시장 안내 72가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [제철 음식·시장 안내 76가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -325,6 +325,7 @@
 - [제철 제철 음식·시장 춘천 명동 닭갈비골목](https://www.aroundtool.com/season-chuncheon-dakgalbi-alley.html)
 - [제철 제철 음식·시장 대부도 바지락칼국수](https://www.aroundtool.com/season-daebudo-bajirak-kalguksu.html)
 - [제철 제철 음식·시장 대구 서문시장 먹거리·야시장](https://www.aroundtool.com/season-daegu-seomun-market-food.html)
+- [제철 제철 음식·시장 단양 맛집 먹거리](https://www.aroundtool.com/season-danyang-food.html)
 - [제철 제철 음식·시장 단양구경시장 마늘 먹거리](https://www.aroundtool.com/season-danyang-gugyeong-market.html)
 - [제철 제철 음식·시장 강화 순무](https://www.aroundtool.com/season-ganghwa-sunmu.html)
 - [제철 제철 음식·시장 강릉 초당 순두부 마을](https://www.aroundtool.com/season-gangneung-chodang-sundubu.html)
@@ -354,6 +355,7 @@
 - [제철 제철 음식·시장 제주 겨울 생선 시장](https://www.aroundtool.com/season-jeju-winter-fish-market.html)
 - [제철 제철 음식·시장 제주 월동무](https://www.aroundtool.com/season-jeju-woldongmu.html)
 - [제철 제철 음식·시장 정선아리랑시장 5일장](https://www.aroundtool.com/season-jeongseon-arirang-market.html)
+- [제철 제철 음식·시장 전주 맛집 전에 볼 전주 음식](https://www.aroundtool.com/season-jeonju-food.html)
 - [제철 제철 음식·시장 전주 남부시장 야시장](https://www.aroundtool.com/season-jeonju-nambu-night-market.html)
 - [제철 제철 음식·시장 진도 대파](https://www.aroundtool.com/season-jindo-daepa.html)
 - [제철 제철 음식·시장 주문진 양미리](https://www.aroundtool.com/season-jumunjin-yangmiri.html)
@@ -368,6 +370,7 @@
 - [제철 제철 음식·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
 - [제철 제철 음식·시장 포항 과메기](https://www.aroundtool.com/season-pohang-gwamegi.html)
 - [제철 제철 음식·시장 포항 죽도시장](https://www.aroundtool.com/season-pohang-jukdo-market.html)
+- [제철 제철 음식·시장 포항 맛집 전에 볼 물회·모리국수·향토 먹거리 정리](https://www.aroundtool.com/season-pohang-mulhoe.html)
 - [제철 제철 음식·시장 삼척 곰치국](https://www.aroundtool.com/season-samcheok-gomchiguk.html)
 - [제철 제철 음식·시장 상주 곶감](https://www.aroundtool.com/season-sangju-gotgam.html)
 - [제철 제철 음식·시장 서천 김](https://www.aroundtool.com/season-seocheon-gim.html)
@@ -387,6 +390,7 @@
 - [제철 제철 음식·시장 영광 굴비](https://www.aroundtool.com/season-yeonggwang-gulbi.html)
 - [제철 제철 음식·시장 여수 돌산 갓김치](https://www.aroundtool.com/season-yeosu-dolsan-gat.html)
 - [제철 제철 음식·시장 여수 맛집](https://www.aroundtool.com/season-yeosu-food.html)
+- [제철 제철 음식·시장 여수 낭만포차](https://www.aroundtool.com/season-yeosu-nangmanpocha.html)
 
 ## 여행
 
@@ -516,6 +520,32 @@
 - [빈원더스 나트랑](https://www.aroundtool.com/travel-nhatrang-vinwonders.html): 빈원더스 나트랑 혼째섬 가는 법(케이블카·스피드보트), 입장권 종류와 요금(동), 운영 시간, 타타쇼 공연 시간, 하루 동선을 공식 안내 기준으로 정리했습니다.
 - [구찌 터널](https://www.aroundtool.com/travel-hochiminh-cu-chi.html): 구찌 터널 벤딘과 벤드억 두 곳의 차이, 입장료(동), 운영 시간, 호치민에서 투어·버스·보트로 가는 법과 걸리는 시간, 복장과 주의할 점을 정리했습니다.
 - [리우허 야시장](https://www.aroundtool.com/travel-kaohsiung-night-market.html): 가오슝 야시장 중 리우허 야시장의 위치, 운영 시간, 현재 상황, 대표 먹거리, MRT 메이리다오역에서 가는 법과 다른 야시장 이름을 정리했습니다.
+- [단양 명소 안내](https://www.aroundtool.com/travel-danyang-attractions.html): 단양 가볼만한곳 6곳(도담삼봉·만천하스카이워크·단양강 잔도·고수동굴·사인암·온달관광지)의 운영 시간·요금·휴무와 권역별로 묶는 동선을 표로 정리했습니다.
+- [만천하스카이워크](https://www.aroundtool.com/travel-danyang-skywalk.html): 만천하스카이워크 운영 시간·입장료·휴무와 짚와이어·알파인코스터 요금·이용 조건, 단양강 잔도와 묶어 걷는 동선과 주차 팁을 정리했습니다.
+- [포항 명소 안내](https://www.aroundtool.com/travel-pohang-attractions.html): 포항 가볼만한곳 6곳(스페이스워크·호미곶 해맞이광장·영일대해수욕장·구룡포 일본인 가옥거리·이가리 닻 전망대·포항운하)의 운영 시간·요금·동선을 정리했습니다.
+- [호미곶](https://www.aroundtool.com/travel-pohang-homigot.html): 호미곶 해맞이광장의 상생의 손과 일출 시각 보는 법, 국립등대박물관 관람 시간, 가는 법과 구룡포 일본인 가옥거리를 묶는 반나절 동선을 정리했습니다.
+- [피피섬 투어](https://www.aroundtool.com/travel-phuket-phiphi.html): 푸켓에서 피피섬 가는 법(라사다 항), 국립공원 입장료 외국인 400바트, 마야 베이 8~9월 휴식기와 수영 금지 규정, 하루 투어 동선과 팡아만 투어와의 차이를 정리했습니다.
+- [푸켓 올드타운](https://www.aroundtool.com/travel-phuket-oldtown.html): 푸켓 올드타운 일요일 워킹스트리트(락 디·라트야이 마켓) 운영 요일과 시간, 탈랑·디북·끄라비 거리 시노-포르투갈 건물, 빅 부다·프롬텝 곶과 묶는 반나절 동선을 정리했습니다.
+- [군함도 투어](https://www.aroundtool.com/travel-nagasaki-gunkanjima.html): 군함도(하시마) 상륙 투어를 정리했습니다. 공식 관광 안내에 실린 운항 회사 4곳과 출발 터미널, 소요 시간, 날씨에 따른 상륙 불가, 복장·준비물, 세계유산 배경까지 담았습니다.
+- [나가사키 짬뽕](https://www.aroundtool.com/travel-nagasaki-champon.html): 나가사키 짬뽕의 유래를 공식 관광 안내 기준으로 정리했습니다. 사라우동과의 차이, 나가사키 신치 중화가 위치와 랜턴 페스티벌 시기, 데지마·글로버 가든을 묶는 반나절 동선도 담았습니다.
+- [경주 황리단길](https://www.aroundtool.com/travel-gyeongju-hwangnidan.html): 경주 황리단길 위치와 걷는 순서, 황리단길 공영주차장(첨성로 30)과 순환버스, 대릉원·첨성대와 함께 도는 반나절 동선을 경주시·관광공사 자료로 정리했습니다.
+- [첨성대·대릉원](https://www.aroundtool.com/travel-gyeongju-cheomseongdae.html): 첨성대 관람 시간과 무료 관람, 대릉원·천마총 운영 시간과 요금, 계림·교촌마을·월정교를 지나 동궁과 월지로 이어지는 도보 동선을 경주시·관광공사 자료로 정리했습니다.
+- [오죽헌](https://www.aroundtool.com/travel-gangneung-ojukheon.html): 강릉 오죽헌·시립박물관 관람 시간(09:00~18:00, 매표 17:00까지)과 요금, 몽룡실·율곡기념관 볼거리, 무료 주차, 경포해변·경포대와 반나절에 묶는 법을 정리했습니다.
+- [해동용궁사](https://www.aroundtool.com/travel-busan-yonggungsa.html): 부산 기장 해동용궁사 관람 시간(04:30~19:20, 입장 18:50까지)과 무료 입장, 해운대역·오시리아역에서 가는 버스, 주차, 일출 보는 곳, 해운대 블루라인파크와 묶는 동선을 정리했습니다.
+- [여수 해상케이블카](https://www.aroundtool.com/travel-yeosu-cable-car.html): 여수 케이블카(여수 해상케이블카)의 운영 시간과 일반·크리스탈 캐빈 요금, 돌산·자산공원 탑승장 고르는 법, 돌산공원 야경 시간과 오동도 연결 동선을 정리했습니다.
+- [오동도](https://www.aroundtool.com/travel-yeosu-odongdo.html): 오동도 방파제 길과 동백열차 운행 시간·요금, 동백꽃 피는 시기, 주차와 음악분수, 바로 옆 아쿠아플라넷 여수까지 묶는 반나절 동선을 정리했습니다.
+- [감천문화마을](https://www.aroundtool.com/travel-busan-gamcheon.html): 감천문화마을 가는 법(토성역 6번 출구 마을버스), 안내센터 골목투어 지도, 주민이 사는 마을에서 지킬 예절, 흰여울문화마을 카페 거리와 하루에 묶는 법을 정리했습니다.
+- [성산일출봉](https://www.aroundtool.com/travel-jeju-seongsan.html): 성산일출봉의 계절별 관람 시간과 입장료, 매월 첫째 주 월요일 휴무, 정상에서 일출 보는 시간 계산법, 섭지코지·우도와 하루에 묶는 동선을 정리했습니다.
+- [바나힐·골든브리지](https://www.aroundtool.com/travel-danang-bana-hills.html): 다낭 바나힐·골든브리지 입장권(케이블카 포함, 2026년부터 3일 사용), 운영 시간, 시내에서 가는 법, 안개·구름 많은 계절 팁을 다낭시 관광청과 Sun World 운영사 안내 기준으로 정리했습니다.
+- [호이안 구시가지](https://www.aroundtool.com/travel-danang-hoian.html): 호이안 구시가지 입장권(80,000동·120,000동, 최대 3일), 보행자 거리 밤 시간, 공연 시간, 다낭에서 가는 법과 한 시장을 묶는 하루 동선을 호이안 문화유산 관리센터 공식 공지 기준으로 정리했습니다.
+- [하롱베이](https://www.aroundtool.com/travel-hanoi-halong.html): 하롱베이 하노이 출발 이동 시간, 당일·1박 크루즈 차이, 꽝닌성이 정한 항로별 입장료(동), 닌빈 짱안과 어디가 맞는지를 하롱베이 관리위원회와 베트남 관광청 안내 기준으로 정리했습니다.
+- [왓 아룬](https://www.aroundtool.com/travel-bangkok-wat-arun.html): 왓 아룬 운영 시간, 복장 규정, 짜오프라야 수상버스와 강 건너는 배, 왕궁·왓 프라깨우와 왓 포를 묶는 반나절 순서를 태국관광청·각 사원 공식 안내 기준으로 정리했습니다.
+- [마리나베이샌즈](https://www.aroundtool.com/travel-singapore-marina-bay-sands.html): 마리나베이샌즈 스카이파크 전망대 요금(비수기·성수기 시간대), 운영 시간, 무료 스펙트라 쇼 시간, 멀라이언 공원과 가든스 바이 더 베이를 묶는 저녁 동선을 마리나베이샌즈 공식 안내 기준으로 정리했습니다.
+- [동방명주](https://www.aroundtool.com/travel-shanghai-oriental-pearl.html): 상하이 동방명주 전망대 층과 운영 시간, 표 사는 곳, 와이탄에서 보는 야경과 조명 시간, 지하철 루자쭈이역 가는 법, 황푸강을 건너는 방법을 공식 안내 기준으로 정리했습니다.
+- [마카오 에그타르트](https://www.aroundtool.com/travel-macau-egg-tart.html): 마카오 에그타르트(포르투갈식 에그타르트)의 유래를 마카오관광청 기준으로 짚고, 세나도 광장과 성 바울 성당 유적, 타이파 빌리지를 잇는 먹거리 동선과 함께 맛볼 디저트를 정리했습니다.
+- [세부 호핑투어](https://www.aroundtool.com/travel-cebu-island-hopping.html): 세부 호핑투어 중 막탄 출발 방식(방카 배·출발 선착장), 라푸라푸시 환경 요금, 해양보호구역 입장료 확인법, 준비물과 안전 수칙, 모알보알과의 차이를 공식 안내 기준으로 정리했습니다.
+- [치앙마이 음식](https://www.aroundtool.com/travel-chiangmai-food.html): 치앙마이 맛집을 찾기 전에 알아 둘 북부 음식(카오소이·사이우아·남프릭 옹·남프릭 눔)을 미쉐린 가이드 공식 기사 기준으로 정리하고, 일요 워킹스트리트와 님만해민 먹거리 동선을 정리했습니다.
+- [일월담](https://www.aroundtool.com/travel-taichung-sun-moon-lake.html): 일월담을 타이중에서 다녀오는 법(타이완 하오싱 6670번 버스 요금), 유람선 선착장과 운항 시간, 로프웨이 요금·시간, 상산 자전거길, 저녁 펑자 야시장까지 묶는 하루 동선을 공식 안내 기준으로 정리했습니다.
 
 ## 가이드
 

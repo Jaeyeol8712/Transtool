@@ -1,6 +1,6 @@
 {
- "done": 168,
- "todo": 140,
+ "done": 202,
+ "todo": 134,
  "regions": {
   "kyoto": [
    {
@@ -395,11 +395,6 @@
     "guide": true
    },
    {
-    "id": "tc_fengjia",
-    "name": "펑자 야시장",
-    "guide": true
-   },
-   {
     "id": "tc_rainbow",
     "name": "무지개마을",
     "guide": true
@@ -407,11 +402,6 @@
    {
     "id": "tc_gaomei",
     "name": "가오메이 습지",
-    "guide": true
-   },
-   {
-    "id": "tc_sunmoon",
-    "name": "일월담",
     "guide": true
    }
   ],
@@ -444,21 +434,6 @@
   ],
   "macau": [
    {
-    "id": "mc_senado",
-    "name": "세나도 광장",
-    "guide": true
-   },
-   {
-    "id": "mc_stpaul",
-    "name": "성 바울 성당 유적",
-    "guide": true
-   },
-   {
-    "id": "mc_taipa",
-    "name": "타이파 빌리지",
-    "guide": true
-   },
-   {
     "id": "mc_cotai",
     "name": "코타이 리조트",
     "guide": true
@@ -471,18 +446,8 @@
   ],
   "shanghai": [
    {
-    "id": "sh_bund",
-    "name": "와이탄",
-    "guide": true
-   },
-   {
     "id": "sh_nanjing",
     "name": "난징루",
-    "guide": true
-   },
-   {
-    "id": "sh_pearl",
-    "name": "동방명주",
     "guide": true
    },
    {
@@ -578,11 +543,6 @@
    }
   ],
   "singapore": [
-   {
-    "id": "sg_mbs",
-    "name": "마리나베이샌즈",
-    "guide": true
-   },
    {
     "id": "sg_merlion",
     "name": "멀라이언 공원",
@@ -753,6 +713,18 @@
    {
     "id": "qd_laoshan",
     "name": "라오산",
+    "guide": true
+   }
+  ],
+  "phuket": [
+   {
+    "id": "pk_karon",
+    "name": "까론 비치",
+    "guide": true
+   },
+   {
+    "id": "pk_phangnga",
+    "name": "팡아만",
     "guide": true
    }
   ]

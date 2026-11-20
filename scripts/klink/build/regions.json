@@ -63,6 +63,20 @@
 "ov": false
 },
 {
+"id": "danyang",
+"name": "단양",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "pohang",
+"name": "포항",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -149,6 +163,13 @@
 {
 "id": "takamatsu",
 "name": "다카마쓰",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "nagasaki",
+"name": "나가사키",
 "cc": "jp",
 "country": "일본",
 "ov": true
@@ -247,6 +268,13 @@
 {
 "id": "chiangmai",
 "name": "치앙마이",
+"cc": "th",
+"country": "태국",
+"ov": true
+},
+{
+"id": "phuket",
+"name": "푸켓",
 "cc": "th",
 "country": "태국",
 "ov": true
