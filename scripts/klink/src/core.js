@@ -42,11 +42,11 @@ const AIRPORTS = {
 };
 // 국내 여행(한국에 사는 사람): 공항 대신 집에서 가까운 KTX역에서 출발해 돌아온다 (home)
 Object.assign(AIRPORTS, {
-  SEL: { lat: 37.5547, lng: 126.9707, r: 'seoul', home: true, t: ['서울역', '首尔站', 'Seoul Stn', 'ソウル駅'] },
-  BSS: { lat: 35.1151, lng: 129.0422, r: 'busan', home: true, t: ['부산역', '釜山站', 'Busan Stn', '釜山駅'] },
-  DGU: { lat: 35.8794, lng: 128.6286, r: null, home: true, t: ['동대구역', '东大邱站', 'Dongdaegu Stn', '東大邱駅'] },
-  DJN: { lat: 36.3323, lng: 127.4342, r: null, home: true, t: ['대전역', '大田站', 'Daejeon Stn', '大田駅'] },
-  GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주송정역', '光州松汀站', 'Gwangju-Songjeong Stn', '光州松汀駅'] }
+  SEL: { lat: 37.5547, lng: 126.9707, r: 'seoul', home: true, t: ['서울', '首尔', 'Seoul', 'ソウル'] },
+  BSS: { lat: 35.1151, lng: 129.0422, r: 'busan', home: true, t: ['부산', '釜山', 'Busan', '釜山'] },
+  DGU: { lat: 35.8794, lng: 128.6286, r: null, home: true, t: ['대구', '大邱', 'Daegu', '大邱'] },
+  DJN: { lat: 36.3323, lng: 127.4342, r: null, home: true, t: ['대전', '大田', 'Daejeon', '大田'] },
+  GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주', '光州', 'Gwangju', '光州'] }
 });
 for (const c of Object.keys(AIRPORTS)) AIRPORTS[c].cc = 'kr';
 for (const [c, v] of Object.entries(OVD.airports)) AIRPORTS[c] = v;   // 해외 공항: to = { 지역: 공항→도심 분 }
