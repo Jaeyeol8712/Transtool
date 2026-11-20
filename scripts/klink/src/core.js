@@ -46,7 +46,23 @@ Object.assign(AIRPORTS, {
   BSS: { lat: 35.1151, lng: 129.0422, r: 'busan', home: true, t: ['부산', '釜山', 'Busan', '釜山'] },
   DGU: { lat: 35.8794, lng: 128.6286, r: null, home: true, t: ['대구', '大邱', 'Daegu', '大邱'] },
   DJN: { lat: 36.3323, lng: 127.4342, r: null, home: true, t: ['대전', '大田', 'Daejeon', '大田'] },
-  GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주', '光州', 'Gwangju', '光州'] }
+  GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주', '光州', 'Gwangju', '光州'] },
+  ICH: { lat: 37.4563, lng: 126.7052, r: null, home: true, t: ['인천', '仁川', 'Incheon', '仁川'] },
+  SWN: { lat: 37.2659, lng: 127.0001, r: null, home: true, t: ['수원', '水原', 'Suwon', '水原'] },
+  CAN: { lat: 36.7946, lng: 127.1046, r: null, home: true, t: ['천안·아산', '天安·牙山', 'Cheonan·Asan', '天安・牙山'] },
+  CJJ: { lat: 36.6203, lng: 127.3271, r: null, home: true, t: ['청주·세종', '清州·世宗', 'Cheongju·Sejong', '清州・世宗'] },
+  CCN: { lat: 37.8846, lng: 127.7168, r: null, home: true, t: ['춘천', '春川', 'Chuncheon', '春川'] },
+  WJU: { lat: 37.3177, lng: 127.9198, r: null, home: true, t: ['원주', '原州', 'Wonju', '原州'] },
+  GNH: { lat: 37.764, lng: 128.899, r: 'gangneung', home: true, t: ['강릉', '江陵', 'Gangneung', '江陵'] },
+  JNH: { lat: 35.8497, lng: 127.1617, r: 'jeonju', home: true, t: ['전주', '全州', 'Jeonju', '全州'] },
+  GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
+  MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  YSH: { lat: 34.753, lng: 127.747, r: 'yeosu', home: true, t: ['여수', '丽水', 'Yeosu', '麗水'] },
+  PHG: { lat: 36.0718, lng: 129.3418, r: null, home: true, t: ['포항', '浦项', 'Pohang', '浦項'] },
+  GJH: { lat: 35.7983, lng: 129.1386, r: 'gyeongju', home: true, t: ['경주', '庆州', 'Gyeongju', '慶州'] },
+  ULS: { lat: 35.5513, lng: 129.1384, r: null, home: true, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
+  CWN: { lat: 35.2335, lng: 128.6807, r: null, home: true, t: ['창원', '昌原', 'Changwon', '昌原'] },
+  JJH: { lat: 33.4996, lng: 126.5312, r: 'jeju', home: true, t: ['제주', '济州', 'Jeju', '済州'] }
 });
 for (const c of Object.keys(AIRPORTS)) AIRPORTS[c].cc = 'kr';
 for (const [c, v] of Object.entries(OVD.airports)) AIRPORTS[c] = v;   // 해외 공항: to = { 지역: 공항→도심 분 }
@@ -174,7 +190,7 @@ function airportLeg(code, pt, r) {
   if (ap.home) {   // 집 근처 역 ↔ 여행지: 같은 도시면 시내 이동, 제주는 항공, 나머지는 KTX·기차 (시간만 어림)
     if (ap.r === r) { const L = legBetween(ap, pt, r); return Object.assign({}, L, { home: true }); }
     const last = legBetween(REGIONS[r], pt, r);
-    if (REGIONS[r].fly) return { mode: 'flight', min: 170 + last.min, km: 0, cost: 0, via: true, home: true };
+    if (REGIONS[r].fly || (ap.r && REGIONS[ap.r].fly)) return { mode: 'flight', min: 170 + last.min, km: 0, cost: 0, via: true, home: true };
     const ride = code === 'SEL' && REGIONS[r].fromSeoul ? REGIONS[r].fromSeoul : ap.r && REGIONS[ap.r] && r === 'seoul' && REGIONS[ap.r].fromSeoul ? REGIONS[ap.r].fromSeoul : Math.round((hav(ap, REGIONS[r]) * 0.6 + 25) / 5) * 5;
     return { mode: 'rail', min: ride + last.min, km: 0, cost: 0, via: true, home: true };
   }
