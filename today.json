@@ -1,49 +1,34 @@
 {
- "date": "2026-11-20",
+ "date": "2026-11-21",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-19.html",
-   "title": "일간 보고서 · 2026-11-19(목)",
+   "file": "reports/daily-2026-11-20.html",
+   "title": "일간 보고서 · 2026-11-20(금)",
    "kpi": {
+    "views": 1,
+    "viewers": 1,
+    "clicks": 0,
+    "clickers": 0
+   },
+   "prev": {
     "views": 12,
     "viewers": 7,
     "clicks": 3,
     "clickers": 3
    },
-   "prev": {
-    "views": 7,
-    "viewers": 5,
-    "clicks": 2,
-    "clickers": 2
-   },
    "ai": {
-    "sessions": 8,
-    "users": 8,
+    "sessions": 7,
+    "users": 7,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 6,
-      "users": 6
-     },
-     {
-      "name": "perplexity",
-      "sessions": 1,
-      "users": 1
-     },
-     {
-      "name": "perplexity.ai",
-      "sessions": 1,
-      "users": 1
+      "sessions": 7,
+      "users": 7
      }
     ]
    },
    "site": {
-    "20261113": {
-     "views": 35,
-     "users": 27,
-     "sessions": 28
-    },
     "20261114": {
      "views": 31,
      "users": 20,
@@ -73,18 +58,14 @@
      "views": 214,
      "users": 34,
      "sessions": 40
+    },
+    "20261120": {
+     "views": 53,
+     "users": 27,
+     "sessions": 30
     }
    },
    "days7": [
-    {
-     "key": "20261113",
-     "label": "11.13(금)",
-     "views": 4,
-     "viewers": 4,
-     "clicks": 0,
-     "clickers": 0,
-     "site": 35
-    },
     {
      "key": "20261114",
      "label": "11.14(토)",
@@ -138,6 +119,15 @@
      "clicks": 3,
      "clickers": 3,
      "site": 214
+    },
+    {
+     "key": "20261120",
+     "label": "11.20(금)",
+     "views": 1,
+     "viewers": 1,
+     "clicks": 0,
+     "clickers": 0,
+     "site": 53
     }
    ],
    "weeks8": [
@@ -215,11 +205,11 @@
      "key": "202647",
      "label": "11.16~(진행 중)",
      "done": false,
-     "views": 23,
-     "viewers": 16,
+     "views": 24,
+     "viewers": 17,
      "clicks": 5,
      "clickers": 5,
-     "site": 328
+     "site": 381
     }
    ],
    "clickSrc7": [
@@ -259,8 +249,8 @@
     },
     {
      "name": "(direct) / (none)",
-     "sessions": 8,
-     "users": 7
+     "sessions": 7,
+     "users": 6
     },
     {
      "name": "naver / organic",
@@ -269,11 +259,6 @@
     },
     {
      "name": "google / organic",
-     "sessions": 1,
-     "users": 1
-    },
-    {
-     "name": "perplexity.ai / ai-assistant",
      "sessions": 1,
      "users": 1
     }
@@ -300,6 +285,12 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
+     "post": "c-type-65w-charger",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
      "post": "car-vacuum-air-duster",
      "sessions": 1
     },
@@ -320,12 +311,6 @@
      "query": "(검색어 미전달)",
      "post": "neck-traction",
      "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "prael-thermashot-ultimate",
-     "sessions": 1
     }
    ],
    "google": [
@@ -335,13 +320,6 @@
      "clicks": 0,
      "impressions": 1,
      "position": 11
-    },
-    {
-     "query": "게이밍 무선 키보드",
-     "post": "wireless-gaming-keyboard",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 38
     },
     {
      "query": "게이밍 무선 키보드 추천",
