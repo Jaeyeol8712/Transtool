@@ -1672,6 +1672,16 @@ def build_klink_data():
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
 
 
+def klink_region_of_detail(f):
+    """travel-<지역>-<세부>.html 세부 글의 지역 (파일명 앞부분이 K링크 지역 id와 맞을 때, 가장 긴 id 우선). 없으면 None (2026-11-20 컨펌 i261120-01)."""
+    if not f.startswith("travel-"):
+        return None
+    key = f[7:-5]
+    ids = set(KLINK_OV) | set(KLINK_REGIONS)
+    hits = [r for r in ids if key.startswith(r + "-")]
+    return max(hits, key=len) if hits else None
+
+
 def inject_klink_course():
     """여행 가이드 '일정별 추천'(ul.days) 아래 주요 버튼 1개: K링크에서 이 코스 담기 (2026-11-13 컨펌 i261113-01).
     가이드 일정이 K링크 추천 코스로 잡히면 /klink/#course-<지역>-0(첫 코스를 바로 담음), 코스가 없으면 그 지역(#<지역>).
@@ -1686,14 +1696,18 @@ def inject_klink_course():
         s0 = s
         s = re.sub(r"<!-- at:kcourse -->.*?<!-- /at:kcourse -->", "", s, flags=re.S)
         i = s.find('<ul class="days"')
-        if i < 0:
+        det = klink_region_of_detail(f) if i < 0 else None  # 세부 글: 일정(ul.days)이 없어 본문 끝(글 아래 묶음 앞)에 둔다
+        if i < 0 and det:
+            end = s.find("<!-- at:bottom -->")
+        elif i < 0:
             if s != s0:
                 open(f, "w", encoding="utf-8").write(s)
             continue
-        end = s.find("</section>", i)
+        else:
+            end = s.find("</section>", i)
         if end < 0:
             continue
-        rid = klink_region_of(p)
+        rid = klink_region_of(p) or det or klink_region_of_detail(f)
         cs = klink_courses(rid, P) if rid else []
         if cs:
             href, sub = f"/klink/#course-{rid}-0", f"「{cs[0]['t']}」 코스를 지도에 담아 날짜별 동선으로 봐요"
