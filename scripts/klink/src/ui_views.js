@@ -124,7 +124,8 @@ function panelPlan() {
         if (code === 'CJU') return r === 'jeju' ? last('jeju', s) : null;
         if (code === 'PUS') return r === 'busan' ? ['김해경전철 타고 사상역', '사상역에서 지하철 2호선 환승'].concat(last('busan', s).map(x => x.replace('지하철로', '숙소 역:'))) : null;
         if (ap.home) { const hr = ap.r; if (hr === r) return last(r, s); if (hr === 'seoul') return fromSeoul(r).concat(last(r, s));
-          if (hr) return between(hr, r, s); return [`${an(code)}에서 KTX로 ${MAIN[r] || rn(r)} (노선은 코레일에서 확인)`].concat(last(r, s)); }
+          if (['ICH', 'SWN'].includes(code) && r === 'seoul') return [`${an(code)}에서 지하철·광역버스로 서울 시내`].concat(last(r, s));
+          if (hr) return between(hr, r, s); return [`${an(code)}에서 KTX·고속버스로 ${MAIN[r] || rn(r)} (환승이 있을 수 있어요, 노선은 예매 사이트에서 확인)`].concat(last(r, s)); }
         const h = toSeoulHub(code, r); if (!h) return null; if (r === 'seoul') return h.concat(last('seoul', s)); return h.concat(fromSeoul(r) || [], last(r, s)); };
       const depSteps = (code, r, s) => { const a = arrSteps(code, r, s); if (!a) return null;
         const ap = AIRPORTS[code] || {}; if (code === 'CJU' && r === 'jeju') return [`${sn(s.id)}에서 렌터카 또는 택시·버스로 제주공항`];
@@ -132,7 +133,10 @@ function panelPlan() {
         if (r === 'seoul' && code === 'GMP') return ['지하철 5·9호선 또는 공항철도로 김포공항'];
         if (ap.home && ap.r === r) return [`숙소에서 ${an(code)}`];
         const out = [`숙소에서 ${MAIN[r] || '역'}까지 이동`];
-        if (ap.home) return out.concat(ap.r === 'seoul' ? fromSeoul(r, true).concat(code === 'SEL' && RAIL[r] && RAIL[r][0] === '용산역' ? ['용산역에서 지하철 1호선으로 서울역'] : []) : [`KTX로 ${an(code)}`]);
+        if (['ICH', 'SWN'].includes(code) && r === 'seoul') return ['숙소 근처 역에서 지하철·광역버스로 ' + an(code)];
+        if (ap.home && ap.r === 'jeju') return r === 'seoul' ? ['지하철 5·9호선·공항철도로 김포공항', '김포공항 → 제주공항 항공편'] : [`숙소에서 ${rn(r)} 가까운 공항으로 이동`, '제주공항 행 항공편 (직항 여부는 예매에서 확인)'];
+        if (ap.home && r === 'jeju') return [`${sn(s.id)}에서 제주공항`, `제주공항 → ${an(code)} 가까운 공항 항공편`];
+        if (ap.home) return out.concat(ap.r === 'seoul' ? fromSeoul(r, true).concat(code === 'SEL' && RAIL[r] && RAIL[r][0] === '용산역' ? ['용산역에서 지하철 1호선으로 서울역'] : []) : [`KTX·고속버스로 ${an(code)} (환승이 있을 수 있어요)`]);
         if (code === 'PUS') return r === 'busan' ? ['지하철 2호선으로 사상역', '김해경전철로 김해공항'] : null;
         const back = r === 'seoul' ? [] : (fromSeoul(r, true) || []);
         const fin = code === 'ICN' ? ['서울역에서 공항철도로 인천공항'] : ['지하철 5·9호선 또는 공항철도로 김포공항'];
