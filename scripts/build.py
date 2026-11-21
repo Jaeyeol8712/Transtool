@@ -587,7 +587,8 @@ for p in PAGES.values():
             p["title"] = f"{area} {p['cat']} — 자료 조사 중"
         elif p["special"]:
             base = clean_title(p["old_title"])
-            if not base.startswith(p["region_short"]) and p["gu"] not in base and p["region_short"] not in base:
+            base = re.sub(r"^(제철 제철 음식·시장 )+", "", base)  # 2026-11-21: 이전 빌드가 붙인 접두어 걷어냄
+            if p["region"] != "season" and not base.startswith(p["region_short"]) and p["gu"] not in base and p["region_short"] not in base:  # 2026-11-21: 제철·시장 글 제목 앞에 '제철 제철 음식·시장'이 붙던 것 수정
                 base = f"{area} {base}"
             p["title"] = base
         else:
