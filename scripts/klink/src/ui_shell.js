@@ -330,7 +330,7 @@ function placeDetail2(id) {
   const nums = F_ ? [[F_.fee, '입장료'], [F_.stay, '머무는 시간'], [F_.when, '추천 시간']] : [[fee, '입장료'], [F.dur(p.h * 60), '머무는 시간'], [bestL, '추천 시간']];
   const di = placeInPlan(id);
   return `<div class="p2">
-    <div class="p2-path"><button data-act="korea">${esc(T.korea)}</button> › <button data-act="region" data-v="${p.r}">${esc(rn(p.r))}</button> › <span>${esc(dn(p.dist))}</span></div>
+    <div class="p2-path"><button data-act="korea">${esc(isOv(p.r) ? countryName(REGIONS[p.r].cc) : T.korea)}</button> › <button data-act="region" data-v="${p.r}">${esc(rn(p.r))}</button> › <span>${esc(dn(p.dist))}</span></div>
     <h2 class="p2-name">${esc(pn(id))}</h2><p class="p2-one">${esc(pd(id))}</p>
     ${sp && sp.tips && sp.tips.length ? `<div class="p2-tips"><h3>즐기는 꿀팁</h3><ol>${sp.tips.slice(0, 3).map(t => `<li>${esc(t)}</li>`).join('')}</ol></div>` : ''}
     <div class="p2-nums">${nums.map(([v, k]) => `<div><b>${short(v)}</b><small>${k}</small></div>`).join('')}</div>
