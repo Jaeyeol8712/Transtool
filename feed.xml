@@ -4,9 +4,17 @@
     <title>어라운드툴 — 생활 계산기·전국 맛집·여행 가이드</title>
     <link>https://www.aroundtool.com/</link>
     <atom:link href="https://www.aroundtool.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 152곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 149종을 한곳에서.</description>
+    <description>어딜 가나 가볍게, 여행을 엽니다. 가고 싶은 곳을 저장하면 날짜별 동선과 숙소를 짜 주는 여행 플래너 K링크, 국내외 여행 코스 160곳, 대가 없이 근거를 밝힌 28개 지역 맛집 196곳, 환율·여행 경비를 비롯한 무료 계산기 152종을 한곳에서.</description>
     <language>ko</language>
     <lastBuildDate>Sat, 24 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <item>
+      <title>베트남 환율 계산기 — 동(VND) 원화 환산, 푸꾸옥 케이블카·빈원더스 경비와 카드·현금 비교</title>
+      <link>https://www.aroundtool.com/vietnam_dong_phuquoc_budget_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/vietnam_dong_phuquoc_budget_calculator.html</guid>
+      <category>생활툴</category>
+      <description>혼텀 케이블카·빈원더스 요금과 그 밖의 지출을 베트남 동으로 넣고 100동당 환율, 카드 수수료율, 환전 비용률을 넣으면 푸꾸옥 여행 경비를 원화 합계·1인당·카드와 현금 결제 금액으로 계산합니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>오동도 — 방파제 길·동백열차 시간·동백꽃 시기·아쿠아플라넷 여수</title>
       <link>https://www.aroundtool.com/travel-yeosu-odongdo.html</link>
@@ -32,6 +40,14 @@
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>속초 가볼만한곳 — 설악산 케이블카·영금정·아바이마을 갯배·속초해수욕장·영랑호·대포항</title>
+      <link>https://www.aroundtool.com/travel-sokcho-attractions.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-sokcho-attractions.html</guid>
+      <category>여행</category>
+      <description>속초 가볼만한곳 7곳(설악산 케이블카·영금정·영랑호·아바이마을 갯배·속초관광수산시장·속초해수욕장·대포항)의 운영 시간·요금과 케이블카 대기 팁, 권역별로 묶는 법을 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>마리나베이샌즈 — 스카이파크 전망대 요금·시간·스펙트라 쇼·멀라이언 공원 동선</title>
       <link>https://www.aroundtool.com/travel-singapore-marina-bay-sands.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-singapore-marina-bay-sands.html</guid>
@@ -45,6 +61,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/travel-shanghai-oriental-pearl.html</guid>
       <category>여행</category>
       <description>상하이 동방명주 전망대 층과 운영 시간, 표 사는 곳, 와이탄에서 보는 야경과 조명 시간, 지하철 루자쭈이역 가는 법, 황푸강을 건너는 방법을 공식 안내 기준으로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>오타루 — 오타루 운하·오르골당 당일치기, 삿포로에서 JR 요금·시간·겨울 눈빛거리</title>
+      <link>https://www.aroundtool.com/travel-sapporo-otaru.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-sapporo-otaru.html</guid>
+      <category>여행</category>
+      <description>오타루 당일치기를 위해 삿포로에서 JR 쾌속 요금·시간, 오타루 운하 산책로와 사카이마치 거리·오타루 오르골당 걷는 순서, 겨울 &#x27;푸른 운하&#x27;와 2027 오타루 눈빛거리 기간을 오타루 관광협회·JR홋카이도 안내 기준으로 정리했습니다.</description>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -96,11 +120,27 @@
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>유달산 — 등산 코스(일등바위 40분·이등바위 20분)·노적봉·둘레길·케이블카 연계</title>
+      <link>https://www.aroundtool.com/travel-mokpo-yudalsan.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-mokpo-yudalsan.html</guid>
+      <category>여행</category>
+      <description>목포 유달산 등산 코스(1코스 일등바위 2km 40분, 2코스 이등바위 1km 20분)와 노적봉 설화, 6km 유달산 둘레길, 목포해상케이블카 유달산 스테이션 하차, 목포근대역사관과 묶는 순서를 목포시·관광공사 자료로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>마카오 에그타르트 — 포르투갈식 유래·세나도 광장·타이파 빌리지 먹거리 동선</title>
       <link>https://www.aroundtool.com/travel-macau-egg-tart.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-macau-egg-tart.html</guid>
       <category>여행</category>
       <description>마카오 에그타르트(포르투갈식 에그타르트)의 유래를 마카오관광청 기준으로 짚고, 세나도 광장과 성 바울 성당 유적, 타이파 빌리지를 잇는 먹거리 동선과 함께 맛볼 디저트를 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>고베 맛집 — 고베규 인증 기준·난킨마치 부타만·모토마치 상점가 먹거리 동선</title>
+      <link>https://www.aroundtool.com/travel-kobe-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-kobe-food.html</guid>
+      <category>여행</category>
+      <description>고베 맛집을 고르기 전에 알아둘 것을 정리했습니다. 고베비프 유통추진협의회 공식 기준으로 본 고베규의 조건과 확인법, 난킨마치 먹거리, 모토마치 상점가와 양과자, 아카시야키·소바메시까지 담았습니다.</description>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -120,6 +160,14 @@
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>하코다테 야경 — 하코다테산 로프웨이 요금·시간·겨울 운행, 모토마치·붉은벽돌창고 밤 동선</title>
+      <link>https://www.aroundtool.com/travel-hakodate-night-view.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-hakodate-night-view.html</guid>
+      <category>여행</category>
+      <description>하코다테 야경을 보러 가는 하코다테산 로프웨이 요금·운행 시간, 정비 운휴와 겨울 등산 버스·자가용 통제, 일몰 뒤 붐비는 시간, 모토마치 언덕길과 가네모리 붉은벽돌창고 밤 동선을 로프웨이 공식·하코다테시 관광 안내 기준으로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>경주 황리단길 — 위치·걷는 순서·주차와 대릉원·첨성대 묶기</title>
       <link>https://www.aroundtool.com/travel-gyeongju-hwangnidan.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-gyeongju-hwangnidan.html</guid>
@@ -133,6 +181,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/travel-gyeongju-cheomseongdae.html</guid>
       <category>여행</category>
       <description>첨성대 관람 시간과 무료 관람, 대릉원·천마총 운영 시간과 요금, 계림·교촌마을·월정교를 지나 동궁과 월지로 이어지는 도보 동선을 경주시·관광공사 자료로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>군산 철길마을 — 경암동 철길마을 가는 법·주차·교복 사진·걷는 예절</title>
+      <link>https://www.aroundtool.com/travel-gunsan-rail-village.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-gunsan-rail-village.html</guid>
+      <category>여행</category>
+      <description>군산 철길마을(경암동 철길마을)의 역사(1944년 개설·2008년 폐선), 군산역에서 가는 법과 주차, 교복 대여와 추억의 간식, 사진 찍을 때 예절, 은파호수공원·군산근대역사박물관과 묶는 순서를 정리했습니다.</description>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -176,6 +232,14 @@
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>대구 가볼만한곳 — 이월드·83타워·수성못·김광석 다시그리기길·근대골목·팔공산 케이블카·앞산전망대 시간·요금</title>
+      <link>https://www.aroundtool.com/travel-daegu-attractions.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-daegu-attractions.html</guid>
+      <category>여행</category>
+      <description>대구 가볼만한곳 8곳(이월드·83타워, 수성못, 김광석 다시그리기길, 근대골목·청라언덕, 서문시장, 동성로, 팔공산 케이블카, 앞산전망대)의 운영 시간·요금·휴무와 무료·유료 구분을 표로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>치앙마이 맛집 전에 볼 북부 음식 — 카오소이·사이우아·일요 워킹스트리트·님만해민 동선</title>
       <link>https://www.aroundtool.com/travel-chiangmai-food.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/travel-chiangmai-food.html</guid>
@@ -205,6 +269,14 @@
       <guid isPermaLink="true">https://www.aroundtool.com/travel-busan-gamcheon.html</guid>
       <category>여행</category>
       <description>감천문화마을 가는 법(토성역 6번 출구 마을버스), 안내센터 골목투어 지도, 주민이 사는 마을에서 지킬 예절, 흰여울문화마을 카페 거리와 하루에 묶는 법을 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>벳푸 맛집 — 지옥찜·도리텐·벳푸 냉면·온천 달걀·푸딩, 칸나와 온천 마을에서 먹는 법</title>
+      <link>https://www.aroundtool.com/travel-beppu-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/travel-beppu-food.html</guid>
+      <category>여행</category>
+      <description>벳푸 맛집 여행에서 꼭 먹는 지옥찜(지옥찜 공방 칸나와 이용 요금·시간), 오이타 도리텐, 벳푸 냉면, 지옥에서 익힌 온천 달걀과 푸딩을 칸나와 온천 마을·벳푸 지옥 온천 순례·벳푸역 앞 동선으로 벳푸시 공식 안내 기준으로 정리했습니다.</description>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
@@ -240,11 +312,59 @@
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>제철 제철 음식·시장 경주 맛집 전에 볼 경주 먹거리 — 황남빵·경주빵·쌈밥 거리·교리김밥·한우·찰보리빵</title>
+      <link>https://www.aroundtool.com/season-gyeongju-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-gyeongju-food.html</guid>
+      <category>맛집</category>
+      <description>경주 맛집을 찾기 전에 알아둘 경주 먹거리(황남빵·경주빵·찰보리빵, 대릉원 옆 경주 쌈밥 거리, 교리김밥, 천년한우)와 대릉원·첨성대 동선에 끼워 먹는 순서를 경주시·관광공사 자료로 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>제철 제철 음식·시장 단양 맛집 먹거리 — 쏘가리 매운탕·마늘 솥밥·산채정식·단양구경시장 정리</title>
       <link>https://www.aroundtool.com/season-danyang-food.html</link>
       <guid isPermaLink="true">https://www.aroundtool.com/season-danyang-food.html</guid>
       <category>맛집</category>
       <description>단양 맛집을 찾기 전에 알아둘 단양군 공식 향토음식(쏘가리 매운탕·마늘 솥밥·산채정식·도토리묵밥)과 단양구경시장 먹거리, 먹거리 동선을 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>제철 제철 음식·시장 대구 맛집 먹거리 — 대구 10미(막창·납작만두·동인동 찜갈비·뭉티기)와 먹거리 골목 정리</title>
+      <link>https://www.aroundtool.com/season-daegu-food.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/season-daegu-food.html</guid>
+      <category>맛집</category>
+      <description>대구 맛집을 찾기 전에 알아둘 대구시 공식 &#x27;대구 10미&#x27;(막창구이·납작만두·동인동 찜갈비·따로국밥·뭉티기 등)와 안지랑 곱창골목·동인동 찜갈비 골목 같은 먹거리 골목을 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전주 KTX vs 자가용 비용 계산기 — 유류비·통행료·주차까지 인원별 비교</title>
+      <link>https://www.aroundtool.com/jeonju_ktx_vs_car_cost_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/jeonju_ktx_vs_car_cost_calculator.html</guid>
+      <category>생활툴</category>
+      <description>인원, 용산→전주 KTX 요금, 서울→전주 거리·연비·휘발유 가격·통행료·주차비를 넣으면 KTX와 자가용 총액, 1인당 비용, 어느 쪽이 얼마나 싼지 계산합니다. 유류비 계산기로도 쓸 수 있습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>쿠알라룸푸르 공항에서 시내 — KLIA 익스프레스 요금·시간, 공항버스·그랩 비교</title>
+      <link>https://www.aroundtool.com/guide-kuala-lumpur-airport-to-city.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-kuala-lumpur-airport-to-city.html</guid>
+      <category>가이드</category>
+      <description>쿠알라룸푸르 공항(KLIA T1·T2)에서 시내로 가는 KLIA 익스프레스 요금(편도 약 RM55)·소요 시간, 공항버스·그랩 승차 위치와 KL Sentral에서 페트로나스 트윈타워·부킷빈탕·차이나타운 가는 길까지 정리했습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>히로시마 여행 교통 — 노면전차 요금·1일권, 미야지마 페리·방문세, 공항 리무진</title>
+      <link>https://www.aroundtool.com/guide-hiroshima-transport.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/guide-hiroshima-transport.html</guid>
+      <category>가이드</category>
+      <description>히로시마 여행 교통을 정리했습니다. 노면전차 240엔 균일 요금과 1일권 700엔·전차+페리 1일권 1,000엔, 미야지마 페리 요금과 방문세 100엔, 히로시마공항 리무진 1,500엔·약 50분, 장소별 내리는 정류장까지 공식 안내 기준으로 담았습니다.</description>
+      <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단양 여행 경비 계산기 — 만천하스카이워크·고수동굴·온달관광지 입장료, KTX-이음·숙박·식비</title>
+      <link>https://www.aroundtool.com/danyang_trip_budget_calculator.html</link>
+      <guid isPermaLink="true">https://www.aroundtool.com/danyang_trip_budget_calculator.html</guid>
+      <category>생활툴</category>
+      <description>인원, 만천하스카이워크·고수동굴·온달관광지 입장료, 청량리→단양 KTX-이음 요금 또는 자가용 비용, 숙박 요금·박수, 1인 식비를 넣으면 단양 여행 총경비와 1인당 비용, 입장료 합계를 계산합니다.</description>
       <pubDate>Sat, 21 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>베트남 환율 · 푸꾸옥 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/vietnam_dong_phuquoc_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="베트남 환율 · 푸꾸옥 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">베트남 환율 · 푸꾸옥 경비 계산기</p>
+<label for="pq1">인원 (명)</label>
+<input id="pq1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="pq2">혼텀 케이블카 1인 요금 (동, 안 타면 0)</label>
+<input id="pq2" type="number" inputmode="decimal" placeholder="예: 850000"/>
+<label for="pq3">빈원더스 1인 요금 (동, 안 가면 0)</label>
+<input id="pq3" type="number" inputmode="decimal" placeholder="예: 1050000"/>
+<label for="pq4">그 밖의 지출 (전체, 동)</label>
+<input id="pq4" type="number" inputmode="decimal" placeholder="야시장 식사·택시 등, 예: 1000000"/>
+<label for="pq5">환율 (100동당 원)</label>
+<input id="pq5" type="number" inputmode="decimal" placeholder="예: 5.15"/>
+<label for="pq6">해외 카드 수수료율 (%)</label>
+<input id="pq6" type="number" inputmode="decimal" placeholder="예: 1.5"/>
+<label for="pq7">현금 환전 비용률 (%)</label>
+<input id="pq7" type="number" inputmode="decimal" placeholder="예: 2"/>
+<button onclick="calc_phuquoc_dong()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 합계 (기준 환율)</span><span class="result-value" id="pqT">-</span></div>
+<div class="result-row"><span class="result-label">동 합계</span><span class="result-value" id="pqV" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="pqP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">카드로 내면</span><span class="result-value" id="pqC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">현금(환전)으로 내면</span><span class="result-value" id="pqM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function pq_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function pq_s(i,t){document.getElementById(i).textContent=t;}
+function pq_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_phuquoc_dong(){
+ var p=Math.floor(pq_v('pq1')),r=pq_v('pq5');
+ if(p<1||r<=0) return alert('인원과 환율(100동당 원)을 입력해주세요.');
+ var vnd=(pq_v('pq2')+pq_v('pq3'))*p+pq_v('pq4'),krw=vnd/100*r;
+ var card=krw*(1+pq_v('pq6')/100),cash=krw*(1+pq_v('pq7')/100);
+ pq_s('pqT',pq_w(krw));
+ pq_s('pqV',Math.round(vnd).toLocaleString('ko-KR')+'동');
+ pq_s('pqP',pq_w(krw/p));
+ pq_s('pqC',pq_w(card)+' (수수료 '+pq_w(card-krw)+')');
+ pq_s('pqM',pq_w(cash)+' (비용 '+pq_w(cash-krw)+')'+(card<cash?' · 카드가 '+pq_w(cash-card)+' 적음':(cash<card?' · 현금이 '+pq_w(card-cash)+' 적음':'')));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/vietnam_dong_phuquoc_budget_calculator.html?utm_source=embed&amp;utm_campaign=vietnam_dong_phuquoc_budget_calculator" target="_blank" rel="noopener">어라운드툴 베트남 환율 · 푸꾸옥 경비 계산기</a></p>
+</body>
+</html>

@@ -572,4 +572,34 @@ Z nk_z4 | 평화공원 | Peace Park
 P nk_peace palace 32.7760 129.8636 2 am o=D | 평화공원·원폭자료관|和平公园·原爆资料馆|Peace Park & Atomic Bomb Museum|平和公園・原爆資料館 | 평화기념상과 원폭 자료 전시 | Peace Statue and atomic bomb records
 Z nk_z5 | 군함도 | Gunkanjima
 P nk_gunkanjima nature 32.6278 129.7386 3 am | 군함도|军舰岛|Gunkanjima (Hashima)|軍艦島 | 나가사키항에서 배로 가는 옛 탄광 섬 상륙 투어 | Landing tour of a former coal-mining island by boat
+
+C hiroshima jp 34.3853 132.4553 1 90 | 히로시마|广岛|Hiroshima|広島 | 평화기념공원과 미야지마, 오코노미야키 | Peace Park, Miyajima island and okonomiyaki
+A HIJ 34.4361 132.9194 50 | 히로시마공항|广岛机场|Hiroshima (HIJ)|広島空港
+S hs_s1 34.3978 132.4753 | 히로시마역|广岛站|Hiroshima Stn|広島駅 | 공항 리무진·노면전차·JR 미야지마 방면 출발 | Airport bus, streetcar and JR to Miyajima
+S hs_s2 34.3940 132.4580 | 핫초보리·가미야초|八丁堀·纸屋町|Hatchobori & Kamiyacho|八丁堀・紙屋町 | 평화기념공원·히로시마성 걸어서 | Walk to Peace Park and the castle
+Z hs_z1 | 평화기념공원 | Peace Memorial Park
+P hs_peace palace 34.3925 132.4527 2 am o=A | 평화기념공원|和平纪念公园|Peace Memorial Park|平和記念公園 | 원폭 돔과 평화기념자료관이 있는 공원 | Park with the Atomic Bomb Dome and Peace Memorial Museum
+Z hs_z2 | 히로시마성·핫초보리 | Castle & Hatchobori
+P hs_castle palace 34.4027 132.4592 1 o=D | 히로시마성|广岛城|Hiroshima Castle|広島城 | 해자 둘린 성터 · 천수각은 2026년 3월 폐쇄 | Moated castle grounds; the keep closed in March 2026
+P hs_shukkeien nature 34.4000 132.4677 1 o=D | 슈케이엔|缩景园|Shukkeien Garden|縮景園 | 1620년 만든 연못 산책 정원 | Strolling pond garden built in 1620
+P hs_okonomimura food 34.3925 132.4612 1 eve dinner o=F | 오코노미무라|御好烧村|Okonomimura|お好み村 | 오코노미야키 가게가 모인 빌딩 | Building of okonomiyaki counters
+Z hs_z3 | 미야지마 | Miyajima
+P hs_itsukushima palace 34.2959 132.3198 1.5 am | 이쓰쿠시마 신사|严岛神社|Itsukushima Shrine|厳島神社 | 바다 위 도리이의 세계유산 신사 | World Heritage shrine with the sea torii
+P hs_misen nature 34.2920 132.3270 2.5 o=D | 미센 로프웨이|弥山缆车|Miyajima Ropeway (Mt. Misen)|宮島ロープウエー | 미센산 중턱까지 오르는 로프웨이 | Ropeway up Mt. Misen
+
+C kobe jp 34.6913 135.1830 1 110 | 고베|神户|Kobe|神戸 | 항구 야경과 이진칸 거리, 고베규·난킨마치 먹거리 | Harbour night views, old foreign houses, Kobe beef and Chinatown food
+A KIX 34.4320 135.2304 70 | 간사이공항|关西机场|Kansai (KIX)|関西空港
+S kb_s1 34.6946 135.1955 | 산노미야|三宫|Sannomiya|三宮 | 산노미야역 · 공항 버스·기타노 걸어서 | Sannomiya Stn · airport bus, walk to Kitano
+S kb_s2 34.6890 135.1860 | 모토마치|元町|Motomachi|元町 | 모토마치역 · 난킨마치·메리켄파크 걸어서 | Motomachi Stn · walk to Chinatown and Meriken Park
+Z kb_z1 | 산노미야·모토마치 | Sannomiya & Motomachi
+P kb_nankinmachi food 34.6880 135.1880 1 lunch o=F | 난킨마치|南京町|Nankinmachi (Chinatown)|南京町 | 부타만·중국 음식점이 모인 고베 차이나타운 | Kobe's Chinatown of pork buns and Chinese eateries
+P kb_motomachi shop 34.6890 135.1840 1 o=S | 모토마치 상점가|元町商店街|Motomachi Shopping Street|元町商店街 | 난킨마치 옆 1.2km 아케이드 상점가 | 1.2 km arcade next to Chinatown
+Z kb_z2 | 기타노 | Kitano
+P kb_ijinkan palace 34.7012 135.1906 1.5 am o=D | 기타노 이진칸|北野异人馆|Kitano Ijinkan|北野異人館 | 언덕 위 서양식 옛 주택 거리 · 가자미도리노야카타 | Hillside street of old foreign residences
+Z kb_z3 | 하버랜드 | Harborland
+P kb_meriken night 34.6826 135.1867 1 eve | 메리켄파크·포트타워|美利坚公园·神户港塔|Meriken Park & Port Tower|メリケンパーク・ポートタワー | 붉은 포트타워와 BE KOBE 조형물이 있는 항구 공원 | Harbour park with the red Port Tower and BE KOBE sign
+P kb_harborland shop 34.6795 135.1830 1.5 eve dinner o=S | 하버랜드|神户港湾区|Kobe Harborland|神戸ハーバーランド | 대관람차와 umie MOSAIC 항구 쇼핑 거리 | Waterfront shopping with the Mosaic Ferris wheel
+Z kb_z4 | 롯코산·아리마 | Mt. Rokko & Arima
+P kb_rokko night 34.7700 135.2400 2 night | 롯코산|六甲山|Mt. Rokko|六甲山 | 케이블카로 오르는 산 위 야경 전망 | Mountain night views reached by cable car
+P kb_arima nature 34.7968 135.2478 3 o=D | 아리마 온천|有马温泉|Arima Onsen|有馬温泉 | 붉은 금탕·맑은 은탕 온천 마을 | Hot-spring town of golden and silver waters
 """

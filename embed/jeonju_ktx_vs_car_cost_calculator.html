@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전주 KTX vs 자가용 비용 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/jeonju_ktx_vs_car_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="전주 KTX vs 자가용 비용 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">전주 KTX vs 자가용 비용 계산기</p>
+<label for="jk1">인원 (명)</label>
+<input id="jk1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="jk2">KTX 1인 편도 요금 (원)</label>
+<input id="jk2" type="number" inputmode="decimal" placeholder="예: 32900 (용산→전주 일반실)"/>
+<label for="jk3">왕복 여부</label>
+<select id="jk3"><option value="2" selected>왕복</option><option value="1">편도</option></select>
+<label for="jk4">자가용 편도 거리 (km)</label>
+<input id="jk4" type="number" inputmode="decimal" placeholder="예: 230 (서울→전주)"/>
+<label for="jk5">연비 (km/L)</label>
+<input id="jk5" type="number" inputmode="decimal" placeholder="예: 12"/>
+<label for="jk6">휘발유 가격 (원/L)</label>
+<input id="jk6" type="number" inputmode="decimal" placeholder="예: 1850"/>
+<label for="jk7">고속도로 통행료 (편도, 원)</label>
+<input id="jk7" type="number" inputmode="decimal" placeholder="예: 13000"/>
+<label for="jk8">주차비 (전체 일정 합계, 원)</label>
+<input id="jk8" type="number" inputmode="decimal" placeholder="없으면 0"/>
+<button onclick="calc_jeonju_ktx_car()">KTX·자가용 비교</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">KTX 총액</span><span class="result-value" id="jkK">-</span></div>
+<div class="result-row"><span class="result-label">자가용 총액</span><span class="result-value" id="jkC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">자가용 내역</span><span class="result-value" id="jkB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당 (KTX / 자가용)</span><span class="result-value" id="jkP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">차이</span><span class="result-value" id="jkD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function jk_v(i){return parseFloat(document.getElementById(i).value);}
+function jk_s(i,t){document.getElementById(i).textContent=t;}
+function jk_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_jeonju_ktx_car(){
+ var p=jk_v('jk1'),f=jk_v('jk2'),w=+document.getElementById('jk3').value,km=jk_v('jk4'),e=jk_v('jk5'),g=jk_v('jk6'),t=jk_v('jk7'),pk=jk_v('jk8');
+ if(isNaN(p)||p<1||isNaN(f)||f<0||isNaN(km)||km<=0||isNaN(e)||e<=0||isNaN(g)||g<=0) return alert('인원, KTX 요금, 거리, 연비, 휘발유 가격을 입력해주세요.');
+ if(isNaN(t)||t<0)t=0;if(isNaN(pk)||pk<0)pk=0;p=Math.floor(p);
+ var ktx=p*f*w,fuel=km*w/e*g,toll=t*w,car=fuel+toll+pk;
+ jk_s('jkK',jk_w(ktx)+' ('+p+'명 × '+jk_w(f)+' × '+(w===2?'왕복':'편도')+')');
+ jk_s('jkC',jk_w(car));
+ jk_s('jkB','유류비 '+jk_w(fuel)+' (약 '+(km*w/e).toFixed(1)+'L) + 통행료 '+jk_w(toll)+' + 주차 '+jk_w(pk));
+ jk_s('jkP',jk_w(ktx/p)+' / '+jk_w(car/p));
+ var d=ktx-car;
+ jk_s('jkD',d>0?'자가용이 '+jk_w(d)+' 적게 들어요':(d<0?'KTX가 '+jk_w(-d)+' 적게 들어요':'같아요'));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/jeonju_ktx_vs_car_cost_calculator.html?utm_source=embed&amp;utm_campaign=jeonju_ktx_vs_car_cost_calculator" target="_blank" rel="noopener">어라운드툴 전주 KTX vs 자가용 비용 계산기</a></p>
+</body>
+</html>

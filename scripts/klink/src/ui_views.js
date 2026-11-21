@@ -101,8 +101,8 @@ function panelPlan() {
       const lk = m => m === 'rail' ? ['https://www.letskorail.com/', '코레일'] : m === 'flight' ? null : (ta.arr === 'ICN' || ta.dep === 'ICN') && m !== 'walk' ? ['https://www.arex.or.kr/', '공항철도'] : null;
       const row = (k, from, to, L) => { const l = lk(L.mode); const body = `<span class="k">${k}</span><span class="tx"><b>${esc(from)} → ${esc(to)}</b><small>${esc(modeLabel(L))} · 약 ${F.dur(L.min)}</small></span>${l ? `<span class="go">${l[1]} ›</span>` : ''}`;
         return l ? `<a class="k-tr" href="${l[0]}" target="_blank" rel="noopener">${body}</a>` : `<div class="k-tr">${body}</div>`; };
-      const MAIN = { seoul: '서울역', busan: '부산역', gyeongju: '경주역', gangneung: '강릉역', jeonju: '전주역', yeosu: '여수엑스포역', gunsan: '군산역', mokpo: '목포역', danyang: '단양역', pohang: '포항역', jeju: '제주공항' };
-      const RAIL = { busan: ['서울역', 'KTX 경부선'], gyeongju: ['서울역', 'KTX 경부선'], gangneung: ['서울역·청량리역', 'KTX 강릉선'], jeonju: ['용산역', 'KTX 전라선'], yeosu: ['용산역', 'KTX 전라선'], gunsan: ['용산역', '장항선 열차'], mokpo: ['용산역', 'KTX 호남선'], danyang: ['청량리역', 'KTX-이음 중앙선'], pohang: ['서울역', 'KTX 경부선(포항행)'] };
+      const MAIN = { seoul: '서울역', busan: '부산역', gyeongju: '경주역', gangneung: '강릉역', jeonju: '전주역', yeosu: '여수엑스포역', gunsan: '군산역', mokpo: '목포역', danyang: '단양역', pohang: '포항역', sokcho: '속초고속버스터미널', daegu: '동대구역', jeju: '제주공항' };
+      const RAIL = { busan: ['서울역', 'KTX 경부선'], gyeongju: ['서울역', 'KTX 경부선'], gangneung: ['서울역·청량리역', 'KTX 강릉선'], jeonju: ['용산역', 'KTX 전라선'], yeosu: ['용산역', 'KTX 전라선'], gunsan: ['용산역', '장항선 열차'], mokpo: ['용산역', 'KTX 호남선'], danyang: ['청량리역', 'KTX-이음 중앙선'], pohang: ['서울역', 'KTX 경부선(포항행)'], daegu: ['서울역', 'KTX 경부선'] };
       const stTx = s => (s && s.st && s.st[0]) || '';
       const last = (r, s) => { if (!s) return []; const t = stTx(s), nm = sn(s.id);
         if (r === 'seoul' || r === 'busan') return [`지하철로 ${t.replace(' · ', '(') + (t.includes(' · ') ? ')' : '')}`];

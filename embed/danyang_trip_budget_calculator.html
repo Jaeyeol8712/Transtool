@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단양 여행 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/danyang_trip_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="단양 여행 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">단양 여행 경비 계산기</p>
+<label for="dy1">인원 (명)</label>
+<input id="dy1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="dy2">만천하스카이워크 성인 요금 (안 가면 0)</label>
+<input id="dy2" type="number" inputmode="decimal" placeholder="예: 4000"/>
+<label for="dy3">고수동굴 성인 요금 (안 가면 0)</label>
+<input id="dy3" type="number" inputmode="decimal" placeholder="예: 11000"/>
+<label for="dy4">온달관광지 성인 요금 (안 가면 0)</label>
+<input id="dy4" type="number" inputmode="decimal" placeholder="예: 6000"/>
+<label for="dy5">교통</label>
+<select id="dy5"><option value="t" selected>KTX-이음 (청량리↔단양 왕복)</option><option value="c">자가용</option></select>
+<label for="dy6">KTX-이음 1인 편도 요금 (원)</label>
+<input id="dy6" type="number" inputmode="decimal" placeholder="예: 18600"/>
+<label for="dy7">자가용 왕복 비용 (유류비+통행료, 원)</label>
+<input id="dy7" type="number" inputmode="decimal" placeholder="자가용일 때만, 예: 60000"/>
+<label for="dy8">숙박 1박 요금 (방 전체, 원)</label>
+<input id="dy8" type="number" inputmode="decimal" placeholder="당일이면 0, 예: 100000"/>
+<label for="dy9">숙박 수 (박)</label>
+<input id="dy9" type="number" inputmode="numeric" placeholder="당일이면 0, 예: 1"/>
+<label for="dy10">1인 하루 식비 (원)</label>
+<input id="dy10" type="number" inputmode="decimal" placeholder="예: 40000"/>
+<button onclick="calc_danyang_budget()">단양 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="dyT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="dyP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">입장료 합계</span><span class="result-value" id="dyE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">교통 · 숙박 · 식비</span><span class="result-value" id="dyB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function dy_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function dy_s(i,t){document.getElementById(i).textContent=t;}
+function dy_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_danyang_budget(){
+ var p=Math.floor(dy_v('dy1'));if(p<1) return alert('인원을 입력해주세요.');
+ var m=document.getElementById('dy5').value,n=Math.floor(dy_v('dy9'));
+ var ent=(dy_v('dy2')+dy_v('dy3')+dy_v('dy4'))*p;
+ var tr=m==='t'?dy_v('dy6')*2*p:dy_v('dy7');
+ var room=dy_v('dy8')*n,food=dy_v('dy10')*p*(n+1),tot=ent+tr+room+food;
+ dy_s('dyT',dy_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ dy_s('dyP',dy_w(tot/p));
+ dy_s('dyE',dy_w(ent)+' (1인 '+dy_w(ent/p)+')');
+ dy_s('dyB','교통 '+dy_w(tr)+' · 숙박 '+dy_w(room)+' · 식비 '+dy_w(food));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/danyang_trip_budget_calculator.html?utm_source=embed&amp;utm_campaign=danyang_trip_budget_calculator" target="_blank" rel="noopener">어라운드툴 단양 여행 경비 계산기</a></p>
+</body>
+</html>

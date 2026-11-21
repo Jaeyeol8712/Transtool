@@ -44,6 +44,8 @@ def region_of_code(code, name):
     if code == '36010': return 'mokpo'
     if code == '33380': return 'danyang'
     if code in ('37011', '37012'): return 'pohang'
+    if code == '32060': return 'sokcho'  # 2026-11-21(2차)
+    if code.startswith('22') and code != '22310': return 'daegu'  # 달성군 제외
     return None
 MF = [(f['properties']['code'], f['properties']['name'].replace('전주시', ''), shape(f['geometry']).buffer(0)) for f in muni['features']]
 full = json.load(open(KDIR + '/skorea_municipalities_geo.json', encoding='utf-8'))
@@ -66,7 +68,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
- '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
+ '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
  'jeju': [('jj_city', ['jj_pork','jj_dongmun','jj_dutyfree'], ['제주 시내','济州市区','Jeju City','済州市内']),
@@ -100,6 +102,14 @@ ZONES = {
  'pohang': [('ph_city', ['ph_spacewalk','ph_yeongildae','ph_jukdo','ph_canal'], ['포항 시내','浦项市区','Pohang City','浦項市内']),
             ('ph_east', ['ph_homigot','ph_guryongpo'], ['호미곶·구룡포','虎尾串·九龙浦','Homigot & Guryongpo','虎尾串・九龍浦']),
             ('ph_north', ['ph_igari'], ['이가리','二佳里','Igari','イガリ'])],
+ 'sokcho': [('sc_north', ['sc_youngkeum', 'sc_yeongnang'], ['북쪽 (영금정·영랑호)', '北部（灵琴亭·永郎湖）', 'North (Yeonggeumjeong & Yeongnangho)', '北部（霊琴亭・永郎湖）']),
+           ('sc_downtown', ['sc_abai', 'sc_market'], ['시내 (갯배·수산시장)', '市区（渡船·水产市场）', 'Downtown (Gaetbae & Market)', '市街地（渡し船・水産市場）']),
+           ('sc_south', ['sc_beach', 'sc_daepo'], ['남쪽 (해수욕장·대포항)', '南部（海水浴场·大浦港）', 'South (Beach & Daepo Port)', '南部（海水浴場・大浦港）']),
+           ('sc_seorak', ['sc_seorak_cable'], ['설악동 (케이블카)', '雪岳洞（缆车）', 'Seorak-dong (Cable Car)', '雪岳洞（ケーブルカー）'])],
+ 'daegu': [('dg_old', ['dg_modern', 'dg_seomun', 'dg_dongseongno', 'dg_kimkwangseok'], ['원도심 (중구)', '老城区(中区)', 'Old Downtown (Jung-gu)', '旧市街(中区)']),
+           ('dg_south', ['dg_apsan', 'dg_suseong'], ['앞산·수성못 (남구·수성구)', '前山·寿城池', 'Apsan & Suseongmot', '前山・寿城池']),
+           ('dg_west', ['dg_eworld'], ['두류공원 (달서구)', '头流公园(达西区)', 'Duryu Park (Dalseo-gu)', '頭流公園(達西区)']),
+           ('dg_palgongsan', ['dg_palgong'], ['팔공산 (동구)', '八公山(东区)', 'Palgongsan (Dong-gu)', '八公山(東区)'])],
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),

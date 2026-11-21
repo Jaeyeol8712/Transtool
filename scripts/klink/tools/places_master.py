@@ -126,6 +126,21 @@ ph_guryongpo 35.9886 129.558 0 24 day - 1
 ph_jukdo 36.0352 129.367 8 22 am any 1.5
 ph_igari 36.196 129.387 9 18 day - 0.5
 ph_canal 36.0335 129.38 9 18 day - 1
+sc_seorak_cable 38.1728 128.4899 9 17 am - 1.5
+sc_youngkeum 38.2133 128.6006 0 24 am - 0.7
+sc_beach 38.19 128.6038 0 24 eve - 1
+sc_abai 38.203 128.594 5.5 22.5 day - 1
+sc_market 38.2047 128.59 8 24 day any 1
+sc_yeongnang 38.216 128.583 0 24 day - 1.5
+sc_daepo 38.1752 128.6078 0 24 eve any 1
+dg_eworld 35.8533 128.5652 10 21 eve - 3
+dg_suseong 35.8287 128.6176 0 24 eve - 1
+dg_kimkwangseok 35.8599 128.6067 0 24 day - 0.7
+dg_modern 35.8668 128.5873 0 24 am - 1.5
+dg_seomun 35.869 128.5812 9 18 day any 1.5
+dg_dongseongno 35.8692 128.5962 0 24 eve any 1.5
+dg_palgong 35.989 128.695 9.5 17 am - 1.5
+dg_apsan 35.8284 128.5857 10.5 20 night - 1.5
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -281,6 +296,37 @@ NEW = [
      ['이가리 닻 전망대', '닻 모양 해안 전망대'], ['二佳里锚形展望台', '锚形海边观景台'], ['Igari Anchor Observatory', 'Anchor-shaped seaside observatory'], ['イガリ錨展望台', '錨の形の海辺の展望台']),
     ('ph_canal', 'fun', 'pohang', 0, {}, '포항시 남구 희망대로 1040 (포항운하관)',
      ['포항운하', '크루즈로 도는 도심 물길'], ['浦项运河', '可乘游船的市区水道'], ['Pohang Canal', 'City canal with cruise boats'], ['浦項運河', 'クルーズで巡る街なかの水路']),
+    # 2026-11-21(2차) 매일 콘텐츠: K링크 새 지역 속초·대구
+    ('sc_seorak_cable', 'nature', 'sokcho', 16000, {}, '속초시 설악산로 1085',
+     ['설악산 케이블카', '권금성까지 10분 케이블카'], ['雪岳山缆车', '10分钟直达权金城'], ['Seorak Cable Car', '10-minute ride up to Gwongeumseong'], ['雪岳山ケーブルカー', '権金城まで約10分のケーブルカー']),
+    ('sc_youngkeum', 'nature', 'sokcho', 0, {}, '속초시 영금정로 43',
+     ['영금정', '파도 소리 들리는 바위 정자'], ['灵琴亭', '灯塔下的海边岩石与亭子'], ['Yeonggeumjeong', 'Seaside rocks and pavilion by the lighthouse'], ['霊琴亭', '灯台下の岩場と海上あずまや']),
+    ('sc_beach', 'nature', 'sokcho', 0, {}, '속초시 해오름로 186',
+     ['속초해수욕장', '터미널 옆 시내 해변'], ['束草海水浴场', '客运站旁的市区海滩'], ['Sokcho Beach', 'City beach near the bus terminal'], ['束草海水浴場', 'バスターミナル近くの市街地ビーチ']),
+    ('sc_abai', 'fun', 'sokcho', 500, {}, '속초시 중앙부두길 51',
+     ['아바이마을 갯배', '줄 당겨 건너는 수로 배'], ['阿爸村渡船', '拉绳渡过水道到阿爸村'], ['Abai Village Gaetbae Ferry', 'Pull-rope barge to Abai Village'], ['アバイ村ケッベ渡し船', 'ロープを引いて渡る渡し船']),
+    ('sc_market', 'food', 'sokcho', 0, {}, '속초시 중앙로147번길 12',
+     ['속초관광수산시장', '오징어순대·닭강정 시장'], ['束草观光水产市场', '鱿鱼米肠与炸鸡块市场'], ['Sokcho Tourist & Fishery Market', 'Seafood, squid sundae and fried chicken'], ['束草観光水産市場', 'イカスンデやタッカンジョンの市場']),
+    ('sc_yeongnang', 'nature', 'sokcho', 0, {}, '속초시 영랑호반길 140',
+     ['영랑호', '둘레 7.8km 자연 석호'], ['永郎湖', '周长7.8公里的天然潟湖'], ['Yeongnangho Lake', '7.8 km lagoon with lakeside trail'], ['永郎湖', '周囲7.8kmの天然潟湖']),
+    ('sc_daepo', 'food', 'sokcho', 0, {}, '속초시 대포항희망길 55',
+     ['대포항', '튀김골목·전망대 있는 항구'], ['大浦港', '有炸物街与观景台的港口'], ['Daepo Port', 'Harbor with fried-seafood alley and lookout'], ['大浦港', '揚げ物横丁と展望台がある港']),
+    ('dg_eworld', 'fun', 'daegu', 49000, {}, '대구 달서구 두류공원로 200',
+     ['이월드·83타워', '두류공원 테마파크와 전망 타워'], ['E-World·83塔', '头流公园主题乐园与观景塔'], ['E-World & 83 Tower', 'Theme park and observation tower'], ['イーワールド・83タワー', '頭流公園のテーマパークと展望タワー']),
+    ('dg_suseong', 'nature', 'daegu', 0, {}, '대구 수성구 용학로 35-5',
+     ['수성못', '둘레 2km 호수 산책·음악분수'], ['寿城池', '环湖散步与音乐喷泉'], ['Suseongmot Lake', 'Lakeside walk and music fountain'], ['寿城池', '湖畔散策と音楽噴水']),
+    ('dg_kimkwangseok', 'fun', 'daegu', 0, {}, '대구 중구 달구벌대로 2238',
+     ['김광석 다시그리기길', '방천시장 옆 350m 벽화 골목'], ['金光石街', '防川市场旁350米壁画小巷'], ['Kim Kwang-seok Street', '350 m mural alley by Bangcheon Market'], ['キム・グァンソク通り', '防川市場横の350m壁画路地']),
+    ('dg_modern', 'palace', 'daegu', 0, {}, '대구 중구 달구벌대로 2029',
+     ['근대골목·청라언덕', '선교사 주택과 90계단 근대 골목'], ['近代胡同·青萝山丘', '传教士住宅与90级台阶'], ['Modern History Alleys & Cheongna Hill', 'Missionary houses and the 90 steps'], ['近代路地・青蘿の丘', '宣教師住宅と90階段']),
+    ('dg_seomun', 'shop', 'daegu', 0, {}, '대구 중구 큰장로26길 45',
+     ['서문시장', '대구 대표 시장·금~일 야시장'], ['西门市场', '大邱代表市场·周五至周日夜市'], ['Seomun Market', "Daegu's main market, night market Fri-Sun"], ['西門市場', '大邱最大の市場・金~日夜市']),
+    ('dg_dongseongno', 'shop', 'daegu', 0, {}, '대구 중구 동성로2길 27',
+     ['동성로', '약 900m 대구 대표 번화가'], ['东城路', '约900米的大邱繁华街'], ['Dongseong-ro', "Daegu's main 900 m shopping street"], ['東城路', '約900mの大邱随一の繁華街']),
+    ('dg_palgong', 'nature', 'daegu', 14000, {}, '대구 동구 팔공산로185길 51',
+     ['팔공산 케이블카', '신림봉 정상까지 오르는 곤돌라'], ['八公山缆车', '登上新林峰顶的缆车'], ['Palgongsan Cable Car', 'Gondola to Sinnimbong Peak'], ['八公山ケーブルカー', '新林峰山頂へのゴンドラ']),
+    ('dg_apsan', 'night', 'daegu', 14000, {}, '대구 남구 앞산순환로 574-114',
+     ['앞산전망대', '케이블카로 오르는 시내 야경 명소'], ['前山展望台', '乘缆车看市区夜景'], ['Apsan Observatory', 'City night view by cable car'], ['前山展望台', 'ケーブルカーで上る夜景スポット']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.
@@ -377,4 +423,9 @@ ALIASES = {
     # 발리·칭다오 (2026-11-20)
     "bl_monkey": ["몽키포레스트"], "bl_tegallalang": ["뜨갈랄랑"], "bl_kelingking": ["누사페니다", "켈링킹"], "bl_uluwatu": ["울루와투"],
     "qd_beer": ["맥주 박물관", "맥주박물관"], "qd_badaguan": ["팔대관"], "qd_pichaiyuan": ["피차위안"], "qd_zhanqiao": ["잔교"], "qd_laoshan": ["라오산"],
+    # 속초·대구·히로시마·고베 (2026-11-21 2차)
+    "sc_seorak_cable": ["설악케이블카", "권금성"], "sc_abai": ["아바이마을"], "sc_market": ["관광수산시장"],
+    "dg_eworld": ["이월드", "83타워"], "dg_kimkwangseok": ["김광석길"], "dg_modern": ["근대골목", "청라언덕"], "dg_palgong": ["팔공산"],
+    "hs_peace": ["원폭 돔", "평화기념자료관"], "hs_itsukushima": ["이쓰쿠시마", "이쓰쿠시마신사"], "hs_misen": ["미센"],
+    "kb_ijinkan": ["이진칸"], "kb_meriken": ["메리켄파크", "포트타워"], "kb_harborland": ["하버랜드"],
 }

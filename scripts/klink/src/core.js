@@ -28,7 +28,9 @@ const REGIONS = {
   gunsan:    { lat: 35.9800, lng: 126.7200, sub: false, air: 'ICN', fromSeoul: 170, t: ['군산', '群山', 'Gunsan', '群山'] },
   mokpo:     { lat: 34.7950, lng: 126.3900, sub: false, air: 'ICN', fromSeoul: 150, t: ['목포', '木浦', 'Mokpo', '木浦'] },
   danyang:   { lat: 36.9850, lng: 128.3650, sub: false, air: 'ICN', fromSeoul: 120, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
-  pohang:    { lat: 36.0400, lng: 129.3700, sub: false, air: 'ICN', fromSeoul: 150, t: ['포항', '浦项', 'Pohang', '浦項'] }
+  pohang:    { lat: 36.0400, lng: 129.3700, sub: false, air: 'ICN', fromSeoul: 150, t: ['포항', '浦项', 'Pohang', '浦項'] },
+  sokcho:    { lat: 38.2070, lng: 128.5918, sub: false, air: 'ICN', fromSeoul: 150, t: ['속초', '束草', 'Sokcho', '束草'] },
+  daegu:     { lat: 35.8714, lng: 128.6014, sub: false, air: 'ICN', fromSeoul: 110, t: ['대구', '大邱', 'Daegu', '大邱'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -46,7 +48,7 @@ const AIRPORTS = {
 Object.assign(AIRPORTS, {
   SEL: { lat: 37.5547, lng: 126.9707, r: 'seoul', home: true, t: ['서울', '首尔', 'Seoul', 'ソウル'] },
   BSS: { lat: 35.1151, lng: 129.0422, r: 'busan', home: true, t: ['부산', '釜山', 'Busan', '釜山'] },
-  DGU: { lat: 35.8794, lng: 128.6286, r: null, home: true, t: ['대구', '大邱', 'Daegu', '大邱'] },
+  DGU: { lat: 35.8794, lng: 128.6286, r: 'daegu', home: true, t: ['대구', '大邱', 'Daegu', '大邱'] },
   DJN: { lat: 36.3323, lng: 127.4342, r: null, home: true, t: ['대전', '大田', 'Daejeon', '大田'] },
   GJS: { lat: 35.1374, lng: 126.7930, r: null, home: true, t: ['광주', '光州', 'Gwangju', '光州'] },
   ICH: { lat: 37.4563, lng: 126.7052, r: null, home: true, t: ['인천', '仁川', 'Incheon', '仁川'] },
@@ -59,6 +61,7 @@ Object.assign(AIRPORTS, {
   JNH: { lat: 35.8497, lng: 127.1617, r: 'jeonju', home: true, t: ['전주', '全州', 'Jeonju', '全州'] },
   GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
   MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  SCB: { lat: 38.1898, lng: 128.6008, r: 'sokcho', home: true, t: ['속초', '束草', 'Sokcho', '束草'] },
   DYH: { lat: 36.9670, lng: 128.3420, r: 'danyang', home: true, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
   YSH: { lat: 34.753, lng: 127.747, r: 'yeosu', home: true, t: ['여수', '丽水', 'Yeosu', '麗水'] },
   PHG: { lat: 36.0718, lng: 129.3418, r: 'pohang', home: true, t: ['포항', '浦项', 'Pohang', '浦項'] },
@@ -102,7 +105,11 @@ const STAYS = [
   ['dy_town', 'danyang', 36.9846, 128.3654, ['단양읍 시내', '丹阳邑市区', 'Danyang Town', '丹陽邑市内'], ['구경시장·잔도 걸어서 · 단양역 택시 약 10분', '步行到市场与栈道 · 丹阳站打车约 10 分钟', 'Walk to the market and trail · about 10 min taxi from Danyang Stn', '市場・桟道へ徒歩 · 丹陽駅からタクシー約10分']],
   ['dy_station', 'danyang', 36.9670, 128.3420, ['단양역', '丹阳站', 'Danyang Stn', '丹陽駅'], ['KTX-이음 단양역 · 도담삼봉 차 약 10분', 'KTX-EUM 丹阳站 · 开车约 10 分钟到岛潭三峰', 'KTX-EUM Danyang Stn · about 10 min drive to Dodamsambong', 'KTX-イウム丹陽駅 · 島潭三峰へ車約10分']],
   ['ph_yeongil', 'pohang', 36.0560, 129.3790, ['영일대', '迎日台', 'Yeongildae', '迎日台'], ['해변 호텔 · 죽도시장 택시 약 10분', '海边酒店 · 打车约 10 分钟到竹岛市场', 'Beach hotels · about 10 min taxi to Jukdo Market', '海辺ホテル · 竹島市場へタクシー約10分']],
-  ['ph_station', 'pohang', 36.0718, 129.3418, ['포항역', '浦项站', 'Pohang Stn', '浦項駅'], ['KTX 포항역 · 시내·호미곶은 차 이동', 'KTX 浦项站 · 市区和虎尾串需开车', 'KTX Pohang Stn · drive to town and Homigot', 'KTX浦項駅 · 市内・虎尾串へは車']]
+  ['ph_station', 'pohang', 36.0718, 129.3418, ['포항역', '浦项站', 'Pohang Stn', '浦項駅'], ['KTX 포항역 · 시내·호미곶은 차 이동', 'KTX 浦项站 · 市区和虎尾串需开车', 'KTX Pohang Stn · drive to town and Homigot', 'KTX浦項駅 · 市内・虎尾串へは車']],
+  ['sc_stay_beach', 'sokcho', 38.1910, 128.6010, ['속초해수욕장·고속버스터미널 주변', '束草海水浴场·高速巴士站周边', 'Sokcho Beach & Express Bus Terminal area', '束草海水浴場・高速バスターミナル周辺'], ['버스 도착 후 바로 해변, 남쪽 대포항도 가까워요', '下车即到海滩，离南边大浦港也近', 'Steps from the beach and bus terminal, close to Daepo Port', 'ビーチとバスターミナルのすぐそば、大浦港にも近い']],
+  ['sc_stay_central', 'sokcho', 38.2050, 128.5915, ['속초관광수산시장·중앙동 주변', '束草观光水产市场·中央洞周边', 'Fishery Market & Jungang-dong area', '束草観光水産市場・中央洞周辺'], ['시장·갯배·영금정을 걸어서 묶기 좋아요', '步行可到市场、渡船和灵琴亭', 'Walk to the market, Gaetbae ferry and Yeonggeumjeong', '市場・渡し船・霊琴亭へ歩いて回れる']],
+  ['dg_stay_dongdaegu', 'daegu', 35.8797, 128.6286, ['동대구역 주변', '东大邱站周边', 'Around Dongdaegu Station', '東大邱駅周辺'], ['KTX 도착역 바로 앞, 팔공산·수성못 이동이 편해요', 'KTX到达站前，去八公山、寿城池方便', 'Right by the KTX station, easy to Palgongsan and Suseongmot', 'KTX駅前、八公山・寿城池へ便利']],
+  ['dg_stay_dongseongno', 'daegu', 35.8690, 128.5950, ['동성로·반월당', '东城路·半月堂', 'Dongseong-ro & Banwoldang', '東城路・半月堂'], ['근대골목·서문시장·찜갈비 골목까지 걸어서 다녀요', '步行可到近代胡同、西门市场、炖排骨胡同', 'Walk to the modern alleys, Seomun Market and jjimgalbi alley', '近代路地・西門市場・チムカルビ路地へ徒歩圏']]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -116,7 +123,9 @@ const REGION_TAG = {
   gunsan: ['근대 거리와 고군산군도 바다', '近代街道与古群山群岛', 'Modern-era streets and the Gogunsan islands', '近代の街並みと古群山の海'],
   mokpo: ['해상케이블카와 유달산, 바다 분수', '海上缆车、儒达山与海上喷泉', 'Sea cable car, Yudalsan and fountain shows', '海上ケーブルカーと儒達山'],
   danyang: ['남한강 절벽과 동굴, 스카이워크', '南汉江悬崖、洞窟与天空步道', 'River cliffs, caves and a skywalk', '南漢江の断崖と洞窟、スカイウォーク'],
-  pohang: ['동해 일출과 바다 위 걷는 조형물', '东海日出与海边步行雕塑', 'East Sea sunrise and a walkable sculpture', '東海の日の出と歩ける造形物']
+  pohang: ['동해 일출과 바다 위 걷는 조형물', '东海日出与海边步行雕塑', 'East Sea sunrise and a walkable sculpture', '東海の日の出と歩ける造形物'],
+  sokcho: ['설악산과 동해 바다, 시장 먹거리를 함께 즐기는 강원 바닷가 도시', '雪岳山、东海与市场美食兼备的江原海滨城市', 'Gangwon seaside city of Seoraksan, the East Sea and market food', '雪岳山と東海、市場グルメがそろう江原の港町'],
+  daegu: ['근대골목·시장·야경과 대구 10미를 함께 즐기는 도시', '近代胡同、市场、夜景与大邱十味', 'Modern alleys, markets, night views and Daegu\'s 10 signature dishes', '近代路地・市場・夜景と大邱十味の街']
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;

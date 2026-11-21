@@ -1,0 +1,39 @@
+<label for="pq1">인원 (명)</label>
+<input id="pq1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="pq2">혼텀 케이블카 1인 요금 (동, 안 타면 0)</label>
+<input id="pq2" type="number" inputmode="decimal" placeholder="예: 850000"/>
+<label for="pq3">빈원더스 1인 요금 (동, 안 가면 0)</label>
+<input id="pq3" type="number" inputmode="decimal" placeholder="예: 1050000"/>
+<label for="pq4">그 밖의 지출 (전체, 동)</label>
+<input id="pq4" type="number" inputmode="decimal" placeholder="야시장 식사·택시 등, 예: 1000000"/>
+<label for="pq5">환율 (100동당 원)</label>
+<input id="pq5" type="number" inputmode="decimal" placeholder="예: 5.15"/>
+<label for="pq6">해외 카드 수수료율 (%)</label>
+<input id="pq6" type="number" inputmode="decimal" placeholder="예: 1.5"/>
+<label for="pq7">현금 환전 비용률 (%)</label>
+<input id="pq7" type="number" inputmode="decimal" placeholder="예: 2"/>
+<button onclick="calc_phuquoc_dong()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 합계 (기준 환율)</span><span class="result-value" id="pqT">-</span></div>
+<div class="result-row"><span class="result-label">동 합계</span><span class="result-value" id="pqV" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="pqP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">카드로 내면</span><span class="result-value" id="pqC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">현금(환전)으로 내면</span><span class="result-value" id="pqM" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function pq_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function pq_s(i,t){document.getElementById(i).textContent=t;}
+function pq_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_phuquoc_dong(){
+ var p=Math.floor(pq_v('pq1')),r=pq_v('pq5');
+ if(p<1||r<=0) return alert('인원과 환율(100동당 원)을 입력해주세요.');
+ var vnd=(pq_v('pq2')+pq_v('pq3'))*p+pq_v('pq4'),krw=vnd/100*r;
+ var card=krw*(1+pq_v('pq6')/100),cash=krw*(1+pq_v('pq7')/100);
+ pq_s('pqT',pq_w(krw));
+ pq_s('pqV',Math.round(vnd).toLocaleString('ko-KR')+'동');
+ pq_s('pqP',pq_w(krw/p));
+ pq_s('pqC',pq_w(card)+' (수수료 '+pq_w(card-krw)+')');
+ pq_s('pqM',pq_w(cash)+' (비용 '+pq_w(cash-krw)+')'+(card<cash?' · 카드가 '+pq_w(cash-card)+' 적음':(cash<card?' · 현금이 '+pq_w(card-cash)+' 적음':'')));
+ document.getElementById('result').classList.add('show');
+}
+</script>

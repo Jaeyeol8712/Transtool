@@ -1558,5 +1558,89 @@
  ],
  "k-nk-gunkanjima": [
   "Hashima Island Gunkanjima"
+ ],
+ "k-sc-seorak-cable": [
+  "Seorak Cable Car Sokcho"
+ ],
+ "k-sc-youngkeum": [
+  "Yeonggeumjeong Sokcho"
+ ],
+ "k-sc-beach": [
+  "Sokcho Beach"
+ ],
+ "k-sc-abai": [
+  "Abai Village Gaetbae Ferry Sokcho"
+ ],
+ "k-sc-market": [
+  "Sokcho Tourist & Fishery Market"
+ ],
+ "k-sc-yeongnang": [
+  "Yeongnangho Lake Sokcho"
+ ],
+ "k-sc-daepo": [
+  "Daepo Port Sokcho"
+ ],
+ "k-dg-eworld": [
+  "E-World & 83 Tower Daegu"
+ ],
+ "k-dg-suseong": [
+  "Suseongmot Lake Daegu"
+ ],
+ "k-dg-kimkwangseok": [
+  "Kim Kwang-seok Street Daegu"
+ ],
+ "k-dg-modern": [
+  "Modern History Alleys & Cheongna Hill Daegu"
+ ],
+ "k-dg-seomun": [
+  "Seomun Market Daegu"
+ ],
+ "k-dg-dongseongno": [
+  "Dongseong-ro Daegu"
+ ],
+ "k-dg-palgong": [
+  "Palgongsan Cable Car Daegu"
+ ],
+ "k-dg-apsan": [
+  "Apsan Observatory Daegu"
+ ],
+ "k-hs-peace": [
+  "Peace Memorial Park Hiroshima"
+ ],
+ "k-hs-castle": [
+  "Hiroshima Castle"
+ ],
+ "k-hs-shukkeien": [
+  "Shukkeien Garden Hiroshima"
+ ],
+ "k-hs-okonomimura": [
+  "Okonomimura Hiroshima"
+ ],
+ "k-hs-itsukushima": [
+  "Itsukushima Shrine Hiroshima"
+ ],
+ "k-hs-misen": [
+  "Miyajima Ropeway (Mt. Misen) Hiroshima"
+ ],
+ "k-kb-nankinmachi": [
+  "Nankinmachi (Chinatown) Kobe"
+ ],
+ "k-kb-motomachi": [
+  "Motomachi Shopping Street Kobe"
+ ],
+ "k-kb-ijinkan": [
+  "Kitano Ijinkan Kobe"
+ ],
+ "k-kb-meriken": [
+  "Meriken Park & Port Tower Kobe"
+ ],
+ "k-kb-harborland": [
+  "Kobe Harborland"
+ ],
+ "k-kb-rokko": [
+  "Mt. Rokko Kobe"
+ ],
+ "k-kb-arima": [
+  "Arima Onsen Kobe"
  ]
 }

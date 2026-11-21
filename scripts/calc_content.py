@@ -1015,3 +1015,4 @@ from calc_1113 import *  # noqa: E402,F401,F403  (2026-11-12 컨펌 i261112-04 �
 from calc_1117 import *  # noqa: E402,F401,F403  (2026-11-17 대표 지시 여행 계산기 5종)
 from calc_1118 import *  # noqa: E402,F401,F403  (2026-11-18 대표 지시 여행 계산기 10종)
 from calc_1119 import *  # noqa: E402,F401,F403  (2026-11-19 대표 지시 여행 계산기 10종)
+from calc_1121b import *  # noqa: E402,F401,F403  (2026-11-21 21:16 지시 매일 콘텐츠: 전주 KTX vs 자가용·단양 여행 경비·베트남 환율 푸꾸옥 경비)

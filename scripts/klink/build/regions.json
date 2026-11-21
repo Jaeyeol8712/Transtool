@@ -77,6 +77,20 @@
 "ov": false
 },
 {
+"id": "sokcho",
+"name": "속초",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "daegu",
+"name": "대구",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -170,6 +184,20 @@
 {
 "id": "nagasaki",
 "name": "나가사키",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "hiroshima",
+"name": "히로시마",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "kobe",
+"name": "고베",
 "cc": "jp",
 "country": "일본",
 "ov": true
