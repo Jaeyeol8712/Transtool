@@ -233,7 +233,7 @@
    "position": 31.4
   }
  ],
- "made": "2026-11-20T23:26:25.793Z",
+ "made": "2026-11-21T03:58:55.670Z",
  "range": "2026-11-14 ~ 2026-11-20",
  "prevRange": "2026-11-07 ~ 2026-11-13",
  "cur": {
@@ -255,8 +255,8 @@
    "Organic Search": 147,
    "Direct": 52,
    "AI Assistant": 7,
-   "Unassigned": 3,
-   "Organic Social": 1
+   "Organic Social": 1,
+   "Unassigned": 1
   },
   "prev": {
    "Organic Search": 132,
@@ -424,7 +424,7 @@
   },
   {
    "page": "(not set)",
-   "sessions": 8
+   "sessions": 9
   },
   {
    "page": "/kimjang_cost_calculator.html",
