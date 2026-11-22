@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-21",
+  "users": 22,
+  "sessions": 22,
+  "views": 25,
+  "organic": 21
+ },
+ "yday0": {
   "date": "2026-11-20",
   "users": 27,
   "sessions": 30,
   "views": 53,
   "organic": 19
- },
- "yday0": {
-  "date": "2026-11-19",
-  "users": 34,
-  "sessions": 40,
-  "views": 214,
-  "organic": 25
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-16",
    "end": "2026-11-22",
    "done": false,
-   "users": 146,
-   "sessions": 163,
-   "views": 381,
-   "organic": 112
+   "users": 168,
+   "sessions": 185,
+   "views": 406,
+   "organic": 133
   }
  ],
  "lastWeek": {
@@ -229,50 +229,45 @@
    "end": "2026-11-22",
    "complete": false,
    "clicks": 2,
-   "impressions": 15,
-   "position": 31.4
+   "impressions": 21,
+   "position": 30
   }
  ],
- "made": "2026-11-21T03:58:55.670Z",
- "range": "2026-11-14 ~ 2026-11-20",
- "prevRange": "2026-11-07 ~ 2026-11-13",
+ "made": "2026-11-22T03:10:33.433Z",
+ "range": "2026-11-15 ~ 2026-11-21",
+ "prevRange": "2026-11-08 ~ 2026-11-14",
  "cur": {
-  "users": 185,
+  "users": 188,
   "sessions": 208,
-  "views": 440
+  "views": 434
  },
  "prev": {
-  "users": 159,
-  "sessions": 190,
-  "views": 383
+  "users": 163,
+  "sessions": 191,
+  "views": 389
  },
  "organic": {
-  "cur": 147,
-  "prev": 132
+  "cur": 152,
+  "prev": 131
  },
  "channels": {
   "cur": {
-   "Organic Search": 147,
-   "Direct": 52,
-   "AI Assistant": 7,
+   "Organic Search": 152,
+   "Direct": 46,
+   "AI Assistant": 8,
    "Organic Social": 1,
    "Unassigned": 1
   },
   "prev": {
-   "Organic Search": 132,
-   "Direct": 45,
-   "Unassigned": 6,
-   "AI Assistant": 4,
+   "Organic Search": 131,
+   "Direct": 50,
+   "Unassigned": 4,
+   "AI Assistant": 3,
    "Organic Social": 2,
    "Referral": 1
   }
  },
  "daily": [
-  {
-   "date": "20261024",
-   "users": 6,
-   "sessions": 12
-  },
   {
    "date": "20261025",
    "users": 7,
@@ -407,12 +402,17 @@
    "date": "20261120",
    "users": 27,
    "sessions": 30
+  },
+  {
+   "date": "20261121",
+   "users": 22,
+   "sessions": 22
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 31
+   "sessions": 28
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
@@ -427,7 +427,7 @@
    "sessions": 9
   },
   {
-   "page": "/kimjang_cost_calculator.html",
+   "page": "/shop-navien-water-mat.html",
    "sessions": 6
   },
   {
@@ -439,51 +439,51 @@
    "sessions": 6
   },
   {
-   "page": "/shop-navien-water-mat.html",
+   "page": "/gas_bill_calculator.html",
+   "sessions": 5
+  },
+  {
+   "page": "/kimjang_cost_calculator.html",
    "sessions": 5
   },
   {
    "page": "/yeonsu-bapjip.html",
    "sessions": 5
-  },
-  {
-   "page": "/travel-yeosu.html",
-   "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-12 ~ 2026-11-18",
+  "range": "2026-11-13 ~ 2026-11-19",
   "cur": {
-   "clicks": 10,
-   "impressions": 1251,
-   "position": 14.217426059152677
+   "clicks": 6,
+   "impressions": 825,
+   "position": 16.34909090909091
   },
   "prev": {
-   "clicks": 28,
-   "impressions": 3855,
-   "position": 10.627237354085603
+   "clicks": 30,
+   "impressions": 3838,
+   "position": 10.75872850442939
   }
  },
  "ai": {
   "cur": {
-   "sessions": 7,
-   "users": 7,
+   "sessions": 8,
+   "users": 8,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 7,
-     "users": 7
+     "sessions": 8,
+     "users": 8
     }
    ]
   },
   "prev": {
-   "sessions": 5,
-   "users": 5,
+   "sessions": 4,
+   "users": 4,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 3,
-     "users": 3
+     "sessions": 2,
+     "users": 2
     },
     {
      "name": "perplexity",
