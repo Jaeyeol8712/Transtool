@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-22",
+  "users": 27,
+  "sessions": 29,
+  "views": 29,
+  "organic": 27
+ },
+ "yday0": {
   "date": "2026-11-21",
   "users": 22,
   "sessions": 22,
   "views": 25,
   "organic": 21
- },
- "yday0": {
-  "date": "2026-11-20",
-  "users": 27,
-  "sessions": 30,
-  "views": 53,
-  "organic": 19
  },
  "weeks": [
   {
@@ -88,73 +88,72 @@
    "key": "202647",
    "start": "2026-11-16",
    "end": "2026-11-22",
-   "done": false,
-   "users": 168,
-   "sessions": 185,
-   "views": 406,
-   "organic": 133
+   "done": true,
+   "users": 193,
+   "sessions": 214,
+   "views": 435,
+   "organic": 160
   }
  ],
  "lastWeek": {
-  "range": "2026-11-09 ~ 2026-11-15",
-  "prevRange": "2026-11-02 ~ 2026-11-08",
+  "range": "2026-11-16 ~ 2026-11-22",
+  "prevRange": "2026-11-09 ~ 2026-11-15",
   "landing": [
    {
     "page": "/",
-    "sessions": 29
-   },
-   {
-    "page": "/jeju-seogwipo-galchi.html",
-    "sessions": 9
-   },
-   {
-    "page": "/interior_calculator.html",
-    "sessions": 8
-   },
-   {
-    "page": "(not set)",
-    "sessions": 7
+    "sessions": 26
    },
    {
     "page": "/kerosene_heating_cost_calculator.html",
-    "sessions": 6
+    "sessions": 17
    },
    {
-    "page": "/shop-navien-water-mat.html",
-    "sessions": 6
+    "page": "/interior_calculator.html",
+    "sessions": 12
    },
    {
-    "page": "/yeonsu-bapjip.html",
-    "sessions": 4
+    "page": "(not set)",
+    "sessions": 10
    },
    {
-    "page": "/alcohol_calorie_calculator.html",
-    "sessions": 3
-   },
-   {
-    "page": "/fuel_economy_calculator",
-    "sessions": 3
+    "page": "/travel-cebu.html",
+    "sessions": 7
    },
    {
     "page": "/gas_bill_calculator.html",
-    "sessions": 3
+    "sessions": 5
+   },
+   {
+    "page": "/guide-interior-cost-by-pyeong.html",
+    "sessions": 5
+   },
+   {
+    "page": "/time_difference_calculator.html",
+    "sessions": 5
+   },
+   {
+    "page": "/yeonsu-bapjip.html",
+    "sessions": 5
+   },
+   {
+    "page": "/alcohol_calorie_calculator.html",
+    "sessions": 4
    }
   ],
   "channels": {
    "cur": {
+    "Organic Search": 160,
+    "Direct": 43,
+    "AI Assistant": 9,
+    "Organic Social": 1,
+    "Unassigned": 1
+   },
+   "prev": {
     "Organic Search": 133,
     "Direct": 54,
     "Unassigned": 4,
     "AI Assistant": 3,
     "Organic Social": 2,
-    "Referral": 1
-   },
-   "prev": {
-    "Organic Search": 100,
-    "Direct": 39,
-    "Unassigned": 10,
-    "AI Assistant": 6,
-    "Organic Social": 4,
     "Referral": 1
    }
   }
@@ -229,38 +228,38 @@
    "end": "2026-11-22",
    "complete": false,
    "clicks": 2,
-   "impressions": 21,
-   "position": 30
+   "impressions": 22,
+   "position": 31.8
   }
  ],
- "made": "2026-11-22T03:10:33.433Z",
- "range": "2026-11-15 ~ 2026-11-21",
- "prevRange": "2026-11-08 ~ 2026-11-14",
+ "made": "2026-11-23T03:44:00.779Z",
+ "range": "2026-11-16 ~ 2026-11-22",
+ "prevRange": "2026-11-09 ~ 2026-11-15",
  "cur": {
-  "users": 188,
-  "sessions": 208,
-  "views": 434
+  "users": 193,
+  "sessions": 214,
+  "views": 435
  },
  "prev": {
-  "users": 163,
-  "sessions": 191,
-  "views": 389
+  "users": 168,
+  "sessions": 197,
+  "views": 397
  },
  "organic": {
-  "cur": 152,
-  "prev": 131
+  "cur": 160,
+  "prev": 133
  },
  "channels": {
   "cur": {
-   "Organic Search": 152,
-   "Direct": 46,
-   "AI Assistant": 8,
+   "Organic Search": 160,
+   "Direct": 43,
+   "AI Assistant": 9,
    "Organic Social": 1,
    "Unassigned": 1
   },
   "prev": {
-   "Organic Search": 131,
-   "Direct": 50,
+   "Organic Search": 133,
+   "Direct": 54,
    "Unassigned": 4,
    "AI Assistant": 3,
    "Organic Social": 2,
@@ -268,11 +267,6 @@
   }
  },
  "daily": [
-  {
-   "date": "20261025",
-   "users": 7,
-   "sessions": 16
-  },
   {
    "date": "20261026",
    "users": 19,
@@ -407,72 +401,77 @@
    "date": "20261121",
    "users": 22,
    "sessions": 22
+  },
+  {
+   "date": "20261122",
+   "users": 27,
+   "sessions": 29
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 28
+   "sessions": 26
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
-   "sessions": 12
+   "sessions": 17
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 10
+   "sessions": 12
   },
   {
    "page": "(not set)",
-   "sessions": 9
-  },
-  {
-   "page": "/shop-navien-water-mat.html",
-   "sessions": 6
-  },
-  {
-   "page": "/time_difference_calculator.html",
-   "sessions": 6
+   "sessions": 10
   },
   {
    "page": "/travel-cebu.html",
-   "sessions": 6
+   "sessions": 7
   },
   {
    "page": "/gas_bill_calculator.html",
    "sessions": 5
   },
   {
-   "page": "/kimjang_cost_calculator.html",
+   "page": "/guide-interior-cost-by-pyeong.html",
+   "sessions": 5
+  },
+  {
+   "page": "/time_difference_calculator.html",
    "sessions": 5
   },
   {
    "page": "/yeonsu-bapjip.html",
    "sessions": 5
+  },
+  {
+   "page": "/alcohol_calorie_calculator.html",
+   "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-13 ~ 2026-11-19",
+  "range": "2026-11-14 ~ 2026-11-20",
   "cur": {
-   "clicks": 6,
-   "impressions": 825,
-   "position": 16.34909090909091
+   "clicks": 3,
+   "impressions": 485,
+   "position": 17.604123711340208
   },
   "prev": {
-   "clicks": 30,
-   "impressions": 3838,
-   "position": 10.75872850442939
+   "clicks": 29,
+   "impressions": 3809,
+   "position": 11.144132318193751
   }
  },
  "ai": {
   "cur": {
-   "sessions": 8,
-   "users": 8,
+   "sessions": 9,
+   "users": 9,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 8,
-     "users": 8
+     "sessions": 9,
+     "users": 9
     }
    ]
   },
@@ -500,10 +499,10 @@
  },
  "klink": {
   "cur": {
-   "views": 51,
-   "users": 16,
-   "fromSite": 45,
-   "fromTravel": 6,
+   "views": 47,
+   "users": 15,
+   "fromSite": 41,
+   "fromTravel": 5,
    "events": {
     "klink_save": 17,
     "klink_course": 2,
@@ -514,10 +513,10 @@
    }
   },
   "prev": {
-   "views": 29,
-   "users": 4,
-   "fromSite": 21,
-   "fromTravel": 0,
+   "views": 33,
+   "users": 5,
+   "fromSite": 25,
+   "fromTravel": 1,
    "events": {
     "klink_save": 12,
     "klink_course": 2,
