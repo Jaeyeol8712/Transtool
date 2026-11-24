@@ -1,17 +1,17 @@
 {
  "yday": {
+  "date": "2026-11-24",
+  "users": 32,
+  "sessions": 38,
+  "views": 40,
+  "organic": 30
+ },
+ "yday0": {
   "date": "2026-11-23",
   "users": 47,
   "sessions": 53,
   "views": 93,
   "organic": 40
- },
- "yday0": {
-  "date": "2026-11-22",
-  "users": 27,
-  "sessions": 29,
-  "views": 29,
-  "organic": 27
  },
  "weeks": [
   {
@@ -89,10 +89,10 @@
    "start": "2026-11-23",
    "end": "2026-11-29",
    "done": false,
-   "users": 47,
-   "sessions": 53,
-   "views": 93,
-   "organic": 40
+   "users": 78,
+   "sessions": 91,
+   "views": 133,
+   "organic": 70
   }
  ],
  "lastWeek": {
@@ -217,10 +217,10 @@
    "key": "202647",
    "start": "2026-11-16",
    "end": "2026-11-22",
-   "complete": false,
+   "complete": true,
    "clicks": 2,
-   "impressions": 25,
-   "position": 35.7
+   "impressions": 30,
+   "position": 35.2
   },
   {
    "key": "202648",
@@ -232,46 +232,40 @@
    "position": null
   }
  ],
- "made": "2026-11-24T06:57:50.890Z",
- "range": "2026-11-17 ~ 2026-11-23",
- "prevRange": "2026-11-10 ~ 2026-11-16",
+ "made": "2026-11-24T23:26:56.168Z",
+ "range": "2026-11-18 ~ 2026-11-24",
+ "prevRange": "2026-11-11 ~ 2026-11-17",
  "cur": {
-  "users": 220,
-  "sessions": 244,
+  "users": 219,
+  "sessions": 250,
   "views": 508
  },
  "prev": {
-  "users": 160,
-  "sessions": 191,
-  "views": 388
+  "users": 157,
+  "sessions": 186,
+  "views": 383
  },
  "organic": {
-  "cur": 185,
+  "cur": 195,
   "prev": 126
  },
  "channels": {
   "cur": {
-   "Organic Search": 185,
-   "Direct": 47,
-   "AI Assistant": 10,
-   "Organic Social": 1,
-   "Unassigned": 1
+   "Organic Search": 195,
+   "Direct": 44,
+   "AI Assistant": 9,
+   "Unassigned": 2
   },
   "prev": {
    "Organic Search": 126,
-   "Direct": 58,
-   "AI Assistant": 3,
-   "Organic Social": 2,
+   "Direct": 49,
+   "AI Assistant": 6,
+   "Organic Social": 3,
    "Referral": 1,
    "Unassigned": 1
   }
  },
  "daily": [
-  {
-   "date": "20261027",
-   "users": 8,
-   "sessions": 23
-  },
   {
    "date": "20261028",
    "users": 27,
@@ -406,6 +400,11 @@
    "date": "20261123",
    "users": 47,
    "sessions": 53
+  },
+  {
+   "date": "20261124",
+   "users": 32,
+   "sessions": 38
   }
  ],
  "landing": [
@@ -415,7 +414,7 @@
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
-   "sessions": 25
+   "sessions": 26
   },
   {
    "page": "/interior_calculator.html",
@@ -424,6 +423,14 @@
   {
    "page": "(not set)",
    "sessions": 9
+  },
+  {
+   "page": "/gas_bill_calculator.html",
+   "sessions": 8
+  },
+  {
+   "page": "/increase_decrease_calculator",
+   "sessions": 6
   },
   {
    "page": "/travel-cebu.html",
@@ -438,51 +445,43 @@
    "sessions": 6
   },
   {
-   "page": "/gas_bill_calculator.html",
-   "sessions": 5
-  },
-  {
    "page": "/guide-interior-cost-by-pyeong.html",
-   "sessions": 5
-  },
-  {
-   "page": "/yeonsu-bapjip.html",
    "sessions": 5
   }
  ],
  "google": {
-  "range": "2026-11-15 ~ 2026-11-21",
+  "range": "2026-11-16 ~ 2026-11-22",
   "cur": {
    "clicks": 2,
-   "impressions": 140,
-   "position": 20.228571428571428
+   "impressions": 30,
+   "position": 35.166666666666664
   },
   "prev": {
-   "clicks": 29,
-   "impressions": 3785,
-   "position": 11.63434610303831
+   "clicks": 26,
+   "impressions": 3388,
+   "position": 11.962219598583236
   }
  },
  "ai": {
   "cur": {
-   "sessions": 10,
-   "users": 10,
+   "sessions": 9,
+   "users": 9,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 10,
-     "users": 10
+     "sessions": 9,
+     "users": 9
     }
    ]
   },
   "prev": {
-   "sessions": 4,
-   "users": 4,
+   "sessions": 7,
+   "users": 7,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 2,
-     "users": 2
+     "sessions": 5,
+     "users": 5
     },
     {
      "name": "perplexity",
