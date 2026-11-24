@@ -667,7 +667,17 @@ PAGES["sitemap.html"].update(title="사이트맵 — 어라운드툴 전체 페�
 GU_MIN_INDEX = 3  # 구 허브 검색 노출 최소 맛집 수. 3곳 이상이 되면 자동으로 다시 색인·사이트맵 포함
 
 
+# 2026-11-25 안전한 삭제 1단계: scripts/retire.json에 올린 글은 noindex로 바꾸고 사이트맵·내부 추천에서 뺀다.
+#   2단계: 서치콘솔·네이버에서 색인 제외를 확인(보통 2~4주) → 3단계: 그다음에만 파일 삭제(필요하면 비슷한 글로 연결).
+try:
+    RETIRE = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "retire.json"), encoding="utf-8"))
+except Exception:
+    RETIRE = {}
+
+
 def indexable(p):
+    if p.get("file") in RETIRE:
+        return False
     if p["section"] in ("util",):
         return False
     if p.get("research") or p.get("draft"):
