@@ -1,29 +1,19 @@
 {
  "yday": {
+  "date": "2026-11-23",
+  "users": 47,
+  "sessions": 53,
+  "views": 93,
+  "organic": 40
+ },
+ "yday0": {
   "date": "2026-11-22",
   "users": 27,
   "sessions": 29,
   "views": 29,
   "organic": 27
  },
- "yday0": {
-  "date": "2026-11-21",
-  "users": 22,
-  "sessions": 22,
-  "views": 25,
-  "organic": 21
- },
  "weeks": [
-  {
-   "key": "202640",
-   "start": "2026-09-28",
-   "end": "2026-10-04",
-   "done": true,
-   "users": 34,
-   "sessions": 35,
-   "views": 36,
-   "organic": 34
-  },
   {
    "key": "202641",
    "start": "2026-10-05",
@@ -93,6 +83,16 @@
    "sessions": 214,
    "views": 435,
    "organic": 160
+  },
+  {
+   "key": "202648",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "done": false,
+   "users": 47,
+   "sessions": 53,
+   "views": 93,
+   "organic": 40
   }
  ],
  "lastWeek": {
@@ -160,15 +160,6 @@
  },
  "googleWeeks": [
   {
-   "key": "202640",
-   "start": "2026-09-28",
-   "end": "2026-10-04",
-   "complete": true,
-   "clicks": 1,
-   "impressions": 114,
-   "position": 22
-  },
-  {
    "key": "202641",
    "start": "2026-10-05",
    "end": "2026-10-11",
@@ -228,50 +219,54 @@
    "end": "2026-11-22",
    "complete": false,
    "clicks": 2,
-   "impressions": 22,
-   "position": 31.8
+   "impressions": 25,
+   "position": 35.7
+  },
+  {
+   "key": "202648",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "complete": false,
+   "clicks": 0,
+   "impressions": 0,
+   "position": null
   }
  ],
- "made": "2026-11-23T03:44:00.779Z",
- "range": "2026-11-16 ~ 2026-11-22",
- "prevRange": "2026-11-09 ~ 2026-11-15",
+ "made": "2026-11-24T06:57:50.890Z",
+ "range": "2026-11-17 ~ 2026-11-23",
+ "prevRange": "2026-11-10 ~ 2026-11-16",
  "cur": {
-  "users": 193,
-  "sessions": 214,
-  "views": 435
+  "users": 220,
+  "sessions": 244,
+  "views": 508
  },
  "prev": {
-  "users": 168,
-  "sessions": 197,
-  "views": 397
+  "users": 160,
+  "sessions": 191,
+  "views": 388
  },
  "organic": {
-  "cur": 160,
-  "prev": 133
+  "cur": 185,
+  "prev": 126
  },
  "channels": {
   "cur": {
-   "Organic Search": 160,
-   "Direct": 43,
-   "AI Assistant": 9,
+   "Organic Search": 185,
+   "Direct": 47,
+   "AI Assistant": 10,
    "Organic Social": 1,
    "Unassigned": 1
   },
   "prev": {
-   "Organic Search": 133,
-   "Direct": 54,
-   "Unassigned": 4,
+   "Organic Search": 126,
+   "Direct": 58,
    "AI Assistant": 3,
    "Organic Social": 2,
-   "Referral": 1
+   "Referral": 1,
+   "Unassigned": 1
   }
  },
  "daily": [
-  {
-   "date": "20261026",
-   "users": 19,
-   "sessions": 28
-  },
   {
    "date": "20261027",
    "users": 8,
@@ -406,28 +401,41 @@
    "date": "20261122",
    "users": 27,
    "sessions": 29
+  },
+  {
+   "date": "20261123",
+   "users": 47,
+   "sessions": 53
   }
  ],
  "landing": [
   {
    "page": "/",
-   "sessions": 26
+   "sessions": 31
   },
   {
    "page": "/kerosene_heating_cost_calculator.html",
-   "sessions": 17
+   "sessions": 25
   },
   {
    "page": "/interior_calculator.html",
-   "sessions": 12
+   "sessions": 11
   },
   {
    "page": "(not set)",
-   "sessions": 10
+   "sessions": 9
   },
   {
    "page": "/travel-cebu.html",
-   "sessions": 7
+   "sessions": 6
+  },
+  {
+   "page": "/travel-nhatrang.html",
+   "sessions": 6
+  },
+  {
+   "page": "/travel-yeosu.html",
+   "sessions": 6
   },
   {
    "page": "/gas_bill_calculator.html",
@@ -438,40 +446,32 @@
    "sessions": 5
   },
   {
-   "page": "/time_difference_calculator.html",
-   "sessions": 5
-  },
-  {
    "page": "/yeonsu-bapjip.html",
    "sessions": 5
-  },
-  {
-   "page": "/alcohol_calorie_calculator.html",
-   "sessions": 4
   }
  ],
  "google": {
-  "range": "2026-11-14 ~ 2026-11-20",
+  "range": "2026-11-15 ~ 2026-11-21",
   "cur": {
-   "clicks": 3,
-   "impressions": 485,
-   "position": 17.604123711340208
+   "clicks": 2,
+   "impressions": 140,
+   "position": 20.228571428571428
   },
   "prev": {
    "clicks": 29,
-   "impressions": 3809,
-   "position": 11.144132318193751
+   "impressions": 3785,
+   "position": 11.63434610303831
   }
  },
  "ai": {
   "cur": {
-   "sessions": 9,
-   "users": 9,
+   "sessions": 10,
+   "users": 10,
    "sources": [
     {
      "name": "chatgpt.com",
-     "sessions": 9,
-     "users": 9
+     "sessions": 10,
+     "users": 10
     }
    ]
   },
@@ -499,29 +499,29 @@
  },
  "klink": {
   "cur": {
-   "views": 47,
-   "users": 15,
-   "fromSite": 41,
-   "fromTravel": 5,
+   "views": 54,
+   "users": 18,
+   "fromSite": 48,
+   "fromTravel": 7,
    "events": {
-    "klink_save": 17,
+    "klink_save": 13,
     "klink_course": 2,
-    "klink_plan": 4,
-    "klink_prep": 10,
-    "klink_out": 5,
+    "klink_plan": 3,
+    "klink_prep": 8,
+    "klink_out": 6,
     "klink_from_travel": 1
    }
   },
   "prev": {
-   "views": 33,
+   "views": 34,
    "users": 5,
-   "fromSite": 25,
+   "fromSite": 26,
    "fromTravel": 1,
    "events": {
-    "klink_save": 12,
+    "klink_save": 16,
     "klink_course": 2,
-    "klink_plan": 2,
-    "klink_prep": 9,
+    "klink_plan": 3,
+    "klink_prep": 11,
     "klink_out": 3,
     "klink_from_travel": 0
    }
