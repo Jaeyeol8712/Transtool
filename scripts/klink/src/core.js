@@ -30,7 +30,9 @@ const REGIONS = {
   danyang:   { lat: 36.9850, lng: 128.3650, sub: false, air: 'ICN', fromSeoul: 120, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
   pohang:    { lat: 36.0400, lng: 129.3700, sub: false, air: 'ICN', fromSeoul: 150, t: ['포항', '浦项', 'Pohang', '浦項'] },
   sokcho:    { lat: 38.2070, lng: 128.5918, sub: false, air: 'ICN', fromSeoul: 150, t: ['속초', '束草', 'Sokcho', '束草'] },
-  daegu:     { lat: 35.8714, lng: 128.6014, sub: false, air: 'ICN', fromSeoul: 110, t: ['대구', '大邱', 'Daegu', '大邱'] }
+  daegu:     { lat: 35.8714, lng: 128.6014, sub: false, air: 'ICN', fromSeoul: 110, t: ['대구', '大邱', 'Daegu', '大邱'] },
+  chuncheon: { lat: 37.8813, lng: 127.7298, sub: false, air: 'ICN', fromSeoul: 70, t: ['춘천', '春川', 'Chuncheon', '春川'] },
+  tongyeong: { lat: 34.8420, lng: 128.4250, sub: false, air: 'ICN', fromSeoul: 240, t: ['통영', '统营', 'Tongyeong', '統営'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -55,12 +57,13 @@ Object.assign(AIRPORTS, {
   SWN: { lat: 37.2659, lng: 127.0001, r: null, home: true, t: ['수원', '水原', 'Suwon', '水原'] },
   CAN: { lat: 36.7946, lng: 127.1046, r: null, home: true, t: ['천안·아산', '天安·牙山', 'Cheonan·Asan', '天安・牙山'] },
   CJJ: { lat: 36.6203, lng: 127.3271, r: null, home: true, t: ['청주·세종', '清州·世宗', 'Cheongju·Sejong', '清州・世宗'] },
-  CCN: { lat: 37.8846, lng: 127.7168, r: null, home: true, t: ['춘천', '春川', 'Chuncheon', '春川'] },
+  CCN: { lat: 37.8846, lng: 127.7168, r: 'chuncheon', home: true, t: ['춘천', '春川', 'Chuncheon', '春川'] },
   WJU: { lat: 37.3177, lng: 127.9198, r: null, home: true, t: ['원주', '原州', 'Wonju', '原州'] },
   GNH: { lat: 37.764, lng: 128.899, r: 'gangneung', home: true, t: ['강릉', '江陵', 'Gangneung', '江陵'] },
   JNH: { lat: 35.8497, lng: 127.1617, r: 'jeonju', home: true, t: ['전주', '全州', 'Jeonju', '全州'] },
   GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
   MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  TYH: { lat: 34.8810, lng: 128.4140, r: 'tongyeong', home: true, t: ['통영', '统营', 'Tongyeong', '統営'] },
   SCB: { lat: 38.1898, lng: 128.6008, r: 'sokcho', home: true, t: ['속초', '束草', 'Sokcho', '束草'] },
   DYH: { lat: 36.9670, lng: 128.3420, r: 'danyang', home: true, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
   YSH: { lat: 34.753, lng: 127.747, r: 'yeosu', home: true, t: ['여수', '丽水', 'Yeosu', '麗水'] },
@@ -109,7 +112,11 @@ const STAYS = [
   ['sc_stay_beach', 'sokcho', 38.1910, 128.6010, ['속초해수욕장·고속버스터미널 주변', '束草海水浴场·高速巴士站周边', 'Sokcho Beach & Express Bus Terminal area', '束草海水浴場・高速バスターミナル周辺'], ['버스 도착 후 바로 해변, 남쪽 대포항도 가까워요', '下车即到海滩，离南边大浦港也近', 'Steps from the beach and bus terminal, close to Daepo Port', 'ビーチとバスターミナルのすぐそば、大浦港にも近い']],
   ['sc_stay_central', 'sokcho', 38.2050, 128.5915, ['속초관광수산시장·중앙동 주변', '束草观光水产市场·中央洞周边', 'Fishery Market & Jungang-dong area', '束草観光水産市場・中央洞周辺'], ['시장·갯배·영금정을 걸어서 묶기 좋아요', '步行可到市场、渡船和灵琴亭', 'Walk to the market, Gaetbae ferry and Yeonggeumjeong', '市場・渡し船・霊琴亭へ歩いて回れる']],
   ['dg_stay_dongdaegu', 'daegu', 35.8797, 128.6286, ['동대구역 주변', '东大邱站周边', 'Around Dongdaegu Station', '東大邱駅周辺'], ['KTX 도착역 바로 앞, 팔공산·수성못 이동이 편해요', 'KTX到达站前，去八公山、寿城池方便', 'Right by the KTX station, easy to Palgongsan and Suseongmot', 'KTX駅前、八公山・寿城池へ便利']],
-  ['dg_stay_dongseongno', 'daegu', 35.8690, 128.5950, ['동성로·반월당', '东城路·半月堂', 'Dongseong-ro & Banwoldang', '東城路・半月堂'], ['근대골목·서문시장·찜갈비 골목까지 걸어서 다녀요', '步行可到近代胡同、西门市场、炖排骨胡同', 'Walk to the modern alleys, Seomun Market and jjimgalbi alley', '近代路地・西門市場・チムカルビ路地へ徒歩圏']]
+  ['dg_stay_dongseongno', 'daegu', 35.8690, 128.5950, ['동성로·반월당', '东城路·半月堂', 'Dongseong-ro & Banwoldang', '東城路・半月堂'], ['근대골목·서문시장·찜갈비 골목까지 걸어서 다녀요', '步行可到近代胡同、西门市场、炖排骨胡同', 'Walk to the modern alleys, Seomun Market and jjimgalbi alley', '近代路地・西門市場・チムカルビ路地へ徒歩圏']],
+  ['cc_stay_station', 'chuncheon', 37.8846, 127.7168, ["춘천역 주변", "春川站周边", "Chuncheon Station area", "春川駅周辺"], ["ITX·전철 도착 후 바로, 소양강 스카이워크도 가까워요", "下车即到，离昭阳江天空步道也近", "Right by ITX/subway arrivals, near Soyanggang Skywalk", "ITX・電車ですぐ、昭陽江スカイウォークにも近い"]],
+  ['cc_stay_myeongdong', 'chuncheon', 37.8805, 127.729, ["명동·중앙로 주변", "明洞·中央路周边", "Myeongdong & Jungang-ro area", "明洞・中央路周辺"], ["닭갈비골목·명동 거리·중앙시장을 걸어서 묶기 좋아요", "步行可到鸡排街、明洞街和中央市场", "Walk to Dakgalbi Street, Myeongdong and Jungang Market", "タッカルビ通り・明洞・中央市場へ歩いて回れる"]],
+  ['ty_stay_ganguan', 'tongyeong', 34.8445, 128.4255, ["강구안·통영중앙시장 주변", "江口岸·统营中央市场周边", "Gangguan & Jungang Market area", "江口岸・統営中央市場周辺"], ["동피랑·통제영·디피랑을 걸어서 다녀요", "步行可到东皮郎、统制营和Dpirang", "Walk to Dongpirang, Tongjeyeong and Dpirang", "東ピラン・統制営・ディピランへ徒歩圏"]],
+  ['ty_stay_donam', 'tongyeong', 34.827, 128.4215, ["도남동 관광단지 (케이블카·루지) 주변", "道南洞旅游区（缆车·滑车）周边", "Donam-dong resort area (cable car & luge)", "道南洞観光団地（ケーブルカー・リュージュ）周辺"], ["아침 일찍 케이블카·루지 타기 좋아요", "适合一早坐缆车、玩滑车", "Easy early start for the cable car and luge", "朝一番のケーブルカー・リュージュに便利"]]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -125,7 +132,9 @@ const REGION_TAG = {
   danyang: ['남한강 절벽과 동굴, 스카이워크', '南汉江悬崖、洞窟与天空步道', 'River cliffs, caves and a skywalk', '南漢江の断崖と洞窟、スカイウォーク'],
   pohang: ['동해 일출과 바다 위 걷는 조형물', '东海日出与海边步行雕塑', 'East Sea sunrise and a walkable sculpture', '東海の日の出と歩ける造形物'],
   sokcho: ['설악산과 동해 바다, 시장 먹거리를 함께 즐기는 강원 바닷가 도시', '雪岳山、东海与市场美食兼备的江原海滨城市', 'Gangwon seaside city of Seoraksan, the East Sea and market food', '雪岳山と東海、市場グルメがそろう江原の港町'],
-  daegu: ['근대골목·시장·야경과 대구 10미를 함께 즐기는 도시', '近代胡同、市场、夜景与大邱十味', 'Modern alleys, markets, night views and Daegu\'s 10 signature dishes', '近代路地・市場・夜景と大邱十味の街']
+  daegu: ['근대골목·시장·야경과 대구 10미를 함께 즐기는 도시', '近代胡同、市场、夜景与大邱十味', 'Modern alleys, markets, night views and Daegu\'s 10 signature dishes', '近代路地・市場・夜景と大邱十味の街'],
+  chuncheon: ['호수와 강 위 스카이워크, 막국수·닭갈비의 도시', '湖泊与江上天空步道，荞麦冷面与铁板鸡之城', 'Lakes, a river skywalk, makguksu and dakgalbi', '湖と川のスカイウォーク、マックッス・タッカルビの街'],
+  tongyeong: ['한려수도 바다와 케이블카, 벽화마을과 충무김밥', '闲丽水道海景、缆车、壁画村与忠武紫菜包饭', 'Hallyeo waterway views, a cable car, mural village and Chungmu gimbap', '閑麗水道の海とケーブルカー、壁画村と忠武キンパ']
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;

@@ -141,6 +141,21 @@ dg_seomun 35.869 128.5812 9 18 day any 1.5
 dg_dongseongno 35.8692 128.5962 0 24 eve any 1.5
 dg_palgong 35.989 128.695 9.5 17 am - 1.5
 dg_apsan 35.8284 128.5857 10.5 20 night - 1.5
+cc_skywalk 37.8955 127.7251 10 17.5 eve - 0.7
+cc_samak_cable 37.869 127.699 9 18 day - 1.5
+cc_gongjicheon 37.8708 127.7135 0 24 day - 1
+cc_dakgalbi 37.8805 127.728 11 21 eve any 1.5
+cc_kimyujeong 37.816 127.716 9.5 17 day - 1
+cc_soyang_dam 37.9452 127.814 0 24 day - 1
+cc_makguksu 37.918 127.7505 10 17 am - 1
+ty_cablecar 34.8266 128.4251 9.5 18 am - 1.5
+ty_luge 34.8244 128.4242 10 18 day - 1.5
+ty_dongpirang 34.8453 128.4276 0 24 day - 1
+ty_jungang 34.8453 128.4246 8 20 day any 1
+ty_tongjeyoung 34.8472 128.4235 9 18 day - 1
+ty_dipirang 34.8421 128.4285 18.5 22 night - 1
+ty_dala 34.7692 128.3993 0 24 eve - 0.7
+ty_yisunsin 34.8438 128.4429 0 24 am - 1
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -327,6 +342,37 @@ NEW = [
      ['팔공산 케이블카', '신림봉 정상까지 오르는 곤돌라'], ['八公山缆车', '登上新林峰顶的缆车'], ['Palgongsan Cable Car', 'Gondola to Sinnimbong Peak'], ['八公山ケーブルカー', '新林峰山頂へのゴンドラ']),
     ('dg_apsan', 'night', 'daegu', 14000, {}, '대구 남구 앞산순환로 574-114',
      ['앞산전망대', '케이블카로 오르는 시내 야경 명소'], ['前山展望台', '乘缆车看市区夜景'], ['Apsan Observatory', 'City night view by cable car'], ['前山展望台', 'ケーブルカーで上る夜景スポット']),
+    # 2026-11-25 매일 콘텐츠: K링크 새 지역 춘천·통영
+    ('cc_skywalk', 'nature', 'chuncheon', 2000, {}, '춘천시 영서로 2663',
+     ['소양강 스카이워크', '강 위 유리 바닥 다리'], ['昭阳江天空步道', '江面上的玻璃地板步道'], ['Soyanggang Skywalk', 'Glass-floor walkway over the Soyang River'], ['昭陽江スカイウォーク', '川の上のガラス床の歩道']),
+    ('cc_samak_cable', 'fun', 'chuncheon', 24000, {}, '춘천시 스포츠타운길 245',
+     ['삼악산 호수케이블카', '의암호 건너는 3.61km 케이블카'], ['三岳山湖水缆车', '横跨衣岩湖的3.61公里缆车'], ['Samaksan Lake Cable Car', '3.61 km ride across Uiamho Lake'], ['三岳山湖水ケーブルカー', '衣岩湖を渡る3.61kmのケーブルカー']),
+    ('cc_gongjicheon', 'nature', 'chuncheon', 0, {}, '춘천시 이디오피아길 25',
+     ['공지천유원지', '의암호 옆 산책·조각공원'], ['孔之川游园地', '衣岩湖边的散步道与雕塑公园'], ['Gongjicheon Recreation Area', 'Riverside park and trails by Uiamho Lake'], ['孔之川遊園地', '衣岩湖そばの散策路と彫刻公園']),
+    ('cc_dakgalbi', 'food', 'chuncheon', 0, {}, '춘천시 조양동 52',
+     ['춘천 명동 닭갈비골목', '철판·숯불 닭갈비 골목'], ['春川明洞辣炒鸡排一条街', '铁板与炭烤鸡排胡同'], ['Chuncheon Myeongdong Dakgalbi Street', 'Alley of pan-fried and charcoal dakgalbi'], ['春川明洞タッカルビ通り', '鉄板・炭火タッカルビの路地']),
+    ('cc_kimyujeong', 'palace', 'chuncheon', 2000, {}, '춘천시 신동면 김유정로 1430-14',
+     ['김유정문학촌', '소설가 김유정 고향 문학관'], ['金裕贞文学村', '小说家金裕贞故乡文学馆'], ['Kim Yu-jeong Literary Village', "Novelist Kim Yu-jeong's hometown museum"], ['金裕貞文学村', '小説家金裕貞の故郷の文学館']),
+    ('cc_soyang_dam', 'nature', 'chuncheon', 0, {}, '춘천시 신북읍 신샘밭로 1128',
+     ['소양강댐', '정상길 걷는 소양호 댐'], ['昭阳江大坝', '可走坝顶步道的昭阳湖大坝'], ['Soyanggang Dam', 'Walk the dam crest over Soyangho Lake'], ['昭陽江ダム', '堤頂を歩ける昭陽湖のダム']),
+    ('cc_makguksu', 'fun', 'chuncheon', 1000, {}, '춘천시 신북읍 신북로 264',
+     ['춘천막국수체험박물관', '막국수 만들기 체험 박물관'], ['春川荞麦冷面体验博物馆', '亲手制作荞麦面的博物馆'], ['Chuncheon Makguksu Museum', 'Make your own buckwheat noodles'], ['春川マックッス体験博物館', 'そば麺づくり体験ができる博物館']),
+    ('ty_cablecar', 'nature', 'tongyeong', 17000, {}, '통영시 발개로 205',
+     ['통영케이블카', '미륵산 9분 케이블카'], ['统营缆车', '9分钟登弥勒山'], ['Tongyeong Cable Car', '9-minute ride up Mireuksan'], ['統営ケーブルカー', '弥勒山まで約9分のケーブルカー']),
+    ('ty_luge', 'fun', 'tongyeong', 30000, {}, '통영시 발개로 178',
+     ['스카이라인 루지 통영', '리프트 타고 루지로 하강'], ['统营天际线斜坡滑车', '坐缆椅上山、滑车下山'], ['Skyline Luge Tongyeong', 'Chairlift up, luge ride down'], ['スカイラインリュージュ統営', 'リフトで上がりリュージュで下る']),
+    ('ty_dongpirang', 'fun', 'tongyeong', 0, {}, '통영시 동피랑1길 6-18',
+     ['동피랑 벽화마을', '강구안 언덕 벽화 골목'], ['东皮郎壁画村', '江口岸山坡壁画小巷'], ['Dongpirang Mural Village', 'Hillside mural alleys above Gangguan'], ['東ピラン壁画村', '江口岸の丘の壁画路地']),
+    ('ty_jungang', 'food', 'tongyeong', 0, {}, '통영시 중앙시장1길 14-16',
+     ['통영중앙시장', '활어·꿀빵 강구안 시장'], ['统营中央市场', '港边活鱼与蜂蜜面包市场'], ['Tongyeong Jungang Market', 'Live fish and honey bread by the harbor'], ['統営中央市場', '港前の活魚とクルパンの市場']),
+    ('ty_tongjeyoung', 'palace', 'tongyeong', 3000, {}, '통영시 세병로 27',
+     ['통영 삼도수군통제영', '세병관 남은 수군 본진'], ['统营三道水军统制营', '保留洗兵馆的水军本营'], ['Samdo Sugun Tongjeyeong', 'Joseon naval HQ with Sebyeonggwan'], ['統営三道水軍統制営', '洗兵館が残る水軍本営']),
+    ('ty_dipirang', 'night', 'tongyeong', 15000, {}, '통영시 남망공원길 29',
+     ['디피랑', '남망산 야간 미디어아트'], ['Dpirang夜间公园', '南望山夜间媒体艺术步道'], ['Dpirang', 'Night media-art trail on Nammangsan'], ['ディピラン', '南望山の夜間メディアアート']),
+    ('ty_dala', 'nature', 'tongyeong', 0, {}, '통영시 산양일주로 1115',
+     ['달아공원', '한려수도 노을 전망 공원'], ['达牙公园', '眺望闲丽水道的日落公园'], ['Dala Park', 'Sunset viewpoint over Hallyeosudo'], ['ダラ公園', '閑麗水道の夕日展望公園']),
+    ('ty_yisunsin', 'nature', 'tongyeong', 0, {}, '통영시 정량동 688-1',
+     ['통영 이순신공원', '17.3m 동상 선 바닷가 공원'], ['统营李舜臣公园', '立有17.3米铜像的海边公园'], ['Yi Sun-sin Park Tongyeong', 'Seaside park with a 17.3 m statue'], ['統営李舜臣公園', '17.3mの銅像が立つ海辺の公園']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.
@@ -428,4 +474,11 @@ ALIASES = {
     "dg_eworld": ["이월드", "83타워"], "dg_kimkwangseok": ["김광석길"], "dg_modern": ["근대골목", "청라언덕"], "dg_palgong": ["팔공산"],
     "hs_peace": ["원폭 돔", "평화기념자료관"], "hs_itsukushima": ["이쓰쿠시마", "이쓰쿠시마신사"], "hs_misen": ["미센"],
     "kb_ijinkan": ["이진칸"], "kb_meriken": ["메리켄파크", "포트타워"], "kb_harborland": ["하버랜드"],
+    # 춘천·통영·보라카이·파타야 (2026-11-25)
+    "cc_skywalk": ["소양강스카이워크"], "cc_samak_cable": ["삼악산 케이블카", "삼악산케이블카", "호수케이블카"], "cc_dakgalbi": ["명동 닭갈비골목", "명동닭갈비골목"],
+    "cc_kimyujeong": ["김유정 문학촌", "김유정역"], "cc_makguksu": ["막국수체험박물관", "막국수 체험박물관"], "cc_soyang_dam": ["소양댐"],
+    "ty_cablecar": ["통영 케이블카", "미륵산 케이블카"], "ty_luge": ["통영 루지", "스카이라인 루지"], "ty_dongpirang": ["동피랑"], "ty_jungang": ["통영 중앙시장"],
+    "ty_tongjeyoung": ["삼도수군통제영", "세병관"], "ty_yisunsin": ["이순신공원"],
+    "br_whitebeach": ["화이트 비치", "화이트비치"], "br_dmall": ["디몰"], "br_puka": ["푸카 비치", "푸카셸 비치"], "br_luho": ["루호 산", "루호산"], "br_crystalcove": ["크리스탈 코브"],
+    "pt_kohlarn": ["꼬란", "산호섬"], "pt_nongnooch": ["농눅 빌리지", "농눅빌리지"], "pt_walking": ["파타야 워킹스트리트"], "pt_viewpoint": ["파타야 뷰포인트"],
 }

@@ -1,0 +1,45 @@
+<label for="gm1">인원 (명)</label>
+<input id="gm1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="gm2">식당 식사 금액 합계 (달러, 팁 전)</label>
+<input id="gm2" type="number" inputmode="decimal" placeholder="예: 300"/>
+<label for="gm3">식당 팁 비율 (%)</label>
+<input id="gm3" type="number" inputmode="decimal" placeholder="예: 10 (영수증에 봉사료가 있으면 0)"/>
+<label for="gm4">그 밖의 지출 (달러, 쇼핑·입장·교통 등)</label>
+<input id="gm4" type="number" inputmode="decimal" placeholder="예: 400"/>
+<label for="gm5">호텔 1박 객실 요금 (달러, 세금 전)</label>
+<input id="gm5" type="number" inputmode="decimal" placeholder="예: 200"/>
+<label for="gm6">숙박 수 (박)</label>
+<input id="gm6" type="number" inputmode="numeric" placeholder="예: 4"/>
+<label for="gm7">호텔 객실세율 (%)</label>
+<input id="gm7" type="number" inputmode="decimal" value="11" placeholder="예: 11"/>
+<label for="gm8">환율 (1달러당 원)</label>
+<input id="gm8" type="number" inputmode="decimal" placeholder="예: 1330"/>
+<label for="gm9">카드 해외결제 수수료율 (%)</label>
+<input id="gm9" type="number" inputmode="decimal" placeholder="예: 1.5"/>
+<button onclick="calc_guam_price()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 총액 (카드 수수료 포함)</span><span class="result-value" id="gmT">-</span></div>
+<div class="result-row"><span class="result-label">달러 합계</span><span class="result-value" id="gmD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">팁 금액</span><span class="result-value" id="gmK" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">호텔 객실세</span><span class="result-value" id="gmH" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="gmP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function gm_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function gm_s(i,t){document.getElementById(i).textContent=t;}
+function gm_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function gm_d(x){return '$'+(Math.round(x*100)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calc_guam_price(){
+ var p=Math.floor(gm_v('gm1')),r=gm_v('gm8');
+ if(p<1||r<=0) return alert('인원과 환율(1달러당 원)을 입력해주세요.');
+ var meal=gm_v('gm2'),tip=meal*gm_v('gm3')/100,room=gm_v('gm5')*Math.floor(gm_v('gm6'));
+ var tax=room*gm_v('gm7')/100,usd=meal+tip+gm_v('gm4')+room+tax;
+ var krw=usd*r,tot=krw*(1+gm_v('gm9')/100);
+ gm_s('gmT',gm_w(tot)+' (수수료 '+gm_w(tot-krw)+')');
+ gm_s('gmD',gm_d(usd)+' = '+gm_w(krw));
+ gm_s('gmK',gm_d(tip)+' ('+gm_w(tip*r)+')');
+ gm_s('gmH',gm_d(tax)+' ('+gm_w(tax*r)+')');
+ gm_s('gmP',gm_w(tot/p));
+ document.getElementById('result').classList.add('show');
+}
+</script>

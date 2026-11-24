@@ -854,3 +854,5 @@ from guides_1119 import GUIDES_1119  # noqa: E402  (2026-11-19 대표 지시 '�
 GUIDES += GUIDES_1119
 from daily_1121b import GUIDES_1121B  # noqa: E402  (2026-11-21 21:16 지시 매일 콘텐츠: 히로시마 여행 교통·쿠알라룸푸르 공항에서 시내)
 GUIDES += GUIDES_1121B
+from daily_1125 import GUIDES_1125  # noqa: E402  (2026-11-25 매일 콘텐츠: 보라카이 가는 법·코타키나발루 공항에서 시내)
+GUIDES += GUIDES_1125

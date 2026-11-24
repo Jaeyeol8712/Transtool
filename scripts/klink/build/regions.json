@@ -91,6 +91,20 @@
 "ov": false
 },
 {
+"id": "chuncheon",
+"name": "춘천",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "tongyeong",
+"name": "통영",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -308,6 +322,13 @@
 "ov": true
 },
 {
+"id": "pattaya",
+"name": "파타야",
+"cc": "th",
+"country": "태국",
+"ov": true
+},
+{
 "id": "cebu",
 "name": "세부",
 "cc": "ph",
@@ -324,6 +345,13 @@
 {
 "id": "clark",
 "name": "클락",
+"cc": "ph",
+"country": "필리핀",
+"ov": true
+},
+{
+"id": "boracay",
+"name": "보라카이",
 "cc": "ph",
 "country": "필리핀",
 "ov": true

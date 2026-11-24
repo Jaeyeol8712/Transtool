@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여수 여행 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/yeosu_trip_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="여수 여행 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">여수 여행 경비 계산기</p>
+<label for="ys1">인원 (명)</label>
+<input id="ys1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="ys2">여수 해상케이블카</label>
+<select id="ys2"><option value="g">일반 캐빈 왕복</option><option value="c" selected>크리스탈 캐빈 왕복</option><option value="n">안 탐</option></select>
+<label for="ys3">일반 캐빈 왕복 성인 요금 (원)</label>
+<input id="ys3" type="number" inputmode="decimal" placeholder="예: 17000"/>
+<label for="ys4">크리스탈 캐빈 왕복 성인 요금 (원)</label>
+<input id="ys4" type="number" inputmode="decimal" placeholder="예: 24000"/>
+<label for="ys5">아쿠아플라넷 여수 성인 입장료 (안 가면 0)</label>
+<input id="ys5" type="number" inputmode="decimal" placeholder="예: 37900"/>
+<label for="ys6">교통</label>
+<select id="ys6"><option value="t" selected>KTX (용산↔여수엑스포 왕복)</option><option value="c">자가용</option></select>
+<label for="ys7">KTX 1인 편도 요금 (원)</label>
+<input id="ys7" type="number" inputmode="decimal" placeholder="예: 46000"/>
+<label for="ys8">자가용 왕복 비용 (유류비+통행료, 원)</label>
+<input id="ys8" type="number" inputmode="decimal" placeholder="자가용일 때만, 예: 150000"/>
+<label for="ys9">숙박 1박 요금 (방 전체, 원)</label>
+<input id="ys9" type="number" inputmode="decimal" placeholder="당일이면 0, 예: 120000"/>
+<label for="ys10">숙박 수 (박)</label>
+<input id="ys10" type="number" inputmode="numeric" placeholder="당일이면 0, 예: 1"/>
+<label for="ys11">1인 하루 식비 (원)</label>
+<input id="ys11" type="number" inputmode="decimal" placeholder="예: 50000"/>
+<button onclick="calc_yeosu_budget()">여수 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="ysT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="ysP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">케이블카 · 아쿠아플라넷</span><span class="result-value" id="ysE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">교통 · 숙박 · 식비</span><span class="result-value" id="ysB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function ys_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function ys_s(i,t){document.getElementById(i).textContent=t;}
+function ys_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_yeosu_budget(){
+ var p=Math.floor(ys_v('ys1'));if(p<1) return alert('인원을 입력해주세요.');
+ var cb=document.getElementById('ys2').value,m=document.getElementById('ys6').value,n=Math.floor(ys_v('ys10'));
+ var cable=cb==='g'?ys_v('ys3'):(cb==='c'?ys_v('ys4'):0);
+ var ent=(cable+ys_v('ys5'))*p;
+ var tr=m==='t'?ys_v('ys7')*2*p:ys_v('ys8');
+ var room=ys_v('ys9')*n,food=ys_v('ys11')*p*(n+1),tot=ent+tr+room+food;
+ ys_s('ysT',ys_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ ys_s('ysP',ys_w(tot/p));
+ ys_s('ysE',ys_w(ent)+' (1인 '+ys_w(ent/p)+')');
+ ys_s('ysB','교통 '+ys_w(tr)+' · 숙박 '+ys_w(room)+' · 식비 '+ys_w(food));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/yeosu_trip_budget_calculator.html?utm_source=embed&amp;utm_campaign=yeosu_trip_budget_calculator" target="_blank" rel="noopener">어라운드툴 여수 여행 경비 계산기</a></p>
+</body>
+</html>

@@ -602,4 +602,36 @@ P kb_harborland shop 34.6795 135.1830 1.5 eve dinner o=S | 하버랜드|神户�
 Z kb_z4 | 롯코산·아리마 | Mt. Rokko & Arima
 P kb_rokko night 34.7700 135.2400 2 night | 롯코산|六甲山|Mt. Rokko|六甲山 | 케이블카로 오르는 산 위 야경 전망 | Mountain night views reached by cable car
 P kb_arima nature 34.7968 135.2478 3 o=D | 아리마 온천|有马温泉|Arima Onsen|有馬温泉 | 붉은 금탕·맑은 은탕 온천 마을 | Hot-spring town of golden and silver waters
+
+C boracay ph 11.9674 121.9248 0 270 | 보라카이|长滩岛|Boracay|ボラカイ | 화이트 비치 노을과 섬 호핑의 필리핀 휴양 섬 | Philippine island of White Beach sunsets and island hopping
+A MPH 11.9245 121.9540 30 | 까띠끌란공항|卡蒂克兰机场|Caticlan (MPH)|カティクラン空港
+A KLO 11.6794 122.3760 120 | 칼리보공항|卡利博机场|Kalibo (KLO)|カリボ空港
+S br_s1 11.9725 121.9222 | 스테이션 1|1号站|Station 1|ステーション1 | 화이트 비치 북쪽, 모래가 가장 넓은 구간 | North White Beach, widest stretch of sand
+S br_s2 11.9662 121.9248 | 스테이션 2·디몰|2号站·D'Mall|Station 2 & D'Mall|ステーション2・ディーモール | 디몰·식당 걸어서, 불라복 비치도 가까움 | Walk to D'Mall, restaurants and Bulabog
+Z br_z1 | 화이트 비치·디몰 | White Beach & D'Mall
+P br_whitebeach nature 11.965 121.924 3 eve o=A | 보라카이 화이트 비치|长滩岛白沙滩|Boracay White Beach|ボラカイ ホワイトビーチ | 스테이션 1~3 이어진 4km 해변 | Powdery west-coast beach, Stations 1 to 3
+P br_dmall shop 11.9668 121.9253 1.5 eve dinner o=S | 보라카이 디몰|长滩岛D'Mall|D'Mall Boracay|ディーモール(ボラカイ) | 스테이션 2 쇼핑·식당 거리 | Open-air shopping and dining lanes at Station 2
+Z br_z2 | 섬 북쪽·동쪽 | North & East
+P br_puka nature 11.9937 121.9183 2 o=D | 푸카 셸 비치|普卡贝壳海滩|Puka Shell Beach|プカシェルビーチ | 섬 북쪽 끝의 조용한 해변 | Quieter beach at the island's northern tip
+P br_bulabog fun 11.962 121.931 1.5 o=A | 불라복 비치|布拉博海滩|Bulabog Beach|ブラボッグビーチ | 섬 동쪽 카이트서핑 해변 | East-coast kitesurfing beach
+P br_luho nature 11.9760 121.9310 1 am o=D | 루호 산 전망대|卢霍山观景台|Mt. Luho View Deck|ルホ山展望台 | 보라카이에서 가장 높은 전망 지점 | Highest viewpoint on Boracay
+Z br_z3 | 섬 호핑 | Island hopping
+P br_crystalcove nature 11.9426 121.9407 4 am o=D | 크리스탈 코브 섬|水晶湾岛|Crystal Cove Island|クリスタルコーブ島 | 섬 호핑 때 들르는 동굴·바위 섬 | Island-hopping stop with caves and coves
+
+C pattaya th 12.9276 100.8771 0 360 | 파타야|芭提雅|Pattaya|パタヤ | 방콕 근교 바다 도시, 산호섬과 진리의 성전 | Beach city near Bangkok with Coral Island and the Sanctuary of Truth
+A BKK 13.6900 100.7501 105 | 수완나품공항|素万那普机场|Suvarnabhumi (BKK)|スワンナプーム空港
+A UTP 12.6799 101.0050 45 | 우타파오공항|乌塔堡机场|U-Tapao (UTP)|ウタパオ空港
+S pt_stay_beach 12.937 100.885 | 파타야 비치로드 주변|芭提雅海滩路周边|Pattaya Beach Road|パタヤ・ビーチロード周辺 | 워킹 스트리트·발리하이 부두 가깝고 썽태우 타기 쉬움 | Near Walking Street and Bali Hai Pier, easy baht buses
+S pt_stay_jomtien 12.885 100.872 | 좀티엔 해변 주변|宗甸海滩周边|Jomtien Beach|ジョムティエン・ビーチ周辺 | 조용한 해변 숙소, 가족 여행과 농눅 빌리지 가기 좋음 | Quieter beach stays, good for families and Nong Nooch
+Z pt_z1 | 파타야 시내 | Central Pattaya
+P pt_beach nature 12.937 100.8835 1.5 eve o=A | 파타야 비치|芭提雅海滩|Pattaya Beach|パタヤ・ビーチ | 시내 중심 해변로를 따라 놓인 해변 | City beach along Beach Road
+P pt_walking night 12.927 100.8718 1.5 night o=N | 파타야 워킹 스트리트|芭提雅步行街|Pattaya Walking Street|パタヤ・ウォーキングストリート | 해변로 남쪽 끝의 밤거리 | Nightlife street at the south end of Beach Road
+P pt_viewpoint nature 12.9198 100.8678 0.7 eve o=A | 파타야 뷰포인트 (프라탐낙 언덕)|芭提雅观景台 (帕塔纳克山)|Pattaya Viewpoint (Pratumnak Hill)|パタヤ・ビューポイント (プラタムナックの丘) | 파타야 만과 꼬란이 보이는 언덕 | Hilltop view over Pattaya Bay and Koh Larn
+Z pt_z2 | 나끄루아 (북쪽) | Naklua (North)
+P pt_sanctuary palace 12.9726 100.889 1.5 am o=D | 진리의 성전|真理寺|Sanctuary of Truth|サンクチュアリー・オブ・トゥルース | 나무로만 지은 거대한 바닷가 성전 | Seaside temple-museum carved entirely of wood
+Z pt_z3 | 좀티엔·남쪽 | Jomtien & South
+P pt_jomtien nature 12.887 100.8705 2 eve o=A | 좀티엔 해변|宗甸海滩|Jomtien Beach|ジョムティエン・ビーチ | 파타야 남쪽의 길고 조용한 해변 | Long, quieter beach south of Pattaya
+P pt_nongnooch nature 12.7646 100.9349 4 o=D | 농눅 빌리지 (농눅 트로피컬 가든)|东芭乐园 (农诺热带植物园)|Nong Nooch Tropical Garden|ノンヌッチ・トロピカルガーデン | 식물 1만 8천여 종의 대형 정원 | Huge garden with 18,000+ plants and Thai shows
+Z pt_z4 | 꼬란 (섬) | Koh Larn
+P pt_kohlarn nature 12.9195 100.7815 6 o=D | 꼬란 (산호섬)|格兰岛 (珊瑚岛)|Koh Larn (Coral Island)|ラン島 (コーラル島) | 발리하이 부두에서 배로 가는 섬 | Island reached by ferry from Bali Hai Pier
 """

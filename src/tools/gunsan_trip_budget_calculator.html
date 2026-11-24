@@ -1,0 +1,42 @@
+<label for="gsb1">인원 (명)</label>
+<input id="gsb1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="gsb2">군산근대역사박물관 성인 관람권 (통합권 3,000 · 개별 2,000, 안 가면 0)</label>
+<input id="gsb2" type="number" inputmode="decimal" placeholder="예: 3000"/>
+<label for="gsb3">선유도 오가는 1인 왕복 비용 (버스 등, 안 가면 0)</label>
+<input id="gsb3" type="number" inputmode="decimal" placeholder="예: 4000"/>
+<label for="gsb4">교통</label>
+<select id="gsb4"><option value="t" selected>열차 (용산↔군산 왕복)</option><option value="c">자가용</option></select>
+<label for="gsb5">열차 1인 편도 요금 (원)</label>
+<input id="gsb5" type="number" inputmode="decimal" placeholder="예: 21600"/>
+<label for="gsb6">자가용 왕복 비용 (유류비+통행료, 원)</label>
+<input id="gsb6" type="number" inputmode="decimal" placeholder="자가용일 때만, 예: 90000"/>
+<label for="gsb7">숙박 1박 요금 (방 전체, 원)</label>
+<input id="gsb7" type="number" inputmode="decimal" placeholder="당일이면 0, 예: 100000"/>
+<label for="gsb8">숙박 수 (박)</label>
+<input id="gsb8" type="number" inputmode="numeric" placeholder="당일이면 0, 예: 1"/>
+<label for="gsb9">1인 하루 식비 (원)</label>
+<input id="gsb9" type="number" inputmode="decimal" placeholder="예: 40000"/>
+<button onclick="calc_gunsan_budget()">군산 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="gsbT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="gsbP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">박물관 · 선유도 이동</span><span class="result-value" id="gsbE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">교통 · 숙박 · 식비</span><span class="result-value" id="gsbB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function gsb_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function gsb_s(i,t){document.getElementById(i).textContent=t;}
+function gsb_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_gunsan_budget(){
+ var p=Math.floor(gsb_v('gsb1'));if(p<1) return alert('인원을 입력해주세요.');
+ var m=document.getElementById('gsb4').value,n=Math.floor(gsb_v('gsb8'));
+ var loc=(gsb_v('gsb2')+gsb_v('gsb3'))*p;
+ var tr=m==='t'?gsb_v('gsb5')*2*p:gsb_v('gsb6');
+ var room=gsb_v('gsb7')*n,food=gsb_v('gsb9')*p*(n+1),tot=loc+tr+room+food;
+ gsb_s('gsbT',gsb_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ gsb_s('gsbP',gsb_w(tot/p));
+ gsb_s('gsbE',gsb_w(loc)+' (1인 '+gsb_w(loc/p)+')');
+ gsb_s('gsbB','교통 '+gsb_w(tr)+' · 숙박 '+gsb_w(room)+' · 식비 '+gsb_w(food));
+ document.getElementById('result').classList.add('show');
+}
+</script>
