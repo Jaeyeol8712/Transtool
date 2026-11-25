@@ -293,7 +293,7 @@ LEGACY_REDIRECTS = {
     "sul-anju.html": "yeonsu-sul-anju.html", "cafe.html": "yeonsu-cafe.html",
     "hambak.html": "yeonsu-hambak.html", "daily_calorie_calculator.html": "calorie_calculator.html",
 }
-UNTOUCHED = {"portfolio.html", "Portfolio.dc.html", "stats.html", "categories-section.html"}
+UNTOUCHED = {"portfolio.html", "po.html", "Portfolio.dc.html", "stats.html", "categories-section.html"}
 
 UPDATES = [  # (날짜, 말머리, 제목, 링크)
     ("2026-10-24", "맛집", "지역별 맛집 모아보기 21곳 공개 — 구·시 단위로 전체 가게 한눈에", "/haeundae.html"),

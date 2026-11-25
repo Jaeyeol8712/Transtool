@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="Yeti" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이재열 · 검색·바이럴 마케팅 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2E5BE8;--blue-l:#F2F5FE;--navy:#1B3A8C;--org:#F5703A;--org-l:#FEF6F2;
+  --ink:#141A24;--grey:#5C6672;--grey-c:#8A94A6;--line:#E7EAEF;--mono:"IBM Plex Mono",monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E9ECF2}
+body{font-family:"IBM Plex Sans KR",system-ui,sans-serif;color:var(--ink);letter-spacing:-.01em;word-break:keep-all}
+img{display:block;max-width:100%}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,p{margin:0}
+
+/* 도구 막대 */
+.bar{position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:.6rem;padding:.55rem 1rem;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-size:13px}
+.bar b{font-weight:700}.bar .sp{flex:1}
+.bar button{font:inherit;font-weight:600;border:1px solid var(--line);background:#fff;border-radius:99px;padding:.35rem .9rem;cursor:pointer}
+.bar button.solid{background:var(--blue);border-color:var(--blue);color:#fff}
+.bar .cnt{font-family:var(--mono);color:var(--grey)}
+
+/* 슬라이드: 1280×720 기준, 화면 폭에 맞춰 축소 */
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 12px 60px}
+.frame{width:min(1280px,100%);aspect-ratio:16/9;position:relative;box-shadow:0 6px 24px rgba(20,26,36,.10);border-radius:6px;overflow:hidden;background:#fff}
+.slide{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;background:#fff;padding:56px 72px 48px;display:flex;flex-direction:column}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.42em;color:var(--blue);font-weight:600;text-transform:uppercase;margin-bottom:12px}
+.kick.o{color:var(--org)}
+h2{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.3}
+.lead{font-size:15px;color:var(--grey);margin-top:10px;line-height:1.65}
+.foot{position:absolute;left:72px;right:72px;bottom:22px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--grey-c)}
+.meta{margin-top:18px;font-size:13.5px;line-height:1.85}
+.meta b{display:inline-block;width:82px;font-weight:700}
+.role-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.32em;color:var(--grey);font-weight:600;margin:22px 0 10px}
+.role li{font-size:14px;line-height:1.6;padding-left:14px;position:relative;margin-bottom:7px}
+.role li:before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.result{margin-top:auto;margin-bottom:26px;background:var(--org-l);border-radius:6px;padding:12px 18px;font-size:14px;font-weight:700;display:flex;gap:18px;align-items:center}
+.result:before{content:"RESULT";font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--org);font-weight:600}
+.result.b{background:var(--blue-l)}.result.b:before{color:var(--blue)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.shot{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fafbfc}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cap{font-size:11px;color:var(--grey-c);text-align:center;margin-top:6px}
+.kpis{display:flex;gap:12px;margin-top:20px}
+.kpi{border:1px solid var(--line);border-radius:8px;padding:12px 16px;min-width:170px}
+.kpi small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.25em;color:var(--grey-c);font-weight:600}
+.kpi b{display:block;font-size:24px;color:var(--org);font-weight:700;margin-top:2px}
+.kpi.bl b{color:var(--blue)}
+.kpi span{font-size:12px;color:var(--grey)}
+.pill{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:3px 11px;margin:0 6px 6px 0;color:var(--grey)}
+
+/* 표지 */
+.cover{background:var(--blue);color:#fff;padding:80px 88px}
+.cover .kick{color:rgba(255,255,255,.8)}
+.cover h1{font-size:54px;font-weight:300;letter-spacing:.02em;margin-top:78px}
+.cover .t{font-size:34px;font-weight:700;line-height:1.38;margin-top:28px;letter-spacing:-.03em}
+.cover .s{font-size:15px;opacity:.85;margin-top:24px;line-height:1.7}
+.cover .ph{position:absolute;right:96px;top:150px;width:220px;height:280px;object-fit:cover;border:6px solid #fff;border-radius:4px}
+.cover .ct{position:absolute;left:88px;right:88px;bottom:44px;display:flex;justify-content:space-between;font-size:12.5px;opacity:.9}
+
+/* 강점 카드 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.card{border:1px solid var(--line);border-radius:8px;padding:16px 20px;display:flex;gap:16px}
+.card .n{font-family:var(--mono);color:var(--blue);font-weight:600;font-size:14px}
+.card h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+.card p{font-size:12.5px;color:var(--grey);line-height:1.6}
+
+/* 경력 */
+.exp{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.exp .row{display:grid;grid-template-columns:200px 1fr;border:1px solid var(--line);border-radius:8px;padding:16px 24px;align-items:center}
+.exp .d{font-family:var(--mono);font-size:14px;color:var(--org);font-weight:600}
+.exp .d small{display:block;color:var(--grey-c);font-size:11px;font-weight:500;margin-top:2px}
+.exp h3{font-size:17px;font-weight:700}
+.exp h3 span{font-size:12.5px;font-weight:600;color:var(--grey);margin-left:8px}
+.exp p{font-size:12.5px;color:var(--grey);margin-top:4px;line-height:1.6}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{background:#fff}
+  .bar{display:none}
+  .deck{padding:0;gap:0}
+  .frame{width:1280px!important;height:720px;box-shadow:none;border-radius:0;page-break-after:always;break-after:page}
+  .slide{transform:none!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="bar"><b>이재열 포트폴리오</b><span class="cnt" id="cnt"></span><span class="sp"></span>
+<button onclick="window.print()" class="solid">PDF로 저장</button></div>
+
+<main class="deck">
+
+<!-- 1 표지 -->
+<div class="frame"><section class="slide cover">
+  <div class="kick">PORTFOLIO 2026</div>
+  <h1>이재열</h1>
+  <p class="t">고객이 스스로 찾아오는<br>검색 유입 구조를 설계합니다</p>
+  <p class="s">네이버·다음 상위노출 바이럴부터 구글 기술적 SEO, AI 기반 콘텐츠 자동화까지<br>광고비 의존도를 낮추고 자연 유입 전환을 키우는 10년 차 검색·바이럴 마케터</p>
+  <img class="ph" src="/profile.jpg" alt="이재열 프로필 사진">
+  <div class="ct"><span>010-4678-3296 · dlwoduf87@kakao.com</span><span>www.aroundtool.com</span></div>
+</section></div>
+
+<!-- 2 프로필 -->
+<div class="frame"><section class="slide">
+  <div class="kick">P R O F I L E</div>
+  <h2>프로필 &amp; 핵심 요약</h2>
+  <p class="lead">약 10년간 B2C 플랫폼(인크루트)과 고관여 서비스(결혼정보 · 바로연·수현)에서 포털 바이럴, 기술적 SEO, 콘텐츠 기획, 전환 퍼널 개선을 맡아 왔습니다.<br>유료 광고에 기대기보다 블로그·카페 상위노출과 SEO 구조로 마케팅 비용 대비 효율(ROI)을 높이는 데 강점이 있습니다.</p>
+  <div class="grid2">
+    <div class="card"><span class="n">01</span><div><h3>포털 바이럴 &amp; 검색 점유율</h3><p>검색 의도 분석 기반 메인·롱테일 키워드 분배, 블로그·카페 상위노출, 순위 이탈 키워드 리라이팅</p></div></div>
+    <div class="card"><span class="n">02</span><div><h3>SEO &amp; AEO/GEO 직접 구축</h3><p>메타 태그·사이트맵·구조화 데이터를 직접 설계·배포해 개발 의존도 없는 오가닉 유입 구조 구축</p></div></div>
+    <div class="card"><span class="n">03</span><div><h3>전환 퍼널 개선 &amp; 데이터 분석</h3><p>GA4·에어브릿지 유입·이탈 분석, 랜딩 UX/UI 개선과 카카오 싱크 도입으로 DB 전환율 개선</p></div></div>
+    <div class="card"><span class="n">04</span><div><h3>AI 활용 &amp; 웹 프로토타이핑</h3><p>생성형 AI로 계산기 44종 웹 서비스(aroundtool.com)를 단독 기획·개발·운영하며 상위노출 검증</p></div></div>
+  </div>
+  <div class="meta" style="margin-top:20px">
+    <div><b>SKILLS</b>기획 · 마케팅 · 브랜딩 · 홍보 · 전략기획 · 퍼블리시티 · KPI관리 · 스토리텔링 · 시장조사 · 인플루언서</div>
+    <div><b>TOOLS</b>GA4 · 에어브릿지 · 네이버 · 다음 · 구글 · GitHub · 생성형 AI</div>
+  </div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>2</span></div>
+</section></div>
+
+<!-- 3 경력 -->
+<div class="frame"><section class="slide">
+  <div class="kick">E X P E R I E N C E</div>
+  <h2>경력 요약 · 총 9년 10개월</h2>
+  <p class="lead">세 회사에서 맡은 일을 프로젝트 영역으로 나눠 정리했습니다.</p>
+  <div class="exp">
+    <div class="row"><div class="d">2025.07 ~ 2026.10<small>1년 4개월</small></div><div><h3>고유알앤디 (바로연 결혼정보)<span>바이럴팀 · 과장</span></h3><p>네이버·다음 바이럴 총괄 / 키워드 상위노출·리라이팅 / 홈페이지 리뉴얼·카카오 싱크 / B2B 제휴 / 퍼포먼스 대행사 KPI 관리</p></div></div>
+    <div class="row"><div class="d">2017.02 ~ 2025.03<small>8년 2개월</small></div><div><h3>인크루트㈜<span>검색마케팅팀 · 사원</span></h3><p>Technical SEO 직접 구축 / 자연 유입 자동화 구조 설계 / GA4·에어브릿지 데이터 분석 / 신규 HR Tech 브랜드 론칭</p></div></div>
+    <div class="row"><div class="d">2015.11 ~ 2017.02<small>1년 4개월</small></div><div><h3>주식회사 바로연 · 수현(주)<span>바이럴팀 · 사원</span></h3><p>포털 키워드 리서치 / 메인·롱테일 키워드 분배 / 블로그·카페 상위노출 관리 및 이탈 키워드 리라이팅</p></div></div>
+  </div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>3</span></div>
+</section></div>
+
+<!-- 4 바로연 상위노출 -->
+<div class="frame"><section class="slide">
+  <div class="kick o">B A R O Y E O N · V I R A L</div>
+  <h2>네이버 블로그·카페 상위노출 및 검색 점유율 극대화</h2>
+  <div class="cols" style="grid-template-columns:1.15fr 1fr">
+    <div>
+      <div class="meta"><div><b>Objective</b>고비용 유료 광고 의존도를 낮추고, 상담 전환율이 높은 타깃(전문직·VIP·연령별) 고객의 자연 검색 유입 증대</div></div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>타깃군별 검색 의도 분석 기반 콘텐츠 기획</li>
+        <li>블로그·카페 메인/롱테일 키워드 분배</li>
+        <li>실시간 노출 순위 추적 및 이탈 키워드 리라이팅</li>
+        <li>타깃 밀집 커뮤니티 침투형 바이럴 운영</li>
+      </ul>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px">
+      <div><div class="shot" style="height:300px"><img src="/portfolio_assets/journey/8-1.jpg" alt="SEO 콘텐츠 사례"></div><p class="cap">SEO 콘텐츠</p></div>
+      <div><div class="shot" style="height:300px"><img src="/portfolio_assets/journey/8-3.jpg" alt="전환 랜딩페이지"></div><p class="cap">전환 랜딩페이지</p></div>
+    </div>
+  </div>
+  <div class="result">추가 광고비 투입 없이 핵심 키워드 상위노출을 유지하며 고품질 유효 상담 DB 유입량 지속 확대</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>4</span></div>
+</section></div>
+
+<!-- 5 홈페이지 리뉴얼 -->
+<div class="frame"><section class="slide">
+  <div class="kick o">B A R O Y E O N · C O N V E R S I O N</div>
+  <h2>홈페이지 리뉴얼 및 전환 동선 재설계</h2>
+  <div class="cols">
+    <div><div class="shot" style="height:330px;margin-top:20px"><img src="/baroyeon.png" alt="홈페이지 리뉴얼" style="object-fit:contain;background:#fff"></div><p class="cap">홈페이지 리뉴얼 — 상담 전환 동선 재설계</p></div>
+    <div>
+      <div class="meta"><div><b>Objective</b>자연 검색·바이럴 유입 고객의 체류시간을 늘리고 온라인 무료 상담 신청 전환율 극대화</div></div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>사용자 여정 기반 UX/UI 개선</li>
+        <li>상담 신청 페이지에 카카오 싱크 도입 — 입력 이탈 축소, 간편 접수 환경 구축</li>
+        <li>검색·바이럴 유입이 상담 신청으로 이어지는 동선 설계</li>
+      </ul>
+    </div>
+  </div>
+  <div class="result">브랜드 검색 조회수·평균 체류시간 증가, 허수 DB 감소 및 실제 상담 연결률(DB 품질) 개선</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>5</span></div>
+</section></div>
+
+<!-- 6 B2B 제휴 · 브랜드 채널 -->
+<div class="frame"><section class="slide">
+  <div class="kick o">B A R O Y E O N · P A R T N E R S H I P</div>
+  <h2>B2B 커뮤니티 제휴 및 브랜드 채널 확장</h2>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+    <div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>아파트 입주민·종교·직장인 커뮤니티 대상 B2B 제휴 프로모션 기획·진행</li>
+        <li>공식 SNS(인스타그램·페이스북) 운영</li>
+        <li>보도자료 작성·배포(PR)</li>
+        <li>오프라인 미팅파티 기획</li>
+      </ul>
+      <div class="kpis">
+        <div class="kpi"><small>B2B 제휴</small><b>8,000만원</b><span>연 매출 달성</span></div>
+        <div class="kpi"><small>SNS</small><b>120%</b><span>정량 KPI 초과 달성</span></div>
+        <div class="kpi"><small>INFLUENCER</small><b>15명</b><span>협업 진행</span></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">
+      <div><div class="shot" style="height:150px"><img src="/portfolio_assets/journey/6-1.jpg" alt="제휴 서비스 안내"></div><p class="cap">제휴 서비스 안내</p></div>
+      <div><div class="shot" style="height:150px"><img src="/news.png" alt="보도기사"></div><p class="cap">PR · 보도기사</p></div>
+      <div><div class="shot" style="height:150px"><img src="/portfolio_assets/journey/7-1.jpg" alt="미팅파티"></div><p class="cap">미팅파티</p></div>
+      <div><div class="shot" style="height:150px"><img src="/baroyeon_site.jpg" alt="SNS 채널"></div><p class="cap">SNS 채널</p></div>
+    </div>
+  </div>
+  <div class="result">광고 외 B2B 제휴 채널에서 연 매출 8,000만 원 달성</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>6</span></div>
+</section></div>
+
+<!-- 7 대행사 관리 -->
+<div class="frame"><section class="slide">
+  <div class="kick o">B A R O Y E O N · P E R F O R M A N C E</div>
+  <h2>퍼포먼스 광고 대행사 관리 및 매체 효율화 지원</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.1fr">
+    <div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>네이버·구글 검색광고(SA), 메타·카카오 디스플레이광고(DA) 대행사 KPI 설정</li>
+        <li>일간·월간 집행 효율 모니터링</li>
+        <li>카카오 비즈니스폼 도입 제안</li>
+        <li>자연 검색 인기 키워드 데이터를 공유해 매체 타깃팅 고도화 지원</li>
+      </ul>
+    </div>
+    <div><div class="shot" style="height:320px;margin-top:20px"><img src="/pt1.png" alt="광고 소재 사례" style="object-fit:contain;background:#fff"></div><p class="cap">네이버 브랜드 검색 · 메타 · 카카오 비즈니스폼 소재 사례</p></div>
+  </div>
+  <div class="result">오가닉 검색 데이터를 근거로 유료 매체 타깃팅과 예산 배분을 함께 조정</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>7</span></div>
+</section></div>
+
+<!-- 8 인크루트 기술 SEO -->
+<div class="frame"><section class="slide">
+  <div class="kick">I N C R U I T · T E C H N I C A L S E O</div>
+  <h2>기술 기반 SEO 최적화 및 유입 자동화</h2>
+  <div class="cols" style="grid-template-columns:1fr 1.15fr">
+    <div>
+      <div class="meta"><div><b>Objective</b>유료 검색광고 예산 증액 없이 포털·구글 검색 노출 영역을 넓혀 자연 유입 지속 성장</div></div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>메타 태그·사이트맵(sitemap.xml)·구조화 데이터 직접 작성 및 배포</li>
+        <li>GitHub 기반 웹문서로 검색 노출 범위 확장</li>
+        <li>GA4 트래픽 모니터링 대시보드 구축</li>
+      </ul>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px">
+      <div><div class="shot" style="height:250px"><img src="/incruit_news.jpg" alt="네이버 검색 결과 노출"></div><p class="cap">네이버 검색 결과 노출</p></div>
+      <div><div class="shot" style="height:250px"><img src="/ga4.png" alt="GA4 Organic 추적" style="object-fit:contain;background:#fff"></div><p class="cap">GA4 Organic 추적</p></div>
+    </div>
+  </div>
+  <div class="result b">개발팀 의존도를 낮춘 자생적 유입 구조로, 광고비 추가 없이 자연 유입이 지속 우상향하는 기반 확립</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>8</span></div>
+</section></div>
+
+<!-- 9 인크루트 고객 여정 -->
+<div class="frame"><section class="slide">
+  <div class="kick">I N C R U I T · D A T A</div>
+  <h2>데이터 기반 고객 여정 진단 및 마케팅 ROI 개선</h2>
+  <div class="cols" style="grid-template-columns:1.15fr 1fr">
+    <div><div class="shot" style="height:320px;margin-top:20px"><img src="/ga4_dashboard.jpg" alt="GA4 고객 여정 대시보드" style="object-fit:contain;background:#fff"></div><p class="cap">GA4 · 에어브릿지 기반 고객 여정 데이터</p></div>
+    <div>
+      <div class="meta"><div><b>Objective</b>검색 유입 고객의 이탈 구간을 진단하고 재방문·회원 전환율을 높이는 퍼널 구조 구축</div></div>
+      <div class="role-h">MAIN ROLE</div>
+      <ul class="role">
+        <li>GA4·에어브릿지 데이터로 유입 키워드·행동 패턴별 세그먼트 분류</li>
+        <li>타깃별 랜딩 및 메시지 다변화 설계</li>
+        <li>저효율 유료 매체 예산을 고효율 자연 유입·CRM 영역으로 재배치</li>
+      </ul>
+    </div>
+  </div>
+  <div class="result b">저효율 매체 예산 축소와 리소스 재배치로 전체 마케팅 ROI 최적화</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>9</span></div>
+</section></div>
+
+<!-- 10 브랜드 론칭 -->
+<div class="frame"><section class="slide">
+  <div class="kick">I N C R U I T · L A U N C H</div>
+  <h2>신규 HR Tech 브랜드 론칭 및 채용설명회 마케팅</h2>
+  <p class="lead">신규 플랫폼 론칭 검색·바이럴부터 B2B 솔루션 마케팅, 채용설명회와 회원 활성화 프로모션까지 반복 운영했습니다.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px">
+    <div class="card" style="flex-direction:column;gap:10px"><h3>신규 플랫폼 론칭</h3><p>알바콜 · 뉴워커 · 셜록N · 잘쓸랩 검색·바이럴 마케팅</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/1-1.jpg" alt="알바콜"></div><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/1-2.jpg" alt="셜록N"></div></div></div>
+    <div class="card" style="flex-direction:column;gap:10px"><h3>B2B 마케팅</h3><p>인크루트 VIEW · 화상면접 · 메타버스 채용박람회</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/2-2.jpg" alt="화상면접"></div><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/2-3.jpg" alt="메타버스 채용박람회"></div></div></div>
+    <div class="card" style="flex-direction:column;gap:10px"><h3>채용설명회 · 회원 활성화</h3><p>제16~23회 채용설명회 · 회원 활성화 프로모션</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/3-1.jpg" alt="채용설명회"></div><div class="shot" style="height:120px"><img src="/portfolio_assets/journey/4-2.jpg" alt="회원 활성화 프로모션"></div></div></div>
+  </div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>10</span></div>
+</section></div>
+
+<!-- 11 어라운드툴 -->
+<div class="frame"><section class="slide">
+  <div class="kick o">S I D E · P R O J E C T</div>
+  <h2>어라운드툴 (aroundtool.com) — 100% 단독 기획·개발·SEO 운영</h2>
+  <p class="lead">실무 SEO·AEO 가설과 AI 활용 역량을 직접 검증하려고 전 과정을 혼자 구축한 웹 유틸리티 플랫폼입니다.</p>
+  <div class="grid2" style="margin-top:22px">
+    <div class="card"><span class="n">기획</span><div><p style="color:var(--ink);font-size:13.5px">검색 수요가 높은 생활·금융 계산기 키워드 분석, 카테고리 정보구조(IA) 설계</p></div></div>
+    <div class="card"><span class="n">개발</span><div><p style="color:var(--ink);font-size:13.5px">생성형 AI로 계산 로직, 반응형 UI, 웹 페이지 소스 코드 단독 구현</p></div></div>
+    <div class="card"><span class="n">배포</span><div><p style="color:var(--ink);font-size:13.5px">GitHub 저장소 연동, 구조화 데이터(JSON-LD)·sitemap.xml·llms.txt 작성 후 배포</p></div></div>
+    <div class="card"><span class="n">운영</span><div><p style="color:var(--ink);font-size:13.5px">GA4 대시보드로 유입 키워드·체류시간 분석, 무료 계산기 서비스 상용 운영</p></div></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><small>SERVICE</small><b>44종+</b><span>무료 계산기 운영 중</span></div>
+    <div class="kpi bl"><small>OWNERSHIP</small><b>100%</b><span>기획·코드·배포·분석 단독</span></div>
+  </div>
+  <div class="result">소스 코드 단위의 기술적 SEO와 바이럴·콘텐츠 기획 역량을 직접 증명</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>11</span></div>
+</section></div>
+
+<!-- 12 자격·학력 -->
+<div class="frame"><section class="slide">
+  <div class="kick">C E R T I F I C A T E · E D U C A T I O N</div>
+  <h2>자격 사항 및 학력</h2>
+  <div class="exp">
+    <div class="row"><div class="d">2016.03</div><div><h3>검색광고마케터 1급<span>한국정보통신진흥협회</span></h3></div></div>
+    <div class="row"><div class="d">—</div><div><h3>Google Analytics Certification<span>구글</span></h3></div></div>
+    <div class="row"><div class="d">2026.07</div><div><h3>OpenAI Academy 인공지능 기초 / 응용<span>OpenAI Academy</span></h3></div></div>
+    <div class="row"><div class="d">졸업</div><div><h3>공주대학교 영상학과<span>4년제 · 주간</span></h3></div></div>
+  </div>
+  <div class="result b">010-4678-3296 · dlwoduf87@kakao.com · www.aroundtool.com</div>
+  <div class="foot"><span>LEE JAE YEOL / PORTFOLIO</span><span>12</span></div>
+</section></div>
+
+</main>
+<script>
+(function(){
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  function fit(){frames.forEach(function(f){var s=f.querySelector('.slide');s.style.transform='scale('+(f.clientWidth/1280)+')';});}
+  window.addEventListener('resize',fit);fit();
+  document.getElementById('cnt').textContent=frames.length+' slides';
+  var i=0;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'){i=Math.min(frames.length-1,i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){i=Math.max(0,i-1);} else return;
+    e.preventDefault();frames[i].scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
+</script>
+</body>
+</html>
