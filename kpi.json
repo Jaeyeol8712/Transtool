@@ -4,7 +4,7 @@
   "users": 32,
   "sessions": 38,
   "views": 40,
-  "organic": 30
+  "organic": 31
  },
  "yday0": {
   "date": "2026-11-23",
@@ -92,7 +92,7 @@
    "users": 78,
    "sessions": 91,
    "views": 133,
-   "organic": 70
+   "organic": 71
   }
  ],
  "lastWeek": {
@@ -232,7 +232,7 @@
    "position": null
   }
  ],
- "made": "2026-11-24T23:26:56.168Z",
+ "made": "2026-11-25T05:26:41.762Z",
  "range": "2026-11-18 ~ 2026-11-24",
  "prevRange": "2026-11-11 ~ 2026-11-17",
  "cur": {
@@ -246,15 +246,15 @@
   "views": 383
  },
  "organic": {
-  "cur": 195,
+  "cur": 196,
   "prev": 126
  },
  "channels": {
   "cur": {
-   "Organic Search": 195,
+   "Organic Search": 196,
    "Direct": 44,
    "AI Assistant": 9,
-   "Unassigned": 2
+   "Unassigned": 1
   },
   "prev": {
    "Organic Search": 126,
@@ -417,12 +417,12 @@
    "sessions": 26
   },
   {
-   "page": "/interior_calculator.html",
+   "page": "(not set)",
    "sessions": 11
   },
   {
-   "page": "(not set)",
-   "sessions": 9
+   "page": "/interior_calculator.html",
+   "sessions": 11
   },
   {
    "page": "/gas_bill_calculator.html",
