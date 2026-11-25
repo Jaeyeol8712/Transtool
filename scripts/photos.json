@@ -4862,5 +4862,37 @@
   "height": 1707,
   "alt": "나라 공원 단풍과 사슴",
   "caption": "일본 나라 공원 사슴"
+ },
+ "b-tongyeong-cablecar": {
+  "id": "commons:7806464",
+  "title": "Korea-Tongyeong-Hallyeo Waterway Observation Cable Car-01.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Korea-Tongyeong-Hallyeo_Waterway_Observation_Cable_Car-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "creator": "by Junho Jung at Flickr from South Korea",
+  "creator_url": null,
+  "license": "by-sa",
+  "license_version": "3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:Korea-Tongyeong-Hallyeo_Waterway_Observation_Cable_Car-01.jpg",
+  "source": "wikimedia",
+  "width": 2792,
+  "height": 1861,
+  "alt": "통영 미륵산 숲 위를 지나는 한려수도 조망 케이블카",
+  "caption": "통영 한려수도 조망 케이블카"
+ },
+ "b-chuncheon-soyangdam": {
+  "id": "commons:10796957",
+  "title": "SoyangDam.JPG",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/SoyangDam.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "creator": "User:Jjw",
+  "creator_url": null,
+  "license": "by-sa",
+  "license_version": "3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:SoyangDam.JPG",
+  "source": "wikimedia",
+  "width": 3872,
+  "height": 2592,
+  "alt": "산으로 둘러싸인 소양호와 소양강댐 글씨",
+  "caption": "춘천 소양호"
  }
 }
