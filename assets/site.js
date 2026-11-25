@@ -123,7 +123,7 @@
       transport_type: 'beacon'
     };
     for (var k in (extra || {})) p[k] = extra[k];
-    if (window.gtag) gtag('event', 'cta_click', p);
+    if (window.gtag) gtag('event', 'cta_click', p); try { if (window.clarity) { clarity('event', 'cta_click'); clarity('set', 'cta_click', 'yes'); } } catch (e) {}
   };
   if (mobile) {
     document.addEventListener('click', function (e) {
@@ -173,7 +173,7 @@
       prevFocus = document.activeElement;   /* 닫으면 원래 자리로 초점을 돌려줍니다 */
       pop.hidden = false; document.documentElement.classList.add('at-pop-open');
       var go = pop.querySelector('[data-pop-go]'); if (go) go.focus();
-      if (window.gtag) gtag('event', 'popup_view', { post: pop.getAttribute('data-at-popup') });
+      if (window.gtag) gtag('event', 'popup_view', { post: pop.getAttribute('data-at-popup') }); try { if (window.clarity) clarity('event', 'popup_view'); } catch (e) {}
     };
     var closePop = function () {
       if (pop.hidden) return;
@@ -184,6 +184,7 @@
     pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', closePop); });
     var goBtn = pop.querySelector('[data-pop-go]');
     if (goBtn) goBtn.addEventListener('click', function () {
+      try { if (window.clarity) { clarity('event', 'popup_click'); clarity('set', 'popup_click', 'yes'); } } catch (e) {}
       if (window.gtag) gtag('event', 'popup_click', { post: pop.getAttribute('data-at-popup'), transport_type: 'beacon' });
       closePop();
     });
