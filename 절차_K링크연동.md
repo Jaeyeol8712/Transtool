@@ -13,5 +13,6 @@
 
 - K링크에 없는 장소를 글에 썼다면, 공식 출처로 확인한 뒤 `scripts/klink/tools/places_master.py`(국내)·`overseas_data.py`(해외)에 추가하는 안건을 함께 올린다.
 - 이름이 흔한 낱말(시장·해변·케이블카 등)은 자동 연결에서 빠진다(build.py K_LINK_GENERIC). 장소 이름은 고유한 부분까지 쓴다.
+- 매일 콘텐츠의 '기존 지역 글'은 `scripts/klink/build/link_gaps.json`의 빈 장소(글 연결 없는 곳)를 먼저 주제로 고르고, 본문에 그 장소 이름을 정확히 쓴다. (2026-11-25, 안건 i261125-02)
 - 빌드 뒤 확인: `klink/around.json`의 regions[지역].courses, spots[장소].f/t/gu. 현황은 `scripts/klink/build/spots_todo.json`.
 - 금지: 예약·결제·문의 대행 문구, 근거 없는 가격·운영 시간, 지어낸 가게.
