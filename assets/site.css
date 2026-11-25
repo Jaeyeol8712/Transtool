@@ -553,6 +553,9 @@ html.at-pop-open{overflow:hidden}
 .at-pager button[aria-current="page"]{background:var(--at-ink);border-color:var(--at-ink);color:#fff}
 .at-shop-item[hidden]{display:none}
 .at-sm-h{font-size:1rem;margin:1.4rem 0 .5rem}
+/* 정보성 → 추천 글 문맥 링크 (11-26) */
+.at-ctx-link{margin:1.2rem 0 .4rem;padding:.8rem 1rem;border-left:3px solid var(--at-brand);background:var(--at-surface);border-radius:0 12px 12px 0;font-size:1rem;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+.at-ctx-link a{color:var(--at-brand);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 /* 추천 모음 홍보 카드 */
 .at-sp-grid{list-style:none;margin:0;padding:.9rem 1.1rem .4rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
 .at-sp-card{display:flex;flex-direction:column;gap:.3rem;color:inherit;text-decoration:none;border:1px solid var(--at-line);border-radius:12px;overflow:hidden;background:var(--at-surface);height:100%}

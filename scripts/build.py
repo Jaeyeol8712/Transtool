@@ -1245,6 +1245,29 @@ def shop_promo_html(p, n=4, title="추천 모음에서 함께 보면 좋은 글"
             f'</section>')
 
 
+# ── 정보성 → 추천 글 문맥 링크 (2026-11-26 대표 컨펌, SEO 제안 S2) ──
+# 노출 많은 계산기·가이드에서 주제가 맞는 추천 글 하나로 이어 주는 한 줄. 제목·URL은 바꾸지 않는다.
+CONTEXT_LINKS = {
+    "japan_travel_calculator": ("fukuoka-3days", "일본 여행 경비를 계산해 봤다면, 후쿠오카 2박 3일 코스와 비용을 정리한 글도 함께 보세요."),
+    "guide-japan-travel-budget": ("fukuoka-3days", "예산을 잡았다면 후쿠오카 2박 3일 코스와 비용을 정리한 글로 일정을 비교해 보세요."),
+    "exchange_rate_calculator": ("danang-5days", "해외여행 환전 금액을 정하는 중이라면, 다낭 5일 코스와 비용을 정리한 글도 참고해 보세요."),
+    "heater_electricity_cost_calculator": ("navien-water-mat", "난방기 전기요금이 부담된다면, 온수매트 고르는 기준을 정리한 글도 참고해 보세요."),
+    "spacing_checker": ("student-office-laptop", "과제·자기소개서를 자주 쓴다면, 인강·사무용 노트북 고르는 법을 정리한 글도 참고해 보세요."),
+}
+
+
+def context_link_html(p):
+    item = CONTEXT_LINKS.get(p["file"][:-5])
+    if not item or not SHOP_LIVE:
+        return ""
+    q = next((q for q in SHOP_LIVE if q["post"]["slug"] == item[0]), None)
+    if not q:
+        return ""
+    post = q["post"]
+    return (f'<p class="at-ctx-link">{esc(item[1])} '
+            f'<a href="/{q["file"]}"{track_attr("ctx-" + post["slug"], post, "ctx", "internal")}>{esc(q["title"])} →</a></p>\n')
+
+
 def top_block(p, board=True):
     return (f"<!-- at:top -->\n{header_html(p)}\n<div class=\"at-wrap\">\n{crumb_html(p)}\n"
             f"<div class=\"at-layout\">\n<div class=\"at-content\" id=\"at-main\" tabindex=\"-1\">\n"
@@ -1766,7 +1789,7 @@ def inject_klink_course():
 
 
 def bottom_block(p):
-    return (f"<!-- at:bottom -->\n{klink_cta_html(p)}\n{shop_promo_html(p)}\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
+    return (f"<!-- at:bottom -->\n{context_link_html(p)}{klink_cta_html(p)}\n{shop_promo_html(p)}\n{related_html(p)}\n{cross_html(p)}\n</div>\n{side_html()}\n</div>\n</div>\n{footer_html()}\n"
             f'<script src="/assets/site.js?v={JS_V}" defer></script>\n<!-- /at:bottom -->')
 
 
