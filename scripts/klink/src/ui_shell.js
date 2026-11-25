@@ -320,6 +320,15 @@ function p2Data(id) {
   items.push(['tip', '꿀팁', tip[0], tip[1]]);
   return { p, lk, g, tip, items };
 }
+/* 이 장소가 나오는 글 (2026-11-25 i261125-03): around.json spots[id].t(여행)·f(맛집) — 3개까지 보이고 나머지는 접기 */
+function p2Posts(lk) {
+  const seen = new Set(), rows = [...(lk.t || []).map(x => ['여행', x]), ...(lk.f || []).map(x => ['맛집', x])]
+    .filter(([, x]) => x && x.url && !seen.has(x.url) && seen.add(x.url));
+  if (!rows.length) return '';
+  const row = ([tag, x]) => `<a class="p2-it" href="${esc(x.url)}" target="_blank" rel="noopener"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(x.name)}</b>${x.desc ? `<small>${esc(x.desc)}</small>` : ''}</span><span class="p2-ar">›</span></a>`;
+  const more = rows.slice(3);
+  return `<h3 class="p2-h p2-line">이 장소가 나오는 글</h3>${rows.slice(0, 3).map(row).join('')}${more.length ? `<details class="p2-more"><summary>글 ${more.length}개 더 보기</summary>${more.map(row).join('')}</details>` : ''}`;
+}
 function placeDetail2(id) {
   const { p, lk, items } = p2Data(id), sp = lk.s, F_ = sp ? sp.facts : null;
   const near = PLACES.filter(q => q.r === p.r && q.id !== id).map(q => [hav(p, q), q]).sort((a, b) => a[0] - b[0]).slice(0, 3);
@@ -337,6 +346,7 @@ function placeDetail2(id) {
     <p class="p2-sub">${esc(p.st || '')}${F_ && F_.hours ? ` · ${esc(String(F_.hours).split(' · ')[0])}` : ''}</p>
     <div class="p2-acts"><button class="btn ghost k-save ${isSaved(id) ? 'on' : ''}" data-save="${id}" aria-pressed="${isSaved(id)}">${isSaved(id) ? ICONS.heartF : ICONS.heart}<span>여행지 저장</span></button></div>
     ${nearHtml ? `<h3 class="p2-h">주변 추천 여행지</h3><div class="p2-nears">${nearHtml}</div>` : ''}
+    ${p2Posts(lk)}
     <h3 class="p2-h p2-line">어라운드툴에서 보기</h3>
     ${items.map(([k, tag, t, d]) => `<button class="p2-it" onclick="p2Pop('${k}','${id}')"><span class="p2-tag">${tag}</span><span class="tx"><b>${esc(t)}</b><small>${esc(d)}</small></span><span class="p2-ar">›</span></button>`).join('')}
   </div>`;
