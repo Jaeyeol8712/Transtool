@@ -288,7 +288,7 @@ function savedRegions() {
   for (const r of rs) if (!S.order.includes(r)) S.order.push(r);
   return S.order.slice();
 }
-function track(name, p) { try { if (typeof gtag === 'function') gtag('event', name, p || {}); } catch (e) {} }
+function track(name, p) { try { if (typeof gtag === 'function') gtag('event', name, p || {}); } catch (e) {} try { if (typeof clarity === 'function') { clarity('event', name); clarity('set', 'klink_' + name.replace(/^klink_/, ''), 'yes'); } } catch (e) {} }   // 2026-11-25 클래리티: 행동별 녹화 필터
 function toggleSave(id) {
   const i = S.saved.indexOf(id);
   if (i >= 0) S.saved.splice(i, 1); else S.saved.push(id);
