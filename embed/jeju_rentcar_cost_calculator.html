@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제주 렌트카 비용 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/jeju_rentcar_cost_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="제주 렌트카 비용 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">제주 렌트카 비용 계산기</p>
+<label for="jr1">인원 (명)</label>
+<input id="jr1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="jr2">대여 일수 (일, 24시간 = 1일)</label>
+<input id="jr2" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="jr3">하루 대여료 (원, 보험 빼고)</label>
+<input id="jr3" type="number" inputmode="decimal" placeholder="예약 화면 금액, 예: 40000"/>
+<label for="jr4">자차보험</label>
+<select id="jr4"><option value="g">일반 자차</option><option value="f" selected>완전 자차</option><option value="n">가입 안 함</option></select>
+<label for="jr5">일반 자차 하루 요금 (원)</label>
+<input id="jr5" type="number" inputmode="decimal" placeholder="예: 10000"/>
+<label for="jr6">완전 자차 하루 요금 (원)</label>
+<input id="jr6" type="number" inputmode="decimal" placeholder="예: 20000"/>
+<label for="jr7">예상 주행거리 (km, 제주공항 인수·반납 포함)</label>
+<input id="jr7" type="number" inputmode="decimal" placeholder="예: 250"/>
+<label for="jr8">연비 (km/L)</label>
+<input id="jr8" type="number" inputmode="decimal" placeholder="예: 12"/>
+<label for="jr9">휘발유 가격 (원/L, 오피넷 제주 평균)</label>
+<input id="jr9" type="number" inputmode="decimal" placeholder="예: 1885"/>
+<label for="jr10">주차·카시트·기타 (원)</label>
+<input id="jr10" type="number" inputmode="decimal" placeholder="예: 20000"/>
+<button onclick="calc_jeju_rentcar()">제주 렌트카 비용 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">렌트카 총비용</span><span class="result-value" id="jrT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="jrP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">대여료 · 자차보험</span><span class="result-value" id="jrR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">유류비</span><span class="result-value" id="jrF" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">하루당</span><span class="result-value" id="jrD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function jr_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function jr_s(i,t){document.getElementById(i).textContent=t;}
+function jr_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_jeju_rentcar(){
+ var p=Math.floor(jr_v('jr1')),d=Math.floor(jr_v('jr2'));
+ if(p<1||d<1) return alert('인원과 대여 일수를 입력해주세요.');
+ var ins=document.getElementById('jr4').value;
+ var rent=jr_v('jr3')*d,insd=ins==='g'?jr_v('jr5'):(ins==='f'?jr_v('jr6'):0),insT=insd*d;
+ var km=jr_v('jr7'),eff=jr_v('jr8'),fuel=eff>0?km/eff*jr_v('jr9'):0;
+ var etc=jr_v('jr10'),tot=rent+insT+fuel+etc;
+ jr_s('jrT',jr_w(tot)+' ('+d+'일)');
+ jr_s('jrP',jr_w(tot/p));
+ jr_s('jrR','대여료 '+jr_w(rent)+' · 보험 '+jr_w(insT));
+ jr_s('jrF',jr_w(fuel)+' ('+(eff>0?(Math.round(km/eff*10)/10).toLocaleString('ko-KR'):0)+'L)');
+ jr_s('jrD',jr_w(tot/d));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/jeju_rentcar_cost_calculator.html?utm_source=embed&amp;utm_campaign=jeju_rentcar_cost_calculator" target="_blank" rel="noopener">어라운드툴 제주 렌트카 비용 계산기</a></p>
+</body>
+</html>

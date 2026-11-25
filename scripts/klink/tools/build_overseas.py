@@ -17,8 +17,8 @@ sys.path.insert(0, HERE)
 import overseas_data as OD  # noqa: E402
 
 B = lambda f: os.path.join(ROOT, 'build', f)
-KR = ['seoul', 'busan', 'jeju', 'gyeongju', 'gangneung', 'jeonju', 'yeosu', 'gunsan', 'mokpo', 'danyang', 'pohang', 'sokcho', 'daegu', 'chuncheon', 'tongyeong']
-KR_NAME = {'seoul': '서울', 'busan': '부산', 'jeju': '제주', 'gyeongju': '경주', 'gangneung': '강릉', 'jeonju': '전주', 'yeosu': '여수', 'gunsan': '군산', 'mokpo': '목포', 'danyang': '단양', 'pohang': '포항', 'sokcho': '속초', 'daegu': '대구', 'chuncheon': '춘천', 'tongyeong': '통영'}
+KR = ['seoul', 'busan', 'jeju', 'gyeongju', 'gangneung', 'jeonju', 'yeosu', 'gunsan', 'mokpo', 'danyang', 'pohang', 'sokcho', 'daegu', 'chuncheon', 'tongyeong', 'ulsan', 'damyang']
+KR_NAME = {'seoul': '서울', 'busan': '부산', 'jeju': '제주', 'gyeongju': '경주', 'gangneung': '강릉', 'jeonju': '전주', 'yeosu': '여수', 'gunsan': '군산', 'mokpo': '목포', 'danyang': '단양', 'pohang': '포항', 'sokcho': '속초', 'daegu': '대구', 'chuncheon': '춘천', 'tongyeong': '통영', 'ulsan': '울산', 'damyang': '담양'}
 CATS = {'palace', 'food', 'skin', 'shop', 'cafe', 'kpop', 'night', 'nature', 'fun'}
 HOURS = {'A': [0, 24], 'D': [9, 17], 'S': [10, 21], 'N': [17, 23.5], 'M': [6, 14], 'F': [11, 21], 'T': [9, 19]}
 CAT_O = {'palace': 'D', 'nature': 'A', 'food': 'F', 'cafe': 'S', 'shop': 'S', 'night': 'A', 'fun': 'T'}

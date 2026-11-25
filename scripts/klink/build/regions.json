@@ -105,6 +105,20 @@
 "ov": false
 },
 {
+"id": "ulsan",
+"name": "울산",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "damyang",
+"name": "담양",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -217,6 +231,13 @@
 "ov": true
 },
 {
+"id": "hakone",
+"name": "하코네",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
 "id": "taipei",
 "name": "타이베이",
 "cc": "tw",
@@ -296,6 +317,13 @@
 {
 "id": "phuquoc",
 "name": "푸꾸옥",
+"cc": "vn",
+"country": "베트남",
+"ov": true
+},
+{
+"id": "dalat",
+"name": "달랏",
 "cc": "vn",
 "country": "베트남",
 "ov": true

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>롯데월드 입장료 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/lotteworld_ticket_family_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=65d589ab">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="롯데월드 입장료 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">롯데월드 입장료 계산기</p>
+<label for="lw1">권종</label>
+<select id="lw1"><option value="d" selected>종합이용권 (1Day)</option><option value="a">종합이용권 After4 (오후 4시부터)</option></select>
+<label for="lw2">어른 인원 (명)</label>
+<input id="lw2" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="lw3">청소년 인원 (명)</label>
+<input id="lw3" type="number" inputmode="numeric" placeholder="예: 1"/>
+<label for="lw4">어린이 인원 (명)</label>
+<input id="lw4" type="number" inputmode="numeric" placeholder="예: 1"/>
+<label for="lw5">1Day 요금 어른 · 청소년 · 어린이 (원)</label>
+<input id="lw5" type="number" inputmode="decimal" placeholder="어른, 예: 67000"/>
+<input id="lw6" type="number" inputmode="decimal" placeholder="청소년, 예: 58000"/>
+<input id="lw7" type="number" inputmode="decimal" placeholder="어린이, 예: 50000"/>
+<label for="lw8">After4 요금 어른 · 청소년 · 어린이 (원)</label>
+<input id="lw8" type="number" inputmode="decimal" placeholder="어른 (공식 홈페이지 요금)"/>
+<input id="lw9" type="number" inputmode="decimal" placeholder="청소년 (공식 홈페이지 요금)"/>
+<input id="lw10" type="number" inputmode="decimal" placeholder="어린이 (공식 홈페이지 요금)"/>
+<label for="lw11">카드·제휴 할인율 (%, 롯데월드 이용권에만)</label>
+<input id="lw11" type="number" inputmode="decimal" placeholder="없으면 0, 예: 20"/>
+<label for="lw12">롯데월드타워 서울스카이</label>
+<select id="lw12"><option value="y" selected>함께 감</option><option value="n">안 감</option></select>
+<label for="lw13">서울스카이 성인 요금 (만 13세 이상, 원)</label>
+<input id="lw13" type="number" inputmode="decimal" placeholder="예: 31000"/>
+<label for="lw14">서울스카이 어린이 요금 (원)</label>
+<input id="lw14" type="number" inputmode="decimal" placeholder="예: 27000"/>
+<button onclick="calc_lotteworld_family()">입장료 합계 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 입장료</span><span class="result-value" id="lwT">-</span></div>
+<div class="result-row"><span class="result-label">1인 평균</span><span class="result-value" id="lwP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">롯데월드 이용권</span><span class="result-value" id="lwA" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">서울스카이</span><span class="result-value" id="lwS" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function lw_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function lw_s(i,t){document.getElementById(i).textContent=t;}
+function lw_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_lotteworld_family(){
+ var a=Math.floor(lw_v('lw2')),y=Math.floor(lw_v('lw3')),c=Math.floor(lw_v('lw4')),n=a+y+c;
+ if(n<1) return alert('인원을 입력해주세요.');
+ var t=document.getElementById('lw1').value;
+ var pa=t==='d'?lw_v('lw5'):lw_v('lw8'),py=t==='d'?lw_v('lw6'):lw_v('lw9'),pc=t==='d'?lw_v('lw7'):lw_v('lw10');
+ var base=pa*a+py*y+pc*c,dc=Math.min(lw_v('lw11'),100),park=base*(1-dc/100);
+ var sky=document.getElementById('lw12').value==='y'?lw_v('lw13')*(a+y)+lw_v('lw14')*c:0;
+ var tot=park+sky;
+ lw_s('lwT',lw_w(tot)+' ('+n+'명)');
+ lw_s('lwP',lw_w(tot/n));
+ lw_s('lwA',lw_w(park)+(dc>0?' (정가 '+lw_w(base)+', 할인 '+lw_w(base-park)+')':''));
+ lw_s('lwS',sky?lw_w(sky):'안 감');
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/lotteworld_ticket_family_calculator.html?utm_source=embed&amp;utm_campaign=lotteworld_ticket_family_calculator" target="_blank" rel="noopener">어라운드툴 롯데월드 입장료 계산기</a></p>
+</body>
+</html>

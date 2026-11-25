@@ -208,7 +208,8 @@ TOOL_GROUPS = [
                      "hotel_total_price_calculator", "layover_connection_time_calculator", "daily_budget_left_calculator", "room_split_calculator",
                      "jr_pass_value_calculator", "duty_free_shop_price_compare_calculator",  # 11-19 대표 지시
                      "jeonju_ktx_vs_car_cost_calculator", "danyang_trip_budget_calculator", "vietnam_dong_phuquoc_budget_calculator",  # 11-21(2차) 매일 콘텐츠
-                     "yeosu_trip_budget_calculator", "gunsan_trip_budget_calculator", "guam_price_tip_calculator"]),  # 11-25 매일 콘텐츠
+                     "yeosu_trip_budget_calculator", "gunsan_trip_budget_calculator", "guam_price_tip_calculator",  # 11-25 매일 콘텐츠
+                     "jeju_rentcar_cost_calculator", "lotteworld_ticket_family_calculator", "taiwan_dollar_taipei_budget_calculator"]),  # 11-26 매일 콘텐츠
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -262,6 +263,9 @@ PAGE_DATES.update({f: "2026-11-21" for f in FILES_1121B})
 from daily_1125 import TRIP_PAGES_1125, FILES_1125, KLINK_EXTRA_1125  # noqa: E402  (2026-11-25 매일 콘텐츠 15개: 새 지역 춘천·통영·보라카이·파타야)
 TRIP_PAGES += TRIP_PAGES_1125
 PAGE_DATES.update({f: "2026-11-25" for f in FILES_1125})
+from daily_1126 import TRIP_PAGES_1126, FILES_1126, KLINK_EXTRA_1126  # noqa: E402  (2026-11-26 매일 콘텐츠 15개: 새 지역 울산·담양·달랏·하코네)
+TRIP_PAGES += TRIP_PAGES_1126
+PAGE_DATES.update({f: "2026-11-26" for f in FILES_1126})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -1287,6 +1291,7 @@ KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지
     "danyang": ("단양", None, []), "pohang": ("포항", None, []),  # 2026-11-21 매일 콘텐츠 새 지역
     "sokcho": ("속초", "gangwon", []), "daegu": ("대구", None, []),  # 2026-11-21(2차) 매일 콘텐츠 새 지역
     "chuncheon": ("춘천", None, []), "tongyeong": ("통영", None, []),  # 2026-11-25 매일 콘텐츠 새 지역
+    "ulsan": ("울산", None, []), "damyang": ("담양", None, []),  # 2026-11-26 매일 콘텐츠 새 지역
 }
 
 
@@ -1576,7 +1581,7 @@ def klink_links(pl, zone, gus):
         o["f"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") if PAGES[fl].get("region") != "season" else PAGES[fl].get("cat") or PAGES[fl]["title"],
                    "desc": PAGES[fl].get("detail", "")} for fl in (ranked(foods, 1) + ranked(near, 2))[:3]]
         trips = [f"{slug}.html" for slug, _, _ in TRIP_PAGES if f"{slug}.html" in PAGES and slug != f"travel-{pl['r']}"]
-        trips += [fl for fl in KLINK_EXTRA_1121B + KLINK_EXTRA_1125 if fl in PAGES]  # 2026-11-21: 가이드·계산기도 K링크 '이 장소가 나오는 글'에
+        trips += [fl for fl in KLINK_EXTRA_1121B + KLINK_EXTRA_1125 + KLINK_EXTRA_1126 if fl in PAGES]  # 2026-11-21: 가이드·계산기도 K링크 '이 장소가 나오는 글'에
         trips = [fl for fl in trips if (klink_region_of_detail(fl) or klink_region_of(PAGES[fl])) in (None, pl["r"])]  # 2026-11-21(2차): 다른 K링크 지역 여행 글은 빼기(하코다테 모토마치 ↔ 고베 모토마치 상점가)
         o["t"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") or PAGES[fl]["title"]} for fl in ranked(trips, 3)]
     z = (zone or "").split("·")[0].split(" ")[0]

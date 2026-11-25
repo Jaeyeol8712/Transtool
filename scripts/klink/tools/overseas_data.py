@@ -634,4 +634,36 @@ P pt_jomtien nature 12.887 100.8705 2 eve o=A | 좀티엔 해변|宗甸海滩|Jo
 P pt_nongnooch nature 12.7646 100.9349 4 o=D | 농눅 빌리지 (농눅 트로피컬 가든)|东芭乐园 (农诺热带植物园)|Nong Nooch Tropical Garden|ノンヌッチ・トロピカルガーデン | 식물 1만 8천여 종의 대형 정원 | Huge garden with 18,000+ plants and Thai shows
 Z pt_z4 | 꼬란 (섬) | Koh Larn
 P pt_kohlarn nature 12.9195 100.7815 6 o=D | 꼬란 (산호섬)|格兰岛 (珊瑚岛)|Koh Larn (Coral Island)|ラン島 (コーラル島) | 발리하이 부두에서 배로 가는 섬 | Island reached by ferry from Bali Hai Pier
+
+C dalat vn 11.9410 108.4400 0 300 | 달랏|大叻|Da Lat|ダラット | 해발 1,500m 고원 도시, 호수와 폭포·랑비앙 산 | Cool highland city with a lake, waterfalls and Lang Biang
+A DLI 11.7500 108.3673 45 | 리엔크엉공항|连姜机场|Lien Khuong (DLI)|リエンクオン空港
+S dl_stay_lake 11.94 108.443 | 쑤언흐엉 호수·시내 중심|春香湖·市中心|Xuan Huong Lake & Center|スアンフーン湖・中心部 | 호수 산책로와 광장이 가깝고 시내 대부분을 걸어서 다님 | Lakeside walks and the square nearby, most sights walkable
+S dl_stay_market 11.9435 108.4365 | 달랏 야시장 주변|大叻夜市周边|Da Lat Night Market area|ダラット夜市周辺 | 야시장·달랏 시장 바로 옆, 저녁 먹거리와 택시 잡기 쉬움 | Next to the night market and Da Lat Market, easy food and taxis
+Z dl_z1 | 달랏 시내 | Central Da Lat
+P dl_xuanhuong nature 11.942 108.445 1.5 eve o=A | 쑤언흐엉 호수|春香湖|Xuan Huong Lake|スアンフーン湖 | 시내 한가운데 둘레 약 5km 호수 | Lake of about 5 km around in the city center
+P dl_nightmarket food 11.9428 108.437 1.5 night dinner o=N | 달랏 야시장|大叻夜市|Da Lat Night Market|ダラット夜市 | 달랏 시장 앞 계단 아래 저녁 먹거리 시장 | Evening street-food market below Da Lat Market
+P dl_cathedral palace 11.9367 108.4381 0.5 o=D | 달랏 대성당 (닭 성당)|大叻主教座堂 (鸡教堂)|Da Lat Cathedral (Chicken Church)|ダラット大聖堂 (鶏の教会) | 첨탑 위 닭 조형이 있는 1942년 완공 성당 | Cathedral finished in 1942 with a rooster on its spire
+P dl_crazyhouse fun 11.9352 108.4307 1 am o=D | 크레이지 하우스 (항응아 빌라)|疯狂屋 (姮娥别墅)|Crazy House (Hang Nga Villa)|クレイジーハウス (ハンガー・ヴィラ) | 나무·동굴 모양의 기묘한 건축 숙소 | Surreal tree-and-cave shaped guesthouse
+Z dl_z2 | 남쪽 (뚜옌럼 호수 쪽) | South (Tuyen Lam Lake)
+P dl_datanla nature 11.9014 108.4491 2 o=D | 다딴라 폭포|达坦拉瀑布|Datanla Waterfall|ダタンラの滝 | 알파인 코스터로 내려가는 시내 근처 폭포 | Waterfall near town reached by alpine coaster
+P dl_truclam palace 11.9277 108.4316 3 am o=D | 죽림선원·로빈힐 케이블카|竹林禅院·罗宾山缆车|Truc Lam Monastery & Robin Hill Cable Car|竹林禅院・ロビンヒル・ケーブルカー | 케이블카로 건너가는 호숫가 언덕의 선원 | Zen monastery on a lakeside hill reached by cable car
+P dl_tuyenlam nature 11.8936 108.4256 2 o=A | 뚜옌럼 호수|宣林湖|Tuyen Lam Lake|トゥエンラム湖 | 소나무 숲에 둘러싸인 남쪽 큰 호수 | Large pine-ringed lake south of town
+Z dl_z3 | 북쪽 (랑비앙) | North (Lang Biang)
+P dl_langbiang nature 12.027 108.4396 4 am o=D | 랑비앙 산|朗边山|Lang Biang Mountain|ランビアン山 | 해발 2,167m, 지프나 걸어서 오르는 산 | 2,167 m peak climbed on foot or by jeep
+
+C hakone jp 35.2328 139.1067 1 150 | 하코네|箱根|Hakone|箱根 | 온천 료칸과 화산 계곡, 아시노코를 한 바퀴 도는 도쿄 근교 | Hot-spring inns, a volcanic valley and the Lake Ashi loop near Tokyo
+A HND 35.5494 139.7798 120 | 하네다공항|羽田机场|Haneda (HND)|羽田空港
+A NRT 35.7720 140.3929 180 | 나리타공항|成田机场|Narita (NRT)|成田空港
+S ha_s1 35.2328 139.1067 | 하코네유모토역 주변|箱根汤本站周边|Around Hakone-Yumoto Stn|箱根湯本駅周辺 | 로망스카 도착역, 온천가·버스 출발점 | Romancecar terminus, onsen street and bus hub
+S ha_s2 35.2497 139.0478 | 고라역 주변|强罗站周边|Around Gora Stn|強羅駅周辺 | 케이블카·로프웨이로 바로 오르는 산 위 거점 | Hillside base right by the cable car and ropeway
+Z ha_z1 | 하코네유모토 | Hakone-Yumoto
+P ha_yumoto shop 35.2323 139.1048 2 eve o=S | 하코네유모토 온천가|箱根汤本温泉街|Hakone-Yumoto Onsen Street|箱根湯本温泉街 | 로망스카 도착역 앞 온천·상점 거리 | Onsen and shopping street by the Romancecar terminus
+P ha_tozan fun 35.2497 139.0478 1 am o=D | 하코네 등산열차|箱根登山电车|Hakone Tozan Train|箱根登山電車 | 스위치백으로 고라까지 오르는 산악 열차 | Switchback mountain train up to Gora
+Z ha_z2 | 고라·소운잔·오와쿠다니 | Gora, Sounzan & Owakudani
+P ha_cablecar fun 35.2551 139.0369 0.5 am o=D | 하코네 등산 케이블카|箱根登山缆车|Hakone Tozan Cable Car|箱根登山ケーブルカー | 고라에서 소운잔까지 오르는 케이블카 | Cable car from Gora up to Sounzan
+P ha_ropeway fun 35.2551 139.0369 1 am o=D | 하코네 로프웨이|箱根空中缆车|Hakone Ropeway|箱根ロープウェイ | 소운잔~오와쿠다니~도겐다이 곤돌라 | Gondola from Sounzan over Owakudani to Togendai
+P ha_owakudani nature 35.2440 139.0196 1.5 am o=D | 오와쿠다니|大涌谷|Owakudani|大涌谷 | 연기 오르는 화산 계곡과 검은 달걀 | Steaming volcanic valley and black eggs
+Z ha_z3 | 아시노코·모토하코네 | Lake Ashi & Moto-Hakone
+P ha_cruise fun 35.2027 139.0264 1 o=D | 아시노코 해적선|芦之湖海盗船|Lake Ashi Pirate Ship|芦ノ湖海賊船 | 도겐다이~모토하코네 호수 유람선 | Lake Ashi cruise from Togendai to Moto-Hakone
+P ha_shrine palace 35.2058 139.0246 1 am o=D | 하코네 신사|箱根神社|Hakone Shrine|箱根神社 | 호수 위 붉은 평화의 도리이 | Lakeside shrine with the red Peace Torii
 """

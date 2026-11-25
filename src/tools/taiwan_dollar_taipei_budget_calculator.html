@@ -1,0 +1,42 @@
+<label for="tw1">환율 (1대만달러당 원)</label>
+<input id="tw1" type="number" inputmode="decimal" placeholder="예: 41"/>
+<label for="tw2">인원 (명)</label>
+<input id="tw2" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="tw3">숙박 수 (박)</label>
+<input id="tw3" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="tw4">숙박 1박 요금 (TWD, 방 전체)</label>
+<input id="tw4" type="number" inputmode="decimal" placeholder="예: 3000"/>
+<label for="tw5">1인 하루 식비 (TWD)</label>
+<input id="tw5" type="number" inputmode="decimal" placeholder="예: 1000"/>
+<label for="tw6">1인 교통비 (TWD, 이지카드 충전·택시 등)</label>
+<input id="tw6" type="number" inputmode="decimal" placeholder="예: 500"/>
+<label for="tw7">1인 입장료 (TWD, 101 전망대 등)</label>
+<input id="tw7" type="number" inputmode="decimal" placeholder="예: 600"/>
+<label for="tw8">쇼핑·기타 (TWD, 일행 전체)</label>
+<input id="tw8" type="number" inputmode="decimal" placeholder="예: 2000"/>
+<label for="tw9">카드 해외결제 수수료율 (%)</label>
+<input id="tw9" type="number" inputmode="decimal" placeholder="현금 환전이면 0, 예: 1.5"/>
+<button onclick="calc_taiwan_budget()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 총액 (수수료 포함)</span><span class="result-value" id="twT">-</span></div>
+<div class="result-row"><span class="result-label">대만달러 합계</span><span class="result-value" id="twD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="twP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">숙박 · 식비 · 교통 · 입장 · 기타</span><span class="result-value" id="twB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function tw_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function tw_s(i,t){document.getElementById(i).textContent=t;}
+function tw_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function tw_t(x){return 'NT$'+Math.round(x).toLocaleString('en-US');}
+function calc_taiwan_budget(){
+ var r=tw_v('tw1'),p=Math.floor(tw_v('tw2')),n=Math.floor(tw_v('tw3'));
+ if(r<=0||p<1) return alert('환율과 인원을 입력해주세요.');
+ var room=tw_v('tw4')*n,food=tw_v('tw5')*p*(n+1),tr=tw_v('tw6')*p,ent=tw_v('tw7')*p,etc=tw_v('tw8');
+ var twd=room+food+tr+ent+etc,krw=twd*r,tot=krw*(1+tw_v('tw9')/100);
+ tw_s('twT',tw_w(tot)+' (수수료 '+tw_w(tot-krw)+')');
+ tw_s('twD',tw_t(twd)+' = '+tw_w(krw)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ tw_s('twP',tw_w(tot/p));
+ tw_s('twB',tw_t(room)+' · '+tw_t(food)+' · '+tw_t(tr)+' · '+tw_t(ent)+' · '+tw_t(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>

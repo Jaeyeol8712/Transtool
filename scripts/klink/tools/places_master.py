@@ -156,6 +156,21 @@ ty_tongjeyoung 34.8472 128.4235 9 18 day - 1
 ty_dipirang 34.8421 128.4285 18.5 22 night - 1
 ty_dala 34.7692 128.3993 0 24 eve - 0.7
 ty_yisunsin 34.8438 128.4429 0 24 am - 1
+ul_taehwagang 35.5497 129.2955 0 24 any - 1.5
+ul_daewangam 35.4925 129.4365 0 24 am - 1.5
+ul_ganjeolgot 35.3593 129.3606 0 24 am - 1
+ul_jangsaengpo 35.5012 129.3838 9 18 day - 1.5
+ul_bridge_view 35.5043 129.4042 9 21 night - 0.7
+ul_alps 35.5627 129.0452 9 22 day - 1.5
+ul_eonyang_bulgogi 35.566 129.1225 11 20.5 eve any 1.5
+ul_bangeojin 35.4878 129.4262 7 20 eve any 1
+dm_juknokwon 35.3263 126.9866 9 18 am - 1.5
+dm_gwanbang 35.3275 126.99 0 24 day - 0.7
+dm_noodle 35.3243 126.988 10 20 day any 1
+dm_metasequoia 35.3244 126.995 9 18 day - 1
+dm_metaprovence 35.3218 126.9978 10 20 eve any 1
+dm_soswaewon 35.1866 127.0134 9 17 am - 1
+dm_gasa 35.191 127.0075 9 17 day - 1
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -373,6 +388,37 @@ NEW = [
      ['달아공원', '한려수도 노을 전망 공원'], ['达牙公园', '眺望闲丽水道的日落公园'], ['Dala Park', 'Sunset viewpoint over Hallyeosudo'], ['ダラ公園', '閑麗水道の夕日展望公園']),
     ('ty_yisunsin', 'nature', 'tongyeong', 0, {}, '통영시 정량동 688-1',
      ['통영 이순신공원', '17.3m 동상 선 바닷가 공원'], ['统营李舜臣公园', '立有17.3米铜像的海边公园'], ['Yi Sun-sin Park Tongyeong', 'Seaside park with a 17.3 m statue'], ['統営李舜臣公園', '17.3mの銅像が立つ海辺の公園']),
+    # 2026-11-26 매일 콘텐츠: K링크 새 지역 울산·담양
+    ('ul_taehwagang', 'nature', 'ulsan', 0, {}, '울산 중구 샛강남길 5',
+     ['태화강 국가정원', '십리대숲 있는 국가정원'], ['太和江国家庭园', '有十里竹林的国家庭园'], ['Taehwagang National Garden', 'National garden with the Simni Bamboo Grove'], ['太和江国家庭園', '十里竹林のある国家庭園']),
+    ('ul_daewangam', 'nature', 'ulsan', 0, {}, '울산 동구 등대로 95',
+     ['대왕암공원', '기암 바다와 303m 출렁다리'], ['大王岩公园', '海边奇岩与303米吊桥'], ['Daewangam Park', 'Seaside rocks and a 303 m suspension bridge'], ['大王岩公園', '海辺の奇岩と303mの吊り橋']),
+    ('ul_ganjeolgot', 'nature', 'ulsan', 0, {}, '울산 울주군 서생면 간절곶1길 39-2',
+     ['간절곶', '해 일찍 뜨는 해맞이 명소'], ['艮绝串', '早看日出的海岬与灯塔'], ['Ganjeolgot Cape', 'Early sunrise spot with a lighthouse'], ['艮絶串', '早く日が昇る岬と灯台']),
+    ('ul_jangsaengpo', 'fun', 'ulsan', 3000, {'closed': [1]}, '울산 남구 장생포고래로 271-1',
+     ['장생포 고래문화마을', '옛 고래잡이 마을 재현'], ['长生浦鲸鱼文化村', '重现昔日捕鲸村'], ['Jangsaengpo Whale Culture Village', 'Recreated old whaling village'], ['長生浦クジラ文化村', '昔の捕鯨村を再現']),
+    ('ul_bridge_view', 'night', 'ulsan', 0, {}, '울산 동구 봉수로 155-1',
+     ['울산대교 전망대', '화정산 63m 전망대'], ['蔚山大桥展望台', '华井山上63米展望台'], ['Ulsandaegyo Observatory', '63 m tower over Ulsan Bridge'], ['蔚山大橋展望台', '華井山の63m展望台']),
+    ('ul_alps', 'fun', 'ulsan', 0, {'closed': [1]}, '울산 울주군 상북면 알프스온천5길 103-8',
+     ['영남알프스 복합웰컴센터', '산자락 영화관·클라이밍장'], ['岭南阿尔卑斯综合迎宾中心', '山脚下的影院与攀岩馆'], ['Yeongnam Alps Complex Welcome Center', 'Cinema and climbing gym below the peaks'], ['嶺南アルプス複合ウェルカムセンター', '山麓の映画館とクライミング場']),
+    ('ul_eonyang_bulgogi', 'food', 'ulsan', 0, {}, '울산 울주군 언양읍 헌양길 일대',
+     ['언양불고기 특구', '석쇠 언양불고기 집 모인 곳'], ['彦阳烤牛肉特区', '炭烤彦阳烤牛肉餐馆聚集地'], ['Eonyang Bulgogi Special Zone', 'Cluster of grilled Eonyang bulgogi houses'], ['彦陽プルコギ特区', '網焼き彦陽プルコギ店が集まる所']),
+    ('ul_bangeojin', 'food', 'ulsan', 0, {'closed': [1]}, '울산 동구 중진2길 5',
+     ['방어진 활어센터', '방어진항 옆 활어 시장'], ['方鱼津活鱼中心', '方鱼津港旁的活鱼市场'], ['Bangeojin Live Fish Center', 'Live fish market by Bangeojin Port'], ['方魚津活魚センター', '方魚津港そばの活魚市場']),
+    ('dm_juknokwon', 'nature', 'damyang', 3000, {}, '담양군 담양읍 죽녹원로 119',
+     ['죽녹원', '8가지 산책로의 대나무숲 정원'], ['竹绿苑', '有八条主题步道的竹林园'], ['Juknokwon Bamboo Garden', 'Bamboo forest with eight themed trails'], ['竹緑苑', '8つのテーマ散策路がある竹林']),
+    ('dm_gwanbang', 'nature', 'damyang', 0, {}, '담양군 담양읍 남사리 일원',
+     ['관방제림', '300년 노거수 담양천 둑길'], ['官防堤林', '潭阳川堤岸的三百年古树林'], ['Gwanbangjerim Forest', '300-year-old trees along the Damyangcheon levee'], ['官防堤林', '潭陽川の堤防に続く樹齢300年の並木']),
+    ('dm_noodle', 'food', 'damyang', 0, {}, '담양군 담양읍 객사3길 일대',
+     ['담양 국수거리', '강변 국숫집 음식테마거리'], ['潭阳面条街', '江边的面馆一条街'], ['Damyang Noodle Street', 'Riverside row of noodle houses'], ['潭陽ククス通り', '川沿いに麺の店が並ぶ通り']),
+    ('dm_metasequoia', 'nature', 'damyang', 2000, {}, '담양군 담양읍 메타세쿼이아로 12',
+     ['담양 메타세쿼이아길', '1972년 심은 5km 가로수길'], ['潭阳水杉林荫路', '1972年种植的5公里林荫道'], ['Damyang Metasequoia-lined Road', '5 km tree-lined road planted in 1972'], ['潭陽メタセコイア並木道', '1972年に植えられた5kmの並木道']),
+    ('dm_metaprovence', 'shop', 'damyang', 0, {}, '담양군 담양읍 깊은실길 2-17',
+     ['담양 메타프로방스', '프로방스풍 상점·공방 단지'], ['潭阳Meta Provence', '普罗旺斯风格商街与工坊'], ['Damyang Meta Provence', 'Provence-style shops and workshops'], ['潭陽メタプロバンス', 'プロヴァンス風の店と工房の街']),
+    ('dm_soswaewon', 'palace', 'damyang', 2000, {}, '담양군 가사문학면 소쇄원길 17',
+     ['소쇄원', '조선 선비의 계곡 원림'], ['潇洒园', '朝鲜士人的溪谷园林'], ['Soswaewon Garden', "Joseon scholar's valley garden"], ['瀟灑園', '朝鮮時代の士人が造った渓谷の庭園']),
+    ('dm_gasa', 'palace', 'damyang', 0, {}, '담양군 가사문학면 가사문학로 877',
+     ['한국가사문학관', '송순·정철 가사문학 전시관'], ['韩国歌辞文学馆', '宋纯·郑澈歌辞文学展馆'], ['Korea Gasa Literature Museum', 'Gasa poetry of Song Sun and Jeong Cheol'], ['韓国歌辞文学館', '宋純・鄭澈の歌辞文学の展示館']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.

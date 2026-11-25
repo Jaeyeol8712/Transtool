@@ -32,7 +32,9 @@ const REGIONS = {
   sokcho:    { lat: 38.2070, lng: 128.5918, sub: false, air: 'ICN', fromSeoul: 150, t: ['속초', '束草', 'Sokcho', '束草'] },
   daegu:     { lat: 35.8714, lng: 128.6014, sub: false, air: 'ICN', fromSeoul: 110, t: ['대구', '大邱', 'Daegu', '大邱'] },
   chuncheon: { lat: 37.8813, lng: 127.7298, sub: false, air: 'ICN', fromSeoul: 70, t: ['춘천', '春川', 'Chuncheon', '春川'] },
-  tongyeong: { lat: 34.8420, lng: 128.4250, sub: false, air: 'ICN', fromSeoul: 240, t: ['통영', '统营', 'Tongyeong', '統営'] }
+  tongyeong: { lat: 34.8420, lng: 128.4250, sub: false, air: 'ICN', fromSeoul: 240, t: ['통영', '统营', 'Tongyeong', '統営'] },
+  ulsan:     { lat: 35.5384, lng: 129.3114, sub: false, air: 'ICN', fromSeoul: 140, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
+  damyang:   { lat: 35.3200, lng: 126.9900, sub: false, air: 'ICN', fromSeoul: 210, t: ['담양', '潭阳', 'Damyang', '潭陽'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -63,13 +65,14 @@ Object.assign(AIRPORTS, {
   JNH: { lat: 35.8497, lng: 127.1617, r: 'jeonju', home: true, t: ['전주', '全州', 'Jeonju', '全州'] },
   GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
   MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
+  DMH: { lat: 35.3210, lng: 126.9860, r: 'damyang', home: true, t: ['담양', '潭阳', 'Damyang', '潭陽'] },
   TYH: { lat: 34.8810, lng: 128.4140, r: 'tongyeong', home: true, t: ['통영', '统营', 'Tongyeong', '統営'] },
   SCB: { lat: 38.1898, lng: 128.6008, r: 'sokcho', home: true, t: ['속초', '束草', 'Sokcho', '束草'] },
   DYH: { lat: 36.9670, lng: 128.3420, r: 'danyang', home: true, t: ['단양', '丹阳', 'Danyang', '丹陽'] },
   YSH: { lat: 34.753, lng: 127.747, r: 'yeosu', home: true, t: ['여수', '丽水', 'Yeosu', '麗水'] },
   PHG: { lat: 36.0718, lng: 129.3418, r: 'pohang', home: true, t: ['포항', '浦项', 'Pohang', '浦項'] },
   GJH: { lat: 35.7983, lng: 129.1386, r: 'gyeongju', home: true, t: ['경주', '庆州', 'Gyeongju', '慶州'] },
-  ULS: { lat: 35.5513, lng: 129.1384, r: null, home: true, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
+  ULS: { lat: 35.5513, lng: 129.1384, r: 'ulsan', home: true, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
   CWN: { lat: 35.2335, lng: 128.6807, r: null, home: true, t: ['창원', '昌原', 'Changwon', '昌原'] },
   JJH: { lat: 33.4996, lng: 126.5312, r: 'jeju', home: true, t: ['제주', '济州', 'Jeju', '済州'] }
 });
@@ -116,7 +119,11 @@ const STAYS = [
   ['cc_stay_station', 'chuncheon', 37.8846, 127.7168, ["춘천역 주변", "春川站周边", "Chuncheon Station area", "春川駅周辺"], ["ITX·전철 도착 후 바로, 소양강 스카이워크도 가까워요", "下车即到，离昭阳江天空步道也近", "Right by ITX/subway arrivals, near Soyanggang Skywalk", "ITX・電車ですぐ、昭陽江スカイウォークにも近い"]],
   ['cc_stay_myeongdong', 'chuncheon', 37.8805, 127.729, ["명동·중앙로 주변", "明洞·中央路周边", "Myeongdong & Jungang-ro area", "明洞・中央路周辺"], ["닭갈비골목·명동 거리·중앙시장을 걸어서 묶기 좋아요", "步行可到鸡排街、明洞街和中央市场", "Walk to Dakgalbi Street, Myeongdong and Jungang Market", "タッカルビ通り・明洞・中央市場へ歩いて回れる"]],
   ['ty_stay_ganguan', 'tongyeong', 34.8445, 128.4255, ["강구안·통영중앙시장 주변", "江口岸·统营中央市场周边", "Gangguan & Jungang Market area", "江口岸・統営中央市場周辺"], ["동피랑·통제영·디피랑을 걸어서 다녀요", "步行可到东皮郎、统制营和Dpirang", "Walk to Dongpirang, Tongjeyeong and Dpirang", "東ピラン・統制営・ディピランへ徒歩圏"]],
-  ['ty_stay_donam', 'tongyeong', 34.827, 128.4215, ["도남동 관광단지 (케이블카·루지) 주변", "道南洞旅游区（缆车·滑车）周边", "Donam-dong resort area (cable car & luge)", "道南洞観光団地（ケーブルカー・リュージュ）周辺"], ["아침 일찍 케이블카·루지 타기 좋아요", "适合一早坐缆车、玩滑车", "Easy early start for the cable car and luge", "朝一番のケーブルカー・リュージュに便利"]]
+  ['ty_stay_donam', 'tongyeong', 34.827, 128.4215, ["도남동 관광단지 (케이블카·루지) 주변", "道南洞旅游区（缆车·滑车）周边", "Donam-dong resort area (cable car & luge)", "道南洞観光団地（ケーブルカー・リュージュ）周辺"], ["아침 일찍 케이블카·루지 타기 좋아요", "适合一早坐缆车、玩滑车", "Easy early start for the cable car and luge", "朝一番のケーブルカー・リュージュに便利"]],
+  ['ul_stay_samsan', 'ulsan', 35.539, 129.337, ["태화강역·삼산동 주변", "太和江站·三山洞周边", "Taehwagang Station & Samsan-dong area", "太和江駅・三山洞周辺"], ["태화강 국가정원·장생포로 가기 편한 시내 중심", "去太和江国家庭园和长生浦都方便的市中心", "Central base for Taehwagang Garden and Jangsaengpo", "太和江国家庭園・長生浦へ行きやすい市中心"]],
+  ['ul_stay_ilsan', 'ulsan', 35.4975, 129.43, ["일산해수욕장 주변", "日山海水浴场周边", "Ilsan Beach area", "日山海水浴場周辺"], ["대왕암공원·방어진 활어센터를 걸어서 묶기 좋아요", "步行可到大王岩公园和方鱼津活鱼中心", "Walk to Daewangam Park and Bangeojin fish market", "大王岩公園・方魚津活魚センターへ歩いて回れる"]],
+  ['dm_stay_juknokwon', 'damyang', 35.3245, 126.989, ["담양읍 죽녹원·관방제림 주변", "潭阳邑竹绿苑·官防堤林周边", "Damyang-eup (Juknokwon & Gwanbangjerim)", "潭陽邑 竹緑苑・官防堤林周辺"], ["죽녹원·관방제림·담양 국수거리를 걸어서 묶기 좋아요", "步行可到竹绿苑、官防堤林和面条街", "Walk to Juknokwon, Gwanbangjerim and Noodle Street", "竹緑苑・官防堤林・ククス通りへ歩いて回れる"]],
+  ['dm_stay_metaprovence', 'damyang', 35.3218, 126.9978, ["메타프로방스·메타세쿼이아길 주변", "Meta Provence·水杉林荫路周边", "Meta Provence & Metasequoia Road area", "メタプロバンス・メタセコイア並木道周辺"], ["아침 일찍 가로수길을 걷고 저녁엔 상점가를 둘러봐요", "清晨走林荫道，傍晚逛商街", "Early walks on the tree-lined road, evenings in the shops", "朝は並木道を歩き、夜は商店街を散策"]]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -134,7 +141,9 @@ const REGION_TAG = {
   sokcho: ['설악산과 동해 바다, 시장 먹거리를 함께 즐기는 강원 바닷가 도시', '雪岳山、东海与市场美食兼备的江原海滨城市', 'Gangwon seaside city of Seoraksan, the East Sea and market food', '雪岳山と東海、市場グルメがそろう江原の港町'],
   daegu: ['근대골목·시장·야경과 대구 10미를 함께 즐기는 도시', '近代胡同、市场、夜景与大邱十味', 'Modern alleys, markets, night views and Daegu\'s 10 signature dishes', '近代路地・市場・夜景と大邱十味の街'],
   chuncheon: ['호수와 강 위 스카이워크, 막국수·닭갈비의 도시', '湖泊与江上天空步道，荞麦冷面与铁板鸡之城', 'Lakes, a river skywalk, makguksu and dakgalbi', '湖と川のスカイウォーク、マックッス・タッカルビの街'],
-  tongyeong: ['한려수도 바다와 케이블카, 벽화마을과 충무김밥', '闲丽水道海景、缆车、壁画村与忠武紫菜包饭', 'Hallyeo waterway views, a cable car, mural village and Chungmu gimbap', '閑麗水道の海とケーブルカー、壁画村と忠武キンパ']
+  tongyeong: ['한려수도 바다와 케이블카, 벽화마을과 충무김밥', '闲丽水道海景、缆车、壁画村与忠武紫菜包饭', 'Hallyeo waterway views, a cable car, mural village and Chungmu gimbap', '閑麗水道の海とケーブルカー、壁画村と忠武キンパ'],
+  ulsan: ["국가정원과 바다, 고래·언양불고기로 이름난 동해 산업 도시", "以国家庭园、大海、鲸鱼和彦阳烤牛肉闻名的东海岸工业城市", "East Sea industrial city of a national garden, whales and Eonyang bulgogi", "国家庭園と海、クジラと彦陽プルコギで知られる東海岸の産業都市"],
+  damyang: ["대숲과 메타세쿼이아 가로수길, 떡갈비·대통밥의 남도 대나무 고장", "竹林与水杉林荫路、牛肉饼和竹筒饭的南道竹乡", "Southern bamboo town of forests, metasequoia roads, tteokgalbi and bamboo rice", "竹林とメタセコイア並木、トッカルビと竹筒ご飯の南道の竹の里"]
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;

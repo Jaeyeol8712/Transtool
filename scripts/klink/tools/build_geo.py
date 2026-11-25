@@ -47,6 +47,8 @@ def region_of_code(code, name):
     if code == '32060': return 'sokcho'  # 2026-11-21(2차)
     if code == '32010': return 'chuncheon'  # 2026-11-25
     if code == '38050': return 'tongyeong'  # 2026-11-25
+    if code.startswith('26'): return 'ulsan'  # 2026-11-26 (KOSTAT 2013 울산 26xxx)
+    if code == '36310': return 'damyang'  # 2026-11-26
     if code.startswith('22') and code != '22310': return 'daegu'  # 달성군 제외
     return None
 MF = [(f['properties']['code'], f['properties']['name'].replace('전주시', ''), shape(f['geometry']).buffer(0)) for f in muni['features']]
@@ -70,7 +72,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
- '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'춘천시':['春川市','Chuncheon-si','春川市'],'통영시':['统营市','Tongyeong-si','統営市'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
+ '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'춘천시':['春川市','Chuncheon-si','春川市'],'통영시':['统营市','Tongyeong-si','統営市'],'울주군':['蔚州郡','Ulju-gun','蔚州郡'],'담양군':['潭阳郡','Damyang-gun','潭陽郡'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
  'jeju': [('jj_city', ['jj_pork','jj_dongmun','jj_dutyfree'], ['제주 시내','济州市区','Jeju City','済州市内']),
@@ -120,6 +122,16 @@ ZONES = {
            ('ty_ganguan', ['ty_dongpirang', 'ty_jungang', 'ty_tongjeyoung', 'ty_dipirang'], ['강구안 원도심', '江口岸老城区', 'Gangguan Old Town', '江口岸旧市街']),
            ('ty_east', ['ty_yisunsin'], ['정량동 (이순신공원)', '鼎梁洞（李舜臣公园）', 'Jeongnyang-dong (Yi Sun-sin Park)', '鼎梁洞（李舜臣公園）']),
            ('ty_sanyang', ['ty_dala'], ['산양읍 (달아공원)', '山阳邑（达牙公园）', 'Sanyang-eup (Dala Park)', '山陽邑（ダラ公園）'])],
+ 'ulsan': [
+           ('ul_downtown', ['ul_taehwagang'], ['도심 (태화강 국가정원)', '市中心（太和江国家庭园）', 'Downtown (Taehwagang Garden)', '市中心（太和江国家庭園）']),
+           ('ul_donggu', ['ul_bridge_view', 'ul_daewangam', 'ul_bangeojin'], ['동구 (대왕암공원·방어진)', '东区（大王岩公园·方鱼津）', 'Dong-gu (Daewangam & Bangeojin)', '東区（大王岩公園・方魚津）']),
+           ('ul_namgu', ['ul_jangsaengpo'], ['남구 (장생포)', '南区（长生浦）', 'Nam-gu (Jangsaengpo)', '南区（長生浦）']),
+           ('ul_ulju_west', ['ul_eonyang_bulgogi', 'ul_alps'], ['울주 서부 (언양·영남알프스)', '蔚州西部（彦阳·岭南阿尔卑斯）', 'West Ulju (Eonyang & Yeongnam Alps)', '蔚州西部（彦陽・嶺南アルプス）']),
+           ('ul_ulju_coast', ['ul_ganjeolgot'], ['울주 해안 (간절곶)', '蔚州海岸（艮绝串）', 'Ulju Coast (Ganjeolgot)', '蔚州海岸（艮絶串）'])],
+ 'damyang': [
+           ('dm_eup', ['dm_juknokwon', 'dm_gwanbang', 'dm_noodle'], ['담양읍 (죽녹원·관방제림·국수거리)', '潭阳邑（竹绿苑·官防堤林·面条街）', 'Damyang-eup (Juknokwon, Gwanbangjerim, Noodle Street)', '潭陽邑（竹緑苑・官防堤林・ククス通り）']),
+           ('dm_hakdong', ['dm_metasequoia', 'dm_metaprovence'], ['학동리 (메타세쿼이아길·메타프로방스)', '鹤洞里（水杉林荫路·Meta Provence）', 'Hakdong-ri (Metasequoia Road & Meta Provence)', '鶴洞里（メタセコイア並木道・メタプロバンス）']),
+           ('dm_gasa_zone', ['dm_soswaewon', 'dm_gasa'], ['가사문학면 (소쇄원·가사문학관)', '歌辞文学面（潇洒园·歌辞文学馆）', 'Gasamunhak-myeon (Soswaewon & Gasa Museum)', '歌辞文学面（瀟灑園・歌辞文学館）'])],
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),
