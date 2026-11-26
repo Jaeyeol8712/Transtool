@@ -104,8 +104,8 @@
 "h": "9d4264db0b93d595"
 },
 "connect.html": {
-"d": "2026-11-19",
-"h": "846182c7488d4d08"
+"d": "2026-11-26",
+"h": "58be6252b75def7c"
 },
 "contact.html": {
 "d": "2026-11-03",
@@ -237,7 +237,7 @@
 },
 "etc.html": {
 "d": "2026-11-26",
-"h": "224a694d3d5d764b"
+"h": "e7e1332be2d1466b"
 },
 "ev_charging_cost_calculator.html": {
 "d": null,
@@ -1001,7 +1001,7 @@
 },
 "index.html": {
 "d": "2026-11-26",
-"h": "97575f50e6bc8b00"
+"h": "689479aa088846cc"
 },
 "inflation_calculator.html": {
 "d": null,
@@ -1349,7 +1349,7 @@
 },
 "season-andong-jjimdak-alley.html": {
 "d": "2026-11-26",
-"h": "d018ed7fa0e7419a"
+"h": "fb5c2963231f40f1"
 },
 "season-beolgyo-kkomak.html": {
 "d": "2026-11-19",
@@ -1361,7 +1361,7 @@
 },
 "season-bupyeong-kkangtong-night-market.html": {
 "d": "2026-11-26",
-"h": "2f3bdbe83d160f11"
+"h": "8b3a084aca9a476a"
 },
 "season-busan-dwaeji-gukbap.html": {
 "d": null,
@@ -1417,7 +1417,7 @@
 },
 "season-gangneung-chodang-sundubu.html": {
 "d": "2026-11-26",
-"h": "9961f184d4f7d2e3"
+"h": "b878e1f1bcf737bf"
 },
 "season-gangneung-food.html": {
 "d": null,
@@ -1425,7 +1425,7 @@
 },
 "season-gangneung-jungang-market.html": {
 "d": "2026-11-26",
-"h": "2eb6ee2f1f426205"
+"h": "6d6436416ba3d9d6"
 },
 "season-gapyeong-jat.html": {
 "d": "2026-11-19",
@@ -1457,7 +1457,7 @@
 },
 "season-gwangjang-market-food.html": {
 "d": "2026-11-26",
-"h": "28e79110acc3d34d"
+"h": "51fdc2028c9b5523"
 },
 "season-gwangju-yangdong-market-food.html": {
 "d": "2026-11-19",
@@ -1497,7 +1497,7 @@
 },
 "season-jagalchi-winter-hoe.html": {
 "d": "2026-11-26",
-"h": "4bad55dcb137eeeb"
+"h": "f5afd96cf261e5c8"
 },
 "season-jangheung-maesaengi.html": {
 "d": "2026-11-19",
@@ -1509,7 +1509,7 @@
 },
 "season-jeju-dongmun-night-market.html": {
 "d": "2026-11-26",
-"h": "389e8f1a7c93075d"
+"h": "3bfafd68c877d56d"
 },
 "season-jeju-gamgyul.html": {
 "d": "2026-11-19",
@@ -1537,7 +1537,7 @@
 },
 "season-jeonju-nambu-night-market.html": {
 "d": "2026-11-26",
-"h": "7ee3dbc98afa90ed"
+"h": "731750cbb693179e"
 },
 "season-jindo-daepa.html": {
 "d": "2026-11-19",
@@ -1549,7 +1549,7 @@
 },
 "season-mangwon-market-food.html": {
 "d": "2026-11-26",
-"h": "3a14433eadce6c35"
+"h": "3a009410a6faad73"
 },
 "season-masan-agujjim.html": {
 "d": "2026-11-19",
@@ -1569,7 +1569,7 @@
 },
 "season-namdaemun-galchi-alley.html": {
 "d": "2026-11-26",
-"h": "fe84122152b02dd1"
+"h": "b66577c6b90bd565"
 },
 "season-namdang-saejogae.html": {
 "d": "2026-11-19",
@@ -1625,7 +1625,7 @@
 },
 "season-sokcho-tourist-fish-market.html": {
 "d": "2026-11-26",
-"h": "577f18d877f230c2"
+"h": "681e255d3a62850c"
 },
 "season-sorae-jeotgal.html": {
 "d": "2026-11-19",
@@ -1633,7 +1633,7 @@
 },
 "season-suwon-tongdak-street.html": {
 "d": "2026-11-26",
-"h": "66402413534888ca"
+"h": "a7edd8f88236b793"
 },
 "season-tongin-market-dosirak.html": {
 "d": "2026-11-19",
@@ -1759,6 +1759,10 @@
 "d": "2026-11-03",
 "h": "583e0b969f92bdbe"
 },
+"shop-australia-newzealand-10days.html": {
+"d": null,
+"h": "bc572c35cf106f2f"
+},
 "shop-bespoke-ai-fridge-4door.html": {
 "d": "2026-11-03",
 "h": "403f5da37371ed74"
@@ -1782,6 +1786,10 @@
 "shop-car-vacuum-air-duster.html": {
 "d": "2026-11-03",
 "h": "850f87109a6fb2fa"
+},
+"shop-cordless-vacuum-guide.html": {
+"d": null,
+"h": "eec1657aa54d84c3"
 },
 "shop-cozima-4d-arco.html": {
 "d": "2026-11-03",
@@ -1863,6 +1871,10 @@
 "d": "2026-11-03",
 "h": "1c09c2d3053ec25d"
 },
+"shop-philips-sonicare.html": {
+"d": null,
+"h": "892a2e1e03cc3f88"
+},
 "shop-prael-thermashot-ultimate.html": {
 "d": "2026-11-03",
 "h": "01dde8ec1f611e7f"
@@ -1891,6 +1903,10 @@
 "d": "2026-11-03",
 "h": "23b1d931cb1f78d9"
 },
+"shop-spain-portugal-9days.html": {
+"d": null,
+"h": "7917cc3bb908670e"
+},
 "shop-student-office-laptop.html": {
 "d": "2026-11-03",
 "h": "0b1ec5297c409a8d"
@@ -1898,6 +1914,10 @@
 "shop-sulwhasoo-firming-set.html": {
 "d": "2026-11-03",
 "h": "43b80c119c469a41"
+},
+"shop-swiss-italy-9days.html": {
+"d": null,
+"h": "ee76515f8e5d49c0"
 },
 "shop-sydney-6days.html": {
 "d": "2026-11-03",
@@ -1915,13 +1935,17 @@
 "d": "2026-11-03",
 "h": "4dee78e779aad08d"
 },
+"shop-west-europe-4-10days.html": {
+"d": null,
+"h": "842b2e921d2181ca"
+},
 "shop-wireless-gaming-keyboard.html": {
 "d": "2026-11-03",
 "h": "b40c20c411500ecb"
 },
 "sitemap.html": {
 "d": "2026-11-26",
-"h": "0fee971e8a6af275"
+"h": "d3d74be4019b9810"
 },
 "sleep_calculator.html": {
 "d": "2026-11-06",
@@ -2709,7 +2733,7 @@
 },
 "travel.html": {
 "d": "2026-11-26",
-"h": "6fd4060a719ccd95"
+"h": "a1d1a5b8483d556f"
 },
 "travel_cash_amount_calculator.html": {
 "d": "2026-11-19",

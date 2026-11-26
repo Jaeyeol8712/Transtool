@@ -981,3 +981,5 @@ from posts_1103 import POSTS_1103  # noqa: E402
 POSTS = POSTS_1103 + POSTS
 from posts_1119 import POSTS_1119  # noqa: E402  (2026-11-19 대표 상품 6개, 제목 키워드는 네이버 월간 검색수 기준)
 POSTS = POSTS_1119 + POSTS
+from posts_1126 import POSTS_1126  # noqa: E402  (2026-11-26 대표 상품 6개, 제목 키워드는 네이버 월간 검색수 기준)
+POSTS = POSTS_1126 + POSTS

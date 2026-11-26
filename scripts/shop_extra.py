@@ -210,3 +210,5 @@ from posts_1103 import EXTRA_1103  # noqa: E402
 SHOP_EXTRA.update(EXTRA_1103)
 from posts_1119 import EXTRA_1119  # noqa: E402
 SHOP_EXTRA.update(EXTRA_1119)
+from posts_1126 import EXTRA_1126  # noqa: E402
+SHOP_EXTRA.update(EXTRA_1126)
