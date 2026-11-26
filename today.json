@@ -1,21 +1,21 @@
 {
- "date": "2026-11-25",
+ "date": "2026-11-26",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-24.html",
-   "title": "일간 보고서 · 2026-11-24(화)",
+   "file": "reports/daily-2026-11-25.html",
+   "title": "일간 보고서 · 2026-11-25(수)",
    "kpi": {
-    "views": 2,
-    "viewers": 2,
+    "views": 6,
+    "viewers": 5,
     "clicks": 1,
     "clickers": 1
    },
    "prev": {
-    "views": 4,
-    "viewers": 4,
-    "clicks": 0,
-    "clickers": 0
+    "views": 2,
+    "viewers": 2,
+    "clicks": 1,
+    "clickers": 1
    },
    "ai": {
     "sessions": 9,
@@ -29,11 +29,6 @@
     ]
    },
    "site": {
-    "20261118": {
-     "views": 54,
-     "users": 37,
-     "sessions": 39
-    },
     "20261119": {
      "views": 214,
      "users": 34,
@@ -63,18 +58,14 @@
      "views": 40,
      "users": 32,
      "sessions": 38
+    },
+    "20261125": {
+     "views": 56,
+     "users": 33,
+     "sessions": 37
     }
    },
    "days7": [
-    {
-     "key": "20261118",
-     "label": "11.18(수)",
-     "views": 7,
-     "viewers": 5,
-     "clicks": 2,
-     "clickers": 2,
-     "site": 54
-    },
     {
      "key": "20261119",
      "label": "11.19(목)",
@@ -128,6 +119,15 @@
      "clicks": 1,
      "clickers": 1,
      "site": 40
+    },
+    {
+     "key": "20261125",
+     "label": "11.25(수)",
+     "views": 6,
+     "viewers": 5,
+     "clicks": 1,
+     "clickers": 1,
+     "site": 56
     }
    ],
    "weeks8": [
@@ -205,23 +205,28 @@
      "key": "202648",
      "label": "11.23~(진행 중)",
      "done": false,
-     "views": 6,
-     "viewers": 6,
-     "clicks": 1,
-     "clickers": 1,
-     "site": 133
+     "views": 12,
+     "viewers": 11,
+     "clicks": 2,
+     "clickers": 2,
+     "site": 189
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 5
+     "clicks": 3
     },
     {
      "channel": "Direct",
      "keyword": "(검색어 미전달)",
      "clicks": 2
+    },
+    {
+     "channel": "Direct",
+     "keyword": "(직접·내부)",
+     "clicks": 1
     }
    ],
    "topPosts": [
@@ -244,8 +249,8 @@
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 19,
-     "users": 19
+     "sessions": 18,
+     "users": 18
     },
     {
      "name": "naver / organic",
@@ -280,124 +285,19 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "prael-thermashot-ultimate",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "shaving-foam-cream",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "student-office-laptop",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "car-vacuum-air-duster",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "cozima-4d-arco",
-     "sessions": 1
-    }
-   ],
-   "google": [
-    {
-     "query": "폴드8 가격",
-     "post": "galaxy-z-fold8-256",
-     "clicks": 0,
-     "impressions": 1,
-     "position": 71
-    }
-   ]
-  },
-  {
-   "type": "weekly",
-   "file": "reports/weekly-2026-11-16.html",
-   "title": "주간 보고서 · 11.16(월) ~ 11.22(일)",
-   "kpi": {
-    "views": 31,
-    "viewers": 24,
-    "clicks": 6,
-    "clickers": 6
-   },
-   "prev": {
-    "views": 25,
-    "viewers": 15,
-    "clicks": 10,
-    "clickers": 6
-   },
-   "site": null,
-   "topPosts": [
-    {
-     "post": "경동나비엔 온수매트 추천 가격 고르는 법",
-     "views": 4,
-     "clicks": 1
-    },
-    {
-     "post": "차량용 청소기 에어건 무선 추천 가격",
-     "views": 3,
-     "clicks": 1
-    },
-    {
-     "post": "LG 프라엘 써마샷 얼티밋 고주파 추천 가격",
-     "views": 3,
-     "clicks": 1
-    }
-   ],
-   "sources": [
-    {
-     "name": "m.search.naver.com / referral",
-     "sessions": 16,
-     "users": 16
-    },
-    {
-     "name": "(direct) / (none)",
-     "sessions": 4,
-     "users": 4
-    },
-    {
-     "name": "naver / organic",
-     "sessions": 3,
-     "users": 3
-    }
-   ],
-   "keywords": [
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "navien-water-mat",
-     "sessions": 4
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "shaving-foam-cream",
+     "post": "east-europe-3countries",
      "sessions": 3
     },
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "c-type-65w-charger",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "neck-traction",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
      "post": "prael-thermashot-ultimate",
+     "sessions": 2
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "galaxy-z-fold8-256",
      "sessions": 2
     },
     {
@@ -409,13 +309,7 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "car-vacuum-air-duster",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "cozima-4d-arco",
+     "post": "galaxy-s26-ultra",
      "sessions": 1
     }
    ],
