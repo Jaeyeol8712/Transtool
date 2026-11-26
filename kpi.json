@@ -232,7 +232,7 @@
    "position": 48.6
   }
  ],
- "made": "2026-11-26T02:31:48.812Z",
+ "made": "2026-11-26T05:02:43.724Z",
  "range": "2026-11-19 ~ 2026-11-25",
  "prevRange": "2026-11-12 ~ 2026-11-18",
  "cur": {
@@ -253,8 +253,7 @@
   "cur": {
    "Organic Search": 196,
    "Direct": 43,
-   "AI Assistant": 9,
-   "Unassigned": 4
+   "AI Assistant": 9
   },
   "prev": {
    "Organic Search": 143,
@@ -417,12 +416,12 @@
    "sessions": 30
   },
   {
-   "page": "/gas_bill_calculator.html",
+   "page": "(not set)",
    "sessions": 12
   },
   {
-   "page": "(not set)",
-   "sessions": 10
+   "page": "/gas_bill_calculator.html",
+   "sessions": 12
   },
   {
    "page": "/interior_calculator.html",
@@ -437,15 +436,15 @@
    "sessions": 6
   },
   {
-   "page": "",
-   "sessions": 4
-  },
-  {
    "page": "/gpa_calculator.html",
    "sessions": 4
   },
   {
    "page": "/shop-navien-water-mat.html",
+   "sessions": 4
+  },
+  {
+   "page": "/travel-cebu.html",
    "sessions": 4
   }
  ],
@@ -612,8 +611,8 @@
     "bing": 1,
     "ai": 0,
     "direct": 4,
-    "other": 4,
-    "total": 41
+    "other": 0,
+    "total": 37
    }
   ],
   "monthly": [
@@ -658,8 +657,8 @@
     "bing": 15,
     "ai": 24,
     "direct": 156,
-    "other": 15,
-    "total": 710
+    "other": 11,
+    "total": 706
    }
   ],
   "note": "세션 기준. google·naver·daum·bing = 각 검색엔진(자연 검색), ai = ChatGPT·Perplexity 등, direct = 직접 방문, other = SNS·다른 사이트·광고"
