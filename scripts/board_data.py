@@ -113,8 +113,18 @@ if isinstance(kl.get("cur"), dict):
     meta["klink"] = "있음"
 elif kl.get("error"):
     meta["klink"] = "오류: " + str(kl["error"])[:80]
+# 매체별 유입 (2026-11-26 대표 지시): 최근 7일 일별 + 월별. 행마다 google·naver·daum·bing·ai·direct·other·total
+md = kpi.get("media") or {}
+if md.get("daily") is not None:
+    for r in md["daily"]:
+        rows.append({"id": f'mday-{r["date"]}', "section": "mday", "label": r["date"][5:].replace("-", "."), "cur": r["total"], "prev": None, "alt": None, "chg": None, **{k: r[k] for k in md["keys"]}})
+    for r in md["monthly"]:
+        rows.append({"id": f'mmon-{r["month"]}', "section": "mmon", "label": f'{int(r["month"][5:])}월', "cur": r["total"], "prev": None, "alt": r["month"], "chg": None, **{k: r[k] for k in md["keys"]}})
+    meta["media"] = "있음"
+elif md.get("error"):
+    meta["media"] = "오류: " + str(md["error"])[:80]
 m = meta
-for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일"),("yday","어제"),("weekRange","지난주"),("lwRange","지난주 랜딩"),("gwRange","구글 주"),("klink","K링크 지표")):
+for k, lab in (("made","갱신"),("range","웹 기간"),("prevRange","비교 기간"),("googleRange","구글 기간"),("ctaDay","추천 모음 기준일"),("yday","어제"),("weekRange","지난주"),("lwRange","지난주 랜딩"),("gwRange","구글 주"),("klink","K링크 지표"),("media","매체별 유입")):
     if k not in m: continue
     rows.append({"id": f"meta-{k}", "section": "meta", "label": m[k], "cur": None, "prev": None, "alt": lab, "chg": None})
 json.dump(rows, open(os.path.join(out, "board.json"), "w", encoding="utf-8"), ensure_ascii=False)

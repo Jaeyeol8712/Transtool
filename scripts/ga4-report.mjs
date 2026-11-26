@@ -521,6 +521,27 @@ async function siteKpi() {
     const [kc, kp] = await seq([() => kOne(s7, y), () => kOne(p7s, p7e)]);
     klink = { cur: kc, prev: kp, note: "fromSite/fromTravel = 사이트 글(여행 글)에서 넘어온 /klink/ 조회(이전 페이지 기준)" };
   } catch (e) { klink = { error: e.message }; }
+  // 매체별 유입 (2026-11-26 대표 지시): 최근 7일 일별 + 월별(2026-08~). 검색엔진은 출처(source) 기준으로 나눈다.
+  let media = null;
+  try {
+    const KEYS = ["google", "naver", "daum", "bing", "ai", "direct", "other"];
+    const kind = (src, med) => { const s = (src || "").toLowerCase(), m = (med || "").toLowerCase();
+      if (/cpc|ppc|paid|display/.test(m)) return "other";
+      if (/chatgpt|openai|perplexity|gemini|claude|copilot|bard|you\.com/.test(s)) return "ai";
+      if (s === "(direct)" || m === "(none)") return "direct";
+      if (/naver/.test(s)) return "naver"; if (/daum/.test(s)) return "daum";
+      if (/bing|msn/.test(s)) return "bing"; if (/^google$|google\.|search\.google/.test(s) && m !== "referral") return "google";
+      return "other"; };
+    const blank = () => Object.fromEntries(KEYS.map((k) => [k, 0]));
+    const mStart = new Date(Date.UTC(2026, 7, 1));
+    const [dRows, mRows] = await seq([() => ga(s7, y, ["date", "sessionSource", "sessionMedium"], ["sessions"], null, 5000),
+      () => ga(mStart, y, ["yearMonth", "sessionSource", "sessionMedium"], ["sessions"], null, 10000)]);
+    const roll = (rows) => { const o = {}; for (const x of rows) { const k = x.d[0]; o[k] = o[k] || blank(); o[k][kind(x.d[1], x.d[2])] += x.m[0]; } return o; };
+    const dd = roll(dRows), mm = roll(mRows);
+    const fin = (o, key, lab) => Object.keys(o).sort().map((k) => ({ [key]: lab(k), ...o[k], total: KEYS.reduce((a, q) => a + o[k][q], 0) }));
+    media = { keys: KEYS, daily: fin(dd, "date", (k) => `${k.slice(0, 4)}-${k.slice(4, 6)}-${k.slice(6)}`), monthly: fin(mm, "month", (k) => `${k.slice(0, 4)}-${k.slice(4)}`),
+      note: "세션 기준. google·naver·daum·bing = 각 검색엔진(자연 검색), ai = ChatGPT·Perplexity 등, direct = 직접 방문, other = SNS·다른 사이트·광고" };
+  } catch (e) { media = { error: e.message }; }
   const g = {};
   try {
     const last = add(kstToday(), -3), t = await token();
@@ -563,7 +584,7 @@ async function siteKpi() {
     organic: { cur: chCur["Organic Search"] || 0, prev: chPrev["Organic Search"] || 0 }, channels: { cur: chCur, prev: chPrev },
     daily: series.map((x) => ({ date: x.d[0], users: x.m[0], sessions: x.m[1] })).sort((a, b) => a.date.localeCompare(b.date)),
     landing: land.map((x) => ({ page: x.d[0], sessions: x.m[0] })), google: g,
-    ai: { cur: aiCur, prev: aiPrev }, klink };
+    ai: { cur: aiCur, prev: aiPrev }, klink, media };
 }
 
 // ───────── 실행 ─────────
