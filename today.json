@@ -1,39 +1,34 @@
 {
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-25.html",
-   "title": "일간 보고서 · 2026-11-25(수)",
+   "file": "reports/daily-2026-11-26.html",
+   "title": "일간 보고서 · 2026-11-26(목)",
    "kpi": {
+    "views": 8,
+    "viewers": 6,
+    "clicks": 2,
+    "clickers": 2
+   },
+   "prev": {
     "views": 6,
     "viewers": 5,
     "clicks": 1,
     "clickers": 1
    },
-   "prev": {
-    "views": 2,
-    "viewers": 2,
-    "clicks": 1,
-    "clickers": 1
-   },
    "ai": {
-    "sessions": 9,
-    "users": 9,
+    "sessions": 7,
+    "users": 7,
     "sources": [
      {
       "name": "chatgpt.com",
-      "sessions": 9,
-      "users": 9
+      "sessions": 7,
+      "users": 7
      }
     ]
    },
    "site": {
-    "20261119": {
-     "views": 214,
-     "users": 34,
-     "sessions": 40
-    },
     "20261120": {
      "views": 53,
      "users": 27,
@@ -63,18 +58,14 @@
      "views": 56,
      "users": 33,
      "sessions": 37
+    },
+    "20261126": {
+     "views": 89,
+     "users": 47,
+     "sessions": 51
     }
    },
    "days7": [
-    {
-     "key": "20261119",
-     "label": "11.19(목)",
-     "views": 12,
-     "viewers": 7,
-     "clicks": 3,
-     "clickers": 3,
-     "site": 214
-    },
     {
      "key": "20261120",
      "label": "11.20(금)",
@@ -128,6 +119,15 @@
      "clicks": 1,
      "clickers": 1,
      "site": 56
+    },
+    {
+     "key": "20261126",
+     "label": "11.26(목)",
+     "views": 8,
+     "viewers": 6,
+     "clicks": 2,
+     "clickers": 2,
+     "site": 89
     }
    ],
    "weeks8": [
@@ -205,52 +205,57 @@
      "key": "202648",
      "label": "11.23~(진행 중)",
      "done": false,
-     "views": 12,
-     "viewers": 11,
-     "clicks": 2,
-     "clickers": 2,
-     "site": 189
+     "views": 20,
+     "viewers": 17,
+     "clicks": 4,
+     "clickers": 4,
+     "site": 278
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 3
-    },
-    {
-     "channel": "Direct",
-     "keyword": "(검색어 미전달)",
      "clicks": 2
     },
     {
      "channel": "Direct",
+     "keyword": "(검색어 미전달)",
+     "clicks": 1
+    },
+    {
+     "channel": "Direct",
      "keyword": "(직접·내부)",
+     "clicks": 1
+    },
+    {
+     "channel": "Organic Search",
+     "keyword": "포스파티딜세린85가격",
      "clicks": 1
     }
    ],
    "topPosts": [
     {
      "post": "미백 주름 탄력 화장품 추천 가격 고르는 법",
-     "views": 2,
+     "views": 3,
      "clicks": 2
     },
     {
      "post": "경동나비엔 온수매트 추천 가격 고르는 법",
-     "views": 4,
+     "views": 3,
      "clicks": 1
     },
     {
-     "post": "LG 프라엘 써마샷 얼티밋 고주파 추천 가격",
-     "views": 3,
+     "post": "포스파티딜세린 추천 순도 85% 가격 정리",
+     "views": 2,
      "clicks": 1
     }
    ],
    "sources": [
     {
      "name": "m.search.naver.com / referral",
-     "sessions": 18,
-     "users": 18
+     "sessions": 17,
+     "users": 17
     },
     {
      "name": "naver / organic",
@@ -259,8 +264,13 @@
     },
     {
      "name": "(direct) / (none)",
-     "sessions": 2,
-     "users": 2
+     "sessions": 1,
+     "users": 1
+    },
+    {
+     "name": "daum / organic",
+     "sessions": 1,
+     "users": 1
     }
    ],
    "keywords": [
@@ -268,7 +278,7 @@
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "navien-water-mat",
-     "sessions": 4
+     "sessions": 3
     },
     {
      "engine": "네이버",
@@ -291,25 +301,25 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "prael-thermashot-ultimate",
-     "sessions": 2
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
      "post": "galaxy-z-fold8-256",
      "sessions": 2
     },
     {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "student-office-laptop",
-     "sessions": 2
+     "engine": "다음",
+     "query": "포스파티딜세린85가격",
+     "post": "dunoen-ps-maxplus",
+     "sessions": 1
     },
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
      "post": "galaxy-s26-ultra",
+     "sessions": 1
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
+     "post": "jbl-authentics-200",
      "sessions": 1
     }
    ],
