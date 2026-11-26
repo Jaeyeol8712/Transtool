@@ -1,52 +1,8 @@
 {
- "done": 378,
- "todo": 44,
+ "done": 438,
+ "todo": 14,
  "regions": {
-  "hongkong": [
-   {
-    "id": "hk_avenue",
-    "name": "스타의 거리·심포니 오브 라이트",
-    "guide": true
-   },
-   {
-    "id": "hk_ferry",
-    "name": "스타페리",
-    "guide": true
-   },
-   {
-    "id": "hk_central",
-    "name": "센트럴",
-    "guide": true
-   },
-   {
-    "id": "hk_mongkok",
-    "name": "몽콕 야시장",
-    "guide": true
-   },
-   {
-    "id": "hk_ngongping",
-    "name": "옹핑 케이블카·빅부다",
-    "guide": true
-   }
-  ],
-  "macau": [
-   {
-    "id": "mc_cotai",
-    "name": "코타이 리조트",
-    "guide": true
-   },
-   {
-    "id": "mc_tower",
-    "name": "마카오 타워",
-    "guide": true
-   }
-  ],
   "shanghai": [
-   {
-    "id": "sh_nanjing",
-    "name": "난징루",
-    "guide": true
-   },
    {
     "id": "sh_yuyuan",
     "name": "예원·위위안 상가",
@@ -55,92 +11,6 @@
    {
     "id": "sh_zhujiajiao",
     "name": "주자자오 수향",
-    "guide": true
-   }
-  ],
-  "singapore": [
-   {
-    "id": "sg_merlion",
-    "name": "멀라이언 공원",
-    "guide": true
-   },
-   {
-    "id": "sg_chinatown",
-    "name": "차이나타운",
-    "guide": true
-   },
-   {
-    "id": "sg_india",
-    "name": "리틀인디아",
-    "guide": true
-   },
-   {
-    "id": "sg_orchard",
-    "name": "오차드 로드",
-    "guide": true
-   },
-   {
-    "id": "sg_sentosa",
-    "name": "센토사",
-    "guide": true
-   }
-  ],
-  "kualalumpur": [
-   {
-    "id": "kl_twin",
-    "name": "페트로나스 트윈타워·KLCC 공원",
-    "guide": true
-   },
-   {
-    "id": "kl_bintang",
-    "name": "부킷빈탕",
-    "guide": true
-   },
-   {
-    "id": "kl_alor",
-    "name": "잘란알로 야시장",
-    "guide": true
-   },
-   {
-    "id": "kl_merdeka",
-    "name": "메르데카 광장",
-    "guide": true
-   },
-   {
-    "id": "kl_chinatown",
-    "name": "차이나타운",
-    "guide": true
-   },
-   {
-    "id": "kl_batu",
-    "name": "바투동굴",
-    "guide": true
-   }
-  ],
-  "kotakinabalu": [
-   {
-    "id": "kk_waterfront",
-    "name": "워터프런트·야시장",
-    "guide": true
-   },
-   {
-    "id": "kk_aru",
-    "name": "탄중아루 해변",
-    "guide": true
-   },
-   {
-    "id": "kk_sapi",
-    "name": "사피섬",
-    "guide": true
-   },
-   {
-    "id": "kk_manukan",
-    "name": "마누칸섬",
-    "guide": true
-   },
-   {
-    "id": "kk_kinabalu",
-    "name": "키나발루 국립공원",
     "guide": true
    }
   ],
@@ -193,28 +63,6 @@
     "guide": true
    }
   ],
-  "bali": [
-   {
-    "id": "bl_ubudmarket",
-    "name": "우붓 시장",
-    "guide": true
-   },
-   {
-    "id": "bl_jimbaran",
-    "name": "짐바란 해변",
-    "guide": true
-   },
-   {
-    "id": "bl_seminyak",
-    "name": "스미냑 해변",
-    "guide": true
-   },
-   {
-    "id": "bl_kelingking",
-    "name": "누사페니다 켈링킹 해변",
-    "guide": true
-   }
-  ],
   "qingdao": [
    {
     "id": "qd_church",
@@ -229,18 +77,6 @@
    {
     "id": "qd_laoshan",
     "name": "라오산",
-    "guide": true
-   }
-  ],
-  "phuket": [
-   {
-    "id": "pk_karon",
-    "name": "까론 비치",
-    "guide": true
-   },
-   {
-    "id": "pk_phangnga",
-    "name": "팡아만",
     "guide": true
    }
   ]

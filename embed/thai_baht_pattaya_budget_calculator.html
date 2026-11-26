@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>태국 환율 · 파타야 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/thai_baht_pattaya_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=98a3e440">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="태국 환율 · 파타야 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">태국 환율 · 파타야 경비 계산기</p>
+<label for="th1">환율 (1바트당 원)</label>
+<input id="th1" type="number" inputmode="decimal" placeholder="예: 41"/>
+<label for="th2">바로 환산할 바트 금액 (선택)</label>
+<input id="th2" type="number" inputmode="decimal" placeholder="예: 1000"/>
+<label for="th3">인원 (명)</label>
+<input id="th3" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="th4">숙박 수 (박)</label>
+<input id="th4" type="number" inputmode="numeric" placeholder="예: 3"/>
+<label for="th5">숙박 1박 요금 (바트, 방 전체)</label>
+<input id="th5" type="number" inputmode="decimal" placeholder="예: 1500"/>
+<label for="th6">1인 하루 식비 (바트)</label>
+<input id="th6" type="number" inputmode="decimal" placeholder="예: 600"/>
+<label for="th7">꼬란 배 1인 왕복 (바트, 안 가면 0)</label>
+<input id="th7" type="number" inputmode="decimal" placeholder="공영 배 왕복 예: 60"/>
+<label for="th8">농눅 빌리지 1인 입장료 (바트, 안 가면 0)</label>
+<input id="th8" type="number" inputmode="decimal" placeholder="예: 500"/>
+<label for="th9">진리의 성전 1인 입장료 (바트, 안 가면 0)</label>
+<input id="th9" type="number" inputmode="decimal" placeholder="낮 성인 예: 500"/>
+<label for="th10">현지 교통·기타 (바트, 일행 전체)</label>
+<input id="th10" type="number" inputmode="decimal" placeholder="썽태우·택시·마사지 등, 예: 2000"/>
+<label for="th11">카드 해외결제 수수료율 (%)</label>
+<input id="th11" type="number" inputmode="decimal" placeholder="현금 환전이면 0, 예: 1.5"/>
+<button onclick="calc_pattaya_budget()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 총액 (수수료 포함)</span><span class="result-value" id="thT">-</span></div>
+<div class="result-row"><span class="result-label">바트 합계</span><span class="result-value" id="thD" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="thP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">숙박 · 식비 · 꼬란 · 농눅 · 진리의 성전 · 기타</span><span class="result-value" id="thB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">바트 → 원 바로 환산</span><span class="result-value" id="thC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function th_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function th_s(i,t){document.getElementById(i).textContent=t;}
+function th_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function th_b(x){return Math.round(x).toLocaleString('en-US')+'바트';}
+function calc_pattaya_budget(){
+ var r=th_v('th1'),p=Math.floor(th_v('th3')),n=Math.floor(th_v('th4'));
+ if(r<=0) return alert('환율을 입력해주세요.');
+ var c=th_v('th2');
+ th_s('thC',c?th_b(c)+' = '+th_w(c*r):'-');
+ if(p<1){th_s('thT','-');th_s('thD','-');th_s('thP','-');th_s('thB','인원을 넣으면 여행 경비가 나와요');document.getElementById('result').classList.add('show');return;}
+ var room=th_v('th5')*n,food=th_v('th6')*p*(n+1),boat=th_v('th7')*p,nn=th_v('th8')*p,st=th_v('th9')*p,etc=th_v('th10');
+ var thb=room+food+boat+nn+st+etc,krw=thb*r,tot=krw*(1+th_v('th11')/100);
+ th_s('thT',th_w(tot)+' (수수료 '+th_w(tot-krw)+')');
+ th_s('thD',th_b(thb)+' = '+th_w(krw)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ th_s('thP',th_w(tot/p));
+ th_s('thB',th_b(room)+' · '+th_b(food)+' · '+th_b(boat)+' · '+th_b(nn)+' · '+th_b(st)+' · '+th_b(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/thai_baht_pattaya_budget_calculator.html?utm_source=embed&amp;utm_campaign=thai_baht_pattaya_budget_calculator" target="_blank" rel="noopener">어라운드툴 태국 환율 · 파타야 경비 계산기</a></p>
+</body>
+</html>

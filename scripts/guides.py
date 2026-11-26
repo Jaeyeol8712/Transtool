@@ -858,3 +858,5 @@ from daily_1125 import GUIDES_1125  # noqa: E402  (2026-11-25 매일 콘텐츠: 
 GUIDES += GUIDES_1125
 from daily_1126 import GUIDES_1126  # noqa: E402  (2026-11-26 매일 콘텐츠: 하코네 프리패스·스카이라이너)
 GUIDES += GUIDES_1126
+from daily_1127 import GUIDES_1127  # noqa: E402  (2026-11-27 매일 콘텐츠: 오사카에서 나라 가는 법·사이판 입국)
+GUIDES += GUIDES_1127

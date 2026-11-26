@@ -49,6 +49,8 @@ def region_of_code(code, name):
     if code == '38050': return 'tongyeong'  # 2026-11-25
     if code.startswith('26'): return 'ulsan'  # 2026-11-26 (KOSTAT 2013 울산 26xxx)
     if code == '36310': return 'damyang'  # 2026-11-26
+    if code == '31370': return 'gapyeong'  # 2026-11-27
+    if code.startswith('23') and code not in ('23310', '23320'): return 'incheon'  # 2026-11-27 (강화·옹진 제외)
     if code.startswith('22') and code != '22310': return 'daegu'  # 달성군 제외
     return None
 MF = [(f['properties']['code'], f['properties']['name'].replace('전주시', ''), shape(f['geometry']).buffer(0)) for f in muni['features']]
@@ -72,7 +74,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
- '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'춘천시':['春川市','Chuncheon-si','春川市'],'통영시':['统营市','Tongyeong-si','統営市'],'울주군':['蔚州郡','Ulju-gun','蔚州郡'],'담양군':['潭阳郡','Damyang-gun','潭陽郡'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
+ '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'춘천시':['春川市','Chuncheon-si','春川市'],'통영시':['统营市','Tongyeong-si','統営市'],'울주군':['蔚州郡','Ulju-gun','蔚州郡'],'담양군':['潭阳郡','Damyang-gun','潭陽郡'],'가평군':['加平郡','Gapyeong-gun','加平郡'],'연수구':['延寿区','Yeonsu-gu','延寿区'],'남동구':['南洞区','Namdong-gu','南洞区'],'남구':['南区','Nam-gu','南区'],'부평구':['富平区','Bupyeong-gu','富平区'],'계양구':['桂阳区','Gyeyang-gu','桂陽区'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
  'jeju': [('jj_city', ['jj_pork','jj_dongmun','jj_dutyfree'], ['제주 시내','济州市区','Jeju City','済州市内']),
@@ -132,6 +134,17 @@ ZONES = {
            ('dm_eup', ['dm_juknokwon', 'dm_gwanbang', 'dm_noodle'], ['담양읍 (죽녹원·관방제림·국수거리)', '潭阳邑（竹绿苑·官防堤林·面条街）', 'Damyang-eup (Juknokwon, Gwanbangjerim, Noodle Street)', '潭陽邑（竹緑苑・官防堤林・ククス通り）']),
            ('dm_hakdong', ['dm_metasequoia', 'dm_metaprovence'], ['학동리 (메타세쿼이아길·메타프로방스)', '鹤洞里（水杉林荫路·Meta Provence）', 'Hakdong-ri (Metasequoia Road & Meta Provence)', '鶴洞里（メタセコイア並木道・メタプロバンス）']),
            ('dm_gasa_zone', ['dm_soswaewon', 'dm_gasa'], ['가사문학면 (소쇄원·가사문학관)', '歌辞文学面（潇洒园·歌辞文学馆）', 'Gasamunhak-myeon (Soswaewon & Gasa Museum)', '歌辞文学面（瀟灑園・歌辞文学館）'])],
+ 'gapyeong': [
+           ('gp_eup', ['gp_nami', 'gp_jarasum', 'gp_railbike', 'gp_jat_market'], ['가평읍 (남이섬·자라섬·레일바이크)', '加平邑（南怡岛·紫鳞岛·铁路自行车）', 'Gapyeong-eup (Nami, Jarasum & Rail Bike)', '加平邑（南怡島・チャラ島・レールバイク）']),
+           ('gp_sangmyeon', ['gp_morningcalm', 'gp_jat_forest'], ['상면 (아침고요수목원·잣향기푸른숲)', '上面（晨静树木园·松子香绿林）', 'Sang-myeon (Morning Calm & Pine-nut Forest)', '上面（朝の静かな樹木園・チャッヒャンギ・プルンスプ）']),
+           ('gp_cheongpyeong', ['gp_petitefrance'], ['청평 (쁘띠프랑스)', '清平（小法国村）', 'Cheongpyeong (Petite France)', '清平（プチフランス）']),
+],
+ 'incheon': [
+           ('ic_openport', ['ic_chinatown', 'ic_jjajang_museum', 'ic_fairytale', 'ic_gaehangjang', 'ic_sinpo_market'], ['개항장 (차이나타운·신포시장)', '开港场（中华街·新浦市场）', 'Open Port Area (Chinatown & Sinpo)', '開港場（チャイナタウン・新浦市場）']),
+           ('ic_wolmido', ['ic_wolmi_train'], ['월미도 (월미바다열차)', '月尾岛（月尾海洋列车）', 'Wolmido (Wolmi Sea Train)', '月尾島（月尾海列車）']),
+           ('ic_songdo', ['ic_songdo_park'], ['송도 (센트럴파크)', '松岛（中央公园）', 'Songdo (Central Park)', '松島（セントラルパーク）']),
+           ('ic_sorae', ['ic_sorae'], ['소래 (소래포구)', '苏莱（苏莱浦口）', 'Sorae (Sorae Port)', '蘇莱（蘇莱浦口）']),
+],
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),

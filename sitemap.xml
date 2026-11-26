@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 719 URL -->
+<!-- aroundtool.com · scripts/build.py 가 생성 · 2026-10-24 · 734 URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.aroundtool.com/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/klink/</loc>
@@ -11,19 +11,19 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/food.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/tools.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/etc.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/about.html</loc>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/airport_departure_time_calculator.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-departure-board.jpg</image:loc></image:image>
   </url>
   <url>
@@ -154,6 +154,10 @@
     <loc>https://www.aroundtool.com/currency_exchange_fee_calculator.html</loc>
     <lastmod>2026-11-18</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-currency-exchange.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/daegu_trip_budget_calculator.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/daejeon-daedeok-sintanjin.html</loc>
@@ -273,7 +277,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/duty_free_limit_calculator.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/duty_free_shop_price_compare_calculator.html</loc>
@@ -307,7 +311,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/exchange_rate_calculator.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-won-1.jpg</image:loc></image:image>
   </url>
   <url>
@@ -415,16 +419,16 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-annual-leave-rules.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-baggage-delay-compensation.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-baggage-claim.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-black-friday-direct-purchase-refund.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-black-ice-safe-driving.html</loc>
@@ -432,7 +436,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-bmi-normal-range.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-boiler-away-mode-vs-off.html</loc>
@@ -444,7 +448,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-boracay-how-to-get-there.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-brokerage-fee-rates.html</loc>
@@ -484,11 +488,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-card-point-expiry-check.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-carry-on-liquids-rules.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-china-visa-free-30-days.html</loc>
@@ -497,7 +501,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-cold-illness-prevention.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-cold-wave-action-guide.html</loc>
@@ -505,7 +509,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-comprehensive-property-tax-schedule.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-credit-card-deduction-yearend-check.html</loc>
@@ -517,11 +521,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-drunk-driving-penalty.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-dutch-pay-settlement.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-earned-income-credit-schedule-2026.html</loc>
@@ -537,11 +541,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-flight-delay-compensation.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-flu-vaccine-2026-2027.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-four-insurance-rates-2026.html</loc>
@@ -557,11 +561,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-gift-tax-exemption-by-family.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-hakone-freepass.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-health-insurance-continued-coverage.html</loc>
@@ -573,11 +577,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-hidden-money-finder.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-hiroshima-transport.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-holidays-2027.html</loc>
@@ -589,17 +593,17 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-housing-subscription-score-guide.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-incheon-airport-arex-limousine.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-arex-train.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-airport-limousine.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-incheon-airport-arrival-time.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-icn-t1-departure.jpg</image:loc></image:image>
   </url>
   <url>
@@ -608,29 +612,29 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-increase-rate-formula.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-interior-cost-by-pyeong.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-interior-estimate-items.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-international-driving-permit.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-driving-permit.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-japan-tax-free-refund-2026.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-japan-taxfree.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-japan-travel-budget.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-jeonse-contract-checklist.html</loc>
@@ -638,15 +642,15 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kimjang-cost.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kimjang-kimchi-storage.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kimjang-timing-2026.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-korail-ticket-refund-fee.html</loc>
@@ -654,7 +658,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-korea-entry-meat-fruit-quarantine.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-quarantine-dog.jpg</image:loc></image:image>
   </url>
   <url>
@@ -663,24 +667,24 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kota-kinabalu-airport-to-city.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-kuala-lumpur-airport-to-city.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-loan-repayment-methods.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-lost-passport-abroad.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-passport-lost.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-lotto-prize-tax.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-malaysia-mdac.html</loc>
@@ -705,7 +709,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-move-in-report-fixed-date.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/guide-nara-from-osaka.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-national-health-checkup-deadline.html</loc>
@@ -713,15 +721,15 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-norovirus-prevention.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-overseas-direct-purchase-duty-free.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-overseas-trip-departure-checklist.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-parcel-loss-damage-compensation.html</loc>
@@ -729,7 +737,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-passport-reissue.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-pension-irp-year-end-limit.html</loc>
@@ -745,11 +753,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-philippines-etravel.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-power-bank-airplane-rules.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-power-bank.jpg</image:loc></image:image>
   </url>
   <url>
@@ -758,7 +766,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-real-estate-price-lookup-tax.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/guide/real-estate-tax-banner.jpg</image:loc></image:image>
   </url>
   <url>
@@ -766,12 +774,16 @@
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/guide-saipan-entry.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/guide-savings-interest-tax.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-seogwipo-galchi-jorim-gui.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-severance-pay-conditions.html</loc>
@@ -783,12 +795,12 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-singapore-sg-arrival-card.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-singapore.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-smart-entry-service.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-passport-control.jpg</image:loc></image:image>
   </url>
   <url>
@@ -805,11 +817,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-sweet-potato-storage.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-taiwan-online-arrival-card.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-taiwan.jpg</image:loc></image:image>
   </url>
   <url>
@@ -818,7 +830,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-thailand-digital-arrival-card.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-bangkok-airport.jpg</image:loc></image:image>
   </url>
   <url>
@@ -827,7 +839,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-tokyo-skyliner.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-travel-advisory-levels.html</loc>
@@ -835,7 +847,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-travel-duty-free-allowance.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-duty-free.jpg</image:loc></image:image>
   </url>
   <url>
@@ -845,7 +857,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-uk-eta.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/d-uk.jpg</image:loc></image:image>
   </url>
   <url>
@@ -866,7 +878,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-vat-filing-schedule.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-vietnam-evisa.html</loc>
@@ -875,12 +887,12 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-visit-japan-web.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-japan-immigration.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-weekly-holiday-pay-rules.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-winter-camping-checklist.html</loc>
@@ -896,11 +908,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-winter-dog-walking-safety.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-winter-dry-cracked-hands.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-winter-electric-gas-safety-check.html</loc>
@@ -948,7 +960,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-year-end-tax-2026-changes.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/guide-year-end-tax-preview.html</loc>
@@ -1114,7 +1126,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/japan_travel_calculator.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/jeju-jejusi-bapjip.html</loc>
@@ -1281,7 +1293,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/jr_pass_value_calculator.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-nara.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1480,7 +1492,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-andong-jjimdak-alley.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-andong-jjimdak.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1493,7 +1505,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-bupyeong-kkangtong-night-market.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-bupyeong-kkangtong.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1554,7 +1566,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gangneung-chodang-sundubu.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-chodang-sundubu.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1563,8 +1575,12 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gangneung-jungang-market.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-gangneung-market.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/season-gapyeong-food.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gapyeong-jat.html</loc>
@@ -1597,7 +1613,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-gwangjang-market-food.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-gwangjang-bindae.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-gwangjang-market.jpg</image:loc></image:image>
   </url>
@@ -1629,6 +1645,10 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-haeundae-market.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-incheon-food.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-incheon-multeombeong.html</loc>
     <lastmod>2026-11-19</lastmod>
   </url>
@@ -1644,7 +1664,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jagalchi-winter-hoe.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-jagalchi-hoe.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1657,7 +1677,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-jeju-dongmun-night-market.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-dongmun-night.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1685,8 +1705,12 @@
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/season-jeonju-hanok-village-food.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/season-jeonju-nambu-night-market.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-jeonju-nambu-night.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1699,7 +1723,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-mangwon-market-food.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-mangwon.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1720,7 +1744,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-namdaemun-galchi-alley.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-namdaemun.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1778,7 +1802,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-sokcho-tourist-fish-market.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-sokcho-market.jpg</image:loc></image:image>
   </url>
   <url>
@@ -1787,7 +1811,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/season-suwon-tongdak-street.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/m-suwon-chicken.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2306,7 +2330,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/sitemap.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/sleep_calculator.html</loc>
@@ -2386,6 +2410,10 @@
     <lastmod>2026-11-03</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/thai_baht_pattaya_budget_calculator.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/time_difference_calculator.html</loc>
     <lastmod>2026-11-18</lastmod>
   </url>
@@ -2421,7 +2449,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-bali.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-bali.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2446,6 +2474,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-beppu.html</loc>
     <lastmod>2026-11-25</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-bohol-chocolate-hills.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-bohol.html</loc>
@@ -2618,6 +2650,10 @@
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-gangneung-bts-bus-stop.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-gangneung-ojukheon.html</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
@@ -2632,8 +2668,12 @@
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/k-gn-jungang.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.aroundtool.com/travel-gapyeong-attractions.html</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.aroundtool.com/travel-gapyeong.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-geoje.html</loc>
@@ -2667,6 +2707,10 @@
     <loc>https://www.aroundtool.com/travel-gwangju.html</loc>
     <lastmod>2026-11-19</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-gwangju.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-gyeongju-bomun.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-gyeongju-bulguksa.html</loc>
@@ -2750,11 +2794,15 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-hongkong.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-incheon-attractions.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-incheon.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-incheon-chinatown.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/c-incheon-songdo.jpg</image:loc></image:image>
   </url>
@@ -2831,7 +2879,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kanazawa.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-kanazawa.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2853,11 +2901,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kotakinabalu.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kualalumpur.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-kyoto-fushimi-inari.html</loc>
@@ -2873,7 +2921,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-macau.html</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-matsuyama-dogo-onsen.html</loc>
@@ -2934,7 +2982,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-nara.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-nara.jpg</image:loc></image:image>
   </url>
   <url>
@@ -2991,7 +3039,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-phuket.html</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <image:image><image:loc>https://www.aroundtool.com/assets/photos/t-phuket.jpg</image:loc></image:image>
   </url>
   <url>
@@ -3073,7 +3121,11 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-shanghai.html</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-shizuoka-food.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-shizuoka.html</loc>
@@ -3089,7 +3141,7 @@
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-singapore.html</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-sokcho-attractions.html</loc>
@@ -3133,6 +3185,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel-taipei.html</loc>
     <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/travel-takamatsu-ritsurin.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/travel-takamatsu.html</loc>
@@ -3226,6 +3282,10 @@
   <url>
     <loc>https://www.aroundtool.com/travel_cash_amount_calculator.html</loc>
     <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aroundtool.com/ulsan_trip_budget_calculator.html</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://www.aroundtool.com/unemployment_benefit_calculator.html</loc>

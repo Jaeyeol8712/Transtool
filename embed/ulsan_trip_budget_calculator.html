@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>울산 여행 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/ulsan_trip_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=98a3e440">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="울산 여행 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">울산 여행 경비 계산기</p>
+<label for="us1">인원 (명)</label>
+<input id="us1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="us2">숙박 수 (박)</label>
+<input id="us2" type="number" inputmode="numeric" placeholder="당일이면 0, 예: 1"/>
+<label for="us3">KTX 서울↔울산역 1인 편도 요금 (원, 자가용이면 0)</label>
+<input id="us3" type="number" inputmode="decimal" placeholder="예: 43300"/>
+<label for="us4">울산역↔시내 리무진 1인 편도 요금 (원)</label>
+<input id="us4" type="number" inputmode="decimal" placeholder="예: 3000"/>
+<label for="us5">장생포 고래문화마을 1인 입장료 (원, 안 가면 0)</label>
+<input id="us5" type="number" inputmode="decimal" placeholder="예: 3000"/>
+<label for="us6">그 밖의 1인 입장료 (원, 고래박물관 등)</label>
+<input id="us6" type="number" inputmode="decimal" placeholder="예: 2000"/>
+<label for="us7">숙박 1박 요금 (방 전체, 원)</label>
+<input id="us7" type="number" inputmode="decimal" placeholder="당일이면 0, 예: 100000"/>
+<label for="us8">1인 하루 식비 (원)</label>
+<input id="us8" type="number" inputmode="decimal" placeholder="예: 40000"/>
+<label for="us9">시내 이동·기타 (일행 전체, 원)</label>
+<input id="us9" type="number" inputmode="decimal" placeholder="택시·시내버스·자가용 비용 등, 예: 30000"/>
+<button onclick="calc_ulsan_budget()">울산 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="usT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="usP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">KTX · 리무진</span><span class="result-value" id="usR" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">입장 · 숙박 · 식비 · 기타</span><span class="result-value" id="usB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function us_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function us_s(i,t){document.getElementById(i).textContent=t;}
+function us_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_ulsan_budget(){
+ var p=Math.floor(us_v('us1'));if(p<1) return alert('인원을 입력해주세요.');
+ var n=Math.floor(us_v('us2'));
+ var ktx=us_v('us3')*2*p,lim=us_v('us4')*2*p,ent=(us_v('us5')+us_v('us6'))*p;
+ var room=us_v('us7')*n,food=us_v('us8')*p*(n+1),etc=us_v('us9');
+ var tot=ktx+lim+ent+room+food+etc;
+ us_s('usT',us_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ us_s('usP',us_w(tot/p));
+ us_s('usR','KTX '+us_w(ktx)+' · 리무진 '+us_w(lim));
+ us_s('usB','입장 '+us_w(ent)+' · 숙박 '+us_w(room)+' · 식비 '+us_w(food)+' · 기타 '+us_w(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/ulsan_trip_budget_calculator.html?utm_source=embed&amp;utm_campaign=ulsan_trip_budget_calculator" target="_blank" rel="noopener">어라운드툴 울산 여행 경비 계산기</a></p>
+</body>
+</html>

@@ -666,4 +666,35 @@ P ha_owakudani nature 35.2440 139.0196 1.5 am o=D | 오와쿠다니|大涌谷|Ow
 Z ha_z3 | 아시노코·모토하코네 | Lake Ashi & Moto-Hakone
 P ha_cruise fun 35.2027 139.0264 1 o=D | 아시노코 해적선|芦之湖海盗船|Lake Ashi Pirate Ship|芦ノ湖海賊船 | 도겐다이~모토하코네 호수 유람선 | Lake Ashi cruise from Togendai to Moto-Hakone
 P ha_shrine palace 35.2058 139.0246 1 am o=D | 하코네 신사|箱根神社|Hakone Shrine|箱根神社 | 호수 위 붉은 평화의 도리이 | Lakeside shrine with the red Peace Torii
+
+C nara jp 34.6851 135.8400 1 110 | 나라|奈良|Nara|奈良 | 사슴이 노니는 공원과 대불, 천 년 넘은 절과 신사의 옛 수도 | Deer park, the Great Buddha and temples older than a thousand years
+A KIX 34.4320 135.2304 90 | 간사이공항|关西机场|Kansai (KIX)|関西空港
+S nr_s1 34.6844 135.8279 | 긴테쓰나라역 주변|近铁奈良站周边|Around Kintetsu-Nara Stn|近鉄奈良駅周辺 | 나라 공원까지 걸어서 약 5~8분, 난바 직통 | 5-8 min walk to Nara Park, direct trains to Namba
+S nr_s2 34.6811 135.8197 | JR나라역 주변|JR奈良站周边|Around JR Nara Stn|JR奈良駅周辺 | JR 야마토지선·순환 버스 출발점 | JR Yamatoji Line and city loop bus hub
+Z nr_z1 | 나라 공원·고후쿠지 | Nara Park & Kofuku-ji
+P nr_park nature 34.6850 135.8432 1.5 o=A | 나라 공원|奈良公园|Nara Park|奈良公園 | 사슴 약 1,200마리가 사는 넓은 공원 | Vast park home to about 1,200 deer
+P nr_kofukuji palace 34.6832 135.8316 1 am o=D | 고후쿠지|兴福寺|Kofuku-ji Temple|興福寺 | 오층탑과 국보관이 있는 역 앞 절 | Temple with a five-storied pagoda and treasure hall
+P nr_museum palace 34.6834 135.8370 1.5 o=D x=1 | 나라 국립박물관|奈良国立博物馆|Nara National Museum|奈良国立博物館 | 불교 미술을 모은 공원 안 박물관 | Buddhist art museum inside the park
+P nr_isuien nature 34.6858 135.8370 1 o=D x=2 | 이스이엔|依水园|Isui-en Garden|依水園 | 와카쿠사산을 빌려 온 일본 정원 | Japanese garden borrowing the hills as backdrop
+Z nr_z2 | 도다이지·가스가타이샤 | Todai-ji & Kasuga Taisha
+P nr_todaiji palace 34.6890 135.8398 1.5 am o=D | 도다이지|东大寺|Todai-ji Temple|東大寺 | 대불전의 큰 불상과 니가쓰도 | Great Buddha Hall and Nigatsu-do
+P nr_kasuga palace 34.6812 135.8484 1.25 am o=D | 가스가타이샤|春日大社|Kasuga Taisha Shrine|春日大社 | 등롱 길이 이어지는 숲속 신사 | Forest shrine lined with stone lanterns
+P nr_wakakusa nature 34.6866 135.8487 1.5 o=D | 와카쿠사산|若草山|Mt. Wakakusa|若草山 | 나라 시내가 내려다보이는 잔디 산 | Grassy hill overlooking the city
+Z nr_z3 | 나라마치 | Naramachi
+P nr_naramachi shop 34.6775 135.8310 1.5 o=S | 나라마치|奈良町|Naramachi|ならまち | 옛 상가가 남은 골목·카페 거리 | Old merchant-house lanes with cafes
+
+C kanazawa jp 36.5613 136.6562 1 105 | 가나자와|金泽|Kanazawa|金沢 | 겐로쿠엔과 찻집 거리, 오미초 시장의 '작은 교토' | Castle-town of a great garden, teahouse streets and a seafood market
+A KMQ 36.3946 136.4069 40 | 고마쓰공항|小松机场|Komatsu (KMQ)|小松空港
+S kz_stay_station 36.5780 136.6485 | 가나자와역 주변|金泽站周边|Around Kanazawa Stn|金沢駅周辺 | 공항버스·신칸센이 서는 역 앞, 오미초 시장까지 걸어서 약 15분 | Airport buses and Shinkansen at the door, Omicho about 15 min on foot
+S kz_stay_korinbo 36.5600 136.6545 | 고린보·가타마치|香林坊·片町|Korinbo & Katamachi|香林坊・片町 | 겐로쿠엔·21세기 미술관·나가마치가 걸어서 닿는 번화가 | Downtown within walking distance of Kenrokuen, the museum and Nagamachi
+Z kz_z1 | 가나자와역·오미초 | Kanazawa Stn & Omicho
+P kz_station palace 36.5781 136.6480 0.5 eve o=A | 가나자와역 쓰즈미몬|金泽站鼓门|Kanazawa Stn Tsuzumi-mon Gate|金沢駅鼓門 | 북 모양 나무 문과 유리 돔이 있는 역 동쪽 출구 | Drum-shaped wooden gate and glass dome at the east exit
+P kz_omicho food 36.5714 136.6563 1 lunch o=M | 가나자와 오미초 시장|金泽近江町市场|Omicho Market|近江町市場 | 170곳 넘는 가게가 모인 300년 해산물 시장 | 300-year-old market of 170+ shops and seafood
+Z kz_z2 | 겐로쿠엔·고린보 | Kenrokuen & Korinbo
+P kz_kenrokuen nature 36.5621 136.6627 1.5 am o=D | 겐로쿠엔|兼六园|Kenrokuen Garden|兼六園 | 일본 3대 정원, 고토지 석등과 겨울 유키즈리 | One of Japan's three great gardens, with snow-rope pines
+P kz_castle palace 36.5650 136.6597 1 am o=D | 가나자와성 공원|金泽城公园|Kanazawa Castle Park|金沢城公園 | 겐로쿠엔과 다리로 이어진 무료 성터 공원 | Free castle park linked to Kenrokuen by a bridge
+P kz_21museum fun 36.5609 136.6582 1.5 o=D x=1 | 가나자와 21세기 미술관|金泽21世纪美术馆|21st Century Museum of Contemporary Art|金沢21世紀美術館 | 둥근 유리 건물의 현대 미술관, 무료 구역 있음 | Round glass contemporary art museum with a free zone
+P kz_nagamachi palace 36.5626 136.6489 1 am o=D | 나가마치 무사 저택 거리|长町武家宅邸遗迹|Nagamachi Samurai District|長町武家屋敷跡 | 흙담과 수로가 남은 옛 무사 마을 | Old samurai quarter of earthen walls and canals
+Z kz_z3 | 히가시차야 | Higashi Chaya
+P kz_higashichaya shop 36.5724 136.6667 1 o=A | 히가시차야가이|东茶屋街|Higashi Chaya District|ひがし茶屋街 | 1820년 생긴 찻집 거리, 금박 공예 가게 | Teahouse street from 1820 with gold-leaf craft shops
 """

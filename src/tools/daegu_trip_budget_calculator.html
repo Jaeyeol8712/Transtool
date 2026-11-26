@@ -1,0 +1,47 @@
+<label for="dg1">인원 (명)</label>
+<input id="dg1" type="number" inputmode="numeric" placeholder="예: 2"/>
+<label for="dg2">숙박 수 (박)</label>
+<input id="dg2" type="number" inputmode="numeric" placeholder="당일이면 0, 예: 1"/>
+<label for="dg3">KTX 서울↔동대구 1인 왕복 요금 (원, 자가용이면 0)</label>
+<input id="dg3" type="number" inputmode="decimal" placeholder="예: 78000"/>
+<label for="dg4">이월드·83타워 이용권</label>
+<select id="dg4"><option value="d" selected>종일 자유이용권</option><option value="n">야간 자유이용권 (17:00부터)</option><option value="t">83타워 전망대만</option><option value="x">안 감</option></select>
+<label for="dg5">종일 자유이용권 성인 요금 (원)</label>
+<input id="dg5" type="number" inputmode="decimal" placeholder="예: 49000"/>
+<label for="dg6">야간 자유이용권 성인 요금 (원)</label>
+<input id="dg6" type="number" inputmode="decimal" placeholder="예: 35000"/>
+<label for="dg7">83타워 전망대 요금 (원)</label>
+<input id="dg7" type="number" inputmode="decimal" placeholder="예: 15000"/>
+<label for="dg8">팔공산 케이블카 1인 요금 (원, 안 타면 0)</label>
+<input id="dg8" type="number" inputmode="decimal" placeholder="왕복 예: 14000"/>
+<label for="dg9">숙박 1박 요금 (방 전체, 원)</label>
+<input id="dg9" type="number" inputmode="decimal" placeholder="당일이면 0, 예: 100000"/>
+<label for="dg10">1인 하루 식비 (원)</label>
+<input id="dg10" type="number" inputmode="decimal" placeholder="예: 40000"/>
+<label for="dg11">시내 교통·기타 (일행 전체, 원)</label>
+<input id="dg11" type="number" inputmode="decimal" placeholder="택시·지하철·자가용 비용 등, 예: 20000"/>
+<button onclick="calc_daegu_budget()">대구 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="dgT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="dgP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">이월드 · 팔공산 케이블카</span><span class="result-value" id="dgE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">KTX · 숙박 · 식비 · 기타</span><span class="result-value" id="dgB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function dg_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function dg_s(i,t){document.getElementById(i).textContent=t;}
+function dg_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_daegu_budget(){
+ var p=Math.floor(dg_v('dg1'));if(p<1) return alert('인원을 입력해주세요.');
+ var n=Math.floor(dg_v('dg2')),k=document.getElementById('dg4').value;
+ var ew=k==='d'?dg_v('dg5'):(k==='n'?dg_v('dg6'):(k==='t'?dg_v('dg7'):0));
+ var park=ew*p,cable=dg_v('dg8')*p,tr=dg_v('dg3')*p;
+ var room=dg_v('dg9')*n,food=dg_v('dg10')*p*(n+1),etc=dg_v('dg11');
+ var tot=park+cable+tr+room+food+etc;
+ dg_s('dgT',dg_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ dg_s('dgP',dg_w(tot/p));
+ dg_s('dgE','이월드 '+dg_w(park)+' · 케이블카 '+dg_w(cable));
+ dg_s('dgB','KTX '+dg_w(tr)+' · 숙박 '+dg_w(room)+' · 식비 '+dg_w(food)+' · 기타 '+dg_w(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>

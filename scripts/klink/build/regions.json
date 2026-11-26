@@ -119,6 +119,20 @@
 "ov": false
 },
 {
+"id": "gapyeong",
+"name": "가평",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "incheon",
+"name": "인천",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -233,6 +247,20 @@
 {
 "id": "hakone",
 "name": "하코네",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "nara",
+"name": "나라",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "kanazawa",
+"name": "가나자와",
 "cc": "jp",
 "country": "일본",
 "ov": true

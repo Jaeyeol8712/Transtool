@@ -171,6 +171,21 @@ dm_metasequoia 35.3244 126.995 9 18 day - 1
 dm_metaprovence 35.3218 126.9978 10 20 eve any 1
 dm_soswaewon 35.1866 127.0134 9 17 am - 1
 dm_gasa 35.191 127.0075 9 17 day - 1
+gp_nami 37.793 127.525 8 21 am - 2.5
+gp_morningcalm 37.7436 127.3527 8.5 19 day - 2
+gp_jarasum 37.8186 127.5246 0 24 day - 1
+gp_petitefrance 37.7202 127.4893 9 18 day - 1.5
+gp_railbike 37.8262 127.512 10 19 day - 1.5
+gp_jat_forest 37.769 127.356 9 17 am - 1.5
+gp_jat_market 37.829 127.5125 9 19 day any 1
+ic_chinatown 37.4755 126.6178 0 24 day any 1.5
+ic_jjajang_museum 37.476 126.6172 9 18 day - 0.7
+ic_fairytale 37.4782 126.6185 0 24 day - 0.7
+ic_gaehangjang 37.4738 126.621 0 24 day - 1.5
+ic_wolmi_train 37.4762 126.6158 10 18 eve - 1
+ic_sinpo_market 37.4718 126.626 10 20 day any 1
+ic_songdo_park 37.3925 126.639 0 24 eve - 1.5
+ic_sorae 37.4005 126.7335 7 24 eve any 1.5
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -419,6 +434,37 @@ NEW = [
      ['소쇄원', '조선 선비의 계곡 원림'], ['潇洒园', '朝鲜士人的溪谷园林'], ['Soswaewon Garden', "Joseon scholar's valley garden"], ['瀟灑園', '朝鮮時代の士人が造った渓谷の庭園']),
     ('dm_gasa', 'palace', 'damyang', 0, {}, '담양군 가사문학면 가사문학로 877',
      ['한국가사문학관', '송순·정철 가사문학 전시관'], ['韩国歌辞文学馆', '宋纯·郑澈歌辞文学展馆'], ['Korea Gasa Literature Museum', 'Gasa poetry of Song Sun and Jeong Cheol'], ['韓国歌辞文学館', '宋純・鄭澈の歌辞文学の展示館']),
+    # 2026-11-27 매일 콘텐츠: K링크 새 지역 가평·인천
+    ('gp_nami', 'nature', 'gapyeong', 19000, {}, '경기 가평군 가평읍 북한강변로 1024',
+     ['남이섬', '배로 들어가는 북한강 섬'], ['南怡岛', '乘船进入的北汉江小岛'], ['Nami Island', 'River island reached by ferry'], ['南怡島', '船で渡る北漢江の島']),
+    ('gp_morningcalm', 'nature', 'gapyeong', 11000, {}, '경기 가평군 상면 수목원로 432',
+     ['아침고요수목원', '정원과 겨울 불빛 축제'], ['晨静树木园', '主题庭园与冬季灯光节'], ['The Garden of Morning Calm', 'Themed gardens and winter light festival'], ['朝の静かな樹木園', '庭園と冬のイルミネーション']),
+    ('gp_jarasum', 'nature', 'gapyeong', 0, {}, '경기 가평군 가평읍 자라섬로 60',
+     ['자라섬', '잔디광장·캠핑장 있는 섬'], ['紫鳞岛', '有草坪和露营场的江岛'], ['Jarasum Island', 'River islands with lawns and campsites'], ['チャラ島', '芝生広場とキャンプ場の島']),
+    ('gp_petitefrance', 'fun', 'gapyeong', 12000, {}, '경기 가평군 청평면 호반로 1063',
+     ['쁘띠프랑스', '어린 왕자 주제 프랑스 마을'], ['小法国村', '小王子主题法国村'], ['Petite France', 'Little Prince themed French village'], ['プチフランス', '星の王子さまのフランス村']),
+    ('gp_railbike', 'fun', 'gapyeong', 36000, {}, '경기 가평군 가평읍 장터길 14',
+     ['가평 레일바이크', '북한강철교 건너는 레일바이크'], ['加平铁路自行车', '穿越北汉江铁桥的轨道自行车'], ['Gapyeong Rail Bike', 'Rail bike over the Bukhangang bridge'], ['加平レールバイク', '北漢江鉄橋を渡るレールバイク']),
+    ('gp_jat_forest', 'nature', 'gapyeong', 1000, {'closed': [1]}, '경기 가평군 상면 축령로 289-146',
+     ['잣향기푸른숲', '80년 넘은 잣나무 숲'], ['松子香绿林', '80年以上的红松林'], ['Jatyanggi Purunsup Forest', 'Forest of 80-year-old pine-nut trees'], ['チャッヒャンギ・プルンスプ', '樹齢80年超のチョウセンゴヨウ林']),
+    ('gp_jat_market', 'food', 'gapyeong', 0, {}, '경기 가평군 가평읍 장터2길 10',
+     ['가평 잣고을 전통시장', '1923년 문 연 5일장 시장'], ['加平松子乡传统市场', '1923年开市的五日集市'], ['Gapyeong Jatgoeul Traditional Market', 'Market since 1923 with a 5-day fair'], ['加平チャッコウル伝統市場', '1923年開設の五日市']),
+    ('ic_chinatown', 'food', 'incheon', 0, {}, '인천 제물포구 차이나타운로59번길 20',
+     ['인천 차이나타운', '짜장면이 처음 생긴 화교 거리'], ['仁川中华街', '炸酱面发源地的华侨街'], ['Incheon Chinatown', 'Chinese quarter where jajangmyeon began'], ['仁川チャイナタウン', 'ジャジャン麺発祥の華僑街']),
+    ('ic_jjajang_museum', 'palace', 'incheon', 1000, {'closed': [1]}, '인천 제물포구 차이나타운로 56-14',
+     ['짜장면박물관', '옛 공화춘 건물 짜장면 박물관'], ['炸酱面博物馆', '旧共和春建筑里的炸酱面博物馆'], ['Jajangmyeon Museum', 'Jajangmyeon museum in the old Gonghwachun'], ['ジャジャン麺博物館', '旧共和春の建物のジャジャン麺博物館']),
+    ('ic_fairytale', 'fun', 'incheon', 0, {}, '인천 제물포구 송월동3가',
+     ['송월동 동화마을', '동화 벽화·조형물 골목'], ['松月洞童话村', '童话壁画与雕塑的小巷'], ['Songwol-dong Fairy Tale Village', 'Alleys of fairy-tale murals and sculptures'], ['松月洞童話村', '童話の壁画とオブジェの路地']),
+    ('ic_gaehangjang', 'palace', 'incheon', 0, {}, '인천 제물포구 제물량로232번안길 27',
+     ['개항장 거리', '근대 건물·인천개항박물관'], ['开港场街', '近代建筑与仁川开港博物馆'], ['Gaehangjang Open Port Street', 'Modern-era buildings and Open Port Museum'], ['開港場通り', '近代建築と仁川開港博物館']),
+    ('ic_wolmi_train', 'fun', 'incheon', 8000, {'closed': [1]}, '인천 제물포구 제물량로 269',
+     ['월미바다열차', '월미도 도는 6.1km 모노레일'], ['月尾海洋列车', '环绕月尾岛的6.1公里单轨'], ['Wolmi Sea Train', '6.1 km monorail loop around Wolmido'], ['月尾海列車', '月尾島を巡る6.1kmモノレール']),
+    ('ic_sinpo_market', 'food', 'incheon', 0, {}, '인천 제물포구 우현로49번길 11-5',
+     ['신포국제시장', '닭강정·공갈빵·쫄면 시장'], ['新浦国际市场', '炸鸡块、空心饼和筋面的市场'], ['Sinpo International Market', 'Market for dakgangjeong and gonggalppang'], ['新浦国際市場', 'タッカンジョンとコンガルパンの市場']),
+    ('ic_songdo_park', 'nature', 'incheon', 0, {}, '인천 연수구 컨벤시아대로 160',
+     ['송도 센트럴파크', '국내 첫 해수 공원·수로'], ['松岛中央公园', '韩国首个海水公园与水道'], ['Songdo Central Park', "Korea's first seawater park with canals"], ['松島セントラルパーク', '韓国初の海水公園と水路']),
+    ('ic_sorae', 'food', 'incheon', 0, {}, '인천 남동구 포구로 2-6',
+     ['소래포구', '새우·젓갈·꽃게 어시장 포구'], ['苏莱浦口', '虾、鱼酱和螃蟹的鱼市港口'], ['Sorae Port', 'Fish market port for shrimp, jeotgal and crab'], ['蘇莱浦口', 'エビ・塩辛・ワタリガニの魚市場の港']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.

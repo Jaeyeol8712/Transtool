@@ -302,7 +302,21 @@ def run(root=None, data=None):
         for sec, t in core[5:]:
             if 'b-more' in sec:
                 continue
-            main = main.replace(sec, f'<details class="b-more"><summary>{t}</summary>{sec}</details>', 1)
+            # 2026-11-27: 이미 접힌 카드는 다시 감싸지 않고, 예전 빌드가 겹겹이 감싼 것은 한 겹으로 되돌린다
+            op, cl = f'<details class="b-more"><summary>{t}</summary>', '</details>'
+            i = main.find(sec)
+            k = 0
+            while i - (k + 1) * len(op) >= 0 and main[i - (k + 1) * len(op):i - k * len(op)] == op:
+                k += 1
+            if k == 0:
+                main = main[:i] + op + sec + cl + main[i + len(sec):]
+                continue
+            e = i + len(sec)
+            c = 0
+            while main[e + c * len(cl):e + (c + 1) * len(cl)] == cl:
+                c += 1
+            x = max(min(k, c) - 1, 0)
+            main = main[:i - k * len(op)] + op * (k - x) + sec + cl * (c - x) + main[e + c * len(cl):]
         fq = re.search(r'(<div class="(?:at-faq|faq)[^"]*">)(.*?)(</div>\s*</section>|</div>\s*</div>)', main, re.S)
         if fq:
             dets = list(re.finditer(r'<details[^>]*>.*?</details>', fq.group(2), re.S))
