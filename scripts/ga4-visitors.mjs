@@ -8,7 +8,7 @@
  *   GA4 관리 → 속성 액세스 관리 → 서비스 계정 이메일을 "뷰어" 로 추가
  *   GitHub Variables GA4_PROPERTY_ID   (기본값 546783366)
  *
- * 숫자는 GA4 의 '활성 사용자(사용자)' 기준이며, 오늘 수치는 GA4 처리 지연 때문에 실제보다 늦게 반영될 수 있습니다.
+ * 숫자는 GA4 '총 사용자(totalUsers)' 기준 — 기간 안에서 같은 사람(같은 브라우저)은 1명으로 셉니다. 날짜는 GA4 속성 시간대(한국) 기준이며, 오늘 수치는 GA4 처리 지연 때문에 실제보다 늦게 반영될 수 있습니다.
  */
 import crypto from "node:crypto";
 import { writeFileSync, readFileSync, existsSync } from "node:fs";
@@ -47,7 +47,7 @@ async function users(startDate, endDate) {
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROPERTY}:runReport`, {
     method: "POST",
     headers: { Authorization: `Bearer ${access_token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ dateRanges: [{ startDate, endDate }], metrics: [{ name: "activeUsers" }, { name: "screenPageViews" }] }),
+    body: JSON.stringify({ dateRanges: [{ startDate, endDate }], metrics: [{ name: "totalUsers" }, { name: "screenPageViews" }] }),
   });
   if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 200)}`);
   const j = await res.json();
