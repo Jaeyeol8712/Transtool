@@ -1,21 +1,21 @@
 {
- "date": "2026-11-27",
+ "date": "2026-11-28",
  "reports": [
   {
    "type": "daily",
-   "file": "reports/daily-2026-11-26.html",
-   "title": "일간 보고서 · 2026-11-26(목)",
+   "file": "reports/daily-2026-11-27.html",
+   "title": "일간 보고서 · 2026-11-27(금)",
    "kpi": {
+    "views": 3,
+    "viewers": 2,
+    "clicks": 2,
+    "clickers": 1
+   },
+   "prev": {
     "views": 8,
     "viewers": 6,
     "clicks": 2,
     "clickers": 2
-   },
-   "prev": {
-    "views": 6,
-    "viewers": 5,
-    "clicks": 1,
-    "clickers": 1
    },
    "ai": {
     "sessions": 7,
@@ -29,11 +29,6 @@
     ]
    },
    "site": {
-    "20261120": {
-     "views": 53,
-     "users": 27,
-     "sessions": 30
-    },
     "20261121": {
      "views": 25,
      "users": 22,
@@ -63,18 +58,14 @@
      "views": 89,
      "users": 47,
      "sessions": 51
+    },
+    "20261127": {
+     "views": 57,
+     "users": 46,
+     "sessions": 51
     }
    },
    "days7": [
-    {
-     "key": "20261120",
-     "label": "11.20(금)",
-     "views": 1,
-     "viewers": 1,
-     "clicks": 0,
-     "clickers": 0,
-     "site": 53
-    },
     {
      "key": "20261121",
      "label": "11.21(토)",
@@ -128,6 +119,15 @@
      "clicks": 2,
      "clickers": 2,
      "site": 89
+    },
+    {
+     "key": "20261127",
+     "label": "11.27(금)",
+     "views": 3,
+     "viewers": 2,
+     "clicks": 2,
+     "clickers": 1,
+     "site": 57
     }
    ],
    "weeks8": [
@@ -205,18 +205,18 @@
      "key": "202648",
      "label": "11.23~(진행 중)",
      "done": false,
-     "views": 20,
-     "viewers": 17,
-     "clicks": 4,
-     "clickers": 4,
-     "site": 278
+     "views": 23,
+     "viewers": 19,
+     "clicks": 6,
+     "clickers": 5,
+     "site": 335
     }
    ],
    "clickSrc7": [
     {
      "channel": "Organic Search",
      "keyword": "(검색어 미전달)",
-     "clicks": 2
+     "clicks": 4
     },
     {
      "channel": "Direct",
@@ -241,13 +241,13 @@
      "clicks": 2
     },
     {
-     "post": "경동나비엔 온수매트 추천 가격 고르는 법",
-     "views": 3,
-     "clicks": 1
+     "post": "음식물처리기 추천 가격 비교 종류별 정리",
+     "views": 2,
+     "clicks": 2
     },
     {
-     "post": "포스파티딜세린 추천 순도 85% 가격 정리",
-     "views": 2,
+     "post": "경동나비엔 온수매트 추천 가격 고르는 법",
+     "views": 3,
      "clicks": 1
     }
    ],
@@ -263,12 +263,12 @@
      "users": 4
     },
     {
-     "name": "(direct) / (none)",
-     "sessions": 1,
-     "users": 1
+     "name": "daum / organic",
+     "sessions": 2,
+     "users": 2
     },
     {
-     "name": "daum / organic",
+     "name": "(direct) / (none)",
      "sessions": 1,
      "users": 1
     }
@@ -289,20 +289,26 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "c-type-65w-charger",
-     "sessions": 3
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
      "post": "east-europe-3countries",
      "sessions": 3
     },
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
+     "post": "c-type-65w-charger",
+     "sessions": 2
+    },
+    {
+     "engine": "네이버",
+     "query": "(검색어 미전달)",
      "post": "galaxy-z-fold8-256",
      "sessions": 2
+    },
+    {
+     "engine": "다음",
+     "query": "삼성tv 50인치",
+     "post": "samsung-business-tv-50",
+     "sessions": 1
     },
     {
      "engine": "다음",
@@ -313,23 +319,31 @@
     {
      "engine": "네이버",
      "query": "(검색어 미전달)",
-     "post": "galaxy-s26-ultra",
-     "sessions": 1
-    },
-    {
-     "engine": "네이버",
-     "query": "(검색어 미전달)",
-     "post": "jbl-authentics-200",
+     "post": "food-waste-disposer",
      "sessions": 1
     }
    ],
    "google": [
     {
-     "query": "폴드8 가격",
-     "post": "galaxy-z-fold8-256",
+     "query": "갤럭시 s26 울트라 512 가격",
+     "post": "galaxy-s26-ultra",
      "clicks": 0,
      "impressions": 1,
-     "position": 71
+     "position": 50
+    },
+    {
+     "query": "쉐이빙폼 추천",
+     "post": "shaving-foam-cream",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 61
+    },
+    {
+     "query": "어깨 제모용 가성비 좋은 셰이빙 크림은?",
+     "post": "shaving-foam-cream",
+     "clicks": 0,
+     "impressions": 1,
+     "position": 5
     }
    ]
   }
