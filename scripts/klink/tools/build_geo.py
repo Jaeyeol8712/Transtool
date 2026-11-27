@@ -50,6 +50,8 @@ def region_of_code(code, name):
     if code.startswith('26'): return 'ulsan'  # 2026-11-26 (KOSTAT 2013 울산 26xxx)
     if code == '36310': return 'damyang'  # 2026-11-26
     if code == '31370': return 'gapyeong'  # 2026-11-27
+    if code == '37040': return 'andong'  # 2026-11-28
+    if code == '38350': return 'namhae'  # 2026-11-28
     if code.startswith('23') and code not in ('23310', '23320'): return 'incheon'  # 2026-11-27 (강화·옹진 제외)
     if code.startswith('22') and code != '22310': return 'daegu'  # 달성군 제외
     return None
@@ -74,6 +76,7 @@ GU_T = {
  '해운대구':['海云台区','Haeundae-gu','海雲台区'],'사하구':['沙下区','Saha-gu','沙下区'],'금정구':['金井区','Geumjeong-gu','金井区'],'연제구':['莲堤区','Yeonje-gu','蓮堤区'],
  '수영구':['水营区','Suyeong-gu','水営区'],'사상구':['沙上区','Sasang-gu','沙上区'],'기장군':['机张郡','Gijang-gun','機張郡'],'제주시':['济州市','Jeju-si','済州市'],
  '서귀포시':['西归浦市','Seogwipo-si','西帰浦市'],'경주시':['庆州市','Gyeongju-si','慶州市'],'강릉시':['江陵市','Gangneung-si','江陵市'],'여수시':['丽水市','Yeosu-si','麗水市'],
+ '안동시':['安东市', 'Andong-si', '安東市'],'남해군':['南海郡', 'Namhae-gun', '南海郡'],
  '완산구':['完山区','Wansan-gu','完山区'],'군산시':['群山市','Gunsan-si','群山市'],'목포시':['木浦市','Mokpo-si','木浦市'],'단양군':['丹阳郡','Danyang-gun','丹陽郡'],'포항시남구':['浦项市南区','Nam-gu, Pohang','浦項市南区'],'포항시북구':['浦项市北区','Buk-gu, Pohang','浦項市北区'],'속초시':['束草市','Sokcho-si','束草市'],'춘천시':['春川市','Chuncheon-si','春川市'],'통영시':['统营市','Tongyeong-si','統営市'],'울주군':['蔚州郡','Ulju-gun','蔚州郡'],'담양군':['潭阳郡','Damyang-gun','潭陽郡'],'가평군':['加平郡','Gapyeong-gun','加平郡'],'연수구':['延寿区','Yeonsu-gu','延寿区'],'남동구':['南洞区','Namdong-gu','南洞区'],'남구':['南区','Nam-gu','南区'],'부평구':['富平区','Bupyeong-gu','富平区'],'계양구':['桂阳区','Gyeyang-gu','桂陽区'],'수성구':['寿城区','Suseong-gu','寿城区'],'달서구':['达西区','Dalseo-gu','達西区'],'덕진구':['德津区','Deokjin-gu','徳津区'],
 }
 ZONES = {
@@ -145,6 +148,18 @@ ZONES = {
            ('ic_songdo', ['ic_songdo_park'], ['송도 (센트럴파크)', '松岛（中央公园）', 'Songdo (Central Park)', '松島（セントラルパーク）']),
            ('ic_sorae', ['ic_sorae'], ['소래 (소래포구)', '苏莱（苏莱浦口）', 'Sorae (Sorae Port)', '蘇莱（蘇莱浦口）']),
 ],
+ 'andong': [
+           ('ad_pungcheon', ['ad_hahoe', 'ad_byeongsan'], ['풍천면 (하회마을·병산서원)', '丰川面（河回村·屏山书院）', 'Pungcheon (Hahoe Village & Byeongsanseowon)', '豊川面（河回村・屏山書院）']),
+           ('ad_city', ['ad_woryeong', 'ad_folk', 'ad_jjimdak'], ['시내·안동댐 (월영교·민속촌·찜닭골목)', '市区·安东坝（月映桥·民俗村·炖鸡巷）', 'Downtown & Andong Dam (Woryeonggyo, Folk Village, Jjimdak Alley)', '市内・安東ダム（月映橋・民俗村・チムダク通り）']),
+           ('ad_north', ['ad_dosan', 'ad_bongjeong'], ['북쪽 (도산서원·봉정사)', '北部（陶山书院·凤停寺）', 'North (Dosanseowon & Bongjeongsa)', '北部（陶山書院・鳳停寺）']),
+           ('ad_gilan', ['ad_manhyu'], ['길안면 (만휴정)', '吉安面（晚休亭）', 'Gilan (Manhyujeong)', '吉安面（晩休亭）']),
+],
+ 'namhae': [
+           ('nh_samdong', ['nh_german', 'nh_garden', 'nh_jukbang'], ['삼동면 (독일마을·원예예술촌·죽방렴)', '三东面（德国村·园艺艺术村·竹防帘）', 'Samdong-myeon (German Village, Garden & Weirs)', '三東面（ドイツ村・園芸芸術村・竹防簾）']),
+           ('nh_sangju', ['nh_boriam', 'nh_sangju', 'nh_seolli'], ['상주·미조 (보리암·은모래비치·스카이워크)', '尚州·弥助（菩提庵·银沙海滩·天空步道）', 'Sangju & Mijo (Boriam, Beach & Skywalk)', '尚州・弥助（菩提庵・銀砂ビーチ・スカイウォーク）']),
+           ('nh_nammyeon', ['nh_darangi'], ['남면 (다랭이마을)', '南面（梯田村）', 'Nam-myeon (Darangi Village)', '南面（ダレンイ村）']),
+           ('nh_eup', ['nh_market'], ['남해읍 (전통시장)', '南海邑（传统市场）', 'Namhae-eup (Traditional Market)', '南海邑（伝統市場）']),
+]
 }
 HAN = [(37.598,126.808),(37.582,126.826),(37.570,126.860),(37.553,126.893),(37.5435,126.905),(37.536,126.925),(37.534,126.940),(37.527,126.950),
        (37.517,126.959),(37.510,126.980),(37.513,126.996),(37.527,127.012),(37.536,127.018),(37.537,127.035),(37.534,127.059),(37.525,127.065),

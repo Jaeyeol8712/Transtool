@@ -860,3 +860,5 @@ from daily_1126 import GUIDES_1126  # noqa: E402  (2026-11-26 매일 콘텐츠: 
 GUIDES += GUIDES_1126
 from daily_1127 import GUIDES_1127  # noqa: E402  (2026-11-27 매일 콘텐츠: 오사카에서 나라 가는 법·사이판 입국)
 GUIDES += GUIDES_1127
+from daily_1128 import GUIDES_1128  # noqa: E402  (2026-11-28 매일 콘텐츠: 요코하마 가는 법·삿포로 날씨)
+GUIDES += GUIDES_1128

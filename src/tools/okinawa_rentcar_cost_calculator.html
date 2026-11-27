@@ -1,0 +1,66 @@
+<label for="ok1">환율 (100엔당 원)</label>
+<input id="ok1" type="number" inputmode="decimal" value="844" placeholder="예: 844"/>
+<label for="ok2">인원 (명)</label>
+<input id="ok2" type="number" inputmode="numeric" value="2" placeholder="예: 2"/>
+<label for="ok3">대여 일수 (일, 24시간 = 1일)</label>
+<input id="ok3" type="number" inputmode="numeric" value="3" placeholder="예: 3"/>
+<label for="ok4">하루 대여료 (엔, 면책보험 빼고)</label>
+<input id="ok4" type="number" inputmode="decimal" value="6000" placeholder="예약 화면 금액, 예: 6000"/>
+<label for="ok5">면책보험</label>
+<select id="ok5"><option value="f" selected>면책보상 + NOC 보상 (풀커버)</option><option value="c">면책보상만</option><option value="n">가입 안 함</option></select>
+<label for="ok6">면책보상 하루 요금 (엔)</label>
+<input id="ok6" type="number" inputmode="decimal" value="1650" placeholder="예: 1650"/>
+<label for="ok7">NOC 보상 하루 요금 (엔)</label>
+<input id="ok7" type="number" inputmode="decimal" value="550" placeholder="예: 550"/>
+<label for="ok8">고속도로 결제</label>
+<select id="ok8"><option value="e" selected>ETC 카드</option><option value="m">현금</option></select>
+<label for="ok9">고속도로 편도 1회 요금 ETC · 현금 (엔)</label>
+<input id="ok9" type="number" inputmode="decimal" value="1040" placeholder="ETC, 나하IC~교다IC 예: 1040"/>
+<input id="ok10" type="number" inputmode="decimal" value="1610" placeholder="현금, 나하IC~교다IC 예: 1610"/>
+<label for="ok11">고속도로 이용 횟수 (편도 기준, 회)</label>
+<input id="ok11" type="number" inputmode="numeric" value="2" placeholder="왕복이면 2"/>
+<label for="ok12">ETC 카드 대여료 (엔, 1회)</label>
+<input id="ok12" type="number" inputmode="decimal" value="330" placeholder="렌트카 회사 안내 금액, 예: 330"/>
+<label for="ok13">예상 주행거리 (km)</label>
+<input id="ok13" type="number" inputmode="decimal" value="250" placeholder="예: 250"/>
+<label for="ok14">연비 (km/L)</label>
+<input id="ok14" type="number" inputmode="decimal" value="15" placeholder="예: 15"/>
+<label for="ok15">휘발유 가격 (엔/L)</label>
+<input id="ok15" type="number" inputmode="decimal" value="179" placeholder="예: 179"/>
+<label for="ok16">1인 입장료 (엔, 츄라우미 수족관 등)</label>
+<input id="ok16" type="number" inputmode="decimal" value="2280" placeholder="예: 2280"/>
+<label for="ok17">주차·카시트·기타 (엔, 일행 전체)</label>
+<input id="ok17" type="number" inputmode="decimal" value="2000" placeholder="예: 2000"/>
+<label for="ok18">카드 해외결제 수수료율 (%)</label>
+<input id="ok18" type="number" inputmode="decimal" value="1.5" placeholder="현금이면 0, 예: 1.5"/>
+<button onclick="calc_okinawa_rentcar()">원화로 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">원화 총액 (수수료 포함)</span><span class="result-value" id="okT">-</span></div>
+<div class="result-row"><span class="result-label">엔화 합계</span><span class="result-value" id="okY" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="okP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">대여료 · 보험 · 고속도로 · 기름값</span><span class="result-value" id="okB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">입장료 · 기타</span><span class="result-value" id="okE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function ok_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function ok_s(i,t){document.getElementById(i).textContent=t;}
+function ok_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function ok_y(x){return Math.round(x).toLocaleString('ko-KR')+'엔';}
+function calc_okinawa_rentcar(){
+ var r=ok_v('ok1')/100,p=Math.floor(ok_v('ok2')),d=Math.floor(ok_v('ok3'));
+ if(r<=0||p<1||d<1) return alert('환율·인원·대여 일수를 입력해주세요.');
+ var ins=document.getElementById('ok5').value;
+ var rent=ok_v('ok4')*d,insd=ins==='f'?ok_v('ok6')+ok_v('ok7'):(ins==='c'?ok_v('ok6'):0),insT=insd*d;
+ var etcCard=document.getElementById('ok8').value==='e';
+ var times=Math.floor(ok_v('ok11')),toll=(etcCard?ok_v('ok9'):ok_v('ok10'))*times+(etcCard&&times>0?ok_v('ok12'):0);
+ var km=ok_v('ok13'),eff=ok_v('ok14'),fuel=eff>0?km/eff*ok_v('ok15'):0;
+ var ent=ok_v('ok16')*p,etc=ok_v('ok17');
+ var yen=rent+insT+toll+fuel+ent+etc,krw=yen*r,tot=krw*(1+ok_v('ok18')/100);
+ ok_s('okT',ok_w(tot)+' ('+d+'일, 수수료 '+ok_w(tot-krw)+')');
+ ok_s('okY',ok_y(yen)+' = '+ok_w(krw));
+ ok_s('okP',ok_w(tot/p));
+ ok_s('okB',ok_y(rent)+' · '+ok_y(insT)+' · '+ok_y(toll)+(etcCard?' (ETC)':' (현금)')+' · '+ok_y(fuel)+' ('+(eff>0?(Math.round(km/eff*10)/10).toLocaleString('ko-KR'):0)+'L)');
+ ok_s('okE',ok_y(ent)+' · '+ok_y(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>

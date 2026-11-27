@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>목포 여행 경비 계산기 | 어라운드툴</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.aroundtool.com/mokpo_trip_budget_calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=98a3e440">
+<style>html body{background:#fff!important}.at-tool{margin:0;max-width:none;border:1px solid var(--at-line-2);border-radius:16px}
+.at-embed-credit{margin:.6rem 0 0;font-size:.8125rem;color:var(--at-sub);text-align:right}
+.at-embed-credit a{color:var(--at-ink);font-weight:700;text-decoration:none}.at-embed-credit a:hover{text-decoration:underline}</style>
+
+
+</head>
+<body style="padding:8px">
+<section class="at-tool" aria-label="목포 여행 경비 계산기">
+<p style="margin:0 0 1rem;font-weight:800;font-size:1.0625rem">목포 여행 경비 계산기</p>
+<label for="mp1">인원 (명)</label>
+<input id="mp1" type="number" inputmode="numeric" value="2" placeholder="예: 2"/>
+<label for="mp2">숙박 수 (박)</label>
+<input id="mp2" type="number" inputmode="numeric" value="1" placeholder="당일이면 0, 예: 1"/>
+<label for="mp3">KTX 용산↔목포 1인 편도 요금 (원, 자가용이면 0)</label>
+<input id="mp3" type="number" inputmode="decimal" value="48000" placeholder="예: 48000"/>
+<label for="mp4">목포해상케이블카</label>
+<select id="mp4"><option value="g" selected>일반 캐빈 왕복</option><option value="c">크리스탈 캐빈 왕복</option><option value="x">안 탐</option></select>
+<label for="mp5">일반 캐빈 왕복 대인 요금 (원)</label>
+<input id="mp5" type="number" inputmode="decimal" value="24000" placeholder="예: 24000"/>
+<label for="mp6">크리스탈 캐빈 왕복 대인 요금 (원)</label>
+<input id="mp6" type="number" inputmode="decimal" value="29000" placeholder="예: 29000"/>
+<label for="mp7">그 밖의 1인 입장료 (원, 목포근대역사관 1관 등)</label>
+<input id="mp7" type="number" inputmode="decimal" value="2000" placeholder="예: 2000"/>
+<label for="mp8">숙박 1박 요금 (방 전체, 원)</label>
+<input id="mp8" type="number" inputmode="decimal" value="100000" placeholder="당일이면 0, 예: 100000"/>
+<label for="mp9">1인 하루 식비 (원)</label>
+<input id="mp9" type="number" inputmode="decimal" value="40000" placeholder="예: 40000"/>
+<label for="mp10">시내 교통·기타 (일행 전체, 원)</label>
+<input id="mp10" type="number" inputmode="decimal" value="30000" placeholder="택시·버스·주차 등, 예: 30000"/>
+<button onclick="calc_mokpo_budget()">목포 경비 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">총 경비</span><span class="result-value" id="mpT">-</span></div>
+<div class="result-row"><span class="result-label">1인당</span><span class="result-value" id="mpP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">KTX · 케이블카 · 입장</span><span class="result-value" id="mpE" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">숙박 · 식비 · 기타</span><span class="result-value" id="mpB" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function mp_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function mp_s(i,t){document.getElementById(i).textContent=t;}
+function mp_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_mokpo_budget(){
+ var p=Math.floor(mp_v('mp1'));if(p<1) return alert('인원을 입력해주세요.');
+ var n=Math.floor(mp_v('mp2')),k=document.getElementById('mp4').value;
+ var tr=mp_v('mp3')*2*p;
+ var cable=(k==='g'?mp_v('mp5'):(k==='c'?mp_v('mp6'):0))*p,ent=mp_v('mp7')*p;
+ var room=mp_v('mp8')*n,food=mp_v('mp9')*p*(n+1),etc=mp_v('mp10');
+ var tot=tr+cable+ent+room+food+etc;
+ mp_s('mpT',mp_w(tot)+' ('+(n?n+'박 '+(n+1)+'일':'당일')+')');
+ mp_s('mpP',mp_w(tot/p));
+ mp_s('mpE','KTX '+mp_w(tr)+' · 케이블카 '+mp_w(cable)+' · 입장 '+mp_w(ent));
+ mp_s('mpB','숙박 '+mp_w(room)+' · 식비 '+mp_w(food)+' · 기타 '+mp_w(etc));
+ document.getElementById('result').classList.add('show');
+}
+</script>
+</section>
+<p class="at-embed-credit">계산기 제공 <a href="https://www.aroundtool.com/mokpo_trip_budget_calculator.html?utm_source=embed&amp;utm_campaign=mokpo_trip_budget_calculator" target="_blank" rel="noopener">어라운드툴 목포 여행 경비 계산기</a></p>
+</body>
+</html>

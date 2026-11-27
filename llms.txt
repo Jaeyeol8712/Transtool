@@ -1,6 +1,6 @@
 # 어라운드툴 (aroundtool.com)
 
-> 무료 생활 계산기 161종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
+> 무료 생활 계산기 164종과, 광고·협찬을 배제하고 선정 근거를 밝힌 전국 28개 지역 맛집 196곳 기록, 국내외 여행 코스·예산 가이드를 제공하는 한국어 사이트입니다. 회원가입 없이 모든 페이지를 볼 수 있습니다.
 
 - 최종 갱신: 2026-10-24
 - 전체 페이지 목록: https://www.aroundtool.com/sitemap.html
@@ -183,6 +183,9 @@
 - [대구 여행 경비](https://www.aroundtool.com/daegu_trip_budget_calculator.html): 인원과 박수, 서울↔동대구 KTX 왕복 요금, 이월드·83타워 종일·야간 자유이용권 또는 전망대 요금, 팔공산 케이블카 요금, 숙박·식비·시내 교통비를 넣으면 대구여행 총경비와 1인당 비용을 계산합니다.
 - [울산 여행 경비](https://www.aroundtool.com/ulsan_trip_budget_calculator.html): 인원과 박수, 서울↔울산역 KTX 요금, 울산역↔시내 리무진 요금, 장생포 고래문화마을·고래박물관 입장료, 숙박·식비·시내 이동비를 넣으면 울산여행 총경비와 1인당 비용을 계산합니다.
 - [바트 환율 · 파타야 경비](https://www.aroundtool.com/thai_baht_pattaya_budget_calculator.html): 1바트당 환율을 넣어 태국 바트를 원화로 바로 환산하고, 파타야 숙박·식비·꼬란 배·농눅 빌리지·진리의 성전 입장료·현지 교통을 바트로 넣어 카드 해외결제 수수료까지 더한 원화 총액과 1인당 비용을 계산합니다.
+- [이월드 자유이용권 가족 요금](https://www.aroundtool.com/eworld_ticket_family_calculator.html): 어른·청소년·어린이·35개월 이하 유아 인원을 넣으면 대구 이월드 종일 자유이용권, 야간 자유이용권, 83타워 전망대 요금을 가족 합계로 비교하고 카드 할인율과 83타워 표를 더한 금액까지 계산합니다.
+- [목포 여행 경비](https://www.aroundtool.com/mokpo_trip_budget_calculator.html): 인원과 박수, KTX 용산↔목포 편도 요금, 목포해상케이블카 일반·크리스탈 캐빈 왕복 요금, 근대역사관 같은 입장료, 숙박·식비·시내 교통비를 넣으면 목포여행 총경비와 1인당 비용을 계산합니다.
+- [오키나와 렌트카 비용](https://www.aroundtool.com/okinawa_rentcar_cost_calculator.html): 100엔당 환율과 인원, 대여 일수, 하루 대여료, 면책보상·NOC 보상, 오키나와 자동차도 ETC·현금 통행료, 주행거리·연비·휘발유 가격, 츄라우미 수족관 같은 입장료를 엔화로 넣으면 원화 총액과 1인당 비용을 계산합니다.
 
 ### 텍스트
 - [글자수 세기](https://www.aroundtool.com/character_counter.html): 자기소개서·블로그 원고를 붙여 넣으면 공백 포함·제외 글자 수, 단어 수, 문장 수, 줄 수, 바이트를 실시간으로 세는 글자수 세기 계산기입니다. 입력 내용은 서버로 전송되지 않습니다.
@@ -219,7 +222,7 @@
 - [전남 중부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-jungbu.html)
 - [전남 서부권 맛집 5곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-seobu.html)
 - [전남 남부권 맛집 7곳 — 카테고리별 전체 정리](https://www.aroundtool.com/jeonnam-nambu.html)
-- [제철 음식·시장 안내 87가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
+- [제철 음식·시장 안내 90가지 — 제철 시기·먹는 법](https://www.aroundtool.com/season.html)
 
 ## 지역별 맛집
 
@@ -327,6 +330,7 @@
 - [전남 남부권 남도음식거리](https://www.aroundtool.com/jeonnam-nambu-namdo.html) — 6곳
 
 ### 전국 제철 음식
+- [제철 제철 음식·시장 안동 맛집 전에 볼 안동 먹거리](https://www.aroundtool.com/season-andong-food.html)
 - [제철 제철 음식·시장 안동 구시장 찜닭골목](https://www.aroundtool.com/season-andong-jjimdak-alley.html)
 - [제철 제철 음식·시장 벌교 꼬막](https://www.aroundtool.com/season-beolgyo-kkomak.html)
 - [제철 제철 음식·시장 부안 곰소 젓갈](https://www.aroundtool.com/season-buan-gomso-jeotgal.html)
@@ -341,6 +345,7 @@
 - [제철 제철 음식·시장 대구 맛집 먹거리](https://www.aroundtool.com/season-daegu-food.html)
 - [제철 제철 음식·시장 대구 서문시장 먹거리·야시장](https://www.aroundtool.com/season-daegu-seomun-market-food.html)
 - [제철 제철 음식·시장 담양 맛집 전에 볼 담양 먹거리](https://www.aroundtool.com/season-damyang-food.html)
+- [제철 제철 음식·시장 담양 국수거리](https://www.aroundtool.com/season-damyang-noodle-street.html)
 - [제철 제철 음식·시장 단양 맛집 먹거리](https://www.aroundtool.com/season-danyang-food.html)
 - [제철 제철 음식·시장 단양구경시장 마늘 먹거리](https://www.aroundtool.com/season-danyang-gugyeong-market.html)
 - [제철 제철 음식·시장 강화 순무](https://www.aroundtool.com/season-ganghwa-sunmu.html)
@@ -387,6 +392,7 @@
 - [제철 제철 음식·시장 모슬포 방어](https://www.aroundtool.com/season-moseulpo-bangeo.html)
 - [제철 제철 음식·시장 남대문시장 갈치조림 골목](https://www.aroundtool.com/season-namdaemun-galchi-alley.html)
 - [제철 제철 음식·시장 남당리 새조개](https://www.aroundtool.com/season-namdang-saejogae.html)
+- [제철 제철 음식·시장 남해 맛집 전에 볼 남해 먹거리](https://www.aroundtool.com/season-namhae-food.html)
 - [제철 제철 음식·시장 논산 딸기](https://www.aroundtool.com/season-nonsan-ttalgi.html)
 - [제철 제철 음식·시장 노량진 겨울 제철 회](https://www.aroundtool.com/season-noryangjin-winter-hoe.html)
 - [제철 제철 음식·시장 포항 과메기](https://www.aroundtool.com/season-pohang-gwamegi.html)
@@ -598,6 +604,13 @@
 - [리쓰린 공원](https://www.aroundtool.com/travel-takamatsu-ritsurin.html): 리쓰린 공원 입원료와 월별 여는 시간, 남쪽 연못 와센 배 요금·예약, 차실 기쿠게쓰테이 말차 요금, JR·고토덴 리쓰린코엔역에서 가는 법, 다카마쓰 상점가로 이어 걷는 동선을 가가와현 관광 공식·JNTO 안내 기준으로 정리했습니다.
 - [초콜릿 힐](https://www.aroundtool.com/travel-bohol-chocolate-hills.html): 보홀 초콜릿 힐 입장료와 전망대 계단 수, 건기에 갈색으로 변하는 시기, 로복강 수상 식당 크루즈 요금, 코렐라 안경원숭이 보호구역 시간·관람 규칙을 필리핀 관광부·보홀주 관광·안경원숭이 재단 안내 기준으로 정리했습니다.
 - [시즈오카 먹거리](https://www.aroundtool.com/travel-shizuoka-food.html): 시즈오카 오뎅 다섯 가지 특징, 사쿠라에비 봄·가을 어기, 시미즈 항 가시노이치 참치 덮밥 시간·휴무, 녹차와 하마나코 장어, 시즈오카역 주변·슨푸성 공원과 묶는 동선을 시즈오카현·시즈오카시 관광 공식 안내 기준으로 정리했습니다.
+- [안동 명소 안내](https://www.aroundtool.com/travel-andong-attractions.html): 안동 가볼만한곳 8곳(안동 하회마을, 안동 월영교, 안동 도산서원, 안동 병산서원, 안동 봉정사, 안동 만휴정, 안동민속촌, 안동 구시장 찜닭골목)의 운영 시간·요금·휴무와 권역 묶는 법을 정리했습니다.
+- [구마모토 여행](https://www.aroundtool.com/travel-kumamoto-attractions.html): 구마모토성 입장료·시간과 사쿠라노바바 조사이엔, 스이젠지 조주엔 요금, 시모토리·가미토리 아케이드와 쿠마몬 스퀘어, 노면전차 200엔·1일권으로 도는 일정별 동선, 아소 화구 규제 확인법을 공식 안내 기준으로 정리했습니다.
+- [스카이라인 루지 통영](https://www.aroundtool.com/travel-tongyeong-luge.html): 스카이라인 루지 통영의 3·4·5회 요금과 온라인 가격, 아이 키 제한(85cm·110cm·120cm), 한 번 타는 데 걸리는 시간, 옆 통영케이블카와 오전 반나절에 묶는 순서를 정리했습니다.
+- [소쇄원 가사문학 코스](https://www.aroundtool.com/travel-damyang-soswaewon.html): 조선 선비 양산보가 만든 소쇄원의 계절별 관람 시간과 입장료·무료 대상, 둘러보는 순서, 가까운 식영정과 한국가사문학관(무료)까지 반나절에 걷는 가사문학 코스를 정리했습니다.
+- [교토 아라시야마](https://www.aroundtool.com/travel-kyoto-arashiyama.html): 아라시야마 대나무숲·도게츠교를 이른 아침에 걷고 란덴으로 료안지·금각사까지 잇는 교토 서쪽 하루 순서, 교토역에서 가는 법, 사찰 시간·요금, 쓰레기 규칙을 교토시 관광협회·JNTO 기준으로 정리했습니다.
+- [클락 가볼만한곳](https://www.aroundtool.com/travel-clark-attractions.html): 클락 프리포트 공항·퍼레이드 그라운드, 앙헬레스 시내 성당·박물관과 시시그, 피나투보 화산 트레킹 시즌·요금, 수빅 해변·정글·그란데 섬을 앙헬레스시·수빅만 관리청 등 공식 안내로 정리했습니다.
+- [후쿠오카 먹거리](https://www.aroundtool.com/travel-fukuoka-food.html): 나카스 야타이 여는 시간·매너, 하카타 라멘 가에다마, 모쓰나베 마무리, 멘타이코 제철, 캐널시티 하카타·하카타역·텐진 지하상가에서 먹는 동선을 후쿠오카시·현 관광 공식과 JNTO 기준으로 정리했습니다.
 
 ## 가이드
 
@@ -737,6 +750,8 @@
 - [스카이라이너 — 나리타공항에서 도쿄 시내 요금·시간, 우에노 공원·센소지 가는 법](https://www.aroundtool.com/guide-tokyo-skyliner.html)
 - [나라 사슴공원 가는 법 — 오사카에서 긴테쓰·JR 요금과 시간, 패스, 나라 공원·도다이지 동선](https://www.aroundtool.com/guide-nara-from-osaka.html)
 - [사이판 여행 입국 준비 — G-CNMI ETA 무료·45일, ESTA 90일, 세관 신고와 가라판 시내 첫날 동선](https://www.aroundtool.com/guide-saipan-entry.html)
+- [요코하마 가는 법 — 도쿄·시부야·하네다에서 전철 요금과 시간, 미나토미라이선, 하루 동선](https://www.aroundtool.com/guide-yokohama-from-tokyo.html)
+- [삿포로 날씨 12월·1월·2월 — 평균 기온·눈, 겨울 옷차림·미끄럼 대비 준비물, 삿포로 눈축제 2027 일정](https://www.aroundtool.com/guide-sapporo-winter-weather.html)
 - [2026년 최저임금 및 노동법 변경사항 핵심 요약](https://www.aroundtool.com/guide_2026_wage.html)
 - [2026년 달라지는 연말정산 및 종소세 절세 가이드](https://www.aroundtool.com/guide_2026_tax.html)
 

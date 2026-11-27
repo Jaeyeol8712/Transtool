@@ -210,7 +210,8 @@ TOOL_GROUPS = [
                      "jeonju_ktx_vs_car_cost_calculator", "danyang_trip_budget_calculator", "vietnam_dong_phuquoc_budget_calculator",  # 11-21(2차) 매일 콘텐츠
                      "yeosu_trip_budget_calculator", "gunsan_trip_budget_calculator", "guam_price_tip_calculator",  # 11-25 매일 콘텐츠
                      "jeju_rentcar_cost_calculator", "lotteworld_ticket_family_calculator", "taiwan_dollar_taipei_budget_calculator",  # 11-26 매일 콘텐츠
-                     "daegu_trip_budget_calculator", "ulsan_trip_budget_calculator", "thai_baht_pattaya_budget_calculator"]),  # 11-27 매일 콘텐츠
+                     "daegu_trip_budget_calculator", "ulsan_trip_budget_calculator", "thai_baht_pattaya_budget_calculator",  # 11-27 매일 콘텐츠
+                     "eworld_ticket_family_calculator", "mokpo_trip_budget_calculator", "okinawa_rentcar_cost_calculator"]),  # 11-28 매일 콘텐츠
     ("text", "텍스트", ["character_counter", "spell_checker", "spacing_checker"]),
 ]
 TOOL_NAMES = {  # 새 템플릿이 아닌 계산기의 짧은 이름
@@ -270,6 +271,9 @@ PAGE_DATES.update({f: "2026-11-26" for f in FILES_1126})
 from daily_1127 import TRIP_PAGES_1127, FILES_1127, KLINK_EXTRA_1127  # noqa: E402  (2026-11-27 매일 콘텐츠 15개: 새 지역 가평·인천·나라·가나자와)
 TRIP_PAGES += TRIP_PAGES_1127
 PAGE_DATES.update({f: "2026-11-27" for f in FILES_1127})
+from daily_1128 import TRIP_PAGES_1128, FILES_1128, KLINK_EXTRA_1128  # noqa: E402  (2026-11-28 매일 콘텐츠 15개: 새 지역 안동·남해·구마모토·요코하마)
+TRIP_PAGES += TRIP_PAGES_1128
+PAGE_DATES.update({f: "2026-11-28" for f in FILES_1128})
 from food_1103 import PAGES_1103 as _FOOD_1103  # noqa: E402
 PAGE_DATES.update({x["file"]: "2026-11-03" for x in _FOOD_1103})
 from food_1105 import PAGES_1105 as _FOOD_1105  # noqa: E402  (2026-11-03 겨울 메뉴별 빕 구르망 10곳)
@@ -1320,6 +1324,7 @@ KLINK_REGIONS = {  # K링크 지역 id → (지역 이름, 맛집 FOOD_AREAS 지
     "chuncheon": ("춘천", None, []), "tongyeong": ("통영", None, []),  # 2026-11-25 매일 콘텐츠 새 지역
     "ulsan": ("울산", None, []), "damyang": ("담양", None, []),  # 2026-11-26 매일 콘텐츠 새 지역
     "gapyeong": ("가평", None, []), "incheon": ("인천", "incheon", []),  # 2026-11-27 매일 콘텐츠 새 지역
+    "andong": ("안동", None, []), "namhae": ("남해", None, []),  # 2026-11-28 매일 콘텐츠 새 지역
 }
 
 
@@ -1611,12 +1616,12 @@ def klink_links(pl, zone, gus):
                     sc.append((-n, fl))
             return [fl for _, fl in sorted(sc)[:3]]
         # 맛집: 제철·시장 글은 이름이 한 번만 나와도, 지역 맛집 글은 두 번 이상(구 맛집 기록은 gu 로 따로 잇는다)
-        foods = [q["file"] for q in FOOD_OK if q["region"] == "season"]
+        foods = [q["file"] for q in FOOD_OK if q["region"] == "season" and KLINK_FILE_REGION.get(q["file"], pl["r"]) == pl["r"]]
         near = [q["file"] for q in FOOD_OK if food_rid and q["region"] == food_rid and q["special"] in (True, "True") and not q["prefix"].endswith("-winter")]
         o["f"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") if PAGES[fl].get("region") != "season" else PAGES[fl].get("cat") or PAGES[fl]["title"],
                    "desc": PAGES[fl].get("detail", "")} for fl in (ranked(foods, 1) + ranked(near, 2))[:3]]
         trips = [f"{slug}.html" for slug, _, _ in TRIP_PAGES if f"{slug}.html" in PAGES and slug != f"travel-{pl['r']}"]
-        trips += [fl for fl in KLINK_EXTRA_1121B + KLINK_EXTRA_1125 + KLINK_EXTRA_1126 + KLINK_EXTRA_1127 if fl in PAGES]  # 2026-11-21: 가이드·계산기도 K링크 '이 장소가 나오는 글'에
+        trips += [fl for fl in KLINK_EXTRA_1121B + KLINK_EXTRA_1125 + KLINK_EXTRA_1126 + KLINK_EXTRA_1127 + KLINK_EXTRA_1128 if fl in PAGES]  # 2026-11-21: 가이드·계산기도 K링크 '이 장소가 나오는 글'에
         trips = [fl for fl in trips if (klink_region_of_detail(fl) or klink_region_of(PAGES[fl])) in (None, pl["r"])]  # 2026-11-21(2차): 다른 K링크 지역 여행 글은 빼기(하코다테 모토마치 ↔ 고베 모토마치 상점가)
         o["t"] = [{"url": f"{SITE}/{fl}", "name": PAGES[fl].get("name") or PAGES[fl]["title"]} for fl in ranked(trips, 3)]
     z = (zone or "").split("·")[0].split(" ")[0]
@@ -1740,8 +1745,16 @@ def build_klink_data():
         json.dump(data, fh, ensure_ascii=False, separators=(",", ":"))
 
 
+KLINK_FILE_REGION = {  # 2026-11-28: 파일명으로 지역을 알 수 없는 가이드·제철 글의 K링크 지역 (다른 지역 동명 장소 오연결 막기)
+    "guide-yokohama-from-tokyo.html": "yokohama", "guide-sapporo-winter-weather.html": "sapporo",
+    "season-andong-food.html": "andong", "season-namhae-food.html": "namhae", "season-damyang-noodle-street.html": "damyang",
+}
+
+
 def klink_region_of_detail(f):
     """travel-<지역>-<세부>.html 세부 글의 지역 (파일명 앞부분이 K링크 지역 id와 맞을 때, 가장 긴 id 우선). 없으면 None (2026-11-20 컨펌 i261120-01)."""
+    if f in KLINK_FILE_REGION:
+        return KLINK_FILE_REGION[f]
     if not f.startswith("travel-"):
         return None
     key = f[7:-5]

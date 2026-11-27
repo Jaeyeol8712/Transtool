@@ -186,6 +186,22 @@ ic_wolmi_train 37.4762 126.6158 10 18 eve - 1
 ic_sinpo_market 37.4718 126.626 10 20 day any 1
 ic_songdo_park 37.3925 126.639 0 24 eve - 1.5
 ic_sorae 37.4005 126.7335 7 24 eve any 1.5
+ad_hahoe 36.539 128.518 9 17 am - 2
+ad_woryeong 36.575 128.758 0 24 night - 0.7
+ad_dosan 36.727 128.843 9 17 am - 1
+ad_byeongsan 36.542 128.553 9 17 am - 0.7
+ad_jjimdak 36.566 128.727 10 21 eve any 1
+ad_bongjeong 36.6555 128.665 9 17 am - 1
+ad_manhyu 36.456 128.873 10 17 day - 0.7
+ad_folk 36.577 128.764 9 18 day - 1
+nh_german 34.7977 128.0417 9 18 day - 1.5
+nh_darangi 34.7268 127.893 0 24 day - 1
+nh_boriam 34.7547 127.9808 3.5 20 am - 1.5
+nh_sangju 34.719 127.9905 0 24 am - 1
+nh_garden 34.7948 128.0392 9 18 day - 1.5
+nh_market 34.8379 127.8926 8 19 am any 1
+nh_jukbang 34.8255 128.03 9 18 day - 0.5
+nh_seolli 34.7195 128.03 9 18 day - 0.7
 """
 
 # Changes to existing places (Korean text, category, flags)
@@ -465,6 +481,39 @@ NEW = [
      ['송도 센트럴파크', '국내 첫 해수 공원·수로'], ['松岛中央公园', '韩国首个海水公园与水道'], ['Songdo Central Park', "Korea's first seawater park with canals"], ['松島セントラルパーク', '韓国初の海水公園と水路']),
     ('ic_sorae', 'food', 'incheon', 0, {}, '인천 남동구 포구로 2-6',
      ['소래포구', '새우·젓갈·꽃게 어시장 포구'], ['苏莱浦口', '虾、鱼酱和螃蟹的鱼市港口'], ['Sorae Port', 'Fish market port for shrimp, jeotgal and crab'], ['蘇莱浦口', 'エビ・塩辛・ワタリガニの魚市場の港']),
+    # 2026-11-28 매일 콘텐츠: K링크 새 지역 안동·남해
+    ('ad_hahoe', 'palace', 'andong', 5000, {}, '경북 안동시 풍천면 전서로 186-8',
+     ['안동 하회마을', '유네스코 세계유산 강마을'], ['安东河回村', '世界遗产传统村落'], ['Andong Hahoe Village', 'UNESCO-listed riverside clan village'], ['安東河回村', '世界遺産の伝統村']),
+    ('ad_woryeong', 'night', 'andong', 0, {}, '경북 안동시 상아동 569',
+     ['안동 월영교', '야경 좋은 나무다리'], ['安东月映桥', '夜景优美的木桥'], ['Andong Woryeonggyo Bridge', 'Wooden footbridge lit at night'], ['安東月映橋', '夜景が美しい木橋']),
+    ('ad_dosan', 'palace', 'andong', 2000, {}, '경북 안동시 도산면 도산서원길 154',
+     ['안동 도산서원', '퇴계 이황의 서원'], ['安东陶山书院', '退溪李滉的书院'], ['Andong Dosanseowon', 'Confucian academy of Toegye Yi Hwang'], ['安東陶山書院', '退渓李滉の書院']),
+    ('ad_byeongsan', 'palace', 'andong', 0, {}, '경북 안동시 풍천면 병산길 386',
+     ['안동 병산서원', '낙동강 앞 세계유산 서원'], ['安东屏山书院', '洛东江畔世界遗产书院'], ['Andong Byeongsanseowon', 'UNESCO academy by the Nakdonggang'], ['安東屏山書院', '洛東江沿いの世界遺産書院']),
+    ('ad_jjimdak', 'food', 'andong', 0, {}, '경북 안동시 번영길 일대 (안동 구시장)',
+     ['안동 구시장 찜닭골목', '찜닭집 약 30곳 골목'], ['安东旧市场炖鸡巷', '约30家安东炖鸡店'], ['Andong Old Market Jjimdak Alley', 'Alley of about 30 braised-chicken shops'], ['安東旧市場チムダク通り', 'チムダク店が約30軒の路地']),
+    ('ad_bongjeong', 'palace', 'andong', 0, {}, '경북 안동시 서후면 봉정사길 222',
+     ['안동 봉정사', '가장 오래된 목조건물 절'], ['安东凤停寺', '拥有最古老木构建筑的寺院'], ['Andong Bongjeongsa Temple', "Temple with Korea's oldest wooden hall"], ['安東鳳停寺', '最古の木造建築がある寺']),
+    ('ad_manhyu', 'nature', 'andong', 3000, {'closed': [2]}, '경북 안동시 길안면 묵계하리길 42',
+     ['안동 만휴정', '계곡 옆 조선 정자'], ['安东晚休亭', '溪谷旁的朝鲜亭子'], ['Andong Manhyujeong Pavilion', 'Joseon pavilion by a valley stream'], ['安東晩休亭', '渓谷沿いの朝鮮時代の亭']),
+    ('ad_folk', 'palace', 'andong', 0, {}, '경북 안동시 민속촌길 13',
+     ['안동민속촌', '안동댐 옆 옛집 야외 박물관'], ['安东民俗村', '安东坝旁的露天古宅博物馆'], ['Andong Folk Village', 'Open-air museum of relocated old houses'], ['安東民俗村', '安東ダム近くの古民家野外博物館']),
+    ('nh_german', 'fun', 'namhae', 0, {}, '경남 남해군 삼동면 독일로 89-7',
+     ['남해 독일마을', '파독 광부·간호사가 정착한 마을'], ['南海德国村', '赴德矿工与护士回国定居的村庄'], ['Namhae German Village', 'Hillside village of returned Korean miners and nurses'], ['南海ドイツ村', '派独鉱夫・看護師が定住した村']),
+    ('nh_darangi', 'nature', 'namhae', 0, {}, '경남 남해군 남면 남면로 702',
+     ['남해 가천 다랭이마을', '바다로 내려가는 계단식 논'], ['南海加川梯田村', '延伸到海边的梯田'], ['Namhae Gacheon Darangi Village', 'Terraced rice paddies down to the sea'], ['南海加川ダレンイ村', '海へ続く棚田の村']),
+    ('nh_boriam', 'palace', 'namhae', 1000, {}, '경남 남해군 상주면 보리암로 665',
+     ['남해 금산 보리암', '금산 정상 바다 전망 암자'], ['南海锦山菩提庵', '锦山顶上的海景庵堂'], ['Namhae Geumsan Boriam Hermitage', 'Mountaintop hermitage with sea views'], ['南海錦山菩提庵', '錦山頂上の海を望む庵']),
+    ('nh_sangju', 'nature', 'namhae', 0, {}, '경남 남해군 상주면 상주로 17',
+     ['남해 상주은모래비치', '2km 반달 백사장과 송림'], ['南海尚州银沙海滩', '2公里半月形沙滩与松林'], ['Namhae Sangju Eunmorae Beach', '2 km crescent beach with pine grove'], ['南海サンジュ銀砂ビーチ', '2kmの三日月形砂浜と松林']),
+    ('nh_garden', 'nature', 'namhae', 0, {'closed': [2]}, '경남 남해군 삼동면 예술길 39',
+     ['남해 원예예술촌', '원예인들의 주제 정원 마을'], ['南海园艺艺术村', '园艺家主题庭园村'], ['Namhae House N Garden', 'Village of themed private gardens'], ['南海園芸芸術村', '園芸家のテーマ庭園の村']),
+    ('nh_market', 'food', 'namhae', 0, {}, '경남 남해군 남해읍 화전로 110',
+     ['남해전통시장', '120년 넘은 남해읍 5일장'], ['南海传统市场', '百年以上的南海邑五日集'], ['Namhae Traditional Market', 'Century-old town market with a 5-day fair'], ['南海伝統市場', '120年以上続く南海邑の五日市']),
+    ('nh_jukbang', 'nature', 'namhae', 0, {}, '경남 남해군 삼동면 삼이로24번길 37-4',
+     ['지족해협 죽방렴', '멸치 잡는 V자 전통 어구'], ['知足海峡竹防帘', '捕鳀鱼的V形传统渔具'], ['Jijok Strait Jukbangnyeom Weirs', 'Traditional V-shaped anchovy weirs'], ['知足海峡竹防簾', 'カタクチイワシを獲るV字の伝統漁具']),
+    ('nh_seolli', 'fun', 'namhae', 2000, {'closed': [2]}, '경남 남해군 미조면 미송로303번길 176',
+     ['남해 설리 스카이워크', '바다 위 43m 전망 다리·그네'], ['南海雪里天空步道', '伸出43米的海上观景桥与秋千'], ['Namhae Seolli Skywalk', '43 m cantilever sea deck with a swing'], ['南海ソルリスカイウォーク', '海へ43m突き出た展望橋とブランコ']),
 ]
 
 # 장소 이름 별칭 (2026-11-13 컨펌 i261113-02) — 사이트 빌드(scripts/build.py link_keys)가 글↔장소 연결에 함께 쓴다.

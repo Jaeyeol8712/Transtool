@@ -1,0 +1,58 @@
+<label for="ew1">권종</label>
+<select id="ew1"><option value="d" selected>종일 자유이용권</option><option value="n">야간 자유이용권 (17:00부터)</option><option value="t">83타워 전망대만</option></select>
+<label for="ew2">어른 인원 (명)</label>
+<input id="ew2" type="number" inputmode="numeric" value="2" placeholder="예: 2"/>
+<label for="ew3">청소년 인원 (명)</label>
+<input id="ew3" type="number" inputmode="numeric" value="1" placeholder="예: 1"/>
+<label for="ew4">어린이 인원 (명)</label>
+<input id="ew4" type="number" inputmode="numeric" value="1" placeholder="예: 1"/>
+<label for="ew5">35개월 이하 유아 (명, 무료)</label>
+<input id="ew5" type="number" inputmode="numeric" value="1" placeholder="예: 1"/>
+<label for="ew6">종일권 요금 어른 · 청소년 · 어린이 (원)</label>
+<input id="ew6" type="number" inputmode="decimal" value="49000" placeholder="어른, 예: 49000"/>
+<input id="ew7" type="number" inputmode="decimal" value="44000" placeholder="청소년, 예: 44000"/>
+<input id="ew8" type="number" inputmode="decimal" value="39000" placeholder="어린이, 예: 39000"/>
+<label for="ew9">야간권 요금 어른 · 청소년 · 어린이 (원, 청소년·어린이는 비우면 종일 요금으로 계산)</label>
+<input id="ew9" type="number" inputmode="decimal" value="35000" placeholder="어른, 예: 35000"/>
+<input id="ew10" type="number" inputmode="decimal" placeholder="청소년 (매표소·공식 요금)"/>
+<input id="ew11" type="number" inputmode="decimal" placeholder="어린이 (매표소·공식 요금)"/>
+<label for="ew12">83타워 전망대 요금 대인 · 소인 (원, 소인은 비우면 대인 요금으로 계산)</label>
+<input id="ew12" type="number" inputmode="decimal" value="15000" placeholder="대인, 예: 15000"/>
+<input id="ew13" type="number" inputmode="decimal" placeholder="소인 (매표소·공식 요금)"/>
+<label for="ew14">자유이용권에 83타워 전망대 표 더하기</label>
+<select id="ew14"><option value="n" selected>안 더함</option><option value="y">더함 (따로 살 때)</option></select>
+<label for="ew15">카드·제휴 할인율 (%, 자유이용권에만)</label>
+<input id="ew15" type="number" inputmode="decimal" value="0" placeholder="없으면 0, 예: 30"/>
+<button onclick="calc_eworld_family()">가족 요금 계산</button>
+<div class="result" id="result">
+<div class="result-row"><span class="result-label">고른 권종 합계</span><span class="result-value" id="ewT">-</span></div>
+<div class="result-row"><span class="result-label">유료 1인 평균</span><span class="result-value" id="ewP" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">권종별 비교 (같은 인원)</span><span class="result-value" id="ewC" style="font-size:1.1rem;color:var(--text);">-</span></div>
+<div class="result-row"><span class="result-label">참고</span><span class="result-value" id="ewN" style="font-size:1.1rem;color:var(--text);">-</span></div>
+</div>
+<script>
+function ew_v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+function ew_o(i,d){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?d:x;}
+function ew_s(i,t){document.getElementById(i).textContent=t;}
+function ew_w(x){return Math.round(x).toLocaleString('ko-KR')+'원';}
+function calc_eworld_family(){
+ var a=Math.floor(ew_v('ew2')),y=Math.floor(ew_v('ew3')),c=Math.floor(ew_v('ew4')),b=Math.floor(ew_v('ew5')),n=a+y+c;
+ if(n<1) return alert('어른·청소년·어린이 인원을 입력해주세요.');
+ var dc=Math.min(ew_v('ew15'),100)/100,note=[];
+ var dA=ew_v('ew6'),dY=ew_v('ew7'),dC=ew_v('ew8');
+ var nA=ew_v('ew9'),nY=ew_o('ew10',dY),nC=ew_o('ew11',dC);
+ if((y>0&&document.getElementById('ew10').value==='')||(c>0&&document.getElementById('ew11').value==='')) note.push('야간 청소년·어린이는 종일 요금으로 계산');
+ var tA=ew_v('ew12'),tC=ew_o('ew13',tA);
+ if(c>0&&document.getElementById('ew13').value==='') note.push('83타워 소인은 대인 요금으로 계산');
+ var tower=tA*(a+y)+tC*c;
+ var addT=document.getElementById('ew14').value==='y'?tower:0;
+ var day=(dA*a+dY*y+dC*c)*(1-dc)+addT,night=(nA*a+nY*y+nC*c)*(1-dc)+addT;
+ var k=document.getElementById('ew1').value,tot=k==='d'?day:(k==='n'?night:tower);
+ var lb=k==='d'?'종일':(k==='n'?'야간':'83타워');
+ ew_s('ewT',ew_w(tot)+' ('+lb+', 유료 '+n+'명'+(b?' + 유아 '+b+'명 무료':'')+')');
+ ew_s('ewP',ew_w(tot/n));
+ ew_s('ewC','종일 '+ew_w(day)+' · 야간 '+ew_w(night)+' · 83타워만 '+ew_w(tower)+' (종일-야간 차이 '+ew_w(day-night)+')');
+ ew_s('ewN',(addT?'83타워 '+ew_w(addT)+' 포함':'83타워 따로 안 더함')+(dc>0?' · 할인 '+Math.round(dc*1000)/10+'%':'')+(note.length?' · '+note.join(' · '):''));
+ document.getElementById('result').classList.add('show');
+}
+</script>

@@ -697,4 +697,36 @@ P kz_21museum fun 36.5609 136.6582 1.5 o=D x=1 | 가나자와 21세기 미술관
 P kz_nagamachi palace 36.5626 136.6489 1 am o=D | 나가마치 무사 저택 거리|长町武家宅邸遗迹|Nagamachi Samurai District|長町武家屋敷跡 | 흙담과 수로가 남은 옛 무사 마을 | Old samurai quarter of earthen walls and canals
 Z kz_z3 | 히가시차야 | Higashi Chaya
 P kz_higashichaya shop 36.5724 136.6667 1 o=A | 히가시차야가이|东茶屋街|Higashi Chaya District|ひがし茶屋街 | 1820년 생긴 찻집 거리, 금박 공예 가게 | Teahouse street from 1820 with gold-leaf craft shops
+
+C kumamoto jp 32.8030 130.7100 1 85 | 구마모토|熊本|Kumamoto|熊本 | 구마모토성과 스이젠지 정원, 노면전차로 도는 성 아래 도시 | Castle town of Kumamoto Castle and Suizenji garden, toured by tram
+A KMJ 32.8373 130.8551 60 | 구마모토공항|熊本机场|Aso Kumamoto (KMJ)|阿蘇くまもと空港
+S km_stay_station 32.7899 130.6888 | 구마모토역 주변|熊本站周边|Around Kumamoto Stn|熊本駅周辺 | 신칸센·공항버스가 서는 역 앞, 노면전차로 성까지 약 15분 | Shinkansen and airport buses at the door, castle about 15 min by tram
+S km_stay_shimotori 32.8015 130.7105 | 시모토리·가미토리 번화가|下通·上通繁华街|Shimotori & Kamitori|下通・上通 | 아케이드 식당가 한가운데, 성과 쿠마몬 스퀘어가 걸어서 닿는 곳 | In the arcade dining district, castle and Kumamon Square on foot
+Z km_z1 | 구마모토성·시내 | Kumamoto Castle & Downtown
+P km_castle palace 32.8063 130.7058 2 am o=D | 구마모토성|熊本城|Kumamoto Castle|熊本城 | 가토 기요마사가 1607년 완성한 성, 천수각 전망층 | Castle completed by Kato Kiyomasa in 1607, keep with a city view
+P km_josaien shop 32.8027 130.7037 1 lunch o=D | 사쿠라노바바 조사이엔|樱之马场城彩苑|Sakuranobaba Josaien|桜の馬場 城彩苑 | 성 아래 먹거리·기념품 거리와 역사관 와쿠와쿠자 | Food and souvenir lanes below the castle with the Wakuwakuza museum
+P km_arcade shop 32.8015 130.7105 1.5 eve dinner o=S | 시모토리·가미토리 아케이드|下通·上通商店街|Shimotori & Kamitori Arcades|下通・上通アーケード | 현에서 가장 큰 지붕 덮인 쇼핑·식당 거리 | The prefecture's largest covered shopping and dining streets
+P km_kumamon fun 32.8025 130.7135 0.75 o=D | 쿠마몬 스퀘어|熊本熊广场|Kumamon Square|くまモンスクエア | 쿠마몬이 무대에 나오는 굿즈·기념품 공간 | Kumamon merchandise space with live stage appearances
+Z km_z2 | 구마모토역·스이젠지 | Kumamoto Stn & Suizenji
+P km_station shop 32.7899 130.6888 1 eve o=A | 구마모토역|熊本站|Kumamoto Station|熊本駅 | 신칸센이 서는 역, 아뮤플라자 구마모토의 숲 정원 | Shinkansen station with the Amu Plaza atrium garden
+P km_suizenji nature 32.7905 130.7340 1 am o=D | 스이젠지 조주엔|水前寺成趣园|Suizenji Jojuen Garden|水前寺成趣園 | 아소 용천수 연못을 도는 호소카와 가문 정원 | Hosokawa-clan stroll garden around Aso spring-water ponds
+Z km_z3 | 아소·구로카와 (당일) | Aso & Kurokawa (day trips)
+P km_kusasenri nature 32.8840 131.0600 5 am | 아소 쿠사센리|阿苏草千里|Aso Kusasenri-ga-hama|阿蘇草千里ヶ浜 | 연못 둘과 말이 풀을 뜯는 아소 화구 초원 | Aso crater meadow with two ponds and grazing horses
+P km_kurokawa nature 33.0826 131.1420 5 | 구로카와 온천|黑川温泉|Kurokawa Onsen|黒川温泉 | 입탕 데가타로 노천탕 셋을 도는 산골 온천 마을 | Mountain onsen village with a three-bath pass
+
+C yokohama jp 35.4540 139.6330 1 150 | 요코하마|横滨|Yokohama|横浜 | 항구 야경과 빨간 벽돌 창고, 차이나타운의 바닷가 도시 | Harbor views, red-brick warehouses and Chinatown by the bay
+A HND 35.5494 139.7798 30 | 하네다공항|羽田机场|Haneda (HND)|羽田空港
+S yk_s1 35.4658 139.6223 | 요코하마역 주변|横滨站周边|Around Yokohama Stn|横浜駅周辺 | 하네다 게이큐 직통, JR·도큐·미나토미라이선 출발점 | Keikyu direct to Haneda; JR, Tokyu and Minatomirai lines
+S yk_s2 35.4560 139.6320 | 사쿠라기초·미나토미라이|樱木町·港未来|Sakuragicho & Minatomirai|桜木町・みなとみらい | 에어 캐빈·항구 산책로가 바로 앞 | Air Cabin and harbor promenade on the doorstep
+Z yk_z1 | 미나토미라이·신코 | Minatomirai & Shinko
+P yk_mm21 night 35.4547 139.6318 1.5 eve o=A | 미나토미라이 21|港未来21|Minato Mirai 21|みなとみらい21 | 랜드마크 타워가 선 항구 앞 신도심 | Waterfront district around Landmark Tower
+P yk_aircabin fun 35.4518 139.6325 0.5 eve o=S | 요코하마 에어 캐빈|横滨空中缆车|Yokohama Air Cabin|ヨコハマエアキャビン | 사쿠라기초역과 운하 파크를 잇는 도시 로프웨이 | Urban ropeway from Sakuragicho to Unga Park
+P yk_cupnoodle fun 35.4555 139.6386 1.5 o=D x=2 | 컵누들 뮤지엄 요코하마|横滨合味道杯面博物馆|CUPNOODLES Museum Yokohama|カップヌードルミュージアム 横浜 | 나만의 컵누들을 만드는 체험 박물관 | Museum where you design your own Cup Noodles
+P yk_akarenga shop 35.4525 139.6425 1.25 eve o=S | 요코하마 아카렌가 창고|横滨红砖仓库|Yokohama Red Brick Warehouse|横浜赤レンガ倉庫 | 빨간 벽돌 창고 두 동의 가게·이벤트 광장 | Two red-brick warehouses of shops and events
+Z yk_z2 | 야마시타·차이나타운 | Yamashita & Chinatown
+P yk_osanbashi night 35.4512 139.6476 0.75 eve o=A | 오산바시 국제여객터미널|大栈桥国际客船码头|Osanbashi Pier|大さん橋国際客船ターミナル | 24시간 무료 옥상에서 보는 항구 야경 | Free 24-hour rooftop deck with harbor views
+P yk_yamashita nature 35.4458 139.6503 1 o=A | 야마시타 공원|山下公园|Yamashita Park|山下公園 | 바다를 따라 걷는 1930년 개원 공원 | Seaside park opened in 1930
+P yk_chinatown food 35.4429 139.6460 1.5 lunch o=F | 요코하마 차이나타운|横滨中华街|Yokohama Chinatown|横浜中華街 | 600곳 넘는 가게가 모인 중화 거리 | Over 600 shops in one of the largest Chinatowns
+Z yk_z3 | 혼모쿠 | Honmoku
+P yk_sankeien nature 35.4174 139.6629 2 am o=D | 산케이엔|三溪园|Sankeien Garden|三溪園 | 옛 건축 17동을 옮겨 놓은 일본 정원 | Japanese garden with 17 relocated historic buildings
 """

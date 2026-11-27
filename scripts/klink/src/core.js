@@ -36,7 +36,9 @@ const REGIONS = {
   ulsan:     { lat: 35.5384, lng: 129.3114, sub: false, air: 'ICN', fromSeoul: 140, t: ['울산', '蔚山', 'Ulsan', '蔚山'] },
   damyang:   { lat: 35.3200, lng: 126.9900, sub: false, air: 'ICN', fromSeoul: 210, t: ['담양', '潭阳', 'Damyang', '潭陽'] },
   gapyeong:  { lat: 37.7800, lng: 127.4600, sub: false, air: 'ICN', fromSeoul: 60, t: ['가평', '加平', 'Gapyeong', '加平'] },
-  incheon:   { lat: 37.4500, lng: 126.6600, sub: true, air: 'ICN', fromSeoul: 60, t: ['인천', '仁川', 'Incheon', '仁川'] }
+  incheon:   { lat: 37.4500, lng: 126.6600, sub: true, air: 'ICN', fromSeoul: 60, t: ['인천', '仁川', 'Incheon', '仁川'] },
+  andong:    { lat: 36.5800, lng: 128.7000, sub: false, air: 'ICN', fromSeoul: 120, t: ['안동', '安东', 'Andong', '安東'] },
+  namhae:    { lat: 34.7800, lng: 127.9600, sub: false, air: 'ICN', fromSeoul: 270, t: ['남해', '南海', 'Namhae', '南海'] }
 };
 const KR_IDS = Object.keys(REGIONS);
 for (const r of KR_IDS) REGIONS[r].cc = 'kr';
@@ -68,6 +70,8 @@ Object.assign(AIRPORTS, {
   GSH: { lat: 35.9908, lng: 126.7117, r: 'gunsan', home: true, t: ['군산', '群山', 'Gunsan', '群山'] },
   MPH: { lat: 34.7915, lng: 126.3866, r: 'mokpo', home: true, t: ['목포', '木浦', 'Mokpo', '木浦'] },
   GPH: { lat: 37.8146, lng: 127.5106, r: 'gapyeong', home: true, t: ['가평', '加平', 'Gapyeong', '加平'] },
+  NHH: { lat: 34.8368, lng: 127.8918, r: 'namhae', home: true, t: ['남해', '南海', 'Namhae', '南海'] },
+  ADH: { lat: 36.5630, lng: 128.6970, r: 'andong', home: true, t: ['안동', '安东', 'Andong', '安東'] },
   DMH: { lat: 35.3210, lng: 126.9860, r: 'damyang', home: true, t: ['담양', '潭阳', 'Damyang', '潭陽'] },
   TYH: { lat: 34.8810, lng: 128.4140, r: 'tongyeong', home: true, t: ['통영', '统营', 'Tongyeong', '統営'] },
   SCB: { lat: 38.1898, lng: 128.6008, r: 'sokcho', home: true, t: ['속초', '束草', 'Sokcho', '束草'] },
@@ -130,7 +134,11 @@ const STAYS = [
   ['gp_stay_station', 'gapyeong', 37.8146, 127.5106, ['가평역·가평읍 시내 주변', '加平站·加平邑市区周边', 'Gapyeong Station & town area', '加平駅・加平邑市街周辺'], ['남이섬·자라섬·레일바이크를 걸어서·버스로 묶기 좋아요', '步行或乘公交可去南怡岛、紫鳞岛和铁路自行车', 'Walk or bus to Nami, Jarasum and the rail bike', '南怡島・チャラ島・レールバイクへ徒歩やバスで']],
   ['gp_stay_cheongpyeong', 'gapyeong', 37.7353, 127.4265, ['청평역·청평호 주변', '清平站·清平湖周边', 'Cheongpyeong Station & lake area', '清平駅・清平湖周辺'], ['쁘띠프랑스·아침고요수목원으로 가기 편한 서쪽 거점', '去小法国村和晨静树木园都方便的西侧据点', 'Western base for Petite France and Morning Calm', 'プチフランス・朝の静かな樹木園へ行きやすい西側拠点']],
   ['ic_stay_dongincheon', 'incheon', 37.474, 126.625, ['인천역·동인천역 주변', '仁川站·东仁川站周边', 'Incheon & Dongincheon Station area', '仁川駅・東仁川駅周辺'], ['차이나타운·개항장·신포시장을 걸어서 묶기 좋아요', '步行可到中华街、开港场和新浦市场', 'Walk to Chinatown, the open port area and Sinpo Market', 'チャイナタウン・開港場・新浦市場へ歩いて回れる']],
-  ['ic_stay_songdo', 'incheon', 37.3935, 126.64, ['송도 센트럴파크 주변', '松岛中央公园周边', 'Songdo Central Park area', '松島セントラルパーク周辺'], ['송도 센트럴파크 산책과 소래포구로 가기 편한 신도시', '方便散步松岛中央公园、去苏莱浦口的新城', 'New town base for Songdo Central Park and Sorae Port', '松島セントラルパーク散策と蘇莱浦口へ便利な新都市']]
+  ['ic_stay_songdo', 'incheon', 37.3935, 126.64, ['송도 센트럴파크 주변', '松岛中央公园周边', 'Songdo Central Park area', '松島セントラルパーク周辺'], ['송도 센트럴파크 산책과 소래포구로 가기 편한 신도시', '方便散步松岛中央公园、去苏莱浦口的新城', 'New town base for Songdo Central Park and Sorae Port', '松島セントラルパーク散策と蘇莱浦口へ便利な新都市']],
+  ['ad_stay_station', 'andong', 36.563, 128.697, ["안동역·안동버스터미널 주변 (송현동)", "安东站·安东客运站周边（松岘洞）", "Andong Station & bus terminal area", "安東駅・安東バスターミナル周辺（松峴洞）"], ["KTX 이음 역과 터미널이 붙어 있어 하회마을·서원 버스 타기 편해요", "KTX站与客运站相邻，去河回村和书院方便", "Rail and bus side by side for Hahoe and the academies", "KTX駅とターミナルが隣接、河回村・書院へ便利"]],
+  ['ad_stay_oldtown', 'andong', 36.5655, 128.729, ["구 안동역·구시장 시내 주변 (운흥동)", "旧安东站·旧市场市区周边（云兴洞）", "Old town near the former station & Old Market", "旧安東駅・旧市場の市街周辺（雲興洞）"], ["찜닭골목·간고등어 식당과 월영교 야경으로 가기 편한 시내 거점", "去炖鸡巷和月映桥夜景都方便的市区据点", "Walk to Jjimdak Alley, taxi to Woryeonggyo at night", "チムダク通りへ徒歩、月映橋の夜景へも近い市街拠点"]],
+  ['nh_stay_eup', 'namhae', 34.8368, 127.8918, ["남해읍 시내·남해공용터미널 주변", "南海邑市区·南海公用客运站周边", "Namhae-eup town & bus terminal area", "南海邑市街・南海共用ターミナル周辺"], ["남해전통시장을 걸어서 가고 버스 타기 편해요", "步行可到南海传统市场，乘公交方便", "Walk to Namhae Market, easy bus connections", "南海伝統市場へ徒歩、バスも便利"]],
+  ['nh_stay_sangju', 'namhae', 34.7212, 127.9885, ["상주은모래비치 주변 (상주면)", "尚州银沙海滩周边（尚州面）", "Sangju Eunmorae Beach area (Sangju-myeon)", "サンジュ銀砂ビーチ周辺（尚州面）"], ["보리암 일출·남쪽 해안 드라이브에 가까워요", "离菩提庵日出和南部海岸自驾近", "Close to Boriam sunrise and the south coast drive", "菩提庵の日の出と南海岸ドライブに近い"]]
 ].concat(OVD.stays).map(([id, r, lat, lng, t, st]) => ({ id, r, lat, lng, t, st }));
 const STAY_BY = Object.fromEntries(STAYS.map(s => [s.id, s]));
 const REGION_TAG = {
@@ -152,7 +160,9 @@ const REGION_TAG = {
   ulsan: ["국가정원과 바다, 고래·언양불고기로 이름난 동해 산업 도시", "以国家庭园、大海、鲸鱼和彦阳烤牛肉闻名的东海岸工业城市", "East Sea industrial city of a national garden, whales and Eonyang bulgogi", "国家庭園と海、クジラと彦陽プルコギで知られる東海岸の産業都市"],
   damyang: ["대숲과 메타세쿼이아 가로수길, 떡갈비·대통밥의 남도 대나무 고장", "竹林与水杉林荫路、牛肉饼和竹筒饭的南道竹乡", "Southern bamboo town of forests, metasequoia roads, tteokgalbi and bamboo rice", "竹林とメタセコイア並木、トッカルビと竹筒ご飯の南道の竹の里"],
   gapyeong: ['북한강 섬과 정원, 닭갈비·잣으로 이름난 서울 근교 여행지', '以北汉江小岛、庭园、辣炒鸡排和松子闻名的首尔近郊', 'Riverside escape near Seoul of islands, gardens, dakgalbi and pine nuts', '北漢江の島と庭園、タッカルビと松の実で知られるソウル近郊'],
-  incheon: ['개항장과 차이나타운, 짜장면과 월미도 바다로 이름난 서해 항구 도시', '以开港场、中华街、炸酱面和月尾岛海景闻名的西海港口城市', 'West Sea port city of the old open port, Chinatown, jajangmyeon and Wolmido', '開港場とチャイナタウン、ジャジャン麺と月尾島の海で知られる西海の港町']
+  incheon: ['개항장과 차이나타운, 짜장면과 월미도 바다로 이름난 서해 항구 도시', '以开港场、中华街、炸酱面和月尾岛海景闻名的西海港口城市', 'West Sea port city of the old open port, Chinatown, jajangmyeon and Wolmido', '開港場とチャイナタウン、ジャジャン麺と月尾島の海で知られる西海の港町'],
+  andong: ["하회마을과 서원, 찜닭·간고등어로 이름난 경북 유교 문화 여행지", "以河回村、书院和安东炖鸡闻名的庆北儒家文化之城", "Gyeongbuk's Confucian heartland of Hahoe, academies and jjimdak", "河回村と書院、チムダクで知られる慶北の儒教文化の町"],
+  namhae: ["독일마을·보리암·다랭이마을을 해안 도로로 잇는 멸치쌈밥의 섬", "以海岸公路串联德国村、菩提庵和梯田村的鳀鱼包饭之岛", "Island of coastal drives linking German Village, Boriam and terraced paddies, home of anchovy ssambap", "ドイツ村・菩提庵・棚田を海岸道路で結ぶカタクチイワシ包みご飯の島"]
 };
 
 for (const r of OV_IDS) REGION_TAG[r] = REGIONS[r].tag;

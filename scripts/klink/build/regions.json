@@ -133,6 +133,20 @@
 "ov": false
 },
 {
+"id": "andong",
+"name": "안동",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
+"id": "namhae",
+"name": "남해",
+"cc": "kr",
+"country": "대한민국",
+"ov": false
+},
+{
 "id": "tokyo",
 "name": "도쿄",
 "cc": "jp",
@@ -261,6 +275,20 @@
 {
 "id": "kanazawa",
 "name": "가나자와",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "kumamoto",
+"name": "구마모토",
+"cc": "jp",
+"country": "일본",
+"ov": true
+},
+{
+"id": "yokohama",
+"name": "요코하마",
 "cc": "jp",
 "country": "일본",
 "ov": true
